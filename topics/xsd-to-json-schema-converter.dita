@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="xsd-to-json-schema-converter">
+  <title>XSD to JSON Schema Converter</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>JSON documents<indexterm>XSD to JSON Schema converter</indexterm></indexterm>
+        <indexterm>Convert XSD to JSON Schema</indexterm>
+        <indexterm>XSD to JSON Schema tool</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> includes a tool for converting an XML Schema file (XSD) to a JSON
+      Schema file. The <uicontrol>XSD to JSON Schema</uicontrol> action for invoking the tool can be
+      found in the <menucascade>
+        <uicontrol>Tools</uicontrol>
+        <uicontrol>JSON Tools</uicontrol>
+      </menucascade> menu. It requires an additional add-on to be installed, so the first time you
+      invoke the action, <ph keyref="product"/> will present a dialog box asking if you want to
+      install it. Once installed, you need to restart <ph keyref="product"/> and the <uicontrol>XSD
+        to JSON Schema</uicontrol> action will invoke the tool.</p>
+    <p>To convert an XML Schema (XSD) to a JSON Schema, follow these steps:</p>
+    <ol id="procedure-import-from-HTML">
+      <li>
+        <p>Select the <uicontrol>XSD to JSON Schema</uicontrol> action from the <menucascade>
+            <uicontrol>Tools</uicontrol>
+            <uicontrol>JSON Tools</uicontrol>
+          </menucascade> menu.</p>
+        <p><b>Step Result:</b> The <uicontrol>XSD to JSON Schema</uicontrol> dialog box is
+          displayed:</p>
+        <p>
+          <fig id="fig_mvj_pvd_w3b">
+            <title>XSD to JSON Schema Dialog Box</title>
+            <image href="../img/Convert_XSD_JSON_Schema.png" id="image_twc_5qf_jd"/>
+          </fig>
+        </p>
+      </li>
+      <li>In the <uicontrol>XSD URL</uicontrol> field, choose or enter the URL of the XML Schema
+        document. The conversion supports XSD versions 1.0 and 1.1.</li>
+      <li>In the <uicontrol>Output file</uicontrol> field, choose the path for the resulting output
+        file.</li>
+      <li>For the <uicontrol>JSON Schema version</uicontrol> option, choose the version of the
+        resulting JSON schema. The possible choices are: <uicontrol>Draft 4</uicontrol>,
+          <uicontrol>Draft 6</uicontrol>, <uicontrol>Draft 7</uicontrol>, and <uicontrol>Draft
+          2019-09</uicontrol>.</li>
+      <li>[Optional] If you select the <uicontrol>Restrict additional content</uicontrol> option,
+        then <i>additionalProperties</i> (for objects) and <i>additionalItems</i> (for arrays) will
+        be set to <i>false</i> in the resulting schema. By default, these keys are not in the
+        schema, meaning that providing additional content (according to the schema) is allowed.</li>
+      <li>[Optional] You can select the <uicontrol>Preserve case of names from the XSD</uicontrol>
+        option if you want the names from the XSD to remain unchanged in the resulting JSON Schema.
+        Otherwise, the default JAXB naming algorithm will be applied (for example, "some.nAMe" is
+        changed to "SomeNAMe", or "Some_oth3r_name" is changed to "SomeOth3RName").</li>
+      <li>[Optional] You can select the <uicontrol>Open in Editor</uicontrol> option to open the
+        resulting JSON Schema document in the main editing pane.</li>
+      <li>Click the <uicontrol>Convert</uicontrol> button.</li>
+    </ol>
+    <p><b>Result:</b> The original XSD document is now converted to a JSON Schema document. The
+      resulting JSON Schema will be the specified draft and will contain:<ul id="ul_bfg_ngq_ckb">
+        <li>The <codeph>$id</codeph> of the schema, generated from XSD
+            <codeph>targetNamespace</codeph>.</li>
+        <li>The <codeph>$definitions</codeph> section, which declares <i>complex</i> and <i>enum</i>
+          types.</li>
+        <li>The <codeph>anyOf</codeph> section, which lists possible top-level elements as an array
+          of objects.</li>
+      </ul></p>
+    <p><b>Other Possible Results</b>:<ul id="ul_j4b_1hq_ckb">
+        <li>If an XSD type extends another type, then its schema is combined with the schema of the
+          base type using the <codeph>allOf</codeph> keyword.</li>
+        <li>If an extension in XSD defines an element with the same name as an attribute in the
+          base, a property named <codeph>rest</codeph> is generated to avoid name conflicts in
+          JSON.</li>
+        <li>If a property of a complex type is a collection property, the schema of the collection
+          items will be wrapped in the JSON array schema.</li>
+      </ul></p>
+    <section id="section_jmq_yyp_ckb">
+      <title>Conversion Mappings</title>
+      <p>The following table lists the specific conversion mapping details.</p>
+      <table frame="all" rowsep="1" colsep="1" id="table_s4h_gzp_ckb">
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*" align="center"/>
+          <colspec colname="c2" colnum="2" colwidth="1*" align="center"/>
+          <thead>
+            <row>
+              <entry><b>XML Schema Type</b></entry>
+              <entry><b>JSON Schema Representation</b></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>anySimpleType</entry>
+              <entry>string, number, integer, boolean, null</entry>
+            </row>
+            <row>
+              <entry>anyType</entry>
+              <entry>string, number, integer, boolean, null, object, array</entry>
+            </row>
+            <row>
+              <entry>string</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>normalizedString</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>token</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>language</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>Name</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>NCName</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>ID</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>IDREF</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>IDREFS</entry>
+              <entry>array of strings</entry>
+            </row>
+            <row>
+              <entry>ENTITY</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>ENTITIES</entry>
+              <entry>array of strings</entry>
+            </row>
+            <row>
+              <entry>NMTOKEN</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>NMTOKENS</entry>
+              <entry>array of strings</entry>
+            </row>
+            <row>
+              <entry>boolean</entry>
+              <entry>boolean</entry>
+            </row>
+            <row>
+              <entry>base64Binary</entry>
+              <entry>array of integers</entry>
+            </row>
+            <row>
+              <entry>hexBinary</entry>
+              <entry>array of integers</entry>
+            </row>
+            <row>
+              <entry>float</entry>
+              <entry>number</entry>
+            </row>
+            <row>
+              <entry>decimal</entry>
+              <entry>number</entry>
+            </row>
+            <row>
+              <entry>integer</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>nonPositiveInteger</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>negativeInteger</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>long</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>int</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>short</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>byte</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>nonNegativeInteger</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>unsignedLong</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>unsignedInt</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>unsignedShort</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>unsignedByte</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>positiveInteger</entry>
+              <entry>integer</entry>
+            </row>
+            <row>
+              <entry>double</entry>
+              <entry>number</entry>
+            </row>
+            <row>
+              <entry>anyURI</entry>
+              <entry>string with "format":"uri"</entry>
+            </row>
+            <row>
+              <entry>QName</entry>
+              <entry>object with "namespaceURI", "localPart", "prefix"</entry>
+            </row>
+            <row>
+              <entry>duration</entry>
+              <entry>string</entry>
+            </row>
+            <row>
+              <entry>dateTime</entry>
+              <entry>string with "format":"date-time"</entry>
+            </row>
+            <row>
+              <entry>date</entry>
+              <entry>string with "format":"date"</entry>
+            </row>
+            <row>
+              <entry>time</entry>
+              <entry>string with "format":"time"</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="limitations">
+      <title>Conversion Limitations</title>
+      <p>In most cases, the conversion creates an equivalent schema, but there are some
+          limitations:<ul id="ul_zb2_kch_cjb">
+          <li>Restrictions/facets are not taken into consideration when converting
+              (<i>fractionDigits, pattern, totalDigits, whiteSpace</i>, <i>minInclusive</i>,
+              <i>maxInclusive</i>, and the restrictions for length, except <i>enumeration)</i>.
+            However, extensions and indicators are properly converted (<i>minOccurs, maxOccurs,
+              group, sequence, choice</i>).</li>
+          <li>The <xmlelement>documentation</xmlelement> element is not converted into
+              <xmlelement>description</xmlelement>.</li>
+          <li>The <xmlatt>substitutionGroup</xmlatt> attribute for an element that has no declared
+            type becomes a reference to the element that can substitute it.</li>
+          <li>The <xmlatt>block</xmlatt> attribute is not taken into consideration during the
+            conversion.</li>
+        </ul></p>
+    </section>
+  </body>
+</topic>

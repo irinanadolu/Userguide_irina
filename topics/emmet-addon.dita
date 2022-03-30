@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="emmet-addon">
+  <title>Oxygen Emmet Plugin</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Add-ons<indexterm>Emmett</indexterm></indexterm>
+        <indexterm>Emmet add-on</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>An <uicontrol>Oxygen Emmet Plugin</uicontrol> is available as an add-on and it provides the
+      means for high-speed coding and editing in <uicontrol>Text</uicontrol> mode<ph
+        product="author editor"> or <uicontrol>Author</uicontrol> mode</ph> via a content assistance
+      mechanism. It can be used for HTML, XSL, CSS, LESS, and other formats. For example, with the
+      Emmet add-on installed, you can type abbreviations (similar to CSS selectors) and expand them
+      into full-fledged HTML code. The add-on contributes a submenu named
+        <uicontrol>Emmet</uicontrol> in the contextual menu and it contains actions for expanding
+      abbreviations or wrapping content with an expanded abbreviation. The two actions can also be
+      invoked using the <uicontrol><shortcut>Alt + Shift + E (Ctrl + Shift + E on OS
+        X)</shortcut></uicontrol> or <uicontrol><shortcut>Alt + Shift + W (Ctrl + Shift + W on OS
+          X)</shortcut></uicontrol> keyboard shortcuts.</p>
+    <p>To install this add-on, follow this procedure:<ol>
+        <li>Go to <menucascade>
+            <uicontrol>Help</uicontrol>
+            <uicontrol>Install new add-ons</uicontrol>
+          </menucascade> to open an add-on selection dialog box. Enter or paste
+            <b>https://www.oxygenxml.com/InstData/Addons/default/updateSite.xml</b> in the
+            <uicontrol>Show add-ons from</uicontrol> field or select it from the drop-down
+            menu.<note type="tip">For HTML, CSS, LESS, or XSL files, you can simply right-click
+            anywhere in the editor pane and select <uicontrol>Emmet</uicontrol> from the pop-up
+            menu.</note></li>
+        <li>Select the <b>Oxygen Emmet Plugin</b> add-on and click <uicontrol>Next</uicontrol>.</li>
+        <li>Select the <b>I accept all terms of the end user license agreement</b> option and click
+            <uicontrol>Finish</uicontrol>.</li>
+        <li>Restart the application.</li>
+      </ol></p>
+    <p><b>Result:</b> The Emmet actions will now be available using the keyboard shortcuts or in the
+        <uicontrol>Emmet</uicontrol> submenu (located in the contextual menu of
+        <uicontrol>Text</uicontrol> mode<ph product="author editor"> or
+          <uicontrol>Author</uicontrol> mode</ph>.</p>
+    <section id="section_wft_gkn_pkb">
+      <title>Emmet Actions</title>
+      <p>The two contributed actions are:</p>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Expand abbreviation [<uicontrol><shortcut>Alt + Shift + E (Ctrl + Shift + E on OS
+                  X)</shortcut></uicontrol>]</dt>
+            <dd>
+              <p>In <uicontrol>Text</uicontrol> mode, after entering an abbreviation, invoking this
+                action will expand a valid abbreviation into a code snippet, depending on the
+                document type.</p>
+              <p>In <uicontrol>Author mode</uicontrol>, invoking the action opens a dialog box where
+                you can enter an abbreviation. After you click <uicontrol>OK</uicontrol>, a valid
+                abbreviation is expanded into a code snippet, depending on the document type.</p>
+              <note type="tip">For HTML or XML-based document types, you can also use
+                    <uicontrol><shortcut>Ctrl + Space</shortcut></uicontrol> to expand Emmet
+                abbreviations.</note>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>Wrap with abbreviation [<uicontrol><shortcut>Alt + Shift + W (Ctrl + Shift + W on OS
+                  X)</shortcut></uicontrol>]</dt>
+            <dd>
+              <p>It opens a dialog box where you can enter an abbreviation and after clicking
+                  <uicontrol>OK</uicontrol>, the abbreviation is expanded with the selected content
+                added in the last element of the generated snippet.</p>
+            </dd>
+          </dlentry>
+        </dl>
+      </p>
+    </section>
+    <section id="section_dzw_3kn_pkb">
+      <title>Abbreviation Expansion Examples</title>
+      <p>Here are some examples for HTML:<ul id="ul_bcc_42x_pkb">
+          <li>
+            <p><uicontrol>Expand abbreviation</uicontrol> example:</p>
+            <codeblock outputclass="language-xml">#page>div.logo+ul#navigation>li*5>a{Item $}</codeblock>
+            <p>expands into:</p>
+            <codeblock outputclass="language-xml">&lt;div id="page">
+  &lt;div class="logo">&lt;/div>
+  &lt;ul id="navigation">
+    &lt;li>&lt;a href="">Item 1&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="">Item 2&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="">Item 3&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="">Item 4&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="">Item 5&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/div></codeblock>
+          </li>
+          <li>
+            <p><uicontrol>Wrap with abbreviation</uicontrol> example:</p>
+            <p>If the following content is selected to be wrapped:</p>
+            <pre> About
+ News
+ Products
+ Contacts</pre>
+            <p>then</p>
+            <codeblock outputclass="language-xml">ul>li[title=$#]*>{$#}+img[src=https://www.ex1.com/$#][alt=item$]</codeblock>
+            <p>expands
+              into:<codeblock outputclass="language-xml">&lt;ul>
+    &lt;li title="About">About&lt;img src="https://www.ex1.com/About" alt="item1">&lt;/li>
+    &lt;li title="News">News&lt;img src="https://www.ex1.com/News" alt="item2">&lt;/li>
+    &lt;li title="Products">Products&lt;img src="https://www.ex1.com/Products" alt="item3">&lt;/li>
+    &lt;li title="Contacts">Contacts&lt;img src="https://www.ex1.com/Contacts" alt="item4">&lt;/li>
+&lt;/ul></codeblock></p>
+          </li>
+        </ul></p>
+      <p>You can also use Emmet abbreviations for other XML documents. Here are some examples of expanded abbreviations for DITA:<ul id="ul_f12_yjn_pkb">
+          <li>
+            <codeblock outputclass="language-xml">prolog>author {AuthorName}</codeblock>
+            <p>expands into:</p>
+            <codeblock outputclass="language-xml">&lt;prolog>
+  &lt;author>AuthorName&lt;/author>
+&lt;/prolog></codeblock>
+          </li>
+          <li>
+            <codeblock outputclass="language-xml">simpletable&gt;(strow&gt;stentry*4)*4</codeblock>
+            <p>expands into a 4x4 simple table.</p>
+          </li>
+          <li>
+            <codeblock outputclass="language-xml">ul&gt;li*3</codeblock>
+            <p>expands into an unordered list with 3 list items.</p>
+          </li>
+          <li>
+            <codeblock outputclass="language-xml">ol&gt;li[id="item$"]*3</codeblock>
+            <p>expands
+              into:<codeblock xml:space="preserve" outputclass="language-xml">&lt;ol id="ol_gff_bjd_mkb"&gt;
+  &lt;li id="item1"/&gt;
+  &lt;li id="item2"/&gt;
+  &lt;li id="item3"/&gt;
+&lt;/ol&gt;</codeblock></p>
+          </li>
+        </ul></p>
+      <p>Here are a few CSS examples:<ul id="ul_b14_t5s_2lb">
+          <li>
+            <codeblock outputclass="language-css">@f+</codeblock>
+            <p>expands into:</p>
+            <codeblock outputclass="language-css">@font-face {
+	font-family: 'FontName';
+	src: url('FileName.eot');
+	src: url('FileName.eot?#iefix') format('embedded-opentype'),
+		 url('FileName.woff') format('woff'),
+		 url('FileName.ttf') format('truetype'),
+		 url('FileName.svg#FontName') format('svg');
+	font-style: normal;
+	font-weight: normal;
+}</codeblock>
+          </li>
+          <li>
+            <codeblock outputclass="language-css">-br</codeblock>
+            <p>expands
+              into:<codeblock xml:space="preserve" outputclass="language-xml">  -webkit-border-right: ;
+  -moz-border-right: ;
+  -ms-border-right: ;
+  -o-border-right: ;
+  border-right: ;</codeblock></p>
+            <note type="tip">To see more examples of Emmet syntax, go to <xref
+                href="https://docs.emmet.io/cheat-sheet/" format="html" scope="external"/>.</note>
+          </li>
+        </ul></p>
+    </section>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="https://docs.emmet.io/cheat-sheet/" format="html" scope="external">
+        <linktext>Emmet Syntax Cheat Sheet</linktext>
+      </link>
+      <link format="html" href="https://docs.emmet.io/" scope="external">
+        <linktext>Emmet Documentation</linktext>
+      </link>
+    </linklist>
+  </related-links>
+</topic>

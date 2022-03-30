@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="editing-xproc-scripts">
+  <title>Editing XProc Scripts</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>XProc Scripts<indexterm>Editing features</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>XProc is an XML pipeline language that can be used to script transformations. An XProc script
+      is edited as an XML document that is validated against a RELAX NG schema, or if the script has
+      an associated transformation scenario, then the XProc engine selected in the scenario is used
+      as the validating engine (if the XProc engine supports validation). The default engine for
+      XProc scenarios is a version  of the <term>Calabash</term> engine that comes bundled with <ph
+        keyref="product"/> version <ph keyref="minorVersion"/>.</p>
+    <section id="xproc_content_completion">
+      <title>XProc Content Completion</title>
+      <p><ph keyref="product"/> helps you edit a XProc scripts through the <xref
+          keyref="glossentry_content-completion-assistant"><term>Content Completion
+          Assistant</term></xref>, offering proposals that are valid at the cursor position. It can
+        be manually activated with the <uicontrol
+          conkeyref="reusable-oxygen-shortcuts-list/ctrl_space"/> shortcut.</p>
+      <p>The content completion inside the <xmlelement>input/inline</xmlelement> element from the
+        XProc namespace <i>http://www.w3.org/ns/xproc</i> offers elements from the following schemas
+        depending both on the <xmlatt>port</xmlatt> attribute and the parent of the
+          <xmlelement>input</xmlelement> element. When invoking the content completion inside the
+          <xmlelement>inline</xmlelement> XProc element, the list of content completion proposals is
+        populated as follows:</p>
+      <ul>
+        <li>If the value of the <xmlatt>port</xmlatt> attribute is <codeph>stylesheet</codeph> and
+          the <xmlelement>xslt</xmlelement> element is the parent of the
+            <xmlelement>input</xmlelement> elements, the <term>Content Completion Assistant</term>
+          offers XSLT elements.</li>
+        <li>If the value of the <xmlatt>port</xmlatt> attribute is <codeph>schema</codeph> and the
+            <xmlelement>validate-with-relax-ng</xmlelement> element is the parent of the
+            <xmlelement>input</xmlelement> element, the <term>Content Completion Assistant</term>
+          offers RELAX NG schema elements.</li>
+        <li>If the value of the <xmlatt>port</xmlatt> attribute is <codeph>schema</codeph> and the
+            <xmlelement>validate-with-xml-schema</xmlelement> element is the parent of the
+            <xmlelement>input</xmlelement> element, the <term>Content Completion Assistant</term>
+          offers XML Schema schema elements.</li>
+        <li>If the value of the <xmlatt>port</xmlatt> attribute is <codeph>schema</codeph> and the
+            <xmlelement>validate-with-schematron</xmlelement> element is the parent of the
+            <xmlelement>input</xmlelement> element , the <term>Content Completion Assistant</term>
+          offers either ISO Schematron elements or Schematron 1.5 schema elements.</li>
+        <li>If the above cases do not apply, then the <term>Content Completion Assistant</term>
+          offers elements from all the schemas from the above cases.</li>
+      </ul>
+      <p>
+        <fig id="figure-xproc-content-completion-oxygen" product="editor developer">
+          <title>XProc Content Completion</title>
+          <image href="../img/sa_xproc_content_completion.png"/>
+        </fig>
+      </p>
+      <p>
+        <fig id="figure-xproc-content-completion-oxygenEclipse"
+          product="editorEclipse developerEclipse">
+          <title>XProc Content Completion</title>
+          <image href="../img/ec_xproc_content_completion.png"/>
+        </fig>
+      </p>
+    </section>
+    <section id="xproc_syntax_highlighting">
+      <title>XProc Syntax Highlighting</title>
+      <p>The XProc editor assists you in writing XPath expressions by offering dedicated coloring
+        schemes for syntax highlighting.</p>
+      <p>To customize the colors or styles used for the syntax highlighting colors for XProc, follow
+        these steps:<ol>
+          <li><ph conkeyref="reusables-preferences-pages/Open-the-preferences-page"/>.</li>
+          <li>Go to <xref href="preferences-colors-sh.dita#preferences-colors-sh"><menucascade>
+                <uicontrol>Editor</uicontrol>
+                <uicontrol>Syntax Highlight</uicontrol>
+              </menucascade></xref>.</li>
+          <li>Select and expand the <uicontrol>XML</uicontrol> section in the top pane.</li>
+          <li>Select the component you want to change and customize the colors or styles using the
+            selectors to the right of the pane.</li>
+          <li>Select the <uicontrol>XML</uicontrol> tab in the <uicontrol>Preview</uicontrol> pane
+            to see the effects of your changes.</li>
+        </ol></p>
+    </section>
+    <section id="enabling_extensions_in_calabash">
+      <title>Enabling Extensions in Calabash</title>
+      <p>If you are using the default Calabash engine, it is possible to configure extensions (for a
+        list of the valid extensions, see <xref
+          href="http://xmlcalabash.com/docs/reference/cfg.extension.html" format="html"
+          scope="external"/>).</p>
+      <p>To configure an extension:<ol>
+          <li>Edit the following file:
+              <filepath>OXYGEN_INSTALL_DIR/lib/xproc/calabash/engine.xml</filepath>.</li>
+          <li>Add the extension and its value as a <codeph>system-property</codeph>, as in the
+            following
+            example:<codeblock outputclass="language-xml">&lt;system-property name="com.xmlcalabash.allow-text-results" value="true"/></codeblock></li>
+        </ol></p>
+    </section>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="xproc-transformation-scenario.dita#xproc-transformation-scenario">
+        <linktext>Creating an XProc Transformation Scenario</linktext>
+      </link>
+      <link href="xproc-API-external-engine.dita#xproc-API-external-engine"/>
+      <link href="preferences-xproc-engines.dita"/>
+    </linklist>
+  </related-links>
+</topic>

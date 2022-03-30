@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="xquery-marklogic-debugger-limitations">
+  <title>Peculiarities and Limitations of the MarkLogic Debugger</title>
+  <body>
+    <p>MarkLogic debugger has the following peculiarities and limitations:</p>
+    <ul>
+      <li>Debugging support is only available for MarkLogic server versions 4.0 or newer.</li>
+      <li>For MarkLogic server versions 4.0 or newer, there are three XQuery syntaxes that are
+        supported: <i>'0.9-ml' (inherited from MarkLogic 3.2</i>), <i>'1.0-ml'</i>, and
+        <i>'1.0'</i>.</li>
+      <li>All declared variables are presented as strings. The <uicontrol>Value</uicontrol> column
+        of the <uicontrol>Variables</uicontrol> view contains the expression from the variable
+        declaration. It can be evaluated by copying the expression with the <uicontrol>Copy
+          value</uicontrol> action from the contextual menu of <xref
+          href="debug-variables-view.dita#debug-variables-view" format="dita">the
+            <uicontrol>Variables</uicontrol> view</xref> and pasting it in <xref
+          href="debug-xwatch-view.dita#debug-xwatch-view" format="dita">the
+            <uicontrol>XWatch</uicontrol> view</xref>.</li>
+      <li>There is no support for <xref
+          href="determining-what-template-generated-particular-output.dita">output to
+          source mapping</xref>.</li>
+      <li>There is no support for <xref href="debug-trace-view.dita">showing the trace</xref>.</li>
+      <li>You can only set <xref href="debug-breakpoints-view.dita">breakpoints</xref> in imported
+        modules in one of the following cases:<ul>
+          <li>When you open the module from the context of the application server involved in the
+            debugging, using the <xref
+              href="../topics/relational-database-explorer.dita#relational-database-explorer"
+                ><uicontrol>Data Source Explorer</uicontrol> view</xref>.</li>
+          <li>When the debugger automatically opens the modules in the Editor. </li>
+        </ul></li>
+      <li>No <xref href="using-breakpoints.dita#using-breakpoints"><term>breakpoints</term></xref>
+        are set in modules from the same server that are not involved in the current debugging
+        session.</li>
+      <li>No support for <xref href="performance-profiling.dita#performance-profiling"
+          >profiling</xref> when an XQuery transformation is executed in the debugger.</li>
+    </ul>
+  </body>
+</topic>

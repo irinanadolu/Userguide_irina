@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="cf-enterprise-configuration">
+  <title>Content Fusion Enterprise Administration Page</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Content Fusion Enterprise - Administration Page</indexterm>
+        <indexterm>Configuring an Enterprise server</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <ph keyref="cfEnterprise"/> solution includes an <uicontrol>Administration
+        Page</uicontrol> where you can configure various options.</p>
+    <section id="section_hqq_dwg_t1b">
+      <title> Signing in to the Administration Page</title>
+      <p>
+        <ol id="ol_g5c_dwg_t1b">
+          <li>Use the IP address shown in the VM console to access the web interface of <ph
+              keyref="product"/>. The address should be
+              <codeph>https://&lt;server-address>:9080</codeph>.<note>By default, <ph
+                keyref="product"/> uses a self-signed certificate. If you did not change it, the
+              browser will display a security warning. Continue (for example, if you are using Edge
+              or Internet Explorer, click <b>Details</b> and then <b>Go on to the
+              webpage</b>).</note></li>
+          <li>Log in with the credentials you <xref
+              href="cf-enterprise-server.dita#cf-enterprise-server">configured in the initial
+              setup</xref>.</li>
+        </ol>
+      </p>
+    </section>
+    <section id="general_tab">
+      <title>General Tab</title>
+      <p>This tab contains the following options:</p>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Server Address</dt>
+            <dd>Displays the IP address or DNS name of your server and you can change it.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>HTTPS enabled for Content Fusion</dt>
+            <dd>
+              <p>Select this option if you want to enable HTTPS protocol for your users. When you
+                select this checkbox, it will expand and provide options to upload your certificate
+                and private key in PEM format. The key should be unencrypted.</p>
+              <p>After you upload your certificate, the information in the displayed TLS certificate
+                table will be updated accordingly.<note>Make sure that the certificate file you
+                  upload includes any intermediate certificates that your HTTPS certificate depends
+                  on. The certificates should be concatenated and the certificate for your domain
+                  should be included first.</note></p>
+            </dd>
+          </dlentry>
+          <dlentry id="task-sharing-behavior">
+            <dt>Task sharing behavior (toggle option)</dt>
+            <dd>
+              <p>
+                <dl>
+                  <dlentry>
+                    <dt>Tasks can be shared publicly (default)</dt>
+                    <dd>If selected, any registered user can access the task by using its link. When
+                      this option is selected, it also means that an option named <xref
+                        href="content_fusion_task_details.dita#content_fusion_task_details/reviewer-access"
+                          ><uicontrol>Anyone who opens the link is automatically granted access as a
+                          Reviewer</uicontrol></xref> is available in the <xref
+                        href="content_fusion_task_details.dita#content_fusion_task_details/share"
+                          ><uicontrol>Sharing settings</uicontrol> page</xref>. Selecting that
+                      option means that even non-registered users will automatically be granted
+                      access when they use the task link.</dd>
+                  </dlentry>
+                  <dlentry id="specified-collaborators">
+                    <dt>Tasks can only be accessed by specified collaborators</dt>
+                    <dd>If selected, all tasks have restricted access and task owners cannot make
+                      them public. Also, the <xref
+                        href="content_fusion_task_details.dita#content_fusion_task_details/reviewer-access"
+                          ><uicontrol>Anyone who opens the link is automatically granted access as a
+                          Reviewer</uicontrol></xref> option is NOT available in the <xref
+                        href="content_fusion_task_details.dita#content_fusion_task_details/share"
+                          ><uicontrol>Sharing settings</uicontrol> page</xref> when this option is
+                      selected.</dd>
+                  </dlentry>
+                </dl>
+              </p>
+            </dd>
+          </dlentry>
+        </dl>
+      </p>
+      <p>Click <uicontrol>Save</uicontrol> to apply your changes and then restart the browser.</p>
+    </section>
+    <section id="license_tab">
+      <title>License Tab</title>
+      <p>If a license key has been activated on your server, this tab simply contains a
+          <uicontrol>Manage License</uicontrol> button. Clicking this button opens a <xref
+          href="https://www.oxygenxml.com/doc/ug-editor/topics/servlet-report-page.html"
+          format="html" scope="external">license management and statistics page</xref>.</p>
+      <p>If a license key has not been activated, you have two options:<ul>
+          <li>If you have already received a license key, choose the <uicontrol>Already have a
+              license key</uicontrol> option, paste your license key in the text field and click
+              <uicontrol>Activate</uicontrol>.</li>
+          <li>Otherwise, choose the <uicontrol>Request a trial license key</uicontrol> option and
+            complete the request form.</li>
+        </ul></p>
+    </section>
+    <section id="mail_tab">
+      <title>Mail Tab</title>
+      <p>This tab contains the following options:</p>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Mail configuration</dt>
+            <dd>Enter your email server settings in this section.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>Use STARTTLS</dt>
+            <dd>Select this option if your email server is configured to use STARTTLS.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>SSL on connection</dt>
+            <dd>Select this option if your email server accepts SSL connections and specify the
+              port.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>Sender email address</dt>
+            <dd>This is the email address that will be listed as the sender when emails are sent by
+              Content Fusion to users. The default address is:
+                <codeph>noreply@content-fusion-server-address</codeph>.</dd>
+          </dlentry>
+        </dl>
+      </p>
+      <p>Click <uicontrol>Save</uicontrol> to apply your changes.</p>
+    </section>
+    <section id="authentication_tab">
+      <title>Authentication Tab</title>
+      <p>This tab contains the following option:</p>
+      <p>
+        <dl>
+          <dlentry id="LDAP-Auth">
+            <dt>Use LDAP Authentication</dt>
+            <dd>Select this option is you want to use your own LDAP configuration instead of the
+              built-in authentication. When you select this checkbox, it will expand and provide
+              options to configure the details of your LDAP authentication.<note>If your LDAP server
+                uses a self-signed SSL certificate, select the <uicontrol>Use SSL</uicontrol> option
+                and choose your certificate.</note><note type="tip">It is also possible to configure
+                your <ph keyref="cfEnterprise"/> to accept <xref href="cf-google-auth.dita"
+                  >Google</xref> or <xref href="cf-github-auth.dita">GitHub
+                authentication</xref>.</note><p>
+                <dl>
+                  <dlentry>
+                    <dt>Allow both LDAP accounts and standard email accounts</dt>
+                    <dd>If this option is not selected, users will only be able to log in using
+                      their LDAP credentials. If you select this option, users will be able to log
+                      in using their LDAP credentials or sign up using their email address.</dd>
+                  </dlentry>
+                </dl>
+              </p></dd>
+          </dlentry>
+        </dl>
+      </p>
+      <p>Click <uicontrol>Save</uicontrol> to apply your changes.</p>
+    </section>
+    <section id="web_author_tab">
+      <title>Web Author Tab</title>
+      <p>This tab contains a <uicontrol>Manage Web Author</uicontrol> button. Clicking this button
+        opens the <b>Oxygen XML Web Author</b>
+        <uicontrol>Administration Page</uicontrol>. This page provides options for configuring the
+        visual editor that is used in <ph keyref="product"/>. For example, you can <xref
+          href="cf-custom-frameworks.dita#cf-custom-frameworks">upload your own custom
+          frameworks</xref> using this page.</p>
+    </section>
+    <section id="maintenance">
+      <title>Maintenance</title>
+      <p>This tab contains the following sections and options:</p>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Maintenance Mode</dt>
+            <dd>Click the <uicontrol>Enable Maintenance Mode</uicontrol> button to enable a
+              maintenance mode that prevents users from accessing the server during this time. This
+              allows you to perform maintenance tasks without the risk of corrupting data. Users
+              will see a message in the <b>Content Fusion</b> browser interface letting them know
+              that the site is temporarily down for maintenance purposes.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>Announcement Banner</dt>
+            <dd>Click the <uicontrol>Configure Message</uicontrol> if you want to display a message
+              at the topic of each <b>Content Fusion</b> page. This is helpful if you need to post
+              announcements (such as announcing changes, maintenance schedules, or upgrade
+              information).</dd>
+            <dd>To disable the message, simply configure the message with empty content.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>Database</dt>
+            <dd><b>Content Fusion</b> stores user profiles and task metadata in a database that is
+              backed up every 60 minutes. In this section, you can see a list of the latest backups
+              and you have access to the following options:<ul>
+                <li><uicontrol>Create Database Backup</uicontrol> - Click this button to create a
+                  new backup of the database. Prior to clicking that button, you can also use the
+                    <uicontrol>Custom backup name</uicontrol> text field to specify a particular
+                  name, useful for identifying the newly created backup.</li>
+                <li><uicontrol>Restore Database from Backup</uicontrol> - You can select a
+                  particular backup listed in this section and then click the <uicontrol>Restore
+                    Database from Backup</uicontrol> button to restore the database to that selected
+                  backup.</li>
+              </ul><note>To create a full Content Fusion backup that contains task metadata, task
+                files, user profiles, and configuration information, see <xref
+                  href="cf-enterprise-backups.dita#cf-enterprise-backups"/>.</note></dd>
+          </dlentry>
+          <dlentry id="logs">
+            <dt>Logs</dt>
+            <dd>Click the <uicontrol>Show Logs</uicontrol> button to open a page where you can view
+              or download server logs.</dd>
+          </dlentry>
+        </dl>
+      </p>
+    </section>
+  </body>
+</topic>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="dg-additional-custom-selectors">
+  <title>Additional CSS Selectors</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS extensions<indexterm>Additional CSS selectors</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> provides support for selecting additional types of nodes. These custom
+      selectors apply to: <i>document</i>, <i>doctype</i>, <i>processing-instruction</i>,
+        <i>comment</i>, <i>CDATA sections</i>, <i>entities</i>, and <i>reference sections</i>.
+        <i>Processing-instructions</i> are not displayed by default. To display them, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/>, go to <menucascade>
+        <uicontrol>Editor</uicontrol>
+        <uicontrol>Author</uicontrol>
+      </menucascade>, and select <uicontrol>Show processing instructions</uicontrol>.</p>
+    <p>
+      <note>The custom selectors are presented in the default CSS for <uicontrol>Author</uicontrol>
+        mode and all of their properties are marked with the <i>!important</i> flag. For this
+        reason, you have to set the <i>!important</i> flag on each property of the custom selectors
+        from your CSS to be applicable.</note>
+    </p>
+    <p>For the custom selectors to work in your CSS stylesheets, declare the
+        <uicontrol>Author</uicontrol> mode extensions namespace at the beginning of the stylesheet
+      documents: </p>
+    <codeblock outputclass="language-css">@namespace oxy url('http://www.oxygenxml.com/extensions/author');</codeblock>
+    <ul id="ul_gh4_fyr_gd">
+      <li><b>oxy|document</b> - The <codeph>oxy|document</codeph> selector matches the entire
+        document:<codeblock outputclass="language-css">oxy|document {
+    display:block !important;
+}</codeblock></li>
+      <li><b>oxy|doctype</b> - The following example changes the rendering of
+          <codeph>doctype</codeph> sections:
+        <codeblock outputclass="language-css">oxy|doctype {
+    display:block !important;
+    color:blue !important;
+    background-color:transparent !important;
+}</codeblock></li>
+      <li>
+        <p><b>oxy|processing-instruction</b> - To match the processing instructions, you can use the
+            <codeph>oxy|processing-instruction</codeph> selector:
+          <codeblock outputclass="language-css">oxy|processing-instruction {
+    display:block !important;
+    color:purple !important;
+    background-color:transparent !important;
+}</codeblock></p>
+        <p>A processing instruction usually has a target and one or more pseudo
+          attributes:<codeblock outputclass="language-xml">&lt;?target_name data="b"?&gt;</codeblock></p>
+        <p>You can match a processing instruction with a particular target from the CSS using the
+          following
+          construct:<codeblock outputclass="language-css">oxy|processing-instruction[target_name]</codeblock></p>
+        <p>You can also match the processing instructions having a certain target and pseudo
+          attribute value, such
+          as:<codeblock outputclass="language-css">oxy|processing-instruction[target_name][data="b"]</codeblock></p>
+      </li>
+      <li><b>oxy|comment</b> - The XML comments displayed in <uicontrol>Author</uicontrol> mode can
+        be changed using the <codeph>oxy|comment</codeph> selector:
+        <codeblock outputclass="language-css">oxy|comment {
+    display:block !important;
+    color:green !important;
+    background-color:transparent !important;
+}</codeblock></li>
+      <li><b>oxy|cdata</b> - The <codeph>oxy|cdata</codeph> selector matches <codeph>CDATA</codeph>
+        sections:
+        <codeblock outputclass="language-css">oxy|cdata{
+    display:block !important;
+    color:gray !important;
+    background-color:transparent !important;
+} </codeblock></li>
+      <li>
+        <p><b>oxy|entity</b> - The <codeph>oxy|entity</codeph> selector matches the entity
+          content:<codeblock outputclass="language-css">oxy|entity {
+    display:morph !important;
+    editable:false !important;
+    color:orange !important;
+    background-color:transparent !important;
+}</codeblock></p>
+        <p>To match particular entities, use the <codeph>oxy|entity</codeph> selector in expressions
+          such
+          as:<codeblock outputclass="language-css">oxy|entity[name='amp'],
+oxy|entity[name='lt'],
+oxy|entity[name='gt'],
+oxy|entity[name='quot'],
+oxy|entity[name='apos'],
+oxy|entity[name^='#']{
+    -oxy-display-tags: none;
+}</codeblock></p>
+      </li>
+      <li>
+        <p><b>oxy|reference</b> - The <i>references to entities</i>, <i>XInclude</i>, and DITA
+            <xmlatt>conref</xmlatt> and <xmlatt>conkeyref</xmlatt> attributes are expanded by
+          default in <uicontrol>Author</uicontrol> mode and the referenced content is displayed. The
+          referenced resources are displayed inside the element or entity that references them.</p>
+        <p>You can use the <codeph>reference</codeph> property to customize the way these references
+          are rendered in <uicontrol>Author</uicontrol>
+          mode:<codeblock outputclass="language-css">oxy|reference {
+  border:1px solid gray !important;
+}</codeblock></p>
+        <p>In the <uicontrol>Author</uicontrol> mode, content is highlighted when text contains
+            <xref keyref="author_change-tracking">comments</xref> and changes (if <xref
+            keyref="author_change-tracking"><i>Track Changes</i></xref> was active when the content
+          was modified).</p>
+        <p>If this content is referenced, the <uicontrol>Author</uicontrol> mode does not display
+          the highlighted areas in the new context. If you want to mark the existence of the
+          comments and changes, you can use the <codeph>oxy|reference[comments]</codeph>,
+            <codeph>oxy|reference[changeTracking]</codeph>, and
+            <codeph>oxy|reference[changeTracking][comments]</codeph> selectors.<note>Two artificial
+            attributes (<codeph>comments</codeph> and <codeph>changeTracking</codeph>) are set on
+            the reference node, containing information about the number of comments and tracked
+            changes in the content.</note></p>
+        <p>
+          <ul id="ul_udv_z3b_v3b">
+            <li>The following example represents the customization of the reference fragments that
+              contain
+              comments:<codeblock outputclass="language-css">oxy|reference[comments]:before {
+  content: "Comments: " attr(comments) !important;  
+}</codeblock></li>
+            <li>To match reference fragments based on the fact that they contain tracked changes
+              inside, use the <codeph>oxy|reference[changeTracking]</codeph>
+              selector:<codeblock outputclass="language-css">oxy|reference[changeTracking]:before {
+  content: "Change tracking: " attr(changeTracking) !important;  
+}</codeblock></li>
+            <li>Here is an example of how you can set a custom color for the reference containing
+              both tracked changes and
+              comments:<codeblock outputclass="language-css">oxy|reference[changeTracking][comments]:before {
+  content: "Change tracking: " attr(changeTracking) 
+           " and comments: " attr(comments) !important;  
+}</codeblock></li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+    <p>
+      <fig>
+        <title>Example: A Document Rendered Using these Rules</title>
+        <image href="../img/dg_custom_selectors_sample.png"/>
+      </fig>
+    </p>
+  </body>
+</topic>

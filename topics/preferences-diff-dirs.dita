@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="preferences-diff-dirs">
+    <title>Directories Comparison Preferences</title>
+    <prolog>
+    <metadata>
+      <keywords><indexterm>Preferences<indexterm>Directories Comparison</indexterm></indexterm>
+        <indexterm>Directory comparison preferences</indexterm></keywords>
+    </metadata>
+  </prolog>
+    <body>
+        <p>To configure the <uicontrol>Directories Comparison</uicontrol> preferences, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/> and go to <menucascade>
+        <uicontrol>Diff</uicontrol>
+        <uicontrol>Directories Comparison</uicontrol>
+      </menucascade>.</p>
+    <p>
+      <fig id="figure-diff-options">
+        <title>Diff Preferences Page</title>
+        <image href="../img/sa_diff_dirs_options.png"/>
+      </fig>
+    </p>
+        <p>You can specify the following options for the directories comparison tool:<dl>
+        <dlentry>
+          <dt><uicontrol>Compare files by</uicontrol></dt>
+          <dd>Controls the method used for comparing two files:<ul>
+              <li>
+                <p><uicontrol>Content</uicontrol> - The file content is compared using the current
+                    <xref href="preferences-diff-files.dita#preferences-diff-files/diff-algorithm"
+                    format="dita">diff algorithm</xref>. This option is applied for a pair of files
+                  only if that file type is associated with a built-in editor type (either
+                  associated by default or associated by the user when prompted to do so on opening
+                  a file of that type for the first time).</p>
+                <p>You can use the <uicontrol>Configure content comparison</uicontrol> link to open
+                  the <xref href="preferences-diff-files.dita#preferences-diff-files"
+                      ><uicontrol>Files Comparison</uicontrol> preferences page</xref> where you can
+                  configure options for comparing files. However, the <uicontrol>Ignore nodes by
+                    XPath</uicontrol> option is ignored when using the <uicontrol>Compare
+                    Directories</uicontrol> tool.</p>
+              </li>
+              <li><uicontrol>Binary Compare</uicontrol> - The files are compared at byte level.</li>
+              <li><uicontrol>Timestamp (last modified date / time)</uicontrol> - The files are
+                compared only by their last modified timestamp.</li>
+            </ul></dd>
+        </dlentry>
+        <dlentry id="look-in-archives">
+          <dt><uicontrol>Look in archives</uicontrol></dt>
+          <dd>If selected, <xref href="preferences-archive.dita#preferences-archive/archive-types"
+              >known archive types</xref> are considered directories and their content is compared
+            just like regular files.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Navigation</uicontrol></dt>
+          <dd>This options control the behavior of the differences traversal actions (<uicontrol>Go
+              to previous modification</uicontrol>, <uicontrol>Go to next modification</uicontrol>)
+            when the first or last difference in a file is reached:<ul>
+              <li><uicontrol>Ask what to do next</uicontrol> - A dialog box is displayed asking you
+                to confirm that you want the application to display modifications from the previous
+                or next file.</li>
+              <li><uicontrol>Go to the next/previous file</uicontrol> - The application opens the
+                next or previous file without waiting for your confirmation.</li>
+              <li><uicontrol>Do nothing</uicontrol> - No further action is taken.</li>
+            </ul></dd>
+        </dlentry>
+      </dl></p>
+    </body>
+</topic>

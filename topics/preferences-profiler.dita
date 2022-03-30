@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="preferences-profiler">
+  <title>Profiler Preferences</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Preferences<indexterm>XSLT Profiler</indexterm></indexterm>
+        <indexterm>Preferences<indexterm>XQuery Profiler</indexterm></indexterm>
+        <indexterm>XSLT Profiler preferences</indexterm>
+        <indexterm>XQuery Profiler preferences</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>This section explains the settings available for the XSLT/XQuery Profiler. To access and
+      modify these settings, <ph conkeyref="reusables-preferences-pages/open-the-preferences-page"/>
+      and go to <menucascade>
+        <uicontrol>XML</uicontrol>
+        <uicontrol>XSLT-XQuery</uicontrol>
+        <uicontrol>Profiler</uicontrol>
+      </menucascade> (see <xref href="preferences-debugger.dita"/>).</p>
+    <p>The following profiler settings are available:<dl>
+        <dlentry>
+          <dt><uicontrol>Show time</uicontrol></dt>
+          <dd>Shows the total time that was spent in the call.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Show inherent time</uicontrol></dt>
+          <dd>Shows the inherent time that was spent in the call. The inherent time is defined as
+            the total time of a call minus the time of its child calls.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Show invocation count</uicontrol></dt>
+          <dd>Shows how many times the call was called in this particular call sequence.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Time scale</uicontrol></dt>
+          <dd>Determines the unit of time measurement. You can choose between milliseconds or
+            microseconds.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Hotspot threshold</uicontrol></dt>
+          <dd><i>Hotspots</i> are ignored below this specified amount (in milliseconds). For more
+            information, see <xref href="hotspots-view.dita"/>.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Ignore invocation less than</uicontrol></dt>
+          <dd><i>Invocations</i> are ignored below this specified amount (in microseconds). For more
+            information, see <xref href="invocation-tree-view.dita"/>.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Percentage calculation</uicontrol></dt>
+          <dd>The percentage base that determines what time span percentages are calculated against.
+            You can choose between the following:<ul>
+              <li><uicontrol>Absolute</uicontrol> - Percentage values show the contribution to the
+                total time.</li>
+              <li><uicontrol>Relative</uicontrol> - Percentage values show the contribution to the
+                calling call.</li>
+            </ul></dd>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="dg-author-op-InsertFragmentOperation-arguments">
+  <title>Arguments of InsertFragmentOperation Operation</title>
+  <body>
+    <p>
+      <dl>
+        <dlentry>
+          <dt><i>fragment</i></dt>
+          <dd>
+            <p>This argument has a textual value. This value is parsed by <ph keyref="product"/> as
+              it was already in the document at the cursor position. You can use entity references
+              declared in the document and it is namespace aware. The fragment may have multiple
+              roots.</p>
+            <p>You can even use namespace prefixes that are not declared in the inserted fragment,
+              if they are declared in the document where the insertion is done. For the sake of
+              clarity, you should always prefix and declare namespaces in the inserted fragment!</p>
+            <p>If the fragment contains namespace declarations that are identical to those found in
+              the document, the namespace declaration attributes will be removed from elements
+              contained by the inserted fragment. </p>
+            <p>There are two possible scenarios:<ul id="ol_a9cd91c4-d9d0-4c25-ae3f-df91171f25b1">
+                <li>
+                  <p><u><b>Prefixes that are not bound explicitly</b></u></p>
+                  <p>For instance, the
+                    fragment:<codeblock outputclass="language-xml">&lt;x:item id="dty2"/&gt;
+&amp;ent;
+&lt;x:item id="dty3"/&gt;</codeblock></p>
+                  <p>Can be correctly inserted in the document: ('|' marks the insertion
+                    point):<codeblock outputclass="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE x:root [
+    &lt;!ENTITY ent "entity"&gt;
+]&gt;
+
+&lt;x:root xmlns:x="nsp"&gt; 
+  |
+&lt;/x:root&gt;</codeblock></p>
+                  <p>Result:<codeblock outputclass="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE x:root [
+    &lt;!ENTITY ent "entity"&gt;
+]&gt;
+&lt;x:root xmlns:x="nsp"&gt;
+    &lt;x:item id="dty2"/&gt;
+    &amp;ent;
+    &lt;x:item id="dty3"/&gt;
+&lt;/x:root&gt;</codeblock></p>
+                </li>
+                <li>
+                  <p><u><b>Default namespaces</b></u></p>
+                  <p>If there is a default namespace declared in the document and the <xref
+                      keyref="glossentry_document-fragment"><term>document fragment</term></xref>
+                    does not declare a namespace, the elements from the fragment are considered to
+                    be in <b>no namespace</b>. </p>
+                  <p>For instance, the
+                    fragment:<codeblock outputclass="language-xml">&lt;item id="dty2"/&gt;
+&lt;item id="dty3"/&gt;</codeblock></p>
+                  <p>Inserted in the
+                    document:<codeblock outputclass="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root xmlns="nsp"&gt;
+|
+&lt;/root&gt;</codeblock></p>
+                  <p>Gives the result
+                    document:<codeblock outputclass="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root xmlns="nsp"&gt;
+    &lt;item xmlns="" id="dty2"/&gt;
+    &lt;item xmlns="" id="dty3"/&gt;
+&lt;/root&gt;</codeblock></p>
+                </li>
+              </ul></p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><i>insertLocation</i></dt>
+          <dd>
+            <p>An XPath expression that is relative to the current node. It selects the reference
+              node for the fragment insertion. When missing, the fragment will be inserted at the
+              cursor position.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><i>insertPosition</i></dt>
+          <dd>
+            <p>Specifies where the insertion is made relative to the reference node selected by the
+                <i>insertLocation</i>. It can be one of the following constants:<ul>
+                <li><b>Inside as first child</b> (default value) - The fragment is inserted as first
+                  child of the reference node.</li>
+                <li><b>Inside as last child</b> - The fragment is inserted as the last child of the
+                  reference node.</li>
+                <li><b>After</b> - The fragment is inserted after the reference node.</li>
+                <li><b>Before</b> - The fragment is inserted before the reference node.</li>
+              </ul></p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><i>goToNextEditablePosition</i></dt>
+          <dd>
+            <p>After inserting the fragment, the first editable position is detected and the cursor
+              is placed at that location. It handles any in-place editors used to edit attributes.
+              It will be ignored if the fragment specifies a cursor position using the <xref
+                href="editor-variables.dita#editor-variables/edvar-caret"><b>${caret}</b> editor
+                variable</xref>. The possible values of this action are <uicontrol>true</uicontrol>
+              and <uicontrol>false</uicontrol>.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><i>schemaAware</i></dt>
+          <dd><ph conkeyref="reusables-author-mode-customization/schema_aware_argument"/></dd>
+        </dlentry>
+        <dlentry>
+          <dt><i>insertEvenIfInvalid</i></dt>
+          <dd>The possible values of this argument are <uicontrol>true</uicontrol> and
+              <uicontrol>false</uicontrol>. If <uicontrol>true</uicontrol>, the content that would
+            make the document invalid is accepted. If <uicontrol>false</uicontrol> and the insertion
+            is not valid, the operation will not be executed and an error message will be displayed.</dd>
+        </dlentry>
+      </dl>
+    </p>
+  </body>
+</topic>

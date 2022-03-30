@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="copy_resources">
+  <title>How to Copy Additional Resources to Output Directory</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm product="author developer editor authorEclipse developerEclipse editorEclipse"
+          >WebHelp Classic<indexterm>Adding additional resources</indexterm></indexterm>
+        <indexterm product="webhelp">Adding additional resources</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>You can copy additional resources (such as JavaScript, CSS or other resources) to the output
+      directory of a WebHelp system by using the <codeph>webhelp.custom.resources</codeph>
+      parameter.</p>
+    <section id="using_oxygen_xml_editorauthor">
+      <title>Using Oxygen XML Editor/Author</title>
+      <p>To copy additional resources to the output directory using a transformation scenario from
+        within <b>Oxygen XML Editor/Author</b>, follow this procedure:<ol>
+          <li>Place all your resources in the same directory.</li>
+          <li>Edit the WebHelp transformation scenario, then open the
+              <uicontrol>Parameters</uicontrol> tab.</li>
+          <li>Edit the value for the <codeph>webhelp.custom.resources</codeph> parameter and set it
+            to the absolute path of the directory in step 1.</li>
+          <li>Click <uicontrol>OK</uicontrol> to save the changes to the transformation
+            scenario.</li>
+          <li>Run the transformation scenario.</li>
+        </ol></p>
+      <p><b>Result:</b> All files from the new directory will be copied to the root of the WebHelp
+        output directory.</p>
+    </section>
+    <section id="from_a_command_line">
+      <title>Using a Script Outside of Oxygen XML Editor/Author</title>
+      <note conkeyref="reusables-transforming-documents/note-command-line"
+        product="author developer editor authorEclipse developerEclipse editorEclipse"/>
+      <p>To copy additional resources to the output directory using a <xref
+          href="using-the-webhelp-plugin-docbook.dita">script outside of <b>Oxygen XML
+            Editor/Author</b></xref>, follow this procedure:<ol>
+          <li>Place all your resources in the same directory.</li>
+          <li>Specify the absolute path to that directory using the
+              <codeph>webhelp.custom.resources</codeph> parameter.</li>
+          <li>Execute the transformation script.</li>
+        </ol></p>
+      <p><b>Result:</b> All files from the new directory will be copied to the root of the WebHelp
+        output directory.</p>
+    </section>
+  </body>
+</topic>

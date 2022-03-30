@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="the-document-type-dialog">
+  <title>Document Type Configuration Dialog Box</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Document type configuration dialog box</indexterm>
+        <indexterm>Preferences<indexterm>Document type configuration dialog
+          box</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <uicontrol>Document Type Configuration</uicontrol> dialog box allows you to create or
+      edit a <xref keyref="glossentry_framework"><term>framework</term></xref> (document type). It
+      is displayed when you use the <uicontrol>New</uicontrol>, <uicontrol>Edit</uicontrol>,
+        <uicontrol>Duplicate</uicontrol>, or <uicontrol>Extend</uicontrol> buttons in the <xref
+        href="preferences-document-type-association.dita#preferences-document-type-association"
+          ><uicontrol>Document Type Association</uicontrol> preferences page</xref> (<ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/> and go to
+        <uicontrol>Document Type Association</uicontrol>).</p>
+    <p>
+      <fig>
+        <title>Document Type Configuration Dialog Box</title>
+        <image href="../img/sa_dg_document_type_dialog_rules.png"/>
+      </fig>
+    </p>
+    <p>The configuration dialog box includes the following fields and sections:</p>
+    <p>
+      <dl>
+        <dlentry>
+          <dt>Name</dt>
+          <dd>The name of the <term>framework</term>. This will be displayed as its name in the
+              <uicontrol>Document Type</uicontrol> column in the <xref
+              href="preferences-document-type-association.dita#preferences-document-type-association"
+                ><uicontrol>Document Type Association</uicontrol> preferences page</xref>.</dd>
+        </dlentry>
+        <dlentry id="dta_priority">
+          <dt>Priority</dt>
+          <dd>Depending on the priority level, <ph keyref="product"/> establishes the order that the
+            existing <term>frameworks</term> are evaluated to determine the type of a document you
+            are opening. It can be one of the following: <option>Lowest</option>,
+              <option>Low</option>, <option>Normal</option>, <option>High</option>, or
+              <option>Highest</option>. You can set a higher priority for <term>frameworks</term>
+            you want to be evaluated first.<note>The built-in document types are set to
+                <option>Low</option> priority by default. <term>Frameworks</term> that have the same
+              priority are sorted alphabetically.</note></dd>
+        </dlentry>
+        <dlentry>
+          <dt>Description</dt>
+          <dd>The document type description displayed as a tooltip in the <ph
+              conkeyref="reusables-preferences-pages/preferences-document-type-association"/>.</dd>
+        </dlentry>
+        <dlentry id="storage-definition">
+          <dt>Storage</dt>
+          <dd>The location where the framework is saved. If you select the
+              <uicontrol>External</uicontrol> storage option, the framework is saved in a specified
+            file with a mandatory extension (located in a subdirectory of your current framework
+            directory. If you select the <uicontrol>Internal</uicontrol> storage option, the
+            framework configuration data is saved in the <ph keyref="product"/> internal options
+              file<ph product="author editor"> (if <xref
+                href="preferences-storing.dita#preferences-storing/global_options">Global
+                Options</xref> is selected) or in the current <ph keyref="product"/> project
+                <i>xpr</i> file (if <xref
+                href="preferences-storing.dita#preferences-storing/project-options-section">Project
+                Options</xref> is selected)</ph>.</dd>
+        </dlentry>
+        <dlentry id="initial-edit-mode">
+          <dt>Initial edit mode</dt>
+          <dd>Sets the default edit mode when you open a document for the first time:
+              <uicontrol>Editor specific</uicontrol>, <uicontrol>Text</uicontrol>, <ph
+              product="author authorEclipse editor editorEclipse "><uicontrol>Author,
+              </uicontrol></ph><uicontrol>Grid</uicontrol> and <uicontrol>Design</uicontrol>
+            (available only for the W3C XML Schema editor). If the <uicontrol>Editor
+              specific</uicontrol> option is selected, the initial editing mode is determined based
+            upon the editor type. You can find the mapping between editors and edit modes in the
+              <xref keyref="options_editor-pages"><uicontrol>Edit modes</uicontrol> preferences
+              page.</xref> You can impose an initial mode for opening files that match the
+            association rules of the document type. For example, if the files are usually edited in
+            the <uicontrol>Author</uicontrol> mode you can set it in the <uicontrol>Initial edit
+              mode</uicontrol> combo box.<note>You can also customize the initial mode for a
+              document type in the <uicontrol>Edit modes</uicontrol> preferences page. <ph
+                conkeyref="reusables-preferences-pages/Open-the-preferences-page"/> and go to <menucascade>
+                <uicontrol>Editor</uicontrol>
+                <uicontrol>Edit modes</uicontrol>
+              </menucascade>.</note></dd>
+        </dlentry>
+        <dlentry>
+          <dt>Configuration Tabs</dt>
+          <dd>The bottom section of the dialog box includes various tabs where you can configure
+            numerous options for the <term>framework</term>.</dd>
+        </dlentry>
+      </dl>
+    </p>
+  </body>
+  <related-links product="author authorEclipse editor editorEclipse">
+    <linklist>
+      <title>Related Information:</title>
+      <link href="author-devel-guide-intro.dita"/>
+      <link href="author-document-type-extension-sharing.dita"/>
+      <link href="localizing_frameworks.dita"/>
+    </linklist>
+  </related-links>
+</topic>

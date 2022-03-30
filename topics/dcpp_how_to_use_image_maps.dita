@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dcpp_how_to_use_image_maps">
+    <title>How to Use Image Maps</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Image maps</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+    <body>
+        <p>The DITA <xmlelement>imagemap</xmlelement> element is supported by the PDF transformation. </p>
+        <p>
+            <ol
+                id="ol_it4_mtn_nnb">
+                <li>Start by determining the width and height of your image in <i>CSS pixels</i> and
+          specify it on the <xmlelement>image</xmlelement> element using the <xmlatt>width</xmlatt>
+          and <xmlatt>height</xmlatt> attributes. <note type="other" othertype="Notes">
+            <ul id="ul_mv3_vq3_pnb">
+              <li>The <i>CSS pixels</i> are 1/96 in, so if the image is created at a 96dpi
+                resolution, one dot from the image is one pixel in the CSS space. If your image is
+                displayed at <xref href="dcpp_how_to_change_image_resolution.dita">another
+                  resolution</xref> (for example 192dpi), then two dots from the image equal one
+                pixel in the CSS space.</li>
+              <li>You can use other CSS units, including percentages. The percentages are solved
+                relative to the image size and represent a way of creating <i>responsive</i> image
+                maps.</li>
+            </ul>
+          </note><note type="warning">If you publish the content for both PDF and HTML web output,
+            make sure you only use <i>pixels</i>, as some browsers only support these
+          units.</note>Suppose you have a very large image that is 6400x4800 dots, but you want to
+          make it fit in a box of 640x480 <i>CSS pixels</i>. In the following snippet, this is done
+          by specifying the width and height attributes. The areas must use coordinates relative to
+          these values.<codeblock outputclass="language-xml">  &lt;imagemap>
+    &lt;image href="../images/Gear_pump_exploded.png"
+        id="gear_pump_exploded"
+        width="640"
+        height="480">
+        &lt;alt>Gear Pump&lt;/alt>
+    &lt;/image>
+&lt;/imagemap></codeblock></li>
+                <li>In the map element, add areas, each with a shape and a set of
+            coordinates:<codeblock outputclass="language-xml">  &lt;imagemap>
+    &lt;image ...> ... &lt;/image>
+    &lt;area>
+        &lt;shape>circle&lt;/shape>
+        &lt;coords>172, 265, 14&lt;/coords>
+        &lt;xref
+            href="parts/bushings.dita#bushings_topic/bushings"
+            format="dita">Bushings&lt;/xref>
+    &lt;/area>
+    &lt;area>
+        &lt;shape>poly&lt;/shape>
+        &lt;coords>568, 81, 576, 103, 468, 152, 455, 130&lt;/coords>
+        &lt;xref
+            href="parts/drive-shaft.dita#drive_shaft_topic/drive_shaft"
+            format="dita">Drive Shaft&lt;/xref>
+    &lt;/area>
+    ....
+ &lt;/imagemap</codeblock><p>The type of areas are the ones defined in the HTML
+            standard: <codeph>circle</codeph>, <codeph>poly</codeph>, <codeph>rect</codeph>,
+              <codeph>default</codeph>. For more details, see: <xref
+              href="https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element"
+              format="html" scope="external"/>.</p></li>
+                <li>Verify how the shapes look in the output. You can make the shapes visible by one
+          of the following methods:<ul id="ul_t2p_qk4_nnb">
+            <li>Using the <codeph>show.image.map.area.numbers</codeph> and
+                <codeph>show.image.map.area.shapes</codeph> transformation parameters.</li>
+            <li>Adding a CSS snippet to your customization. The shapes have the
+                <codeph>image-map-shape</codeph> class, the bullet around the image map number
+                (<codeph>image-map-number</codeph>), and the text inside the bullet
+                (<codeph>image-map-number-text</codeph>). To make them translucent
+              yellow:<codeblock outputclass="language-css">.image-map-shape{
+	fill: yellow;
+	fill-opacity: 0.5;
+	stroke-opacity: 0.5;
+}
+.image-map-number-text {
+	visibility: visible;	
+}
+.image-map-number {
+	fill: yellow;
+	fill-opacity: 0.4;
+	stroke-opacity: 0.7;
+}</codeblock></li>
+          </ul>
+        </li>
+            </ol>
+        </p>    </body>
+</topic>

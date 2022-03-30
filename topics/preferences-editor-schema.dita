@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="preferences-editor-schema">
+  <title>Schema Design Preferences</title>
+  <prolog>
+    <metadata>
+      <keywords><indexterm>Preferences<indexterm>Schema Design mode</indexterm></indexterm>
+        <indexterm>Design mode preferences</indexterm></keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> provides a <xref
+        href="xml-schema-diagram-introduction.dita#xml-schema-diagram-introduction">graphical schema
+        design editor</xref> to make editing XML Schema easier. To configure the <uicontrol>Schema
+        Design</uicontrol> options, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/> and go to <menucascade>
+        <uicontrol>Editor</uicontrol>
+        <uicontrol>Edit modes</uicontrol>
+        <uicontrol>Schema Design</uicontrol>
+      </menucascade>. </p>
+    <p>The following options are available in the <uicontrol>Schema Design</uicontrol> preferences
+      page:</p>
+    <p>
+      <dl>
+        <dlentry id="show-annotation">
+          <dt><uicontrol>Show annotation in the diagram</uicontrol></dt>
+          <dd>When selected, <ph keyref="product"/> displays the content of
+            <xmlelement>xs:documentation</xmlelement> elements in schema diagrams.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>When trying to edit components from another schema</uicontrol></dt>
+          <dd>The schema diagram editor will combine schemas imported by the current schema file
+            into a single schema diagram. You can choose what happens if you try to edit a component
+            from an imported schema. The options are:<ul>
+              <li><uicontrol>Always go to its definition</uicontrol> - <ph keyref="product"/> opens
+                the imported schema file so that you can edit it.</li>
+              <li><uicontrol>Never go to its definition</uicontrol> - The imported schema file is
+                not opened and the component cannot be edited in place. </li>
+              <li><uicontrol>Always ask</uicontrol> - <ph keyref="product"/> asks if you want to
+                open the imported schema file.</li>
+            </ul></dd>
+        </dlentry>
+        <dlentry product="developer editor" id="zoom">
+          <dt><uicontrol>Zoom</uicontrol></dt>
+          <dd>Allows you to set the default zoom level of the schema diagram.</dd>
+        </dlentry>
+      </dl>
+    </p>
+  </body>
+</topic>

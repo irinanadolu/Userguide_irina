@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="dita-map-edit-advanced">
+  <title>Advanced Tab (DITA-OT Transformations)</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>DITA-OT transformation scenario<indexterm>Advanced tab</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph conkeyref="reusables-transforming-documents/intro-for-transformation-tabs"/></p> 
+    <p>The <uicontrol>Advanced</uicontrol> tab allows you to specify advanced options for the
+      transformation scenario.</p>
+    <p>
+      <fig product="author developer editor">
+        <title>Advanced Settings Tab</title>
+        <image href="../img/sa_advanced_tab_dita_scenario.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig product="authorEclipse developerEclipse editorEclipse">
+        <title>Advanced Settings Tab</title>
+        <image href="../img/ec_advanced_tab_dita_scenario.png"/>
+      </fig>
+    </p>
+    <p>You can specify the following parameters:<dl>
+        <dlentry>
+          <dt><uicontrol>Custom build file</uicontrol></dt>
+          <dd>If you use a custom DITA-OT build file, you can specify the path to the customized
+            build file. If empty, the <filepath>build.xml</filepath> file from the
+              <codeph>dita.dir</codeph> parameter that is configured in the <xref
+              href="dita-map-edit-parameters.dita#dita-map-edit-parameters"
+                ><uicontrol>Parameters</uicontrol> tab</xref> is used. <ph
+              conkeyref="reusables-user-guide/specify-path-without-drop-down"/></dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Build target</uicontrol></dt>
+          <dd>Optionally, you can specify a build target for the build file. If no target is
+            specified, the default <codeph>init</codeph> target is used.</dd>
+        </dlentry>
+        <dlentry conkeyref="reusables-transforming-documents/additional-arguments">
+          <dt/>
+          <dd/>
+        </dlentry>
+        <dlentry conkeyref="reusables-transforming-documents/ant-home">
+          <dt/>
+          <dd/>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Java Home</uicontrol></dt>
+          <dd>You can choose between the default or custom Java installation to run the
+            transformation. The default path is the Java installation that is used by <ph
+              keyref="product"/>.<note>It may be possible that the used Java version is incompatible
+              with the DITA Open Toolkit engine. For example, DITA-OT 2.0 and newer requires Java
+              1.7 or newer. Thus, if you encounter related errors running the transformation,
+              consider installing a Java VM that is supported by the DITA-OT publishing engine and
+              using it in the <uicontrol>Java Home</uicontrol> text field.</note></dd>
+        </dlentry>
+        <dlentry conkeyref="reusables-transforming-documents/dita-jvm-args-dlentry"
+          id="jvm-arguments">
+          <dt/>
+          <dd/>
+        </dlentry>
+        <dlentry conkeyref="reusables-transforming-documents/libraries">
+          <dt/>
+          <dd/>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

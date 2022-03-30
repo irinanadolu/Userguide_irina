@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="hotspots-view">
+  <title>Hotspots View</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Debugging XSLT<indexterm>Profiling<indexterm>Hotspots
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XSLT Debugger perspective<indexterm>Profiling<indexterm>Hotspots
+            view</indexterm></indexterm></indexterm>
+        <indexterm>Debugging XQuery<indexterm>Profiling<indexterm>Hotspots
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XQuery Debugger perspective<indexterm>Profiling<indexterm>Hotspots
+              view</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <uicontrol>Hotspots</uicontrol> view displays a list of all instruction calls that lie
+      above the threshold defined in the <xref href="preferences-profiler.dita"
+          ><uicontrol>XSLT/XQuery profiler settings</uicontrol></xref>. <ph
+        conkeyref="reusables-user-guide/reopen-view"/></p>
+    <p>
+      <fig id="figure-hotspots-view-oxygen" product="editor developer">
+        <title>Hotspots View</title>
+        <image href="../img/sa_hotspots_view.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig id="figure-hotspots-view-oxygenEclipse" product="editorEclipse developerEclipse">
+        <title>Hotspots View</title>
+        <image href="../img/ec_hotspots_view.png"/>
+      </fig>
+    </p>
+    <p>By opening a hotspot instruction entry, the tree of back-traces leading to that instruction
+      call are calculated and shown.</p>
+    <p>Every hotspot is described by the values from the following columns: </p>
+    <ul>
+      <li><uicontrol>Instruction</uicontrol> - The name of the instruction.</li>
+      <li product="developerEclipse editorEclipse"><uicontrol>Percentage</uicontrol> - The
+        percentage number for this hotspot entry with respect to the total time.</li>
+      <li><uicontrol>Time</uicontrol> - The inherent time in milliseconds or microseconds of how
+        much time has been spent in the hotspot<ph product="developer editor">, along with a bar
+          whose length is proportional to this value</ph>. All calls into this instruction are
+        summed up regardless of the particular call sequence.</li>
+      <li><uicontrol product="developer editor">Hits</uicontrol><uicontrol
+          product="developerEclipse editorEclipse">Calls</uicontrol> - The invocation count of the
+        hotspot entry.</li>
+    </ul>
+    <p>If you click the <uicontrol><image href="../img/Hotspot16.png" id="image_rhj_rdn_wr"
+        /></uicontrol> handle on the left side of a hotspot, a tree of back-traces will be
+      shown.</p>
+    <p>Every entry in the backtrace tree has textual information attached to it that depends on the
+        <xref href="preferences-profiler.dita"><uicontrol>XSLT/XQuery profiler
+        settings</uicontrol></xref>: </p>
+    <ul>
+      <li>A percentage number that is calculated with respect to either the total time or the called
+        instruction.</li>
+      <li>A time measured in milliseconds or microseconds of how much time has been contributed to
+        the parent hotspot on this call-path.</li>
+      <li>An invocation count that shows how often the hotspot has been invoked on this
+          call-path.<note>This is not the number of invocations of this instruction.</note></li>
+      <li>An instruction name that also contains its attributes.</li>
+    </ul>
+    <p>The <uicontrol>Hotspots</uicontrol> view also includes the following contextual menu
+        actions:<dl conkeyref="reusables-xslt-xquery/contextual-menu-actions">
+        <dlentry>
+          <dt/>
+          <dd/>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

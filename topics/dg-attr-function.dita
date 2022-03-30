@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="dg-attr-function">
+  <title>attr() Function: Properties Values Collected from the Edited Document</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS attr() function</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>In CSS Level 2.1 you may collect attribute values and use them as content <i>only</i> for the
+      pseudo-elements. For instance, the <codeph>:before</codeph> pseudo-element can be used to
+      insert some content before an element. This is valid in CSS 2.1:</p>
+    <codeblock outputclass="language-css">title:before{
+  content: "[Audience Level: " attr(audience) "]";
+}</codeblock>
+    <p>If the <xmlelement>title</xmlelement> element from the XML document is:</p>
+    <codeblock outputclass="language-xml">&lt;title audience="Expert"&gt;Changing the Timing Belt&lt;/title&gt;</codeblock>
+    <p>Then the title will be displayed as:</p>
+    <codeblock outputclass="language-ini">[Audience Level: Expert] Changing the Timimg Belt</codeblock>
+    <p>In <ph keyref="product"/>, the use of <codeph>attr()</codeph> function is available not only
+      for the <codeph>content</codeph> property, but also for any other property. This is similar to
+      the CSS Level 3 working draft: <xref
+        href="http://www.w3.org/TR/2006/WD-css3-values-20060919/#functional" scope="external"
+        format="html"/>. The arguments of the function are:</p>
+    <p>
+      <syntaxdiagram class="+ topic/fig pr-d/syntaxdiagram ">
+        <groupseq>
+          <kwd>attr</kwd>
+          <sep>(</sep>
+          <kwd>attribute_name</kwd>
+          <sep>,</sep>
+          <kwd>attribute_type</kwd>
+          <sep>,</sep>
+          <kwd>default_value</kwd>
+          <sep>)</sep>
+        </groupseq>
+      </syntaxdiagram>
+    </p>
+    <p>
+      <dl>
+        <dlentry>
+          <dt>attribute_name</dt>
+          <dd>
+            <p>The attribute name. This argument is required.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>attribute_type</dt>
+          <dd>
+            <p>The attribute type. This argument is optional. If it is missing, argument's type is
+              considered <codeph>string</codeph>. This argument indicates what is the meaning of the
+              attribute value and helps to perform conversions of this value. <ph keyref="product"/>
+              accepts one of the following types:</p>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt>color</dt>
+                  <dd>
+                    <p>The value represents a color. The attribute may specify a color in various
+                      formats. <ph keyref="product"/> supports colors specified either by name
+                        (<codeph>red</codeph>, <codeph>blue</codeph>, <codeph>green</codeph>, etc.)
+                      or as an <ph>RGB</ph> hexadecimal value <codeph>#FFEEFF</codeph>.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>url</dt>
+                  <dd>
+                    <p>The value is a URL pointing to a media object. <ph keyref="product"/>
+                      supports only images. The attribute value can be a complete URL, or a relative
+                      one to the XML document. Note that this URL is also resolved through the
+                      catalog resolver.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>integer</dt>
+                  <dd>
+                    <p>The value must be interpreted as an integer.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>number</dt>
+                  <dd>
+                    <p>The value must be interpreted as a float number.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>length</dt>
+                  <dd>
+                    <p>The value must be interpreted as an integer.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>percentage</dt>
+                  <dd>
+                    <p>The value must be interpreted relative to another value (length, size)
+                      expressed in percents.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>em</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size. 1 em is equal to the
+                        <i>font-size</i> of the relevant font.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>ex</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size. 1 ex is equal to the <i>height</i>
+                      of the <b>x</b> character of the relevant font.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>px</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in pixels relative to the
+                      viewing device.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>mm</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in millimeters.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>cm</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in centimeters.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>in</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in inches. 1 inch is equal
+                      to 2.54 centimeters.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>pt</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in points. The points used
+                      by CSS2 are equal to 1/72th of an inch.</p>
+                  </dd>
+                </dlentry>
+                <dlentry>
+                  <dt>pc</dt>
+                  <dd>
+                    <p>The value must be interpreted as a size expressed in picas. 1 pica is equal
+                      to 12 points.</p>
+                  </dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>default_value</dt>
+          <dd>
+            <p>This argument specifies a value that is used by default if the attribute value is
+              missing. This argument is optional.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </p>
+    <p><b><u>Example: <i>attr</i> Function</u></b></p>
+    <p>Consider the following XML
+      instance:<codeblock outputclass="language-xml">&lt;sample&gt;
+   &lt;para bg_color="#AAAAFF"&gt;Blue paragraph.&lt;/para&gt;
+   &lt;para bg_color="red"&gt;Red paragraph.&lt;/para&gt;
+   &lt;para bg_color="red" font_size="2"&gt;Red paragraph with large font.&lt;/para&gt;
+   &lt;para bg_color="#00AA00" font_size="0.8" space="4"&gt;
+        Green paragraph with small font and margin.&lt;/para&gt;
+&lt;/sample&gt;</codeblock></p>
+    <p>The <xmlelement>para</xmlelement> elements have <xmlatt>bg_color</xmlatt> attributes with RGB
+      color values (such as <codeph>#AAAAFF</codeph>). You can use the <codeph>attr()</codeph>
+      function to change the elements appearance in the editor based on the value of this
+      attribute:<codeblock outputclass="language-css">background-color:attr(bg_color, color);</codeblock></p>
+    <p>The <codeph>font_size</codeph> represents the font size in <i>em</i> units. You can use this
+      value to change the style of the
+      element:<codeblock outputclass="language-css">font-size:attr(font_size, em);</codeblock></p>
+    <p>The complete CSS rule
+      is:<codeblock outputclass="language-css">para{
+ display:block;
+ background-color:attr(bg_color, color);
+ font-size:attr(font_size, em);
+ margin:attr(space, em);
+}</codeblock></p>
+    <p>The document is rendered as:</p>
+    <p>
+      <image href="../img/dg_attr_usage_sample.png" placement="break"/>
+    </p>
+  </body>
+</topic>

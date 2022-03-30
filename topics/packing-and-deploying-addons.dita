@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="packing-and-deploying-addons">
+  <title>Packing and Deploying Frameworks as Add-ons</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Framework customization<indexterm>Deploying as Add-ons</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>In <ph keyref="product"/>, custom <xref keyref="glossentry_framework"
+        ><term>framework</term></xref> can be packed and deployed as an <term>add-on</term>.</p>
+    <section id="packing_a_plugin_or_framework_as_an_addon">
+      <title>Packing a Framework as an Add-on</title>
+      <p>This procedure is suitable for developers who want a better control over the <xref
+          keyref="glossentry_plugin"><term>add-on</term></xref> package or those who want to
+        automate some of the steps:<ol id="ol_ill_g4p_xlb">
+          <li>Pack the <xref href="framework-customization-extending.dita">full custom
+                <term>framework</term></xref> (or an extension of a framework) as a ZIP file or a
+              <xref keyref="glossentry_jar"><term>Java Archive</term></xref>. Note that you should
+            pack the entire root directory not just its contents.</li>
+          <li conkeyref="reusables-tools/li2"/>
+          <li conkeyref="reusables-tools/li3"/>
+        </ol></p>
+    </section>
+    <section id="section_jll_g4p_xlb">
+      <title>Alternate Packing Method: Add-ons Packager</title>
+      <p>Alternatively, you can use the <uicontrol>Add-ons Packager</uicontrol> plugin by following
+        this procedure:<ol id="ol_tpc_k4p_xlb">
+          <li>Go to <menucascade>
+              <uicontrol>Help</uicontrol>
+              <uicontrol>Install new add-ons</uicontrol>
+            </menucascade> to open an add-on selection dialog box. </li>
+          <li>Enter or paste
+              <b>https://www.oxygenxml.com/InstData/Addons/optional/updateSite.xml</b> in the
+              <uicontrol>Show add-ons from</uicontrol> field.</li>
+          <li>Select the <uicontrol>Add-ons Packager</uicontrol> add-on and click
+              <uicontrol>Next</uicontrol>. </li>
+          <li>Select the <b>I accept all terms of the end user license agreement</b> option and
+            click <uicontrol>Finish</uicontrol>. </li>
+          <li>Restart the application.<p><b>Result:</b> If the add-on is correctly installed, the
+                <uicontrol>Add-ons packager</uicontrol> toolbar action is available.</p></li>
+          <li>Invoke the <uicontrol>Add-ons packager</uicontrol> toolbar action and input the
+            required information in the displayed dialog box.</li>
+          <li>Click <uicontrol>OK</uicontrol> to complete the packaging process.</li>
+        </ol></p>
+    </section>
+    <section id="d1045e62">
+      <title>Deploying an Add-on</title>
+      <p conkeyref="reusables-tools/p2"/>
+    </section>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link format="html" href="https://www.oxygenxml.com/oxygen_sdk/community.html"
+        scope="external">
+        <linktext>Oxygen XML Add-on Repositories</linktext>
+      </link>
+    </linklist>
+  </related-links>
+</topic>

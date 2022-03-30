@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="debug-variables-view">
+  <title>Variables View</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Debugging XSLT<indexterm>Information views<indexterm>Variables
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XSLT Debugger perspective<indexterm>Information views<indexterm>Variables
+              view</indexterm></indexterm></indexterm>
+        <indexterm>Debugging XQuery<indexterm>Information views<indexterm>Variables
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XQuery Debugger perspective<indexterm>Information views<indexterm>Variables
+              view</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <uicontrol>Variables</uicontrol> view displays variables and parameters (local and
+      global), along with their values. <ph conkeyref="reusables-user-guide/reopen-view"/></p>
+    <p>Variables and parameters play an important role during an XSLT/XQuery transformation. <ph
+        keyref="product"/> uses the following icons to differentiate variables and parameters:<ul
+        id="ul_gpz_gdn_wr">
+        <li><uicontrol><image href="../img/GlobalVar12.png" id="image_lmy_fcn_wr"/></uicontrol> -
+          Global variable.</li>
+        <li><uicontrol><image href="../img/LocalVar12.png" id="image_z2d_hcn_wr"/></uicontrol> -
+          Local variable.</li>
+        <li><uicontrol><image href="../img/GlobalParam12.png" id="image_rlm_fcn_wr"/></uicontrol> -
+          Global parameter.</li>
+        <li><uicontrol><image href="../img/LocalParam12.png" id="image_nd5_gcn_wr"/></uicontrol> -
+          Local parameter.</li>
+      </ul></p>
+    <p>The following value types are available:</p>
+    <ul id="possible-values">
+      <li><uicontrol>Boolean</uicontrol></li>
+      <li><uicontrol>String</uicontrol></li>
+      <li><uicontrol>Date</uicontrol> - XSLT 2.0 / 3.0 only.</li>
+      <li><uicontrol>Number</uicontrol></li>
+      <li><uicontrol>Set</uicontrol></li>
+      <li><uicontrol>Object</uicontrol></li>
+      <li><uicontrol>Fragment</uicontrol> - Tree fragment.</li>
+      <li><uicontrol>Any</uicontrol></li>
+      <li><uicontrol>Undefined</uicontrol> - The value was not yet set, or it is not accessible. <note>
+          <p>When Saxon 6.5 is used, if the value is unavailable, then the following message is
+            displayed in the <uicontrol>Value</uicontrol> field: "The variable value is
+            unavailable". </p>
+          <p>When Saxon 9 is used:</p>
+          <ul>
+            <li>If the variable is not used, the <uicontrol>Value</uicontrol> field displays "The
+              variable is declared but never used".</li>
+            <li>If the variable value cannot be evaluated, the <uicontrol>Value</uicontrol> field
+              displays "The variable value is unavailable".</li>
+          </ul>
+        </note></li>
+      <li><uicontrol>Document</uicontrol></li>
+      <li><uicontrol>Element</uicontrol></li>
+      <li><uicontrol>Attribute</uicontrol></li>
+      <li><uicontrol>ProcessingInstruction</uicontrol></li>
+      <li><uicontrol>Comment</uicontrol></li>
+      <li><uicontrol>Text</uicontrol></li>
+      <li><uicontrol>Namespace</uicontrol></li>
+      <li><uicontrol>Evaluating</uicontrol> - Value under evaluation.</li>
+      <li><uicontrol>Not Known</uicontrol> - Unknown types.</li>
+    </ul>
+    <p>
+      <fig id="the-variables-view-oxygen" product="editor developer">
+        <title>Variables View</title>
+        <image href="../img/sa_variables_view.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig id="the-variables-view-oxygenEclipse" product="editorEclipse developerEclipse">
+        <title>Variables View</title>
+        <image href="../img/ec_variables_view.png"/>
+      </fig>
+    </p>
+    <table id="table-debug-variables-details" colsep="1" rowsep="1" frame="all">
+      <title>Variables Columns</title>
+      <tgroup cols="2">
+        <colspec colnum="1" colname="c1" colwidth="66pt" colsep="1" rowsep="1"/>
+        <colspec colnum="2" colname="c2" colwidth="177.75pt" colsep="1" rowsep="1"/>
+        <thead>
+          <row>
+            <entry>Column</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Name</entry>
+            <entry>Name of variable / parameter.</entry>
+          </row>
+          <row>
+            <entry>Value Type</entry>
+            <entry>Type of variable/parameter.</entry>
+          </row>
+          <row>
+            <entry>Value</entry>
+            <entry>Current value of variable / parameter.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <p>The value of a variable (the <uicontrol>Value</uicontrol> column) can be copied to the
+      clipboard for pasting it to other editor areas with the <uicontrol>Copy value</uicontrol>
+      action from the contextual menu. This is useful if you have long and complex values that
+      cannot be easily remembered just by looking at them once.</p>
+    <note type="important">Remarks:<ul>
+        <li>Local variables and parameters are the first entries presented in the table.</li>
+        <li>Clicking a record highlights the variable definition line.</li>
+        <li>Variable values could differ depending on the transformation engine used or stylesheet
+          version set.</li>
+        <li>If the value of the variable is a node set or a tree fragment, clicking it causes the
+            <xref href="debug-node-set-view.dita"><uicontrol>Node Set</uicontrol> view</xref> to be
+          shown with the corresponding set of values.</li>
+        <li>Variable table values can be sorted by clicking the corresponding column header.
+          Clicking the column header switches between the orders: ascending, descending, no
+          sort.</li>
+      </ul></note>
+  </body>
+</topic>

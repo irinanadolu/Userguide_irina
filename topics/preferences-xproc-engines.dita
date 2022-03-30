@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="preferences-xproc-engines">
+  <title>XProc Preferences</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Preferences<indexterm>XProc</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> includes a bundled version of the <i>Calabash</i> XProc engine that
+      can be used for XProc transformations and validation, but you also have several ways to
+      integrate other external XProc engines.</p>
+    <p>If the external engine is Java-based, or it has validation support, or it can receive
+      parameters or ports passed from the transformation, you need to <xref
+        href="xproc-API-external-engine.dita#xproc-API-external-engine">integrate the external XProc
+        engine using a plugin extension procedure</xref>.</p>
+    <p>If you do not need the engine to be used for automatic validation or pass parameters/ports
+      and it is not Java-based, you can add an external XProc engine by using the
+        <uicontrol>XProc</uicontrol> preferences page. <ph
+        conkeyref="reusables-preferences-pages/Open-the-preferences-page"/> and go to <menucascade>
+        <uicontrol>XML</uicontrol>
+        <uicontrol>XProc</uicontrol>
+      </menucascade>.</p>
+    <p>To add an external engine, click the <uicontrol>New</uicontrol> button. To configure an
+      existing engine, click the <uicontrol>Edit</uicontrol> button. This opens the
+        <uicontrol>Custom Engine</uicontrol> dialog box that allows you to configure an external
+      engine.</p>
+    <p>
+      <fig id="figure-xproc-command-line-oxygen" product="editor author developer">
+        <title>Creating an XProc external engine</title>
+        <image href="../img/sa_xproc_command_line.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig id="figure-xproc-command-line-oxygenEclipse"
+        product="editorEclipse authorEclipse developerEclipse">
+        <title>Creating an XProc external engine</title>
+        <image href="../img/ec_xproc_command_line.png"/>
+      </fig>
+    </p>
+    <p>The following options can be configure in this custom engine configuration dialog box:<ul
+        id="ul_u5h_xgg_ps">
+        <li><uicontrol>Name</uicontrol> - The value of this field will be displayed in the XProc
+          transformation scenario and in the command line that will start it.</li>
+        <li><uicontrol>Description</uicontrol> - A textual description that will appear as a tooltip
+          where the XProc engine will be used.</li>
+        <li><uicontrol>Working directory</uicontrol> - The working directory for resolving relative
+          paths. <ph conkeyref="reusables-user-guide/specify-path-without-drop-down"/></li>
+        <li><uicontrol>Command line</uicontrol> - The command line that will run the XProc engine as
+          an external process. <ph conkeyref="reusables-user-guide/specify-path-without-drop-down"
+          /></li>
+        <li><uicontrol>Output encoding</uicontrol> - The encoding for the output stream of the XProc
+          engine, used for reading and displaying the output messages.</li>
+        <li><uicontrol>Error encoding</uicontrol> - The encoding for the error stream of the XProc
+          engine, used for reading and displaying the messages from the error stream.</li>
+      </ul></p>
+    <p>
+      <note> You can configure the built-in Calabash processor by using the
+          <filepath>calabash.config</filepath> file. This file is located in <filepath><term
+            conkeyref="reusables-user-guide/oxy-install-dir"/>\lib\xproc\calabash\lib</filepath>. If
+        that file does not exist, you have to create it.</note>
+    </p>
+    <p>The <uicontrol>Show XProc messages</uicontrol> option at the bottom of the
+        <uicontrol>XProc</uicontrol> preferences page can be selected if you want all messages
+      emitted by the XProc processor during a transformation to be presented in dedicated XProc
+        <xref href="results-view.dita#results-view"><uicontrol>Results</uicontrol> view</xref>.</p>
+  </body>
+</topic>

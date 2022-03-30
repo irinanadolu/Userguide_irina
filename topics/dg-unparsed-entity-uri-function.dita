@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="dg-unparsed-entity-uri-function">
+  <title>Unparsed Entity URI: oxy_unparsed-entity-uri() Function</title>
+  <shortdesc>This function returns the URI value of an unparsed entity name.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS extensions<indexterm>Custom
+              functions<indexterm>oxy_unparsed-entity-uri</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>
+      <dl>
+        <dlentry>
+          <dt>Syntax:</dt>
+          <dd>
+            <p>
+              <syntaxdiagram>
+                <groupseq>
+                  <kwd>oxy_unparsed-entity-uri</kwd>
+                  <sep>(</sep>
+                  <kwd>unparsedEntityName</kwd>
+                  <sep>)</sep>
+                </groupseq>
+              </syntaxdiagram>
+            </p>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt>unparsedEntityName </dt>
+                  <dd>The name of an unparsed entity defined in the DTD.</dd>
+                </dlentry>
+              </dl>
+            </p>
+            <p>This function can be useful to display images that are referenced with unparsed
+              entity names.</p>
+            <p><b><u>Example: <i>oxy_unparsed-entity-uri</i> Function</u></b></p>
+            <p>CSS for displaying the image in Author for an <i>imagedata</i> with <i>entityref</i>
+              to an unparsed
+              entity:<codeblock outputclass="language-css">imagedata[entityref]{
+content: oxy_url(oxy_unparsed-entity-uri(attr(entityref))); 
+}</codeblock></p>
+          </dd>
+        </dlentry>
+      </dl>
+    </p>
+  </conbody>
+</concept>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="using-check-spelling">
+  <title>Spell Checking</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Spell checking</indexterm>
+        <indexterm>Check Spelling</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> includes an <xref
+        href="spell-check-as-you-type.dita#spell-check-as-you-type">automatic (as-you-type) spell
+        checking feature</xref>, as well as a manual spell checking action to open a
+        <uicontrol>Spelling</uicontrol> dialog box that offers a variety of options.</p>
+    <p>To manually check spelling in the current document, use the <uicontrol><image
+          href="../img/CheckSpelling16.png" id="image_qfd_3vh_5r"/>Check Spelling</uicontrol> action
+      on the toolbar<ph product="author developer editor"> or from the <uicontrol>Edit</uicontrol>
+        menu</ph>.</p>
+    <p>
+      <fig id="check-spelling-dialog-oxygen">
+        <title>Check Spelling Dialog Box</title>
+        <image href="../img/sa_check_spelling.png"/>
+      </fig>
+    </p>
+    <p>The <uicontrol>Spelling</uicontrol> dialog box contains the following:<dl>
+        <dlentry>
+          <dt><uicontrol>Unrecognized word</uicontrol></dt>
+          <dd>Displays the word that cannot be found in the selected dictionary. The word is also
+            highlighted in the XML document.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Replace with</uicontrol></dt>
+          <dd>The character string that will replace the misspelled word.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Guess</uicontrol></dt>
+          <dd>Displays a list of suggested words to replace the unknown word. Double-click a word to
+            automatically insert it in the document and resume the spell checking process.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Default language</uicontrol></dt>
+          <dd>Allows you to select the default language dictionary used by the spelling engine.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Paragraph language</uicontrol></dt>
+          <dd>In an XML document, you can mix content written in multiple languages. You can set the
+            language code in the <xmlatt>lang</xmlatt> or <xmlatt>xml:lang</xmlatt> attribute for
+            any particular section and <ph keyref="product"/> will automatically instruct the spell
+            checker engine to apply the appropriate language dictionary for that section. </dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Begin at cursor position</uicontrol></dt>
+          <dd>Instructs the spell checker to begin checking the document starting from the current
+            cursor position.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Action Buttons</dt>
+          <dd>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt><uicontrol>Replace</uicontrol></dt>
+                  <dd>Use this button to replace the unrecognized word with the selected word from
+                    the <uicontrol>Replace with</uicontrol> field.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Replace All</uicontrol></dt>
+                  <dd>Use this button to replace all occurrences of the unrecognized word with the
+                    selected word from the <uicontrol>Replace with</uicontrol> field, starting from
+                    the cursor's position to the end of the document.<note>This action is
+                      case-sensitive.</note></dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore</uicontrol></dt>
+                  <dd>Ignores the first occurrence of the unrecognized word and allows you to
+                    continue checking the document. <ph keyref="product"/> skips the content of the
+                    XML elements <xref href="spell-check-ignore-words.dita#spell-check-ignore-words"
+                      format="dita">marked to be ignored</xref>.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore All</uicontrol></dt>
+                  <dd>Ignores all instances of the unrecognized word in the current document.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Learn</uicontrol></dt>
+                  <dd>Adds the unrecognized word to the list of valid words.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Options</uicontrol></dt>
+                  <dd>Opens the <xref
+                      href="preferences-editor-spell-check.dita#preferences-editor-spell-check"
+                        ><uicontrol>Spell Check</uicontrol> preferences page</xref> where you can
+                    configure various options regarding the feature.</dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+      </dl></p>
+  </body>
+  <related-links product="author editor authorEclipse editorEclipse">
+    <linklist>
+      <title>Related Information:</title>
+      <link href="autocorrect.dita#autocorrect"/>
+    </linklist>
+  </related-links>
+</topic>

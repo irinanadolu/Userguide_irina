@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="smart-paste-support">
+  <title>Smart Paste in Author Mode</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Author editing mode<indexterm>Smart Paste</indexterm></indexterm>
+        <indexterm>XML documents<indexterm>Author Mode editing<indexterm>Smart
+            Paste</indexterm></indexterm></indexterm>
+        <indexterm>Smart Paste support in Author Mode</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <uicontrol>Author</uicontrol> editing mode includes a <term>Smart Paste</term> feature
+      that preserves certain style and structure information when copying content and pasting it
+      into document types that support the feature. You can copy content from various sources,
+      including web pages, external applications (such as Office-type applications), or other
+      documents in <ph keyref="product"/>, and then paste it into DITA, TEI, DocBook, JATS, and
+      XHTML documents. <ph keyref="product"/> preserves the original text styling (such as bold,
+      italics, underline) and formatting (such as lists, tables, paragraphs) and considers various
+      pasting solutions to keep the resulting document valid.</p>
+    <p>The styles and general layout of the pasted content are converted to the equivalent XML
+      markup for the target document type while preserving certain style and structure information.
+      For example, if you copy content that includes multiple paragraphs and then paste it in
+        <uicontrol>Author</uicontrol> mode, the multiple paragraph structure is preserved. If you
+      paste the content in a location where the resulting XML would not be valid, <ph
+        keyref="product"/> will attempt to place it in a valid location, and may prompt you with one
+      or more choices for where to place it.</p>
+    <note type="tip">When pasting text fragments formatted with the <i>Courier New</i> font, the
+        <term>Smart Paste</term> mechanism will wrap it in an inline code element (for example, in
+      DITA it would be wrapped in a <xmlelement>codeph</xmlelement> element).</note>
+    <section id="smart_paste_options">
+      <title>Smart Paste Options</title>
+      <p>By default, the <term>Smart Paste</term> feature is enabled in <ph keyref="product"/>.
+        There are several options in the <xref
+          href="preferences-schema-aware.dita#preferences-schema-aware"><uicontrol>Schema
+            Aware</uicontrol> preferences page</xref> that control the <term>Smart Paste</term> mechanism:<ul>
+          <li><xref
+              href="preferences-schema-aware.dita#preferences-schema-aware/smart-paste-drag-drop"
+                ><uicontrol>Smart paste and drag and drop</uicontrol></xref> - This option
+            determines whether or not <ph keyref="product"/> will try to find an appropriate insert
+            position when the current location is not valid for the pasted content. This option is
+            selected by default.</li>
+          <li><xref href="preferences-schema-aware.dita#preferences-schema-aware/reject-action"
+                ><uicontrol>Reject action when its result is invalid</uicontrol></xref> - If you
+            select this option, <ph keyref="product"/> will not let you paste content into a
+            position where it would be invalid. This option is deselected by default.</li>
+          <li><xref
+              href="preferences-schema-aware.dita#preferences-schema-aware/convert_external_content_on_paste"
+                ><uicontrol>Convert external content on paste</uicontrol></xref> - This option
+            determines whether or not <ph keyref="product"/> will convert the styling and formatting
+            of copied content from external sources when pasting it into a document type that
+            supports the feature. This option is selected by default.</li>
+          <li><xref
+              href="preferences-schema-aware.dita#preferences-schema-aware/convert-even-space-preserve"
+                ><uicontrol>Convert even when pasting inside space-preserve
+              elements</uicontrol></xref> - If you select this option, the <term>Smart Paste</term>
+            feature will also work when pasting external content into a <term>space-preserve</term>
+            element (such as a <xmlelement>codeblock</xmlelement>). This option is deselected by
+            default.</li>
+        </ul></p>
+    </section>
+    <section id="doc-types-sp-p">
+      <title>Smart Paste Supported Document Types</title>
+      <p>The <term>Smart Paste</term> feature is supported for the following document types (<xref
+          keyref="glossentry_framework"><term>frameworks</term></xref>):<ul>
+          <li>DITA</li>
+          <li>DocBook 4</li>
+          <li>DocBook 5</li>
+          <li>TEI</li>
+          <li>XHTML</li>
+          <li>JATS</li>
+        </ul></p>
+    </section>
+    <p>For more information about the <term>Smart Paste</term> support, watch our video
+      demonstration:</p>
+    <p><object width="450" height="250" data="https://www.youtube.com/embed/bpiXZQwzBfA"
+        outputclass="iframe">
+        <param name="allowfullscreen" value="true"/>
+      </object></p>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="author-customize-smart-paste.dita#author-customize-smart-paste"/>
+      <link href="ooxml-to-dita.dita"/>
+      <link format="html" href="https://github.com/oxygenxml/oxygen-resources-converter"
+        scope="external">
+        <linktext><b>Oxygen Batch Converter add-on</b> (Convert Markdown/HTML to DITA or
+          DocBook)</linktext>
+      </link>
+    </linklist>
+  </related-links>
+</topic>

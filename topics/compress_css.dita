@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="compress_css">
+  <title>Minifying CSS Stylesheets</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS stylesheets<indexterm>Minifying</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><i>Minification</i> (or <i>compression</i>) of a CSS document is the practice of removing
+      unnecessary code without affecting the functionality of the stylesheet.</p>
+    <p>To minify a CSS, invoke the contextual menu anywhere in the edited document and choose the
+        <uicontrol>Minify CSS</uicontrol> action. <ph keyref="product"/> opens a dialog box that
+      allows you to:<ul>
+        <li>Set the location of the resulting CSS.</li>
+        <li>Place each style rule on a new line.</li>
+      </ul></p>
+    <p>After pressing <uicontrol>OK</uicontrol>, <ph keyref="product"/> performs the following actions:<ul>
+        <li>All spaces are normalized (all leading and trailing spaces are removed, while sequences
+          of white spaces are replaced with single space characters).</li>
+        <li>All comments are removed.</li>
+      </ul><note>The CSS minifier relies heavily upon the W3C CSS specification. If the content of
+        the CSS file you are trying to minify does not conform with the specifications, an error
+        dialog box will be displayed, listing all errors encountered during the
+      processing.</note></p>
+    <p>The resulting CSS stylesheet gains a lot in terms of execution performance, but loses in
+      terms of readability. The source CSS document is left unaffected.<note>To restore the
+        readability of a minified CSS, invoke the <uicontrol>Format and Indent</uicontrol> action
+        from the <menucascade product="author developer editor">
+          <uicontrol>Document</uicontrol>
+          <uicontrol>Source</uicontrol>
+        </menucascade><uicontrol product="authorEclipse developerEclipse editorEclipse"
+          >XML</uicontrol> menu, the <uicontrol>Source</uicontrol> submenu from the contextual menu,
+        or <uicontrol>Source</uicontrol> toolbar. However, this action will not recover any of the
+        deleted comments.</note></p>
+  </body>
+</topic>

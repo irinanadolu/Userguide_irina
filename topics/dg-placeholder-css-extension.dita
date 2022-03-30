@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="dg-placeholder-css-extension">
+  <title>Placeholders for Empty Elements: -oxy-placeholder-content Property</title>
+  <shortdesc>Used to configure placeholders for empty elements.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS extensions<indexterm>Additional CSS
+              properties<indexterm>-oxy-placeholder-content
+          property</indexterm></indexterm></indexterm>
+        <indexterm>CSS extensions<indexterm>Additional CSS
+              properties<indexterm>-oxy-show-placeholder
+          property</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> displays the element name as pseudo-content for empty elements if the
+        <xref keyref="options_author/show-placeholders-empty-elements"><uicontrol>Show placeholders
+          for empty elements</uicontrol> option</xref> is selected in the
+        <uicontrol>Author</uicontrol> preferences page and there is no <i>before</i> or <i>after</i>
+      content set in the CSS for this type of element. There are two CSS properties that can be used
+      to control the placeholders (<codeph>-oxy-placeholder-content</codeph> and
+        <codeph>-oxy-show-placeholder</codeph>).</p>
+    <section id="oxyplaceholdercontent_css_property">
+      <title><codeph>-oxy-placeholder-content</codeph> CSS Property</title>
+      <p>To control the displayed pseudo-content for empty elements, you can use the
+          <codeph>-oxy-placeholder-content</codeph> CSS property.</p>
+      <p>The following example would change the <xmlelement>keyword</xmlelement> element to be displayed as
+          <codeph>key</codeph>:<codeblock outputclass="language-css">keyword{
+    -oxy-placeholder-content:"key";
+}</codeblock></p>
+      <note>This CSS property accepts the <xref
+          href="editor-variables.dita#editor-variables/localization"><b>${i18n(key)}</b></xref>
+        localization editor variable, as in the following
+        example:<codeblock outputclass="language-css">-oxy-placeholder-content:"${i18n(id)}";</codeblock></note>
+    </section>
+    <section id="oxyshowplaceholder_css_property">
+      <title><codeph>-oxy-show-placeholder</codeph> CSS Property</title>
+      <p>The <codeph>-oxy-show-placeholder</codeph> property allows you to decide whether or not the
+        placeholder will be shown. The possible values are:<ul id="ul_dwh_1t4_4d">
+          <li><b>always</b> - Always display placeholders.</li>
+          <li><b>default</b> - Always display placeholders if <i>before</i> or <i>after</i> content
+            is not set in the CSS.</li>
+          <li><b>inherit</b> - The placeholders are displayed according to the <xref
+              keyref="options_author/show-placeholders-empty-elements"><uicontrol>Show placeholders
+                for empty elements</uicontrol> option</xref> (if <i>before</i> and <i>after</i>
+            content is not declared).</li>
+          <li><b>no</b> - Never display placeholders.</li>
+        </ul></p>
+    </section>
+    <note>Deprecated properties <codeph>show-placeholder</codeph> and
+        <codeph>placeholder-content</codeph> are also supported.</note>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="customizing-templates.dita#customizing-templates">
+        <linktext>Using Placeholders in Document Templates</linktext>
+      </link>
+    </linklist>
+  </related-links>
+</topic>

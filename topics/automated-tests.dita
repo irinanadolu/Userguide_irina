@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="automated-tests">
+  <title>Creating and Running Automated Tests</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Oxygen SDK<indexterm>Automated tests</indexterm></indexterm>
+        <indexterm>Plugins<indexterm>Automated tests</indexterm></indexterm>
+        <indexterm>Automated tests</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>If you have developed complex custom <xref keyref="glossentry_plugin"
+        ><term>plugins</term></xref> or <xref keyref="glossentry_framework"
+        ><term>frameworks</term></xref> (document types), the best way to test your implementation
+      and ensure that further changes will not interfere with the current behavior is to make
+      automated tests for your customization.</p>
+    <p>An <ph><ph keyref="product"/></ph> standalone installation includes a main
+        <filepath>oxygen.jar</filepath> library located in the <filepath><term
+          conkeyref="reusables-user-guide/oxy-install-dir"/></filepath>. That <xref
+        keyref="glossentry_jar"><term>JAR</term></xref> library contains a base class for testing
+      developer customizations named: <i>ro.sync.exml.workspace.api.PluginWorkspaceTCBase</i>.</p>
+    <p>To develop <i>JUnit</i> tests for your customizations using the Eclipse workbench, follow
+      these steps:</p>
+    <ol id="ol_g45_pdc_mh">
+      <li>Create a new Eclipse Java project and copy the entire contents of the <filepath><term
+            conkeyref="reusables-user-guide/oxy-install-dir"/></filepath> folder to the new
+        project.</li>
+      <li>Add all <term>JAR</term> libraries present in the <filepath><term
+            conkeyref="reusables-user-guide/oxy-install-dir"/>/lib</filepath> directory to the
+          <uicontrol>Java Build Path</uicontrol>-><uicontrol>Libraries</uicontrol> tab. Make sure
+        that the main <term>JAR</term> library <filepath>oxygen.jar</filepath> or
+          <filepath>oxygenAuthor.jar</filepath> is the first one in the Java classpath by moving it
+        up in the <uicontrol>Order and Export</uicontrol> tab.</li>
+      <li>Click <b>Add Library</b> and add the <xref
+          href="https://github.com/junit-team/junit/wiki/Download-and-Install" format="html"
+          scope="external"><i>JUnit</i></xref> and <xref
+          href="https://sourceforge.net/projects/jfcunit/" format="html" scope="external"
+            ><i>JFCUnit</i></xref> libraries.</li>
+      <li>Create a new Java class that extends
+          <i>ro.sync.exml.workspace.api.PluginWorkspaceTCBase</i>.</li>
+      <li>Pass the following parameters to the constructor of the super class: <ul
+          id="ul_dnz_3fc_mh">
+          <li><b>File installationFolder</b> - The file path to the main application
+            installation directory. If not specified, it defaults to the folder where the test is
+            started.</li>
+          <li><b>File frameworksFolder</b> - The file path to the
+              <filepath>frameworks</filepath> directory. It can point to a custom
+              <term>framework</term> directory where it resides.</li>
+          <li><b>File pluginsFolder</b> - The file path to the
+              <filepath>plugins</filepath> directory. It can point to a custom <term>plugin</term>
+            directory where it resides.</li>
+          <li><b>File optionsFolder</b> - The folder that contains the application
+            options. If not specified, the application will auto-detect the location based on the
+            started product ID.</li>
+          <li><b>String licenseKey</b> - The license key used to license the test
+            class.</li>
+          <li><b>int productID</b> - The ID of the product and should be one of the
+            following: <codeph>PluginWorkspaceTCBase.XML_AUTHOR_PRODUCT</codeph>,
+              <codeph>PluginWorkspaceTCBase.XML_EDITOR_PRODUCT</codeph>, or
+              <codeph>PluginWorkspaceTCBase.XML_DEVELOPER_PRODUCT</codeph>.</li>
+        </ul></li>
+      <li>Create test methods that use the API in the base class to open XML files and perform
+        various actions on them. Your test class could look something like
+        this:<codeblock outputclass="language-java">public class MyTestClass extends PluginWorkspaceTCBase {
+	
+/**
+ * Constructor.
+ */
+public MyTestClass() throws Exception {
+	super(null, new File("frameworks"), new File("plugins"), null, 
+"------START-LICENSE-KEY------\n" + 
+	"\n" + 
+	"Registration_Name=Developer\n" + 
+	"\n" + 
+	"Company=\n" + 
+	"\n" + 
+	"Category=Enterprise\n" + 
+	"\n" + 
+	"Component=XML-Editor, XSLT-Debugger, Saxon-SA\n" + 
+	"\n" + 
+	"Version=14\n" + 
+	"\n" + 
+	"Number_of_Licenses=1\n" + 
+	"\n" + 
+	"Date=09-04-2012\n" + 
+	"\n" + 
+	"Trial=31\n" + 
+	"\n" + 
+	"SGN=MCwCFGNoEGJSeiC3XCYIyalvjzHhGhhqAhRNRDpEu8RIWb8icCJO7HqfVP4++A\\=\\=\n" + 
+	"\n" + 
+"-------END-LICENSE-KEY-------", 
+ PluginWorkspaceTCBase.XML_AUTHOR_PRODUCT);
+	}
+	
+ /**
+   * &lt;p>&lt;b>Description:&lt;/b> TC for opening a file and using a bold operation&lt;/p>
+   * &lt;p>&lt;b>Bug ID:&lt;/b> EXM-20417&lt;/p>
+   *
+   * @author radu_coravu
+   *
+   * @throws Exception
+   */
+public void testOpenFileAndBoldEXM_20417() throws Exception {
+      WSEditor ed = open(new File
+("D:/projects/eXml/test/authorExtensions/dita/sampleSmall.xml").toURL());
+	    //Move caret
+	    moveCaretRelativeTo("Context", 1, false);
+	    
+	    //Insert &lt;b>
+	    invokeAuthorExtensionActionForID("bold");
+	    assertEquals("&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + 
+	    		"&lt;!DOCTYPE task PUBLIC \"-//OASIS//DTD DITA Task//EN\"
+ \"http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd\">\n" + 
+	    		"&lt;task id=\"taskId\">\n" + 
+	    		"    &lt;title>Task &lt;b>title&lt;/b>&lt;/title>\n" + 
+	    		"    &lt;prolog/>\n" + 
+	    		"    &lt;taskbody>\n" + 
+	    		"        &lt;context>\n" + 
+	    		"            &lt;p>Context for the current task&lt;/p>\n" + 
+	    		"        &lt;/context>\n" + 
+	    		"        &lt;steps>\n" + 
+	    		"            &lt;step>\n" + 
+	    		"                &lt;cmd>Task step.&lt;/cmd>\n" + 
+	    		"            &lt;/step>\n" + 
+	    		"        &lt;/steps>\n" + 
+	    		"    &lt;/taskbody>\n" + 
+	    		"&lt;/task>\n" + 
+	    		"", getCurrentEditorXMLContent());
+	  }
+}</codeblock></li>
+    </ol>
+  </body>
+</topic>

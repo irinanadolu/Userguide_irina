@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="debug-messages-view">
+  <title>Messages View</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Debugging XSLT<indexterm>Information views<indexterm>Messages
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XSLT Debugger perspective<indexterm>Information views<indexterm>Messages
+              view</indexterm></indexterm></indexterm>
+        <indexterm>Debugging XQuery<indexterm>Information views<indexterm>Messages
+            view</indexterm></indexterm></indexterm>
+        <indexterm>XQuery Debugger perspective<indexterm>Information views<indexterm>Messages
+              view</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>Using an <b>xsl:message</b> instruction is one way to signal special situations encountered
+      during transformation as well as a raw way of doing the debugging. The
+        <uicontrol>Messages</uicontrol> view is available only for XSLT debugging sessions and shows
+      all <codeph>xsl:message</codeph> calls executed by the XSLT processor during transformation.
+        <ph conkeyref="reusables-user-guide/reopen-view"/></p>
+    <p>
+      <fig id="the-messages-view-oxygen" product="editor developer">
+        <title>Messages View</title>
+        <image href="../img/sa_messages_view.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig id="the-messages-view-oxygenEclipse" product="editorEclipse developerEclipse">
+        <title>Messages View</title>
+        <image href="../img/ec_messages_view.png"/>
+      </fig>
+    </p>
+    <table id="table-debug-messages-details" colsep="1" rowsep="1" frame="all">
+      <title>Messages columns</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry>Column</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Message</entry>
+            <entry>Message content.</entry>
+          </row>
+          <row>
+            <entry>Terminate</entry>
+            <entry>Signals whether or not the processor terminates the transformation once it
+              encounters the message (yes/no respectively).</entry>
+          </row>
+          <row>
+            <entry>Resource</entry>
+            <entry>Resource file where <i>xsl:message</i> instruction is defined and the message
+              line number. <ph product="editor developer">The complete path of the resource is
+                available as tooltip.</ph>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <p>The following actions are available in the contextual menu:<dl>
+        <dlentry>
+          <dt><uicontrol>Go to</uicontrol></dt>
+          <dd>Highlight the XSL fragment that generated the message.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Copy</uicontrol></dt>
+          <dd>Copies to clipboard message details (system ID, severity info, description, start
+            location, terminate state).</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol><image href="../img/RemoveAll16.gif" id="image_y2s_tw4_5r"/>Clear
+              all</uicontrol></dt>
+          <dd>Removes all messages from the view.</dd>
+        </dlentry>
+      </dl></p>
+    <note type="important">
+      <ul>
+        <li>Clicking a record from the table highlights the <codeph>xsl:message</codeph> declaration
+          line.</li>
+        <li>Message table values can be sorted by clicking the corresponding column header. Clicking
+          the column header switches the sorting order between: ascending, descending, no sort.</li>
+      </ul>
+    </note>
+  </body>
+</topic>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="image-map-docbook">
+  <title>Image Maps in DocBook</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Author editing mode<indexterm>Image Map
+            Editor<indexterm>DocBook</indexterm></indexterm></indexterm>
+        <indexterm>XML documents<indexterm>Author Mode editing<indexterm>Image Map
+                Editor<indexterm>DocBook</indexterm></indexterm></indexterm></indexterm>
+        <indexterm>Image Map Editor in DocBook</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> includes support for <b>image maps</b> in DocBook documents
+      through the use of the <xmlelement>areaspec</xmlelement> element. This feature provides an easy way to
+      create hyperlinks in various parts of an image without having to divide the image into
+      separate image files. The visual <uicontrol>Author</uicontrol> editing mode includes an
+        <uicontrol>Image Map Editor</uicontrol> that helps you to easily create and configure image
+      maps.</p>
+    <p>
+      <fig>
+        <title>Image Map Editor in DocBook</title>
+        <image href="../img/image_map_docbook.png" placement="inline"/>
+      </fig>
+    </p>
+    <section id="image_map_editor_interface_in_docbook">
+      <title>Image Map Editor Interface in DocBook</title>
+      <p>The interface of the <uicontrol>Image Map Editor</uicontrol> consists of the following
+        sections and actions:<dl>
+          <dlentry id="toolbar">
+            <dt>Toolbar</dt>
+            <dd>
+              <p>
+                <dl>
+                  <dlentry conkeyref="reusables-editing-documents/rect">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/duplicate">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/delete">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/undo">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/redo">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/show-numbers">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/bring-front">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/bring-forward">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/send-backward">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/send-back">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/color-chooser">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry conkeyref="reusables-editing-documents/zoom">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                </dl>
+              </p>
+            </dd>
+          </dlentry>
+          <dlentry id="image-map-image-pane">
+            <dt>Image Pane</dt>
+            <dd>
+              <p conkeyref="reusables-editing-documents/image-pane-p"/>
+              <p>
+                <dl>
+                  <dlentry conkeyref="reusables-editing-documents/mouse-controls-dlentry">
+                    <dt/>
+                    <dd/>
+                  </dlentry>
+                  <dlentry id="contextual-actions-dlentry">
+                    <dt><u>Contextual Menu Actions Available in the Image Pane</u></dt>
+                    <dd>
+                      <p>You can right-click the shapes, or anywhere in the Image Pane to invoke the
+                        contextual menu where the following actions are available:</p>
+                      <p>
+                        <dl>
+                          <dlentry conkeyref="reusables-editing-documents/contextual-duplicate">
+                            <dt/>
+                            <dd/>
+                          </dlentry>
+                          <dlentry conkeyref="reusables-editing-documents/contextual-delete">
+                            <dt/>
+                            <dd/>
+                          </dlentry>
+                          <dlentry conkeyref="reusables-editing-documents/contextual-rectangle">
+                            <dt/>
+                            <dd/>
+                          </dlentry>
+                          <dlentry conkeyref="reusables-editing-documents/contextual-undo">
+                            <dt/>
+                            <dd/>
+                          </dlentry>
+                          <dlentry conkeyref="reusables-editing-documents/contextual-redo">
+                            <dt/>
+                            <dd/>
+                          </dlentry>
+                        </dl>
+                      </p>
+                    </dd>
+                  </dlentry>
+                </dl>
+              </p>
+            </dd>
+          </dlentry>
+          <dlentry conkeyref="reusables-editing-documents/shape-table">
+            <dt/>
+            <dd/>
+          </dlentry>
+          <dlentry>
+            <dt>Properties</dt>
+            <dd>
+              <p>
+                <dl>
+                  <dlentry>
+                    <dt><uicontrol>Type</uicontrol></dt>
+                    <dd>Displays information about the selected coordinate.</dd>
+                  </dlentry>
+                  <dlentry id="id">
+                    <dt><uicontrol>ID</uicontrol></dt>
+                    <dd>The identifier for the selected area. This will become the value of the
+                      <xmlatt>xml:id</xmlatt> attribute for the particular <xmlelement>area</xmlelement>
+                      element.</dd>
+                  </dlentry>
+                  <dlentry id="target">
+                    <dt><uicontrol>Target</uicontrol></dt>
+                    <dd>Allows you to choose the target resource that you want the selected area to
+                      be linked to. You can enter the path to the target in the text field but the
+                      easiest way to select a target is to use the <uicontrol><image
+                          href="../img/LinkDrop.png" id="image_nbp_mkx_sr"/>Link</uicontrol>
+                      drop-down menu to the right of the text field. You can choose between the
+                      following types of links: <uicontrol>Cross Reference</uicontrol> or
+                        <uicontrol>Web Link</uicontrol>. Both types open a dialog box that allows
+                      you to select the target resource and it is inserted as the value of an
+                        <xmlatt>xlink:href</xmlatt> attribute.</dd>
+                  </dlentry>
+                  <dlentry id="description">
+                    <dt><uicontrol>Description</uicontrol></dt>
+                    <dd>You can enter an optional description for the selected area that will be
+                      displayed in the <xref href="#image-map-docbook/image-map-details"
+                        format="dita"><uicontrol>Image Map Details</uicontrol> section</xref> in
+                        <uicontrol>Author</uicontrol> mode and as a tooltip message when the end-user hovers over the hyperlink in the output.</dd>
+                  </dlentry>
+                </dl>
+              </p>
+            </dd>
+          </dlentry>
+        </dl></p>
+    </section>
+    <section id="how_to_create_an_image_map_in_docbook">
+      <title>How to Create an Image Map in DocBook</title>
+      <p>To create an image map on an existing image in a DocBook document, follow these steps:<ol>
+          <li>
+            <p>Right-click the image and select <uicontrol>Image Map Editor</uicontrol>.</p>
+            <p><b>Step Result:</b> This action will apply an <i>image map</i> to the current image
+              and open the <uicontrol>Image Map Editor</uicontrol> dialog box.</p>
+          </li>
+          <li>Add hyperlinks to the image by selecting the <uicontrol><image
+                href="../img/NewRectangle20.png"/>New Rectangle</uicontrol> button.</li>
+          <li>Move the shape to the desired area in the image and drag any of the points on the
+            shape to adjust its size or form. You can use the <xref
+              href="#image-map-docbook/toolbar" format="dita">other buttons on the toolbar</xref> to
+            adjust its layer and color, or to perform other editing actions.<note type="tip">You can
+              right-click any of the shapes or anywhere in the Image Pane to access various helpful
+                <xref href="#image-map-docbook/contextual-actions-dlentry" format="dita">contextual
+                menu actions</xref>.</note></li>
+          <li>With the shape selected, enter an <xref href="#image-map-docbook/id" format="dita"
+                ><uicontrol>ID</uicontrol></xref> and use one of the <xref
+              href="#image-map-docbook/target" format="dita">linking options</xref> in the
+                <uicontrol><image href="../img/LinkDrop.png"/>Link</uicontrol> drop-down menu to
+            select a target resource (or enter its path in the <xref
+              href="#image-map-docbook/target" format="dita"><uicontrol>Target</uicontrol></xref>
+            text field).</li>
+          <li>(Optional) Enter a <xref href="#image-map-docbook/description" format="dita"
+                ><uicontrol>Description</uicontrol></xref> for the selected area (shape).</li>
+          <li>If you want to add more hyperlinks to the image, select <uicontrol><image
+                href="../img/NewRectangle20.png"/>New Rectangle</uicontrol> button again and repeat
+            the appropriate steps.</li>
+          <li>When you are finished creating hyperlinks, click <uicontrol>OK</uicontrol> to process
+            your changes.</li>
+        </ol></p>
+      <p><b>Result:</b> The <i>image map</i> is applied on the image and the appropriate
+        elements and attributes are automatically added. In <uicontrol>Author</uicontrol> mode, the
+        image map is now rendered over the image. If the image includes an <xmlelement>alt</xmlelement>
+        element, its value will be displayed above the image. The following two buttons will also
+        now be available at the top of the image in <uicontrol>Author</uicontrol> mode:<ul>
+          <li><uicontrol>Image Map Editor</uicontrol> - Click this button to open the
+              <uicontrol>Image Map Editor</uicontrol>.</li>
+          <li id="image-map-details"><uicontrol>Image Map Details</uicontrol> - Click this button to
+            expand a section that displays the details of the image map.</li>
+        </ul></p>
+    </section>
+    <section id="how_to_edit_an_existing_image_map_in_docbook">
+      <title>How to Edit an Existing Image Map in DocBook</title>
+      <p>To edit an existing image map, use any of the following methods:<ul>
+          <li>Simply double-click the image.</li>
+          <li>Right-click the image and select <uicontrol>Image Map Editor</uicontrol>.</li>
+          <li>Click the <uicontrol>Image Map Editor</uicontrol> button below the image.</li>
+        </ul>All three methods open the <uicontrol>Image Map Editor</uicontrol> where you can make
+        changes to the image map using the various features described above. You can also make
+        changes to the XML structure of the image map in the <uicontrol>Text</uicontrol> editing
+        mode.</p>
+      <p>You can also click the <uicontrol>Image Map Details</uicontrol> button above the image to
+        expand a section that displays the details of the image map and allows you to change the
+        coordinates and IDs of the hyperlinked areas.<note type="note">If you want to link a set of
+          related <xmlelement>area</xmlelement> elements, you can use <xmlelement>areaset</xmlelement> elements. To
+          add <xmlelement>areaset</xmlelement> elements, and <xmlelement>area</xmlelement> elements to the
+            <i>areasets</i>, switch to <uicontrol>Text</uicontrol> mode and insert them manually.
+        </note></p>
+    </section>
+    <section id="overlapping_areas">
+      <title>Overlapping Areas</title>
+      <p>If shapes overlap one another in the <uicontrol>Image Map Editor</uicontrol>, the one on
+        the top layer takes precedence. The number shown inside each shape represents its layer (if
+        the numbers are not displayed, click the <uicontrol><image href="../img/ShowLayers20.png"
+          />Show/Hide Numbers</uicontrol> button on the <xref href="#image-map-docbook/toolbar"
+          format="dita"><uicontrol>Image Map Editor</uicontrol> toolbar</xref>). To change the layer
+        order for a shape, use the layer buttons on the <xref href="#image-map-docbook/toolbar"
+          format="dita"><uicontrol>Image Map Editor</uicontrol> toolbar</xref> (<image
+          href="../img/BringShapeToFront20.png"/>, <image href="../img/BringShapeForward20.png"/>,
+          <image href="../img/SendShapeBackward20.png"/>, <image href="../img/SendShapeToBack20.png"
+        />).</p>
+      <p>If you insert a shape and all of its coordinates are completely inside another shape, the
+          <uicontrol>Image Map Editor</uicontrol> will display a warning to let you know that the
+        shape is entirely covered by a bigger shape. Keep in mind that if a shape is completely
+        inside another shape, its hyperlink will only be accessible if its layer is on top of the
+        bigger shape. </p>
+    </section>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link format="html" href="http://www.docbook.org/tdg5/en/html/areaspec.html" scope="external">
+        <linktext>DocBook 'areaspec' Element Specifications</linktext>
+      </link>
+    </linklist>
+  </related-links>
+</topic>

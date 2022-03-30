@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="reusables-user-guide">
+  <title>Reusable Components in User Guide</title>
+  <body>
+    <!--Reusable components for multiple chapters in the User Guide-->
+    <p><term id="oxy-install-dir">[OXYGEN_INSTALL_DIR]</term></p>
+    <p><term id="oxy-webapp-install-dir">[OXYGEN_WEBAUTHOR_INSTALL_DIR]</term></p>
+    <p><term id="eclipse-install-dir">[ECLIPSE-INSTALL-DIR]</term></p>
+    <p><term id="dita-ot-folder">DITA-OT3.x</term></p>
+    <p><!--Reusable components for the name of the folder used on OS X--></p>
+    <p><filepath id="installMacFolder"><term product="editor">Oxygen XML Editor</term><term
+          product="author">Oxygen XML Author</term><term product="developer">Oxygen XML
+          Developer</term></filepath></p>
+    <!--To reopen a view-->
+    <p><ph id="reopen-view">If the view is not displayed, it can be opened by selecting it from the <menucascade>
+          <uicontrol>Window</uicontrol>
+          <uicontrol>Show View</uicontrol>
+        </menucascade> menu.</ph></p>
+    <p><ph id="reopen-view-parenthesis">(if the view is not displayed, it can be opened by selecting
+        it from the <menucascade>
+          <uicontrol>Window</uicontrol>
+          <uicontrol>Show View</uicontrol>
+        </menucascade> menu)</ph></p>
+    <!--Adding a path in dialog boxes that include the Insert Editor Variable button and Browsing drop down list-->
+    <p><ph id="specify-path-ph"
+        product="author developer editor authorEclipse developerEclipse editorEclipse">You can
+        specify the path by using the text field, its history drop-down, the <xref
+          href="../../topics/editor-variables.dita#editor-variables"><uicontrol><image
+              href="../../img/InsertEditorVariables16.png"/>Insert Editor
+          Variables</uicontrol></xref> button, or the browsing actions in the <uicontrol><image
+            href="../../img/BrowseDrop.png"/>Browse</uicontrol> drop-down list.</ph></p>
+    <p><ph id="specify-path-without-drop-down"
+        product="author developer editor authorEclipse developerEclipse editorEclipse">You can
+        specify the path by using the text field, the <xref
+          href="../../topics/editor-variables.dita#editor-variables"><uicontrol><image
+              href="../../img/InsertEditorVariables16.png"/>Insert Editor
+          Variables</uicontrol></xref> button, or the <uicontrol><image href="../../img/Open16.png"
+          />Browse</uicontrol> button.</ph></p>
+    <note type="tip" product="author developer editor authorEclipse developerEclipse editorEclipse"
+      id="note-wildcards-in-path">The path can also contain wildcards (for example,
+        <codeph>${framework}/lib/*.jar</codeph>).</note>
+    <p><ph id="specify-path">You can specify the path by using the text field, the history
+        drop-down, or the browsing actions in the <uicontrol><image href="../../img/BrowseDrop.png"
+          />Browse</uicontrol> drop-down menu.</ph></p>
+    <note type="tip" id="note2-wildcards"
+      product="author developer editor authorEclipse developerEclipse editorEclipse">The path can
+      also contain wildcards. For example, using <codeph>${frameworkDir}/templates/*</codeph> would
+      add all the template folders found inside the <filepath>templates</filepath> directory.</note>
+    <p>another note:</p>
+    <note type="tip" product="author developer editor authorEclipse developerEclipse editorEclipse"
+      id="note3-wildcards">You can specify the path to the resources using wildcards (for example,
+        <codeph>${oxygenHome}/lib/*.jar</codeph>).</note>
+    <!--Misc-->
+    <p id="docbook-intro-p"><i>DocBook</i> is a very popular set of tags for describing books,
+      articles, and other prose documents, particularly technical documentation. DocBook provides a
+      vast number of semantic element tags, divided into three broad categories: structural,
+        <term>block-level</term>, and <term>inline</term>. DocBook content can then be published in
+      a variety of formats, including HTML, PDF, WebHelp, and EPUB.</p>
+    <p id="tei-intro">The <i>TEI (Text Encoding Initiative)</i> document type is an international
+      and interdisciplinary standard that enables libraries, museums, publishers, and individual
+      scholars to represent a variety of literary and linguistic texts for online research,
+      teaching, and preservation.</p>
+    <!--Digital Signing notes-->
+    <note id="exclusive-note"><term>Exclusive Canonicalization</term> just copies the namespaces you
+      are actually using (the ones that are a part of the XML syntax). It does not look into
+      attribute values or element content, so the namespace declarations required to process these
+      are not copied. This is useful if you have a signed XML document that you want to insert into
+      other XML documents (or you need self-signed structures that support placement within various
+      XML contexts), as it will ensure the signature is verified correctly each time.</note>
+    <note id="inclusive-note"><term>Inclusive Canonicalization</term> copies all the declarations,
+      even if they are defined outside of the scope of the signature, and all the declarations you
+      might use will be unambiguously specified. Inclusive <term>Canonicalization</term> is useful
+      when it is less likely that the signed data will be inserted in other XML document and it is
+      the safer method from the security standpoint because it requires no knowledge of the data
+      that are to be secured to safely sign them. A problem may occur if the signed document is
+      moved into another XML document that has other declarations because the Inclusive
+        <term>Canonicalization</term> will copy them and the signature will be invalid.</note>
+    <!--License Server/Servlet note-->
+    <note type="tip" id="manual-install-note"
+      product="author developer editor authorEclipse developerEclipse editorEclipse webauthor waCustom"
+      >If you want to manually install, start, stop, or uninstall the server as a Windows service,
+      run the following scripts from a command line as an Administrator:<ul id="ul_j3f_gp3_5q">
+        <li><filepath>installWindowsService.bat [serviceName]</filepath> - Installs the server as a
+          Windows service with the name <i>serviceName</i>. The parameters for the license key
+          folder and the server port can be set in the
+            <filepath>oXygenLicenseServer.vmoptions</filepath> file. </li>
+        <li><filepath>startWindowsService.bat [serviceName]</filepath> - Starts the Windows
+          service.</li>
+        <li><filepath>stopWindowsService.bat [serviceName]</filepath> - Stops the Windows
+          service.</li>
+        <li><filepath>uninstallWindowsService.bat [serviceName]</filepath> - Uninstalls the Windows
+          service.</li>
+      </ul><p>If you do not provide the <codeph>serviceName</codeph> argument, the default name
+          <i>oXygenLicenseServer</i> is used.</p><p>If the license server is installed as a Windows
+        service, the output and error messages are automatically redirected to the following log
+        files that are created in the install folder:<ul id="ul_rfs_pjn_5q">
+          <li><filepath>outLicenseServer.log</filepath> - Standard output stream of the server.</li>
+          <li><filepath>errLicenseServer.log</filepath> - Standard error stream of the server.</li>
+        </ul></p></note>
+    <note type="note"
+      product="author developer editor authorEclipse developerEclipse editorEclipse webauthor waCustom"
+      id="note-2">It is possible to configure the credentials for users after the installation. Once
+      the installation is complete, there will be a <filepath>password.properties</filepath> file
+      located in the license server's installation directory. You can edit this file and follow the
+      instructions at the top to assign <i>admin</i> or <i>user</i> roles to each user. There is
+      also a <filepath>readme.txt</filepath> file in the same directory that has more
+      information.</note>
+  </body>
+</topic>

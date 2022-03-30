@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="signing-files">
+  <title>Signing Files</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Digital Signature<indexterm>Sign files</indexterm></indexterm>
+        <indexterm>Sign files tool</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>You can select the type of signature to be used for documents from a signature settings
+      dialog box. To open this dialog box, select the <uicontrol>Sign</uicontrol> action from the
+        <uicontrol>Source</uicontrol> submenu when invoking the contextual menu in
+        <uicontrol>Text</uicontrol> mode<ph product="author developer editor"> or from the
+          <uicontrol>Tools</uicontrol> menu</ph><ph product="developerEclipse editorEclipse"> or
+        from the <uicontrol>XML Tools</uicontrol> menu</ph>.</p>
+    <p>
+      <fig product="editor author developer">
+        <title>Signature Settings Dialog Box</title>
+        <image href="../img/sa_sign_dialog.png"/>
+      </fig>
+    </p>
+    <p>
+      <fig product="developerEclipse editorEclipse">
+        <title>Signature Settings Dialog Box</title>
+        <image href="../img/ec_sign_dialog.png"/>
+      </fig>
+    </p>
+    <p>The following options are available:</p>
+    <p><note>If <ph keyref="product"/> could not find a valid certificate, a link is provided at the
+        top of the dialog box that opens the <xref href="preferences-certificates.dita">XML Signing
+          Certificates preferences page</xref> where you can configure a valid certificate.<p>
+          <image href="../img/configure_certificate.png" id="image_scw_xk3_xq" placement="break"/>
+        </p></note></p>
+    <ul>
+      <li product="author developer editor developerEclipse editorEclipse"
+          ><uicontrol>Input</uicontrol> - Available if the <uicontrol>Sign</uicontrol> action was
+        selected from the <uicontrol product="author developer editor">Tools</uicontrol><uicontrol
+          product="developerEclipse editorEclipse">XML Tools</uicontrol> menu. Specifies the
+        location of the input URL.</li>
+      <li id="transformation-options-li"><uicontrol>Transformation Options</uicontrol> - See the
+          <xref href="digital-signature-overview.dita#digital-signature-overview">Digital Signature
+          Overview</xref> section for more information about these options.<ul id="ul_xwp_h33_xq">
+          <li><uicontrol>None</uicontrol> - If selected, no <xref keyref="glossentry_canonicalize"
+                ><term>canonicalization</term></xref> algorithm is used.</li>
+          <li><uicontrol>Exclusive</uicontrol> - If selected, the exclusive (uncommented) <xref
+              keyref="glossentry_canonicalize"><term>canonicalization</term></xref> method is
+              used.<note conkeyref="reusables-user-guide/exclusive-note"/></li>
+          <li><uicontrol>Exclusive with comments</uicontrol> - If selected, the exclusive with
+            comments <xref keyref="glossentry_canonicalize"><term>canonicalization</term></xref>
+            method is used.</li>
+          <li><uicontrol>Inclusive</uicontrol> - If selected, the inclusive (uncommented) <xref
+              keyref="glossentry_canonicalize"><term>canonicalization</term></xref> method is
+              used.<note conkeyref="reusables-user-guide/inclusive-note"/></li>
+          <li><uicontrol>Inclusive with comments</uicontrol> - If selected, the inclusive with
+            comments <xref keyref="glossentry_canonicalize"><term>canonicalization</term></xref>
+            method is used.</li>
+        </ul></li>
+      <li><uicontrol>XPath</uicontrol> - The XPath expression provides the fragments of the XML
+        document to be signed.</li>
+      <li><uicontrol>ID</uicontrol> - Provides ID of the XML element to be signed.</li>
+      <li id="envelope-li"><uicontrol>Envelope</uicontrol> - If selected, the <i>enveloped</i>
+        signature is used. See the <xref
+          href="digital-signature-overview.dita#digital-signature-overview">Digital Signature
+          Overview</xref> for more information.</li>
+      <li><uicontrol>Detached</uicontrol> - If selected, the <i>detached</i> signature is
+        used. See the <xref href="digital-signature-overview.dita#digital-signature-overview"
+          >Digital Signature Overview</xref> for more information.</li>
+      <li><uicontrol>Append KeyInfo</uicontrol> - If this option is selected, the
+        <xmlelement>ds:KeyInfo</xmlelement> element will be added in the signed document.</li>
+      <li><uicontrol>Signature algorithm</uicontrol> - The algorithm used for signing the document.
+        The following options are available: <uicontrol>RSA with SHA1</uicontrol>, <uicontrol>RSA
+          with SHA256</uicontrol>, <uicontrol>RSA with SHA384</uicontrol>, and <uicontrol>RSA with
+          SHA512</uicontrol>.</li>
+      <li product="author developer editor developerEclipse editorEclipse"
+          ><uicontrol>Output</uicontrol> - Available if the <uicontrol>Sign</uicontrol> action was
+        selected from the <uicontrol product="author developer editor">Tools</uicontrol><uicontrol
+          product="developerEclipse editorEclipse">XML Tools</uicontrol> menu. Specifies the path of
+        the output file where the signed XML document will be saved.</li>
+      <li product="author developer editor developerEclipse editorEclipse"><uicontrol>Open in
+          editor</uicontrol> - If selected, the output file will be opened in <ph keyref="product"
+        />.</li>
+    </ul>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="digital-signature-overview.dita#digital-signature-overview"/>
+      <link href="verifying-signature.dita#verifying-signature"/>
+      <link href="example-signing-files.dita#example-signing-files"/>
+    </linklist>
+  </related-links>
+</topic>

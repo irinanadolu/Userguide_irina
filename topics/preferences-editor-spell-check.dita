@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="preferences-editor-spell-check">
+  <title>Spell Check Preferences</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Preferences<indexterm>Spell Check</indexterm></indexterm>
+        <indexterm>Spell check preferences</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph product="author editor authorEclipse editorEclipse"><ph keyref="product"/> provides
+        support for spell checking in the <xref href="text-mode-editor.dita#text-mode-editor"
+            ><uicontrol>Text</uicontrol></xref> and <xref href="author-editor.dita#author-editor"
+            ><uicontrol>Author</uicontrol></xref> editing modes.</ph><ph
+        product="developer developerEclipse"><ph keyref="product"/> provides support for spell
+        checking in the <xref href="text-mode-editor.dita#text-mode-editor"
+            ><uicontrol>Text</uicontrol></xref> editing mode.</ph> To configure the <uicontrol>Spell
+        Check</uicontrol> options, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/> and go to <menucascade>
+        <uicontrol>Editor</uicontrol>
+        <uicontrol>Spell Check</uicontrol>
+      </menucascade>.</p>
+    <p>The following options are available:</p>
+    <p>
+      <dl>
+        <dlentry id="automatic-spell-check">
+          <dt><uicontrol>Automatic spell check</uicontrol></dt>
+          <dd>
+            <p>This option is not selected by default. When selected, <ph keyref="product"/>
+              automatically checks the spelling as you type and highlights misspelled words in the
+              document.</p>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt>Select editors</dt>
+                  <dd>You can select which editors (and therefore which file types) will
+                    automatically be spell checked. File types such as CSS and DTD are excluded by
+                    default since automatic spell checking is not usually helpful in these types of
+                    files.</dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+        <dlentry product="author developer editor">
+          <dt><uicontrol>Spell check highlight color</uicontrol></dt>
+          <dd>Use this option to set the color used by the spell check engine to highlight spelling
+            errors.</dd>
+        </dlentry>
+        <dlentry id="lang-options-section">
+          <dt><uicontrol>Language options</uicontrol> section</dt>
+          <dd>
+            <p>This section includes the following language options:</p>
+            <p>
+              <dl>
+                <dlentry id="default-language">
+                  <dt><uicontrol>Default language</uicontrol></dt>
+                  <dd>The default language list allows you to choose the language used by the spell
+                    check engine when the language is not specified in the source file. <ph
+                      product="author developer editor authorEclipse developerEclipse editorEclipse"
+                      >You can <xref keyref="editing_spell-check">add additional dictionaries to the
+                        spell check engines</xref>.</ph></dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Use "lang" and "xml:lang" attributes</uicontrol></dt>
+                  <dd>When this option is selected, the contents of an element with one of the
+                      <xmlatt>lang</xmlatt> or <xmlatt>xml:lang</xmlatt> attributes is checked in
+                    that language. Choose between the following two options for instances when these
+                    attributes are missing:<ul>
+                      <li><uicontrol>Use the default language</uicontrol> - If the
+                          <xmlatt>lang</xmlatt> and <xmlatt>xml:lang</xmlatt> attributes are
+                        missing, the selection in the <xref
+                          href="#preferences-editor-spell-check/default-language" format="dita"
+                            ><uicontrol>Default language</uicontrol> list</xref> is used.</li>
+                      <li><uicontrol>Do not check</uicontrol> - If the <xmlatt>lang</xmlatt> and
+                          <xmlatt>xml:lang</xmlatt> attributes are missing, the element is not
+                        checked.</li>
+                    </ul></dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>XML spell checking in</uicontrol> section</dt>
+          <dd> You can choose to check the spelling inside the following XML items: <ul>
+              <li><uicontrol>Comments</uicontrol></li>
+              <li><uicontrol>Processing instructions</uicontrol></li>
+              <li><uicontrol>Attribute values</uicontrol></li>
+              <li><uicontrol>Text</uicontrol></li>
+              <li><uicontrol>CDATA</uicontrol></li>
+            </ul></dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Options</uicontrol> section</dt>
+          <dd>
+            <p>This section includes the following other options:</p>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt><uicontrol>Check capitalization</uicontrol></dt>
+                  <dd>When selected, the spell checker reports detected capitalization
+                      errors.<note>This option will not have any effect on words stored in
+                      dictionaries, term lists, and the list of learned words because they are not
+                      handled as case-sensitive.</note></dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Check punctuation</uicontrol></dt>
+                  <dd>When selected, the spell checker checks punctuation. Misplaced white space and
+                    unusual sequences, such as a period following a comma, are highlighted as
+                    errors.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore mixed case words</uicontrol></dt>
+                  <dd>When selected, the spell checker does not check words containing mixed case
+                    characters (for example, <i>SpellChecker</i>).</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore acronyms</uicontrol></dt>
+                  <dd>Available only for the <b>Hunspell Spell Checker</b>. When selected, acronyms
+                    are not reported as errors.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore words with digits</uicontrol></dt>
+                  <dd>When selected, the spell checker does not check words containing digits (for
+                    example, <i>b2b</i>).</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore duplicates</uicontrol></dt>
+                  <dd>When selected, the spell checker does not signal two successive identical
+                    words as an error.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Ignore URL</uicontrol></dt>
+                  <dd>When selected, the spell checker ignores words recognized as URLs or file
+                    names (for example, <i>www.oxygenxml.com</i> or <i>c:\boot.ini</i>).</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Allow compounds words</uicontrol></dt>
+                  <dd>When selected, all words formed by concatenating two legal words with a hyphen
+                    (hyphenated compounds) are accepted. If recognized by the language, two words
+                    concatenated without hyphen (closed compounds) are also accepted.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><uicontrol>Allow file extensions</uicontrol></dt>
+                  <dd>When selected, the spell checker accepts any word ending with recognized file
+                    extensions (for example, <i>myfile.txt</i> or <i>index.html</i>).</dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+        <dlentry id="ignore-elements-section">
+          <dt><uicontrol>Ignore elements</uicontrol> section</dt>
+          <dd>
+            <p>You can use the <uicontrol>Add</uicontrol> and <uicontrol>Remove</uicontrol> buttons
+              to configure a list of element names or XPath expressions to be ignored by the spell
+              checker. The following restricted set of XPath expressions are supported:<ul
+                id="ul_zm3_x3y_qr">
+                <li>'/' and '//' separators</li>
+                <li>'*' wildcard</li>
+              </ul></p>
+            <p>An example of an allowed XPath expression is: <i>/a/*/b</i>.</p>
+          </dd>
+        </dlentry>
+        <dlentry product="author editor authorEclipse editorEclipse">
+          <dt><uicontrol>AutoCorrect options</uicontrol> link</dt>
+          <dd>Use this link to navigate to the <xref
+              href="autocorrect-preferences-page.dita#autocorrect-preferences-page"
+                ><uicontrol>AutoCorrect</uicontrol> preferences page</xref>.</dd>
+        </dlentry>
+      </dl>
+    </p>
+    <p product="authorEclipse editorEclipse developerEclipse">To change the color used by the spell
+      check engine to highlight spelling errors, <ph
+        conkeyref="reusables-preferences-pages/preferences-eclipse-not-oxygen"/>. Then go to <menucascade>
+        <uicontrol>General</uicontrol>
+        <uicontrol>Editors</uicontrol>
+        <uicontrol>Text Editors</uicontrol>
+        <uicontrol>Annotations</uicontrol>
+      </menucascade> and change the color in the <uicontrol>Spell Check Annotation</uicontrol>
+      option.</p>
+  </body>
+</topic>

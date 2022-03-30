@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dcpp_numbering_types">
+	<title>Numbering Types</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm product="author developer editor authorEclipse developerEclipse editorEclipse"
+            ><ph keyref="pdf-html5-transformation"/>
+          <indexterm>Numbering</indexterm></indexterm>
+        <indexterm product="author developer editor authorEclipse developerEclipse editorEclipse"
+            ><ph keyref="pdf-html5-transformation"/>
+          <indexterm>Deep numbering</indexterm></indexterm>
+        <indexterm product="pdf-css ope">Numbering</indexterm>
+        <indexterm product="pdf-css ope">Deep numbering</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+	<body>
+		<p>The type of numbering is controlled by the parameter
+				<codeph>args.css.param.numbering</codeph>. </p>
+		<p>This parameter activates various sets of CSS rules from the built-in CSS. By default, only the
+      first-level topics (the chapters) are numbered (<codeph>shallow</codeph> numbering). The
+      following values are accepted:</p>
+		<p>
+			<table frame="all" id="table_pgx_yj3_rhb">
+				<title>Types of Numbering</title>
+				<tgroup cols="5">
+					<colspec colname="c1" colnum="1" colwidth="2*"/>
+					<colspec colname="c2" colnum="2" colwidth="1*"/>
+					<colspec colname="c3" colnum="3" colwidth="1.19*"/>
+					<colspec colname="c4" colnum="4" colwidth="3.4*"/>
+					<colspec colname="newCol5" colnum="5" colwidth="2.51*"/>
+					<thead>
+						<row>
+							<entry>Value</entry>
+							<entry>Chapters</entry>
+							<entry>Sections/ Nested Topics</entry>
+							<entry>Figures &amp; Tables</entry>
+							<entry>Pages</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry><codeph>shallow</codeph></entry>
+							<entry>numbered</entry>
+							<entry>no </entry>
+							<entry>counted from the start of the publication</entry>
+							<entry>from the start of the publication</entry>
+						</row>
+						<row>
+							<entry><codeph>deep</codeph></entry>
+							<entry>numbered</entry>
+							<entry>numbered</entry>
+							<entry>counted from the start of the publication</entry>
+							<entry>from the start of the publication</entry>
+						</row>
+						<row>
+							<entry><codeph>deep-chapter-scope</codeph></entry>
+							<entry>numbered</entry>
+							<entry>numbered</entry>
+							<entry>numbering is restarted at the beginning of each chapter, adds the chapter number in
+                their titles (and in the links to them), and in the list of tables and list of
+                figures sections</entry>
+							<entry>restarted at the beginning of each chapter</entry>
+						</row>
+						<row>
+							<entry><codeph>deep-chapter-scope-no-page-reset</codeph></entry>
+							<entry>numbered</entry>
+							<entry>numbered</entry>
+							<entry>numbering is restarted at the beginning of each chapter, adds the chapter number in
+                their titles (and in the links to them), and in the list of tables and list of
+                figures sections</entry>
+							<entry>from the start of the publication</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</table>
+		</p>
+    <note>When using any of the deep numbering types, no distinction is made between sections and
+      nested topics. For example, if a topic contains two sections, followed by another nested
+      topic, the sections will be numbered with 1 and 2, and the nested topic with 3.</note>
+		<note type="notice">The <codeph>deep-chapter-scope</codeph> and
+        <codeph>deep-chapter-scope-no-page-reset</codeph> values are only available for the <b>DITA
+        Map PDF - based on HTML5 &amp; CSS</b> transformation scenario.</note>
+    <section id="section_atv_pfq_rhb">
+      <title>Examples</title>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Shallow</dt>
+            <dd>Each chapter (or first-level topic) is numbered, but sections/nested topics are not
+              numbered. Figures, tables, and pages are numbered sequentially from the start of the
+              publication and they do not
+              reset.<codeblock outputclass="language-ini">1. First Chapter
+    Page 1
+      Topic
+        Section
+          Table 1
+          Table 2
+      Topic
+        Section
+    Page 2
+        Table 3
+2. Second Chapter
+    Page 3
+      Topic
+        Table 4
+        Table 5
+      Topic
+    Page 4</codeblock></dd>
+          </dlentry>
+          <dlentry>
+            <dt>Deep</dt>
+            <dd>All chapters (or first-level topics) and sections/nested topics are numbered (these
+              are also prefixed with the chapter number). Figures, tables, and pages are numbered
+              sequentially from the start of the publication and they do not
+              reset.<codeblock outputclass="language-ini">1. First Chapter
+    Page 1
+      Topic 1.1
+        Table 1
+      Topic 1.2
+        Table 2
+    Page 2
+        Table 3
+2. Second Chapter
+    Page 3
+      Topic 2.1
+        Table 4
+        Table 5
+      Topic 2.2
+    Page 4</codeblock></dd>
+          </dlentry>
+          <dlentry>
+            <dt>Deep Chapter Scope</dt>
+            <dd>Each chapter (or first-level topic) is independent (so it can be read separately, as
+              a separate part of your publication). The sections/nested topics, pages, figures, and
+              table counters (and links to them) restart at each chapter. The general cross
+              reference links also display the chapter number before the page number to clearly
+              specify the target.<codeblock outputclass="language-ini">1. First Chapter
+    Page 1.1
+      Topic 1.1
+        Table 1.1
+        Link to page 2.2
+      Topic 1.2
+    Page 1.2
+        Table 1.2
+2. Second Chapter
+    Page 2.1
+      Topic 2.1
+        Table 2.1
+        Table 2.2
+        Table 2.3
+      Topic 2.2
+        Table 2.4
+    Page 2.2
+       Link to page 1.1</codeblock></dd>
+          </dlentry>
+          <dlentry>
+            <dt>Deep Chapter Scope No Page Reset</dt>
+            <dd>Each chapter (or first-level topic) is independent (so it can be read separately, as
+              a separate part of your publication). The sections/nested topics, figures, and table
+              counters (and links to them) restart at each chapter, but the page numbers do not
+              reset. The generic cross reference links contain only the page
+              number.<codeblock outputclass="language-ini">1. First Chapter
+    Page 1
+      Topic 1.1
+        Table 1.1
+        Link to page 4
+      Topic 1.2
+    Page 2
+        Table 1.2
+2. Second Chapter
+    Page 3
+      Topic 2.1
+        Table 2.1
+        Table 2.2
+        Table 2.3
+      Topic 2.2
+        Table 2.4
+    Page 4
+       Link to page 1</codeblock></dd>
+          </dlentry>
+        </dl>
+      </p>
+    </section>
+    <note type="tip">When using deep numbering, if you want to exclude sections from being numbered,
+      see <xref href="dcpp_how_to_exclude_topic_sections_from_numbering.dita"/>.</note>
+	</body>
+</topic>

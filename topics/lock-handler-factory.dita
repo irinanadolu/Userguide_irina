@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="lock-handler-factory">
+  <title>Lock Handler Plugin Extension</title>
+  <shortdesc>This type of <xref keyref="glossentry_plugin"><term>plugin extension</term></xref> is
+    used for locking resources from a specific protocol.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Plugin extensions<indexterm>Lock Handler</indexterm></indexterm>
+        <indexterm>Lock Handler plugin extension</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>It provides the following API:</p>
+    <p>
+      <dl>
+        <dlentry>
+          <dt><b><i>LockHandlerFactoryPluginExtension</i> interface</b></dt>
+          <dd>
+            <p>You need to implement the following two methods:</p>
+            <p>
+              <dl>
+                <dlentry>
+                  <dt><i>LockHandler getLockHandler()</i></dt>
+                  <dd>Gets the lock handler for the current handled protocol. Might be
+                      <codeph>null</codeph> if not supported.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt><i>boolean isLockingSupported(String protocol)</i></dt>
+                  <dd>
+                    <p>Checks if a lock handler can be provided for a specific protocol.</p>
+                    <p>To use this type of extension in your <term>plugin</term>, create an
+                      extension of <i>LockHandlerFactory</i> type in your
+                        <codeph>plugin.xml</codeph> file and specify the class implementing
+                        <i>LockHandlerFactoryPluginExtension</i>:<codeblock outputclass="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE plugin SYSTEM "../plugin.dtd">
+&lt;plugin name="CustomLockHandler" ..............>
+ &lt;runtime>
+  ........
+ &lt;/runtime>
+ 
+ &lt;extension type="LockHandlerFactory"
+         class="LockHandlerFactoryPluginExtensionImpl"/>
+ ...............
+  
+&lt;/plugin>
+</codeblock></p>
+                  </dd>
+                </dlentry>
+              </dl>
+            </p>
+          </dd>
+        </dlentry>
+      </dl>
+    </p>
+  </conbody>
+</concept>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="author-position-information">
+  <title>Visual Hints for the Cursor Position</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Author editing mode<indexterm>Visual hints</indexterm></indexterm>
+        <indexterm>Author editing mode<indexterm>Tooltips</indexterm></indexterm>
+        <indexterm>Visual hints in Author mode</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>When the cursor is positioned inside a new context, a tooltip will be shown for a couple of
+      seconds displaying the position of the cursor relative to the context of the current
+      element.</p>
+    <p>Here are some of the common situations that can be encountered: </p>
+    <ul>
+      <li>
+        <p><b>Before first <term>block</term></b> - The cursor is positioned before the first <xref
+            keyref="glossentry_block-element"><term>block</term></xref> child of the current
+          node.</p>
+        <p><image href="../img/sa_position_tooltip_1.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_1.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>Between two <term>block elements</term></b> - The cursor is positioned between two
+            <xref keyref="glossentry_block-element"><term>block elements</term></xref>.</p>
+        <p><image href="../img/sa_position_tooltip_2.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_2.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>After last <term>block</term></b> - The cursor is positioned after the last <xref
+            keyref="glossentry_block-element"><term>block element</term></xref> child of the current
+          node.</p>
+        <p><image href="../img/sa_position_tooltip_3.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_3.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>Inside a node</b> - The cursor is positioned inside a node.</p>
+        <p><image href="../img/sa_position_tooltip_4.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_4.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>Before an <term>inline element</term></b> - The cursor is positioned inside an
+          element, before a child <xref keyref="glossentry_inline-element"><term>inline
+              element</term></xref>.</p>
+        <p><image href="../img/sa_position_tooltip_5.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_5.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>Between two inline elements</b> - The cursor is positioned between two <xref
+            keyref="glossentry_inline-element"><term>inline elements</term></xref>.</p>
+        <p><image href="../img/sa_position_tooltip_6.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_6.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+      <li>
+        <p><b>After an inline element</b> - The cursor is positioned inside an element, after a
+          child <xref keyref="glossentry_inline-element"><term>inline element</term></xref>.</p>
+        <p><image href="../img/sa_position_tooltip_7.png" product="author editor"/><image
+            href="../img/ec_position_tooltip_7.png" product="authorEclipse editorEclipse"/>
+        </p>
+      </li>
+    </ul>
+    <p>The nodes in these cases are displayed in the tooltip window using the element names.</p>
+    <p>To deactivate this feature, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/>, go to <menucascade>
+        <uicontrol>Author</uicontrol>
+        <uicontrol>Cursor Navigation</uicontrol>
+      </menucascade>, and deselect the <xref
+        href="caret-navigation.dita#caret-navigation/show-cursor-postion-tooltip"><uicontrol>Show
+          cursor position tooltip</uicontrol> option</xref>. Even if this option is deselected, you
+      can still display the position tooltip by pressing
+        <uicontrol><shortcut>Shift+F2</shortcut></uicontrol>.</p>
+    <note>The position information tooltip is not displayed if <xref
+        href="author-display-markup.dita#author-display-markup"><uicontrol>Full Tags with
+          Attributes</uicontrol> or <uicontrol>Full Tags</uicontrol> is selected in the
+            <uicontrol><image href="../img/TagsDrop.png" id="image_pmr_mhm_1s"/>Tags display
+          mode</uicontrol> drop-down menu</xref>.</note>
+    <section id="location_tooltip">
+      <title>Location Tooltip</title>
+      <p>When editing XML documents in a visual environment, you might find it difficult to position
+        the cursor between certain tags that do not have a visual representation. To counterbalance
+        this, <ph keyref="product"/> displays a transparent preview of the position information,
+        called the <uicontrol>Location Tooltip</uicontrol>:</p>
+      <p>
+        <fig>
+          <title>Location Tooltip</title>
+          <image href="../img/GhostCaret.png" placement="inline"/>
+        </fig>
+      </p>
+      <p><ph keyref="product"/> displays a <uicontrol>Location Tooltip</uicontrol> when the
+        following conditions are met:<ul>
+          <li>You are editing the document in one of the following <xref
+              href="author-display-markup.dita#author-display-markup">tags display modes</xref>:
+              <uicontrol>Inline Tags</uicontrol>, <uicontrol>Partial Tags</uicontrol>, <uicontrol>No
+              Tags</uicontrol>.</li>
+          <li>The mouse pointer is moved between <xref keyref="glossentry_block-element"><term>block
+                elements</term></xref>.</li>
+        </ul></p>
+      <p>To activate or deactivate this feature, use the <xref
+          href="caret-navigation.dita#caret-navigation/show-location-tooltip"><uicontrol>Show
+            location tooltip on mouse move</uicontrol> option</xref> in the <xref
+          href="caret-navigation.dita#caret-navigation"><uicontrol>Cursor Navigation</uicontrol>
+          preferences page</xref>.</p>
+    </section>
+  </body>
+</topic>

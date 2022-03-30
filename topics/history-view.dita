@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="history-view">
+  <title>History View</title>
+  <prolog>
+    <metadata>
+      <keywords><indexterm>SVN Client<indexterm>Views<indexterm>History view</indexterm></indexterm></indexterm></keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p id="history-view-intro">In <tm tmtype="tm">Apache Subversion</tm>, both files and directories
+      are versioned and have a history. If you want to examine the history for a selected resource
+      and find out what happened at a certain revision you can use the <uicontrol>History
+        view</uicontrol> that can be accessed from <xref href="repository-view.dita">Repositories
+        view</xref>, <xref href="working-copy-view.dita">Working Copy view</xref>, <xref
+        href="svn-history-graph.dita#svn-history-graph" format="dita">Revision Graph</xref>, or
+        <xref href="svn-dir-change-set-view.dita#svn-dir-change-set-view" format="dita">Directory
+        Change Set view</xref>. From the <uicontrol>Working copy view</uicontrol> you can display
+      the history of local versioned resources. <ph conkeyref="reusables-user-guide/reopen-view"
+      /></p>
+    <p>The view consists of four distinct areas: <ul>
+        <li>
+          <p>The table showing details about each revision, such as revision number, commit date and
+            time, number of changes (more details available in the tooltip), author's name, and a
+            fragment of the commit message.</p>
+          <p>Some revisions may be highlighted to emphasize:<ul>
+              <li>The current revision of the resource that has the history displayed - a bold font
+                revision.</li>
+              <li>The last revision where the content or properties of the resource were modified -
+                blue font revision.<note>Both font highlights may be applied for the same
+                  revision.</note></li>
+            </ul></p>
+        </li>
+        <li>The complete commit message for the selected revision.</li>
+        <li>A tree structure showing the folders where the modified resources are located. You can
+          compress this structure to a more compact form that focuses on the folders that contain
+          the actual modifications.</li>
+        <li>The list of resources modified in the selected revision. For each resource, the type of
+          action done against it is marked with one of the following symbols:<ul>
+            <li><image href="../img/SVNWCAdded10.png" id="image_d32_rjp_5r"/> - A newly created
+              resource.</li>
+            <li><image href="../img/SVNWCAddedWithHistory10.png"/> - A newly created resource,
+              copied from another repository location.</li>
+            <li><image href="../img/SVNWCModified10.png" id="image_jms_yy5_5r"/> - The
+              content/properties of the resource were <i>modified</i>.</li>
+            <li><image href="../img/SVNWCReplaced10.png"/> - Resource was <i>replaced</i> in the
+              repository.</li>
+            <li><image href="../img/SVNWCRemoved10.png" id="image_jnh_zy5_5r"/> - Resource was
+              deleted from the repository.</li>
+          </ul></li>
+      </ul></p>
+    <p>
+      <fig>
+        <title>History View</title>
+        <image href="../img/sa_svn_history_view.png"/>
+      </fig>
+    </p>
+    <p>You can group revisions in predefined time frames (today, yesterday, this week, this month),
+      by pressing the <uicontrol><image href="../img/CalendarClock16.png"/>Group by date</uicontrol>
+      button from the toolbar.</p>
+  </body>
+</topic>
