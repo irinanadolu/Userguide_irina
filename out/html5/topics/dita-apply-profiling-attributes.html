@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Profiling,Applying profiling attributes"><meta name="keywords" content="DITA, Profiling, Applying profiling attributes"><meta name="DC.relation" scheme="URI" content="../topics/dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-profile-content.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-condition-sets-management.html"><meta name="DC.relation" scheme="URI" content="dita-profile-content.html#dita-profile-content"><meta name="DC.relation" scheme="URI" content="dita-condition-sets-management.html#dita-condition-sets-management"><meta name="DC.relation" scheme="URI" content="dita-apply-profiling-conditional-set.html#dita-apply-profiling-conditional-set"><meta name="DC.relation" scheme="URI" content="profiling-conditional-text-markers.html#profiling-conditional-text-markers"><meta name="DC.relation" scheme="URI" content="dita-apply-styles.html#dita-apply-styles"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-apply-profiling-attributes"><title>Applying Profiling Attributes in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-apply-profiling-attributes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Applying Profiling Attributes in DITA</h1>
+  
+  <div class="body">
+    <p class="p">Profiling attributes are applied on element nodes. You can apply profiling
+      attributes on a text fragment (it will automatically be wrapped into a phrase-type element),
+      on a single element, or on multiple elements at the same time. If there is no selection in
+      your document, the profiling attributes are applied on the element at the cursor position.</p>
+    <div class="p">You can apply <a class="xref" href="dita-profile-content.html#dita-profile-content__define-profiling-attributes">defined
+        DITA profiling attributes</a> as follows:<dl class="dl">
+        
+          <dt class="dt dlterm">DITA Topics</dt>
+          <dd class="dd">To profile DITA topics, right-click a topic reference in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                Manager</span></a>, select <span class="ph uicontrol"><img class="image" id="dita-apply-profiling-attributes__image_tdw_zrb_qs" src="../img/DockableFrameProperties16.png">Edit
+              Properties</span> from the contextual menu, go to the
+              <span class="ph uicontrol">Profiling</span> tab, and select the appropriate values.</dd>
+        
+        
+          <dt class="dt dlterm">DITA Content</dt>
+          <dd class="dd">To profile DITA content in <span class="ph uicontrol">Author</span> mode, highlight the content
+            and select <span class="ph uicontrol">Edit Profiling Attributes</span> from the contextual menu and
+            select the appropriate values in the <span class="ph uicontrol">Edit Profiling Attributes</span>
+            dialog box.</dd>
+        
+        
+          <dt class="dt dlterm">DITA Elements</dt>
+          <dd class="dd">To profile specific XML elements in <span class="ph uicontrol">Author</span> mode, position the
+            cursor inside the element, right-click, select <span class="ph uicontrol">Edit Profiling
+              Attributes</span> (you can also right-click the element in the <a class="xref" href="author-editing-markup.html#author-editing-markup__using_the_breadcrumb_in_author_mode"><dfn class="term">breadcrumb</dfn></a> or <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span></a> view), and select the appropriate values in the
+              <span class="ph uicontrol">Edit Profiling Attributes</span> dialog box. You can also use the
+              <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> to set the profiling attributes on
+            the element at the current cursor position.</dd>
+        
+      </dl></div>
+    <div class="p">
+      <figure class="fig fignone" id="dita-apply-profiling-attributes__edit-profiling-image"><figcaption><span class="fig--title-label">Figure 1. </span>Edit Profiling Attributes Dialog Box</figcaption>
+        
+        <img class="image" id="dita-apply-profiling-attributes__image_dkz_hsd_bq" src="../img/edit-profiling-attributes-dialog.png">
+      </figure>
+    </div>
+    <p class="p">The profiling attributes, and their potential values, that appear in this dialog box depend
+      on what has been configured in <span class="ph">Oxygen XML Editor</span>. If you have a large list of profiling
+      attributes, you can use the text filter field to search for attributes or values, and you can
+      expand or collapse attributes by using the <span class="ph uicontrol"><img class="image" src="../img/ExpandAll16.png">Expand All/<img class="image" src="../img/CollapseAll16.png">Collapse All</span> buttons to the
+      right of the text filter or the arrow button to the left of the profiling attribute name.</p>
+    <div class="p">The attributes and values that appear in the dialog box are determined as follows:<ul class="ul" id="dita-apply-profiling-attributes__ul_bsp_5sd_bq">
+        <li class="li">If your <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> references a
+          DITA <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme map</dfn></a>
+          that <a class="xref" href="subject-scheme-map.html#subject-scheme-map">defines values for the
+            profiling attributes</a>, those values are used. <span class="ph">Oxygen XML Editor</span> collects all
+          the profiling values from the <dfn class="term">subject scheme map</dfn> that is referenced in the
+          map that is currently opened in the <a class="xref" href="dita-maps-manager.html"><span class="ph uicontrol">DITA
+              Maps Manager</span></a> (or <a class="xref" href="root-map.html">set as the <dfn class="term">root
+              map</dfn></a>). In the <a class="xref" href="dita-apply-profiling-attributes.html#dita-apply-profiling-attributes__edit-profiling-image">image
+            above</a> (taken from the <span class="ph">Oxygen XML Editor</span> documentation project), you see
+          values for eight products. They are the only values that are defined in the <dfn class="term">subject
+            scheme map</dfn> and thus, are the only ones that appear in the dialog box.</li>
+        <li class="li">If you have <a class="xref" href="dita-profile-content.html">defined
+            profiling attribute values</a> for the DITA document type in the <a class="xref" href="preferences-attributes-and-condition-sets.html"><span class="ph uicontrol">Attributes and
+              Condition Sets</span> preferences page</a> and you store them at <a class="xref" href="../glossary/project-options.html">project-level</a>, those values are displayed in
+          the dialog box.</li>
+        <li class="li">If you have <a class="xref" href="dita-profile-content.html">defined
+            profiling attribute values</a> for the DITA document type in the <a class="xref" href="preferences-attributes-and-condition-sets.html"><span class="ph uicontrol">Attributes and
+              Condition Sets</span> preferences page</a> and you store them at <a class="xref" href="../glossary/global-options.html">global-level</a>, those values are displayed in
+          the dialog box.</li>
+        <li class="li">If you have <a class="xref" href="dita-profile-content.html">defined profiling attribute values</a> for the DITA
+          document type in the <a class="xref" href="preferences-attributes-and-condition-sets.html"><span class="ph uicontrol">Attributes and Condition Sets</span> preferences page</a>, those
+          values are displayed in the dialog box.</li>
+        <li class="li">Otherwise, a generic default set of profiling attributes and values are available.</li>
+      </ul></div>
+    <p class="p"><span class="ph">The attribute names and values selected in the <span class="ph uicontrol">Edit
+          Profiling Attributes</span> dialog box are set on the elements contained in the
+        profiled fragment. If you only select a fragment of content (rather than the entire
+        element), this fragment is wrapped in phrase-type elements where the profiling attributes
+        are set.</span></p>
+    <p class="p">If the <a class="xref" href="profiling-conditional-text-menu.html#profiling-conditional-text-menu__show-profiling-attributes"><span class="ph uicontrol">Show Profiling Attributes</span> option</a> (available in the
+          <span class="ph uicontrol"><img class="image" id="dita-apply-profiling-attributes__image_v2c_s4f_wr" src="../reusables/topics/../../img/ProfilingToolbar16.png">Profiling / Conditional Text</span> toolbar menu) is selected, a
+      green border is painted around profiled text in the <span class="ph uicontrol">Author</span> mode and all
+      profiling attributes set on the current element are listed at the end of the highlighted
+      block. To edit the attributes of a profiled fragment, click one of the listed attribute
+      values. A form control pops up and allows you to add or remove attribute values.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Profiling Attribute Value Form Control Pop Up</figcaption>
+        
+        <img class="image" src="../reusables/topics/../../img/profiling_form_control.png">
+      </figure>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-profile-content.html">Creating and Editing Profiling Attributes in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-condition-sets-management.html">Creating and Editing Profiling Condition Sets in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-profile-content.html#dita-profile-content">Creating and Editing Profiling Attributes in DITA</a></li><li class="linklist"><a class="link" href="dita-condition-sets-management.html#dita-condition-sets-management">Creating and Editing Profiling Condition Sets in DITA</a></li><li class="linklist"><a class="link" href="dita-apply-profiling-conditional-set.html#dita-apply-profiling-conditional-set">Applying Profiling Condition Sets in DITA</a></li><li class="linklist"><a class="link" href="profiling-conditional-text-markers.html#profiling-conditional-text-markers">Showing and Filtering Profiled Content in DITA</a></li><li class="linklist"><a class="link" href="dita-apply-styles.html#dita-apply-styles">Customizing Colors and Styles for Rendering Profiling in Author Mode</a></li></ul></div></nav>
+</article></main></body></html>

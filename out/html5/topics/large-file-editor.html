@@ -1,0 +1,31 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Large files"><meta name="keywords" content="Large files"><meta name="DC.relation" scheme="URI" content="../topics/editing-large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/huge-file-editor.html"><meta name="DC.relation" scheme="URI" content="huge-file-editor.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="large-file-editor"><title>Optimize Loading for Large Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="large-file-editor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Optimize Loading for Large Files</h1>
+  
+  <div class="body">
+    <p class="p">If you open a document that exceeds the limit configured in <a class="xref" href="preferences-editor-open.html#preferences-editor-open__performance-section"><span class="ph uicontrol">Open</span> preferences</a> (the default limit is 30 MB), a <a class="xref" href="editing-large-documents.html">dialog box will be displayed</a> prompting you to
+      choose whether you want to optimize the loading of the document for large files or for huge
+      files. If you choose the <span class="ph uicontrol">Optimize loading for large files</span> option
+      (typically recommended for files smaller than 300 MB), a special memory optimization is
+      implemented so that the total memory allocated for the application is not exceeded. A
+      temporary buffer file is created on disk and the available free disk space needs to be at
+      least double the size of the file you want to open.</p>
+    <div class="p">When opening a large file in this optimized editing environment, some editing features are
+      disabled, including:<ul class="ul">
+        <li class="li">The file can only be opened in <span class="ph uicontrol">Text</span> mode.</li>
+        <li class="li">The <a class="xref" href="automatic-validation.html">automatic validation</a> is not
+          available.</li>
+        <li class="li">The XPath filter is disabled in the <a class="xref" href="find-replace-dialog.html">Find/Replace
+            dialog box</a>.</li>
+        <li class="li">The bidirectional Unicode support (right-to-left writing) is disabled.</li>
+        <li class="li"> The <a class="xref" href="preferences-editor-format.html"><span class="ph uicontrol">Format and indent the
+              document on open</span> option</a> is automatically deselected for non-XML
+          documents. For XML documents, the formatting is done while optimizing the memory usage by
+          ignoring the options set in the <a class="xref" href="preferences-editor-format.html"><span class="ph uicontrol">Format</span> preferences page</a>.</li>
+        <li class="li">Localizations for the results of an <a class="xref" href="xpath-toolbar.html">XPath
+            expression</a> will be less precise.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-large-documents.html">Loading Large Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/editing-large-documents.html">Loading Large Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/huge-file-editor.html">Optimize Loading for Huge Files</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="huge-file-editor.html">Optimize Loading for Huge Files</a></li></ul></div></nav>
+</article></main></body></html>

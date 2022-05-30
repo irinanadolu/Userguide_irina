@@ -1,0 +1,149 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Generate documentation for XSLT stylesheets,Generate XSLT Stylesheet Documentation tool"><meta name="keywords" content="XSLT, Generate documentation for XSLT stylesheets, Generate XSLT Stylesheet Documentation tool"><meta name="DC.relation" scheme="URI" content="../topics/generate-documentation-tool.html"><meta name="DC.relation" scheme="URI" content="../topics/documentation-XML-Schema-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/html-documentation-xquery-documents-x-tools.html"><meta name="DC.relation" scheme="URI" content="XSLT-Stylesheet-documentation-support.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="documentation-XSLT-Stylesheet"><title>Generating Documentation for an XSLT Stylesheet</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="documentation-XSLT-Stylesheet"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Documentation for an XSLT Stylesheet</h1>
+  
+  <div class="body">
+    <p class="p">You can use <span class="ph">Oxygen XML Editor</span> to generate detailed documentation in HTML format for the
+      elements (top-level elements whose names are in the XSLT namespace) of an XSLT stylesheet. You
+      can select what XSLT elements to include in the generated documentation and also the
+      level of details to present for each of them. The elements are hyperlinked. To generate
+      documentation in a <a class="xref" href="custom-documentation-XSLT-Stylesheet.html#custom-documentation-XSLT-Stylesheet">custom
+        output format</a>, you can edit the XSLT stylesheet used to generate the documentation,
+      or create your own stylesheet.</p>
+    <p class="p">To open the <span class="ph uicontrol">XSLT Stylesheet Documentation</span> dialog box, select
+        <span class="ph uicontrol">XSLT Stylesheet Documentation</span> from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Generate Documentation</span></span> menu or from the <span class="ph"><span class="ph uicontrol">Generate
+          Documentation</span> submenu in the contextual menu of the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+          view</a></span>.<span class="ph"> You can also open
+        the tool by using the <span class="ph uicontrol"><img class="image" id="documentation-XSLT-Stylesheet__image_rqx_msd_qnb" src="../img/GenerateDocumentation16.png">Generate Documentation</span> toolbar button.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="documentation-XSLT-Stylesheet__figure-xslt-doc-dialog-output-panel-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>XSLT Stylesheet Documentation Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_xslt_doc_dialog_output_panel.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">XSL URL</span> field of the dialog box must contain the full path to the
+      XSL Stylesheet file you want to generate documentation for. The stylesheet may be a local or a
+      remote file. You can specify the path to the stylesheet by entering it in the text field, or
+      by using the <span class="ph uicontrol"><img class="image" id="documentation-XSLT-Stylesheet__image_pyh_flb_gs" src="../img/InsertEditorVariables16.png">Insert Editor Variables</span> button or the options in the <span class="ph uicontrol"><img class="image" id="documentation-XSLT-Stylesheet__image_pmx_flb_gs" src="../img/BrowseDrop.png">Browse</span> drop-down menu.</p>
+    <section class="section" id="documentation-XSLT-Stylesheet__output_tab"><h2 class="title sectiontitle">Output Tab</h2>
+      
+      <div class="p">The following options are available in the <span class="ph uicontrol">Output</span> tab:<ul class="ul" id="documentation-XSLT-Stylesheet__ul_gwz_4lb_gs">
+          <li class="li"><span class="ph uicontrol">Format</span> - Allows you to choose between the following formats:<ul class="ul" id="documentation-XSLT-Stylesheet__ul_pnl_ztg_gs">
+              <li class="li"><span class="ph uicontrol">HTML</span> - The documentation is generated in <a class="xref" href="HTML-documentation-XSLT-Stylesheet.html#HTML-documentation-XSLT-Stylesheet">HTML output format</a>.</li>
+              <li class="li"><span class="ph uicontrol">Custom</span> - The documentation is generated in a <a class="xref" href="custom-documentation-XSLT-Stylesheet.html#custom-documentation-XSLT-Stylesheet">custom output format</a>, allowing you to control the output. Click the
+                  <span class="ph uicontrol">Options</span> button to open a <a class="xref" href="custom-documentation-XSLT-Stylesheet.html#custom-documentation-XSLT-Stylesheet__figure-xsl-doc-custom-dialog-oxygen"><span class="ph uicontrol">Custom format options</span> dialog box</a> where you can
+                specify a custom stylesheet for creating the output. There is also an option to
+                  <span class="ph uicontrol">Copy additional resources to the output folder</span> and you can
+                select the path to the additional <span class="ph uicontrol">Resources</span> that you want to
+                copy. You can also choose to keep the intermediate XML files created during the
+                documentation process by deselecting the <span class="ph uicontrol">Delete intermediate XML
+                  file</span> option.</li>
+            </ul></li>
+          <li class="li"><span class="ph uicontrol">Output file</span> - You can specify the path of the output file by
+            entering it in the text field, or by using the <span class="ph uicontrol"><img class="image" id="documentation-XSLT-Stylesheet__image_pdh_bwg_gs" src="../img/InsertEditorVariables16.png">Insert Editor
+              Variables</span> button or the options in the <span class="ph uicontrol"><img class="image" id="documentation-XSLT-Stylesheet__image_qdh_bwg_gs" src="../img/BrowseDrop.png">Browse</span> drop-down
+            menu.</li>
+          <li class="li"><span class="ph uicontrol">Split output into multiple files</span> - Instructs the application to
+            split the output into multiple files. For large XSLT stylesheets, choosing another split
+            criterion may generate smaller output files, providing faster documentation browsing.
+            You can choose to split them by namespace, location, or component name.</li>
+          <li class="li"><span class="ph uicontrol">Open in Browser/System Application</span> - Opens the result in the
+            system application associated with the output file type.<div class="note note note_note"><span class="note__title">Note:</span> To set the browser or
+              system application that will be used, <span class="ph"><span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+                  <span class="ph uicontrol">Global</span>, and set it in the <span class="ph uicontrol">Default Internet
+                  browser</span> field</span>. This will take precedence over the default
+              system application settings.</div></li>
+        </ul></div>
+    </section>
+    <section class="section" id="documentation-XSLT-Stylesheet__settings_tab"><h2 class="title sectiontitle">Settings Tab</h2>
+      
+      <p class="p">When you generate documentation for an XSLT stylesheet you can choose what XSLT elements to
+        include in the output (templates, functions, global parameters, global variables, attribute
+        sets, character maps, keys, decimal formats, output formats, XSLT elements from referenced
+        stylesheets) and the details to include in the documentation.</p>
+      <div class="p">
+        <figure class="fig fignone" id="documentation-XSLT-Stylesheet__figure-xslt-doc-dialog-settings-panel-oxygen"><figcaption><span class="fig--title-label">Figure 2. </span>Settings Tab of the XSLT Stylesheet Documentation Dialog Box</figcaption>
+          
+          <img class="image" id="documentation-XSLT-Stylesheet__image_b2t_wyh_gs" src="../img/sa_xslt_doc_dialog_settings_panel.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Settings</span> tab allows you to choose whether or not to include the
+        following components: <span class="ph uicontrol">Templates</span>, <span class="ph uicontrol">Functions</span>,
+          <span class="ph uicontrol">Global parameters</span>, <span class="ph uicontrol">Global variables</span>,
+          <span class="ph uicontrol">Attribute sets</span>, <span class="ph uicontrol">Character maps</span>,
+          <span class="ph uicontrol">Keys</span>, <span class="ph uicontrol">Decimal formats</span>, <span class="ph uicontrol">Output
+          formats</span>, <span class="ph uicontrol">Referenced stylesheets</span>.</p>
+      <p class="p">You can choose whether or not to include the following other details:</p>
+      <ul class="ul" id="documentation-XSLT-Stylesheet__ul_l5t_dd3_gs">
+        <li class="li"><span class="ph uicontrol">Documentation</span> - Shows the documentation for each XSLT element.
+          For HTML format, the user-defined data elements that are recognized and transformed in
+          documentation blocks of the XSLT elements they precede, are the ones from the following
+            schemas:<ul class="ul" id="documentation-XSLT-Stylesheet__ul_m5t_dd3_gs">
+            <li class="li"><span class="ph">Oxygen XML Editor</span> built-in XSLT documentation schema.</li>
+            <li class="li">A subset of DocBook 5 elements. The recognized elements are: <em class="ph i">section</em>,
+                <em class="ph i">sect1</em> to <em class="ph i">sect5</em>, <em class="ph i">emphasis</em>, <em class="ph i">title</em>, <em class="ph i">ulink</em>,
+                <em class="ph i">programlisting</em>, <em class="ph i">para</em>, <em class="ph i">orderedlist</em>, <em class="ph i">itemizedlist</em>.</li>
+            <li class="li">A subset of DITA elements. The recognized elements are: <em class="ph i">concept</em>,
+              <em class="ph i">topic</em>, <em class="ph i">task</em>, <em class="ph i">codeblock</em>, <em class="ph i">p</em>, <em class="ph i">b</em>, <em class="ph i">i</em>, <em class="ph i">ul</em>,
+                <em class="ph i">ol</em>, <em class="ph i">pre</em>, <em class="ph i">sl</em>, <em class="ph i">sli</em>, <em class="ph i">step</em>, <em class="ph i">steps</em>, <em class="ph i">li</em>,
+                <em class="ph i">title</em>, <em class="ph i">xref</em>.</li>
+            <li class="li">Full XHTML 1.0 support.</li>
+            <li class="li">XSLStyle documentation environment. XSLStyle uses DocBook or DITA languages inside
+              its own user-defined data elements. The supported DocBook and DITA elements are the
+              ones mentioned above.</li>
+            <li class="li">
+              <p class="p">DOXSL documentation <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>. Supported elements are: <em class="ph i">codefrag</em>,
+                  <em class="ph i">description</em>, <em class="ph i">para</em>, <em class="ph i">docContent</em>, <em class="ph i">documentation</em>,
+                  <em class="ph i">parameter</em>, <em class="ph i">function</em>, <em class="ph i">docSchema</em>, <em class="ph i">link</em>, <em class="ph i">list</em>,
+                  <em class="ph i">listitem</em>, <em class="ph i">module</em>, <em class="ph i">parameter</em>, <em class="ph i">template</em>,
+                  <em class="ph i">attribute-set</em>.</p>
+              <p class="p">Other XSLT documentation blocks that are not recognized will just be serialized
+                inside an HTML <em class="ph i">pre</em> element. You can change this behavior by using a <a class="xref" href="custom-documentation-XSLT-Stylesheet.html">custom format</a> instead of
+                the built-in <a class="xref" href="HTML-documentation-XSLT-Stylesheet.html">HTML format</a>
+                and providing your own XSLT stylesheets.</p>
+            </li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Use comments</span> - Controls whether or not the comments that precede
+          an XSLT element is treated as documentation for the element they precede. Comments that
+          precede or succeed the <em class="ph i">xsl:stylesheet</em> element, are treated as documentation for the
+          whole stylesheet. Note that comments that precede an import or include directive are not
+          collected as documentation for the imported/included module. Also, comments from within
+          the body of the XSLT elements are not collected at all.</li>
+        <li class="li"><span class="ph uicontrol">Namespace</span> - Shows the namespace for named XSLT elements.</li>
+        <li class="li"><span class="ph uicontrol">Location</span> - Shows the stylesheet location for each XSLT
+          element.</li>
+        <li class="li"><span class="ph uicontrol">Parameters</span> - Shows parameters of templates and functions.</li>
+        <li class="li"><span class="ph uicontrol">References</span> - Shows the named XSLT elements that are referenced
+          from within an element.</li>
+        <li class="li"><span class="ph uicontrol">Used by</span> - Shows the list of all the XSLT elements that reference
+          the current named element.</li>
+        <li class="li"><span class="ph uicontrol">Supersedes</span> - Shows the list of all the XSLT elements that are
+          superseded the current element.</li>
+        <li class="li"><span class="ph uicontrol">Overriding</span> - Shows the list of all the XSLT elements that
+          override the current element.</li>
+        <li class="li"><span class="ph uicontrol">Return type</span> - Shows the return type of the function.</li>
+        <li class="li"><span class="ph uicontrol">Source</span> - Shows the text stylesheet source for each XSLT
+          element.</li>
+        <li class="li"><span class="ph uicontrol">Import precedence</span> - Shows the computed import precedence as
+          declared in the XSL transformation specifications.</li>
+        <li class="li"><span class="ph uicontrol">Generate index</span> - Creates an index with all the XSLT elements
+          included in the documentation.</li>
+      </ul>
+    </section>
+    <p class="p"><span class="ph uicontrol">Export settings</span> - Save the current settings in a settings file for
+      further use (for example, if you need the exported settings file for <a class="xref" href="https://www.oxygenxml.com/oxygen_scripting.html" target="_blank" rel="external noopener">generating the documentation from the command-line interface</a>).</p>
+    <p class="p"><span class="ph uicontrol">Import settings</span> - Reloads the settings from the exported file.</p>
+    <p class="p"><span class="ph uicontrol">Generate</span> - Use this button to generate the XSLT documentation.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> This function can be executed from an automated
+      command-line script, for more details, see <a class="xref" href="scripting_oxygen.html">Scripting Oxygen</a>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/generate-documentation-tool.html">Generate Documentation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/documentation-XML-Schema-x-tools.html">Generating Documentation for an XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/html-documentation-xquery-documents-x-tools.html">Generating HTML Documentation for an XQuery Document</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="XSLT-Stylesheet-documentation-support.html">XSLT Stylesheet Component Documentation Support</a></li></ul></div></nav>
+</article></main></body></html>

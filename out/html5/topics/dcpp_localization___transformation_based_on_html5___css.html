@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Localization,i18n,Translation,DITA PDF - based on HTML5 &amp; CSS"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Localization, i18n, Translation, DITA PDF - based on HTML5 &amp; CSS"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_fonts.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_comments_and_change_tracking.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_localization___transformation_based_on_html5___css"><title>Localization</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_localization___transformation_based_on_html5___css">
+  <h1 class="title topictitle1" id="ariaid-title1">Localization</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation type supports a large
+      number of languages for customizing localization. In this type of transformation, the
+      intermediary merged DITA map is transformed to HTML5 using the DITA-OT built-in support, so
+      the customization of the internationalization (the labels for chapters, parts, figures,
+      tables, notes, etc.) can be achieved by following the DITA-OT recommendations: <a class="xref" href="http://www.dita-ot.org/dev/topics/plugin-addgeneratedtext.html" target="_blank" rel="external noopener">Customizing Generated Text</a>.</p>
+    <p class="p">It is recommended that you do this customization on a DITA-OT distribution deployed outside
+      of the <strong class="ph b">Oxygen</strong> installation. Otherwise, you will lose the customization when upgrading
+        <strong class="ph b">Oxygen</strong>. You can <a class="xref" href="https://www.oxygenxml.com/contact.html" target="_blank" rel="external noopener">contact the <em class="ph i">Oxygen support team</em></a> to ask for the <strong class="ph b">Oxygen
+        Publishing Engine</strong> package.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_fonts.html">Fonts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_comments_and_change_tracking.html">Comments, Highlights, and Tracked Changes</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_supported_languages__html5_and_css">
+  <h2 class="title topictitle2" id="ariaid-title2">Supported Languages (HTML5 and CSS)</h2>
+  <div class="body">
+    <p class="p">There are over 20 supported languages. For the full list of supported languages (and their
+      codes), see <a class="xref" href="https://www.dita-ot.org/3.2/topics/globalization-languages.html" target="_blank" rel="external noopener">https://www.dita-ot.org/3.2/topics/globalization-languages.html</a>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_select_a_language_dita_html5">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Select a Language (HTML5 and CSS)</h2>
+  <div class="body">
+    <p class="p">There are two ways to switch the labels to a specific language:</p>
+    <ul class="ul" id="dcpp_how_to_select_a_language_dita_html5__ul_sdf_x4y_khb">
+      <li class="li">Alter the DITA maps and/or topics to have the <code class="keyword markupname xmlatt">@xml:lang</code> attribute set on
+        the root element with one of the supported values (i.e. "fr", "de", "zh", "ru").</li>
+      <li class="li">If changing the files is not an option, you can alter the value of the
+          <code class="ph codeph">default.language</code> transformation parameter to the desired language code. </li>
+    </ul>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_add_support_for_a_new_language__html5_and_css">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Add Support for a New Language</h2>
+  <div class="body">
+    <p class="p">If the <a class="xref" href="https://www.dita-ot.org/3.2/topics/globalization-languages.html" target="_blank" rel="external noopener">list of supported languages</a> does not include the
+      language you need, you can create a custom dictionary.</p>
+    <p class="p">The DITA-OT documentation offers a good insight on how to do it: <a class="xref" href="https://www.dita-ot.org/3.2/topics/plugin-addgeneratedtext.html" target="_blank" rel="external noopener">https://www.dita-ot.org/3.2/topics/plugin-addgeneratedtext.html</a></p>
+    <p class="p">In addition to that, you need to alter CSS files. Some of the labels come from CSS files
+      located in the <span class="ph filepath">[PLUGIN_DIR]/css/print/i18n/</span> directory.</p>
+    <p class="p">You should use one of the files as a template, copy its rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, and then translate the
+      labels. Make sure you also change the <code class="ph codeph">:lang</code> selector to match your language
+      code.</p>
+  </div>
+</article></article></article></main></body></html>

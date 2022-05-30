@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="bidi-support">
+  <title>Special Character Support in Author Mode</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Author editing mode<indexterm>Bidirectional text</indexterm></indexterm>
+        <indexterm>Bidirectional text in Author mode</indexterm>
+        <indexterm>Author editing mode<indexterm>Special characters</indexterm></indexterm>
+        <indexterm>Special characters in Author mode</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> offers support for bidirectional text, such as Arabic or Hebrew
+      languages that require right-to-left scripts, certain Asian languages (such as Devanagari,
+      Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Khmer),
+      or other special characters (such as combining characters). To achieve this, <ph
+        keyref="product"/> uses the <xref href="http://www.unicode.org/reports/tr9/" format="html"
+        scope="external">Unicode Bidirectional Algorithm</xref>, as specified by the Unicode
+      Consortium. The text arrangement is similar to what you get in a modern HTML browser. The
+      final text layout is rendered according to the directional CSS properties matching the XML
+      elements and the Unicode directional formatting codes.</p>
+    <p>By default, when navigating bidirectional text with the arrow keys in
+        <uicontrol>Author</uicontrol> mode, pressing the right arrow key moves the cursor in the
+      writing direction and the left arrow moves it in the opposite direction. However, if the <xref
+        href="caret-navigation.dita#caret-navigation/arrow-keys-writing-direction"><uicontrol>Arrow
+          keys move the cursor in the writing direction</uicontrol> option</xref> in the
+        <uicontrol>Cursor Navigation</uicontrol> preferences page is not selected, pressing the
+      right arrow will simply move the cursor to the right (and the left arrow moves it to the
+      left), regardless of the text direction.</p>
+    <note type="tip">If you experience performance issues when editing documents that contain
+      bidirectional text, you could try <ph product="author editor">one of the following
+        solutions</ph><ph product="authorEclipse editorEclipse">the following solution</ph>:<ul>
+        <li product="author editor">The Eclipse plugin distribution of <ph keyref="product"/> is
+          faster than the standalone version when working with bidirectional text.</li>
+        <li>You could try changing the font. For example, you could try using
+            the<uicontrol>David</uicontrol> font in Hebrew content. If it is not already installed
+          in your operating system, this font is available at: <xref
+            href="https://www.microsoft.com/typography/fonts/family.aspx?FID=234" format="html"
+            scope="external"/>. To change the font in <ph keyref="product"/>, <ph
+            conkeyref="reusables-preferences-pages/open-the-preferences-page"/>, go to <menucascade
+            product="author editor">
+            <uicontrol>Appearance</uicontrol>
+            <uicontrol>Fonts</uicontrol>
+          </menucascade><uicontrol product="authorEclipse editorEclipse">Fonts</uicontrol>, and
+          change the font using the <xref
+            href="preferences-fonts.dita#preferences-fonts/author_default_font"
+            product="author editor"><uicontrol>Author default font</uicontrol> option in the
+              <uicontrol>Fonts</uicontrol> preferences page</xref><xref
+            href="preferences-fonts.dita#preferences-fonts/author-font"
+            product="authorEclipse editorEclipse"><uicontrol>Author</uicontrol> option in the
+              <uicontrol>Fonts</uicontrol> preferences page</xref>.</li>
+      </ul></note>
+    <p>For more information about the bidirectional text support in the
+        <uicontrol>Author</uicontrol> mode, watch our video demonstration:</p>
+    <p><object width="450" height="250" data="https://www.youtube.com/embed/IC0ahH1IS7s"
+        outputclass="iframe">
+        <param name="allowfullscreen" value="true"/>
+      </object></p>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="bidirectional-support.dita" product="author editor"/>
+      <link href="grid-bidi.dita"/>
+      <link href="unicode-toolbar.dita"/>
+    </linklist>
+  </related-links>
+</topic>

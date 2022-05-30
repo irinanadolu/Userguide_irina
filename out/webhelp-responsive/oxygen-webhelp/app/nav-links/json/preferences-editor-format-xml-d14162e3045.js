@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Whitespaces Preferences","href":"topics\/preferences-editor-format-xml-whitespaces.html","attributes":{"data-id":"preferences-editor-format-xml-whitespaces"},"menu":{"hasChildren":false},"tocID":"preferences-editor-format-xml-whitespaces-d14162e3064","topics":[]}]});

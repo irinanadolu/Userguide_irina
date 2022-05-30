@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content=":before pseudo-element,:after pseudo-element"><meta name="keywords" content=":before pseudo-element, :after pseudo-element"><meta name="DC.relation" scheme="URI" content="../topics/dg-oXygen-css-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-custom-css-pseudo-classes.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-css-stylesheets.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="ch_advanced_styling_multiple_before_and_after_pseudo_elements"><title>Using the :before(n) and :after(n) CSS Pseudo-Elements</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="ch_advanced_styling_multiple_before_and_after_pseudo_elements"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Using the :before(n) and :after(n) CSS Pseudo-Elements</h1>
+  
+  <div class="body">
+    <p class="p">Although not standard, this extension may be useful if you want to style sections by adding
+      multiple levels of static content. To add static content to an element, you would normally use
+      a <code class="ph codeph">:before</code> or <code class="ph codeph">:after</code> pseudo-element. </p>
+    <p class="p">This example adds static text before the title ("Chapter 1", "Chapter 2", etc.):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">h1:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Chapter "</span> counter(chapter) <span class="hl-string">"."</span>;
+  <strong class="hl-keyword">color</strong>: blue;
+}</pre>
+    <p class="p">All of this is styled with the same color (blue in this example). Using standard CSS, it is
+      impossible to style specific aspects of it (for example, just the chapter number with a larger
+      font and with red). However, you can do it using multiple <code class="ph codeph">before(n)</code> or
+        <code class="ph codeph">after(n)</code> pseudo-elements: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">h1:before(<span class="hl-number">3</span>) {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Chapter "</span>;
+  <strong class="hl-keyword">color</strong>: blue;
+}
+h1:before(<span class="hl-number">2</span>) {
+  <strong class="hl-keyword">content</strong>: counter(chapter);
+  <strong class="hl-keyword">color</strong>: red;
+  <strong class="hl-keyword">font-size</strong>: large;
+}
+h1:before(<span class="hl-number">1</span>) {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"."</span>;
+  <strong class="hl-keyword">color</strong>: blue;
+}</pre>
+    <div class="note note note_note"><span class="note__title">Notes:</span> 
+      <ul class="ul" id="ch_advanced_styling_multiple_before_and_after_pseudo_elements__ul_ybj_c5b_ckb">
+        <li class="li">The bigger the level, the more distant the pseudo-element is.</li>
+        <li class="li">Level 1 corresponds to normal <code class="ph codeph">:before</code> or <code class="ph codeph">:after</code> pseudo-elements.</li>
+      </ul>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oXygen-css-extensions.html">CSS Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-custom-css-pseudo-classes.html">Custom CSS Pseudo-classes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debugging-css-stylesheets.html">Debugging CSS Stylesheets</a></div></div></nav></article></main></body></html>

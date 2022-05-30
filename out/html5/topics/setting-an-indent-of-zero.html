@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Text editing mode,Set indent to zero,XML documents,Text Mode editing,Set indent to zero,Set indent to zero in Text Mode"><meta name="keywords" content="Text editing mode, Set indent to zero, XML documents, Text Mode editing, Set indent to zero, Set indent to zero in Text Mode"><meta name="DC.relation" scheme="URI" content="../topics/format-and-indent-xml.html"><meta name="DC.relation" scheme="URI" content="../topics/format-and-indent-xml.html"><meta name="DC.relation" scheme="URI" content="../topics/format-indent-multiple-files.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="setting-an-indent-of-zero"><title>Setting an Indent Size to Zero</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="setting-an-indent-of-zero"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Setting an Indent Size to Zero</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> will automatically <a class="xref" href="format-and-indent-xml.html#format-and-indent-xml">format
+        and indent</a> documents at certain times. This includes indenting the content from the
+      margin to reflect its structure. In some cases, you may not want your content indented. To
+      avoid your content being indented, you can set an indent size of zero. <div class="note note note_note"><span class="note__title">Note:</span> Changing the
+        indent size does not override the rules that <span class="ph">Oxygen XML Editor</span> uses for handling
+        whitespace when formatting and indenting XML documents. Therefore, changing the indent size
+        will have no effect on elements that require whitespaces to be maintained.</div>There are
+      two cases to consider.</div>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Maintaining zero indent in documents with zero indent</dt>
+          <dd class="dd">
+            <div class="p">If you have existing documents with zero indent and you want <span class="ph">Oxygen XML Editor</span>
+              to maintain a zero indent when editing or formatting those documents:<ol class="ol" id="setting-an-indent-of-zero__ol_tzt_gdm_jp">
+                <li class="li">
+                  <span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+                    <a class="xref" href="preferences-editor-format.html#preferences-editor-format"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span></span></a>.</li>
+                <li class="li">Select <span class="ph uicontrol">Detect indent on open</span>.</li>
+                <li class="li">Select <span class="ph uicontrol">Use zero-indent if detected</span>. </li>
+              </ol></div>
+            <p class="p"><span class="ph">Oxygen XML Editor</span> will examine the indent of each document as it is opened and
+              if the indent is zero for all lines, or for nearly all lines, a zero indent will be
+              used when formatting and indenting the document. Otherwise, <span class="ph">Oxygen XML Editor</span>
+              will use the indent closest to what it detects in the document.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Enforcing zero indent for all documents</dt>
+          <dd class="dd">
+            <div class="p">If you want all documents to be formatted with zero indent, regardless of their
+              current indenting:<ol class="ol" id="setting-an-indent-of-zero__ol_avr_f2m_jp">
+                <li class="li">
+                  <span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+                    <a class="xref" href="preferences-editor-format.html#preferences-editor-format"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span></span></a>.</li>
+                <li class="li">Deselect <span class="ph uicontrol">Detect indent on open</span>.</li>
+                <li class="li">Set <span class="ph uicontrol">Indent size</span> to <code class="ph codeph">0</code>. </li>
+              </ol></div>
+            <div class="p">All documents will be formatted and indented with an indent of zero.<div class="note warning note_warning"><span class="note__title">Warning:</span> Setting the indent size to zero can change the meaning of some file
+                types, such as Python source files.</div></div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/format-and-indent-xml.html">Formatting and Indenting XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/format-and-indent-xml.html">Formatting and Indenting XML Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/format-indent-multiple-files.html">Format and Indent (Pretty-Print) Multiple Files</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Content Reference Push mechanism,Conref Push"><meta name="keywords" content="DITA, Reusing content, Content Reference Push mechanism, Conref Push"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-reuse.html"><meta name="DC.relation" scheme="URI" content="../topics/coderef.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/dita/styleguide/webhelp-feedback/#Artefact/Content_Reuse/c_Conref_Push.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="conref-push-mechanism"><title>Working with the Conref Push Mechanism</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="conref-push-mechanism"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with the Conref Push Mechanism</h1>
+  
+  <div class="body">
+    <section class="section" id="conref-push-mechanism__content_reference_push_mechanism"><h2 class="title sectiontitle">Content Reference Push Mechanism</h2>
+      
+      <p class="p">The usual method of using content references pulls element content from a source element
+        and inserts it in the current topic. DITA 1.2 introduced an alternative method of content
+        referencing, allowing element content to be pushed, or injected, from a source topic to
+        another topic without any special coding in the topic where the content will be re-used.
+        This technique is known as a content reference <em class="ph i">push</em> mechanism (<em class="ph i">conref
+        push</em>).</p>
+      <p class="p">The <em class="ph i">conref push</em> mechanism requires elements in the target topic (the topic where the
+        content is to be pushed) to have ID elements, as the push mechanism inserts elements
+          <em class="ph i">before</em> or <em class="ph i">after</em> a named element, or <em class="ph i">replaces</em> the named element.
+        Assuming the source topic is included in the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+            map</dfn></a>, the <em class="ph i">conref push</em> will be processed during publishing stage for
+        the <dfn class="term">DITA map</dfn>.</p>
+    </section>
+    <section class="section" id="conref-push-mechanism__example_of_a_conref_push_scenario"><h2 class="title sectiontitle">Example of a Conref Push Scenario</h2>
+      
+      <p class="p">An example of a scenario where a <em class="ph i">conref push</em> would be useful is where a car
+        manufacturer produces driver manuals that are distributed to various regions with their own
+        specific regulations and certain sections need to be customized by the local car dealers
+        before publishing. The local dealer could use a <em class="ph i">conref push</em> technique to insert
+        specific content without modifying the manufacturer-supplied content.</p>
+    </section>
+    <section class="section" id="conref-push-mechanism__push_current_element_action"><h2 class="title sectiontitle">Push Current Element Action</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes an action that allows you to easily reference content with
+        a <em class="ph i">conref push</em> mechanism. The <span class="ph uicontrol">Push Current Element</span> action is
+        available in the <span class="ph uicontrol">DITA</span> menu and in the <span class="ph uicontrol">Reuse</span>
+        subfolder of the contextual menu when editing in <span class="ph uicontrol">Author</span> mode.
+        Selecting this action opens the <span class="ph uicontrol">Push current element</span> dialog box that
+        allows you to select a target resource and element, and where to insert the current element
+        content.</p>
+      <div class="p">
+        <figure class="fig fignone" id="conref-push-mechanism__fig_j2g_vxg_5s"><figcaption><span class="fig--title-label">Figure 1. </span>Push Current Element Dialog Box</figcaption>
+          
+          <img class="image" id="conref-push-mechanism__image_yst_4zg_5s" src="../img/sa_push_element.png">
+        </figure>
+      </div>
+      <div class="p">This dialog box allows you to configure the following options for the <em class="ph i">conref push</em> action:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Choose the target resource</span></dt>
+            <dd class="dd">Allows you to select a <span class="ph uicontrol">Location</span> URL or a
+                <span class="ph uicontrol">Key</span> for the target resource and the table in the next section
+              of the dialog box will be populated using the information from the specified
+              resource.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Select the target element</span></dt>
+            <dd class="dd">The table in this section contains the available elements (identified by their ID)
+              that can be replaced by, or pushed before/after, the current element, according to the
+              push action.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Push action</span></dt>
+            <dd class="dd">
+              <p class="p">Allows you to choose one of the following options for where you want to insert the
+                current element content:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">replace the target element</span></dt>
+                    <dd class="dd">
+                      <p class="p">The target element will be replaced with the current element content.</p>
+                      <p class="p">On the technical side, the value of the <code class="keyword markupname xmlatt">@conaction</code>
+                        attribute in the current element will be set to <code class="ph codeph">pushreplace</code>
+                        and the <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute will
+                        be set to the specified reference.</p>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">push before</span></dt>
+                    <dd class="dd">
+                      <p class="p">The current element content will be inserted before the specified target
+                        element in the target resource.</p>
+                      <p class="p">On the technical side, the value of the <code class="keyword markupname xmlatt">@conaction</code>
+                        attribute in the current element will be set to <code class="ph codeph">pushbefore</code>.
+                        Another element with the same name and class as the target element will be
+                        inserted in the document after the current element. The new element will
+                        have the <code class="keyword markupname xmlatt">@conaction</code> attribute set to <code class="ph codeph">mark</code>
+                        and the <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute will
+                        be set to the specified reference.</p>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">push after</span></dt>
+                    <dd class="dd">
+                      <p class="p">The current element content will be inserted after the specified target
+                        element in the target resource.</p>
+                      <p class="p">On the technical side, the value of the <code class="keyword markupname xmlatt">@conaction</code>
+                        attribute in the current element will be set to <code class="ph codeph">pushafter</code>.
+                        Another element with the same name and class as the target element will be
+                        inserted in the document before the current element. The new element will
+                        have the <code class="keyword markupname xmlatt">@conaction</code> attribute set to <code class="ph codeph">mark</code>
+                        and the <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute will
+                        be set to the specified reference.</p>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+      <p class="p">You can also use the <span class="ph uicontrol">Preview</span> panel to view the content that will be
+        pushed and the <span class="ph uicontrol">Source</span> panel to see the XML code for the content to be
+        pushed. After you click <span class="ph uicontrol">OK</span>, the <em class="ph i">conref push</em> mechanism is
+        inserted in the current document. The changes in the target resource will be processed when
+        you transform the <dfn class="term">DITA map</dfn>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-reuse.html">Reusing DITA Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/coderef.html">Working with Code References</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-reusable-components.html">Working with Reusable Components</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/styleguide/webhelp-feedback/#Artefact/Content_Reuse/c_Conref_Push.html" target="_blank" rel="external noopener">The DITA Style Guide Best Practices for Authors: The Conref Push Technique</a></li></ul></div></nav>
+</article></main></body></html>

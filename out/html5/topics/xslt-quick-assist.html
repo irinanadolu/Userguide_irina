@@ -1,0 +1,120 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Quick Assist feature"><meta name="keywords" content="XSLT, Quick Assist feature"><meta name="DC.relation" scheme="URI" content="../topics/editing-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-refactoring-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-unit-test-xspec.html"><meta name="DC.relation" scheme="URI" content="xslt-component-dependencies.html#xslt-component-dependencies"><meta name="DC.relation" scheme="URI" content="xslt-hierarchy-view.html#xslt-hierarchy-view"><meta name="DC.relation" scheme="URI" content="xslt-refactoring-actions.html#xslt-refactoring-actions"><meta name="DC.relation" scheme="URI" content="search-refactor-scope.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xslt-quick-assist"><title>XSLT Quick Assist Support</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xslt-quick-assist"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT Quick Assist Support</h1>
+  
+  <div class="body">
+    <p class="p">The <a class="xref" href="../glossary/quick-assist.html"><dfn class="term">Quick Assist</dfn> support</a> helps you
+      to rapidly access search and refactoring actions. If one or more actions are available in the
+      current context, they are accessible via a yellow bulb help (<img class="image" src="../img/QuickAssist16.png">) placed at the current line in the stripe on the left side
+      of the editor. Also, you can invoke the <dfn class="term">Quick Assist</dfn> menu by using the <span class="ph uicontrol"><span class="keyword shortcut">Alt + 1</span></span>
+        (<span class="ph uicontrol"><span class="keyword shortcut">Meta + Alt +
+        1</span></span> on Mac OS X) keyboard shortcuts.</p>
+    <div class="p">Two categories of actions are available in the <dfn class="term">Quick Assist</dfn> menu:<ul class="ul" id="xslt-quick-assist__ul_ckb_cfc_c4">
+        <li class="li">
+          <p class="p">Actions available on a selection made inside an attribute that contains an XPath
+            expression:</p>
+          <div class="p">
+            <dl class="dl">
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xslt-quick-assist__image_wlq_4fn_wr" src="../img/CreateTemplate16.png">Extract template</span></dt>
+                <dd class="dd"><span class="ph">Extracts the selected XSLT instructions sequence into a
+        new template.</span></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xslt-quick-assist__image_p2z_2fn_wr" src="../img/CreateStylesheet16.png">Move to another stylesheet</span></dt>
+                <dd class="dd"><span class="ph">Allows you to move one or more XSLT global
+        components (templates, functions, or parameters) to another stylesheet.</span></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XSLLocalVariable16.png">Extract local
+                    variable</span></dt>
+                <dd class="dd"><span class="ph">Allows you to create a new local variable by extracting
+        the selected XPath expression.</span></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XSLVariable16.png">Extract global
+                    variable</span></dt>
+                <dd class="dd"><span class="ph">Allows you to create a new global variable by extracting
+        the selected XPath expression.</span></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XSLLocalParam16.png">Extract template
+                    parameter</span></dt>
+                <dd class="dd"><span class="ph">Allows you to create a new template parameter by
+        extracting the selected XPath expression.</span></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XSLParam16.png">Extract global
+                    parameter</span></dt>
+                <dd class="dd"><span class="ph">Allows you to create a new global parameter by
+        extracting the selected XPath expression.</span></dd>
+              
+            </dl>
+          </div>
+          <div class="p">
+            <figure class="fig fignone" id="xslt-quick-assist__fig_pmp_k3c_c4"><figcaption><span class="fig--title-label">Figure 1. </span>XSLT Quick Assist Support - Refactoring Actions</figcaption>
+              
+              <img class="image" id="xslt-quick-assist__image_jpc_43c_c4" src="../img/xslt_quick_assist_refactoring_actions.png">
+            </figure>
+          </div>
+          <p class="p">
+            
+          </p>
+        </li>
+        <li class="li">
+          <p class="p">Actions available when the cursor is positioned over the name of a component:</p>
+          <div class="p">
+            <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RenameXSLResource16.png">Rename Component
+              in</span></dt>
+          <dd class="dd">Renames the component and all its dependencies.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SearchDeclarations16.png">Search
+              Declarations</span></dt>
+          <dd class="dd">Searches the declaration of the component in a predefined scope. It is available only
+            when the context represents a component name reference.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SearchReferences16.png">Search
+              References</span></dt>
+          <dd class="dd">Searches all references of the component in a predefined scope.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ComponentDependencies16.png">Component
+              Dependencies</span></dt>
+          <dd class="dd">Searches the component dependencies in a predefined scope.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ConfigureSearchScope16.png">Change
+              Scope</span></dt>
+          <dd class="dd">Configures the scope that will be used for future search or refactor operations.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RenameXSLResource16.png">Rename
+              Component</span></dt>
+          <dd class="dd">Allows you to rename the current component in-place.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/OccurrencesInFile16.png">Search
+              Occurrences</span></dt>
+          <dd class="dd">Searches all occurrences of the component within the current file.</dd>
+        
+      </dl>
+          </div>
+        </li>
+      </ul></div>
+    <div class="p">
+      <figure class="fig fignone" id="xslt-quick-assist__fig_xgs_khc_c4"><figcaption><span class="fig--title-label">Figure 2. </span>XSLT Quick Assist Support - Component Actions</figcaption>
+        
+        <img class="image" id="xslt-quick-assist__image_ejs_khc_c4" src="../img/xslt_quick_assist.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xslt-stylesheets.html">Editing XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xslt-refactoring-actions.html">XSLT Refactoring Actions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-unit-test-xspec.html">XSLT Unit Test (XSpec)</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xslt-component-dependencies.html#xslt-component-dependencies">Component Dependencies View</a></li><li class="linklist"><a class="link" href="xslt-hierarchy-view.html#xslt-hierarchy-view">XSLT Hierarchy View</a></li><li class="linklist"><a class="link" href="xslt-refactoring-actions.html#xslt-refactoring-actions">XSLT Refactoring Actions</a></li><li class="linklist"><a class="link" href="search-refactor-scope.html">Search and Refactor Operations Scope</a></li></ul></div></nav>
+</article></main></body></html>

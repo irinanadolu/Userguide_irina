@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/rectangular-selection-does-not-work.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon-issues.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-ot-external-refs"><title>References Outside the Main DITA Map Folder</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-ot-external-refs"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">References Outside the Main DITA Map Folder</h1>
+  <div class="body troublebody"><section class="section condition" id="dita-ot-external-refs__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">A reference to a DITA topic, <dfn class="term">map</dfn>, or binary resource (for example, an image)
+        that is located outside of the folder where the main <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> is located leads to problems when publishing the content
+        using the DITA Open Toolkit.</p>
+    </section><div class="bodydiv troubleSolution">
+      <section class="section cause" id="dita-ot-external-refs__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">DITA-OT often has trouble resolving references that are outside the directory where the
+          published <dfn class="term">DITA map</dfn> is found. By default, it does not even copy the referenced
+          topics to the output directory. </p>
+      </section><section class="section remedy" id="dita-ot-external-refs__solution"><h2 class="title sectiontitle">Solution</h2>
+      
+        <section class="section steps-informal">
+          <div class="p">To solve this, try one of the following solutions:<ul class="ul">
+              <li class="li">Create another <dfn class="term">DITA map</dfn> that is located in a folder path above all
+                referenced folders and reference the original <dfn class="term">DITA map</dfn> from this new
+                map. Then transform this <dfn class="term">DITA map</dfn> instead.</li>
+              <li class="li">Edit the transformation scenario and in the <strong class="ph b">Parameters</strong> tab, change the
+                value of the <span class="ph uicontrol">fix.external.refs.com.oxygenxml</span> parameter to
+                  <code class="ph codeph">true</code>. This parameter is used to specify whether or not the
+                application tries to fix such references in a temporary files folder before the DITA
+                Open Toolkit is invoked on the fixed references. The fix has no impact on your
+                edited DITA content.<div class="note important note_important"><span class="note__title">Important:</span> The
+                    <span class="ph uicontrol">fix.external.refs.com.oxygenxml</span> parameter is only
+                  supported when the DITA-OT transformation process is started from <span class="ph">Oxygen XML Editor</span> or using the <code class="ph codeph">transform</code> script.</div></li>
+              <li class="li">For PDF output, you can edit the transformation scenario and in the
+                  <strong class="ph b">Parameters</strong> tab set the value of the
+                  <span class="ph uicontrol">generate.copy.outer</span> parameter to <code class="ph codeph">3</code>. This
+                parameter specifies whether to generate output files for content that is not located
+                in or beneath the directory containing the DITA map file. By setting the value of
+                this parameter to <code class="ph codeph">3</code>, the transformation scenario shifts the output
+                directory so that it contains all output for the publication.<div class="note important note_important"><span class="note__title">Important:</span> This method is recommended for transformation scenarios that use an external
+                  DITA-OT.</div></li>
+            </ul></div>
+        </section>
+    </section></div></div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/rectangular-selection-does-not-work.html">Rectangular Selection Feature Does Not Work On Windows</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/saxon-issues.html">Saxon 9.7 Transformer Issues</a></div></div></nav></article></main></body></html>

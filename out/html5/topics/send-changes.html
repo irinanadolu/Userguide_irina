@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Synchronize with the SVN repository,Send changes to repository"><meta name="keywords" content="SVN Client, Synchronize with the SVN repository, Send changes to repository"><meta name="DC.relation" scheme="URI" content="../topics/synchronize-with-repos.html"><meta name="DC.relation" scheme="URI" content="../topics/update-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/multiple-locations-commit.html"><meta name="DC.relation" scheme="URI" content="../topics/multiple-locations-commit.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="send-changes"><title>Send Your Changes to the Repository</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="send-changes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Send Your Changes to the Repository</h1>
+  <div class="body">
+    <p class="p">Sending the changes you made to your working copy is known as <em class="ph i">committing</em> the changes.
+      If your working copy is up-to-date and there are no conflicts, you are ready to commit your
+      changes.</p>
+    <p class="p">The <span class="ph uicontrol">Commit</span> action sends the changes from your local working copy to
+      the repository. The <span class="ph uicontrol">Commit</span> dialog box presents all the items that you
+      can commit.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Commit dialog box</figcaption>
+        
+        <img class="image" src="../img/sa_svn_commit_dialog.png">
+      </figure>
+    </div>
+    <p class="p">Enter a message to associate with the commit, or choose a previous message from the
+        <span class="ph uicontrol">Previous messages</span> list (the last 10 commit messages will be
+      remembered even after restarting the SVN client application).</p>
+    <p class="p">An item that can be committed has one of the following states: <em class="ph i">added</em>, <em class="ph i">modified</em>
+      (content or properties), <em class="ph i">replaced</em>, and <em class="ph i">deleted</em>. All items that have one of these
+      states are selected in the dialog box by default. If you do not want to commit one of the
+      items, deselect it.</p>
+    <div class="note attention note_attention" id="send-changes__svn1_8_commit_moved_renamed_items"><span class="note__title">Attention:</span> For SVN 1.8 working copies: when
+      committing items that were moved and/or renamed, make sure you select both the source and the
+      destination. Otherwise, the commit operation will fail.</div>
+    <div class="p">Besides the items that have one of the mentioned states, Syncro SVN Client also includes the
+      files being <em class="ph i">unversioned</em> or <em class="ph i">missing</em> and these items are handled automatically:<ul class="ul">
+        <li class="li"><em class="ph i">Unversioned</em> items are added under version control.</li>
+        <li class="li"><em class="ph i">Missing</em> items are deleted.</li>
+      </ul><div class="note note note_note"><span class="note__title">Note:</span> If the <span class="ph uicontrol">Show unversioned directories content</span> option is not
+        selected, the <span class="ph uicontrol">Commit</span> dialog box does not display the items inside an
+          <em class="ph i">unversioned</em>directory.</div></div>
+    <p class="p"><em class="ph i">Unversioned</em> or <em class="ph i">missing</em> items are not selected by default in the
+        <span class="ph uicontrol">Commit</span> dialog box, unless you have selected them explicitly when
+      issuing the commit command.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> In some cases, items that have one of the above states are not presented in the
+        <span class="ph uicontrol">Commit</span> dialog box.<div class="p">For example:<ul class="ul">
+          <li class="li">Items that have been <em class="ph i">added</em> or <em class="ph i">replaced</em> previously, but now are presented
+            as <em class="ph i">missing</em> after being removed from the file system, outside of an SVN client.
+            Such items do not exist in the repository and you should use the
+              <span class="ph uicontrol">Delete</span> action to remove them from your working copy.</li>
+          <li class="li">Items that have incoming changes from the repository, after a synchronization. You
+            need to have your working copy up-to-date before committing your changes.</li>
+          <li class="li">Files that, after a synchronization, appear as locked by other users or from other
+            locations than the current working copy.</li>
+        </ul></div></div>
+    <div class="note note note_note"><span class="note__title">Note:</span> Due to dependencies between items, when you select or clear an <em class="ph i">unversioned</em> ( <img class="image" id="send-changes__image_qh3_wy5_5r" src="../img/SVNWCUnversioned10.png"> ) or <em class="ph i">added</em> ( <img class="image" id="send-changes__image_ejc_sjp_5r" src="../img/SVNWCAdded10.png"> ) item in the
+        <span class="ph uicontrol">Commit</span> dialog box, other items with one of these states can be
+      selected or cleared automatically. </div>
+    <p class="p">The modifications that will be committed for each file can be reviewed in the compare editor
+      window by double-clicking a file in the <span class="ph uicontrol">Commit</span> dialog box, or by
+      right-clicking and selecting the <span class="ph uicontrol">Show Modifications</span> action from the
+      contextual menu. This option is available to review only file content changes, not property
+      changes.</p>
+    <p class="p">The <span class="ph uicontrol"><img class="image" src="../img/SVNLocalContentStatusColumnHeader.png">Local file
+        status</span> column indicates the actual state of the items and the <span class="ph uicontrol"><img class="image" src="../img/SVNLocalPropertiesStatusColumnHeader.png">Local properties
+        status</span> column indicates whether or not the properties of an item are
+      modified.</p>
+    <p class="p">The <span class="ph uicontrol"><img class="image" id="send-changes__image_pkh_4r1_tc" src="../img/SVNLockColumnHeader.gif">Lock
+        information</span> column is displayed if at least one of the files in the
+        <span class="ph uicontrol">Commit</span> dialog box has lock information associated with it, valid
+      against the commit operation.</p>
+    <div class="p">The following options are available in this dialog box:<ul class="ul">
+        <li class="li" id="send-changes__enable-auto-properties"><span class="ph uicontrol">Enable automatic properties</span> or
+            <span class="ph uicontrol">Disable automatic properties</span> - enables or disables automatic
+          property assignment (per runtime configuration rules), overriding the
+            <code class="ph codeph">enable-auto-props</code> runtime configuration directive, defined in the
+            <code class="ph codeph">config</code> file of the Subversion configuration directory.<div class="note note note_note"><span class="note__title">Note:</span> This option
+            is available only when there are defined properties to be applied automatically for
+            resources newly added under version control. You can define these properties in the
+              <code class="ph codeph">config</code> file of the Subversion configuration directory, in the
+              <code class="ph codeph">auto-props</code> section. Based on the value of the
+              <code class="ph codeph">enable-auto-props</code> runtime configuration directive, the presented
+            option is either <span class="ph uicontrol">Enable automatic properties</span>, or
+              <span class="ph uicontrol">Disable automatic properties</span>.</div></li>
+        <li class="li"><span class="ph uicontrol">Keep locks</span> - selecting the <span class="ph uicontrol">Keep locks</span>
+          option preserves any locks you set on various files.<div class="note note note_note"><span class="note__title">Note:</span> This option is available only
+            when files that you locked are presented in the dialog box.</div></li>
+      </ul></div>
+    <p class="p">Each of the above options is activated only when you select an item that can have the option applied.</p>
+    <p class="p">Your working copy must be up-to-date with respect to the resources you commit. This is
+      ensured by using the <span class="ph uicontrol">Update</span> action prior to committing, resolving
+      conflicts and re-testing as needed. If your working copy resources you are trying to commit
+      are out of date you will get an appropriate error message.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/multiple-locations-commit.html">Committing to Multiple Locations</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/synchronize-with-repos.html">Synchronize with Repository</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/update-working-copy.html">Update the Working Copy</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/multiple-locations-commit.html">Committing to Multiple Locations</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Information views,Stack view,XSLT Debugger perspective,Stack view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Information views, Stack view, XSLT Debugger perspective, Stack view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-messages-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-output-mapping-stack-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-stack-view"><title>Stack View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-stack-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Stack View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Stack</span> view shows the current execution stack of both source and
+      XSLT/XQuery nodes. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <p class="p">During the transformation, two stacks are managed. One for source nodes being processed and
+      the other for XSLT/XQuery nodes being processed. <span class="ph">Oxygen XML Editor</span> shows both node types
+      in one common stack. The source (XML) nodes are preceded by a red color icon while XSLT/XQuery
+      nodes are preceded by a green color icon. The advantage of this approach is that you can
+      always see the source scope on which an XSLT/XQuery instruction is executed (the last red
+      color node on the stack). The stack is oriented upside down.</p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-stack-view__the-stack-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Stack View</figcaption>
+        
+        <img class="image" src="../img/sa_stack_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The contextual menu contains one action: <span class="ph uicontrol">Go to</span>, which moves the
+      selection in the editor panel to the line containing the XSLT element that is displayed on the
+      selected line from the view.</p>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Stack Columns</span></caption><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="debug-stack-view__entry__1">Column</th>
+            <th class="entry colsep-1 rowsep-1" id="debug-stack-view__entry__2">Description</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__1">#</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__2">Order number, represents the depth of the node (0 is the stack base).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__1">XML/XSLT/XQuery Node</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__2">Node from source or stylesheet document currently being processed. One particular
+              stack node is the document root, noted as <span class="ph uicontrol">#document</span>.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__1">Attributes</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__2">Attributes of the node (a list of <em class="ph i">id="value"</em> pairs).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__1">Resource</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-stack-view__entry__2">Resource file where the node is located. <span class="ph">The
+                entire path is available as tooltip.</span></td>
+          </tr>
+        </tbody></table>
+    <div class="note important note_important"><span class="note__title">Important:</span> Remarks:<ul class="ul">
+        <li class="li">Clicking a record from the stack highlights that node's location inside resource.</li>
+        <li class="li">Using Saxon, the stylesheet elements are qualified with XSL proxy, while using Xalan you
+          only see their names. (example: <code class="ph codeph">xsl:template</code> using Saxon and
+            <code class="ph codeph">template</code> using Xalan).</li>
+        <li class="li">Only the Saxon processor shows element attributes.</li>
+        <li class="li">The Xalan processor shows also the built-in rules.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-messages-view.html">Messages View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-output-mapping-stack-view.html">Output Mapping Stack View</a></div></div></nav></article></main></body></html>

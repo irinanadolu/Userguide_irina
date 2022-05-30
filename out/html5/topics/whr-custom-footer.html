@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Customizing the footer"><meta name="keywords" content="WebHelp Responsive, Customizing the footer"><meta name="DC.relation" scheme="URI" content="../topics/whr_how_to_change_an_html_layout_page.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-set-welcome-message.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-configure-tiles.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-custom-footer"><title>How to Create a Custom Footer</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-custom-footer"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Create a Custom Footer</h1>
+  
+  <div class="body">
+    <p class="p">The main page of the WebHelp Responsive output contains a set of <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">empty
+        placeholders</a> that can be used to display customized text fragments. These
+      placeholders are available to you through WebHelp Responsive transformation scenario
+      parameters. For example, the placeholder identified through the
+        <code class="ph codeph">webhelp.fragment.footer</code> parameter displays the custom content at the bottom
+      of the page.</p>
+    <section class="section" id="whr-custom-footer__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Publishing Template</h2>
+      
+      <div class="p">To create a custom footer in the WebHelp Responsive output using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing Template</dfn></a>, follow
+        this procedure:<ol class="ol">
+          <li class="li">If you haven't already created a Publishing Template, see <a class="xref" href="whr_publishing_templates.html">Working with Publishing Templates</a>.</li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add the
+              <code class="ph codeph">webhelp.fragment.footer</code> parameter in the <dfn class="term">parameters</dfn>
+            section with its value set to one of the following:<ul class="ul">
+              <li class="li">A small well-formed XHTML fragment.</li>
+              <li class="li">A path to a file that contains well-formed XHTML content.</li>
+            </ul><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.fragment.footer"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"c:\myFooter.xhtml"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre><div class="note important note_important"><span class="note__title">Important:</span> This parameter should only be used if you are using
+              a valid, purchased license of <span class="ph">Oxygen XML Editor</span> (do not use it with a trial
+              license).</div></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> In the WebHelp output, your custom footer will be displayed at the bottom of
+        the page.</p>
+    </section>
+    <section class="section" id="whr-custom-footer__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> Running WebHelp transformations from a script outside of <strong class="ph b">Oxygen XML
+        Editor/Author</strong> requires an additional license and some additional setup:<ul class="ul">
+        <li class="li">You must have a valid license for the <strong class="ph b">Oxygen XML WebHelp Plugin</strong> (<a class="xref" href="https://www.oxygenxml.com/buy_webhelp.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/buy_webhelp.html</a>).</li>
+        <li class="li">The <strong class="ph b">Oxygen XML WebHelp Plugin</strong> must be installed and integrated.</li>
+      </ul></div>
+      <div class="p">To create a custom footer in the WebHelp Responsive output using a transformation scenario
+        from within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and choose a
+              <em class="ph i">template</em>.</li>
+          <li class="li">Open the <span class="ph uicontrol">Parameters</span> tab and set the
+              <code class="ph codeph">webhelp.fragment.footer</code> parameter with its value set to one of the following:<ul class="ul">
+              <li class="li">A small well-formed XHTML fragment.</li>
+              <li class="li">A path to a file that contains well-formed XHTML content.</li>
+            </ul></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> In the WebHelp output, your custom footer will be displayed at the bottom of
+        the page.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_how_to_change_an_html_layout_page.html">How to Change the Main Page Layout</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-set-welcome-message.html">How to Add a Welcome Message in the WebHelp Responsive Main Page</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-configure-tiles.html">How to Configure the Tiles on the WebHelp Responsive Main Page</a></div></div></nav></article></main></body></html>

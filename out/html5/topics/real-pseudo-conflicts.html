@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/resolving-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/resolving-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/content-property-conflicts.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="real-pseudo-conflicts"><title>Real Conflicts vs Mergeable Conflicts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="real-pseudo-conflicts"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Real Conflicts vs Mergeable Conflicts</h1>
+  <div class="body">
+    <div class="p">There are two types of conflicts:<ul class="ul">
+        <li class="li"><em class="ph i">real conflict</em> (<img class="image" src="../img/SynchronizeRealConflict.png"> icon in
+            <em class="ph i">Name</em> column) - <span class="ph">Syncro SVN Client</span> considers the following resource states
+          to be real conflicts:<ul class="ul">
+            <li class="li"><em class="ph i">conflicted</em> state - A file reported by SVN as being in this state is obtained
+              after it was updated/merged while having incoming and outgoing content or property
+              changes at the same time, changes that could not be merged. A content conflict (<img class="image" src="../img/SVNWCConflicted10.png"> icon in <em class="ph i">Local file status</em> column) is
+              reported when the modified file has binary content or it is a text file and both local
+              and remote changes were found on the same line. A properties conflict (<img class="image" src="../img/SVNWCPropConflicted10.png"> icon in <em class="ph i">Local properties status</em>
+              column) is reported when a property's value was modified both locally and
+              remotely.</li>
+            <li class="li"><em class="ph i">tree conflicted</em> state (<img class="image" src="../img/SVNWCTreeConflicted10.png"> icon
+              in <em class="ph i">Local file status</em> column) - Obtained after an update or merge operation,
+              while having changes at the directory structure level (for example, file is locally
+              modified and remotely deleted or locally scheduled for deletion and remotely
+              modified).</li>
+            <li class="li"><em class="ph i">obstructed</em> state (<img class="image" src="../img/SVNWCObstructed10.png"> icon in
+                <em class="ph i">Local file status</em> column) - Obtained after a resource was versioned as one
+              kind of object (file, directory, symbolic link), but has been replaced outside Syncro
+              SVN Client by a different kind of object.</li>
+          </ul></li>
+        <li class="li"><em class="ph i">pseudo-conflict</em> (<img class="image" src="../img/SVNSynchronizePseudoConflict9.png"> icon in
+            <em class="ph i">Name</em> column) - A file is considered to be in <em class="ph i">pseudo-conflict</em> when it
+          contains both incoming and outgoing changes. When incoming and outgoing changes do not
+          intersect, an update operation may automatically merge the incoming file content into the
+          existing locally one. In this case, the <em class="ph i">pseudo-conflict</em> marker is removed. This
+          marker is used only as a warning that should prevent you to run into a real conflict.</li>
+      </ul><div class="note note note_note"><span class="note__title">Note:</span> 
+        <ul class="ul">
+          <li class="li">A conflicting resource cannot be committed to repository. You have to resolve it
+            first, by using <span class="ph uicontrol">Mark Resolved</span> action (after manually
+            editing/merging file contents) or by using <span class="ph uicontrol">Mark as Merged</span> action
+            (for pseudo-conflicts).</li>
+          <li class="li"><img class="image" src="../img/SynchronizeRealConflict.png"> and <img class="image" src="../img/SVNSynchronizePseudoConflict9.png"> icons are presented only when one of
+            the following view modes is selected: <span class="ph uicontrol">Modified</span>,
+              <span class="ph uicontrol">Incoming</span>, <span class="ph uicontrol">Outgoing</span>,
+              <span class="ph uicontrol">Conflicts</span>.</li>
+          <li class="li">The <img class="image" src="../img/SVNSynchronizePseudoConflict9.png"> icon is used also for
+            folders to signal that they contain a file in real conflict or pseudo-conflict
+            state.</li>
+        </ul>
+      </div></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/resolving-conflicts.html">Conflicts</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/resolving-conflicts.html">Conflicts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/content-property-conflicts.html">Content Conflicts vs Property Conflicts</a></div></div></nav></article></main></body></html>

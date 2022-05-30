@@ -1,0 +1,23 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Branches/Tags"><meta name="keywords" content="SVN Client, Branches/Tags"><meta name="DC.relation" scheme="URI" content="../topics/svn-getting-started.html"><meta name="DC.relation" scheme="URI" content="../topics/show-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-branches.html"><meta name="DC.relation" scheme="URI" content="../topics/switch-repository-location.html"><meta name="DC.relation" scheme="URI" content="../topics/relocate-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/svn-patches.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="creating-branch-tag"><title>Branches and Tags</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="creating-branch-tag"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Branches and Tags</h1>
+  <div class="body">
+    <p class="p">One of the fundamental features of version control systems is the ability to create a new
+      line of development from the main one. This new line of development will always share a common
+      history with the main line if you look far enough back in time. This line is known as a
+        <em class="ph i">branch</em>. Branches are mostly used to try out features or fixes. When the feature or
+      fix is finished, the branch can be merged back into the main branch (<em class="ph i">trunk</em>).</p>
+    <p class="p">Another feature of version control systems is the ability to take a snapshot of a particular
+      revision, so you can at any time recreate a certain build or environment. This is known as
+        <em class="ph i">tagging</em>. Tagging is especially useful when making release versions.</p>
+    <p class="p">In Apache Subversion™, there is no difference between a <em class="ph i">tag</em> and a
+        <em class="ph i">branch</em>. On the repository, both are ordinary directories that are created by copying.
+      The trick is that they are cheap copies instead of physical copies. Cheap copies are similar
+      to hard links in Unix, which means that they merely link to a specific tree and revision
+      without making a physical copy. As a result, branches and tags occupy little space on the
+      repository and are created very quickly.</p>
+    <p class="p">Provided that nobody ever commits to the directory in question, it remains a tag. If people
+      start committing to it, it becomes a branch.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/branch-tag.html">Create a Branch / Tag</a><br></li><li class="link olchildlink"><a href="../topics/merge-branches.html">Merging</a><br></li><li class="link olchildlink"><a href="../topics/switch-repository-location.html">Switch the Repository Location</a><br></li><li class="link olchildlink"><a href="../topics/relocate-working-copy.html">Relocate a Working Copy</a><br></li><li class="link olchildlink"><a href="../topics/svn-patches.html">Patches</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-getting-started.html">Getting Started</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/show-properties.html">Management of SVN Properties</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/branch-tag.html">Create a Branch / Tag</a></div></div></nav></article></main></body></html>

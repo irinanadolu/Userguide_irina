@@ -1,0 +1,263 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps,Insert Reference dialog box"><meta name="keywords" content="DITA, Maps, Insert Reference dialog box"><meta name="DC.relation" scheme="URI" content="../topics/dita-maps-inserting-references.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-maps-inserting-references.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-insert-topic-head.html"><meta name="DC.relation" scheme="URI" content="dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="eppo-background-keys.html#eppo-background-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-insert-topic-ref"><title>Insert Reference Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-insert-topic-ref"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Insert Reference Dialog Box</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Insert Reference</span> dialog box allows you to insert and configure
+      references in <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA maps</dfn></a>. There are
+      numerous types of references that can be inserted into maps. They include references to
+      topics, other maps, glossary terms, and keys. You can also use this dialog box to configure
+      the attributes of a reference, add profiling or metadata, and define keys.</p>
+    <div class="p">To open the <span class="ph uicontrol">Insert Reference</span> dialog box, use one of the following methods:<ul class="ul">
+        <li class="li">Select <span class="ph uicontrol"><img class="image" src="../img/Topicref16.png">Reference</span>,
+            <span class="ph uicontrol">Reference to the currently edited file</span>, or any of the other
+          specific reference actions that are available from the <span class="ph uicontrol">Append
+          Child</span>, <span class="ph uicontrol">Insert Before</span>, and <span class="ph uicontrol">Insert
+            After</span> submenus when invoking the contextual menu in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+            Manager</span></a>.<ul class="ul">
+            <li class="li">To insert the reference as a child of the current node, select the reference from
+              the <span class="ph uicontrol">Append Child</span> submenu.</li>
+            <li class="li">To insert the reference as a sibling of the current node, below the current node in
+              the map, select the reference from the <span class="ph uicontrol">Insert After</span>
+              submenu.</li>
+            <li class="li">To insert the reference as a sibling of the current node, above the current node in
+              the map, select the reference from the <span class="ph uicontrol">Insert Before</span>
+              submenu.</li>
+          </ul><div class="note note note_note"><span class="note__title">Note:</span> The content of these submenus depends on the node that is selected in the
+              <dfn class="term">DITA map</dfn> tree when the contextual menu is invoked. For example, if the
+            selected node is a topic reference (<code class="keyword markupname xmlelement">&lt;topicref&gt;</code>), its possible child nodes
+            include the following elements: <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code>, <code class="keyword markupname xmlelement">&lt;chapter&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;keydef&gt;</code>, <code class="keyword markupname xmlelement">&lt;mapref&gt;</code>, <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;topichead&gt;</code>, <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, <code class="keyword markupname xmlelement">&lt;topicset&gt;</code>, and
+            <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code>. </div></li>
+        <li class="li">Click the <span class="ph uicontrol"><img class="image" id="dita-insert-topic-ref__image_acl_bvx_sr" src="../img/Topicref16.png">Insert
+            Reference</span> button on the <span class="ph uicontrol">DITA Maps Manager</span> extended
+          toolbar. This action will insert the reference as a sibling of the current node (below the
+          current node in the map).</li>
+        <li class="li">Select <span class="ph uicontrol"><img class="image" src="../img/Topicref16.png">Insert Reference</span> from
+          the <span class="ph uicontrol">DITA Maps</span> menu. This action will insert the reference as a
+          sibling of the current node (below the current node in the map).</li>
+      </ul></div>
+    <p class="p">For the <span class="ph uicontrol"><img class="image" src="../img/Topicref16.png">Reference</span> or
+        <span class="ph uicontrol">Reference to the currently edited file</span> actions, a
+        <span class="ph uicontrol">Reference type</span> drop-down list is displayed at the top of the
+        <span class="ph uicontrol">Insert Reference</span> dialog box and you can select the type of reference
+      you want to insert. Depending on the place where the reference will be inserted, <span class="ph">Oxygen XML Editor</span> will propose only valid reference types. When you change the reference
+      type, the fields in the various tabs of the dialog box are reconfigured depending upon the
+      availability of the associated attributes. For the other reference actions in the
+        <span class="ph uicontrol">Append Child</span>, <span class="ph uicontrol">Insert Before</span>, and
+        <span class="ph uicontrol">Insert After</span> submenus, the reference type is automatically chosen
+      based upon the invoked action and you cannot change it.</p>
+    <p class="p">The main section of the dialog box includes the following tabs:
+      <span class="ph uicontrol">Target</span>, <span class="ph uicontrol">Keys</span>, <span class="ph uicontrol">Attributes</span>,
+        <span class="ph uicontrol">Metadata</span>, and <span class="ph uicontrol">Profiling</span>.</p>
+    <section class="section" id="dita-insert-topic-ref__target_tab"><h2 class="title sectiontitle">Target Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone" id="dita-insert-topic-ref__fig_o55_zvc_vq"><figcaption><span class="fig--title-label">Figure 1. </span>Insert Reference Dialog Box - Target Tab</figcaption>
+          
+          <img class="image" id="dita-insert-topic-ref__image_jw5_zvc_vq" src="../img/sa_insert_ref_target_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p">The <span class="ph uicontrol">Target</span> tab of the <span class="ph uicontrol">Insert Reference</span> dialog
+        box allows you to specify information about the target reference. It includes the following
+        sections and fields:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Choose a file location</span> section</dt>
+          <dd class="dd">You can browse for and select the source target file by using the <span class="ph"><span class="ph uicontrol">Look in</span> drop-down list, browsing
+              buttons, or </span>file window in this section. You can use the <span class="ph uicontrol">Files of type</span> drop-down menu to narrow the list of
+            possible file types that will be displayed.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+          <dd class="dd">Displays the path to the target and allows you to select or change it by using the
+            combo box or browsing buttons.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">ID</span></dt>
+          <dd class="dd">The drop-down list displays all of the target elements that are available for the
+            selected target URL.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Href</span></dt>
+          <dd class="dd">The selected target automatically modifies this value to point to the corresponding
+              <code class="keyword markupname xmlatt">@href</code> attribute of the target element.<div class="note note note_note"><span class="note__title">Note:</span> If the
+                <span class="ph uicontrol">Reference type</span> is a <span class="ph uicontrol">Navigation
+                Reference</span>, the <span class="ph uicontrol">Href</span> field is changed to
+                <span class="ph uicontrol">Mapref</span>, since a <code class="keyword markupname xmlelement">&lt;navref&gt;</code> element
+              requires a <code class="keyword markupname xmlatt">@mapref</code> attribute instead.</div></dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="dita-insert-topic-ref__keys_tab"><h2 class="title sectiontitle">Keys Tab</h2><div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Insert Reference Dialog Box - Keys Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_keys_tab.png">
+        </figure>
+      </div><p class="p">
+        
+      </p><span class="ph">The <span class="ph uicontrol">Keys</span> tab allows you to use and <a class="xref" href="insert-define-keys.html#insert-define-keys">define keys</a> for
+        indirect referencing. For more information, see <a class="xref" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a>. This tab includes
+        the following:</span><div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Define keys</span></dt>
+          <dd class="dd">Use this text field to define the <code class="keyword markupname xmlatt">@keys</code> attribute for the target.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Key scopes</span></dt>
+          <dd class="dd">Use this text field to define or edit the value of a <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/index.html#langRef/attributes/the-key-scope-attribute.html" target="_blank" rel="external noopener"><code class="keyword markupname xmlatt">@keyscope</code> attribute</a>. <dfn class="term">Key
+              scopes</dfn> allow you to specify different sets of key definitions for different map
+            branches.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Key reference</span></dt>
+            <dd class="dd">Instead of using the <span class="ph uicontrol">Target</span> tab to select a file that
+              contains the target reference, you can reference a key definition by using this text
+              field. Use the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose key
+                reference</span> button to access the list of keys that are already defined in
+              the current <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>.</dd>
+          
+        </dl>
+      </div></section>
+    <section class="section" id="dita-insert-topic-ref__attributes_tab"><h2 class="title sectiontitle">Attributes Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Insert Reference Dialog Box - Attributes Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_attr_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Attributes</span> tab of the <span class="ph uicontrol">Insert Reference</span>
+        dialog box allows you to insert and edit attribute values for the target reference. This tab
+        includes the following sections and actions:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Navigation title</span></dt>
+            <dd class="dd"><span class="ph">This text field allows you to specify a custom navigation title
+              for the target reference. If you want this attribute to always be populated with a
+              detected value (based on the specifications for the target file), select the
+                <span class="ph uicontrol">Navigation title</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                  <span class="ph uicontrol">DITA</span> preferences page</a>. For references to DITA
+              resources, you can enforce the use of the specified title by selecting the
+                <span class="ph uicontrol">Lock</span> checkbox (otherwise, the topic
+                <code class="keyword markupname xmlelement">&lt;title&gt;</code> takes precedence).</span></dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Collection type</span></dt>
+          <dd class="dd">This drop-down list allows you to select the <code class="keyword markupname xmlatt">@collection-type</code>
+            attribute to create hierarchical linking between topics in a <dfn class="term">DITA map</dfn> (for
+            example, <code class="ph codeph">unordered</code>, <code class="ph codeph">sequence</code>, <code class="ph codeph">choice</code>,
+              <code class="ph codeph">family</code>, <code class="ph codeph">-dita-use-conref-target</code>).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Type</span></dt>
+          <dd class="dd">Allows you to select a <code class="keyword markupname xmlatt">@type</code> attribute (such as
+            <code class="ph codeph">topic</code>, <code class="ph codeph">task</code>, <code class="ph codeph">concept</code>, etc.) for the
+            target element. If you want this attribute to always be populated with a detected value
+            (based on the specifications for the target file), select the
+              <span class="ph uicontrol">Type</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Scope</span></dt>
+          <dd class="dd">This property corresponds to the <code class="keyword markupname xmlatt">@scope</code> attribute of the target
+            element. It is populated automatically, based on the selected file type, unless its
+            value for the selected target file is the same as the default attribute value. If you
+            want this attribute to always be populated with a detected value based on the
+            specifications (regardless of the default value), select the
+              <span class="ph uicontrol">Scope</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Format</span></dt>
+          <dd class="dd">This property corresponds to the <code class="keyword markupname xmlatt">@format</code> attribute of the target
+            element. It is populated automatically, based on the selected file type, unless its
+            value for the selected target file is the same as the default attribute value. If you
+            want this attribute to always be populated with a detected value based on the
+            specifications (regardless of the default value), select the
+              <span class="ph uicontrol">Format</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Processing Role</span></dt>
+          <dd class="dd">This drop-down list allows you to set the <code class="keyword markupname xmlatt">@processing-role</code> attribute
+            to one of the allowed values for DITA reference elements (for example,
+              <code class="ph codeph">resource-only</code>, <code class="ph codeph">normal</code>,
+              <code class="ph codeph">-dita-use-conref-target</code>).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Other attributes</span> table</dt>
+          <dd class="dd">
+            <p class="p">This table contains the attributes that are available for the selected reference. You
+              can use this table to insert or edit the values of any of the listed attributes.
+              Clicking a cell in the <span class="ph uicontrol">Value</span> column allows you to use the combo
+              box to enter, edit, or select attribute values.</p>
+          </dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-insert-topic-ref__metadata_tab"><h2 class="title sectiontitle">Metadata Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Insert Reference Dialog Box - Metadata Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_meta_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Metadata</span> tab allows you to add metadata elements to the target
+        reference. <span class="ph">Use the buttons on the right side of the tab to insert specific metadata
+        elements (you can add the following metadata elements: <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;linktext&gt;</code>, <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>). The metadata
+        elements are inserted inside a <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element. The editing
+        window allows you to easily insert and modify the content of the metadata that will be
+        inserted.</span></p>
+    </section>
+    <section class="section" id="dita-insert-topic-ref__profiling-tab-section"><h2 class="title sectiontitle">Profiling Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Insert Reference Dialog Box - Profiling Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_prof_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p">The <span class="ph uicontrol">Profiling</span> tab allows you to select or change profiling
+        attributes for the selected reference. This tab displays profiling attributes and their
+        values as determined by the following:<ul class="ul">
+      <li class="li">If your <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> references a DITA
+          <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme map</dfn></a> that
+        defines values for the profiling attributes, those values are used.</li>
+      <li class="li">If your project defines <a class="xref" href="../glossary/project-options.html">project-level</a> configuration values for the <a class="xref" href="preferences-profiling-conditions.html">profiling attributes</a>, those values are used.</li>
+      <li class="li">If <span class="ph">Oxygen XML Editor</span> defines <a class="xref" href="../glossary/global-options.html">global-level</a> configuration values for the <a class="xref" href="preferences-profiling-conditions.html">profiling attributes</a>, they are used.</li>
+      <li class="li">Otherwise, a basic default set of profiling attributes and values are used.</li>
+    </ul></div>
+      <p class="p">When you modify a selection of values in this tab, the change will also
+      automatically be reflected in the <span class="ph uicontrol">Attributes</span> tab. For more information,
+      see <a class="xref" href="dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a>.</p>
+    </section>
+    <section class="section" id="dita-insert-topic-ref__finalizing_your_insert_reference_configuration"><h2 class="title sectiontitle">Finalizing Your Insert Reference Configuration</h2>
+      
+      <div class="p">Once you click <span class="ph uicontrol">Insert</span> or <span class="ph uicontrol">Insert and close</span>,
+        the configured reference is added in the map. <div class="note tip note_tip"><span class="note__title">Tip:</span> You can easily insert
+          multiple references by keeping the <span class="ph uicontrol">Insert Reference</span> dialog box
+          opened, using the <span class="ph uicontrol">Insert</span> button.</div></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-maps-inserting-references.html">Inserting References in DITA Maps</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-maps-inserting-references.html">Inserting References in DITA Maps</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-insert-topic-head.html">Inserting Topic Headings</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></li><li class="linklist"><a class="link" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a></li></ul></div></nav>
+</article></main></body></html>

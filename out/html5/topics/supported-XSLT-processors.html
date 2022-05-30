@@ -1,0 +1,143 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,Supported XSLT processors"><meta name="keywords" content="Transformation Scenarios, Supported XSLT processors"><meta name="DC.relation" scheme="URI" content="../topics/xslt-processors.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-processors.html"><meta name="DC.relation" scheme="URI" content="../topics/configuring-custom-xslt-processors.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="supported-XSLT-processors"><title>Supported XSLT Processors</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="supported-XSLT-processors"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Supported XSLT Processors</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes the following XSLT processors:</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">Xalan <span class="ph">2.7.2</span></strong> - <a class="xref" href="http://xml.apache.org/xalan-j/" target="_blank" rel="external noopener">Xalan-Java</a> is an XSLT processor for transforming XML
+        documents into HTML, text, or other XML document types. It implements XSL Transformations
+        (XSLT) Version 1.0 and XML Path Language (XPath) Version 1.0.</li>
+      <li class="li"><strong class="ph b">Saxon <span class="ph">6.5.5</span></strong> - <a class="xref" href="http://saxon.sourceforge.net/saxon6.5.5/" target="_blank" rel="external noopener">Saxon <span class="ph">6.5.5</span></a> is an XSLT processor that implements the Version 1.0
+        XSLT and XPath with a number of powerful extensions. This version of Saxon also includes
+        many of the new features that were first defined in the XSLT 1.1 working draft, but for
+        conformance and portability reasons these are not available if the stylesheet header
+        specifies <code class="ph codeph">version="1.0"</code>.</li>
+      <li class="li"><strong class="ph b">Saxon <span class="ph">9.9.1.5</span> Home Edition (HE), Professional Edition (PE)</strong>
+        - <a class="xref" href="http://saxon.sf.net/" target="_blank" rel="external noopener">Saxon-HE/PE </a>
+        implements the basic conformance level for XSLT 2.0 / 3.0 and XQuery 1.0. The term <em class="ph i">basic
+          XSLT 2.0 / 3.0 processor</em> is defined in the draft XSLT 2.0 / 3.0 specifications. It is
+        a conformance level that requires support for all features of the language other than those
+        that involve schema processing. The HE product remains open source, but removes some of the
+        more advanced features that are present in Saxon-PE.</li>
+      <li class="li">
+        <p class="p"><strong class="ph b">Saxon <span class="ph">9.9.1.5</span> Enterprise Edition (EE)</strong> - <a class="xref" href="http://www.saxonica.com/" target="_blank" rel="external noopener">Saxon EE</a> is the
+          schema-aware edition of Saxon and it is one of the built-in processors included in <span class="ph">Oxygen XML Editor</span>. Saxon EE includes an XML Schema processor, and schema-aware XSLT,
+          XQuery, and XPath processors.</p>
+        <div class="p">The validation in schema aware transformations is done according to the XML Schema 1.0 or
+          1.1. This can be <a class="xref" href="xml-schema-preferences-page.html">configured in
+            Preferences</a>.<div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">Oxygen XML Editor</span> implements a Saxon
+              <dfn class="term">framework</dfn> that allows you to create Saxon configuration files. Two
+            templates are available: <span class="ph uicontrol">Saxon collection catalog</span> and
+              <span class="ph uicontrol">Saxon configuration</span>. Both of these templates support content
+            completion, element annotation, and attribute annotation. </div><div class="note note note_note"><span class="note__title">Note:</span> Saxon can use the
+              <em class="ph i">ICU-J localization library</em> (<span class="ph filepath">saxon9-icu.jar</span>) to add support
+            for sorting and date/number formatting in a wide variety of languages. This library is
+            not included in the <span class="ph">Oxygen XML Editor</span> installation kit. However, Saxon will use the
+            default collation and localization support available in the currently used JRE. To
+            enable this capability, follow these steps:<ol class="ol" id="supported-XSLT-processors__ol_a5f_gxq_4q">
+              <li class="li">Download Saxon <span class="ph">9.9.1.5</span> Professional Edition (PE) or
+                Enterprise Edition (EE) from <a class="xref" href="http://www.saxonica.com" target="_blank" rel="external noopener">http://www.saxonica.com</a>.</li>
+              <li class="li">Unpack the downloaded archive.</li>
+              <li class="li">Create a new XSLT transformation scenario (or edit an existing one). In the
+                  <span class="ph uicontrol">XSLT</span> tab, click the <span class="ph uicontrol">Extensions</span>
+                button to open the list of additional libraries used by the transformation
+                process.</li>
+              <li class="li">Click <span class="ph uicontrol">Add</span> and browse to the folder where you unpacked the
+                downloaded archive and choose the <span class="ph filepath">saxon9-icu.jar</span> file.</li>
+            </ol><p class="p">Note that the <span class="ph filepath">saxon9-icu.jar</span> should NOT be added to the
+              application library folder because it will conflict with another version of the ICU-J
+              library that comes bundled with <span class="ph">Oxygen XML Editor</span>.</p></div></div>
+      </li>
+      <li class="li"><span class="ph uicontrol">Saxon-CE (Client
+          Edition)</span> is Saxonica's implementation of XSLT 2.0 for use on web browsers. <span class="ph">Oxygen XML Editor</span> provides support for editing stylesheets that contain Saxon-CE
+        extension functions and instructions. This support improves the validation, content
+        completion, and syntax highlighting.<div class="note note note_note"><span class="note__title">Note:</span> Saxon-CE, being JavaScript-based, was designed to run
+        inside a web browser. This means that you will use <span class="ph">Oxygen XML Editor</span> only for
+        developing the Saxon-CE stylesheet, leaving the execution part to a web browser. See more
+        details about <a class="xref" href="http://www.saxonica.com/ce/index.xml" target="_blank" rel="external noopener">executing such a stylesheet on Saxonica's website</a>.</div><div class="note note note_note"><span class="note__title">Note:</span> A
+          specific template, named <span class="ph uicontrol">Saxon-CE stylesheet</span>, is available in the
+            <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>.</div></li>
+      <li class="li">
+        <p class="p"><strong class="ph b">Xsltproc (libxslt)</strong> - <a class="xref" href="http://xmlsoft.org/XSLT/" target="_blank" rel="external noopener">Libxslt</a> is the XSLT C library developed for the Gnome project.
+            <strong class="ph b">Libxslt</strong> is based on <em class="ph i">libxml2</em>, the XML C library developed for the Gnome
+          project. It also implements most of the EXSLT set of processor-portable extensions,
+          functions, and some of Saxon's evaluate and expression extensions.</p>
+        <div class="p"><span class="ph">Oxygen XML Editor</span> uses <strong class="ph b">Libxslt</strong> through its command-line tool
+          (<em class="ph i">Xsltproc</em>). Depending on your operating system, you must download the Libxslt
+          libraries on your machine from <a class="xref" href="http://xmlsoft.org/XSLT/downloads.html" target="_blank" rel="external noopener">http://xmlsoft.org/XSLT/downloads.html</a> and place them in a local folder. Then you need to
+          update the <code class="ph codeph">PATH</code> environmental variable to contain the parent folder where
+          the <span class="ph filepath">xsltproc</span> executable is located.<div class="note tip note_tip"><span class="note__title">Tip:</span> As an example, a
+            Windows installation of the Xsltproc engine would follow these steps:<ol class="ol">
+              <li class="li">Go to <a class="xref" href="http://ftp.zlatkovic.com/libxml.en.html" target="_blank" rel="external noopener">http://ftp.zlatkovic.com/libxml.en.html</a> and download the following ZIP files:
+                  <strong class="ph b">iconv-1.9.2.win32.zip</strong>, <strong class="ph b">libxml2-2.7.8.win32.zip</strong>,
+                  <strong class="ph b">libxslt-1.1.26.win32.zip</strong>, <strong class="ph b">zlib-1.2.5.win32.zip</strong>.</li>
+              <li class="li">Unzip all of them into the same folder of your choice.</li>
+              <li class="li">
+                <p class="p">Edit the <code class="ph codeph">PATH</code> environment variable and add the
+                    <span class="ph filepath">bin</span> folder for all four archives:</p>
+                <p class="p"><img class="image" src="../img/xsltproc_path_var.png"></p>
+              </li>
+              <li class="li">Restart <span class="ph">Oxygen XML Editor</span>.</li>
+            </ol><p class="p"><strong class="ph b">Result:</strong> You can now use the <strong class="ph b">xsltproc</strong> processor as an XSLT engine
+              in the XSLT transformation scenario.</p></div></div>
+        <div class="p">
+          <div class="note note note_note"><span class="note__title">Note:</span> The Xsltproc processor can be configured from the <a class="xref" href="preferences-xsltproc.html"><span class="ph uicontrol">XSLTPROC</span> options
+            page</a>.</div>
+          <div class="note caution note_caution"><span class="note__title">CAUTION:</span> There is a known problem where file paths that contain spaces are not
+            handled correctly in the LIBXML processor. For example, the built-in <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> files of the built-in
+            document types (DocBook, TEI, DITA, etc.) are not handled properly by LIBXML if <span class="ph">Oxygen XML Editor</span> is installed in the default location on Windows (C:\Program Files).
+            This is because the built-in <dfn class="term">XML catalog</dfn> files are stored in the
+                <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks</span> subdirectory of the installation directory, and in this case
+            it contains a space character.</div>
+        </div>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">MSXML 4.0 (Deprecated)</strong> - <a class="xref" href="http://msdn.microsoft.com/xml/" target="_blank" rel="external noopener">MSXML 4.0</a> is available only on Windows platforms. It can be used
+          for <a class="xref" href="defining-new-transformation-scenario.html">transformation</a>
+          <span class="ph">and <a class="xref" href="xslt-custom-validation.html">validation of XSLT stylesheets</a></span>.</p>
+        <p class="p"><span class="ph">Oxygen XML Editor</span> uses the Microsoft XML parser through its command-line tool <a class="xref" href="http://microsoft.com/en-us/download/details.aspx?id=21714" target="_blank" rel="external noopener"><em class="ph i">msxsl.exe</em></a>.</p>
+        <p class="p">Since <span class="ph filepath">msxsl.exe</span> is only a wrapper, Microsoft Core XML Services
+          (MSXML) must be installed on the computer. Otherwise, you will get a corresponding
+          warning. You can get the latest Microsoft XML parser from <a class="xref" href="http://www.microsoft.com/downloads/details.aspx" target="_blank" rel="external noopener">Microsoft
+            web-site</a>. </p>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">MSXML .NET (Deprecated)</strong> - <a class="xref" href="http://msdn.microsoft.com/xml/" target="_blank" rel="external noopener">MSXML .NET</a> is available
+          only on Windows platforms. It can be used for <a class="xref" href="defining-new-transformation-scenario.html">transformation</a>
+          <span class="ph">and <a class="xref" href="xslt-custom-validation.html">validation of XSLT stylesheets</a></span>.</p>
+        <p class="p"><span class="ph">Oxygen XML Editor</span> performs XSLT transformations and validations using the .NET
+            <dfn class="term">Framework</dfn> XSLT implementation (<em class="ph i">System.Xml.Xsl.XslTransform</em> class)
+          through the <strong class="ph b">nxslt</strong> command-line utility. The <strong class="ph b">nxslt</strong> version included in <span class="ph">Oxygen XML Editor</span> is <span class="ph">1.6</span>. </p>
+        <p class="p">You should have the .NET <dfn class="term">Framework</dfn> version 1.0 already installed on your
+          system. Otherwise, you will get the following warning: <code class="ph codeph">MSXML.NET requires .NET
+            Framework version 1.0 to be installed. Exit code: 128</code>.</p>
+        <p class="p">You can get the .NET <dfn class="term">Framework</dfn> version 1.0 from the <a class="xref" href="http://www.microsoft.com/downloads/details.aspx" target="_blank" rel="external noopener"> Microsoft
+            website</a>.</p>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">.NET 1.0 (Deprecated)</strong> - A transformer based on the <strong class="ph b">System.Xml</strong> 1.0 library
+          available in the .NET 1.0 and .NET 1.1 <dfn class="term">frameworks</dfn> from Microsoft (<a class="xref" href="http://msdn.microsoft.com/xml/" target="_blank" rel="external noopener">http://msdn.microsoft.com/xml/</a>). It is available
+          only on Windows.</p>
+        <p class="p">You should have the .NET <dfn class="term">Framework</dfn> version 1.0 or 1.1 already installed on
+          your system. Otherwise, you will get the following warning: <code class="ph codeph">MSXML.NET requires
+            .NET Framework version 1.0 to be installed. Exit code: 128</code>.</p>
+        <p class="p">You can get the .NET <dfn class="term">Framework</dfn> version 1.0 from the <a class="xref" href="http://www.microsoft.com/downloads/details.aspx" target="_blank" rel="external noopener">Microsoft
+            website</a>.</p>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">.NET 2.0 (Deprecated)</strong> - A transformer based on the <strong class="ph b">System.Xml</strong> 2.0 library
+          available in the .NET 2.0 <dfn class="term">Framework</dfn> from <a class="xref" href="http://msdn.microsoft.com/xml/" target="_blank" rel="external noopener">Microsoft</a>. It is available
+          only on Windows.</p>
+        <p class="p">You should have the .NET <dfn class="term">Framework</dfn> version 2.0 already installed on your
+          system. Otherwise, you will get the following warning: <code class="ph codeph">MSXML.NET requires .NET
+            Framework version 2.0 to be installed. Exit code: 128</code>.</p>
+        <p class="p">You can get the .NET <dfn class="term">Framework</dfn> version 2.0 from the <a class="xref" href="http://www.microsoft.com/downloads/details.aspx" target="_blank" rel="external noopener">Microsoft
+            website</a>.</p>
+      </li>
+    </ul>
+    <p class="p">For information about configuring the XSLT preferences, see
+      the <a class="xref" href="preferences-xslt.html">XSLT options</a> section.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xslt-processors.html">Configuring an XSLT Processor for Generating Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xslt-processors.html">Configuring an XSLT Processor for Generating Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/configuring-custom-xslt-processors.html">Configuring Custom XSLT Processors</a></div></div></nav></article></main></body></html>

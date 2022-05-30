@@ -1,0 +1,208 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/xslt-tab-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/additional-xslt-stylesheets-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon_extension_functions-x2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="advanced-saxon-xslt-options"><title>Advanced Saxon HE/PE/EE XSLT Transformation Options</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="advanced-saxon-xslt-options"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Advanced Saxon HE/PE/EE XSLT Transformation Options</h1>
+  <div class="body">
+    <p class="p">The XSLT transformation scenario allows you to configure advanced options that are specific
+      for the Saxon HE (Home Edition), PE (Professional Edition), and EE (Enterprise Edition)
+        engines.<span class="ph"> They are the same options as <a class="xref" href="preferences-xslt-saxon8.html#preferences-xslt-saxon8">those in the <span class="ph uicontrol">Saxon
+            HE/PE/EE</span> preferences page</a> but they are configured as a specific set
+        of transformation options for each transformation scenario, while the values set in the
+        preferences page apply as global options. The advanced options configured in a
+        transformation scenario override the <span class="ph"><a class="xref" href="../glossary/global-options.html">global
+            options</a></span> defined in the preferences page.</span>
+    </p>
+    <section class="section" id="advanced-saxon-xslt-options__saxonhepeee_options"><h2 class="title sectiontitle">Saxon-HE/PE/EE Options</h2>
+      
+      <div class="p">The advanced options for Saxon <span class="ph">9.9.1.5</span> Home Edition (HE),
+        Professional Edition (PE), and Enterprise Edition (EE) are as follows:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Mode ("-im")</span></dt>
+            <dd class="dd">A Saxon-specific option that sets the initial mode for the transformation. If this
+              value is also specified in a <a class="xref" href="#advanced-saxon-xslt-options__use-config-file">configuration file</a>, the value in this option takes
+              precedence.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Template ("-it")</span></dt>
+            <dd class="dd">A Saxon-specific option that sets the name of the initial XSLT template to be
+              executed. If this value is also specified in a <a class="xref" href="#advanced-saxon-xslt-options__use-config-file">configuration
+                file</a>, the value in this option takes precedence.<div class="note tip note_tip"><span class="note__title">Tip:</span> If your
+                stylesheet includes <code class="ph codeph">&lt;xsl:template name="xsl:initial-template"&gt;</code>,
+                  <span class="ph">Oxygen XML Editor</span> will automatically detect and use it as the initial
+                template, so this option is not needed in this case.</div></dd>
+          
+          
+          <dt class="dt dlterm" id="advanced-saxon-xslt-options__use-config-file"><span class="ph uicontrol">Use a configuration file ("-config")</span></dt>
+          <dd class="dd">Select this option if you want to use a Saxon <span class="ph">9.9.1.5</span>
+            configuration file that will be executed for the XSLT transformation and validation
+            processes. You can specify the path to the configuration file by entering it in the
+              <span class="ph uicontrol">URL</span> field, or by using the <span class="ph uicontrol"><img class="image" id="advanced-saxon-xslt-options__image_pdh_bwg_gs" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+              Variables</span> button, or using the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down list.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Debugger trace into XPath expressions (applies to debugging
+              sessions)</span></dt>
+          <dd class="dd">Instructs the <a class="xref" href="steps-in-typical-debug-process.html">XSLT Debugger</a> to <em class="ph i">step into</em> XPath expressions.</dd>
+        
+          
+          <dt class="dt dlterm" id="advanced-saxon-xslt-options__optimization-level"><span class="ph uicontrol">Enable Optimizations ("-opt")</span></dt>
+          <dd class="dd">This option is selected by default, which means that optimization is enabled. If not
+            selected, the optimization is suppressed, which is helpful when reducing the compiling
+            time is important, optimization conflicts with debugging, or optimization causes
+            extension functions with side-effects to behave unpredictably.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Line numbering ("-l")</span></dt>
+          <dd class="dd">Line numbers where errors occur are included in the output messages.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Expand attributes defaults ("-expand")</span></dt>
+          <dd class="dd">Specifies whether or not the attributes defined in the associated DTD or XML Schema
+            are expanded in the output of the transformation you are executing.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">DTD validation of the source ("-dtd")</span></dt>
+          <dd class="dd">Specifies whether or not the source document will be validated against their
+            associated DTD. You can choose from the following:<ul class="ul">
+              <li class="li">
+                <span class="ph uicontrol">On</span> - Requests DTD validation of the source file and of any
+                files read using the <code class="ph codeph">document()</code> function.</li>
+              <li class="li">
+                <span class="ph uicontrol">Off</span> - (default setting) Suppresses DTD validation.</li>
+              <li class="li">
+                <span class="ph uicontrol">Recover</span> - Performs DTD validation but treats the errors as
+                  non-fatal.<div class="note note note_note"><span class="note__title">Note:</span> Any external DTD is likely to be read even if not used for
+                  validation, since DTDs can contain definitions of entities.</div></li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Recoverable errors ("-warnings")</span></dt>
+          <dd class="dd">Specifies how dynamic errors are handled. The following options can be selected:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Recover silently ("silent")</span> - Continues processing without
+                reporting the error.</li>
+              <li class="li"><span class="ph uicontrol">Recover with warnings ("recover")</span> - Issues a warning but
+                continues processing.</li>
+              <li class="li"><span class="ph uicontrol">Signal the error and do not attempt recovery ("fatal")</span> -
+                Issues an error and stops processing.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Strip whitespaces ("-strip")</span></dt>
+          <dd class="dd">Specifies how the <em class="ph i">strip whitespaces</em> operation is handled. You can choose one of
+            the following values:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">All ("all")</span> - Strips <em class="ph i">all</em> whitespace text nodes from
+                source documents before any further processing, regardless of any
+                  <code class="keyword markupname xmlatt">@xml:space</code> attributes in the source document.</li>
+              <li class="li"><span class="ph uicontrol">Ignore ("ignorable")</span> - Strips all <em class="ph i">ignorable</em>
+                whitespace text nodes from source documents before any further processing,
+                regardless of any <code class="keyword markupname xmlatt">@xml:space</code> attributes in the source document.
+                Whitespace text nodes are ignorable if they appear in elements defined in the DTD or
+                schema as having element-only content.</li>
+              <li class="li"><span class="ph uicontrol">None ("none")</span> - Strips <em class="ph i">no</em> whitespace before further
+                processing.</li>
+            </ul></dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="advanced-saxon-xslt-options__saxonpeee_options"><h2 class="title sectiontitle">Saxon-PE/EE Options</h2>
+      
+      <div class="p">The following advanced options are specific for Saxon <span class="ph">9.9.1.5</span>
+        Professional Edition (PE) and Enterprise Edition (EE) only:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Register Saxon-JS extension functions and instructions</span></dt>
+          <dd class="dd">Registers the Saxon-CE extension functions and instructions when compiling a
+            stylesheet using the Saxon <span class="ph">9.9.1.5</span> processors.<div class="note note note_note"><span class="note__title">Note:</span> Saxon-CE, being JavaScript-based, was designed to run
+        inside a web browser. This means that you will use <span class="ph">Oxygen XML Editor</span> only for
+        developing the Saxon-CE stylesheet, leaving the execution part to a web browser. See more
+        details about <a class="xref" href="http://www.saxonica.com/ce/index.xml" target="_blank" rel="external noopener">executing such a stylesheet on Saxonica's website</a>.</div></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Allow calls on extension functions ("-ext")</span></dt>
+          <dd class="dd">If selected, the stylesheet is allowed to call external Java functions. This does not
+            affect calls on integrated extension functions, including Saxon and EXSLT extension
+            functions. This option is useful when loading an untrusted stylesheet (such as from a
+            remote site using <span class="ph filepath">http://[URL]</span>). It ensures that the stylesheet
+            cannot call arbitrary Java methods and thus gain privileged access to resources on your
+            machine.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable assertions ("-ea")</span></dt>
+          <dd class="dd">In XSLT 3.0, you can use the <code class="keyword markupname xmlelement">&lt;xsl:assert&gt;</code> element to make assertions in the form
+            of XPath expressions, causing a dynamic error if the assertion turns out to be false. If
+            this option is selected, XSLT 3.0 <code class="keyword markupname xmlelement">&lt;xsl:assert&gt;</code> instructions are enabled.
+            If it is not selected (default), the assertions are ignored. </dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="advanced-saxon-xslt-options__saxonee_options"><h2 class="title sectiontitle">Saxon-EE Options</h2>
+      
+      <div class="p">The advanced options that are specific for Saxon <span class="ph">9.9.1.5</span>
+        Enterprise Edition (EE) are as follows:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">XML Schema version</span></dt>
+            <dd class="dd">Use this option to change the default XML Schema version for this transformation. To
+              change the default XML Schema version globally, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Schema</span></span> and use the <a class="xref" href="xml-schema-preferences-page.html#xml-schema-preferences-page__default-schema-version"><span class="ph uicontrol">Default XML Schema version</span> option</a>.</dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Validation of the source file ("-val")</span></dt>
+          <dd class="dd">Requests schema-based validation of the source file and of any files read using
+              <code class="ph codeph">document()</code> or similar functions. It can have the following values:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Schema validation ("strict")</span> - This mode requires an XML
+                Schema and allows for parsing the source documents with strict schema-validation
+                enabled.</li>
+              <li class="li"><span class="ph uicontrol">Lax schema validation ("lax")</span> - If an XML Schema is
+                provided, this mode allows for parsing the source documents with schema-validation
+                enabled but the validation will not fail if, for example, element declarations are
+                not found.</li>
+              <li class="li"><span class="ph uicontrol">Disable schema validation</span> - This specifies that the source
+                documents should be parsed with schema-validation disabled.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Validation errors in the result tree treated as warnings
+              ("-outval")</span></dt>
+          <dd class="dd">
+            <p class="p">Normally, if validation of result documents is requested, a validation error is
+              fatal. Selecting this option causes such validation failures to be treated as
+              warnings.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Write comments for non-fatal validation errors of the result
+                      document</span></dt>
+                  <dd class="dd">The validation messages for non-fatal errors are written (wherever possible)
+                    as a comment in the result document itself.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Enable streaming mode</span></dt>
+            <dd class="dd">Selecting this option will allow an XSLT to run in streaming mode. It is not
+              selected by default.</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="advanced-saxon-xslt-options__other_options"><h2 class="title sectiontitle">Other Options</h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Initializer class</span></dt>
+            <dd class="dd">Equivalent to the <code class="ph codeph">-init</code> Saxon command-line argument. The value is
+              the name of a user-supplied class that implements the
+                <em class="ph i">net.sf.saxon.lib.Initializer</em> interface. This initializer is called during the
+              initialization process, and may be used to set any options required on the
+              configuration programmatically. It is particularly useful for tasks such as
+              registering extension functions, collations, or external object models, especially in
+              Saxon-HE where the option cannot be set via a configuration file. Saxon only calls the
+              initializer when running from the command line, but the same code may be invoked to
+              perform initialization when running user application code.</dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xslt-tab-x-publishing2.html">XSLT Tab</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/additional-xslt-stylesheets-x-publishing2.html">Additional XSLT Stylesheets</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/saxon_extension_functions-x2.html">Using Saxon Integrated Extension Functions</a></div></div></nav></article></main></body></html>

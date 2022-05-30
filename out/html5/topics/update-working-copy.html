@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Synchronize with the SVN repository,Update working copy"><meta name="keywords" content="SVN Client, Synchronize with the SVN repository, Update working copy"><meta name="DC.relation" scheme="URI" content="../topics/synchronize-with-repos.html"><meta name="DC.relation" scheme="URI" content="../topics/tree-conflict.html"><meta name="DC.relation" scheme="URI" content="../topics/send-changes.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="update-working-copy"><title>Update the Working Copy</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="update-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Update the Working Copy</h1>
+    
+    <div class="body">
+        <p class="p">While you are working on a project, other members of your team may be committing changes
+            to the project repository. To get these changes, you have to <em class="ph i">update</em> your working
+            copy. Updating may be done on single files, a set of selected files, or recursively on
+            entire directory hierarchies. The update operation can be performed from <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a>. It
+            updates the selected resources to the last synchronized revision (if remote information
+            is available) or to the <em class="ph i">HEAD</em> revision of the repository.</p>
+        <p class="p">There are three different kinds of incoming changes:</p>
+        <ul class="ul">
+            <li class="li"><em class="ph i">Non-conflicting</em> - A non-conflicting change occurs when a file has been
+                changed remotely but has not been modified locally.</li>
+            <li class="li"><em class="ph i">Conflicting, but auto-mergeable</em> - An auto-mergeable conflicting change occurs
+        when a text file has been changed both remotely and locally (for example, has non-committed
+        local changes) but the changes are on different lines of text. Not applicable to binary
+        resources (for example, multimedia files, PDFs, executable program files)</li>
+            <li class="li"><em class="ph i">Conflicting</em> - A conflicting change occurs when one or more of the same lines
+                of a text file have been changed both remotely and locally.</li>
+        </ul>
+        <p class="p">If the resource contains only incoming changes or the outgoing changes do not intersect
+            with incoming ones then the update will end normally and the Subversion system will
+            merge incoming changes into the local file. In the case of a conflicting situation the
+            update will have as result a file with conflict status.</p>
+      <p class="p">The <span class="ph">Oxygen XML Editor</span> allows you to update your working copy files to a specific
+      revision, not only the most recent one. This can be done by using the <span class="ph uicontrol">Update to
+        revision/depth</span> action from the <span class="ph uicontrol">Working Copy</span> view
+        (<span class="ph uicontrol">All Files</span> view mode) or the <span class="ph uicontrol">Update to
+        revision</span> action from the <a class="xref" href="history-view.html"><span class="ph uicontrol">History</span> view</a> contextual menu.</p>
+        <p class="p">If you select multiple files and folders and then you perform an
+                <span class="ph uicontrol">Update</span> operation, all of those files and folders are updated
+            one by one. The Subversion client makes sure that all files and folders belonging to the
+            same repository are updated to the exact same revision, even if between those updates
+            another commit occurred.</p>
+        <p class="p">When the update fails with a message saying that there is already a local file with the
+      same name Subversion tried to check out a newly versioned file, and found that an unversioned
+      file with the same name already exists in your working folder. Subversion will never overwrite
+      an unversioned file unless you specifically do this with an <span class="ph uicontrol">Override and
+        update</span> action. If you get this error message, the solution is simply to rename
+      the local unversioned file. After completing the update, you can check to see if the renamed
+      file is still needed.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/synchronize-with-repos.html">Synchronize with Repository</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/tree-conflict.html">Tree Conflicts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/send-changes.html">Send Your Changes to the Repository</a></div></div></nav></article></main></body></html>

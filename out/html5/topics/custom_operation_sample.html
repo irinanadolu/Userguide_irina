@@ -1,0 +1,266 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/custom_operation_sample_xquery.html"><meta name="DC.relation" scheme="URI" content="../topics/sharing-custom-refactoring-operations.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom_operation_sample"><title>XSLT Stylesheet for Creating a Custom Operation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom_operation_sample"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT Stylesheet for Creating a Custom Operation</h1>
+  <div class="body">
+    <p class="p">To demonstrate creating a custom operation, suppose that you have a task where you need to
+      convert an attribute into an element and insert it inside another element. A specific example
+      would be if you have a project with a variety of <code class="keyword markupname xmlelement">&lt;image&gt;</code> elements where a
+      deprecated <code class="keyword markupname xmlatt">@alt</code> attribute was used for the description and you want to convert
+      all instances of that attribute into an element with the same name and insert it as the first
+      child of the <code class="keyword markupname xmlelement">&lt;image&gt;</code> element. </p>
+    <p class="p">Thus, the task is to convert this attribute into an element with the same name and insert it
+      as the first child of the image element. </p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Example: Custom XML Refactoring Operation</figcaption>
+        
+        <img class="image" id="custom_operation_sample__image_xwx_yww_gr" src="../img/xml_refactor3.png">
+      </figure>
+    </div>
+    <p class="p">An XSLT stylesheet can be used to implement the new custom XML refactoring operation. The
+      second requirement is an <a class="xref" href="custom_operation_sample.html#custom_operation_sample__descriptor-example-section">XML Refactoring operation descriptor file</a> that contains the path to the
+      XSLT stylesheet.</p>
+    <section class="section" id="custom_operation_sample__xslt-example-section"><h2 class="title sectiontitle">Example of an XSLT Script for Creating a Custom Operation to <em class="ph i">Convert an Attribute to
+          an Element</em></h2>
+      
+      <div class="p">The XSLT stylesheet does the following:<ul class="ul" id="custom_operation_sample__ul_yp5_tw3_ns">
+          <li class="li">Iterates over all elements from the document that have the specified local name and
+            namespace.</li>
+          <li class="li">Finds the attribute that will be converted to an element. </li>
+          <li class="li">Adds the new element as the first child of the parent
+            element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+  <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+  <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+  <span class="hl-attribute">xmlns:xr</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/xmlRefactoring"</span>
+  <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+    
+  <strong class="hl-xsl">&lt;xsl:import</strong> 
+<span class="hl-attribute">href</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/xmlRefactoring/resources/commons.xsl"</span><strong class="hl-xsl">/&gt;</strong>
+    
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"element_localName"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"element_namespace"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_localName"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_namespace"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_localName"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_namespace"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> <span class="hl-attribute">required</span>=<span class="hl-value">"yes"</span><strong class="hl-xsl">/&gt;</strong>
+    
+  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">/&gt;</strong>
+      <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"//*[xr:check-local-name($element_localName, ., true())
+     and
+        xr:check-namespace-uri($element_namespace, .)]"</span><strong class="hl-xsl">&gt;</strong>
+        
+      <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attributeToConvert"</span> 
+         <span class="hl-attribute">select</span>=<span class="hl-value">"@*[xr:check-local-name($attribute_localName, ., true())
+     and
+        xr:check-namespace-uri($attribute_namespace, .)]"</span><strong class="hl-xsl">/&gt;</strong>
+        
+      <strong class="hl-xsl">&lt;xsl:choose&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:when</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"empty($attributeToConvert)"</span><strong class="hl-xsl">&gt;</strong>
+              <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+                  <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">/&gt;</strong>
+              <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+          <strong class="hl-xsl">&lt;/xsl:when&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:otherwise&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+              <strong class="hl-xsl">&lt;xsl:for-each</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"@*[empty(. intersect $attributeToConvert)]"</span><strong class="hl-xsl">&gt;</strong>
+                   <strong class="hl-xsl">&lt;xsl:copy-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">/&gt;</strong>                        
+              <strong class="hl-xsl">&lt;/xsl:for-each&gt;</strong>
+                <em class="hl-comment">&lt;!-- The new element namespace --&gt;</em>
+                <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"nsURI"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span><strong class="hl-xsl">&gt;</strong>
+                    <strong class="hl-xsl">&lt;xsl:choose&gt;</strong>
+           <strong class="hl-xsl">&lt;xsl:when</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"$new_element_namespace eq $xr:NO-NAMESPACE"</span><strong class="hl-xsl">&gt;</strong>
+                           <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"''"</span><strong class="hl-xsl">/&gt;</strong>
+                        <strong class="hl-xsl">&lt;/xsl:when&gt;</strong>
+                        <strong class="hl-xsl">&lt;xsl:otherwise&gt;</strong>
+                            <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$new_element_namespace"</span><strong class="hl-xsl">/&gt;</strong>
+                        <strong class="hl-xsl">&lt;/xsl:otherwise&gt;</strong>
+                    <strong class="hl-xsl">&lt;/xsl:choose&gt;</strong>
+                 <strong class="hl-xsl">&lt;/xsl:variable&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"{$new_element_localName}"</span> <span class="hl-attribute">namespace</span>=<span class="hl-value">"{$nsURI}"</span><strong class="hl-xsl">&gt;</strong>
+                    <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$attributeToConvert"</span><strong class="hl-xsl">/&gt;</strong>
+                 <strong class="hl-xsl">&lt;/xsl:element&gt;</strong>
+              <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node()"</span><strong class="hl-xsl">/&gt;</strong>
+         <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+       <strong class="hl-xsl">&lt;/xsl:otherwise&gt;</strong>
+     <strong class="hl-xsl">&lt;/xsl:choose&gt;</strong>
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+        </ul><div class="note note note_note"><span class="note__title">Note:</span> The XSLT stylesheet imports a module library that contains utility functions and
+          variables. The location of this module is resolved via an <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> set in the XML
+          Refactoring <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>.</div></div>
+    </section>
+    <section class="section" id="custom_operation_sample__descriptor-example-section"><h2 class="title sectiontitle">Example of an Operation Descriptor File That References the XSLT Stylesheet for
+        Creating a Custom Operation to <em class="ph i">Convert an Attribute to an Element</em></h2>
+      
+      <p class="p">After you have developed the XSLT stylesheet, you have to create an XML Refactoring
+        operation descriptor. This descriptor is used by the application to load the operation
+        details such as name, description, or parameters.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+<strong class="hl-tag">&lt;refactoringOperationDescriptor</strong> 
+ <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+ <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/xmlRefactoring"</span> 
+ <span class="hl-attribute">id</span>=<span class="hl-value">"convert-attribute-to-element"</span> 
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Convert attribute to element"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;description&gt;</strong>Converts the specified attribute to an element. 
+           The new element will be inserted as first child of the attribute's
+           parent element.<strong class="hl-tag">&lt;/description&gt;</strong>    
+ <em class="hl-comment">&lt;!-- For the XSLT stylesheet option uncomment the following line and comment
+           the line referring the XQuery Update script --&gt;</em>
+ <em class="hl-comment">&lt;!-- &lt;script type="XSLT" href="convert-attribute-to-element.xsl"/&gt; --&gt;</em> 
+ <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"XQUERY_UPDATE"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"convert-attribute-to-element.xq"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;parameters&gt;</strong>
+   <strong class="hl-tag">&lt;description&gt;</strong>Specify the attribute to be converted to element.<strong class="hl-tag">&lt;/description&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Parent element"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;elementParameter</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"elemID"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_localName"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element.<strong class="hl-tag">&lt;/description&gt;</strong>            
+        <strong class="hl-tag">&lt;/localName&gt;</strong>
+       <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element<strong class="hl-tag">&lt;/description&gt;</strong>            
+       <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+     <strong class="hl-tag">&lt;/elementParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Attribute"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;attributeParameter</strong> <span class="hl-attribute">dependsOn</span>=<span class="hl-value">"elemID"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_localName"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Name of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+      <strong class="hl-tag">&lt;/localName&gt;</strong>
+     <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Namespace of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+     <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+     <strong class="hl-tag">&lt;/attributeParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"New element"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;elementParameter&gt;</strong>
+           <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_localName"</span><strong class="hl-tag">&gt;</strong>
+               <strong class="hl-tag">&lt;description&gt;</strong>The name of the new element.<strong class="hl-tag">&lt;/description&gt;</strong>
+           <strong class="hl-tag">&lt;/localName&gt;</strong>
+           <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_namespace"</span><strong class="hl-tag">&gt;</strong>
+               <strong class="hl-tag">&lt;description&gt;</strong>The namespace of the new element.<strong class="hl-tag">&lt;/description&gt;</strong>
+           <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+        <strong class="hl-tag">&lt;/elementParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+  <strong class="hl-tag">&lt;/parameters&gt;</strong>
+<strong class="hl-tag">&lt;/refactoringOperationDescriptor&gt;</strong></pre>
+      <div class="note note note_note"><span class="note__title">Note:</span> If you are using an XSLT file, the line with the <code class="keyword markupname xmlelement">&lt;script&gt;</code> element
+        would look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"> <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"XSLT"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"convert-attribute-to-element.xsl"</span><strong class="hl-tag">/&gt;</strong></pre>The
+        code exemplified above and other refactoring examples can be found on the <a class="xref" href="https://github.com/oxygenxml/dita-refactoring-examples/" target="_blank" rel="external noopener">DITA Refactoring GitHub sample project</a>.</div>
+    </section>
+    <section class="section" id="custom_operation_sample__results"><h2 class="title sectiontitle">Results</h2>
+      
+      <p class="p">After you have created these files, copy them into a folder <a class="xref" href="sharing-custom-refactoring-operations.html">scanned by <span class="ph">Oxygen XML Editor</span> when
+          it loads the custom operation</a>. When the XML Refactoring tool is started again, you
+        will see the created operation.</p>
+      <p class="p">Since various parameters can be specified, this custom operation can also be used for other
+        similar tasks. The following image shows the parameters that can be specified in the example
+        of the custom operation to convert an attribute to an element:</p>
+      <div class="p">
+        <figure class="fig fignone" id="custom_operation_sample__fig_vsr_3fd_jr"><figcaption><span class="fig--title-label">Figure 2. </span>Example: XML Refactoring Wizard for a Custom Operation</figcaption>
+          
+          <img class="image" id="custom_operation_sample__image_tsb_lfd_jr" src="../img/custom_refactoring_operation.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="custom_operation_sample__using_saxon_extension_functions_to_allow_custom_r"><h2 class="title sectiontitle">Using Saxon Extension Functions to Allow Custom Refactoring Operations to Read and
+        Modify Content Outside the Root Node</h2>
+      
+      <p class="p">One advantage to using an XSLT stylesheet is that there is limitation when using an <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery Update
+          script</a> in that refactoring operations can only be performed on <em class="ph i">comments</em> or
+          <em class="ph i">processing instructions</em> that are inside the root element. Thus, using the XQuery
+        method, <em class="ph i">comments</em> or <em class="ph i">processing instructions</em> that are in any node before or
+        after the root element cannot be modified by an XML Refactoring operation.</p>
+      <p class="p">The XSLT stylesheet method offers a work-around to this limitation through the use of some
+        Saxon extension functions.</p>
+      <div class="p">To illustrate the use of these functions, consider the following sample XML
+        file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<em class="hl-comment">&lt;!-- comment before root --&gt;</em>
+<span class="hl-directive">&lt;?pi before root ?&gt;</span>
+<strong class="hl-tag">&lt;root&gt;</strong>
+    <strong class="hl-tag">&lt;child&gt;</strong><strong class="hl-tag">&lt;/child&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong>
+<em class="hl-comment">&lt;!-- comment after root --&gt;</em>
+<span class="hl-directive">&lt;?pi after root ?&gt;</span></pre></div>
+    </section>
+    <div class="p">The following Saxon extension functions can be used to read and modify content outside the
+      root node:<div class="note note note_note"><span class="note__title">Note:</span> They belong to the
+          <code class="ph codeph">http://www.oxygenxml.com/ns/xmlRefactoring/functions</code> namespace.</div><ul class="ul" id="custom_operation_sample__ul_ndh_cm4_kz">
+        <li class="li">
+          <p class="p"><strong class="ph b">get-content-after-root()</strong> - Returns the content after root as
+              <code class="ph codeph">xs:string</code>.</p>
+          <div class="p">For the XML above, the call of this function will return the following string
+            value:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- comment after root --&gt;</em>
+<span class="hl-directive">&lt;?pi after root ?&gt;</span></pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b">set-content-after-root(xs:string)</strong> - Updates the content that will be serialized
+            in the refactored document after the root node.</p>
+          <div class="p">The function call <code class="ph codeph">set-content-after-root('&lt;!-- Inserted comment
+              --&gt;')</code> will result in replacing the nodes after the root element with the
+            comment passed as string argument. The XML document will be modified as
+            follows:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<em class="hl-comment">&lt;!-- comment before root --&gt;</em>
+<span class="hl-directive">&lt;?pi before root ?&gt;</span>
+<strong class="hl-tag">&lt;root&gt;</strong>
+    <strong class="hl-tag">&lt;child&gt;</strong><strong class="hl-tag">&lt;/child&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong><em class="hl-comment">&lt;!-- Inserted comment --&gt;</em></pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b">get-content-before-root()</strong> - Returns the content before root as
+              <code class="ph codeph">xs:string</code>.</p>
+          <div class="p">For the XML above, the call of this function will return the following string
+            value:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<em class="hl-comment">&lt;!-- comment before root --&gt;</em>
+<span class="hl-directive">&lt;?pi before root ?&gt;</span></pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b">set-content-before-root(xs:string)</strong> - Updates the content that will be serialized
+            in the refactored document after the root node.</p>
+          <div class="p">The function call <code class="ph codeph">set-content-before-root('&lt;!-- Inserted comment
+              --&gt;')</code> will result in replacing the nodes before the root element with the
+            comment passed as string argument. The XML document will be modified as
+            follows:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- Inserted comment --&gt;</em><strong class="hl-tag">&lt;root&gt;</strong>
+    <strong class="hl-tag">&lt;child&gt;</strong><strong class="hl-tag">&lt;/child&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong>
+<em class="hl-comment">&lt;!-- comment after root --&gt;</em>
+<span class="hl-directive">&lt;?pi after root ?&gt;</span></pre></div>
+        </li>
+      </ul></div>
+    <p class="p"><u class="ph u"><strong class="ph b">XSLT Example:</strong></u></p>
+    <div class="p">To process content after the root node, the XSLT would look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span> <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+    <span class="hl-attribute">xmlns:xrf</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/xmlRefactoring/functions"</span> <span class="hl-attribute">version</span>=<span class="hl-value">"3.0"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"/"</span><strong class="hl-xsl">&gt;</strong>
+        <em class="hl-comment">&lt;!-- The comment content that will be inserted after the root element --&gt;</em>
+        <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"commentAsText"</span><strong class="hl-xsl">&gt;</strong><em class="hl-comment">&lt;!-- COMMENT ADDED FROM XR OPERATION--&gt;</em>
+        <strong class="hl-xsl">&lt;/xsl:variable&gt;</strong>
+        <em class="hl-comment">&lt;!-- Retrieve the content after the root element as is --&gt;</em>
+        <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"after-root-content"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span> 
+                            <span class="hl-attribute">select</span>=<span class="hl-value">"xrf:get-content-after-root()"</span><strong class="hl-xsl">/&gt;</strong>
+
+        <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"processedContent"</span> 
+                            <span class="hl-attribute">select</span>=<span class="hl-value">"concat($after-root-content, $commentAsText)"</span><strong class="hl-xsl">/&gt;</strong>
+        
+        <em class="hl-comment">&lt;!-- Update the content after the root element --&gt;</em>
+        <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"xrf:set-content-after-root($processedContent)"</span><strong class="hl-xsl">/&gt;</strong>
+
+        <strong class="hl-xsl">&lt;xsl:apply-templates/&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> The above XSLT retrieves the nodes after the root element as string, appends a
+        new comment, and then sets back the updated content into the XML document.</div></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/custom-refactoring-operations.html">Custom Refactoring Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/custom_operation_sample_xquery.html">XQuery Update Script for Creating a Custom Operation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sharing-custom-refactoring-operations.html">Storing and Sharing Refactoring Operations</a></div></div></nav></article></main></body></html>

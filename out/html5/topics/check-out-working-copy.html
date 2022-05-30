@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Checking out a working copy"><meta name="keywords" content="SVN Client, Checking out a working copy"><meta name="DC.relation" scheme="URI" content="../topics/define-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/define-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/history-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/history-dialog.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="check-out-working-copy"><title>Check Out a Working Copy</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="check-out-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Check Out a Working Copy</h1>
+  
+  <div class="body">
+    <p class="p"><em class="ph i">Check out</em> means to make a copy of a project from a repository to your local file
+      system. This copy is called a <em class="ph i">working copy</em>. An Apache Subversion™
+      working copy is a specially formatted directory structure that contains additional
+        <span class="ph filepath">.svn</span> directories that store Subversion information, as well as a
+      pristine copy of each item that is checked out.</p>
+    <p class="p">To check out a working copy, locate and select the desired directory in the
+        <span class="ph uicontrol">Repositories</span> view and select the <span class="ph uicontrol">Check out</span>
+      action from the contextual menu, the toolbar, or the <span class="ph uicontrol">Repository</span>
+      menu.</p>
+    <div class="p">
+      <figure class="fig fignone" id="check-out-working-copy__fig_bhn_tyk_4r"><figcaption><span class="fig--title-label">Figure 1. </span>Check Out Dialog Box</figcaption>
+        
+        <img class="image" id="check-out-working-copy__image_lhn_tyk_4r" src="../img/sa_svn_check_out_dialog.png">
+      </figure>
+    </div>
+    <p class="p">The following options can be configured in the <span class="ph uicontrol">Check out</span> dialog
+      box:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+          <dd class="dd"><a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">The
+              location of the repository directory</a> to be <em class="ph i">checked out</em>.<div class="note note note_note"><span class="note__title">Note:</span> To check out an item that was deleted, moved, or replaced, you need to specify the
+              original URL (before the item was removed) and use a <a class="xref" href="using-peg-revisions.html#using-peg-revisions"><em class="ph i">peg</em>
+                revision</a> at the end (for example, <code class="ph codeph">URL@rev1234</code>).</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Revision</span></dt>
+          <dd class="dd">You can choose between the <span class="ph uicontrol">HEAD</span> or <span class="ph uicontrol">Other</span>
+            revision. If you need to <em class="ph i">check out</em> a specific revision, specify it in the
+              <span class="ph uicontrol">Other</span> text box or use the <span class="ph uicontrol">History</span> button
+            and choose a revision from <a class="xref" href="history-dialog.html#history-dialog">the <span class="ph uicontrol">History</span> dialog box</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Check out to</span></dt>
+          <dd class="dd">Specify<a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__local-path-section">
+              the location where you want to <em class="ph i">check out</em></a> the new working copy by typing
+            the local path in the text box or by using the <span class="ph uicontrol">Browse</span> button. If
+            the specified local path does not point to an existing directory, it will automatically
+            be created.<div class="note important note_important"><span class="note__title">Important:</span> By default, the SVN system only checks out the content
+              of the directory specified by the URL, and not the directory itself. Therefore, it is
+              recommended to use the <span class="ph uicontrol">Browse</span> button to select the <em class="ph i">check
+                out</em> location so that the client will automatically append the name of the remote
+              directory to the path of the selected directory.<div class="p">
+                <div class="note warning note_warning"><span class="note__title">Warning:</span> The destination directory should be empty. If files exist, they
+                  are skipped (left unchanged) by the <em class="ph i">check out</em> operation and <a class="xref" href="working-copy-view.html#working-copy-view__wc_local_file_status">displayed
+                    as <em class="ph i">modified</em></a> after the operation has finished. Also, the
+                  destination directory must not already be under version control.</div>
+              </div></div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Format</span></dt>
+          <dd class="dd">The SVN format of the working copy. You can choose between <span class="ph uicontrol">SVN
+              1.8</span> or <span class="ph uicontrol">SVN 1.7</span>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Depth</span></dt>
+          <dd class="dd">The depth is useful if you want to <em class="ph i">check out</em> only a part of the selected
+            repository directory and bring the rest of the files and subdirectories in a future
+            update. You can find out more about the checkout depth in the <a class="xref" href="sparse-checkouts.html">sparse checkouts</a> section. You can choose
+            between the following depths:<ul class="ul" id="check-out-working-copy__ul_zp2_jzk_4r">
+              <li class="li"><span class="ph uicontrol">Recursive (infinity)</span> - Checks out all the files and folders
+                contained in the selected folder.</li>
+              <li class="li"><span class="ph uicontrol">Immediate children (immediates)</span> - Checks out only the child
+                files and folders without recursing subfolders.</li>
+              <li class="li"><span class="ph uicontrol">File children only (files)</span> - Checks out only the child
+                files.</li>
+              <li class="li"><span class="ph uicontrol">This folder only (empty)</span> - Checks out only the selected
+                folder (no child file or folder is included).</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Ignore "svn:externals" definitions</span></dt>
+          <dd class="dd">When selected, external items are ignored in the <em class="ph i">check out</em> operation. This
+            option is only available if you choose the <span class="ph uicontrol">Recursive (infinity)</span>
+            depth.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">After a <em class="ph i">check out</em>, the new working copy is added to the list in the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a> and
+      loaded automatically.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/history-dialog.html">History Dialog Box</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/define-working-copy.html">Defining a Working Copy</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/define-working-copy.html">Defining a Working Copy</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/history-dialog.html">History Dialog Box</a></div></div></nav></article></main></body></html>

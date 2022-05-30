@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Ant build files,Editing in Master Files context"><meta name="keywords" content="Ant build files, Editing in Master Files context"><meta name="DC.relation" scheme="URI" content="../topics/editing-ant-build-files.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-ant-build-files.html"><meta name="DC.relation" scheme="URI" content="../topics/validate-ant-build-files.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="ant-build-file-contextual-editing"><title>Editing Ant Build Files in the Context of Master Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="ant-build-file-contextual-editing"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Ant Build Files in the Context of Master Files</h1>
+  
+  <div class="body">
+    <p class="p">Smaller interrelated modules that define a complex Ant build file cannot be correctly edited
+      or validated individually due to their interdependency with other modules. For example, a
+        <em class="ph i">target</em> defined in a main build file is not visible when you edit an included or
+      imported module. <span class="ph">Oxygen XML Editor</span> provides support for defining the main module (or
+      modules), allowing you to edit any of the imported/included files in the context of the larger
+      Ant build structure.</p>
+    <p class="p">You cat set a main Ant build file either by using the <a class="xref" href="defining_master_files.html#defining_master_files"><dfn class="term">master files</dfn> support
+        from the <span class="ph uicontrol">Project</span> view</a>, or <a class="xref" href="associate-ant-validation-scenario.html#associate-ant-validation-scenario">a validation
+        scenario</a>.</p>
+    <p class="p">To set a <dfn class="term">master file</dfn> using a validation scenario, add validation units that
+      point to the main modules. <span class="ph">Oxygen XML Editor</span> warns you if the current module is not part
+      of the dependencies graph computed for the main build file. In this case, it considers the
+      current module as the main build file.</p>
+    <div class="p">The advantages of editing in the context of <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a> include: <ul class="ul">
+        <li class="li">Correct validation of a module in the context of a larger build structure.</li>
+        <li class="li"><a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+              Assistant</dfn></a> displays all components valid in the current context.</li>
+        <li class="li">The <a class="xref" href="ant-outline.html#ant-outline"><span class="ph uicontrol">Outline</span> view</a>
+          displays the components collected from the entire build file structure.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-ant-build-files.html">Editing Ant Build Files</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/editing-ant-build-files.html">Editing Ant Build Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/validate-ant-build-files.html">Validating Ant Build Files</a></div></div></nav></article></main></body></html>

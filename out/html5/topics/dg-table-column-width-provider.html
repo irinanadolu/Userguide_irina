@@ -1,0 +1,254 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Framework customization,Extensions,Author Table Column Width Provider"><meta name="keywords" content="Framework customization, Extensions, Author Table Column Width Provider"><meta name="DC.relation" scheme="URI" content="../topics/dg-styling-table-element.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-styling-table-element.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-cell-spanning-provider.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-table-column-width-provider"><title>Configuring a Table Column Width Provider</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-table-column-width-provider"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring a Table Column Width Provider</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">In a custom <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>, the
+        <code class="keyword markupname xmlelement">&lt;table&gt;</code> element as well as the table columns can have specified widths. For
+        these widths to be considered by <span class="ph uicontrol">Author</span> mode, you need to provide the
+        means for determining them. As explained in <a class="xref" href="dg-styling-table-element.html#dg-styling-table-element">Configuring Tables</a>, if you use the table
+        element attribute <strong class="ph b">width</strong>
+        <span class="ph">Oxygen XML Editor</span> can determine the table width automatically. In this example the
+        table has <code class="keyword markupname xmlelement">&lt;col&gt;</code> elements with <code class="keyword markupname xmlatt">@width</code> attributes that are not recognized
+        by default. You will need to implement a Java extension class to determine the column
+        widths.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Create the class <em class="ph i">simple.documentation.framework.TableColumnWidthProvider</em>. This
+          class must implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorTableColumnWidthProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorTableColumnWidthProvider</em></a>
+          interface.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorAccess;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorOperationException;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorTableColumnWidthProvider;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.WidthRepresentation;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AuthorElement;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> TableColumnWidthProvider 
+      <strong class="hl-keyword">implements</strong> AuthorTableColumnWidthProvider {</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Method <em class="ph i">init</em> is taking as argument an <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorElement.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.node.AuthorElement</em></a> that represents the XML
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> element. In our case the column widths are specified in
+          <code class="keyword markupname xmlelement">&lt;col&gt;</code> elements from the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element. In such cases you
+          must collect the span information by analyzing the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> init(AuthorElement tableElement) {
+	<strong class="hl-keyword">this</strong>.tableElement = tableElement;
+ AuthorElement[] colChildren = tableElement.getElementsByLocalName(<span class="hl-string">"customcol"</span>);
+    <strong class="hl-keyword">if</strong> (colChildren != null &amp;&amp; colChildren.length &gt; <span class="hl-number">0</span>) {
+	<strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; colChildren.length; i++) {
+	  AuthorElement colChild = colChildren[i];
+	    <strong class="hl-keyword">if</strong> (i == <span class="hl-number">0</span>) {
+		colsStartOffset = colChild.getStartOffset();
+	} 
+	    <strong class="hl-keyword">if</strong> (i == colChildren.length - <span class="hl-number">1</span>) {
+		colsEndOffset = colChild.getEndOffset();
+	}
+	    <em class="hl-comment">// Determine the 'width' for this col.</em>
+	    AttrValue colWidthAttribute = colChild.getAttribute(<span class="hl-string">"width"</span>);
+	    String colWidth = null;
+	    <strong class="hl-keyword">if</strong> (colWidthAttribute != null) {
+	      colWidth = colWidthAttribute.getValue();
+           <em class="hl-comment">// Add WidthRepresentation objects for the columns this 'customcol'</em>
+	    <em class="hl-comment">//  specification spans over.</em>
+		colWidthSpecs.add(<strong class="hl-keyword">new</strong> WidthRepresentation(colWidth, true));
+	}
+     }
+   }
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">isTableAcceptingWidth</em> should check if the table cells are a
+            <code class="keyword markupname xmlelement">&lt;td&gt;</code> element.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> isTableAcceptingWidth(String tableCellsTagName) {
+  <strong class="hl-keyword">return</strong> <span class="hl-string">"td"</span>.equals(tableCellsTagName);
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">isTableAndColumnsResizable</em> should check if the table cells are a
+            <code class="keyword markupname xmlelement">&lt;td&gt;</code> element. This method determines if the table and its columns
+          can be resized by dragging the edge of a column.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> isTableAndColumnsResizable(String tableCellsTagName) {
+  <strong class="hl-keyword">return</strong> <span class="hl-string">"td"</span>.equals(tableCellsTagName);
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Methods <em class="ph i">getTableWidth</em> and <em class="ph i">getCellWidth</em> are used to determine the table
+          and column width. The table layout engine will ask this <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorTableColumnWidthProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorTableColumnWidthProvider</em></a>
+          implementation what is the table width for each table element and the cell width for each
+          cell element from the table that was marked as cell in the CSS using the property
+            <code class="ph codeph">display:table-cell</code>. The implementation is simple and just parses the
+          value of the <strong class="ph b">width</strong> attribute. The methods must return <code class="ph codeph">null</code> for the
+          tables / cells that do not have a specified width.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> WidthRepresentation getTableWidth(String tableCellsTagName) {
+		WidthRepresentation toReturn = null;
+		<strong class="hl-keyword">if</strong> (tableElement != null &amp;&amp; <span class="hl-string">"td"</span>.equals(tableCellsTagName)) {
+			AttrValue widthAttr = tableElement.getAttribute(<span class="hl-string">"width"</span>);
+			<strong class="hl-keyword">if</strong> (widthAttr != null) {
+				String width = widthAttr.getValue();
+				<strong class="hl-keyword">if</strong> (width != null) {
+					toReturn = <strong class="hl-keyword">new</strong> WidthRepresentation(width, true);
+				}
+			}
+		}
+		<strong class="hl-keyword">return</strong> toReturn;
+	}</pre>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">        <strong class="hl-keyword">public</strong> List&lt;WidthRepresentation&gt; 
+getCellWidth(AuthorElement cellElement, <strong class="hl-keyword">int</strong> colNumberStart,
+			<strong class="hl-keyword">int</strong> colSpan) {
+		List&lt;WidthRepresentation&gt; toReturn = null;
+		<strong class="hl-keyword">int</strong> size = colWidthSpecs.size();
+		<strong class="hl-keyword">if</strong> (size &gt;= colNumberStart &amp;&amp; size &gt;= colNumberStart + colSpan) {
+			toReturn = <strong class="hl-keyword">new</strong> ArrayList&lt;WidthRepresentation&gt;(colSpan);
+			<strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = colNumberStart; i &lt; colNumberStart + colSpan; i ++) {
+				<em class="hl-comment">// Add the column widths</em>
+				toReturn.add(colWidthSpecs.get(i));
+			}
+		}
+		<strong class="hl-keyword">return</strong> toReturn;
+	}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Methods <em class="ph i">commitTableWidthModification</em> and <em class="ph i">commitColumnWidthModifications</em>
+          are used to commit changes made to the width of the table or its columns when using the
+          mouse drag gestures.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> commitTableWidthModification
+(AuthorDocumentController authorDocumentController,
+	<strong class="hl-keyword">int</strong> newTableWidth, String tableCellsTagName) <strong class="hl-keyword">throws</strong> AuthorOperationException {
+	<strong class="hl-keyword">if</strong> (<span class="hl-string">"td"</span>.equals(tableCellsTagName)) {
+		<strong class="hl-keyword">if</strong> (newTableWidth &gt; <span class="hl-number">0</span>) {
+			<strong class="hl-keyword">if</strong> (tableElement != null) {
+				String newWidth = String.valueOf(newTableWidth);
+
+				authorDocumentController.setAttribute(
+						<span class="hl-string">"width"</span>,
+						<strong class="hl-keyword">new</strong> AttrValue(newWidth),
+						tableElement);
+			} <strong class="hl-keyword">else</strong> {
+	<strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> AuthorOperationException(<span class="hl-string">"Cannot find the table element."</span>);
+				}
+			}
+		}
+	}</pre>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> commitColumnWidthModifications
+ (AuthorDocumentController authorDocumentController,
+			WidthRepresentation[] colWidths, String tableCellsTagName)
+ <strong class="hl-keyword">throws</strong> AuthorOperationException {
+   <strong class="hl-keyword">if</strong> (<span class="hl-string">"td"</span>.equals(tableCellsTagName)) {
+     <strong class="hl-keyword">if</strong> (colWidths != null &amp;&amp; tableElement != null) {
+	<strong class="hl-keyword">if</strong> (colsStartOffset &gt;= <span class="hl-number">0</span> &amp;&amp; colsEndOffset &gt;= <span class="hl-number">0</span> 
+&amp;&amp; colsStartOffset &lt; colsEndOffset) {
+		authorDocumentController.delete(colsStartOffset,
+				colsEndOffset);
+		}
+		String xmlFragment = createXMLFragment(colWidths);
+			<strong class="hl-keyword">int</strong> offset = -<span class="hl-number">1</span>;
+		AuthorElement[] header = tableElement.getElementsByLocalName(<span class="hl-string">"header"</span>);
+			<strong class="hl-keyword">if</strong> (header != null &amp;&amp; header.length &gt; <span class="hl-number">0</span>) {
+				<em class="hl-comment">// Insert the cols elements before the 'header' element </em>
+				offset = header[<span class="hl-number">0</span>].getStartOffset();
+			}
+			<strong class="hl-keyword">if</strong> (offset == -<span class="hl-number">1</span>) {
+  <strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> AuthorOperationException(<span class="hl-string">"No valid offset to insert column width"</span>);
+				}
+				authorDocumentController.insertXMLFragment(xmlFragment, offset);
+			}
+		}
+	}
+
+	<strong class="hl-keyword">private</strong> String createXMLFragment(WidthRepresentation[] widthRepresentations) {
+		StringBuffer fragment = <strong class="hl-keyword">new</strong> StringBuffer();
+		String ns = tableElement.getNamespace();
+		<strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; widthRepresentations.length; i++) {
+			WidthRepresentation width = widthRepresentations[i];
+			fragment.append(<span class="hl-string">"&lt;customcol"</span>);
+			String strRepresentation = width.getWidthRepresentation();
+			<strong class="hl-keyword">if</strong> (strRepresentation != null) {
+				fragment.append(<span class="hl-string">" width=\""</span> + width.getWidthRepresentation() + <span class="hl-string">"\""</span>);
+			}
+			<strong class="hl-keyword">if</strong> (ns != null &amp;&amp; ns.length() &gt; <span class="hl-number">0</span>) {
+				fragment.append(<span class="hl-string">" xmlns=\""</span> + ns + <span class="hl-string">"\""</span>);
+			}
+			fragment.append(<span class="hl-string">"/&gt;"</span>);
+		}
+		<strong class="hl-keyword">return</strong> fragment.toString();
+	}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The following three methods are used to determine what type of column width
+          specifications the table column width provider support. In our case all types of
+          specifications are allowed:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+	<strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> isAcceptingFixedColumnWidths(String tableCellsTagName) {
+		<strong class="hl-keyword">return</strong> true;
+	}
+
+	<strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> isAcceptingPercentageColumnWidths(String tableCellsTagName) {
+		<strong class="hl-keyword">return</strong> true;
+	}
+
+	<strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> isAcceptingProportionalColumnWidths(String tableCellsTagName) {
+		<strong class="hl-keyword">return</strong> true;
+	}</pre>
+        </div>
+        <div class="itemgroup info">
+          <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+        </div>
+      </li></ol></section>
+    <section class="section result">
+      <p class="p">In the listing below, the XML document contains the table element:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"300"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;customcol</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"50.0px"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;customcol</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;customcol</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"2*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;customcol</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"20%"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;header&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C2<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C3<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C4<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/header&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">row_span</span>=<span class="hl-value">"2"</span><strong class="hl-tag">&gt;</strong>cs=1, rs=2<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">row_span</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>cs=1, rs=3<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">column_span</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>cs=3, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+<strong class="hl-tag">&lt;/table&gt;</strong></pre>
+      <p class="p">When no table column width provider is specified, the table has the following layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Table layout when no column width provider is specified</figcaption>
+          
+          <img class="image" src="../img/dg_table_no_column_width_provider.png">
+        </figure>
+      </div>
+      <p class="p">When the above implementation is configured, the table has the correct layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Columns with custom widths</figcaption>
+          
+          <img class="image" src="../img/dg_table_with_column_widths.png">
+        </figure>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-styling-table-element.html">Configuring Tables</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-styling-table-element.html">Configuring Tables</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-table-cell-spanning-provider.html">Configuring a Table Cell Span Provider</a></div></div></nav></article></main></body></html>

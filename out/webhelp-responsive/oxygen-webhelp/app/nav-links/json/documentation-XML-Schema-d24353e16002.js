@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Output Formats for Generating XML Schema Documentation","href":"topics\/output-formats-documentation-XML-Schema.html","attributes":{"data-id":"output-formats-documentation-XML-Schema"},"menu":{"hasChildren":false},"tocID":"output-formats-documentation-XML-Schema-d24353e16021","next":"output-formats-documentation-XML-Schema-d24353e16021"}]});

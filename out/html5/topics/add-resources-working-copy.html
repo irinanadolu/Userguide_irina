@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Working copy resource management,Add resources"><meta name="keywords" content="SVN Client, Working copy resource management, Add resources"><meta name="DC.relation" scheme="URI" content="../topics/manage-working-copy-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-file-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/ignore-resources-working-copy.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-resources-working-copy"><title>Add Resources to Version Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-resources-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Add Resources to Version Control</h1>
+  
+  <div class="body">
+    <p class="p">To share new files and folders (created in your working copy), add them to version control
+      using the <span class="ph uicontrol">Add to version control</span> option from the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a>. </p>
+    <div class="p">You can easily spot resources not under version control by the <dfn class="term">unversioned</dfn>
+        (<img class="image" id="add-resources-working-copy__image_xwn_1z5_5r" src="../img/SVNWCUnversioned10.png">) icon displayed in the
+          <span class="ph uicontrol"><img class="image" src="../img/SVNLocalContentStatusColumnHeader.png">Local file
+        status</span> column. Resources scheduled for addition are displayed with this
+        <dfn class="term">added</dfn> (<img class="image" id="add-resources-working-copy__image_lny_pjp_5r" src="../img/SVNWCAdded10.png">) icon in
+      the <span class="ph uicontrol">Working Copy</span> view and are added in the repository after you commit
+      them. <div class="note note note_note"><span class="note__title">Note:</span> Do not make a confusion between <img class="image" src="../img/SVNWCAddedWithHistory10.png">
+        and <img class="image" id="add-resources-working-copy__image_cx2_qjp_5r" src="../img/SVNWCAdded10.png"> icons. The former icon
+        stands for resources that are actually copies of resources already committed in the
+        repository, meaning they are <em class="ph i">scheduled for addition with history</em>.</div></div>
+    <p class="p">When you use the <span class="ph uicontrol">Add to version control</span> option on a directory, its
+      entire structure is scanned and all the resources that can be added under version control are
+      presented.</p>
+    <p class="p">Although it is not mandatory to add resources under version control explicitly, it is
+      recommended. If you forgot to add a resource, when you <a class="xref" href="send-changes.html">commit
+        your changes</a>, the resource is presented in the commit dialog box, but not selected.
+      When you commit and <dfn class="term">unversioned</dfn> resource, it is automatically added under version
+      control before starting the commit operation.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Add to Version Control Dialog Box</figcaption>
+        
+        <img class="image" src="../img/svn-add-to-version-control-dialog-box.png">
+      </figure>
+    </div>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> <dfn class="term">Ignored</dfn> (<img class="image" src="../img/SVNWCIgnored10.png">) items can also be added
+        under version control.</div>
+    </div>
+    <div class="p">The <span class="ph uicontrol">Depth</span> column is displayed only when directories are also presented
+      in the dialog box. For any directory, you can use one of the available values to instruct
+      Subversion to limit the scope of the operation to a particular tree depth.<div class="note note note_note"><span class="note__title">Note:</span> The initial
+        value of the <span class="ph uicontrol">Depth</span> field can have the following values, depending on
+        the <a class="xref" href="working-copy-settings.html#working-copy-settings__view-mode">listing mode of
+          the items in the working copy view</a>:<ul class="ul">
+          <li class="li"><em class="ph i">infinity</em> - When the working copy items are presented as a tree.</li>
+          <li class="li"><em class="ph i">files</em> - When the working copy items are presented compressed.</li>
+          <li class="li"><em class="ph i">empty</em> - When the working copy items are presented flat.</li>
+        </ul>When you add unversioned or ignored directories, the initial value of the
+          <span class="ph uicontrol">Depth</span> field also depends on the state of the <span class="ph uicontrol">Show
+          unversioned directories content</span> and <span class="ph uicontrol">Show ignored directories
+          content</span> options. If these options are selected, the value is based on the
+        listing mode of the items in the working copy view. When they are not selected, the value is
+          <em class="ph i">empty</em>.</div></div>
+    <div class="p">The following options are available in this dialog box:<ul class="ul">
+        <li class="li" id="add-resources-working-copy__enable-auto-properties"><span class="ph uicontrol">Enable automatic properties</span> or
+            <span class="ph uicontrol">Disable automatic properties</span> - enables or disables automatic
+          property assignment (per runtime configuration rules), overriding the
+            <code class="ph codeph">enable-auto-props</code> runtime configuration directive, defined in the
+            <code class="ph codeph">config</code> file of the Subversion configuration directory.<div class="note note note_note"><span class="note__title">Note:</span> This option
+            is available only when there are defined properties to be applied automatically for
+            resources newly added under version control. You can define these properties in the
+              <code class="ph codeph">config</code> file of the Subversion configuration directory, in the
+              <code class="ph codeph">auto-props</code> section. Based on the value of the
+              <code class="ph codeph">enable-auto-props</code> runtime configuration directive, the presented
+            option is either <span class="ph uicontrol">Enable automatic properties</span>, or
+              <span class="ph uicontrol">Disable automatic properties</span>.</div></li>
+        <li class="li" id="add-resources-working-copy__no-ignore"><span class="ph uicontrol">No ignore</span> - when you select this option, file-name
+          patterns defined to ignore <dfn class="term">unversioned</dfn> resources do not apply. Resources that
+          are located inside an <dfn class="term">unversioned</dfn> directory selected for addition, and match
+          these patterns, are also scheduled for addition in the repository.<div class="note note note_note"><span class="note__title">Note:</span> This option is
+            available only when directories are also presented in the dialog box.<div class="p">You can define
+              file-name patterns to ignore <dfn class="term">unversioned</dfn> resources in one of the
+              following locations:<ul class="ul">
+                <li class="li">In the <code class="ph codeph">config</code> file of the Subversion configuration directory
+                  (the <code class="ph codeph">global-ignores</code> option from the <code class="ph codeph">miscellany</code>
+                  section).</li>
+                <li class="li">In the <span class="ph">Oxygen XML Editor</span> options (<span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">SVN</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Working copy</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Application global ignores</span></span>).</li>
+              </ul></div></div></li>
+      </ul></div>
+    <p class="p">Each of the above two options is activated only when you select an item that can have the option
+      applied.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/manage-working-copy-resources.html">Manage Working Copy Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/edit-file-working-copy.html">Edit Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/ignore-resources-working-copy.html">Ignore Resources Not Under Version Control</a></div></div></nav></article></main></body></html>

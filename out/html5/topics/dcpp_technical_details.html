@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Process overview"><meta name="keywords" content="Process overview"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_overview.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_supported_pdf_processors.html"><meta name="DC.relation" scheme="URI" content="../topics/increase-java-memory.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_technical_details"><title>Technical Details</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_technical_details"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Technical Details</h1>
+  
+  <div class="body">
+    <p class="p">The <strong class="ph b">DITA-OT CSS-based PDF Publishing Plugin</strong> comes bundled in the <strong class="ph b">Oxygen XML
+        Editor/Author</strong> distributions. The plugin ID is: <strong class="ph b">com.oxygenxml.pdf.css</strong>. It is
+      installed in the <span class="ph filepath">[OXYGEN-INSTALL-DIR]frameworks/dita/<dfn class="term">DITA-OT3.x</dfn>/plugins/com.oxygenxml.pdf.css</span>
+      folder.</p>
+    <div class="p">It has the following transformation types:<ul class="ul" id="dcpp_technical_details__ul_xck_hcd_b2b">
+				<li class="li"><strong class="ph b">pdf-css-html5</strong> (<em class="ph i"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></em> transformation) - CSS
+          styling applied over a merged HTML5 document (the merged DITA map converted to
+          HTML5).</li>
+				<li class="li"><strong class="ph b">pdf-css-html5-single-topic</strong> (<em class="ph i"><span class="ph">DITA PDF - based on HTML5 &amp; CSS</span></em> transformation) - CSS styling applied over a merged HTML5 document (the merged
+          DITA topic converted to HTML5).</li>
+			</ul></div>
+    <div class="p">This is how it works:<ol class="ol" id="dcpp_technical_details__ol_hvh_q1x_rcb">
+				<li class="li">It expands all the topic references into a temporary clone of the map, resolving keys
+					and reused content. For the single topic transformation the result is a file with the keys
+					and content resolved. </li>
+				<li class="li">It generates a structure for the table of contents and index. The result is a merged map
+					with all the references resolved. When transforming a single topic, the TOC and Index are
+					not added to the merged file, this includes only the contents of the topic.<br><img class="image" id="dcpp_technical_details__image_nk5_zbx_rcb" src="../img/dcpp_merged_map.png" alt="Map to Merged Map"><br></li>
+				<li class="li">Then it post-processes the merged map. It fixes some of the structure in the TOC and index,
+          moves the <em class="ph i">frontmatter</em> and <em class="ph i">backmatter</em> to the correct places, transforms any
+          change tracking and review processing instructions to elements that can be styled later,
+          etc. The result is another merged map.<br><img class="image" id="dcpp_technical_details__image_elx_3jd_scb" src="../img/dcpp_map_post_process.png" alt="Merged Map to Merged Map - changes"><br><div class="note note note_note"><span class="note__title">Note:</span> In the single topic transformation type (<span class="ph uicontrol">DITA PDF - based on HTML5 &amp; CSS</span>), these steps are
+          simplified.</div></li>
+				<li class="li">The merged DITA map or topic is transformed to a single HTML5 file.<p class="p">The generated HTML
+            elements copy the class attributes from the original DITA elements. In this way you can
+            either use selectors that were designed for DITA structure, or ones for the HTML
+            structure - see: <a class="xref" href="dcpp_reusing_the_styling_for_webhelp_and_pdf.html">Reusing the Styling for WebHelp and PDF Output</a>. This
+            step can apply customization <a class="xref" href="pdf-xslt-extensions.html">XSLT extension
+              points</a> that change the default processing. </p></li>
+				<li class="li">In the last phase, it uses a collection of CSS files to style the merged map. References to
+          the CSS files are collected from the <a class="xref" href="pdf_publishing_template_contents.html">publishing template</a>.<br><img class="image" id="dcpp_technical_details__image_dpr_mdx_rcb" src="../img/dcpp_map_pdf.png" alt="Final stage, applying styles over the merged map"><br></li>
+			</ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_overview.html" title="A basic overview, technical details, and additional resources to help you get started">Overview</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_supported_pdf_processors.html">Supported Processors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/increase-java-memory.html">Increasing Memory Allocation for Java</a></div></div></nav></article></main></body></html>

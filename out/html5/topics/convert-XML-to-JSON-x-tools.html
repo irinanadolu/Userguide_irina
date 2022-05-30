@@ -1,0 +1,112 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="JSON documents,XML to JSON converter,Convert XML to JSON,XML to JSON tool"><meta name="keywords" content="JSON documents, XML to JSON converter, Convert XML to JSON, XML to JSON tool"><meta name="DC.relation" scheme="URI" content="../topics/json-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/convert-JSON-to-XML-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/xsd-to-json-schema-converter-x.html"><meta name="DC.relation" scheme="URI" content="convert-JSON-to-XML.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="convert-XML-to-JSON"><title>XML to JSON Converter</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="convert-XML-to-JSON"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML to JSON Converter</h1>
+  
+  <div class="body">
+    <section class="section" id="convert-XML-to-JSON__section_tqd_twv_llb"><h2 class="title sectiontitle">Online XML to JSON Converter</h2>
+      
+      <div class="note attention note_attention"><span class="note__title">Attention:</span> 
+        <p class="p"><strong class="ph b">For a simple ONLINE tool for converting a single XML file to JSON, or vice versa, go
+            to: <a class="xref" href="https://www.oxygenxml.com/xml_json_converter.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/xml_json_converter.html</a></strong>.</p>
+      </div>
+    </section>
+    <section class="section" id="convert-XML-to-JSON__section_jsj_f3g_mlb"><h2 class="title sectiontitle">Converting XML to JSON in Oxygen</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes a useful and simple tool for converting XML files to JSON.
+        The <span class="ph uicontrol">XML to JSON</span> action for invoking the tool can be found in the
+          <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">JSON Tools</span></span> menu.</p>
+      <div class="p">To convert an XML document to JSON, follow these steps:<ol class="ol" id="convert-XML-to-JSON__procedure-import-from-HTML">
+          <li class="li">
+            <p class="p">Select the <span class="ph uicontrol">XML to JSON</span> action from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">JSON Tools</span></span> menu.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> The <span class="ph uicontrol">XML to JSON</span> dialog box is
+              displayed:</p>
+            <div class="p">
+              <figure class="fig fignone" id="convert-XML-to-JSON__fig_awy_nvd_w3b"><figcaption><span class="fig--title-label">Figure 1. </span>XML to JSON Dialog Box</figcaption>
+                
+                <img class="image" id="convert-XML-to-JSON__image_twc_5qf_jd" src="../img/convert-xml-to-json-dialog.png">
+              </figure>
+            </div>
+          </li>
+          <li class="li"> Choose or enter the <span class="ph uicontrol">Input URL</span> of the XML document. </li>
+          <li class="li"> Choose the path of the <span class="ph uicontrol">Output file</span> that will contain the
+            resulting JSON document. </li>
+          <li class="li"> Select the <span class="ph uicontrol">Open in Editor</span> option to open the resulting JSON
+            document in the main editing pane. </li>
+          <li class="li"> Click the <span class="ph uicontrol">Convert</span> button. </li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> The original XML document is now converted to a JSON document.</p>
+      <div class="p">
+        <figure class="fig fignone" id="convert-XML-to-JSON__fig_qt5_33g_mlb"><figcaption><span class="fig--title-label">Figure 2. </span>Example: XML to JSON Operation Result</figcaption>
+          
+          <img class="image" id="convert-XML-to-JSON__image_pgg_nkf_jd" src="../img/convert-xml-to-json.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="convert-XML-to-JSON__limitations"><h2 class="title sectiontitle">Conversion Details</h2>
+      
+      <ul class="ul">
+        <li class="li">Some XML components are ignored (e.g. comments and processing instructions).</li>
+        <li class="li">
+          <p class="p">If any elements contain attributes in the XML document, the attributes are converted to
+            properties in the converted JSON document. If the XML document contains more than one
+            element with the same name, they will be converted into an array of object in the
+            converted JSON document.</p>
+          <div class="p">For example, the following XML
+            document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;personnel&gt;</strong>
+  <strong class="hl-tag">&lt;person</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"person.one"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Boss<strong class="hl-tag">&lt;/name&gt;</strong>
+  <strong class="hl-tag">&lt;/person&gt;</strong>
+  <strong class="hl-tag">&lt;person</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"person.two"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Worker<strong class="hl-tag">&lt;/name&gt;</strong>
+  <strong class="hl-tag">&lt;/person&gt;</strong>
+<strong class="hl-tag">&lt;/personnel&gt;</strong></pre></div>
+          <div class="p">it is converted
+            to:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-json">{
+  <span class="hl-json_key">"personnel"</span>: {
+    <span class="hl-json_key">"person"</span>: [
+      {
+        <span class="hl-json_key">"id"</span>: <span class="hl-string">"person.one"</span>,
+        <span class="hl-json_key">"name"</span>: <span class="hl-string">"Boss"</span>
+      },
+      {
+        <span class="hl-json_key">"id"</span>: <span class="hl-string">"person.two"</span>,
+        <span class="hl-json_key">"name"</span>: <span class="hl-string">"Worker"</span>
+      }
+    ]
+  }
+}</pre></div>
+        </li>
+        <li class="li">
+          <div class="p">If the XML document contains elements with mixed content (text plus elements), the
+            converted JSON document will contain a <code class="ph codeph">#text</code> property with its value
+            set as the text content. If there are multiple text nodes, the subsequent
+              <code class="ph codeph">#text</code> properties will contain a number (e.g. <code class="ph codeph">#text1</code>,
+              <code class="ph codeph">#text2</code>). If there are multiple elements with the same name, the first
+            property will have the element name and the subsequent properties will contain a number
+            (e.g. b, b#1,
+            b#2).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>This <strong class="hl-tag">&lt;b&gt;</strong>is<strong class="hl-tag">&lt;/b&gt;</strong> an <strong class="hl-tag">&lt;b&gt;</strong>example<strong class="hl-tag">&lt;/b&gt;</strong>!<strong class="hl-tag">&lt;/p&gt;</strong></pre></div>
+          <div class="p">is converted to:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-json">{
+  <span class="hl-json_key">"p"</span>: {
+    <span class="hl-json_key">"#text"</span>: <span class="hl-string">"This "</span>,
+    <span class="hl-json_key">"b"</span>: <span class="hl-string">"is"</span>,
+    <span class="hl-json_key">"#text1"</span>: <span class="hl-string">" an "</span>,
+    <span class="hl-json_key">"b#1"</span>: <span class="hl-string">"example"</span>,
+    <span class="hl-json_key">"#text2"</span>: <span class="hl-string">"!"</span>
+  }
+}</pre></div>
+        </li>
+        <li class="li">
+          <div class="p">If the XML document contains element names that contains hexadecimal codes (for
+            example, if they were escaped during a <a class="xref" href="convert-JSON-to-XML.html">JSON to XML
+              conversion</a>), it will be converted to the normal character value in the
+            converted JSON
+            document.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;_X24_id&gt;</strong>personnel-id<strong class="hl-tag">&lt;/_X24_id&gt;</strong></pre></div>
+          <div class="p">is converted
+            to:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-json">{<span class="hl-json_key">"$id"</span>: <span class="hl-string">"personnel-id"</span>}</pre></div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/json-tools.html">JSON Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/convert-JSON-to-XML-x-tools.html">JSON to XML Converter</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xsd-to-json-schema-converter-x.html">XSD to JSON Schema Converter</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="convert-JSON-to-XML.html">JSON to XML Converter</a></li></ul></div></nav>
+</article></main></body></html>

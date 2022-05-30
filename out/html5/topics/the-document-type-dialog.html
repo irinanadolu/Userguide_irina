@@ -1,0 +1,80 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Document type configuration dialog box,Preferences,Document type configuration dialog box"><meta name="keywords" content="Document type configuration dialog box, Preferences, Document type configuration dialog box"><meta name="DC.relation" scheme="URI" content="../topics/preferences-document-type-association.html"><meta name="DC.relation" scheme="URI" content="../topics/framework-location.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-association-rules-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-association-rules-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-schema-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-classpath-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-author-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-templates-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-catalogs-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-transformation-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-validation-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/document-type-extensions-tab.html"><meta name="DC.relation" scheme="URI" content="author-devel-guide-intro.html"><meta name="DC.relation" scheme="URI" content="author-document-type-extension-sharing.html"><meta name="DC.relation" scheme="URI" content="localizing_frameworks.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="the-document-type-dialog"><title>Document Type Configuration Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="the-document-type-dialog"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Document Type Configuration Dialog Box</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Document Type Configuration</span> dialog box allows you to create or
+      edit a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type). It
+      is displayed when you use the <span class="ph uicontrol">New</span>, <span class="ph uicontrol">Edit</span>,
+        <span class="ph uicontrol">Duplicate</span>, or <span class="ph uicontrol">Extend</span> buttons in the <a class="xref" href="preferences-document-type-association.html#preferences-document-type-association"><span class="ph uicontrol">Document Type Association</span> preferences page</a> (<span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">Document Type Association</span>).</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Document Type Configuration Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_dg_document_type_dialog_rules.png">
+      </figure>
+    </div>
+    <p class="p">The configuration dialog box includes the following fields and sections:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Name</dt>
+          <dd class="dd">The name of the <dfn class="term">framework</dfn>. This will be displayed as its name in the
+              <span class="ph uicontrol">Document Type</span> column in the <a class="xref" href="preferences-document-type-association.html#preferences-document-type-association"><span class="ph uicontrol">Document Type Association</span> preferences page</a>.</dd>
+        
+        
+          <dt class="dt dlterm" id="the-document-type-dialog__dta_priority">Priority</dt>
+          <dd class="dd">Depending on the priority level, <span class="ph">Oxygen XML Editor</span> establishes the order that the
+            existing <dfn class="term">frameworks</dfn> are evaluated to determine the type of a document you
+            are opening. It can be one of the following: <span class="keyword option">Lowest</span>,
+              <span class="keyword option">Low</span>, <span class="keyword option">Normal</span>, <span class="keyword option">High</span>, or
+              <span class="keyword option">Highest</span>. You can set a higher priority for <dfn class="term">frameworks</dfn>
+            you want to be evaluated first.<div class="note note note_note"><span class="note__title">Note:</span> The built-in document types are set to
+                <span class="keyword option">Low</span> priority by default. <dfn class="term">Frameworks</dfn> that have the same
+              priority are sorted alphabetically.</div></dd>
+        
+        
+          <dt class="dt dlterm">Description</dt>
+          <dd class="dd">The document type description displayed as a tooltip in the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>.</dd>
+        
+        
+          <dt class="dt dlterm" id="the-document-type-dialog__storage-definition">Storage</dt>
+          <dd class="dd">The location where the framework is saved. If you select the
+              <span class="ph uicontrol">External</span> storage option, the framework is saved in a specified
+            file with a mandatory extension (located in a subdirectory of your current framework
+            directory. If you select the <span class="ph uicontrol">Internal</span> storage option, the
+            framework configuration data is saved in the <span class="ph">Oxygen XML Editor</span> internal options
+              file<span class="ph"> (if <a class="xref" href="preferences-storing.html#preferences-storing__global_options">Global
+                Options</a> is selected) or in the current <span class="ph">Oxygen XML Editor</span> project
+                <em class="ph i">xpr</em> file (if <a class="xref" href="preferences-storing.html#preferences-storing__project-options-section">Project
+                Options</a> is selected)</span>.</dd>
+        
+        
+          <dt class="dt dlterm" id="the-document-type-dialog__initial-edit-mode">Initial edit mode</dt>
+          <dd class="dd">Sets the default edit mode when you open a document for the first time:
+              <span class="ph uicontrol">Editor specific</span>, <span class="ph uicontrol">Text</span>, <span class="ph"><span class="ph uicontrol">Author,
+              </span></span><span class="ph uicontrol">Grid</span> and <span class="ph uicontrol">Design</span>
+            (available only for the W3C XML Schema editor). If the <span class="ph uicontrol">Editor
+              specific</span> option is selected, the initial editing mode is determined based
+            upon the editor type. You can find the mapping between editors and edit modes in the
+              <a class="xref" href="preferences-editor-pages.html"><span class="ph uicontrol">Edit modes</span> preferences
+              page.</a> You can impose an initial mode for opening files that match the
+            association rules of the document type. For example, if the files are usually edited in
+            the <span class="ph uicontrol">Author</span> mode you can set it in the <span class="ph uicontrol">Initial edit
+              mode</span> combo box.<div class="note note note_note"><span class="note__title">Note:</span> You can also customize the initial mode for a
+              document type in the <span class="ph uicontrol">Edit modes</span> preferences page. <span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span></span>.</div></dd>
+        
+        
+          <dt class="dt dlterm">Configuration Tabs</dt>
+          <dd class="dd">The bottom section of the dialog box includes various tabs where you can configure
+            numerous options for the <dfn class="term">framework</dfn>.</dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/document-type-association-rules-tab.html">Association Rules Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-schema-tab.html">Schema Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-classpath-tab.html">Classpath Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-author-tab.html">Author Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-templates-tab.html">Templates Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-catalogs-tab.html">Catalogs Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-transformation-tab.html">Transformation Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-validation-tab.html">Validation Tab</a><br></li><li class="link olchildlink"><a href="../topics/document-type-extensions-tab.html">Extensions Tab</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-document-type-association.html">Document Type Association Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/framework-location.html">Locations Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/document-type-association-rules-tab.html">Association Rules Tab</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-devel-guide-intro.html">Creating and Configuring Custom Frameworks</a></li><li class="linklist"><a class="link" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a></li><li class="linklist"><a class="link" href="localizing_frameworks.html">Localizing Frameworks</a></li></ul></div></nav>
+</article></main></body></html>

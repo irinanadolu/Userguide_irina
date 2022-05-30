@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schema Diagram Editor,Validation,XML Schemas,Design mode editing"><meta name="keywords" content="XML Schema Diagram Editor, Validation, XML Schemas, Design mode editing"><meta name="DC.relation" scheme="URI" content="../topics/working-with-xml-schema-design-mode.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-constructs-group-schema-components.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-schema-namespaces.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-diagram-validation"><title>Schema Validation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-diagram-validation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Schema Validation</h1>
+  
+  <div class="body">
+    <p class="p">Validation for the <span class="ph uicontrol">Design</span> mode is seamlessly integrated in the <span class="ph">Oxygen XML Editor</span>
+      <a class="xref" href="validating-XML-documents.html"> XML documents validation</a> capability.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XML Schema Validation</figcaption>
+        
+        <img class="image" src="../img/sa_xml_schema_diagram_validation.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">A schema validation error is presented by highlighting the invalid component:</p>
+    <ul class="ul">
+      <li class="li">In the <a class="xref" href="xml-schema-diagram-attributes-view.html">Attributes View</a>.</li>
+      <li class="li">In the diagram by surrounding the component that has the error with a red border.</li>
+      <li class="li">A marker on the errors stripe at the right of the diagram
+        view.</li>
+      <li class="li">A status label with a red icon (<img class="image" id="xml-schema-diagram-validation__image_cbz_pwv_sr" src="../img/ValidationError12.png">) below the diagram view.</li>
+    </ul>
+    <p class="p">Invalid facets for a component are highlighted in the <a class="xref" href="xml-schema-diagram-facets-view.html">Facets View</a>.</p>
+    <p class="p">Components with invalid properties are rendered with a red border. This is a default color,
+      but you can customize it in the <a class="xref" href="preferences-editor-document-checking.html">Document checking user preferences</a>. When hovering an invalid component, the tooltip
+      will present the validation errors associated with that component.</p>
+    <p class="p">When editing a value that is supposed to be a qualified or unqualified XML name, the
+      application provides automatic validation of the entered value. This proves to be very useful
+      in avoiding setting invalid XML names for the given property.</p>
+    <p class="p">If you validate the entire schema using the <span class="ph uicontrol"><img class="image" id="xml-schema-diagram-validation__image_cjg_4tv_sr" src="../img/Validate16.png">Validate</span> action from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span> menu or from
+      the <span class="ph uicontrol"><img class="image" id="xml-schema-diagram-validation__image_tkw_ntv_sr" src="../img/ValidateDrop.png">Validation</span> toolbar drop-down menu, all validation errors will be presented in
+      the <span class="ph uicontrol">Errors</span> tab. To resolve an error, just click it (or double-click for
+      errors located in other schemas) and the corresponding schema component will be displayed as
+      the diagram root so that you can easily correct the error.</p>
+    <div class="note important note_important"><span class="note__title">Important:</span> If the schema imports only the namespace of other schema without
+      specifying the schema location and a <a class="xref" href="using-XML-Catalogs.html">catalog is set
+        up</a> that maps the namespace to a certain location both the validation and the diagram
+      will correctly identify the imported schema.</div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> If the validation action finds that the schema contains unresolved references,
+      the application will suggest the use of validation scenarios, but only if the currently edited
+      schema is an XML Schema module.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-xml-schema-design-mode.html">Working with the XML Schema Design Mode (XML Schema Diagram Editor)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-schema-constructs-group-schema-components.html">Constructs Used to Group Schema Components</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-diagram-schema-namespaces.html">Edit Schema Namespaces</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Databases,Connections,Berkeley DB XML,Contextual menu actions,Berkeley DB XML database contextual menu actions"><meta name="keywords" content="Databases, Connections, Berkeley DB XML, Contextual menu actions, Berkeley DB XML database contextual menu actions"><meta name="DC.relation" scheme="URI" content="../topics/berkeley-db-connection.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-berkeley-connection.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-berkeley.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="berkeley-connection-level"><title>Berkeley DB XML Contextual Menu Actions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="berkeley-connection-level"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Berkeley DB XML Contextual Menu Actions</h1>
+  
+  <div class="body">
+    <div class="p">While browsing Berkeley DB XML connections in the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>, the various nodes include the
+      following contextual menu actions:<dl class="dl">
+        
+          <dt class="dt dlterm"><img class="image" src="../img/DbConnection16.gif">Connection Level Nodes</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Configure Database
+              Sources</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="preferences-data-sources.html#preferences-data-sources"><span class="ph uicontrol">Data Sources</span> preferences page</a> where you can configure
+            both data sources and connections.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Disconnect</span></dt>
+          <dd class="dd">Stops the connection.</dd>
+        
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">New Collection</span></dt>
+                  <dd class="dd">
+                    <p class="p">Opens a <span class="ph uicontrol">Container configuration</span> dialog box that allows
+                      you to adds a new container in the repository.</p>
+                    <div class="p">
+                      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Container Configuration Dialog Box</figcaption>
+                        
+                        <img class="image" src="../img/berkeley_container_configuation.png">
+                      </figure>
+                    </div>
+                    <div class="p">This dialog box allows you to configure the following: <ul class="ul" id="berkeley-connection-level__ul_n1y_1gb_1jb">
+                        <li class="li"><span class="ph uicontrol">Name</span> - The name of the new container.</li>
+                        <li class="li"><span class="ph uicontrol">Container type</span> - At creation time, every
+                          container must have a type defined for it. This container type identifies
+                          how XML documents are stored in the container. As such, the container type
+                          can only be determined at container creation time. You cannot change it
+                          when subsequent container opens. You can select one of the following
+                          types: <ul class="ul" id="berkeley-connection-level__ul_o1y_1gb_1jb">
+                            <li class="li"><span class="ph uicontrol">Node container</span> - XML documents are stored as
+                              individual nodes in the container. Each record in the underlying
+                              database contains a single leaf node, its attributes and attribute
+                              values (if any), and its text nodes (if any). Berkeley DB XML also
+                              keeps the information it requires to reassemble the document from the
+                              individual nodes stored in the underlying databases. This is the
+                              default selection and is the preferred container type.</li>
+                            <li class="li"><span class="ph uicontrol">Whole document container</span> - The container
+                              contains entire documents. The documents are stored without any
+                              manipulation of line breaks or whitespace.</li>
+                          </ul></li>
+                        <li class="li"><span class="ph uicontrol">Allow validation</span> - If selected, documents will be
+                          validated when they are loaded into the container. The default behavior is
+                          to not validate documents.</li>
+                        <li class="li"><span class="ph uicontrol">Index nodes</span> - If selected, indices for the
+                          container will return nodes rather than documents. The default is to index
+                          at the document level. This property has no meaning if the container type
+                          is <span class="ph uicontrol">Whole document container</span>.</li>
+                      </ul></div>
+                  </dd>
+                
+                
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__image_qnr_4fw_sr" src="../reusables/topics/../../img/Refresh16.png">Refresh</span></dt>
+            <dd class="dd">Performs a refresh on the selected node.</dd>
+          
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DockableFrameProperties16.png">Properties</span></dt>
+          <dd class="dd">Shows various properties of the current container.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__image_j32_fpf_wr" src="../reusables/topics/../../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+            find and replace text in multiple files from the connection.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><img class="image" src="../img/DbCatalog16.gif">Container Level Nodes</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__image_oky_zdw_sr" src="../reusables/topics/../../img/AddFile16.gif">Import
+              Files</span></dt>
+          <dd class="dd">Allows you to add a new file on the connection, in the current folder.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Export</span></dt>
+          <dd class="dd">Allows you to export the folder on the remote connection to a local folder.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__image_phd_4z1_5r" src="../reusables/topics/../../img/Cut16.png">Cut</span></dt>
+          <dd class="dd">Removes the current selection and places it in the clipboard.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__image_ks3_4qt_tr" src="../reusables/topics/../../img/Paste16.png">Paste</span></dt>
+          <dd class="dd">Pastes the copied selection.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Rename</span></dt>
+          <dd class="dd">Renames the current resource</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Remove16.png">Delete</span></dt>
+          <dd class="dd">Deletes the current container.</dd>
+        
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Edit indices</span></dt>
+                  <dd class="dd">
+                    <p class="p">Opens a <span class="ph uicontrol">Container Indices</span> dialog box that allows you
+                      to configure indices properties for the selected Berkeley container.</p>
+                    <div class="p">
+                      <figure class="fig fignone" id="berkeley-connection-level__fig_rxr_wd3_2s"><figcaption><span class="fig--title-label">Figure 2. </span>Container Indices Dialog Box</figcaption>
+                        
+                        <img class="image" id="berkeley-connection-level__image_sxr_wd3_2s" src="../img/sa_berkeley_edit_indices_dialog.png">
+                      </figure>
+                    </div>
+                    <div class="p">This dialog box allows you to configure the following properties:<ul class="ul" id="berkeley-connection-level__ul_adq_wd3_2s">
+                        <li class="li"><span class="ph uicontrol">Granularity</span> - A measure of the level of details
+                          of your data in the database. You can select one of the following:<ul class="ul" id="berkeley-connection-level__ul_bdq_wd3_2s">
+                            <li class="li"><span class="ph uicontrol">Document level</span> - Good option for retrieving
+                              large documents.</li>
+                            <li class="li"><span class="ph uicontrol">Node level</span> - Good option for retrieving nodes
+                              from within documents.</li>
+                          </ul></li>
+                        <li class="li"><span class="ph uicontrol">Node</span> - The name of the node.</li>
+                        <li class="li"><span class="ph uicontrol">Namespace</span> - The index namespace.</li>
+                        <li class="li"><span class="ph uicontrol">Index type</span>: <ul class="ul" id="berkeley-connection-level__ul_edq_wd3_2s">
+                            <li class="li"><span class="ph uicontrol">Uniqueness</span> - Indicates whether or not the
+                              indexed value must be unique within the container.</li>
+                            <li class="li"><span class="ph uicontrol">Path type</span> - Drop-down menu that allows you to
+                              select from the following: <ul class="ul" id="berkeley-connection-level__ul_fdq_wd3_2s">
+                                <li class="li"><span class="ph uicontrol">node</span> - Indicates that you want to index a
+                                  single node in the path.</li>
+                                <li class="li"><span class="ph uicontrol">edge</span> - Indicates that you want to index
+                                  the portion of the path where two nodes meet.</li>
+                              </ul></li>
+                            <li class="li"><span class="ph uicontrol">Node type</span> - Drop-down menu that allows you to
+                              select from the following:<ul class="ul" id="berkeley-connection-level__ul_gdq_wd3_2s">
+                                <li class="li"><span class="ph uicontrol">element</span> - An element node in the document
+                                  content.</li>
+                                <li class="li"><span class="ph uicontrol">attribute</span> - An attribute node in the
+                                  document content.</li>
+                                <li class="li"><span class="ph uicontrol">metadata</span> - A node found only in the
+                                  metadata content of a document.</li>
+                              </ul></li>
+                            <li class="li"><span class="ph uicontrol">Key type</span> - Drop-down menu that allows you to
+                              select from the following:<ul class="ul" id="berkeley-connection-level__ul_hdq_wd3_2s">
+                                <li class="li"><span class="ph uicontrol">equality</span> - Improves the performances of
+                                  tests that look for nodes with a specific value.</li>
+                                <li class="li"><span class="ph uicontrol">presence</span> - Improves the performances of
+                                  tests that look for the existence of a node regardless of its
+                                  value.</li>
+                                <li class="li"><span class="ph uicontrol">substring</span> - Improves the performance of
+                                  tests that look for a node whose value contains a given
+                                  sub-string.</li>
+                              </ul></li>
+                            <li class="li"><span class="ph uicontrol">Syntax</span> - The syntax describes the type of
+                              data the index contains and is mostly used to determine how indexed
+                              values are compared. The default value is
+                              <code class="ph codeph">string</code>.</li>
+                          </ul></li>
+                      </ul></div>
+                  </dd>
+                
+                
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__d1293e94" src="../reusables/topics/../../img/Refresh16.png">Refresh</span></dt>
+            <dd class="dd">Performs a refresh on the selected node.</dd>
+          
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DockableFrameProperties16.png">Properties</span></dt>
+          <dd class="dd">Shows various properties of the current container.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__d1293e476" src="../reusables/topics/../../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+            find and replace text in multiple files from the connection.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><img class="image" src="../img/XmlIcon16.gif">Resource Level Nodes</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Open</span></dt>
+          <dd class="dd">Opens the selected resource in the editor.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Open in System Application</span></dt>
+          <dd class="dd">When you use this action, <span class="ph">Oxygen XML Editor</span> downloads the selected resource to a
+            local temporary folder and opens the selected resource in the system application that is
+            currently set as the default application associated with that type of resource. You can
+            then edit the resource, save it, and when you switch the focus back to the
+              <span class="ph uicontrol">Data Source Explorer</span> view, <span class="ph">Oxygen XML Editor</span> will detect
+            that there was a change and will ask if you want to upload the edited resource to the
+            server.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__d1293e442" src="../reusables/topics/../../img/Cut16.png">Cut</span></dt>
+          <dd class="dd">Removes the current selection and places it in the clipboard.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy location</span></dt>
+          <dd class="dd">Allows you to copy (to the clipboard) an application-specific URL for the resource
+            that can then be used for various actions, such as opening or transforming the
+            resources.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Rename</span></dt>
+          <dd class="dd">Renames the current resource</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Remove16.png">Delete</span></dt>
+          <dd class="dd">Deletes the current container.</dd>
+        
+                
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__d1293e94" src="../reusables/topics/../../img/Refresh16.png">Refresh</span></dt>
+            <dd class="dd">Performs a refresh on the selected node.</dd>
+          
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DockableFrameProperties16.png">Properties</span></dt>
+          <dd class="dd">Shows various properties of the current container.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="berkeley-connection-level__d1293e476" src="../reusables/topics/../../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+            find and replace text in multiple files from the connection.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare</span></dt>
+          <dd class="dd">Compares two selected resources<span class="ph"> using the <a class="xref" href="file-comparison.html#file-comparison"><span class="ph uicontrol">Compare
+                  Files</span> tool</a></span>.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/berkeley-db-connection.html">Berkeley DB XML Database Connections</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configure-berkeley-connection.html">How to Configure a Berkeley DB XML Connection</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-debugging-with-berkeley.html">Debugging with Berkeley DB XML</a></div></div></nav></article></main></body></html>

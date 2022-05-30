@@ -1,0 +1,63 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Profiling,Invocation Tree view,XSLT Debugger perspective,Invocation Tree view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Profiling, Invocation Tree view, XSLT Debugger perspective, Invocation Tree view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/performance-profiling.html"><meta name="DC.relation" scheme="URI" content="../topics/performance-profiling.html"><meta name="DC.relation" scheme="URI" content="../topics/hotspots-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="invocation-tree-view"><title>Invocation Tree View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="invocation-tree-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Invocation Tree View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Invocation Tree</span> view shows a top-down call tree that represents
+      how XSLT instructions or XQuery expressions are processed. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="invocation-tree-view__figure-invocation-tree-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Invocation Tree View</figcaption>
+        
+        <img class="image" src="../img/sa_invocation_tree_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The entries in the invocation tree include a few possible icons that indicate the
+      following:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol"><img class="image" id="invocation-tree-view__image_n1n_j2n_wr" src="../img/PArrowDown16.png"></span> -
+        Points to a call whose inherent time is insignificant compared to its total time.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="invocation-tree-view__image_ldh_p2n_wr" src="../img/PClock16.png"></span> - Points
+        to a call whose inherent time is significant compared to its total time (greater than 1/3rd
+        of its total time).</li>
+    </ul>
+    <p class="p">Every entry in the invocation tree includes textual information that depends on the <a class="xref" href="preferences-profiler.html"><span class="ph uicontrol">XSLT/XQuery profiler
+      settings</span></a>:</p>
+    <ul class="ul">
+      <li class="li">A percentage number of the total time that is calculated with respect to either the root
+        of the tree or the calling instruction.</li>
+      <li class="li">A total time measurement in milliseconds or microseconds. This is the total execution time
+        that includes calls into other instructions.</li>
+      <li class="li">A percentage number of the inherent time that is calculated with respect to either the
+        root of the tree or the calling instruction.</li>
+      <li class="li">An inherent time measurement in milliseconds or microseconds. This is the inherent
+        execution time of the instruction.</li>
+      <li class="li">An invocation count that shows how often the instruction has been invoked on this
+        call-path.</li>
+      <li class="li">An instruction name that contains also the attributes description.</li>
+    </ul>
+    <div class="p">The <span class="ph uicontrol">Invocation Tree</span> view also includes the following contextual menu
+        actions:<dl class="dl">
+        
+          <dt class="dt dlterm">Export to HTML</dt>
+          <dd class="dd">Selecting this option will save the profiling data as XML and then apply an XSLT
+            stylesheet to render the report as HTML. These stylesheets are included in the
+            subfolder: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/profiler/</span>. You can use them to customize your own report
+            based on the profiling raw data.</dd>
+        
+        
+          <dt class="dt dlterm">Export to XML</dt>
+          <dd class="dd">Use this option to save the profiling data as an XML file in a specified
+            location.</dd>
+        
+        
+          <dt class="dt dlterm">View settings</dt>
+          <dd class="dd">Opens the <a class="xref" href="preferences-profiler.html#preferences-profiler">XSLT/XQuery Profiler preferences page</a> that allows you to configure various
+            profiling settings.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/performance-profiling.html">Performance Profiling of XSLT Stylesheets and XQuery Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/performance-profiling.html">Performance Profiling of XSLT Stylesheets and XQuery Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/hotspots-view.html">Hotspots View</a></div></div></nav></article></main></body></html>

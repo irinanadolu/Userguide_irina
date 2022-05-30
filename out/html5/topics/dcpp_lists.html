@@ -1,0 +1,127 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_styling_the_contents.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_equations.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_links.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_lists"><title>Lists</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_lists">
+    <h1 class="title topictitle1" id="ariaid-title1">Lists</h1>
+    <div class="body">
+    <p class="p">You can style the list item markers or other properties.</p>
+		<div class="p">
+			<div class="note note note_note"><span class="note__title">Note:</span> The lists are treated differently than ordinary block elements in the sense that their
+        margins are not collapsed with the margins of the neighboring blocks or lists. This is also
+        visible for nested lists.</div>
+		</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_styling_the_contents.html">Styling the Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_equations.html">Equations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_links.html">Links</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_style_the_list_markers__bullets">
+    <h2 class="title topictitle2" id="ariaid-title2">How to Style the List Markers</h2>
+    <div class="body">
+    <p class="p">For the media print, the default CSS rules for the list items use the
+        <code class="ph codeph">:marker</code> pseudo-class.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@media</span> print {
+    *[class~=<span class="hl-string">"topic/li"</span>]::marker {
+      <strong class="hl-keyword">text-align</strong>: center;
+      <strong class="hl-keyword">font-weight</strong>:bold;   
+    }
+    *[class~=<span class="hl-string">"topic/li"</span>] {
+      <strong class="hl-keyword">margin-left</strong>: <span class="hl-number">0.25</span>in;
+    }
+}
+</pre>
+    <p class="p">To eliminate the bold font weight for the items form ordered lists then add the following
+      rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/ol"</span>] &gt; *[class~=<span class="hl-string">"topic/li"</span>]::marker {
+      <strong class="hl-keyword">font-weight</strong>:normal;
+}</pre>
+    <p class="p">For the unordered lists:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/ul"</span>] &gt; *[class~=<span class="hl-string">"topic/li"</span>]::marker {
+      <strong class="hl-keyword">font-weight</strong>:normal;
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_continue_list_numbering">
+    <h2 class="title topictitle2" id="ariaid-title3">How to Continue List Numbering</h2>
+    <div class="body">
+        <p class="p">It is possible to continue the numbering of an ordered list even when the content is
+      split on multiple <code class="keyword markupname xmlelement">&lt;ol&gt;</code> elements.</p>
+    <div class="p">You just need to define an <code class="keyword markupname xmlatt">@outputclass</code> attribute on the lists where
+      numbering should continue:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;ol&gt;</strong>
+  <strong class="hl-tag">&lt;li&gt;</strong>First Item<strong class="hl-tag">&lt;/li&gt;</strong>
+  <strong class="hl-tag">&lt;li&gt;</strong>Second Item<strong class="hl-tag">&lt;/li&gt;</strong>
+<strong class="hl-tag">&lt;/ol&gt;</strong>
+<strong class="hl-tag">&lt;p&gt;</strong>A paragraph<strong class="hl-tag">&lt;/p&gt;</strong>
+<strong class="hl-tag">&lt;ol</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"continue"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;li&gt;</strong>Third Item<strong class="hl-tag">&lt;/li&gt;</strong>
+<strong class="hl-tag">&lt;/ol&gt;</strong></pre></div>
+    <div class="p">Then set the following content inside your CSS
+      customization:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/ol"</span>] {
+  <strong class="hl-keyword">counter-reset</strong>: list-counter;
+}
+
+*[class~=<span class="hl-string">"topic/ol"</span>][outputclass=<span class="hl-string">"continue"</span>] {
+  <strong class="hl-keyword">counter-reset</strong>: none;
+}
+
+*[class~=<span class="hl-string">"topic/ol"</span>] &gt; *[class~=<span class="hl-string">"topic/li"</span>] {
+  <strong class="hl-keyword">counter-increment</strong>: list-counter;
+}
+
+*[class~=<span class="hl-string">"topic/ol"</span>] &gt; *[class~=<span class="hl-string">"topic/li"</span>]::marker {
+  <strong class="hl-keyword">content</strong>: counter(list-counter)<span class="hl-string">".\00a0"</span>;
+}</pre></div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_use_roman_instead_of_decimal_ordered_list_numbers">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Change the Numbering System of Ordered Lists</h2>
+  <div class="body">
+    <p class="p">It is possible to change all lists to have a different numbering system and there are several
+      methods that can be used to achieve this.</p>
+    <section class="section" id="dcpp_how_to_use_roman_instead_of_decimal_ordered_list_numbers__section_yny_lxx_pfb"><h3 class="title sectiontitle">Use the <code class="ph codeph">list-style-type</code> CSS Property.</h3>
+      
+      <p class="p">The <strong class="ph b">Chemistry</strong> engine supports the following types: <code class="ph codeph">decimal</code>,
+          <code class="ph codeph">decimal-leading-zero</code>, <code class="ph codeph">lower-roman</code>,
+          <code class="ph codeph">upper-roman</code>, <code class="ph codeph">lower-latin</code>, <code class="ph codeph">upper-latin</code>,
+          <code class="ph codeph">lower-alpha</code>, <code class="ph codeph">upper-alpha</code>.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/ol"</span>] {
+  <strong class="hl-keyword">list-style-type</strong>: lower-roman;
+}</pre>
+    </section>
+    <section class="section" id="dcpp_how_to_use_roman_instead_of_decimal_ordered_list_numbers__section_apq_ryx_pfb"><h3 class="title sectiontitle">Change the Content of the <code class="ph codeph">:marker</code> CSS Pseudo-Element.</h3>
+      
+      <p class="p">The following example emulates the Cyrillic numbering for the list items for an ordered
+        list that has the <code class="keyword markupname xmlatt">@outputclass</code> attribute set to
+        <code class="ph codeph">cyrillic</code>:</p>
+      <div class="note important note_important"><span class="note__title">Important:</span> This example will work only for lists up to 28 items. You will have to
+        extend it for longer lists!</div>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:marker {
+  <strong class="hl-keyword">width</strong>:<span class="hl-number">3</span>em;
+}
+
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">1</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"a"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">2</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"б"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">3</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"в"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">4</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"г"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">5</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"д"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">6</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"е"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">7</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ж"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">8</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"з"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">9</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"и"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">10</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"к"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">11</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"л"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">12</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"м"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">13</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"н"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">14</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"о"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">15</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"п"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">16</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"р"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">17</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"с"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">18</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"т"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">19</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"у"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">20</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ф"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">21</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"х"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">22</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ц"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">23</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ч"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">24</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ш"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">25</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"щ"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">26</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"э"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">27</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"ю"</span> }
+*[class ~= <span class="hl-string">"topic/ol"</span>][outputclass ~= <span class="hl-string">"cyrillic"</span>] &gt; *[class ~= <span class="hl-string">"topic/li"</span>]:nth-of-type(<span class="hl-number">28</span>):marker{ <strong class="hl-keyword">content</strong>:<span class="hl-string">"я"</span> }
+</pre>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_layout.html#ch_lists" target="_blank" rel="external noopener">Oxygen PDF Chemistry User Guide: Lists</a></li></ul></div></nav>
+</article></article></article></main></body></html>

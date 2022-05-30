@@ -1,0 +1,287 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Review tools,Callouts,XML documents,Author Mode editing,Review tools,Callouts in Author Mode"><meta name="keywords" content="Author editing mode, Review tools, Callouts, XML documents, Author Mode editing, Review tools, Callouts in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/author-change-tracking.html"><meta name="DC.relation" scheme="URI" content="../topics/text-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/review-view.html"><meta name="DC.relation" scheme="URI" content="author-managing-changes.html#author-managing-changes"><meta name="DC.relation" scheme="URI" content="author-managing-comments.html#author-managing-comments"><meta name="DC.relation" scheme="URI" content="review-view.html#review-view"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-callouts"><title>Author Callouts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-callouts"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Author Callouts</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> uses <a class="xref" href="../glossary/callout.html"><dfn class="term">callouts</dfn></a> to
+      present comments and <a class="xref" href="../glossary/track-changes.html"><dfn class="term">tracked
+        change</dfn></a> modifications that you or other members of your team have added to the
+      document.</p>
+    <section class="section" id="author-callouts__displaying_callouts_in_author_mode"><h2 class="title sectiontitle">Displaying Callouts in Author Mode</h2>
+      
+      <p class="p">The callouts are displayed in the right side of the editing area in
+          <span class="ph uicontrol">Author</span> mode. They are decorated with a colored border and also have
+        a colored background. The background color is assigned automatically by the application
+        depending on the user who is editing the document and the type of change, but it can also be
+        customized from the <a class="xref" href="preferences-track-changes.html"><span class="ph uicontrol">Review</span>
+          preferences page</a>. This preferences page allows you to configure the colors for
+        tracked change insertions or deletions, and for comments.</p>
+      <p class="p">You can also choose to use the same color for all changes of that particular type of
+        change, regardless of who makes the change. To do this, select the
+          <span class="ph uicontrol">Fixed</span> option for the particular type of change and choose a color
+        from the color box. If the <span class="ph uicontrol">Automatic</span> option is selected, <span class="ph">Oxygen XML Editor</span> automatically assigns a color based upon the <a class="xref" href="preferences-track-changes.html#preferences-track-changes__auto-assign-list"><span class="ph uicontrol">Colors for automatic assignment</span> list</a>.</p>
+      <p class="p">The horizontal line that connects the callouts to their corresponding text fragments has
+        the same color as the border. If this horizontal line is not visible, select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-connecting-lines"><span class="ph uicontrol">Show all connecting lines</span> option</a> in the
+          <span class="ph uicontrol">Callouts</span> preferences page. If you hover over a callout, it is
+        highlighted and a tooltip is displayed that contains additional information.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Multiple Author Callouts</figcaption>
+          
+          <img class="image" id="author-callouts__image_p4h_wqm_2g" src="../img/multiple_authors_callouts.png">
+        </figure>
+      </div>
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">Oxygen XML Editor</span> displays callouts only if <span class="ph uicontrol"><img class="image" id="author-callouts__image_ycr_4pv_5r" src="../img/TrackChangesFinalWithChanges16.gif">View All Changes/Comments</span> or <span class="ph uicontrol"><img class="image" id="author-callouts__image_qq1_ppv_5r" src="../img/TrackChangesFiltered16.png">View Only Changes/Comments by</span> is selected in the <span class="ph uicontrol"><img class="image" src="../img/TrackChangesViewDrop.png">Track Changes Visualization
+            Modes</span> drop-down menu. <span class="ph">Oxygen XML Editor</span> does not display callouts in
+              <span class="ph uicontrol"><img class="image" id="author-callouts__image_bl2_4pv_5r" src="../img/TrackChangesFinal16.gif">View Final</span> and <span class="ph uicontrol"><img class="image" id="author-callouts__image_zmj_npv_5r" src="../img/TrackChangesOriginal16.gif">View Original</span> modes.</div>
+      </div>
+      <p class="p">In some cases, the text you are editing can span into the callouts area. For example, this
+        situation can appear for callouts associated with wide images or <a class="xref" href="../glossary/space-preserved-element.html"><dfn class="term">space-preserved elements</dfn></a>
+        that contain long fragments (such as a DITA <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element or
+          <code class="keyword markupname xmlelement">&lt;programlisting&gt;</code> in DocBook). To help you view the text under the
+        covered area, <span class="ph">Oxygen XML Editor</span> applies transparency to these callouts. When the cursor
+        is located under a callout, the transparency is enhanced, allowing you to both edit the
+        covered content and access the contextual menu of the editing area.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Transparent Callout</figcaption>
+          
+          <img class="image" src="../img/transparent_callout.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="author-callouts__adjusting_callout_width"><h2 class="title sectiontitle">Adjusting Callout Width</h2>
+      
+      <p class="p">To display more of the content in all the callouts in the current document, you can adjust
+        the width by dragging the left side of any of the callouts. This will adjust the width for
+        all comments in the current document. When you end the current editing session, the width of
+        all callouts will revert back to the default value, which is the value of the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__initial-width"><span class="ph uicontrol">Initial Width</span> option</a> in the
+          <span class="ph uicontrol">Callouts</span> preferences page.</p>
+      <p class="p">You can also adjust the maximum number of lines to be shown in the callouts using the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__text-lines-count-limit"><span class="ph uicontrol">Text Lines Count Limit</span> option</a>. Note that this does not
+        limit the number of lines in the actual comment. It only limits the number of lines shown
+        without opening or editing it.</p>
+    </section>
+    <section class="section" id="author-callouts__type_of_callouts_in"><h2 class="title sectiontitle">Type of Callouts in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p"><span class="ph">Oxygen XML Editor</span> uses callouts to display comments and <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a> that you associate
+        with fragments of the document you are editing. You can choose which types of edits will be
+        shown in callouts by configuring the options in the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preferences page</a>. You can choose to enable the
+        following types of review callouts:<ul class="ul">
+          <li class="li">
+            <p class="p"><strong class="ph b">Comment Callouts</strong> - As long as the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__comments"><span class="ph uicontrol">Comments</span> option</a> is selected in the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preferences page</a>, comments are displayed
+              in callouts. A comment callout contains the name of the author who inserts the callout
+              and the comment itself. You can also select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-review-time"><span class="ph uicontrol">Show review time</span> option</a> to include timestamp
+              information in the comment callouts.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Comment Callouts</figcaption>
+                
+                <img class="image" src="../img/comment_callout.png">
+              </figure>
+            </div>
+            <div class="p">There are several types of comments that can be added in
+                <span class="ph uicontrol">Author</span> mode:<ul class="ul">
+                <li class="li"><em class="ph i">Author Review Comments</em> - Comments that you associate with specific
+                  content. To insert this type of comment, select the content and use the
+                      <span class="ph uicontrol"><img class="image" src="../img/AddComment16.png">Add Comment</span>
+                  action that is available on the toolbar (or in the <span class="ph uicontrol">Review</span>
+                  submenu of the contextual menu).</li>
+                <li class="li"><em class="ph i">Comments Added to Tracked Changes</em> - Comments that you add to an already
+                  existing <dfn class="term">tracked change</dfn> insertion or deletion. To insert this type of
+                  comment, right-click the change in the main editor or its callout and select
+                      <span class="ph uicontrol"><img class="image" src="../img/CommentChange16.png">Comment Change</span>.</li>
+                <li class="li">
+                  <p class="p"><em class="ph i">Replies to Comments</em> - You can use this type of comment to create
+                    discussion threads. To insert this type of comment, right-click the change in
+                    its callout and select <span class="ph uicontrol">Reply</span>. A single callout is
+                    presented for a root comment or change and its replies. The replies are
+                    displayed with an indentation in the callouts and those that are on the same
+                    level are sorted depending on the timestamp.</p>
+                  <div class="p">
+                    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Callout for a Comment with Replies</figcaption>
+                      
+                      <img class="image" src="../img/reply_to_comment.png">
+                    </figure>
+                  </div>
+                  <div class="p">
+                    <div class="note tip note_tip"><span class="note__title">Tip:</span> When adding, editing, or replying to a comment, you can use
+            <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> to insert line breaks and <span class="ph">Oxygen XML Editor</span> will take the line breaks into account when presenting the callout. You
+        can also use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Enter</span></span> to accept your changes
+        and close the dialog box.</div>
+                  </div>
+                </li>
+              </ul></div>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Tracked Change Deletion Callouts</strong> - As long as the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__track-changes-deletions"><span class="ph uicontrol">Track Changes Deletions</span> option</a> is selected in the
+                <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preferences page</a>, deletions that are made
+              while the <dfn class="term">Track Changes</dfn> feature is enabled are displayed in callouts. A
+              deletion callout contains the type of callout (<span class="ph uicontrol">Deleted</span>) and the
+              name of the author that made the deletion. You can also select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-deleted-content"><span class="ph uicontrol">Show deleted content in callout</span> option</a> to display
+              the actual deleted content in the callout. Additionally, you can select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-review-time"><span class="ph uicontrol">Show review time</span> option</a> to include timestamp
+              information in the deletion callouts.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Deletion Callouts</figcaption>
+                
+                <img class="image" id="author-callouts__image_phx_rkm_zf" src="../img/deletion_callout.png">
+              </figure>
+            </div>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Tracked Change Insertion Callouts</strong> - As long as the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__track-changes-insertions"><span class="ph uicontrol">Track Changes Insertions</span> option</a> is selected in the
+                <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preferences page</a>, insertions that are done
+              while the <dfn class="term">Track Changes</dfn> feature is enabled are displayed in callouts. An
+              insertion callout contains the type of callout (<span class="ph uicontrol">Inserted</span>) and
+              the name of the author that inserted the content. You can also select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-inserted-content"><span class="ph uicontrol">Show inserted content in callout</span> option</a> to display
+              the actual deleted content in the callout. Additionally, you can select the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__show-review-time"><span class="ph uicontrol">Show review time</span> option</a> to include timestamp
+              information in the deletion callouts.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Insertion Callouts</figcaption>
+                
+                <img class="image" src="../img/insertion_callouts.png">
+              </figure>
+            </div>
+          </li>
+        </ul></div>
+    </section>
+    <section class="section" id="author-callouts__callout_contextual_menu_actions"><h2 class="title sectiontitle">Callout Contextual Menu Actions</h2>
+      
+      <div class="p">Some useful actions are available when the contextual menu is invoked on a callout. The
+        actions depend on the type of callout.<dl class="dl">
+          
+            <dt class="dt dlterm">Insertion or Deletion Callout Actions</dt>
+            <dd class="dd">
+              <p class="p">The following actions are available in the contextual menu of an insertion or
+                deletion callout:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Reply</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a reply to a comment or <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a>. When replying
+            to a comment, the dialog box shows the entire conversation in the comment thread,
+            starting with the first comment added in the particular thread, followed by all the
+            replies. After replies are added to a comment thread, they are displayed with an
+            indentation in the callouts and <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Mark as Done</span></dt>
+          <dd class="dd">A toggle action that marks or unmarks a comment or comment thread as being done. It is
+            also available for <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked
+              Changes</dfn></a> that are displayed in a callout. When a comment or change is
+            marked as done, the callout is grayed out and cannot be edited unless the action is
+            toggled to the unmarked state. The action applies to the particular comment and all of
+            its descendents. This is useful for marking comments or changes that have been
+            addressed, leaving only those that still need some attention. </dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/AcceptChange16.png">Accept
+                        Change</span></dt>
+                    <dd class="dd">Accepts the tracked change, removes the callout, and moves to the next
+                      change. For an <em class="ph i">insertion</em> change, it keeps the inserted text and for a
+                        <em class="ph i">deletion</em> change, it removes the content from the document.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/RejectChange16.png">Reject
+                        Change</span></dt>
+                    <dd class="dd">Rejects the tracked change, removes the callout, and moves to the next
+                      change. For an <em class="ph i">insertion</em> change, it removes the inserted text and for a
+                        <em class="ph i">deletion</em> change, it preserves the original content.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentChange16.png">Comment
+              Change</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a comment to an existing <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>. The comment will
+            appear in a callout and a tooltip when hovering over the change. If the action is
+            selected on an existing commented change, the dialog box will allow you to edit the
+            comment.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit Reference</span></dt>
+          <dd class="dd">If the fragment that contains a callout is a reference, use this option to go to the
+            reference and edit the callout.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Callouts Options</span></dt>
+          <dd class="dd">Select this option to open the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preference page</a> where you can configure
+            various callout options.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Comment Callout Actions</dt>
+            <dd class="dd">
+              <p class="p">The following options are available in the contextual menu of a comment
+                callout:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Reply</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a reply to a comment or <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a>. When replying
+            to a comment, the dialog box shows the entire conversation in the comment thread,
+            starting with the first comment added in the particular thread, followed by all the
+            replies. After replies are added to a comment thread, they are displayed with an
+            indentation in the callouts and <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Mark as Done</span></dt>
+          <dd class="dd">A toggle action that marks or unmarks a comment or comment thread as being done. It is
+            also available for <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked
+              Changes</dfn></a> that are displayed in a callout. When a comment or change is
+            marked as done, the callout is grayed out and cannot be edited unless the action is
+            toggled to the unmarked state. The action applies to the particular comment and all of
+            its descendents. This is useful for marking comments or changes that have been
+            addressed, leaving only those that still need some attention. </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/EditComment16.png">Show/Edit
+              Comment</span></dt>
+          <dd class="dd">Opens a dialog box that displays the discussion thread and allows the current user to
+            edit comments that do not have replies. If you are not the author who inserted the
+            original comment, the dialog box just displays the comment without the possibility of
+            editing it.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RemoveComment16.png">Remove
+              Comment</span></dt>
+          <dd class="dd">Removes a selected comment. If you remove a comment that contains replies, all of the
+            replies will also be removed.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit Reference</span></dt>
+          <dd class="dd">If the fragment that contains a callout is a reference, use this option to go to the
+            reference and edit the callout.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Callouts Options</span></dt>
+          <dd class="dd">Select this option to open the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preference page</a> where you can configure
+            various callout options.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="author-callouts__printing_callouts"><h2 class="title sectiontitle">Printing Callouts</h2>
+      
+      <p class="p">When you print a document from <span class="ph uicontrol">Author</span> mode, all callouts that you or
+        other authors have added to the document are printed. For a preview of the document and its
+        callouts, go to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Print Preview</span></span>.</p>
+    </section>
+    <section class="section" id="author-callouts__review_view"><h2 class="title sectiontitle">Review View</h2>
+      
+      <p class="p">The <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a> is
+        also useful for managing the information in callouts. In this view, changes and comments are
+        presented in a compact form, in the order they appear in the document, and they are
+        synchronized with the changes in the callouts. You can also search for specific changes or
+        comments and it includes some filtering options (for example, you can filter it to only show
+        certain types of edits or to only show edits for a particular author).</p>
+      <p class="p">For more information, see <a class="xref" href="review-view.html#review-view">Review View</a>.</p>
+    </section>
+    <p class="p">To watch our video demonstration about the Callouts support, see our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/kCCWyFqBaUM" allowfullscreen="true"></iframe></div>
+    </p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-change-tracking.html">Reviewing Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/text-highlight.html">Managing Highlights</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/review-view.html">Review View</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-managing-changes.html#author-managing-changes">Managing Tracked Changes</a></li><li class="linklist"><a class="link" href="author-managing-comments.html#author-managing-comments">Managing Comments</a></li><li class="linklist"><a class="link" href="review-view.html#review-view">Review View</a></li></ul></div></nav>
+</article></main></body></html>

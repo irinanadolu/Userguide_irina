@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Localization,SQF,Localizing SQF messages,SQF multi-lingual support"><meta name="keywords" content="Schematron Quick Fixes, Localization, SQF, Localizing SQF messages, SQF multi-lingual support"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-dynamic-fixes.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-implementing-framework.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="localizing-sqf-messages"><title>Localizing SQF Messages</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="localizing-sqf-messages"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Localizing SQF Messages</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides support for presenting Schematron Quick Fix messages in
+      multiple languages. The language used for the SQF messages is the language specified in <a class="xref" href="schematron-preferences-page.html#schematron-preferences-page__message-language">the
+          '<span class="ph uicontrol">Message Language</span> option in the <span class="ph uicontrol">Schematron</span>
+        preferences page</a>. If you want to provide an alternative message for a specific
+      language, you can reference IDs or key values for the specific alternate text phrase. In <span class="ph">Oxygen XML Editor</span>, the alternate text phrase is defined in a
+        <code class="keyword markupname xmlelement">&lt;sch:diagnostic&gt;</code> element and it can be used in conjunction with
+        <code class="keyword markupname xmlelement">&lt;sch:assert&gt;</code> or <code class="keyword markupname xmlelement">&lt;sch:report&gt;</code> elements.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong></p>
+    <p class="p">The following example presents a quick fix with a different message depending on whether the
+      user's language is English or German.</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"dog"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;sch:assert</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"bone"</span> <span class="hl-attribute">diagnostics</span>=<span class="hl-value">"d_en d_de"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"addBone"</span><strong class="hl-tag"> &gt;</strong>
+    A dog should have a bone.<strong class="hl-tag">&lt;/sch:assert&gt;</strong>
+  
+  <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"addBone"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+      <strong class="hl-tag">&lt;sqf:title</strong> <span class="hl-attribute">ref</span>=<span class="hl-value">"fix_en fix_de"</span> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"en"</span><strong class="hl-tag">&gt;</strong>Add a bone<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+      <strong class="hl-tag">&lt;sqf:p</strong> <span class="hl-attribute">ref</span>=<span class="hl-value">"fix_desc_en fix_desc_de"</span> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"en"</span><strong class="hl-tag">&gt;</strong>Add bone element as child<strong class="hl-tag">&lt;/sqf:p&gt;</strong>
+    <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:add</strong> <span class="hl-attribute">node-type</span>=<span class="hl-value">"element"</span> <span class="hl-attribute">target</span>=<span class="hl-value">"bone"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+<strong class="hl-tag">&lt;/sch:rule&gt;</strong>
+....
+<strong class="hl-tag">&lt;sch:diagnostics</strong> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"en"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"d_en"</span><strong class="hl-tag">&gt;</strong> A dog should have a bone. <strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fix_en"</span><strong class="hl-tag">&gt;</strong> Add a bone <strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fix_desc_en"</span><strong class="hl-tag">&gt;</strong>Add a bone element as child<strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+<strong class="hl-tag">&lt;/sch:diagnostics&gt;</strong>
+<strong class="hl-tag">&lt;sch:diagnostics</strong> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"de"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"d_de"</span><strong class="hl-tag">&gt;</strong> Ein Hund sollte ein Bein haben. <strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fix_de"</span><strong class="hl-tag">&gt;</strong> Fugen Sie einen Knochen hinzu <strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+  <strong class="hl-tag">&lt;sch:diagnostic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fix_desc_de"</span><strong class="hl-tag">&gt;</strong> Fugen Sie ein Knochenelement als 
+    untergeordnetes Element hinzu <strong class="hl-tag">&lt;/sch:diagnostic&gt;</strong>
+<strong class="hl-tag">&lt;/sch:diagnostics&gt;</strong></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/sqf-dynamic-fixes.html">Generate Multiple Similar Quick Fixes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sqf-implementing-framework.html">Integrating SQF in a Framework and Sharing Them</a></div></div></nav></article></main></body></html>

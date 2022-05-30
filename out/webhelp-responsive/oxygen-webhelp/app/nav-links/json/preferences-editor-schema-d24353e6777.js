@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Properties Preferences","href":"topics\/preferences-editor-schema-properties_2.html","attributes":{"data-id":"preferences-editor-schema-properties"},"menu":{"hasChildren":false},"tocID":"preferences-editor-schema-properties-d24353e6796","topics":[]}]});

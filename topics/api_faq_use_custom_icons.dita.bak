@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="api_faq_use_custom_icons">
+  <title>Customize the Default Icons for Toolbars/Menus</title>
+  <body>
+    <section id="question">
+      <title>Question</title>
+      <p>How can I change the default icons used for the built-in actions?</p>
+    </section>
+    <section id="answer">
+      <title>Answer</title>
+      <p>If you look inside the main <term>JAR</term> library <codeph><term
+            conkeyref="reusables-user-guide/oxy-install-dir"/>\lib\oxygen.jar</codeph> or
+            <codeph><term conkeyref="reusables-user-guide/oxy-install-dir"
+        />\lib\author.jar</codeph>, it contains an <filepath>images</filepath> folder that contains
+        all the images used for buttons, menus, and toolbars.</p>
+      <p>To overwrite them with your own creations, follow these steps:<ol id="ol_cbj_5dm_5h">
+          <li>In the <codeph><term conkeyref="reusables-user-guide/oxy-install-dir"/>\lib</codeph>
+            directory create a folder called <codeph>endorsed</codeph>.</li>
+          <li>In the <codeph>endorsed</codeph> folder create another folder called
+              <codeph>images</codeph>.</li>
+          <li>Add your own images in the <codeph>images</codeph> folder.</li>
+        </ol></p>
+      <p>You can use this mechanism to overwrite any kind of resource located in the main <i>Oxygen
+          JAR library</i>. The folder structure in the endorsed directory and in the main <i>Oxygen
+          JAR</i> must be identical. </p>
+    </section>
+  </body>
+</topic>

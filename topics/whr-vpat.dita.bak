@@ -1,0 +1,2574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="whr-vpat">
+  <title>WebHelp Responsive VPAT Accessibility Conformance Report</title>
+  <body>
+    <bodydiv>
+      <section id="section_dmh_t1c_fhb">
+        <title>International Edition</title>
+        <p><b>VPAT</b>®<b> Version 2.3 – April 2019</b>
+          <dl>
+            <dlentry>
+              <dt>Product Name/Version</dt>
+              <dd><b>Oxygen XML WebHelp Responsive</b></dd>
+            </dlentry>
+            <dlentry>
+              <dt>Product Description</dt>
+              <dd><b>Oxygen XML WebHelp Responsive</b> enables you to publish DITA content on the
+                web and present it in a user-friendly interface that is easy to navigate. You can
+                design your WebHelp Responsive output to be available on desktop systems or various
+                mobile devices. With <b>Oxygen XML WebHelp Responsive</b>, your published content is
+                accessible, interactive, and convenient.</dd>
+            </dlentry>
+            <dlentry>
+              <dt>Date</dt>
+              <dd>May 2019</dd>
+            </dlentry>
+            <dlentry>
+              <dt>Contact Information</dt>
+              <dd><i>support@oxygenxml.com</i></dd>
+            </dlentry>
+            <dlentry>
+              <dt>Notes</dt>
+              <dd><b>Oxygen XML WebHelp Responsive</b> has been designed and enhanced to adhere to
+                the <xref
+                  href="https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-ict-refresh/final-rule/text-of-the-standards-and-guidelines"
+                  format="html" scope="external">U.S. Government Section 508 accessibility
+                  standards</xref> and the <xref href="https://www.w3.org/TR/WCAG21/" format="html"
+                  scope="external">Web Content Accessibility Guidelines (WCAG)</xref>. For details,
+                see <xref href="whr-accessibility.dita">WebHelp Responsive
+                Accessibility</xref>.</dd>
+            </dlentry>
+            <dlentry>
+              <dt>Evaluation Methods Used:</dt>
+              <dd>
+                <p>The following applications were used for testing <b>Oxygen XML WebHelp
+                    Responsive</b>:</p>
+                <p>
+                  <ul id="ul_hwl_jlb_hhb">
+                    <li>Desktop browsers: Chrome, Firefox, Safari, Edge, and Internet Explorer</li>
+                    <li>Assistive technologies: NVDA, VoiceOver, JAWS, Microsoft Narrator</li>
+                  </ul>
+                </p>
+              </dd>
+            </dlentry>
+          </dl></p>
+      </section>
+      <section id="section_emh_t1c_fhb">
+        <title>Applicable Standards/Guidelines</title>
+        <p>This report covers the degree of conformance for the following accessibility
+          standards/guidelines:</p>
+        <p>
+          <table frame="all" id="simpletable_ep1_x2d_fhb" colsep="1" rowsep="1">
+            <tgroup cols="2">
+              <colspec colname="c1" colwidth="3.7*"/>
+              <colspec colname="c2" colwidth="1*"/>
+              <thead>
+                <row>
+                  <entry>Standard/Guideline</entry>
+                  <entry>Included In Report</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>
+                    <p><xref href="http://www.w3.org/TR/2008/REC-WCAG20-20081211" format="html"
+                        scope="external">Web Content Accessibility Guidelines 2.0</xref></p>
+                  </entry>
+                  <entry>Level A - Yes<p>Level AA - Yes</p><p>Level AAA - No</p></entry>
+                </row>
+                <row>
+                  <entry>
+                    <p><xref href="https://www.w3.org/TR/WCAG21" format="html" scope="external">Web
+                        Content Accessibility Guidelines 2.1</xref></p>
+                  </entry>
+                  <entry>Level A - Yes<p>Level AA - Yes</p><p>Level AAA - No</p></entry>
+                </row>
+                <row>
+                  <entry>
+                    <p><xref
+                        href="https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-ict-refresh/final-rule/text-of-the-standards-and-guidelines"
+                        format="html" scope="external">Revised Section 508 standards published
+                        January 18, 2017 and corrected January 22, 2018</xref></p>
+                  </entry>
+                  <entry>Yes</entry>
+                </row>
+                <row>
+                  <entry><xref
+                      href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf"
+                      format="pdf" scope="external">EN 301 549 Accessibility requirements suitable
+                      for public procurement of ICT products and services in Europe - V2.1.2
+                      (2018-08)</xref></entry>
+                  <entry>No</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+        </p>
+      </section>
+    </bodydiv>
+    <section id="section_tjk_bhd_fhb">
+      <title>Terms</title>
+      <p> The terms used in the Conformance Level information are defined as follows:</p>
+      <ul id="ul_ujk_bhd_fhb">
+        <li><b>Supports</b>: The functionality of the product has at least one method that meets the
+          criterion without known defects or meets with equivalent facilitation.</li>
+        <li><b>Partially Supports</b>: Some functionality of the product does not meet the
+          criterion.</li>
+        <li><b>Does Not Support</b>: The majority of product functionality does not meet the
+          criterion.</li>
+        <li><b>Not Applicable</b>: The criterion is not relevant to the product.</li>
+        <li><b>Not Evaluated</b>: The product has not been evaluated against the criterion. This can
+          be used only in WCAG 2.0 Level AAA.</li>
+      </ul>
+    </section>
+    <section id="section_dn1_ghd_fhb">
+      <title>WCAG 2.x Report</title>
+      <p>Tables 1 and 2 also document conformance with:</p>
+      <p>Revised Section 508: Chapter 5 – 501.1 Scope, 504.2 Content Creation or Editing, and
+        Chapter 6 – 602.3 Electronic Support
+        Documentation.<?oxy_comment_start author="steven_higgs" timestamp="20190716T103253+0300" comment="I will untoggle all the EU things in this document if/when the European Union compliance is implemented."?></p><?oxy_comment_end?>
+      <!--<p>EN 301 549: Chapter 9 - Web, Chapter 10 - Non-Web documents, Section 11.2.1- Non-Web Software (excluding closed functionality), and Section 11.2.2 - Non-Web Software (closed functionality).</p>-->
+      <p>
+        <note>When reporting on conformance with the WCAG 2.x Success Criteria, they are scoped for
+          full pages, complete processes, and accessibility-supported ways of using technology as
+          documented in the<u><xref href="https://www.w3.org/TR/WCAG20/#conformance-reqs"
+              format="html" scope="external">WCAG 2.0 Conformance Requirements</xref></u>.</note>
+      </p>
+    </section>
+    <section id="section_sbr_13d_fhb">
+      <title>Table 1: Success Criteria, Level A</title>
+      <p>
+        <table frame="all" id="simpletable_xys_c3d_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.71*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.56*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p><xref href="http://www.w3.org/TR/WCAG20/#text-equiv-all" format="html"
+                      scope="external"><u><b>1.1.1 Non-text Content</b></u></xref> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_bh3_53d_fhb" audience="eu-rules"><li><p> 9.1.1.1 (Web)</p></li><li><p> 10.1.1.1 (Non-web document)</p></li><li><p> 11.1.1.1.1 (Open Functionality Software)</p></li><li><p> 11.1.1.1.2 (Closed Functionality Software)</p></li><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_n4r_kxv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>Text alternatives are provided for many instances of non-text content, with
+                  exceptions that include permalinks for subtopics and sections.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"
+                        format="html" scope="external"><b>1.2.1 Audio-only and Video-only
+                          (Prerecorded)</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_qd1_5td_fhb" audience="eu-rules"><li><p> 9.1.2.1 (Web)</p></li><li><p> 10.1.2.1 (Non-web document)</p></li><li><p> 11.1.2.1.1 (Open Functionality Software)</p></li><li><p> 11.1.2.1.2.1 and 11.1.2.1.2.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_rd1_5td_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_sd1_5td_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_mqn_jxv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The authors of the input DITA document are responsible for providing a
+                  transcript of the media content in the document.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-captions" format="html"
+                        scope="external"><b>1.2.2 Captions (Prerecorded)</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_ijg_tq3_fhb" audience="eu-rules"><li><p> 9.1.2.2 (Web)</p></li><li><p> 10.1.2.2 (Non-web document)</p></li><li><p> 11.1.2.2 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_jjg_tq3_fhb" audience="eu-rules"><li><p> 11.1.2.2 (Closed Software) – Does not apply</p></li><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_kjg_tq3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_ljg_tq3_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not provide prerecorded media that requires
+                  captions.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"
+                        format="html" scope="external"><b>1.2.3 Audio Description or Media
+                          Alternative (Prerecorded)</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_fsk_4r3_fhb" audience="eu-rules"><li><p> 9.1.2.3 (Web)</p></li><li><p> 10.1.2.3 (Non-web document)</p></li><li><p> 11.1.2.3.1 (Open Functionality Software)</p></li><li><p> 11.1.2.3.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_gsk_4r3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_hsk_4r3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_isk_4r3_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>The authors of the input DITA document are responsible for providing an
+                    alternative for time-based media or audio description of the prerecorded video
+                    content in the document.</p>
+                  <p>See: <xref href="https://www.w3.org/TR/WCAG20-TECHS/G58.html" format="html"
+                      scope="external">G58: Placing a link to the alternative for time-based media
+                      immediately next to the non-text content</xref></p>
+                </entry>
+              </row>
+              <row id="WCAG1.3.1">
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+                        format="html" scope="external"><b>1.3.1 Info and
+                      Relationships</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_uzq_rr3_fhb" audience="eu-rules"><li><p> 9.1.3.1 (Web)</p></li><li><p> 10.1.3.1 (Non-web document)</p></li><li><p> 11.1.3.1.1 (Open Functionality Software)</p></li><li><p> 11.1.3.1.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_vzq_rr3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_wzq_rr3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_xzq_rr3_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p>Information, structure, and relationships conveyed through presentation can be
+                    programmatically determined or are available in text, with exceptions that
+                      include:<ul id="ul_ajn_v53_fhb">
+                      <li><?oxy_comment_start author="steven_higgs" timestamp="20190717T094206+0300" comment="WH-2266"?>Some
+                        landmarks are not marked with the corresponding role or do not have an
+                        associated label.<?oxy_comment_end?></li>
+                      <li><?oxy_comment_start author="steven_higgs" timestamp="20190717T094234+0300" comment="WH-2268"?>Some
+                        link groups are not structured using lists or are not marked as navigation
+                        regions.<?oxy_comment_end?></li>
+                    </ul></p>
+                  <p>The authors of the input DITA document are responsible for:<ul
+                      id="ul_ahn_4vx_k3b">
+                      <li>Using semantic elements to mark up structure.</li>
+                      <li>Using semantic markup to mark emphasized or special text.</li>
+                      <li>Using caption elements to associate data table captions with data
+                        tables.</li>
+                    </ul></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"
+                        format="html" scope="external"><b>1.3.2 Meaningful Sequence</b></xref></u>
+                    (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_jxy_gw3_fhb" audience="eu-rules"><li><p> 9.1.3.2 (Web)</p></li><li><p> 10.1.3.2 (Non-web document)</p></li><li><p> 11.1.3.2.1 (Open Functionality Software)</p></li><li><p> 11.1.3.2.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_kxy_gw3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_lxy_gw3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_mxy_gw3_fhb">
+                    <li> 501 (Web)(Software)</li>
+                    <li> 504.2 (Authoring Tool)</li>
+                    <li> 602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>The product presents content in a meaningful sequence.</p>
+                  <p>Authors should use Unicode right-to-left mark (RLM) or left-to-right mark (LRM)
+                    to mix text direction inline.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"
+                        format="html" scope="external"><b>1.3.3 Sensory
+                      Characteristics</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_pdd_4x3_fhb" audience="eu-rules"><li><p> 9.1.3.3 (Web)</p></li><li><p> 10.1.3.3 (Non-web document)</p></li><li><p> 11.1.3.3 (Open Functionality Software)</p></li><li><p> 11.1.3.3 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_qdd_4x3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_rdd_4x3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_sdd_4x3_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Authors should ensure that items are referenced in the content in ways that
+                  do not depend on sensory perception.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"
+                        format="html" scope="external"><b>1.4.1 Use of Color</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_mdr_yy3_fhb" audience="eu-rules"><li><p> 9.1.4.1 (Web)</p></li><li><p> 10.1.4.1 (Non-web document)</p></li><li><p> 11.1.4.1 (Open Functionality Software)</p></li><li><p> 11.1.4.1 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_ndr_yy3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_odr_yy3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_pdr_yy3_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>(Cobalt template) Color is not used as the only visual means of conveying
+                  information, indicating an action, prompting a response, or distinguishing a
+                  visual element.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"
+                        format="html" scope="external"><b>1.4.2 Audio Control</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_sql_nz3_fhb" audience="eu-rules"><li><p> 9.1.4.2 (Web)</p></li><li><p> 10.1.4.2 (Non-web document)</p></li><li><p> 11.1.4.2 (Open Functionality Software)</p></li><li><p> 11.1.4.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_tql_nz3_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_uql_nz3_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_qvw_nyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>There is no sound that plays automatically.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+                        format="html" scope="external"><b>2.1.1 Keyboard</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_y1v_31j_fhb" audience="eu-rules"><li><p> 9.2.1.1 (Web)</p></li><li><p> 10.2.1.1 (Non-web document)</p></li><li><p> 11.2.1.1.1 (Open Functionality Software)</p></li><li><p> 11.2.1.1.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_z1v_31j_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_abv_31j_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_pkk_5yv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>Most of the content is operable through a keyboard interface, with exceptions
+                  that include:<ul id="ul_vzp_wxx_k3b">
+                    <li><?oxy_comment_start author="steven_higgs" timestamp="20190717T100148+0300" comment="WH-2271"?>The
+                      submenus (the user cannot tab to the submenus).<?oxy_comment_end?></li>
+                    <li><?oxy_comment_start author="steven_higgs" timestamp="20190717T100210+0300" comment="WH-2271"?>The
+                      top-level links in the main page accordion cannot be
+                      accessed.<?oxy_comment_end?></li>
+                  </ul></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><xref href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"
+                      format="html" scope="external"><b>2.1.2 No Keyboard Trap</b></xref> (Level
+                    A)</p>
+                  <p>Also applies to:</p>
+                  <!--<p audience="eu-rules">EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_szs_3sj_fhb" audience="eu-rules"><li>9.2.16 (Web)</li><li>10.2.16 (non-web document)</li><li>11.2.1.16 (Software)</li><li>11.2.2.16 (Closed Software) – Does not apply</li><li>11.6.2 (Authoring Tool)</li><li>12.1.2 (Product Docs)</li><li>12.2.4 (Support Docs)</li></ul>-->
+                  <p>Revised Section 508</p>
+                  <ul id="ul_tzs_3sj_fhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>The product does not contain content that traps the keyboard focus.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#character-key-shortcuts"
+                        format="html" scope="external"><b>2.1.4 Character Key
+                      Shortcuts</b></xref></u> (Level A 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_iyj_vsj_fhb" audience="eu-rules"><li><p> 9.2.1.4 (Web)</p></li><li><p> 10.2.1.4 (Non-web document)</p></li><li><p> 11.2.1.4.1 (Open Functionality Software)</p></li><li><p> 11.2.1.4.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_jyj_vsj_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_kyj_vsj_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not include character key shortcuts.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"
+                        format="html" scope="external"><b>2.2.1 Timing Adjustable</b></xref></u>
+                    (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_pf3_d5j_fhb" audience="eu-rules"><li><p> 9.2.2.1 (Web)</p></li><li><p> 10.2.2.1 (Non-web document)</p></li><li><p> 11.2.2.1 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_qf3_d5j_fhb" audience="eu-rules"><li><p> 11.2.2.1 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_rf3_d5j_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_sf3_d5j_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_ols_5yv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not include time limits.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-pause" format="html"
+                        scope="external"><b>2.2.2 Pause, Stop, Hide</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_lpq_k5j_fhb" audience="eu-rules"><li><p> 9.2.2.2 (Web)</p></li><li><p> 10.2.2.2 (Non-web document)</p></li><li><p> 11.2.2.2 (Open Functionality Software)</p></li><li><p> 11.2.2.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_mpq_k5j_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_npq_k5j_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_jjy_5yv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not include elements that move, blink, scroll, or
+                  auto-update.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"
+                        format="html" scope="external"><b>2.3.1 Three Flashes or Below
+                        Threshold</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_lpx_zvj_fhb" audience="eu-rules"><li><p> 9.2.3.1 (Web)</p></li><li><p> 10.2.3.1 (Non-web document)</p></li><li><p> 11.2.3.1 (Open Functionality Software)</p></li><li><p> 11.2.3.1(Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_mpx_zvj_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_npx_zvj_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_spl_vyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not contain flashing content.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"
+                        format="html" scope="external"><b>2.4.1 Bypass Blocks</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_e5g_qwj_fhb" audience="eu-rules"><li><p> 9.2.4.1 (Web)</p></li><li><p> 10.2.4.1 (Non-web document) – Does not apply</p></li><li><p> 11.2.4.1 (Open Functionality Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_f5g_qwj_fhb" audience="eu-rules"><li><p> 11.2.4.1 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_g5g_qwj_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_h5g_qwj_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_i5g_qwj_fhb">
+                    <li> 501 (Web)(Software) – Does not apply to non-web software</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs) – Does not apply to non-web docs</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Each page contains a link at the top that goes directly to the main content
+                  area. Each page contains <i>ARIA</i> landmarks that identify the available
+                  regions.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"
+                        format="html" scope="external"><b>2.4.2 Page Titled</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_rmn_plk_fhb" audience="eu-rules"><li><p> 9.2.4.2 (Web)</p></li><li><p> 10.2.4.2 (Non-web document)</p></li><li><p> 11.2.4.2 (Open Functionality Software) - Does not apply</p></li><li><p> 11.2.4.2 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_smn_plk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_tmn_plk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_prm_xyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Each page contains a non-empty <xmlelement>title</xmlelement> element in the
+                    <xmlelement>head</xmlelement> section.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"
+                        format="html" scope="external"><b>2.4.3 Focus Order</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_v33_fnk_fhb" audience="eu-rules"><li><p> 9.2.4.3 (Web)</p></li><li><p> 10.2.4.3 (Non-web document)</p></li><li><p> 11.2.4.3 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_w33_fnk_fhb" audience="eu-rules"><li><p> 11.2.4.3 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_x33_fnk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_y33_fnk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_xcy_xyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Focusable components receive focus in an order that preserves meaning and
+                  operability.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+                        format="html" scope="external"><b>2.4.4 Link Purpose (In
+                      Context)</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_kgp_ynk_fhb" audience="eu-rules"><li><p> 9.2.4.4 (Web)</p></li><li><p> 10.2.4.4 (Non-web document)</p></li><li><p> 11.2.4.4 (Open Functionality Software)</p></li><li><p> 11.2.4.4 (Closed Software</p></li></ul>-->
+                  <!--<ul id="ul_lgp_ynk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_mgp_ynk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_knn_yyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>The purpose of each link can be determined from the link text alone or from the
+                    link text together with its programmatically-determined link context.</p>
+                  <p>The authors can create hypertext links using text that describes the purpose of
+                    the hypertext.</p>
+                  <p><?oxy_comment_start author="steven_higgs" timestamp="20190717T133727+0300" comment="WH-2272"?>There
+                    is no control that allows the user to choose between short or long link text
+                    (G189 / SCR30).<?oxy_comment_end?></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#pointer-gestures" format="html"
+                        scope="external"><b>2.5.1 Pointer Gestures</b></xref></u> (Level A 2.1
+                    only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_ifd_m4k_fhb" audience="eu-rules"><li><p> 9.2.5.1 (Web)</p></li><li><p> 10.2.5.1 (Non-web document)</p></li><li><p> 11.2.5.1 (Open Functionality Software)</p></li><li><p> 11.2.5.1 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_jfd_m4k_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_kfd_m4k_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The WebHelp Responsive output does not rely on path-based or multipoint
+                  gestures and does not provide controls that require complex gestures.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#pointer-cancellation"
+                        format="html" scope="external"><b>2.5.2 Pointer Cancellation</b></xref></u>
+                    (Level A 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_ojv_rqk_fhb" audience="eu-rules"><li><p> 9.2.5.2 (Web)</p></li><li><p> 10.2.5.2 (Non-web document)</p></li><li><p> 11.2.5.2 (Open Functionality Software)</p></li><li><p> 11.2.5.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_pjv_rqk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_qjv_rqk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product has operations that are activated on the pointer up
+                  event.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#label-in-name" format="html"
+                        scope="external"><b>2.5.3 Label in Name</b></xref></u> (Level A 2.1
+                    only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_kq5_3rk_fhb" audience="eu-rules"><li><p> 9.2.5.3 (Web)</p></li><li><p> 10.2.5.3 (Non-web document)</p></li><li><p> 11.2.5.3 (Open Functionality Software)</p></li><li><p> 11.2.5.3 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_lq5_3rk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_mq5_3rk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The names of the user interface components contain the text that is presented
+                  visually.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#motion-actuation" format="html"
+                        scope="external"><b>2.5.4 Motion Actuation</b></xref></u> (Level A 2.1
+                    only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_s54_msk_fhb" audience="eu-rules"><li><p> 9.2.5.4 (Web)</p></li><li><p> 10.2.5.4 (Non-web document)</p></li><li><p> 11.2.5.4 (Open Functionality Software)</p></li><li><p> 11.2.5.4 (Closed Software</p></li></ul>-->
+                  <!--<ul id="ul_t54_msk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_u54_msk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not contain functionality that can be operated by device or
+                  user motion.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id" format="html"
+                        scope="external"><b>3.1.1 Language of Page</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_pmk_kwk_fhb" audience="eu-rules"><li><p> 9.3.1.1 (Web)</p></li><li><p> 10.3.1.1 (Non-web document)</p></li><li><p> 11.3.1.1.1 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_qmk_kwk_fhb" audience="eu-rules"><li><p> 11.3.1.1.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_rmk_kwk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_smk_kwk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_nzz_yyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The web pages indicate the language of the content when the content language
+                  has been specified by authors.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+                        format="html" scope="external"><b>3.2.1 On Focus</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_cvm_wwk_fhb" audience="eu-rules"><li><p> 9.3.2.1 (Web)</p></li><li><p> 10.3.2.1 (Non-web document)</p></li><li><p> 11.3.2.1 (Open Functionality Software)</p></li><li><p> 11.3.2.1 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_dvm_wwk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_evm_wwk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_alf_zyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>No changes of context occur when any component receives focus.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"
+                        format="html" scope="external"><b>3.2.2 On Input</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_l31_3yk_fhb" audience="eu-rules"><li><p> 9.3.2.2 (Web)</p></li><li><p> 10.3.2.2 (Non-web document)</p></li><li><p> 11.3.2.2 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_m31_3yk_fhb" audience="eu-rules"><li><p> 11.3.2.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_n31_3yk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_o31_3yk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_h5m_zyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Changing the setting of any user interface component does not automatically
+                  cause a change of context.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"
+                        format="html" scope="external"><b>3.3.1 Error Identification</b></xref></u>
+                    (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_xrn_dzk_fhb" audience="eu-rules"><li><p> 9.3.3.1 (Web)</p></li><li><p> 10.3.3.1 (Non-web document)</p></li><li><p> 11.3.3.1.1 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_yrn_dzk_fhb" audience="eu-rules"><li><p> 11.3.3.1.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_zrn_dzk_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_asn_dzk_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_f1t_zyv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>If a search operation is performed leaving the search input empty, an error
+                  message is automatically displayed to the user,
+                  <?oxy_comment_start author="steven_higgs" timestamp="20190717T142127+0300" comment="WH-2273"?>but
+                  no <i>aria-invalid</i> information is provided.<?oxy_comment_end?></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" format="html"
+                        scope="external"><b>3.3.2 Labels or Instructions</b></xref></u> (Level
+                    A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_hjn_31l_fhb" audience="eu-rules"><li><p> 9.3.3.2 (Web)</p></li><li><p> 10.3.3.2 (Non-web document)</p></li><li><p> 11.3.3.2 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_ijn_31l_fhb" audience="eu-rules"><li><p> 11.3.3.2 (Closed Software)</p></li><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_jjn_31l_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_jw5_bzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190717T142227+0300" comment="WH-2275"?>The
+                  search input does not have a visible label specified using a label
+                  element.<?oxy_comment_end?>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses" format="html"
+                        scope="external"><b>4.1.1 Parsing</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_ubt_wcl_fhb" audience="eu-rules"><li><p> 9.4.1.1 (Web)</p></li><li><p> 10.4.1.1 (Non-web document)</p></li><li><p> 11.4.1.1.1 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_vbt_wcl_fhb" audience="eu-rules"><li><p> 11.4.1.1.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_wbt_wcl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_xbt_wcl_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_sl1_czv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190717T142317+0300" comment="WH-2274 &amp; WH-2276"?>Several
+                  HTML validation errors are reported by the W3C
+                  validator.<?oxy_comment_end?></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" format="html"
+                        scope="external"><b>4.1.2 Name, Role, Value</b></xref></u> (Level A)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_nz4_jdl_fhb" audience="eu-rules"><li><p> 9.4.1.2 (Web)</p></li><li><p> 10.4.1.2 (Non-web document)</p></li><li><p> 11.4.1.2.1 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_oz4_jdl_fhb" audience="eu-rules"><li><p> 11.4.1.2.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_pz4_jdl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_qz4_jdl_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_enj_czv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190717T142444+0300" comment="WH-2277"?>The
+                    <i>Home</i> link from the breadcrumb does not have an associated
+                    <i>aria-label</i>.<?oxy_comment_end?></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <section id="table_2_success_criteria_level_aa">
+      <title>Table 2: Success Criteria, Level AA</title>
+      <p>
+        <table frame="all" id="simpletable_xlf_j2l_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.67*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.54*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions"
+                        format="html" scope="external"><b>1.2.4 Captions (Live)</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_srq_l2l_fhb" audience="eu-rules"><li><p> 9.1.2.4 (Web)</p></li><li><p> 10.1.2.4 (Non-web document)</p></li><li><p> 11.1.2.4 (Open Functionality Software)</p></li><li><p> 11.1.2.4 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_trq_l2l_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_urq_l2l_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_yv3_dzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>No live audio content is used. </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"
+                        format="html" scope="external"><b>1.2.5 Audio Description
+                        (Prerecorded)</b></xref></u> (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_zjs_p2l_fhb" audience="eu-rules"><li><p> 9.1.2.5 (Web)</p></li><li><p> 10.1.2.5 (Non-web document)</p></li><li><p> 11.1.2.5 (Open Functionality Software)</p></li><li><p> 11.1.2.5 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_aks_p2l_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_bks_p2l_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_r34_dzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The authors of the input DITA document can ensure that the output document
+                  meets this criterion.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#orientation" format="html"
+                        scope="external"><b>1.3.4 Orientation</b></xref></u> (Level AA 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_eb1_s2l_fhb" audience="eu-rules"><li><p> 9.1.3.4 (Web)</p></li><li><p> 10.1.3.4 (Non-web document)</p></li><li><p> 11.1.3.4 (Open Functionality Software)</p></li><li><p> 11.1.3.4 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_fb1_s2l_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_gb1_s2l_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Content does not restrict its view and operation to a single display
+                  orientation.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#identify-input-purpose"
+                        format="html" scope="external"><b>1.3.5 Identify Input
+                      Purpose</b></xref></u> (Level AA 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_ut2_nfl_fhb" audience="eu-rules"><li><p> 9.1.3.5 (Web)</p></li><li><p> 10.1.3.4 (Non-web document)</p></li><li><p> 11.1.3.5 (Open Functionality Software)</p></li><li><p> 11.1.3.5 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_vt2_nfl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_wt2_nfl_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The content does not contain input fields that collect information about the
+                  user.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+                        format="html" scope="external"><b>1.4.3 Contrast (Minimum)</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_tc4_zfl_fhb" audience="eu-rules"><li><p> 9.1.4.3 (Web)</p></li><li><p> 10.1.4.3 (Non-web document)</p></li><li><p> 11.1.4.3 (Open Functionality Software)</p></li><li><p> 11.1.4.3 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_uc4_zfl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_y1p_2zv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190718T104958+0300" comment="WH-2278"?>The
+                  missing words element from the search results page does not have the contrast
+                  ratio 4.5:1.<?oxy_comment_end?></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"
+                        format="html" scope="external"><b>1.4.4 Resize text</b></xref></u> (Level
+                    AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_vsk_chl_fhb" audience="eu-rules"><li><p> 9.1.4.4 (Web)</p></li><li><p> 10.1.4.4 (Non-web document)</p></li><li><p> 11.1.4.4.1 (Open Functionality Software)</p></li><li><p> 11.1.4.4.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_wsk_chl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_xsk_chl_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_gw5_2zv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p>Text can be resized up to 200 percent without loss of content or functionality
+                    and without using assistive technology.</p>
+                  <p><?oxy_comment_start author="steven_higgs" timestamp="20190718T105100+0300" comment="WH-2281"?>Some
+                    text content has dimensions specified in pixels rather that em
+                    units.<?oxy_comment_end?></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"
+                        format="html" scope="external"><b>1.4.5 Images of Text</b></xref></u> (Level
+                    AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_vyy_nhl_fhb" audience="eu-rules"><li><p> 9.1.4.5 (Web)</p></li><li><p> 10.1.4.5 (Non-web document)</p></li><li><p> 11.1.4.5.1 (Open Functionality Software)</p></li><li><p> 11.1.4.5.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_wyy_nhl_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_xyy_nhl_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_ukc_fzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The output does not contain images of text. The authors of the input DITA
+                  content can ensure that this criterion is met.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#reflow" format="html"
+                        scope="external"><b>1.4.10 Reflow</b></xref></u> (Level AA 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_btz_k1q_fhb" audience="eu-rules"><li><p> 9.1.4.10 (Web)</p></li><li><p> 10.1.4.10 (Non-web document)</p></li><li><p> 11.1.4.10.1 (Open Functionality Software)</p></li><li><p> 11.1.4.10.2 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_ctz_k1q_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_dtz_k1q_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p>The majority of the content can be presented without loss of information or
+                    functionality, and without requiring scrolling in two dimensions.</p>
+                  <p><?oxy_comment_start author="steven_higgs" timestamp="20190718T105224+0300" comment="WH-2280"?>Long
+                    URLs determine the page to display the horizontal scroll
+                    bar.<?oxy_comment_end?></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><xref href="https://www.w3.org/TR/WCAG21/#non-text-contrast" format="html"
+                      scope="external"><u><b>1.4.11 Non-text</b></u><u><b> Contrast</b></u></xref>
+                    (Level AA 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_rbq_shq_fhb" audience="eu-rules"><li><p> 9.1.4.11 (Web)</p></li><li><p> 10.1.4.11 (Non-web document)</p></li><li><p> 11.1.4.11 (Open Functionality Software)</p></li><li><p> 11.1.4.11 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_sbq_shq_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_tbq_shq_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>(Cobalt template) There is no contrast issue regarding user interface
+                    components or graphical objects.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#text-spacing" format="html"
+                        scope="external"><b>1.4.12 Text Spacing</b></xref></u> (Level AA 2.1
+                    only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_pb1_m3q_fhb" audience="eu-rules"><li><p> 9.1.4.12 (Web)</p></li><li><p> 10.1.4.12 (Non-web document)</p></li><li><p> 11.1.4.12 (Open Functionality Software)</p></li><li><p> 11.1.4.12 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_qb1_m3q_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_rb1_m3q_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>There is no loss of content or functionality that occurs by setting line
+                  height (line spacing), spacing following paragraphs, letter spacing, and word
+                  spacing.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus"
+                        format="html" scope="external"><b>1.4.13 Content on Hover or
+                        Focus</b></xref></u> (Level AA 2.1 only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_azz_sjq_fhb" audience="eu-rules"><li><p> 9.1.4.13 (Web)</p></li><li><p> 10.1.4.13 (Non-web document)</p></li><li><p> 11.1.4.13 (Open Functionality Software)</p></li><li><p> 11.1.4.13 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_bzz_sjq_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_czz_sjq_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p><?oxy_comment_start author="steven_higgs" timestamp="20190718T105510+0300" comment="WH-2282"?>Tooltips
+                    and submenus are not dismissible.<?oxy_comment_end?></p>
+                  <p>Also, the tooltips are not hoverable.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"
+                        format="html" scope="external"><b>2.4.5 Multiple Ways</b></xref></u> (Level
+                    AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_fj1_mmq_fhb" audience="eu-rules"><li><p> 9.2.4.5 (Web)</p></li><li><p> 10.2.4.5 (Non-web document) – Does not apply</p></li><li><p> 11.2.4.5 (Open Functionality Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_gj1_mmq_fhb" audience="eu-rules"><li><p> 11.2.4.5 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_hj1_mmq_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_ij1_mmq_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_jj1_mmq_fhb">
+                    <li> 501 (Web)(Software) – Does not apply to non-web software</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs) – Does not apply to non-web docs</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>There is a search form provided that will go to a page that contains the search
+                    term and links to the corresponding page. Also, a table of contents is
+                    provided.</p>
+                  <p>The authors of the input DITA document are responsible for providing links to
+                    all pages from the home page or providing links to navigate to related pages
+                    from the current page.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"
+                        format="html" scope="external"><b>2.4.6 Headings and Labels</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_vrh_3nq_fhb" audience="eu-rules"><li><p> 9.2.4.6 (Web)</p></li><li><p> 10.2.4.6 (Non-web document)</p></li><li><p> 11.2.4.6 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_wrh_3nq_fhb" audience="eu-rules"><li><p> 11.2.4.6 (Closed Software)</p></li><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_xrh_3nq_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_c11_hzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>
+                  <p>Headings and labels describe the topic or purpose.</p>
+                  <p>DITA authors can ensure that this criterion is met.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"
+                        format="html" scope="external"><b>2.4.7 Focus Visible</b></xref></u> (Level
+                    AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_r3p_c4q_fhb" audience="eu-rules"><li><p> 9.2.4.7 (Web)</p></li><li><p> 10.2.4.7 (Non-web document)</p></li><li><p> 11.2.4.7 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_s3p_c4q_fhb" audience="eu-rules"><li><p> 11.2.4.7 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_t3p_c4q_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_u3p_c4q_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_wns_hzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190718T105647+0300" comment="WH-2283"?>Placing
+                  focus on a focusable element using the mouse doesn't render a visible focus
+                  indicator. Also, the search button does not have a visible focus
+                  indicator.<?oxy_comment_end?></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"
+                        format="html" scope="external"><b>3.1.2 Language of Parts</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_u4w_p4q_fhb" audience="eu-rules"><li><p> 9.3.1.2 (Web)</p></li><li><p> 10.3.1.2 (Non-web document)</p></li><li><p> 11.3.1.2 (Open Functionality Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_v4w_p4q_fhb" audience="eu-rules"><li><p> 11.3.1.2 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_w4w_p4q_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_x4w_p4q_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_apz_hzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>DITA authors can ensure that this criterion is met.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"
+                        format="html" scope="external"><b>3.2.3 Consistent Navigation</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_dpl_cbr_fhb" audience="eu-rules"><li><p> 9.3.2.3 (Web)</p></li><li><p> 10.3.2.3 (Non-web document) – Does not apply</p></li><li><p> 11.3.2.3 (Open Functionality Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_epl_cbr_fhb" audience="eu-rules"><li><p> 11.3.2.3 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_fpl_cbr_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_gpl_cbr_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_hpl_cbr_fhb">
+                    <li> 501 (Web)(Software) – Does not apply to non-web software</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs) – Does not apply to non-web docs</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Repeated components appear in the same relative in each page.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"
+                        format="html" scope="external"><b>3.2.4 Consistent
+                      Identification</b></xref></u> (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_stx_jcr_fhb" audience="eu-rules"><li><p> 9.3.2.4 (Web)</p></li><li><p> 10.3.2.4 (Non-web document) – Does not apply</p></li><li><p> 11.3.2.4 (Open Functionality Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_ttx_jcr_fhb" audience="eu-rules"><li><p> 11.3.2.4 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_utx_jcr_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_vtx_jcr_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_wtx_jcr_fhb">
+                    <li> 501 (Web)(Software) – Does not apply to non-web software</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs) – Does not apply to non-web docs</li>
+                  </ul>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p>The output uses labels, names, and text alternatives consistently for items
+                    that have the same functionality.</p>
+                  <p>Text alternatives are provided for many instances of non-text content, with
+                    exceptions that include:<ul id="ul_n3s_jmf_l3b">
+                      <li><?oxy_comment_start author="steven_higgs" timestamp="20190718T105905+0300" comment="WH-2263"?>Permalinks
+                        for subtopics and sections.<?oxy_comment_end?></li>
+                      <li><?oxy_comment_start author="steven_higgs" timestamp="20190718T105921+0300" comment="WH-2264"?>Enlarge
+                        images action.<?oxy_comment_end?></li>
+                    </ul></p>
+                  <p><?oxy_comment_start author="steven_higgs" timestamp="20190718T105936+0300" comment="WH-2277"?>The
+                      <i>Home</i> link from the breadcrumb does not have an associated
+                      <i>aria-label</i>.<?oxy_comment_end?></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"
+                        format="html" scope="external"><b>3.3.3 Error Suggestion</b></xref></u>
+                    (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_sd2_b2r_fhb" audience="eu-rules"><li><p> 9.3.3.3 (Web)</p></li><li><p> 10.3.3.3 (Non-web document)</p></li><li><p> 11.3.3.3 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_td2_b2r_fhb" audience="eu-rules"><li><p> 11.3.3.3 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_ud2_b2r_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_vd2_b2r_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_cls_kzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Does Not Support</entry>
+                <entry><?oxy_comment_start author="steven_higgs" timestamp="20190718T110139+0300" comment="WH-2285"?>The
+                  Search input does not have the <i>aria-required</i> information set and does not
+                  contain a text description specifying that it is a required
+                  field.<?oxy_comment_end?></entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"
+                        format="html" scope="external"><b>3.3.4 Error Prevention (Legal, Financial,
+                          Data)</b></xref></u> (Level AA)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_qpb_thr_fhb" audience="eu-rules"><li><p> 9.3.3.4 (Web)</p></li><li><p> 10.3.3.4 (Non-web document)</p></li><li><p> 11.3.3.4 (Open Functionality Software)</p></li></ul>-->
+                  <!--<ul id="ul_rpb_thr_fhb" audience="eu-rules"><li><p> 11.3.3.4 (Closed Software)</p></li></ul>-->
+                  <!--<ul id="ul_spb_thr_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_tpb_thr_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508</p>
+                  <ul id="ul_axy_kzv_vhb">
+                    <li>501 (Web)(Software)</li>
+                    <li>504.2 (Authoring Tool)</li>
+                    <li>602.3 (Support Docs)</li>
+                  </ul>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The Web pages do not cause legal commitments or financial transactions for
+                  the user to occur, that modify or delete user-controllable data in data storage
+                  systems, or that submit user test responses.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#status-messages" format="html"
+                        scope="external"><b>4.1.3 Status Messages</b></xref></u>(Level AA 2.1
+                    only)</p>
+                  <p> Also applies to:</p>
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria</p>-->
+                  <!--<ul id="ul_dgs_h3r_fhb" audience="eu-rules"><li><p> 9.4.1.3 (Web)</p></li><li><p> 10.4.1.3 (Non-web document) – Does not apply</p></li><li><p> 11.4.1.3 (Open Functionality Software) – Does not apply</p></li><li><p> 11.4.1.3 (Closed Software) – Does not apply</p></li></ul>-->
+                  <!--<ul id="ul_egs_h3r_fhb" audience="eu-rules"><li><p> 11.8.2 (Authoring Tool)</p></li><li><p> 12.1.2 (Product Docs)</p></li></ul>-->
+                  <!--<ul id="ul_fgs_h3r_fhb" audience="eu-rules"><li><p> 12.2.4 (Support Docs)</p></li></ul>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The pages do not contain status messages as defined by this
+                  criterion.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <section id="section_grl_krv_vhb">
+      <title>Table 3: Success Criteria, Level AAA</title>
+      <p>
+        <table frame="all" id="simpletable_hrl_krv_vhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.71*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.57*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-sign" format="html"
+                        scope="external"><b>1.2.6 Sign Language (Prerecorded)</b></xref></u> (Level
+                    AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad"
+                        format="html" scope="external"><b>1.2.7 Extended Audio Description
+                          (Prerecorded)</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" format="html"
+                        scope="external"><b>1.2.8 Media Alternative (Prerecorded)</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only"
+                        format="html" scope="external"><b>1.2.9 Audio-only (Live)</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria– Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><xref href="https://www.w3.org/TR/WCAG21/#identify-purpose" format="html"
+                      scope="external"><u><b>1.3.6 Identify</b></u><u><b> Purpose</b></u></xref>
+                    (Level AAA 2.1 only)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria– Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"
+                        format="html" scope="external"><b>1.4.6 Contrast Enhanced</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"
+                        format="html" scope="external"><b>1.4.7 Low or No Background
+                        Audio</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"
+                        format="html" scope="external"><b>1.4.8 Visual Presentation</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"
+                        format="html" scope="external"><b>1.4.9 Images of Text (No Exception)
+                          Control</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"
+                        format="html" scope="external"><b>2.1.3 Keyboard (No
+                      Exception)</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"
+                        format="html" scope="external"><b>2.2.3 No Timing</b></xref></u> (Level
+                    AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"
+                        format="html" scope="external"><b>2.2.4 Interruptions</b></xref></u> (Level
+                    AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"
+                        format="html" scope="external"><b>2.2.5 Re-authenticating</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#timeouts" format="html"
+                        scope="external"><b>2.2.6 Timeouts</b></xref></u> (Level AAA 2.1 only)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#seizure-three-times" format="html"
+                        scope="external"><b>2.3.2 Three Flashes</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#animation-from-interactions"
+                        format="html" scope="external"><b>2.3.3 Animation from
+                        Interactions</b></xref></u> (Level AAA 2.1 only)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"
+                        format="html" scope="external"><b>2.4.8 Location</b></xref></u> (Level
+                    AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"
+                        format="html" scope="external"><b>2.4.9 Link Purpose (Link
+                      Only)</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"
+                        format="html" scope="external"><b>2.4.10 Section Headings</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#target-size" format="html"
+                        scope="external"><b>2.5.5 Target Size</b></xref></u> (Level AAA 2.1
+                    only)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="https://www.w3.org/TR/WCAG21/#concurrent-input-mechanisms"
+                        format="html" scope="external"><b>2.5.6 Concurrent Input
+                        Mechanisms</b></xref></u> (Level AAA 2.1 only)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-idioms" format="html"
+                        scope="external"><b>3.1.3 Unusual Words</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-located" format="html"
+                        scope="external"><b>3.1.4 Abbreviations</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-supplements" format="html"
+                        scope="external"><b>3.1.5 Reading Level</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation"
+                        format="html" scope="external"><b>3.1.6 Pronunciation</b></xref></u> (Level
+                    AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref
+                        href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"
+                        format="html" scope="external"><b>3.2.5 Change on Request</b></xref></u>
+                    (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"
+                        format="html" scope="external"><b>3.3.5 Help</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry>
+                  <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"
+                        format="html" scope="external"><b>3.3.6 Error Prevention
+                      (All)</b></xref></u> (Level AAA)</p>
+                  <!--<p> Also applies to:</p>-->
+                  <!--<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-->
+                  <p> Revised Section 508 – Does not apply</p>
+                </entry>
+                <entry>Not Evaluated</entry>
+                <entry/>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <section id="revised_section_508_report">
+      <title>Revised Section 508 Report</title>
+      <p>N/A</p>
+    </section>
+    <section id="chapter_3_functional_performance_criteria_fpc">
+      <title>Chapter 3: Functional Performance Criteria (FPC)</title>
+      <p>
+        <table frame="all" id="simpletable_hxn_spr_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.78*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.61*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 302.1 Without Vision</p>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>Most of the content is accessible without vision with exceptions that
+                    include:<ul id="ul_ajx_knf_l3b">
+                    <li>Some components do not have text alternatives or labels.</li>
+                    <li>Some landmarks are not marked with the corresponding role or do not have an
+                      associated label.</li>
+                    <li>Some link groups are not structured using lists or are not marked as
+                      navigation regions.</li>
+                  </ul></entry>
+              </row>
+              <row>
+                <entry>302.2 With Limited Vision</entry>
+                <entry>Partially Supports</entry>
+                <entry>
+                  <p>Most of the content is accessible with limited vision with exceptions that
+                      include:<ul id="ul_cgk_pnf_l3b">
+                      <li>Some components do not have text alternatives or labels.</li>
+                      <li>Some landmarks are not marked with the corresponding role or do not have
+                        an associated label.</li>
+                      <li>Some link groups are not structured using lists or are not marked as
+                        navigation regions.</li>
+                    </ul></p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.3 Without Perception of Color</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>(Cobalt template) Color is not used as the only visual means of conveying
+                  information, indicating an action, prompting a response, or distinguishing a
+                  visual element.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.4 Without Hearing</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The authors can create content that does not require hearing abilities for
+                  use.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.5 With Limited Hearing</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The authors can create content that does not require hearing abilities for
+                  use.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.6 Without Speech</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The output does not require speech for use.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.7 With Limited Manipulation</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The WebHelp Responsive output does not rely on path-based or multipoint
+                  gestures and does not provide controls that require complex gestures.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.8 With Limited Reach and Strength</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The WebHelp Responsive output does not rely on path-based or multipoint
+                  gestures and does not provide controls that require complex gestures.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 302.9 With Limited Language, Cognitive, and Learning Abilities</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The authors can create content that can be used by users with limited
+                  language, cognitive, and learning abilities.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <section id="chapter_4_hardware">
+      <title>Chapter 4: Hardware</title>
+      <p>Notes: Not Applicable - <b>Oxygen XML WebHelp Responsive</b> is not a hardware product.</p>
+    </section>
+    <section id="chapter_5_software">
+      <title>Chapter 5: Software</title>
+      <p>Notes: <b>Oxygen XML WebHelp Responsive</b> is a web application, not a software product.
+        However, the web application includes authoring functionality, hence Chapter 5: Software 504
+        Authoring Tools applies to this product.</p>
+      <p><b>501 General</b></p>
+      <p>
+        <table frame="all" id="simpletable_vby_ctr_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.77*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.6*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p>501.1 Scope – Incorporation of WCAG 2.0 AA</p>
+                </entry>
+                <entry>
+                  <p> See <xref href="#whr-vpat/section_dn1_ghd_fhb" format="dita"><u>WCAG 2.x</u>
+                      section</xref></p>
+                </entry>
+                <entry>
+                  <p> See information in WCAG section</p>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+      <p><b>502 Interoperability with Assistive Technology</b></p>
+      <p>
+        <table frame="all" id="simpletable_sc2_25r_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.77*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.6*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 502.2.1 User Control of Accessibility Features</p>
+                </entry>
+                <entry>
+                  <p>Not Applicable</p>
+                </entry>
+                <entry>
+                  <p>The product is not platform software.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 502.2.2 No Disruption of Accessibility Features</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The product does not disrupt platform features that are defined in the
+                  platform documentation as accessibility features.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+      <p><b>502.3 Accessibility Services</b></p>
+      <table id="table_rv3_spz_whb" colsep="1" rowsep="1" frame="all">
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="1.77*"/>
+          <colspec colname="c2" colwidth="1.0*"/>
+          <colspec colname="c3" colwidth="1.6*"/>
+          <thead>
+            <row>
+              <entry>Criteria</entry>
+              <entry>Conformance Level</entry>
+              <entry>Remarks and Explanations</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <p> 502.3.1 Object Information</p>
+              </entry>
+              <entry>
+                <p> Partially Supports</p>
+              </entry>
+              <entry>
+                <p>The majority of object roles, state(s), properties, boundary, name, and
+                  description are programmatically determinable.</p>
+                <p><?oxy_comment_start author="steven_higgs" timestamp="20190718T111442+0300" comment="WH-2277"?>The
+                    <i>Home</i> link from the breadcrumb does not have an associated
+                    <i>aria-label</i>.<?oxy_comment_end?></p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.2 Modification of Object Information</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>States and properties that can be set by the user can be set
+                programmatically.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.3 Row, Column, and Headers</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>The headers associated with the rows or columns of a table can be
+                programmatically determined.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.4 Values</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>The current values of an object can be programmatically determined.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.5 Modification of Values</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>
+                <p>Values that can be set by the user are capable of being set programmatically.</p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.6 Label Relationships</p>
+              </entry>
+              <entry>Partially Supports</entry>
+              <entry>
+                <p>Information, structure, and relationships conveyed through presentation can be
+                  programmatically determined or are available in text.</p>
+                <p>See <xref href="#whr-vpat/WCAG1.3.1" format="dita">WCAG 1.3.1</xref>.</p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.7 Hierarchical Relationships</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>
+                <p>The content is hierarchically structured using language-specific elements and
+                  their relationships can be programmatically determined.</p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.8 Text</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>The content of text objects, text attributes, and the boundary of text rendered
+                to the screen shall be programmatically determinable.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.9 Modification of Text</p>
+              </entry>
+              <entry>Supports</entry>
+              <entry>The editable text (search input) can be set programmatically.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.10 List of Actions</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>There are no custom actions available that can be executed on the
+                content.</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.11 Actions on Objects</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>
+                <p>There are no custom actions available that can be executed on the content.</p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.12 Focus Cursor</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>The product is a web application and is isolated from the underlying platform
+                software (web browser).</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.13 Modification of Focus Cursor</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>The product is a web application and is isolated from the underlying platform
+                software (web browser).</entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.3.14 Event Notification</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>
+                <p>There are no automatic focus changes, caret movement, selection changes, or added
+                  components in the content.</p>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <p> 502.4 Platform Accessibility Features</p>
+              </entry>
+              <entry>Not Applicable</entry>
+              <entry>This product is not platform software.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <p><b>503 Applications</b></p>
+      <p>
+        <table frame="all" id="simpletable_vyt_2vx_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.77*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.59*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 503.2 User Preferences</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>This section does not apply to web applications.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 503.3 Alternative User Interfaces</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The application does not provide an alternative user interface that functions
+                  as assistive technology.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+      <p><b>503.4 User Controls for Captions and Audio Description</b></p>
+      <p>
+        <table frame="all" id="simpletable_fy5_d3y_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.74*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.55*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 503.4.1 Caption Controls</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product does not provide controls for volume adjustment.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 503.4.2 Audio Description Controls</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product does not provide controls for program selection.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+      <p><b>504 Authoring Tools</b></p>
+      <p>
+        <table frame="all" id="simpletable_avn_djy_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.75*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.56*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 504.2 Content Creation or Editing (if not authoring tool, enter “not
+                    applicable”)</p>
+                </entry>
+                <entry>
+                  <p>Not Applicable</p>
+                  <p>See the <xref href="#whr-vpat/section_dn1_ghd_fhb" format="dita"><u>WCAG
+                        2.x</u> section</xref></p>
+                </entry>
+                <entry>
+                  <p>The product is not an authoring tool.</p>
+                  <p>See information in WCAG section</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 504.2.1 Preservation of Information Provided for Accessibility in Format
+                    Conversion</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product is not an authoring tool.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 504.2.2 PDF Export</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product is not an authoring tool.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 504.3 Prompts</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product is not an authoring tool.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 504.4 Templates</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>The product is not an authoring tool.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <section id="chapter_6_support_documentation_and_services">
+      <title>Chapter 6: <b>Support Documentation and Services</b></title>
+      <p><b>601.1 Scope</b></p>
+      <p><b>602 Support Documentation</b></p>
+      <p>
+        <table frame="all" id="simpletable_jz5_lmy_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.76*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.58*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 602.2 Accessibility and Compatibility Features</p>
+                </entry>
+                <entry>Partially Supports</entry>
+                <entry>The product documentation is distributed in the WebHelp Responsive format.
+                  See the <xref href="#whr-vpat/chapter_3_functional_performance_criteria_fpc"
+                    format="dita">Chapter 3</xref> and <xref href="#whr-vpat/chapter_5_software"
+                    format="dita">Chapter 5</xref> sections.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 602.3 Electronic Support Documentation</p>
+                </entry>
+                <entry>
+                  <p>See the <xref href="#whr-vpat/section_dn1_ghd_fhb" format="dita"><u>WCAG
+                        2.x</u> section</xref></p>
+                </entry>
+                <entry>
+                  <p>See information in the WCAG section.</p>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 602.4 Alternate Formats for Non-Electronic Support Documentation</p>
+                </entry>
+                <entry>Not Applicable</entry>
+                <entry>Documentation is not provided in non-electronic formats.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+      <p><b>603 Support Services</b></p>
+      <p>
+        <table frame="all" id="simpletable_zd1_xny_fhb" colsep="1" rowsep="1">
+          <tgroup cols="3">
+            <colspec colname="c1" colwidth="1.77*"/>
+            <colspec colname="c2" colwidth="1.0*"/>
+            <colspec colname="c3" colwidth="1.58*"/>
+            <thead>
+              <row>
+                <entry>Criteria</entry>
+                <entry>Conformance Level</entry>
+                <entry>Remarks and Explanations</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p> 603.2 Information on Accessibility and Compatibility Features</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>The support services cover the accessibility features.</entry>
+              </row>
+              <row>
+                <entry>
+                  <p> 603.3 Accommodation of Communication Needs</p>
+                </entry>
+                <entry>Supports</entry>
+                <entry>Support services are available by phone or e-mail.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </p>
+    </section>
+    <!--<section audience="eu-rules"><title>EN 301 549 Report</title><p>Notes: </p></section>-->
+    <!--<section id="section_mjq_v3z_fhb" audience="eu-rules"><title><b>Chapter 4: <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=22" format="html" scope="external">4.2 Functional Performance Statements</xref></u> (FPS)</b></title><p>Notes:</p><p><simpletable frame="all" relcolwidth="1.79* 1.0* 1.6*" id="simpletable_ncz_1jz_fhb"><sthead><stentry>Criteria</stentry><stentry>Conformance Level</stentry><stentry>Remarks and Explanations</stentry></sthead><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174010+0200" comment="Where ICT provides visual modes of operation, some users need ICT to provide at least one mode of operation that
+does not require vision.
+NOTE: Audio and tactile user interfaces may contribute towards meeting this clause. "?>4.2.1<?oxy_comment_end?> Usage without vision</p></stentry><stentry>Partially Supports</stentry><stentry>Where ICT provides visual modes of operation, some users need ICT to provide at least one mode of operation that does not require vision. NOTE: Audio and tactile user interfaces may contribute towards meeting this clause. </stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174142+0200" comment="Where ICT provides visual modes of operation, some users will need the ICT to provide features that enable users to
+make better use of their limited vision.
+NOTE 1: Magnification, reduction of required field of vision and control of contrast, brightness and intensity can
+contribute towards meeting this clause.
+NOTE 2: Where significant features of the user interface are dependent on depth perception, the provision of
+additional methods of distinguishing between the features may contribute towards meeting this clause.
+NOTE 3: Users with limited vision may also benefit from non-visual access (see clause 4.2.1)."?>4.2.2<?oxy_comment_end?> Usage with limited vision</p></stentry><stentry>Partially Supports</stentry><stentry>Much of the product is operable with limited vision. However, as noted in <b>2.4.7 Focus Visible</b>, some controls do not have a visual indicator of focus<?oxy_comment_start author="andrei_popa" timestamp="20190328T174354+0200" comment="think this can be reused"?>.<?oxy_comment_end?></stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174422+0200" comment="Where ICT provides visual modes of operation, some users will need the ICT to provide a visual mode of operation that
+does not require user perception of colour.
+NOTE: Where significant features of the user interface are colour-coded, the provision of additional methods of
+distinguishing between the features may contribute towards meeting this clause."?>4.2.3<?oxy_comment_end?> Usage without perception of colour</p></stentry><stentry>Supports</stentry><stentry><b>Oxygen XML WebHelp Responsive</b> does not use colour alone to convey information.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174534+0200" comment="Where ICT provides auditory modes of operation, some users need ICT to provide at least one mode of operation that
+does not require hearing abilities.
+NOTE: Visual and tactile user interfaces may contribute towards meeting this clause"?>4.2.4<?oxy_comment_end?> Usage without hearing</p></stentry><stentry>Supports</stentry><stentry>The product does not require hearing abilities for use.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174622+0200" comment="Where ICT provides auditory modes of operation, some users will need the ICT to provide enhanced audio features.
+NOTE 1: Enhancement of the audio clarity, reduction of background noise, increased range of volume and greater
+volume in the higher frequency range can contribute towards meeting this clause.
+NOTE 2: Users with limited hearing may also benefit from non-hearing access (see clause 4.2.4)."?>4.2.5<?oxy_comment_end?> Usage with limited hearing</p></stentry><stentry>Supports</stentry><stentry>The product does not require hearing abilities for use.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174701+0200" comment="Where ICT requires vocal input from users, some users will need the ICT to provide at least one mode of operation that
+does not require them to generate vocal output.
+NOTE 1: This clause covers the alternatives to the use of orally-generated sounds, including speech, whistles,
+clicks, etc.
+NOTE 2: Keyboard, pen or touch user interfaces may contribute towards meeting this clause."?>4.2.6<?oxy_comment_end?> Usage without vocal capability</p></stentry><stentry>Supports</stentry><stentry>The product does not require speech for use.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174817+0200" comment="Where ICT requires manual actions, some users will need the ICT to provide features that enable users to make use of
+the ICT through alternative actions not requiring manipulation or hand strength.
+NOTE 1: Examples of operations that users may not be able to perform include those that require fine motor
+control, path dependant gestures, pinching, twisting of the wrist, tight grasping, or simultaneous manual
+actions.
+NOTE 2: One-handed operation, sequential key entry and speech user interfaces may contribute towards meeting
+this clause.
+NOTE 3: Some users have limited hand strength and may not be able to achieve the level of strength to perform an
+operation. Alternative user interface solutions that do not require hand strength may contribute towards
+meeting this clause."?>4.2.7<?oxy_comment_end?> Usage with limited manipulation or strength</p></stentry><stentry>Supports</stentry><stentry>The product is operable with limited manipulation. The product does not require strength for use.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T174949+0200" comment="Where ICT products are free-standing or installed, the operational elements will need to be within reach of all users.
+NOTE: Considering the needs of wheelchair users and the range of user statures in the placing of operational
+elements of the user interface may contribute towards meeting this clause."?>4.2.8<?oxy_comment_end?> Usage with limited reach</p></stentry><stentry>Supports</stentry><stentry>The product does not require reach for use.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T175104+0200" comment="Where ICT provides visual modes of operation, some users need ICT to provide at least one mode of operation that
+minimizes the potential for triggering photosensitive seizures.
+NOTE: Limiting the area and number of flashes per second may contribute towards meeting this clause."?>4.2.9<?oxy_comment_end?> Minimize photosensitive seizure triggers</p></stentry><stentry>Supports</stentry><stentry>The product does not contain flashing content.</stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T175156+0200" comment="Some users will need the ICT to provide features that make it simpler and easier to use.
+NOTE 1: This clause is intended to include the needs of persons with limited cognitive, language and learning
+abilities.
+NOTE 2: Adjustable timings, error indication and suggestion, and a logical focus order are examples of design
+features that may contribute towards meeting this clause."?>4.2.10<?oxy_comment_end?> Usage with limited cognition</p></stentry><stentry>Partially Supports</stentry><stentry><p>The product is operable by users with limited language, cognitive, and learning abilities. To accommodate users with limited cognition, the UI provides icons, text, or a combination of both for controls. In addition, as noted in <b>3.3.2 Labels or Instructions</b>, visible labels are used to communicate the purpose of input fields, and, as noted in <b>3.3.1 Error Identification</b>, standard system dialogs are used consistently to communicate error messages.</p><p>Additionally, the UI supports different contrast modes and the status bar shows a breadcrumb hierarchy of objects in the editor. Finally, different layouts are available to the user and panels can be shown or hidden to increase the users focus<?oxy_comment_start author="andrei_popa" timestamp="20190328T175249+0200" comment="copied, TODO: refine"?>.<?oxy_comment_end?></p></stentry></strow><strow><stentry><p><?oxy_comment_start author="andrei_popa" timestamp="20190328T175327+0200" comment="Where ICT provides features that are provided for accessibility, some users will need their privacy to be maintained
+when using those ICT features that are provided for accessibility.
+NOTE: Enabling the connection of personal headsets for private listening, not providing a spoken version of
+characters being masked and enabling user control of legal, financial and personal data are examples of
+design features that may contribute towards meeting this clause."?>4.2.11<?oxy_comment_end?> Privacy</p></stentry><stentry>Supports</stentry><stentry>The product does not require legal, financial, or personal information.</stentry></strow></simpletable></p></section>-->
+    <!--<section audience="eu-rules"><title><b><b>Chapter </b><u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=23" format="html" scope="external">5: Generic Requirements</xref></u></b></title><p>Notes:</p><p><simpletable frame="all" relcolwidth="1.75* 1.0* 1.58*" id="simpletable_vxz_qlz_fhb"><sthead><stentry>Criteria</stentry><stentry>Conformance Level</stentry><stentry>Remarks and Explanations</stentry></sthead><strow><stentry>5.1 Closed functionality</stentry><stentry>Not Applicable</stentry><stentry>5.1.2.2-5.1.6.2 are not applicable for this product.</stentry></strow><strow><stentry><p>5.2 Activation of accessibility features</p></stentry><stentry>Supports</stentry><stentry>Accessibility features related to a need can be activated without relying on that need.</stentry></strow><strow><stentry><p>5.3 Biometrics</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not rely on biological characteristics.</stentry></strow><strow><stentry><p>5.4 Preservation of accessibility information during conversion</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not provide format conversion.</stentry></strow><strow><stentry><p>5.5.1 Means of operation</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not contain operable parts.</stentry></strow><strow><stentry><p>5.5.2 Operable parts discernibility</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not contain operable parts.</stentry></strow><strow><stentry><p>5.6.1 Tactile or auditory status</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not contain locking or toggle controls.</stentry></strow><strow><stentry><p>5.6.2 Visual status</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not contain locking or toggle controls.</stentry></strow><strow><stentry><p>5.7 Key repeat</p></stentry><stentry>Not Applicable</stentry><stentry>The product relies on platform software to supply key repeat functionality.</stentry></strow><strow><stentry><p>5.8 Double-strike key acceptance</p></stentry><stentry>Not Applicable</stentry><stentry>The product does not provide a keyboard or keypad.</stentry></strow><strow><stentry><p>5.9 Simultaneous user actions</p></stentry><stentry>Supports</stentry><stentry>The product relies on platform software features, such as Sticky Keys, to ensure simultaneous user actions are not required.</stentry></strow></simpletable></p></section>-->
+    <!--<section id="section_jdh_qsz_fhb" audience="eu-rules"><title><b>Chapter </b><u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=28" format="html" scope="external">6: ICT with Two-Way Voice Communication</xref></u></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_jwp_rsz_fhb" audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=31" format="html" scope="external">7: ICT with Video Capabilities</xref></u></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_uxq_tsz_fhb" audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=32" format="html" scope="external">8: Hardware</xref></u></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_o33_wsz_fhb" audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=39" format="html" scope="external">9: Web</xref></u><i>(see WCAG 2.</i><i>x</i><i> section)</i></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_oct_xsz_fhb" audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=43" format="html" scope="external">10: Non-web Documents</xref></u></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_l4l_ftz_fhb" audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=53" format="html" scope="external">11: Software</xref></u></title><p>Notes:</p><p><simpletable frame="all" relcolwidth="1.73* 1.0* 1.5*" id="simpletable_z1t_wxz_ghb"><sthead><stentry>Criteria</stentry><stentry>Conformance Level</stentry><stentry>Remarks and Explanations</stentry></sthead><strow><stentry>Headings....</stentry><stentry/><stentry/></strow><strow><stentry><p>11.5.2.3 Use of accessibility services</p></stentry><stentry/><stentry/></strow><strow><stentry/><stentry/><stentry/></strow><strow><stentry/><stentry/><stentry/></strow></simpletable></p></section>-->
+    <!--<section audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=53" format="html" scope="external">12: Documentation and Support Services</xref></u></title><p>Notes: See <xref href="https://www.oxygenxml.com/xml_webhelp/section508.html" format="html" scope="external">Oxygen XML WebHelp VPAT</xref></p></section>-->
+    <!--<section audience="eu-rules"><title>Chapter <u><xref href="http://www.etsi.org/deliver/etsi_en/301500_301599/301549/01.01.02_60/en_301549v010102p.pdf#page=53" format="html" scope="external">13: ICT Providing Relay or Emergency Service Access</xref></u></title><p>Notes: Not Applicable</p></section>-->
+    <!--<section id="section_pyz_vpg_ghb">
+      <title>Table 3: Success Criteria, Level AAA</title>
+      <p>Notes:</p>
+      <p>
+        <simpletable frame="all" relcolwidth="1.71* 1.0* 1.57*" id="simpletable_uqx_qlr_fhb">
+          <sthead>
+            <stentry>Criteria</stentry>
+            <stentry>Conformance Level</stentry>
+            <stentry>Remarks and Explanations</stentry>
+          </sthead>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-sign" format="html"
+                    scope="external"><b>1.2.6 Sign Language (Prerecorded)</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad" format="html"
+                    scope="external"><b>1.2.7 Extended Audio Description
+                  (Prerecorded)</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" format="html"
+                    scope="external"><b>1.2.8 Media Alternative (Prerecorded)</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only"
+                    format="html" scope="external"><b>1.2.9 Audio-only (Live)</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria– Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><xref href="https://www.w3.org/TR/WCAG21/#identify-purpose" format="html"
+                  scope="external"><u><b>1.3.6 Identify</b></u><u><b> Purpose</b></u></xref> (Level
+                AAA 2.1 only)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria– Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" format="html"
+                    scope="external"><b>1.4.6 Contrast Enhanced</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"
+                    format="html" scope="external"><b>1.4.7 Low or No Background
+                  Audio</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref
+                    href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"
+                    format="html" scope="external"><b>1.4.8 Visual Presentation</b></xref></u>
+                (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"
+                    format="html" scope="external"><b>1.4.9 Images of Text (No Exception)
+                      Control</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"
+                    format="html" scope="external"><b>2.1.3 Keyboard (No Exception)</b></xref></u>
+                (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"
+                    format="html" scope="external"><b>2.2.3 No Timing</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" format="html"
+                    scope="external"><b>2.2.4 Interruptions</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"
+                    format="html" scope="external"><b>2.2.5 Re-authenticating</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="https://www.w3.org/TR/WCAG21/#timeouts" format="html"
+                    scope="external"><b>2.2.6 Timeouts</b></xref></u> (Level AAA 2.1 only)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#seizure-three-times" format="html"
+                    scope="external"><b>2.3.2 Three Flashes</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="https://www.w3.org/TR/WCAG21/#animation-from-interactions"
+                    format="html" scope="external"><b>2.3.3 Animation from
+                  Interactions</b></xref></u> (Level AAA 2.1 only)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"
+                    format="html" scope="external"><b>2.4.8 Location</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"
+                    format="html" scope="external"><b>2.4.9 Link Purpose (Link Only)</b></xref></u>
+                (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"
+                    format="html" scope="external"><b>2.4.10 Section Headings</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="https://www.w3.org/TR/WCAG21/#target-size" format="html"
+                    scope="external"><b>2.5.5 Target Size</b></xref></u> (Level AAA 2.1 only)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="https://www.w3.org/TR/WCAG21/#concurrent-input-mechanisms"
+                    format="html" scope="external"><b>2.5.6 Concurrent Input
+                  Mechanisms</b></xref></u> (Level AAA 2.1 only)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-idioms" format="html"
+                    scope="external"><b>3.1.3 Unusual Words</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-located" format="html"
+                    scope="external"><b>3.1.4 Abbreviations</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-supplements" format="html"
+                    scope="external"><b>3.1.5 Reading Level</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation" format="html"
+                    scope="external"><b>3.1.6 Pronunciation</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref
+                    href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"
+                    format="html" scope="external"><b>3.2.5 Change on Request</b></xref></u> (Level
+                AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"
+                    format="html" scope="external"><b>3.3.5 Help</b></xref></u> (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>
+              <p><u><xref href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"
+                    format="html" scope="external"><b>3.3.6 Error Prevention (All)</b></xref></u>
+                (Level AAA)</p>
+              <!-\-<p> Also applies to:</p>-\->
+              <!-\-<p audience="eu-rules"> EN 301 549 Criteria – Does not apply</p>-\->
+              <p> Revised Section 508 – Does not apply</p>
+            </stentry>
+            <stentry>Not Evaluated</stentry>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </p>
+    </section>-->
+    <section id="section_rrk_brg_ghb">
+      <title>Legal Disclaimer</title>
+      <p>This report describes <b>Oxygen XML WebHelp's</b> ability to support the stated VPAT
+        Standards/Guidelines, subject to Syncro Soft's interpretation of the same. This
+        accessibility report is provided for informational purposes only, and the contents hereof
+        are subject to change without notice. SYNCRO SOFT MAKES NO WARRANTIES, EXPRESS OR IMPLIED,
+        IN THIS DOCUMENT. For more information regarding the accessibility status, please contact us
+        at <i>sales@oxygenxml.com</i>.</p>
+      <p>© 2019 Syncro Soft SRL. All rights reserved.</p>
+    </section>
+  </body>
+</topic>

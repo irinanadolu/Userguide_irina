@@ -1,0 +1,156 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Page breaks,Avoid in lists and tables,Force before or after topic,Add a blank page after a topic,Enforce number of lines"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Page breaks, Avoid in lists and tables, Force before or after topic, Add a blank page after a topic, Enforce number of lines"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_footnotes.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_hyphenation.html"><meta name="DC.relation" scheme="URI" content="dcpp_double_side_pagination.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_controlling_page_breaks.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_page_breaking"><title>Page Breaks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_page_breaking">
+  <h1 class="title topictitle1" id="ariaid-title1">Page Breaks</h1>
+  
+  <div class="body">
+    <p class="p">The page breaks can be controlled in multiple ways:</p>
+    <ol class="ol" id="dcpp_page_breaking__ol_yjd_cf4_vcb">
+      <li class="li">By creating an <code class="ph codeph">@page</code> and assigning it to an element will create a page
+        break between this element and the sibling elements that have a different page.</li>
+      <li class="li">Using the CSS properties: <code class="ph codeph">page-break-before</code>,
+          <code class="ph codeph">page-break-after</code>, or <code class="ph codeph">page-break-avoid</code>.</li>
+      <li class="li">In your DITA topic, set the <code class="keyword markupname xmlatt">@outputclass</code> attribute on the topic root (or
+        any element) to contain one of the <code class="ph codeph">page-break-before</code>,
+          <code class="ph codeph">page-break-after</code>, or <code class="ph codeph">page-break-avoid</code> values. If you
+        want to control the page breaking from the DITA map, use the <code class="keyword markupname xmlatt">@outputclass</code>
+        attribute on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, with any of the values mentioned
+        above.</li>
+    </ol>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_footnotes.html">Footnotes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_hyphenation.html">Hyphenation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_double_side_pagination.html">Double Side Pagination</a></li><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_controlling_page_breaks.html" target="_blank" rel="external noopener">Oxygen PDF Chemistry: Controlling Page Breaks</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_page_breaks___built_in_css">
+    <h2 class="title topictitle2" id="ariaid-title2">Page Breaks - Built-in CSS</h2>
+    <div class="body">
+        <p class="p">Page break properties are used in: <span class="ph filepath">[PLUGIN_DIR]css/print/p-page-breaks.css</span>.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_avoid_page_breaks_in_lists_and_tables">
+    <h2 class="title topictitle2" id="ariaid-title3">How to Avoid Page Breaks in Lists and Tables</h2>
+  
+    <div class="body">
+        <p class="p">To avoid splitting elements over two pages, you can use the
+                <code class="ph codeph">page-break-inside</code> CSS property. For example, if you want to impose
+            this on tables and lists, then add the following rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/table"</span>] {
+    <strong class="hl-keyword">page-break-inside</strong>:avoid;
+}
+*[class ~= <span class="hl-string">"topic/ol"</span>] {
+    <strong class="hl-keyword">page-break-inside</strong>:avoid;
+}
+*[class ~= <span class="hl-string">"topic/ul"</span>] {
+    <strong class="hl-keyword">page-break-inside</strong>:avoid;
+}</pre>
+        <div class="note note note_note"><span class="note__title">Note:</span> Since the task steps are inherited from <code class="ph codeph">topic/ol</code>, they will also not
+            be split over two separate pages. However, if you want to allow this, add the following
+            CSS
+            rule:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"task/steps"</span>] {
+    <strong class="hl-keyword">page-break-inside</strong>:auto;
+}</pre></div>
+    <div class="note note note_note"><span class="note__title">Note:</span> Another way to do this is to mark the element with an <code class="keyword markupname xmlatt">@outputclass</code> set to
+                <code class="ph codeph">page-break-avoid</code>.</div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_force_a_page_break_before_a_topic">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Force a Page Break Before or After a Topic or Another Element</h2>
+  
+  <div class="body">
+		<p class="p">If you want to force a page break <strong class="ph b">before all</strong> the second-level topics (for example,
+      sections in chapters that are usually kept flowing one after another without page breaks), add
+      the following in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>: </p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"topic/topic"</span>] &gt; *[class ~= <span class="hl-string">"topic/topic"</span>] {
+	<strong class="hl-keyword">page-break-before</strong>:always;
+} </pre>
+    <div class="p">If you want to force a page break <strong class="ph b">for a specific topic</strong>, mark the topic (or any other
+      element you need to control page breaking for) with an <code class="keyword markupname xmlatt">@outputclass</code> attribute
+      set to one of these values: <dl class="dl">
+        
+          <dt class="dt dlterm">page-break-before</dt>
+          <dd class="dd">Use this for a page break before the marked element.</dd>
+        
+        
+          <dt class="dt dlterm">page-break-after</dt>
+          <dd class="dd">Use this for a page break after the marked element.</dd>
+        
+        
+          <dt class="dt dlterm">page-break-avoid</dt>
+          <dd class="dd">Use this to avoid page breaks inside the marked element.</dd>
+        
+      </dl>For example, to force a page break before a certain topic, use:</div>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"page-break-before"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong></pre>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> You can set the output class on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element from the
+        DITA map instead of the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element. In this way you can reuse
+        the topic in another context where the page breaking is not necessary.</div>
+    </div>
+    <p class="p">You can also control page breaking for lists, paragraphs, or any other block type elements.
+      The following example avoids page breaks inside an ordered list:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;ol</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"page-break-avoid"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong></pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_add_a_blank_page_after_a_topic">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Add a Blank Page After a Topic</h2>
+  
+  <div class="body">
+    <p class="p">If you want to add a new blank page after a topic, add the following rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>.</p>
+    <p class="p">Style the separating blank page: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> topic-separating-page{
+   @top-left {
+     <strong class="hl-keyword">content</strong>: <span class="hl-string">""</span>;
+   }
+   @top-right {
+     <strong class="hl-keyword">content</strong>: <span class="hl-string">""</span>;
+   }
+   @top-center {
+      <strong class="hl-keyword">content</strong>: <span class="hl-string">"This page is blank"</span>;
+   }
+}
+</pre>
+    <p class="p">Associate this page to the <code class="ph codeph">:after</code> pseudo-element of the topic:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">
+*[class~=<span class="hl-string">"topic/topic"</span>][outputclass~=<span class="hl-string">"add-separator-page"</span>]:after {
+ <strong class="hl-keyword">content</strong>: <span class="hl-string">" "</span>;
+ <strong class="hl-keyword">display</strong>: block;
+ page: topic-separating-page;
+}</pre>
+    <p class="p">In the XML content, on the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element, set the
+        <code class="keyword markupname xmlatt">@outputclass</code> to the <code class="ph codeph">add-separator-page</code> value. </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"add-separator-page"</span><strong class="hl-tag">&gt;</strong> ... <strong class="hl-tag">&lt;/topic&gt;</strong></pre>
+    <p class="p">The <code class="ph codeph">:after</code> pseudo-element will be created next to the topic content and will
+      be placed on the <code class="ph codeph">topic-separating-page</code>.</p>
+    <p class="p">Use the page margin box selectors to override the default content from the
+      headers/footers.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> You can set the output class on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element from the
+      DITA map instead of the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element. This allows you to reuse the
+      topic in another context where the page breaking is not necessary.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_enforce_a_number_of_lines_from_the_split_paragraphs_in_the_next_page">
+    <h2 class="title topictitle2" id="ariaid-title6">How to Enforce a Number of Lines from Paragraphs that Continue in Next Page</h2>
+  
+    <div class="body">
+        <p class="p">In typography, an <em class="ph i">orphan</em> is the first line of a paragraph that appears alone at
+      the bottom of a page (the paragraph continues on a subsequent page), while a <em class="ph i">widow</em> is
+      the last line of a paragraph that appears alone at the top of a page. The default is 2 for
+      each of them. You can control this number by adding the following to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root {
+    <strong class="hl-keyword">widows</strong>:<span class="hl-number">4</span>;
+    <strong class="hl-keyword">orphans</strong>:<span class="hl-number">4</span>;
+}</pre>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> As a difference from the W3C standard, the <code class="ph codeph">widows</code> and
+          <code class="ph codeph">orphans</code> CSS properties are applied to lists as well (the default is 2).
+        This means that a list that spans consecutive pages will have either zero or at least 2
+        lines on each of the pages.</div>
+    </div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_avoid_page_breaks_between_top_level_topics__chapters">
+    <h2 class="title topictitle2" id="ariaid-title7">How to Avoid Page Breaks Between Top-Level Topics (Chapters)</h2>
+    <div class="body">
+        <p class="p">If you plan to publish a simple map with just one level of topics (such as a list of
+      topics), then the automated page breaks between these topics might not be desired.</p>
+		<p class="p">In this case, you can use the following CSS snippet to disable the page breaks between
+      chapters:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter] {
+  -oxy-page-group:auto; 
+}</pre>
+    </div>
+	<nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc//ug-chemistry/topics/ch_chapters.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen PDF Chemistry User Guide: Chapter Page Placement and
+          Styling</strong></a></li></ul></div></nav>
+</article></article></article></main></body></html>

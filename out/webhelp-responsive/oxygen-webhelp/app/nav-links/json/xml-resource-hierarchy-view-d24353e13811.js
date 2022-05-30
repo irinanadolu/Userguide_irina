@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Moving\/Renaming XML Resources","href":"topics\/move-rename-resource-xml-hierarchy-view.html","attributes":{"data-id":"move-rename-resource-xml-hierarchy-view"},"menu":{"hasChildren":false},"tocID":"move-rename-resource-xml-hierarchy-view-d24353e13830","topics":[]}]});

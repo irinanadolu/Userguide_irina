@@ -1,0 +1,27 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="This type of plugin contributes a folder that contains an external XProc engine."><meta name="DC.subject" content="Plugin extensions,Additional XProc engine,Additional XProc engine plugin extension"><meta name="keywords" content="Plugin extensions, Additional XProc engine, Additional XProc engine plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/additional-framework-extension.html"><meta name="DC.relation" scheme="URI" content="../topics/components-validation-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="additional-xproc-engine"><title>Additional XProc Engine Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="additional-xproc-engine"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Additional XProc Engine Plugin Extension </h1>
+  
+  
+  <div class="body"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> contributes a
+    folder that contains an external XProc engine.</p>
+    <p class="p">The name of the <dfn class="term">plugin</dfn> extension is <strong class="ph b"><em class="ph i">AdditionalXprocEngine</em></strong> and it
+      makes it easier to <a class="xref" href="xproc-API-external-engine.html#xproc-API-external-engine">integrate an external XProc engine</a>. After the plugin is installed, when you run an
+      XProc transformation scenario, your external XProc engine can be selected from the
+        <span class="ph uicontrol">Processor</span> drop-down menu in the <span class="ph uicontrol">XProc</span> tab.</p>
+    <div class="p">An example of the <span class="ph filepath">plugin.xml</span> file looks like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">id</span>=<span class="hl-value">"morgana.xproc.addon"</span>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Contribute Morgana XProc"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Contribute Morgana XProc"</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span>
+ <span class="hl-attribute">vendor</span>=<span class="hl-value">"Syncro Soft"</span>
+ <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.exml.plugin.Plugin"</span>
+ <span class="hl-attribute">classLoaderType</span>=<span class="hl-value">"preferReferencedResources"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"AdditionalXProcEngine"</span> <span class="hl-attribute">path</span>=<span class="hl-value">"MorganaXProcEngine/"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/extension&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+    <p class="p">The <code class="keyword markupname xmlatt">@path</code> attribute points to the XProc engine folder that contains the
+        <span class="ph filepath">engine.xml</span> and all the libraries necessary to run it.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/additional-framework-extension.html" title="This type of plugin allows you to add a new framework straight from the plugin.">Additional Framework Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/components-validation-plugin.html" title="This type of plugin allows you to customize the menus, toolbars, and other components by enabling or filtering them from the user interface.">Components Validation Plugin Extension</a></div></div></nav></article></main></body></html>

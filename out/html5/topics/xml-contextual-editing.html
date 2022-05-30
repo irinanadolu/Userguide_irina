@@ -1,0 +1,34 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Editing in Master Files context,Modular XML files"><meta name="keywords" content="XML documents, Editing in Master Files context, Modular XML files"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/resolve-xml-schema-location-through-xml-catalogs.html"><meta name="DC.relation" scheme="URI" content="../topics/search-refactor-operations-xml-id-idrefs.html"><meta name="DC.relation" scheme="URI" content="defining_master_files.html#defining_master_files"><meta name="DC.relation" scheme="URI" content="xml-resource-hierarchy-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-contextual-editing"><title>Working with Modular XML Files in the Master Files Context</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-contextual-editing"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with Modular XML Files in the Master Files Context</h1>
+  
+  <div class="body">
+    <p class="p">Smaller interrelated modules that define a complex XML modular structure cannot be correctly
+      edited or validated individually, due to their interdependency with other modules. <span class="ph">Oxygen XML Editor</span> provides the support for defining the main module (or modules), allowing
+      you to edit any file from the hierarchy in the context of the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master files</dfn></a>.</p>
+    <p class="p">You cat set a main XML document either using the <a class="xref" href="defining_master_files.html#defining_master_files"><dfn class="term">master files</dfn> support
+        from the <span class="ph uicontrol">Project</span> view</a>, or
+      using a validation scenario.</p>
+    <p class="p">To set a <dfn class="term">master file</dfn> using a validation scenario, add validation units that
+      point to the main modules. <span class="ph">Oxygen XML Editor</span> warns you if the current module is not part
+      of the dependencies graph computed for the main XML document. In this case, it considers the
+      current module as the main XML document.</p>
+    <div class="p">The advantages of working with modular XML files in the context of a <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a> include: <ul class="ul">
+        <li class="li">Correct validation of a module in the context of a larger XML structure.</li>
+        <li class="li"><a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+              Assistant</dfn></a> displays all collected entities and IDs starting from the
+            <dfn class="term">master files</dfn>.</li>
+        <li class="li"><span class="ph">Oxygen XML Editor</span> uses the schema defined in the <dfn class="term">master file</dfn> when you
+          edit a module that is included in the hierarchy through the <em class="ph i">External Entity</em>
+          mechanism.</li>
+        <li class="li">The <dfn class="term">master files</dfn> defined for the current module determines the <a class="xref" href="search-refactor-scope.html">scope of the search and refactoring actions</a> for
+          ID/IDREFS values and for updating references when renaming/moving a resource. <span class="ph">Oxygen XML Editor</span> performs the search and refactoring actions in the context that the
+            <dfn class="term">master files</dfn> determine, improving the speed of execution.</li>
+      </ul></div>
+    <p class="p">For more information about editing modular XML files in the <dfn class="term">master files</dfn>
+      context, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/e2oo4RWNxW8" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents.html">Editing XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/resolve-xml-schema-location-through-xml-catalogs.html">Resolving Schema Locations Through XML Catalogs</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/search-refactor-operations-xml-id-idrefs.html">Search and Refactoring Actions for IDs and IDREFS</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="defining_master_files.html#defining_master_files">Master Files Support</a></li><li class="linklist"><a class="link" href="xml-resource-hierarchy-view.html">XML Resource Hierarchy/Dependencies View</a></li></ul></div></nav>
+</article></main></body></html>

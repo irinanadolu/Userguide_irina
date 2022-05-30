@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="WebHelp Responsive,Changing scoring values in search results"><meta name="keywords" content="WebHelp Responsive, Changing scoring values in search results"><meta name="DC.relation" scheme="URI" content="../topics/whr_searching.html"><meta name="DC.relation" scheme="URI" content="../topics/whr_searching.html"><meta name="DC.relation" scheme="URI" content="../topics/exclude-topics-webhelp.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scoring-properties-search-results"><title>How to Change Element Scoring in Search Results</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scoring-properties-search-results"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Change Element Scoring in Search Results</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">The WebHelp <span class="ph uicontrol">Search</span> feature is enhanced with a rating mechanism that
+        computes scores for every page that matches the search criteria. HTML tag elements are
+        assigned a scoring value and these values are evaluated for the search results. The WebHelp
+        directory includes a properties file that defines the scoring values for tag elements and
+        this file can be edited to customize the values according to your needs.</p>
+      <p class="p">To edit the scoring values of HTML tag element for enhancing WebHelp search results, follow
+        these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Edit the scoring properties file for DITA. The properties file includes instructions
+          and examples to help you with your customization. The file is located in: <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>\plugins\com.oxygenxml.webhelp.responsive\indexer\scoring.properties</span>.</span>
+        <div class="itemgroup info">The values that can be edited in the <span class="ph filepath">scoring.properties</span>
+          file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">h1 </span>= 10
+<span class="hl-attribute">h2 </span>= 9
+<span class="hl-attribute">h3 </span>= 8
+<span class="hl-attribute">h4 </span>= 7
+<span class="hl-attribute">h5 </span>= 6
+<span class="hl-attribute">h6 </span>= 5
+<span class="hl-attribute">b </span>= 5
+<span class="hl-attribute">strong </span>= 5
+<span class="hl-attribute">em </span>= 3
+<span class="hl-attribute">i</span>=3
+<span class="hl-attribute">u</span>=3
+<span class="hl-attribute">div.toc</span>=-10
+<span class="hl-attribute">title</span>=20
+<span class="hl-attribute">div.ignore</span>=ignored
+<span class="hl-attribute">meta_keywords </span>= 20
+<span class="hl-attribute">meta_indexterms </span>= 20
+<span class="hl-attribute">meta_description </span>= 25
+<span class="hl-attribute">shortdesc</span>=25</pre></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Save your changes to the file.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Re-run your WebHelp transformation.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_searching.html">Searching the Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr_searching.html">Searching the Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/exclude-topics-webhelp.html">How to Exclude Certain DITA Topics from Search Results</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Schematron parser"><meta name="keywords" content="Preferences, Schematron parser"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xml-parser.html"><meta name="DC.relation" scheme="URI" content="../topics/relax-ng-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xml-instances-generator.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="schematron-preferences-page"><title>Schematron Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="schematron-preferences-page"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Schematron Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure options regarding Schematron, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Schematron</span></span>.</p>
+    <div class="p">The following options are available in this preferences page:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">ISO Schematron</span> Section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Optimize (visit-no-attributes)</span></dt>
+                  <dd class="dd">If your ISO Schematron assertion tests do not contain the attributes axis, you
+                    should select this option for faster ISO Schematron validation.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Allow foreign elements (allow-foreign)</span></dt>
+                  <dd class="dd">Enables support for <code class="ph codeph">allow-foreign</code> on ISO Schematron. This
+                    option is used to pass non-Schematron elements to the generated stylesheet.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Use associated XML Schema to expand default attribute
+                      values</span></dt>
+                  <dd class="dd">When selected (default value), if the validated XML document has an XML Schema
+                    associated that contains default values for attributes defined in the XML
+                    content, the Schematron will be able to match on those default attributes.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Use Saxon EE (schema aware) for xslt2/xslt3 query language
+                      binding</span></dt>
+                  <dd class="dd">When selected, Saxon EE is used for
+                      <code class="ph codeph">xslt2</code>/<code class="ph codeph">xslt3</code> query binding. If this option is
+                    not selected, Saxon PE is used.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Enable Schematron Quick Fixes (SQF) support</span></dt>
+                  <dd class="dd">Allows you to enable or disable the support for <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fixes</dfn></a> in Schematron
+                    files. This option is selected by default.</dd>
+                
+                
+                  <dt class="dt dlterm" id="schematron-preferences-page__embedded-rules-query-language"><span class="ph uicontrol">Embedded rules query language binding</span></dt>
+                  <dd class="dd">You can control the query language binding used by the ISO Schematron embedded
+                    rules. You can choose between: <span class="ph uicontrol">xslt1</span>,
+                      <span class="ph uicontrol">xslt2</span>, or <span class="ph uicontrol">xslt3</span>.<div class="note note note_note"><span class="note__title">Note:</span> To control
+                      the query language binding for standalone ISO Schematron, you need to set the
+                      query language to be used with a <code class="keyword markupname xmlatt">@queryBinding</code> attribute on
+                      the schema root element.</div></dd>
+                
+                
+                  <dt class="dt dlterm" id="schematron-preferences-page__message-language"><span class="ph uicontrol">Message language</span></dt>
+                  <dd class="dd">This option allows you to specify the language to be used in Schematron
+                    validation messages. You can choose between the following:<ul class="ul">
+                      <li class="li"><span class="ph uicontrol">Use the language defined in the application</span> - The
+                        language that is specified in <a class="xref" href="preferences-global.html#preferences-global__language">the <span class="ph uicontrol">Global
+                            Preferences</span> page</a> will be used and only the validation messages that
+                        match that language will be presented. You can use the <span class="ph uicontrol">Change
+                          application language</span> link to navigate to the preferences page
+                        where you can specify the language to be used in the application.</li>
+                      <li class="li"><span class="ph uicontrol">Use the "xml:lang" attribute set on the Schematron
+                          root</span> - The language specified in the <code class="keyword markupname xmlatt">@xml:lang</code>
+                        attribute from the Schematron root will be used and only the validation
+                        message that match that language will be presented.</li>
+                      <li class="li"><span class="ph uicontrol">Ignore the language and show all message</span> - All
+                        messages are displayed in whatever language is defined within the Schematron
+                        schema.</li>
+                      <li class="li"><span class="ph uicontrol">Custom</span> - Use this option to specify a custom
+                        language to be used and only the messages that match the specified language
+                        will be presented.</li>
+                    </ul><div class="note note note_note"><span class="note__title">Note:</span> In all cases, if the selected language is not available for a
+                      validation error or warning, all messages will be displayed in whatever
+                      language is defined within the Schematron schema.</div></dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Schematron 1.5</span> Section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="schematron-preferences-page__xpath-version"><span class="ph uicontrol">XPath Version</span></dt>
+                  <dd class="dd">Allows you to select the version of XPath for the expressions that are allowed
+                    in Schematron assertion tests. You can choose between:
+                      <span class="ph uicontrol">1.0</span>, <span class="ph uicontrol">2.0</span>, or
+                      <span class="ph uicontrol">3.0</span>. This option is applied in both standalone
+                    Schematron 1.5 schemas and embedded Schematron 1.5 rules.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-xml-parser.html">XML Parser Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/relax-ng-preferences-page.html">Relax NG Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-xml-instances-generator.html">Sample XML Files Generator Preferences</a></div></div></nav></article></main></body></html>

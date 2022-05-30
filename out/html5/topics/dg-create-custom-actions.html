@@ -1,0 +1,176 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-configuring-actions-menus-toolbar.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-configuring-actions-menus-toolbar.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-insert-section-action.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-insert-section-action.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-insert-table-action.html"><meta name="DC.relation" scheme="URI" content="the-actions-sub-tab.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-create-custom-actions"><title>Creating and Customizing Actions for a Framework</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-create-custom-actions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating and Customizing Actions for a Framework</h1>
+  <div class="body">
+    <div class="p">There are several possibilities for creating new <span class="ph uicontrol">Author</span> mode
+        actions:<ul class="ul" id="dg-create-custom-actions__ul_zwn_mnf_jlb">
+        <li class="li">You can create new actions for a framework or edit existing ones using the
+            <span class="ph uicontrol">Actions</span> subtab of the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              Type</span> configuration dialog box</a>. In this case, the actions are stored
+          internally in the <em class="ph i">*.framework</em> file.</li>
+        <li class="li">You can export existing actions from the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              Type</span> configuration dialog box</a> into individual XML files or use a
+          built-in template to create a new XML file that defines a single action. In this case, the
+          actions are stored externally as separate XML files. The benefits of using this approach
+          are explained in the <a class="xref" href="dg-create-custom-actions.html#dg-create-custom-actions__section_2">Creating or Editing Actions Using an Individual XML File for Each Action</a> section below.</li>
+      </ul></div>
+    <section class="section" id="dg-create-custom-actions__section_q5l_h4f_jlb"><h2 class="title sectiontitle">Creating or Editing Actions Using the Document Type Configuration Dialog Box</h2>
+      
+      <div class="p">To add or configure <span class="ph uicontrol">Author</span> mode actions for a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type) using the
+          <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+            Type</span> configuration dialog box</a>, follow this procedure:<ol class="ol" id="dg-create-custom-actions__procedure-dg-author-settings">
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+              <span class="ph uicontrol">Document Types Association</span>, and select the
+              <dfn class="term">framework</dfn>.</li>
+          <li class="li">Select your framework and click the <span class="ph uicontrol">Edit</span> button<span class="ph"> (or you can use the
+                <span class="ph uicontrol">Duplicate</span> or <span class="ph uicontrol">Extend</span> button to <a class="xref" href="framework-customization-extending.html">create an extension of the
+                framework</a>)</span>.</li>
+          <li class="li">In the resulting <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document Type</span> configuration dialog box</a>, go to the
+              <span class="ph uicontrol">Author</span> tab, then the <span class="ph uicontrol">Actions</span> subtab. </li>
+          <li class="li">To create a new action, click the <span class="ph uicontrol"><img class="image" id="dg-create-custom-actions__image_p55_2t4_5r" src="../img/Add16.png">New</span> button. To edit an existing action, select
+            the action and click the <span class="ph uicontrol"><img class="image" id="dg-create-custom-actions__image_ltc_3ns_tr" src="../img/Wrench16.png">Edit</span> button.<p class="p"><strong class="ph b">Step Result:</strong> In either
+              case, this opens the <a class="xref" href="the-action-dialog.html#the-action-dialog"><span class="ph uicontrol">Action</span> configuration dialog box</a> where you can
+              configure numerous aspects of the action.</p></li>
+          <li class="li">Once you are finished, click <span class="ph uicontrol">OK</span> several times to exit the
+            configuration dialog box.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> Your changes are stored in the <em class="ph i">*.framework</em> file for your particular
+        framework.</p>
+    </section>
+    <section class="section" id="dg-create-custom-actions__section_2"><h2 class="title sectiontitle">Creating or Editing Actions Using an Individual XML File for Each Action</h2>
+      
+      <div class="p">It is possible to work with <span class="ph uicontrol">Author</span> mode actions outside the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+            Type</span> configuration dialog box</a> and store them externally from the
+          <em class="ph i">*.framework</em> file. You can either export existing actions or use a template to
+        create a new action from scratch. The benefits of using this approach are:<ul class="ul" id="dg-create-custom-actions__ul_tbb_fsf_jlb">
+          <li class="li">You can share, copy, or reuse each individual action across multiple projects or
+            frameworks.</li>
+          <li class="li">It is easier to develop and test action configurations. After configuring the XML file
+            that defines an action, you can test its functionality by opening a document from your
+            particular framework and invoking the action to see if it works as expected. If you did
+            not get the desired result, you can simply repeat the process until you are happy with
+            the result without having to navigate through the framework configuration dialog
+            box.</li>
+        </ul></div>
+      <p class="p" id="dg-create-custom-actions__exporting-actions"><u class="ph u"><strong class="ph b">Exporting Actions</strong></u></p>
+      <p class="p">To export existing <span class="ph uicontrol">Author</span> mode actions into individual XML files,
+        follow this procedure:</p>
+      <div class="p">
+        <ol class="ol" id="dg-create-custom-actions__procedure-dg-author-settings2">
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+              <span class="ph uicontrol">Document Types Association</span>, and select the
+              <dfn class="term">framework</dfn>.</li>
+          <li class="li">Select your framework and click the <span class="ph uicontrol">Edit</span> button<span class="ph"> (or you can use the
+                <span class="ph uicontrol">Duplicate</span> or <span class="ph uicontrol">Extend</span> button to <a class="xref" href="framework-customization-extending.html">create an extension of the
+                framework</a>)</span>.</li>
+          <li class="li">In the resulting <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document Type</span> configuration dialog box</a>, go to the
+              <span class="ph uicontrol">Author</span> tab, then the <span class="ph uicontrol">Actions</span>
+            subtab.</li>
+          <li class="li"><strong class="ph b">[Important]</strong> Make sure the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog__storage-definition"><span class="ph uicontrol">Storage</span> option</a> in the top part of the dialog box is
+            set to <span class="ph uicontrol">External</span> and the external location must be a subdirectory
+            of your current framework directory (see the <a class="xref" href="dg-create-custom-actions.html#dg-create-custom-actions__section_ht2_3jg_jlb">Notes About the
+              Storage Path section</a>).</li>
+          <li class="li">Select the action (or multiple actions) you want to export, right-click, and use the
+                <span class="ph uicontrol"><img class="image" id="dg-create-custom-actions__image_rxx_3lg_jlb" src="../img/Export16.png">Export</span> action (this action is also located at the bottom of the table of
+                actions).<p class="p"><strong class="ph b">Step Result:</strong> If you choose to export a single action, a resulting
+              dialog box will allow you to select the destination path for the new XML file that
+              contains the configuration details of the action. If you export multiple actions, they
+              will automatically be saved as individual XML files inside a newly created folder (it
+              will have <strong class="ph b"><em class="ph i">_externalAuthorActions</em></strong> at the end of the folder name) inside
+              your current framework directory.</p></li>
+          <li class="li"><strong class="ph b">[Important]</strong> Click <span class="ph uicontrol">OK</span> several times to confirm your
+            changes and exit the <span class="ph uicontrol">Preferences</span> dialog box. The files will not
+            be created until you exit this dialog box.<p class="p"><strong class="ph b">Step Result:</strong> Each exported action is
+              extracted from the framework configuration file and exported as an individual XML
+              file.</p></li>
+          <li class="li">To configure and test a particular action, you can open its corresponding XML file in
+              <span class="ph">Oxygen XML Editor</span>, make changes, save the file, then open a document from your
+            framework, test the action and repeat until you get the desired result.<div class="note note note_note"><span class="note__title">Note:</span> You can add or edit the action files outside of <span class="ph">Oxygen XML Editor</span>, but you will need to restart the application each time to reload the
+        changes.</div></li>
+        </ol>
+      </div>
+      <p class="p"><u class="ph u"><strong class="ph b">Creating New Actions</strong></u></p>
+      <div class="p">To create a new <span class="ph uicontrol">Author</span> mode action outside the framework
+        configuration dialog box, follow these steps:<ol class="ol" id="dg-create-custom-actions__ol_vrl_p5f_jlb">
+          <li class="li">Open the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>, search for a template called <span class="ph uicontrol">Author Action</span>, and
+            choose a storage path and file name. Remember that ultimately, it must be saved in a
+            subdirectory of your particular framework directory (see the <a class="xref" href="dg-create-custom-actions.html#dg-create-custom-actions__section_ht2_3jg_jlb">Notes About the
+              Storage Path section</a>). Complete the creation process.<p class="p"><strong class="ph b">Step Result:</strong> The
+              resulting XML file contains some hints and it is an example of an action configuration
+              that will insert a new paragraph.</p></li>
+          <li class="li">
+            <p class="p">Configure the action as needed and save your changes.</p>
+            <div class="note note note_note"><span class="note__title">Note:</span> You can use XInclude to reuse different fragments, like XPath expressions or
+              configured operations between actions.<p class="p"><strong class="ph b">Example</strong>: Reusing an XPath
+                expression:</p><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;a:operations&gt;</strong>
+    <strong class="hl-tag">&lt;a:operation</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"InsertFragmentOperation"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;a:xpathCondition&gt;</strong>
+        <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"expression.txt"</span> 
+            <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span> <span class="hl-attribute">parse</span>=<span class="hl-value">"text"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/a:xpathCondition&gt;</strong>
+      <strong class="hl-tag">&lt;a:arguments&gt;</strong>
+        <strong class="hl-tag">&lt;a:argument</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"insertLocation"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"expression.txt"</span> 
+                <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span> <span class="hl-attribute">parse</span>=<span class="hl-value">"text"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;/a:argument&gt;</strong>
+      <strong class="hl-tag">&lt;/a:arguments&gt;</strong>
+    <strong class="hl-tag">&lt;/a:operation&gt;</strong>
+  <strong class="hl-tag">&lt;/a:operations&gt;</strong></pre><p class="p">Where the content of the
+                  <span class="ph filepath">expression.txt</span> file is
+                  <code class="ph codeph">self::para</code></p><div class="p"><strong class="ph b">Example</strong>: Reusing an entire
+                operation:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;a:operations</strong> <span class="hl-attribute">xmlns:a</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/author/external-action"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"operation.xml"</span>
+          <span class="hl-attribute">xpointer</span>=<span class="hl-value">"element(/1/1)"</span> <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span><strong class="hl-tag"> /&gt;</strong>
+  <strong class="hl-tag">&lt;/a:operations&gt;</strong></pre></div><div class="p">Where the content of
+                  <span class="ph filepath">operation.xml</span>
+                is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;a:operations</strong> <span class="hl-attribute">xmlns:a</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/author/external-action"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;a:operation</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"ToggleSurroundWithElementOperation"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;a:xpathCondition&gt;</strong>ancestor-or-self::p<strong class="hl-tag">&lt;/a:xpathCondition&gt;</strong>
+        <strong class="hl-tag">&lt;a:arguments&gt;</strong>
+            <strong class="hl-tag">&lt;a:argument</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"element"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;i/&gt;</strong><strong class="hl-tag">&lt;/a:argument&gt;</strong>
+        <strong class="hl-tag">&lt;/a:arguments&gt;</strong>
+    <strong class="hl-tag">&lt;/a:operation&gt;</strong>
+<strong class="hl-tag">&lt;/a:operations&gt;</strong></pre></div></div>
+            <p class="p"><strong class="ph b">Step Result:</strong> At this point, the action has been created but it needs to be
+              added to the UI (in a toolbar or menu).</p>
+          </li>
+          <li class="li">Add the new action to a UI component. For example, to add it in a toolbar, open the
+              <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document Type</span> configuration dialog box</a>, go to the
+              <span class="ph uicontrol">Author</span> tab, then the <a class="xref" href="the-toolbar-tab.html"><span class="ph uicontrol">Toolbar</span> subtab</a>, and add the action. </li>
+          <li class="li">To test the action, you can open a document from your framework and test the action.
+            If you don't get the desired result, open the action file, make changes, then test them
+            again. Repeat until you get the desired result.<div class="note note note_note"><span class="note__title">Note:</span> You can add or edit the action files outside of <span class="ph">Oxygen XML Editor</span>, but you will need to restart the application each time to reload the
+        changes.</div></li>
+        </ol></div>
+    </section>
+    <section class="section" id="dg-create-custom-actions__section_ht2_3jg_jlb"><h2 class="title sectiontitle">Notes About the Storage Path</h2>
+      
+      <p class="p">As mentioned above, it is imperative that the action configuration files be stored in a
+        specific subdirectory of your particular framework directory. </p>
+      <p class="p">There are two possible naming conventions for this subdirectory:</p>
+      <div class="p">
+        <ul class="ul" id="dg-create-custom-actions__ul_d4d_pcg_jlb">
+          <li class="li"><strong class="ph b"><em class="ph i">{framework_directory}</em>/externalAuthorActions</strong> - If there are multiple
+            framework subdirectories inside <em class="ph i">{framework_directory}</em>, using this path structure
+            will make the actions available to all of them.</li>
+          <li class="li"><strong class="ph b"><em class="ph i">{framework_directory}</em>/<em class="ph i">{framework_file_name}</em>_externalAuthorActions</strong>
+            - Using this path structure will make the actions only available in the framework stored
+            inside the  <span class="ph filepath">{framework_file_name}.framework</span> file.<div class="note note note_note"><span class="note__title">Note:</span> When <a class="xref" href="dg-create-custom-actions.html#dg-create-custom-actions__exporting-actions">exporting actions
+                from the UI</a>, this is the directory structure that is used.</div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="dg-create-custom-actions__section_lsn_bkg_jlb"><h2 class="title sectiontitle">Action Configuration Tips</h2>
+      
+      <ul class="ul" id="dg-create-custom-actions__ul_mgv_fkg_jlb">
+        <li class="li">If an action is configured to insert a fragment that contains entities, you need to wrap
+          it in <code class="ph codeph">CDATA</code> markup.</li>
+        <li class="li">For a list of default operation, see <a class="xref" href="dg-default-author-operations.html">Author Mode Operations</a>.</li>
+      </ul>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dg-insert-section-action.html">Example: Configuring the Insert Section Action for a Framework</a><br></li><li class="link olchildlink"><a href="../topics/dg-insert-table-action.html">Example: Configuring the Insert Table Action for a Framework</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configuring-actions-menus-toolbar.html">Customizing the Editing Experience for a Framework</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-configuring-actions-menus-toolbar.html">Customizing the Editing Experience for a Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-insert-section-action.html">Example: Configuring the Insert Section Action for a Framework</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="the-actions-sub-tab.html">Framework Configuration Dialog Box: Actions Subtab</a></li></ul></div></nav>
+</article></main></body></html>

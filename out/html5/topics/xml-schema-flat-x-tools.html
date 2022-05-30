@@ -1,0 +1,75 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Flatten Schema tool"><meta name="keywords" content="XML Schemas, Flatten Schema tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/convert-db-to-xml-schema-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/generate-java-classes-x.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-flat"><title>Flatten an XML Schema</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-flat"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Flatten an XML Schema</h1>
+  
+  <div class="body">
+    <p class="p">You can organize an XML schema linked by <code class="keyword markupname xmlelement">&lt;xs:include&gt;</code> and
+      <code class="keyword markupname xmlelement">&lt;xs:import&gt;</code> statements on several levels. In some cases, working on such a
+      schema as if it were a single file is more convenient than working on multiple files
+      separately. The <span class="ph uicontrol">Flatten Schema</span> operation allows you to flatten an
+      entire hierarchy of XML schemas. Starting with the main XML schema, <span class="ph">Oxygen XML Editor</span>
+      calculates its hierarchy by processing the <code class="keyword markupname xmlelement">&lt;xs:include&gt;</code> and
+      <code class="keyword markupname xmlelement">&lt;xs:import&gt;</code> statements.</p>
+    <p class="p">The <span class="ph uicontrol">Flatten Schema</span> action is available from the <span class="ph"><span class="ph uicontrol">Tools</span> menu or the contextual menu in <span class="ph uicontrol">Text</span>
+        mode</span>. The action opens the <span class="ph uicontrol">Flatten Schema</span> dialog box that allows
+      you to configure the operation.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Flatten Schema Dialog Box</figcaption>
+        
+        <img class="image" src="../img/flatten-schema-dialog.png">
+      </figure>
+    </div>
+    <div class="p">For the main schema file and for each imported schema, a new flattened schema is generated in
+      the specified output folder. These schemas have the same name as the original ones.<div class="note note note_note"><span class="note__title">Note:</span> If
+        necessary, the operation renames the resulted schemas to avoid duplicated file
+      names.</div></div>
+    <p class="p">A flattened XML schema is obtained by recursively adding the components of the included
+      schemas into the main one. This means <span class="ph">Oxygen XML Editor</span> replaces the
+      <code class="keyword markupname xmlelement">&lt;xs:include&gt;</code>, <code class="keyword markupname xmlelement">&lt;xs:redefine&gt;</code>, and <code class="keyword markupname xmlelement">&lt;xs:override&gt;</code>
+      elements with the ones coming from the included files.</p>
+    <section class="section" id="xml-schema-flat__options_in_the_flatten_schema_dialog_box"><h2 class="title sectiontitle">Options in the Flatten Schema Dialog Box</h2>
+      
+      <p class="p">The following options are available in the <span class="ph uicontrol">Flatten Schema</span> dialog
+        box:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">File name</span></dt>
+            <dd class="dd">The name of the output file.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Output directory</span></dt>
+            <dd class="dd">The path of the output directory where the flattened schema file will be saved.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Open the flattened XML Schema file in editor</span></dt>
+            <dd class="dd">Opens the main flattened schema in the editing area after the operation
+              completes.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Use the XML Catalogs when collecting the referenced XML
+                Schemas</span></dt>
+            <dd class="dd">Enables the imported and included schemas to be resolved through the available <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalogs</dfn></a>.<div class="note note note_note"><span class="note__title">Note:</span> Changing this
+                option triggers the recalculation of the dependencies graph for the main
+                schema.</div></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Process the imported XML Schemas resolved through the XML
+                Catalogs</span></dt>
+            <dd class="dd">Specifies whether or not the imported schemas that were resolved through an <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> are also
+              processed.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Flatten the imported XML Schema(s)</span></dt>
+            <dd class="dd">Specifies whether or not the imported schemas are flattened.<div class="note note note_note"><span class="note__title">Note:</span> For the schemas
+                skipped by the flatten operation, no files are created in the output folder and the
+                corresponding import statements remain unchanged.</div></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> This function can be executed from an automated
+      command-line script, for more details, see <a class="xref" href="scripting_oxygen.html">Scripting Oxygen</a>.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/convert-db-to-xml-schema-x-tools.html">Converting Database to XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/generate-java-classes-x.html">Generating Java Classes from XML Schema</a></div></div></nav></article></main></body></html>

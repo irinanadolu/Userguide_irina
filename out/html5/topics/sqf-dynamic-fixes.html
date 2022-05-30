@@ -1,0 +1,32 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Multiple similar quick fixes,SQF,Multiple similar quick fixes,SQF attribute: use-for-each"><meta name="keywords" content="Schematron Quick Fixes, Multiple similar quick fixes, SQF, Multiple similar quick fixes, SQF attribute: use-for-each"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/executing-sqf-in-other-docs.html"><meta name="DC.relation" scheme="URI" content="../topics/localizing-sqf-messages.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sqf-dynamic-fixes"><title>Generate Multiple Similar Quick Fixes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sqf-dynamic-fixes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generate Multiple Similar Quick Fixes</h1>
+  
+  <div class="body">
+    <p class="p">You can generate the same Schematron <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick
+          Fix</dfn></a> for multiple matches. To do this, you can add the
+        <code class="keyword markupname xmlatt">@use-for-each</code> attribute inside the <code class="keyword markupname xmlelement">&lt;sqf:fix&gt;</code> element
+      and for each match of the XPath expression in the value of the <code class="keyword markupname xmlatt">@use-for-each</code>
+      attribute, a Quick Fix will be presented to the user. The XPath expression does not change the
+      context of the Quick Fix. If you want to access the current match from the XPath expression,
+      you can use the <code class="ph codeph">$sqf:current</code> variable.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong></p>
+    <p class="p">Suppose you want to restrict the user from entering more than 4 list items in a list. The
+      following example presents an error on any list that has more than 4 list items and offers a
+      Quick Fix with multiple proposals where the user would specify which list item to remove.</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"ul"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;sch:report</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"count(li) gt 4"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"removeAnyItem"</span><strong class="hl-tag">&gt;</strong>
+        The list cannot contain more than 4 entries.
+    <strong class="hl-tag">&lt;/sch:report&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"removeAnyItem"</span> <span class="hl-attribute">use-for-each</span>=<span class="hl-value">"1 to count(li)"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:title&gt;</strong>Remove item #<strong class="hl-tag">&lt;sch:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$sqf:current"</span><strong class="hl-tag">/&gt;</strong><strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+        <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+        <strong class="hl-tag">&lt;sqf:delete</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"li[$sqf:current]"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+<strong class="hl-tag">&lt;/sch:rule&gt;</strong></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/executing-sqf-in-other-docs.html">Executing Schematron Quick Fixes in Other Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/localizing-sqf-messages.html">Localizing SQF Messages</a></div></div></nav></article></main></body></html>

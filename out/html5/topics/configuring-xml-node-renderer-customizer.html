@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,XML Node Renderer Customizer"><meta name="keywords" content="Framework customization, Extensions, XML Node Renderer Customizer"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-XPointerElementLocator-implem.html"><meta name="DC.relation" scheme="URI" content="../topics/author-action-event-handler.html"><meta name="DC.relation" scheme="URI" content="rendering-elements-cc-author.html#rendering-elements-cc-author"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="configuring-xml-node-renderer-customizer"><title>Customizing XML Node Rendering</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="configuring-xml-node-renderer-customizer"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing XML Node Rendering</h1>
+  
+  <div class="body">
+    <div class="p">You can use this API extension to customize the way an XML node is rendered in the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span>
+        view</a> in <span class="ph uicontrol">Author</span> mode, <a class="xref" href="author-editing-markup.html#author-editing-markup__using_the_breadcrumb_in_author_mode">breadcrumb navigation bar</a> in <span class="ph uicontrol">Author</span> mode, <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span> view</a> in
+        <span class="ph uicontrol">Text</span> mode, <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion Assistant</dfn></a> window, or <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span>
+        view</a>.<div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">Oxygen XML Editor</span> uses <em class="ph i">XMLNodeRendererCustomizer</em>
+        implementations for the following <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a>: DITA, DITA Map, DocBook 4, DocBook 5, TEI, XHTML, XSLT,
+        and XML Schema.</div></div>
+    <div class="p">There are two methods to provide an implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/node/customizer/XMLNodeRendererCustomizer.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.workspace.api.node.customizer.XMLNodeRendererCustomizer</em></a>:<ul class="ul">
+        <li class="li">As a part of a bundle, returning it from the <em class="ph i">createXMLNodeCustomizer()</em> method of
+          the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/index.html" target="_blank" rel="external noopener"><em class="ph i">ExtensionsBundle</em></a> associated with your
+          document type in the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a>
+            (<span class="ph uicontrol">Extensions bundle</span> field in the <span class="ph uicontrol">Extensions</span>
+          tab).</li>
+        <li class="li">As an individual extension, associated with your document type in the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              type</span> configuration dialog box</a> (<span class="ph uicontrol">XML node renderer
+            customizer</span> field in the <span class="ph uicontrol">Individual extensions</span> section
+          of the <span class="ph uicontrol">Extensions</span> tab).</li>
+      </ul></div>
+    <section class="section" id="configuring-xml-node-renderer-customizer__support_for_retinahidpi_displays"><h2 class="title sectiontitle">Support for Retina/HiDPI Displays</h2>
+      
+      <p class="p">To support Retina or HiDPI displays, the icons provided by the
+          <em class="ph i">XMLNodeRendererCustomizer</em> should be backed up by a copy of larger size using the
+        proper <a class="xref" href="using-retina-hidpi-images.html#using-retina-hidpi-images__retina-naming-convention-section">Retina/HiDPI naming convention</a>.</p>
+      <p class="p">For example, for the <code class="keyword markupname xmlelement">&lt;title&gt;</code> element, if the
+          <em class="ph i">XMLNodeRendererCustomizer</em> returns the path
+          <span class="ph filepath">${framework}/images/myImg.png</span>, then to support Retina images with a
+        scaling factor of 2, an extra file (<span class="ph filepath">myImg@2x.png</span>)should be added to the
+        same images directory (<span class="ph filepath">${framework}/images/myImg@2x.png</span>). If the higher
+        resolution icon (the <em class="ph i">@2x</em> file) does not exist, the <em class="ph i">normal</em> icon is scaled and
+        used instead.</p>
+      <p class="p">For more information about using Retina/HiDPI images, refer to the <a class="xref" href="using-retina-hidpi-images.html#using-retina-hidpi-images">Using Retina/HiDPI Images
+          in Author Mode</a> section.</p>
+    </section>
+    <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-XPointerElementLocator-implem.html">XPointer Element Locator</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-action-event-handler.html">Handling Author Mode Action Events</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="rendering-elements-cc-author.html#rendering-elements-cc-author">Customizing the Rendering of Elements</a></li></ul></div></nav>
+</article></main></body></html>

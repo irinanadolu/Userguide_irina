@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_custom_callouts.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_auto_generate_ID.html"><meta name="DC.relation" scheme="URI" content="author-other-features.html#author-other-features"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_highlight_content"><title>Add Custom Highlights to Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_highlight_content"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Add Custom Highlights to Content</h1>
+  <div class="body">
+    <section class="section" id="api_faq_highlight_content__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">How can I add custom highlights to the document content in <span class="ph uicontrol">Author</span>
+        mode?</p>
+    </section>
+    <section class="section" id="api_faq_highlight_content__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <div class="p">There are two types of highlights you can add:<ol class="ol" id="api_faq_highlight_content__ol_bhv_syg_vh">
+          <li class="li">
+            <p class="p"><strong class="ph b">Non-Persistent Highlights</strong> - Such highlights are removed when the document is
+              closed and then re-opened.</p>
+            <p class="p">You can use the following API method:</p>
+            <p class="p"><code class="ph codeph">ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPageBase.getHighlighter()</code></p>
+            <p class="p">to obtain an <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/highlights/AuthorHighlighter.html" target="_blank" rel="external noopener">AuthorHighlighter</a> that allows you to add a
+              highlight between certain offsets with a specified painter.</p>
+            <p class="p">For example, you can use this support to implement your own spell checker with a
+              custom highlight for the unrecognized words.</p>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Persistent Highlights</strong> - Such highlights are saved in the XML content as
+              processing instructions.</p>
+            <p class="p">You can use the following API method:</p>
+            <p class="p"><code class="ph codeph">ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPageBase.getPersistentHighlighter()</code></p>
+            <p class="p">to obtain an <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/highlights/AuthorPersistentHighlighter.html" target="_blank" rel="external noopener">AuthorPersistentHighlighter</a> class that allows
+              you to add a persistent highlight between certain offsets, set new properties for a
+              specific highlight, and render it with a specified painter.</p>
+            <p class="p">For example, you can use this support to implement your own way of adding review
+              comments.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_custom_callouts.html">Add Custom Callouts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_auto_generate_ID.html">Auto-Generate an ID When a Document is Opened or Created</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-other-features.html#author-other-features">Adding Custom Persistent Highlights</a></li></ul></div></nav>
+</article></main></body></html>

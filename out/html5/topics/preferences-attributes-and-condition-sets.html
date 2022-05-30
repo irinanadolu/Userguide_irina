@@ -1,0 +1,105 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/preferences-profiling-conditions.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-profiling-conditions.html"><meta name="DC.relation" scheme="URI" content="../topics/colors-and-styles-preferences.html"><meta name="DC.relation" scheme="URI" content="dita-ditaval-file.html#dita-ditaval-file"><meta name="DC.relation" scheme="URI" content="dita-flag-content-ditaval.html#dita-flag-content-ditaval"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-attributes-and-condition-sets"><title>Attributes and Condition Sets Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-attributes-and-condition-sets"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Attributes and Condition Sets Preferences</h1>
+  <div class="body">
+    <p class="p">To configure profiling attributes and condition sets, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Profiling/Conditional Text</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Attributes and Condition Sets</span></span>.</p>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> Note the following when configuring these settings:<ul class="ul" id="preferences-attributes-and-condition-sets__ul_a13_x5s_hp">
+          <li class="li">This preferences page is used to define how profiled elements are treated in
+              <span class="ph uicontrol">Author</span> mode. It does not create profiling or conditional text
+            attributes or values in the underlying XML vocabulary. It just changes how the editor
+            displays them.</li>
+          <li class="li">This preferences page should be used for profiling / conditional text elements only.
+            To change how other types of attributes are displayed in the text, use a CSS file. </li>
+          <li class="li">If you are using the DITA XML vocabulary and a DITA <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme map</dfn></a> is
+            defined in the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> of your
+            document, it will be used in place of anything defined using this dialog box.</li>
+        </ul></div>
+    </div>
+    <p class="p">This preferences page contains the following options and sections:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="preferences-attributes-and-condition-sets__import-from-ditaval"><span class="ph uicontrol">Import from DITAVAL</span></dt>
+          <dd class="dd">This button allows you to import profiling attributes from <a class="xref" href="dita-ditaval-file.html#dita-ditaval-file">DITAVAL files</a>. You can merge
+            these new profiling attributes with the existing ones, or replace them completely. If
+            the imported attributes conflict with the existing ones, <span class="ph">Oxygen XML Editor</span> displays
+            a dialog box that contains two tables. The first one previews the imported attributes
+            and the second one previews the already defined attributes. You can choose to either
+            keep the existing attributes or replace them with the imported ones.<div class="note note note_note"><span class="note__title">Note:</span> When importing
+              profiling attributes from DITAVAL files, <span class="ph">Oxygen XML Editor</span> automatically creates
+              condition sets based on these files.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-attributes-and-condition-sets__profiling-attributes-section"><span class="ph uicontrol">Profiling Attributes</span> section</dt>
+          <dd class="dd">
+            <p class="p">Allows you to specify a set of allowable values for each profiling or conditional
+              attribute. You can use the <span class="ph uicontrol">New</span> button at the bottom of the table
+                <a class="xref" href="profiling-attributes-management.html#profiling-attributes-management">to add profiling attributes</a>, the <span class="ph uicontrol">Edit</span> button to edit existing ones, or
+              the <span class="ph uicontrol">Delete</span>
+              button to delete entries from the table. Use the <span class="ph uicontrol">Up</span> and <span class="ph uicontrol">Down</span>
+              buttons to change the priority of the entries. If you have multiple entries with
+              identical names that match the same document type, <span class="ph">Oxygen XML Editor</span> uses the one
+              that is positioned highest in the table.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Report invalid profiling attribute values (DITA
+                    only)</span></dt>
+                  <dd class="dd">If selected, it means the following:<ul class="ul" id="preferences-attributes-and-condition-sets__ul_ops_h43_ymb">
+                      <li class="li">In DITA, the automatic validation will display a warning when a value that
+                        is not defined is found in the document.</li>
+                      <li class="li">In the DITA <span class="ph uicontrol"><img class="image" id="preferences-attributes-and-condition-sets__image_pps_h43_ymb" src="../img/ValidateAndCheck16.png">Validate and Check for Completeness</span>
+                        dialog box, the <a class="xref" href="dita-map-validate.html#dita-map-validate__repport-attr-values-conflict"><span class="ph uicontrol">Report attributes and values that conflict with profiling
+                            preferences</span> option</a> is not displayed. This means that
+                        the validation will behave the same as if that option was selected and it
+                        will always report such values.</li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-attributes-and-condition-sets__allow-values"><span class="ph uicontrol">Allow contributing extra profiling attribute
+                    values</span></dt>
+                  <dd class="dd">This option is selected by default, which means that users are allowed to add
+                    values that are not defined in preferences to profiling attributes. If a user
+                    inserts such a value, when invoking the <span class="ph uicontrol">Edit Profiling
+                      Attributes</span> action from the contextual menu in
+                      <span class="ph uicontrol">Author</span> mode (or for DITA topics, the <span class="ph uicontrol"><img class="image" id="preferences-attributes-and-condition-sets__image_qps_h43_ymb" src="../img/DockableFrameProperties16.png"> Edit
+                      Properties</span> action in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                        Manager</span></a>), the <a class="xref" href="profiling-attributes-management.html#profiling-attributes-management__d1091e92"><span class="ph uicontrol">Profiling Values Conflict</span> dialog box</a> will
+                    appear and it includes an <span class="ph uicontrol">Add these values to the
+                      configuration</span> action that will automatically add the new value to
+                    the particular profiling attribute. If deselected, <span class="ph">Oxygen XML Editor</span>
+                    behaves as if the <span class="ph uicontrol">Preserve the configuration</span> option has
+                    been chosen in the <a class="xref" href="profiling-attributes-management.html#profiling-attributes-management__d1091e92"><span class="ph uicontrol">Profiling Values Conflict</span> dialog box</a> and that
+                    dialog box will never appear.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Configure profiling colors and styles</span> link</dt>
+                  <dd class="dd">Use this link to open the <a class="xref" href="colors-and-styles-preferences.html#colors-and-styles-preferences">profiling <span class="ph uicontrol">Colors and Styles</span> preference
+                    page</a>.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-attributes-and-condition-sets__condition-sets-section"><span class="ph uicontrol">Profiling Condition Sets</span> section</dt>
+          <dd class="dd">
+            <p class="p">Allows you to specify a specific set of profiling attributes to be used to specify a
+              particular build configuration for your content. You can use the <span class="ph uicontrol">New</span> button at the bottom of the table
+                <a class="xref" href="condition-sets-management.html#condition-sets-management">to
+                add condition sets</a>, the <span class="ph uicontrol">Edit</span> button to edit existing ones, or
+              the <span class="ph uicontrol">Delete</span>
+              button to delete entries from the table. Use the <span class="ph uicontrol">Up</span> and <span class="ph uicontrol">Down</span>
+              buttons to change the priority of the entries. If you have multiple entries with
+              identical names that match the same document type, <span class="ph">Oxygen XML Editor</span> uses the one
+              that is positioned highest in the table.</p>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-profiling-conditions.html">Profiling/Conditional Text Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-profiling-conditions.html">Profiling/Conditional Text Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/colors-and-styles-preferences.html">Colors and Styles Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-ditaval-file.html#dita-ditaval-file">Filtering Profiling Values with a DITAVAL File</a></li><li class="linklist"><a class="link" href="dita-flag-content-ditaval.html#dita-flag-content-ditaval">Styling the Rendering of Profiled Content Using a DITAVAL File</a></li></ul></div></nav>
+</article></main></body></html>

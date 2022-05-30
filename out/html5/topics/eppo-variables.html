@@ -1,0 +1,93 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Variable text"><meta name="keywords" content="DITA, Reusing content, Variable text"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-reuse.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-reuse-content.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-keyscopes.html"><meta name="DC.relation" scheme="URI" content="dita-reusable-components-view.html#dita-reusable-components-view"><meta name="DC.relation" scheme="URI" content="insert-define-keys.html#insert-define-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-variables"><title>Working with Variable Text in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-variables"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with Variable Text in DITA</h1>
+  
+  <div class="body">
+    <p class="p">You may often find that you want a certain piece of text in a topic to have a different value
+      in various circumstances. For example, if you are reusing a topic about a feature that is
+      shared between several products, you might want to make the name of the product a variable so
+      that the correct product name is used in the manual for each product.</p>
+    <p class="p">For example, you might have a sentence like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">The quick-heat feature allows [product-name] to come up to temperature quickly.</pre>
+    <p class="p">You need a way to substitute the correct product name for each product. </p>
+    <div class="p">One way to do this would be to use conditional profiling to provide conditional values using
+      the <code class="keyword markupname xmlatt">@product</code> profiling attribute, as in the following
+      example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>The quick-heat feature allows 
+    <strong class="hl-tag">&lt;ph</strong> <span class="hl-attribute">product</span>=<span class="hl-value">"basic"</span><strong class="hl-tag">&gt;</strong>Basic Widget<strong class="hl-tag">&lt;/ph&gt;</strong>
+    <strong class="hl-tag">&lt;ph</strong> <span class="hl-attribute">product</span>=<span class="hl-value">"pro"</span><strong class="hl-tag">&gt;</strong>Pro Widget<strong class="hl-tag">&lt;/ph&gt;</strong>
+to come up to temperature quickly.<strong class="hl-tag">&lt;/p&gt;</strong></pre></div>
+    <p class="p">However, this approach means that you are repeating the product names over and over again
+      everywhere the product name is mentioned. This is time consuming for authors and will create a
+      maintenance problem if the product names change. </p>
+    <div class="p">The alternative is to use a key reference, as in the following
+      example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>The quick-heat feature allows <strong class="hl-tag">&lt;ph</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"product"</span><strong class="hl-tag">/&gt;</strong> 
+   to come up to temperature quickly.<strong class="hl-tag">&lt;/p&gt;</strong></pre></div>
+    <div class="p">The definition of the key reference determines the name of the
+      product:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"product"</span> <span class="hl-attribute">product</span>=<span class="hl-value">"basic"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;keyword&gt;</strong>Basic Widget<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/keydef&gt;</strong>
+  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"product"</span> <span class="hl-attribute">product</span>=<span class="hl-value">"pro"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;keyword&gt;</strong>Pro Widget<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/keydef&gt;</strong></pre></div>
+    <p class="p">When the content is published, the value defined in the <em class="ph i">product</em> key will be
+      inserted for each product.</p>
+    <section class="section" id="eppo-variables__inserting_a_keyref"><h2 class="title sectiontitle">Inserting a Keyref</h2>
+      
+      <div class="p">To insert a <a class="xref" href="insert-define-keys.html">defined key reference</a> into a
+        document in <span class="ph">Oxygen XML Editor</span>
+        <span class="ph uicontrol">Author</span> mode, use one of the following methods (the method you choose
+        simply depends on which <span class="ph">Oxygen XML Editor</span> feature you prefer):<ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">DITA Reusable Components View Method</strong></u></p>
+            <p class="p">Use the <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view"><span class="ph uicontrol">DITA Reusable Components</span> view</a> to insert a
+                <em class="ph i">variable reference</em> to the <a class="xref" href="insert-define-keys.html#insert-define-keys">defined key</a>. For example,
+              in the <span class="ph uicontrol">Keys</span> tab, find a key defined as a variable and
+              double-click it. <span class="ph">Oxygen XML Editor</span> will insert the variable as a
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element with a <code class="keyword markupname xmlatt">@keyref</code> attribute that
+              references the specified key</p>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Code Template Method</strong></u></p>
+            <p class="p">Add the source code pattern of the <a class="xref" href="insert-define-keys.html#insert-define-keys">defined key</a> to a <a class="xref" href="preferences-editor-code-templates.html#preferences-editor-code-templates">code
+                template</a> so that it appears in the list of proposals in the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                  Assistant</dfn></a>. For example, the code pattern could be something like
+                <code class="keyword markupname xmlelement">&lt;ph keyref="product"&gt;</code> for defined <em class="ph i">product</em> key.</p>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Reuse Content Dialog Box Method</strong></u></p>
+            <p class="p">Use the <span class="ph uicontrol"><img class="image" id="eppo-variables__image_jgl_grx_xr" src="../img/Conref20.png">Reuse
+                Content</span> action on the main toolbar to open the <a class="xref" href="insert-dita-content-reference.html"><span class="ph uicontrol">Reuse Content</span>
+                dialog box</a>. Use the <span class="ph uicontrol">Key</span> option to select a key that is
+              defined as a <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference__key-ref-options-section">variable (key reference to metadata)</a> and <span class="ph">Oxygen XML Editor</span> will insert
+              the variable as a <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element with a <code class="keyword markupname xmlatt">@keyref</code>
+              attribute that references the specified key.</p>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Manual Method</strong></u></p>
+            <div class="p">Manually insert the <code class="keyword markupname xmlatt">@keyref</code> attribute using the attributes editor as
+                follows:<ol class="ol" id="eppo-variables__ol_vzt_ljd_zp">
+                <li class="li">Press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> and select a DITA
+                  element (for example, <code class="keyword markupname xmlelement">&lt;ph&gt;</code>) that supports the
+                    <code class="keyword markupname xmlatt">@keyref</code> attribute. </li>
+                <li class="li">Select <span class="ph uicontrol"><img class="image" id="eppo-variables__image_rt3_hnq_js" src="../img/Attribute16.gif">Edit Attributes</span> from the contextual menu <span class="ph">(or simply press
+                        <span class="ph uicontrol"><span class="keyword shortcut">Alt+Enter</span></span>)</span> to bring up the
+                    <a class="xref" href="author-attributes-view.html#author-attributes-view__in-place-attr-editor">attributes editor</a>.</li>
+                <li class="li">In the <span class="ph uicontrol">Name</span> field, select
+                  <span class="ph uicontrol">keyref</span>.</li>
+                <li class="li">In the <span class="ph uicontrol">Value</span> field, select or enter the name of the <a class="xref" href="insert-define-keys.html#insert-define-keys">defined key</a>.</li>
+              </ol></div>
+          </li>
+        </ul></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-reuse.html">Reusing DITA Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-reuse-content.html">Inserting a Reusable Content Component</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-keyscopes.html">Working with DITA 1.3 Key Scopes</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-reusable-components-view.html#dita-reusable-components-view">DITA Reusable Components View</a></li><li class="linklist"><a class="link" href="insert-define-keys.html#insert-define-keys">Defining Keys in DITA Maps</a></li></ul></div></nav>
+</article></main></body></html>

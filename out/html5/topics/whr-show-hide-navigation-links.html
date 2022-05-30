@@ -1,0 +1,35 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Navigation links,Previous/Next arrows"><meta name="keywords" content="WebHelp Responsive, Navigation links, Previous/Next arrows"><meta name="DC.relation" scheme="URI" content="../topics/whr_layout.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customization-ol-numbering.html"><meta name="DC.relation" scheme="URI" content="../topics/whr_how_to_change_an_html_layout_page.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-show-hide-navigation-links"><title>How to Show or Hide Navigation Links in Topic Pages</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-show-hide-navigation-links"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Show or Hide Navigation Links in Topic Pages</h1>
+  
+  <div class="body">
+    <p class="p">The <a class="xref" href="whr-html5-pages.html#whr-topic-page-layout">topic pages</a> in WebHelp
+      Responsive output can contain navigation links (<span class="ph uicontrol"><img class="image" src="../img/Previous16.png">Previous</span> / <span class="ph uicontrol"><img class="image" src="../img/Next16.png">Next</span>
+      arrows) that can be used to navigate to the previous or next topic.</p>
+    <section class="section" id="whr-show-hide-navigation-links__how_to_control_which_topic_pages_include_navigati"><h2 class="title sectiontitle">How to Control Which Topic Pages Include Navigation Links</h2>
+      
+      <div class="p">The navigation links are controlled by the <a class="xref" href="https://www.oxygenxml.com/dita/styleguide/webhelp-feedback/index.html#Artefact/Maps/c_Collection_Types.html" target="_blank" rel="external noopener"><code class="keyword markupname xmlatt">@collection-type</code> attribute</a>. For
+        example, if you set <code class="ph codeph">collection-type="sequence"</code> on a parent topic
+        reference in your DITA map, navigation links will be generated in the output for all of its
+        child topics (from children to parent, and from child to previous sibling and next
+        sibling).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"example_map"</span> <span class="hl-attribute">title</span>=<span class="hl-value">"Example Map"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../topics/ParentTopic.dita"</span> <span class="hl-attribute">collection-type</span>=<span class="hl-value">"sequence"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../topics/Childtopic.dita"</span><strong class="hl-tag">/&gt;</strong>
+ <strong class="hl-tag">&lt;/topicref&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="whr-show-hide-navigation-links__how_to_generate_navigation_links_for_all_topics_i"><h2 class="title sectiontitle">How to Generate Navigation Links for All Topics (Ignoring the Collection Type
+        Attribute)</h2>
+      
+      <p class="p">You can use the <code class="ph codeph">webhelp.default.collection.type.sequence</code> parameter in the
+        transformation and set its value to <code class="ph codeph">yes</code> to generate navigation links for
+        all topics, regardless of whether or not the <code class="ph codeph">collection-type</code> attribute is
+        present.</p>
+    </section>
+    <section class="section" id="whr-show-hide-navigation-links__how_to_hide_all_navigation_links"><h2 class="title sectiontitle">How to Hide All Navigation Links</h2>
+      
+      <p class="p">To hide all navigation links, use the <code class="ph codeph">webhelp.show.navigation.links</code>
+        parameter in the transformation and set its value to <code class="ph codeph">no</code>.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_layout.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp-customization-ol-numbering.html">How to Change Numbering Styles for Ordered Lists</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr_how_to_change_an_html_layout_page.html">How to Change the Main Page Layout</a></div></div></nav></article></main></body></html>

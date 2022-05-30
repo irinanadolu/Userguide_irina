@@ -1,0 +1,31 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-marklogic-debugger-limitations.html"><meta name="DC.relation" scheme="URI" content="marklogic-connection.html#marklogic-connection"><meta name="DC.relation" scheme="URI" content="marklogic-development.html#marklogic-development"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xquery-debugging-marklogic-import-modules"><title>Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xquery-debugging-marklogic-import-modules"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</h1>
+  <div class="body">
+    <p class="p">When debugging queries that imports modules stored in the database, it is recommended to
+      place <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoints</dfn></a> in
+      the modules. When starting a new debugging session, make sure that the modules that you will
+      debug are already opened in the editor. This is necessary so that the <dfn class="term">breakpoints</dfn>
+      in all the modules will be considered. Also, make sure that there are no other open modules
+      that are not involved in the current debugging session.</p>
+    <div class="p">To place <dfn class="term">breakpoints</dfn> in the modules, use the following procedure:<ol class="ol">
+        <li class="li">In the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>, open all the modules from
+          the <span class="ph uicontrol"><img class="image" src="../img/DBModules16.png">Modules</span> container of the
+            <a class="xref" href="configure-marklogic-connection.html#configure-marklogic-connection__xdbc-step">XDBC
+            application server</a> that performs the debugging.</li>
+        <li class="li"><a class="xref" href="using-breakpoints.html#using-breakpoints__inserting_breakpoints">Set
+              <dfn class="term">breakpoints</dfn></a> in the module as needed.</li>
+        <li class="li"><a class="xref" href="steps-in-typical-debug-process.html#steps-in-typical-debug-process">Continue debugging</a> the query.</li>
+      </ol></div>
+    <div class="p">If you get a warning that the <dfn class="term">breakpoints</dfn> failed to initialize, try the
+      following solutions:<ul class="ul">
+        <li class="li">Check the <a class="xref" href="debug-breakpoints-view.html#debug-breakpoints-view"><span class="ph uicontrol">Breakpoints</span> view</a> and make sure there are no older
+            <dfn class="term">breakpoints</dfn> (set on resources that are not part of the current debugging
+          context).</li>
+        <li class="li">Make sure you open the modules from the context of the application server that does the
+          debugging and place <dfn class="term">breakpoints</dfn> there.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xquery-debugging-with-marklogic.html">Debugging with MarkLogic</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-debugging-with-marklogic.html">Debugging with MarkLogic</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-marklogic-debugger-limitations.html">Peculiarities and Limitations of the MarkLogic Debugger</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="marklogic-connection.html#marklogic-connection">MarkLogic Database Connections</a></li><li class="linklist"><a class="link" href="marklogic-development.html#marklogic-development">MarkLogic Development in Oxygen XML Editor</a></li></ul></div></nav>
+</article></main></body></html>

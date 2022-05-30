@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Auto recovery,Backup file"><meta name="keywords" content="Auto recovery, Backup file"><meta name="DC.relation" scheme="URI" content="../topics/opening-and-closing-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/saving-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/closing-documents.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="auto-recover-feature"><title>Auto Recover Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="auto-recover-feature"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Auto Recover Documents</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes an <dfn class="term">Auto Recover</dfn> feature to help prevent losing
+      unsaved content if you encounter an application or system crash. The feature is enabled by
+      default and it automatically saves documents you are working on to a specified auto-recover
+      file location. At every specified interval, all documents that have been modified since the
+      last auto-save are saved to the specified location.</p>
+    <p class="p">This feature is controlled by two options in the <span class="ph uicontrol">Save</span> preferences
+      page. You can disable it, or configure how often content is saved by selecting the desired
+      value in the drop-down list of the <a class="xref" href="preferences-editor-save.html#preferences-editor-save__save-auto-recover"><span class="ph uicontrol">Save auto-recover information every</span> option</a>, and you can
+      specify the location of the saved documents in the <a class="xref" href="preferences-editor-save.html#preferences-editor-save__auto-recover-location"><span class="ph uicontrol">Auto-recover file location</span> option</a>.</p>
+    <p class="p">In the event of an application or system crash, once you restart the application, <span class="ph">Oxygen XML Editor</span> looks for an auto-recover file for each document that is either
+      automatically or manually reopened. If an auto-recover file is found, a dialog box is
+      displayed with options for how to handle the recovered information.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Auto Recover Dialog Box</figcaption>
+        
+        <img class="image" src="../img/auto-recover-dialog.png">
+      </figure>
+    </div>
+    <div class="p">The dialog box offers the following choices:<ul class="ul">
+        <li class="li"><span class="ph uicontrol">Open recovered content in a new tab</span> - Opens the recovered
+          document in a new tab.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can use the <span class="ph uicontrol"><img class="image" src="../img/DiffFiles16.png">Compare Files</span> tool (available in the
+              <span class="ph uicontrol">Tools</span> menu) to compare the recovered content with the last
+            saved version of the document.</div></li>
+        <li class="li"><span class="ph uicontrol">Replace current file content with recovered content</span> - Replaces
+          the content of the last saved version of the document with the content of the recovered
+          version of the document and removes the auto-recover file from disk.</li>
+        <li class="li"><span class="ph uicontrol">Use current file content and discard recovered content</span> - Discards
+          the recovered document and retains the last saved version of the document.</li>
+      </ul></div>
+    <div class="note note note_note"><span class="note__title">Notes About the Auto-Recover Feature:</span> 
+      <ul class="ul">
+        <li class="li">The <dfn class="term">Auto Recover</dfn> feature works for both local and remote files.</li>
+        <li class="li">For DITA projects, the <dfn class="term">Auto Recover</dfn> feature also works for DITA maps opened
+          in the <span class="ph uicontrol">DITA Maps Manager</span>.</li>
+        <li class="li">The <dfn class="term">Auto Recover</dfn> feature does NOT work if there is not enough space
+          available on the disk where the <a class="xref" href="preferences-editor-save.html#preferences-editor-save__auto-recover-location">auto-recover file location is specified</a>.</li>
+        <li class="li">The <dfn class="term">Auto Recover</dfn> feature does NOT work on files opened in the <a class="xref" href="huge-file-editor.html"><dfn class="term">huge file editor</dfn></a> (if you select the
+            <a class="xref" href="editing-large-documents.html"><span class="ph uicontrol">Optimize loading for huge
+              files</span> option when opening large documents</a>).</li>
+      </ul>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/opening-and-closing-documents.html">Creating, Opening, Saving, and Closing Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/saving-documents.html">Saving Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/closing-documents.html">Closing Documents</a></div></div></nav></article></main></body></html>

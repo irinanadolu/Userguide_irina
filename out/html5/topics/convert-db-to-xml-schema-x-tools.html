@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Convert DB Structure to XML Schema tool,Convert database to XML Schema"><meta name="keywords" content="XML Schemas, Convert DB Structure to XML Schema tool, Convert database to XML Schema"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/converting-between-schema-languages-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-flat-x-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="convert-db-to-xml-schema"><title>Converting Database to XML Schema</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="convert-db-to-xml-schema"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Converting Database to XML Schema</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a tool that allows you to create an XML Schema from the
+      structure of a database.</p>
+    <div class="p">To convert a database structure to an XML Schema, use the following procedure:<ol class="ol">
+        <li class="li">
+          <p class="p">Select the <span class="ph uicontrol">Convert DB Structure to XML Schema</span> action from the
+              <span class="ph uicontrol">Tools</span> menu.</p>
+          <p class="p"><strong class="ph b">Result:</strong> The <span class="ph uicontrol">Convert DB Structure to XML Schema</span> dialog box
+            is opened and your current database connections are displayed in the
+              <span class="ph uicontrol">Connections</span> section.</p>
+        </li>
+        <li class="li">If the database source is not listed, click the <span class="ph uicontrol">Configure Database
+            Sources</span> button to open the <a class="xref" href="preferences-data-sources.html#preferences-data-sources"><span class="ph uicontrol">Data
+              Sources</span> preferences page</a> where you can configure data sources and
+          connections.</li>
+        <li class="li">In the <span class="ph uicontrol">Format for generated schema</span> section, select one of the
+          following formats:<ul class="ul">
+            <li class="li"><span class="ph uicontrol">Flat schema</span> - A flat structure that resembles a tree-like
+              view of the database without references to elements.</li>
+            <li class="li"><span class="ph uicontrol">Hierarchical schema</span> - Display the table dependencies
+              visually, in a type of tree view where dependent tables are shown as indented child
+              elements in the content model. Select this option if you want to configure the
+              database columns of the tables to be converted.</li>
+          </ul></li>
+        <li class="li">
+          <p class="p">Click <span class="ph uicontrol">Connect</span>.</p>
+          <p class="p"><strong class="ph b">Result:</strong> The database structure is listed in the <span class="ph uicontrol">Select database
+              tables</span> section according to the format you chose.</p>
+        </li>
+        <li class="li">Select the database tables that you want to be included in the XML Schema.</li>
+        <li class="li">If you selected <span class="ph uicontrol">Hierarchical schema</span> for the format, you can
+          configure the database columns.<ol class="ol" type="a">
+            <li class="li">Select the database column you want to configure.</li>
+            <li class="li">In the <span class="ph uicontrol">Criterion</span> section you can choose to convert the
+              selected database column as an <span class="ph uicontrol">Element</span>,
+                <span class="ph uicontrol">Attribute</span>, or to be <span class="ph uicontrol">Skipped</span> in the
+              resulting XML Schema.</li>
+            <li class="li">You can also change the name of the selected database column by changing it in the
+                <span class="ph uicontrol">Name</span> text field.</li>
+          </ol></li>
+        <li class="li">Click <span class="ph uicontrol">Generate XML Schema</span>.</li>
+      </ol></div>
+    <p class="p"><strong class="ph b">Result:</strong> The database structure is converted to an XML Schema and it is opened for
+      viewing and editing.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/converting-between-schema-languages-x-tools.html">Converting Schema to Another Schema Language</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-flat-x-tools.html">Flatten an XML Schema</a></div></div></nav></article></main></body></html>

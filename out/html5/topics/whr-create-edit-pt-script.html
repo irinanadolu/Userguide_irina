@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Using publishing templates from a command line"><meta name="keywords" content="WebHelp Responsive, Using publishing templates from a command line"><meta name="DC.relation" scheme="URI" content="../topics/whr_publishing_templates.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-publishing-template-apply-transformation.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-share-tempates-s.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-create-edit-pt-script"><title>How to Use a Publishing Template from a Command Line</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-create-edit-pt-script"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Use a Publishing Template from a Command Line</h1>
+  
+  <div class="body">
+    <p class="p">Before you run the transformation, you need to know if the publishing template has a <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">single template
+        descriptor file or multiple descriptor files</a>. If you don't know, open the ZIP archive
+      or folder and check for files with the <span class="ph filepath">.opt</span> extension.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_publishing_templates.html">Working with Publishing Templates</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-publishing-template-apply-transformation.html">How to Add a Publishing Template to the Publishing Templates Gallery</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-share-tempates-s.html">How to Share a Publishing Template</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="task_xsp_qml_wcb">
+    <h2 class="title topictitle2" id="ariaid-title2">Using a Publishing Template with a Single Descriptor</h2>
+    <div class="body">
+      <p class="p">A template with a single descriptor is used for a single customization.</p>
+      <p class="p">To run from a command line, you need to use the <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__webhelp_publishing_template_root_path"><span class="ph">webhelp.publishing.template</span> parameter</a>. This parameter specifies the path to the ZIP archive (or root folder)
+        that contains your custom WebHelp Responsive template.</p>
+      <div class="p"><u class="ph u"><strong class="ph b">Command-Line Example:</strong></u><ul class="ul" id="task_xsp_qml_wcb__ul_a1c_lzq_zv">
+          <li class="li">
+            <strong class="ph b">Windows</strong>:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-text"> dita.bat 
+    --format=webhelp-responsive
+    --input=c:\path\to\mySample.ditamap  
+    --output=c:\path\to\output 
+    -Dwebhelp.publishing.template=custom-template</pre></li>
+          <li class="li">
+            <strong class="ph b">Linux/Mac OS X</strong>:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-text"> dita
+    --format=webhelp-responsive
+    --input=/path/to/mySample.ditamap  
+    --output=/path/to/output 
+    -Dwebhelp.publishing.template=custom-template</pre></li>
+        </ul></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can also start the <code class="ph codeph">dita</code> process by passing it a <a class="xref" href="https://www.dita-ot.org/dev/topics/using-project-files.html" target="_blank" rel="external noopener">DITA OT Project File</a>. Inside the project file you can specify as
+      parameters for the <code class="ph codeph">webhelp-responsive</code> transformation type the WebHelp-related
+      parameters.</div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title3" id="task_ok5_ppl_wcb">
+    <h2 class="title topictitle2" id="ariaid-title3">Using a Publishing Template with Multiple Descriptors</h2>
+    <div class="body">
+      <p class="p">A template with multiple descriptors contains multiple customizations.</p>
+      <p class="p">Because the publishing template is self-contained, it is used to reuse resources that are
+        common to multiple publications.</p>
+      <p class="p">To run from a command line, you need to use the <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__webhelp_publishing_template_root_path"><span class="ph">webhelp.publishing.template</span></a> and <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__webhelp_publishing_template_descriptor"><span class="ph">webhelp.publishing.template.descriptor</span></a> parameters. </p>
+      <p class="p">The <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__webhelp_publishing_template_root_path"><span class="ph">webhelp.publishing.template</span></a> parameter specifies the path to the ZIP archive (or root folder) while the <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__webhelp_publishing_template_descriptor"><span class="ph">webhelp.publishing.template.descriptor</span></a> parameter specifies the name of the descriptor you want to use.</p>
+      <div class="p"><u class="ph u"><strong class="ph b">Command-Line Example:</strong></u><ul class="ul" id="task_ok5_ppl_wcb__ul_a1c_lzq_zv">
+          <li class="li">
+            <strong class="ph b">Windows</strong>:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-text"> dita.bat 
+    --format=webhelp-responsive
+    --input=c:\path\to\mySample.ditamap  
+    --output=c:\path\to\output 
+    -Dwebhelp.publishing.template=custom-template
+    -Dwebhelp.publishing.template.descriptor=flowers.opt </pre></li>
+          <li class="li">
+            <strong class="ph b">Linux/Mac OS X</strong>:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-text"> dita
+    --format=webhelp-responsive
+    --input=/path/to/mySample.ditamap  
+    --output=/path/to/output 
+    -Dwebhelp.publishing.template=custom-template
+    -Dwebhelp.publishing.template.descriptor=flowers.opt </pre></li>
+        </ul></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can also start the <code class="ph codeph">dita</code> process by passing it a <a class="xref" href="https://www.dita-ot.org/dev/topics/using-project-files.html" target="_blank" rel="external noopener">DITA OT Project File</a>. Inside the project file you can specify as
+      parameters for the <code class="ph codeph">webhelp-responsive</code> transformation type the WebHelp-related
+      parameters.</div>
+    </div>
+  </article>
+</article></main></body></html>

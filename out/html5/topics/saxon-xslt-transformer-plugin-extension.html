@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="This type of plugin allows you to add an external Saxon XSLT transformer plugin."><meta name="DC.subject" content="Plugin extensions,Saxon XSLT Transformer,Saxon XSLT Transformer plugin extension"><meta name="keywords" content="Plugin extensions, Saxon XSLT Transformer, Saxon XSLT Transformer plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-transformer-plugin-extension.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-transformer-plugin-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="saxon-xslt-transformer-plugin-extension"><title>Saxon XSLT Transformer Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="saxon-xslt-transformer-plugin-extension"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Saxon XSLT Transformer Plugin Extension</h1>
+  
+  
+  <div class="body"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    add an external Saxon XSLT transformer <dfn class="term">plugin</dfn>.</p>
+    <p class="p">The name of the <dfn class="term">plugin</dfn> is <strong class="ph b"><em class="ph i">Transformer</em></strong> and it makes it easier to
+      contribute your own implementation of the <dfn class="term">Saxon XSLT Processor</dfn>. After the plugin
+      is installed, you can create a new <a class="xref" href="xml-transformation-with-xslt.html" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">XML
+        transformation with XSLT scenario</a> and select your external Saxon engine from
+        <span class="ph uicontrol">Transformer</span> drop-down menu in the <span class="ph uicontrol">XSLT</span>
+      tab.</p>
+    <p class="p">To create an XSLT integration project, follow these steps:</p>
+    <ul class="ul">
+      <li class="li">Copy the <span class="ph filepath">oxygen.jar</span> file from <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span> to the
+          <span class="ph filepath">lib</span> folder of your project.</li>
+      <li class="li">Copy the <em class="ph i">Saxon</em> jars to the <span class="ph filepath">lib</span> folder of your project.</li>
+      <li class="li">Implement the <em class="ph i">ro.sync.exml.plugin.transform.SaxonXSLTTransformerPluginExtension</em>
+        interface.</li>
+      <li class="li">In the <dfn class="term">plugin</dfn> descriptor file, define the <code class="keyword markupname xmlelement">&lt;extension&gt;</code>
+        element that points to the implementation of your classes, following
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"Transformer"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"my.saxon.xslt.plugin.extension"</span><strong class="hl-tag">/&gt;</strong></pre></li>
+    </ul>
+    <p class="p">An add-on that implements the Saxon XSLT transformer can be found here: <a class="xref" href="saxon-transformer-addon.html">Saxon XSLT and XQuery Transformer Add-on</a>. For more information, see the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk/community.html" target="_blank" rel="external noopener">Oxygen XML SDK Add-on Repositories web page</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xslt-transformer-plugin-extension.html" title="This type of plugin allows you to add an external XSLT transformer plugin.">XSLT Transformer Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-transformer-plugin-extension.html" title="This type of plugin allows you to add an external XQuery transformer plugin.">XQuery Transformer Plugin Extension</a></div></div></nav></article></main></body></html>

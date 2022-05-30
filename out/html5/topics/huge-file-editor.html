@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Huge files,Huge file editor"><meta name="keywords" content="Huge files, Huge file editor"><meta name="DC.relation" scheme="URI" content="../topics/editing-large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/large-file-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/long-lines-document.html"><meta name="DC.relation" scheme="URI" content="large-file-editor.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="huge-file-editor"><title>Optimize Loading for Huge Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="huge-file-editor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Optimize Loading for Huge Files</h1>
+  
+  <div class="body">
+    <p class="p">If you open a document that exceeds the limit configured in <a class="xref" href="preferences-editor-open.html#preferences-editor-open__performance-section"><span class="ph uicontrol">Open</span> preferences</a> (the default limit is 30 MB), a <a class="xref" href="editing-large-documents.html">dialog box will be displayed</a> prompting you to
+      choose whether you want to optimize the loading of the document for large files or for huge
+      files. If you choose the <span class="ph uicontrol">Optimize loading for huge files</span> option
+      (typically recommended for files larger than 300 MB), the file is split in multiple pages
+      (each approximately 1MB in size). Each page is individually loaded (and edited) in
+        <span class="ph uicontrol">Text</span> mode by using a special horizontal slider located at the top of
+      the editing area.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Huge File Editor Horizontal Slider</figcaption>
+        
+        <img class="image" src="../img/huge-file-editor-top-stripe.png">
+      </figure>
+    </div>
+    <div class="p">When opening a file in this special huge file editor, some editing features are disabled, including:<ul class="ul">
+        <li class="li">For XML files, the UTF-8, UTF-16, ASCII, Windows-1252, and ISO 8859-1 encodings are
+          supported. No other encoding is supported.</li>
+        <li class="li">The file can only be opened in <span class="ph uicontrol">Text</span> editing mode.</li>
+        <li class="li">The <a class="xref" href="automatic-validation.html">automatic validation</a> is disabled.</li>
+        <li class="li">The XPath filter is disabled in the <a class="xref" href="find-replace-dialog.html"><span class="ph uicontrol">Find/Replace</span> dialog box</a>.</li>
+        <li class="li">The bidirectional Unicode support (right-to-left writing) is disabled.</li>
+        <li class="li">The <a class="xref" href="preferences-editor-format.html"><span class="ph uicontrol">Format and indent the
+              document on open</span> option</a> is automatically deselected for non-XML
+          documents. For XML documents, the formatting it is done while optimizing the memory usage
+          by ignoring the options set in <a class="xref" href="preferences-editor-format.html">the
+              <span class="ph uicontrol">Format</span> preferences page</a>.</li>
+        <li class="li">The <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span>
+            view</a> is not supported.</li>
+        <li class="li">The file content is soft wrapped by default.</li>
+        <li class="li">The <a class="xref" href="find-replace-dialog.html#find-replace-dialog"><span class="ph uicontrol">Find/Replace</span> dialog box</a> only supports the
+            <span class="ph uicontrol">Find</span> action.</li>
+        <li class="li">Saving changes is only possible if the <a class="xref" href="preferences-editor-save.html#preferences-editor-save__safe-save"><span class="ph uicontrol">Safe
+              save</span> option</a> (in the <span class="ph uicontrol">Save</span> preferences page)
+          is enabled.</li>
+        <li class="li">The <span class="ph uicontrol">undo</span> operation is not available if you go to other pages and
+          come back to the modified page.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-large-documents.html">Loading Large Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/large-file-editor.html">Optimize Loading for Large Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/long-lines-document.html">Documents with Long Lines</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="large-file-editor.html">Optimize Loading for Large Files</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Branches/Tags,Merging"><meta name="keywords" content="SVN Client, Branches/Tags, Merging"><meta name="DC.relation" scheme="URI" content="../topics/creating-branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/pre-merge-checks.html"><meta name="DC.relation" scheme="URI" content="../topics/pre-merge-checks.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-revisions-range.html"><meta name="DC.relation" scheme="URI" content="../topics/synchronize-branch.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-branch.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-trees.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-options.html"><meta name="DC.relation" scheme="URI" content="../topics/resolve-merge-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/final-words-merge.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="merge-branches"><title>Merging</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="merge-branches"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Merging</h1>
+  
+  <div class="body">
+    <p class="p">At some stage during the development process, you will want to merge the changes made on a
+        <em class="ph i">branch</em> back into the <em class="ph i">trunk</em>, or vice-versa. The <em class="ph i">merge</em> is accomplished by
+      comparing two points (branches or revisions) in the repository and applying the obtained
+      differences to your working copy. This process is closely related to the <em class="ph i">diff</em>
+      concept.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> A <em class="ph i">branch</em> is a line of development that exists independently of another
+      line, yet still shares a common history if you look far enough back in time. A <em class="ph i">branch</em>
+      always begins life as <em class="ph i">a copy of something</em> (such as a trunk, another branch, or tag),
+      and moves on from there, generating its own history.</div>
+    <p class="p">The <span class="ph uicontrol"><img class="image" id="merge-branches__image_lhq_gnq_4r" src="../img/SVNMerge16.png">Merge</span>
+      action is available in the <span class="ph uicontrol">Tools</span> menu. The working copy item selected
+      when you issued the command will be the one receiving the generated changes. If there is no
+      item selected, the <em class="ph i">merge</em> operation will be performed on the entire working copy.</p>
+    <div class="p">
+      <figure class="fig fignone" id="merge-branches__fig_qfn_cjl_4r"><figcaption><span class="fig--title-label">Figure 1. </span><span class="ph uicontrol">Merge</span> Wizard</figcaption>
+        
+        <img class="image" id="merge-branches__image_nmr_4jl_4r" src="../img/svn_merge_wiz1.png">
+      </figure>
+    </div>
+    <p class="p">The four types of merging are as follows:</p>
+    <ul class="ul">
+      <li class="li"><a class="xref" href="merge-revisions-range.html#merge-revisions-range"><span class="ph uicontrol">Merge
+            revisions</span></a> - Port changes from one branch to another. Note that the
+          <em class="ph i">trunk</em> can also be considered a branch, in this context.</li>
+      <li class="li"><a class="xref" href="synchronize-branch.html#synchronize-branch"><span class="ph uicontrol">Synchronize
+            branch</span></a> - Fetch all the changes made on a parent branch (or the
+          <em class="ph i">trunk</em>) to a child branch.</li>
+      <li class="li"><a class="xref" href="merge-branch.html#merge-branch"><span class="ph uicontrol">Reintegrate a
+          branch</span></a> - Merge a branch back to its parent branch (can also be the
+          <em class="ph i">trunk</em>).</li>
+      <li class="li"><a class="xref" href="merge-trees.html#merge-trees"><span class="ph uicontrol">Merge two different
+          trees</span></a> - Integrate the changes done on a branch to a different
+        branch.</li>
+    </ul>
+    <p class="p">It is recommended that you enable the following pre-merge check:</p>
+    <p class="p"><a class="xref" href="pre-merge-checks.html#pre-merge-checks"><span class="ph uicontrol">Perform pre-merge best
+          practices checks of the working copy target</span></a> - When selected, the SVN
+      Client checks if the working copy target item is ready for the merge operation and displays
+      the <span class="ph uicontrol">pre-merge checks</span> wizard page.</p>
+    <div class="note remember note_remember"><span class="note__title">Remember:</span> It is a good idea to perform a merge into an unmodified working copy. If
+      you have made changes to your working copy, commit them first. If the <em class="ph i">merge</em> does not go
+      as you expect, you may want to revert the changes and revert cannot recover your uncommitted
+      modifications.</div>
+    <div class="note important note_important"><span class="note__title">Important:</span> The above recommendation becomes mandatory when <a class="xref" href="merge-branches.html#merge-branches"><em class="ph i">reintegrating a branch</em></a>.</div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/pre-merge-checks.html">Pre-Merge Checks</a><br></li><li class="link olchildlink"><a href="../topics/merge-revisions-range.html">Merge Revisions</a><br></li><li class="link olchildlink"><a href="../topics/synchronize-branch.html">Synchronize a Branch</a><br></li><li class="link olchildlink"><a href="../topics/merge-branch.html">Reintegrate a Branch</a><br></li><li class="link olchildlink"><a href="../topics/merge-trees.html">Merge Two Different Trees</a><br></li><li class="link olchildlink"><a href="../topics/merge-options.html">Merge Options</a><br></li><li class="link olchildlink"><a href="../topics/resolve-merge-conflicts.html">Resolving Merge Conflicts</a><br></li><li class="link olchildlink"><a href="../topics/final-words-merge.html">Additional Notes About the Merge Operation</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/creating-branch-tag.html">Branches and Tags</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/branch-tag.html">Create a Branch / Tag</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/pre-merge-checks.html">Pre-Merge Checks</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/JSON-navigate-references.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-editor"><title>JSON Editor</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-editor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">JSON Editor</h1>
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> includes a specialized JSON editor with various editing features for
+      files that have the <code class="ph codeph">json</code>file extension. It also includes a document template
+      to help you get started with JSON documents. The template is called
+        <span class="ph uicontrol">JSON</span> and it can be found in the <span class="ph uicontrol">New Document</span>
+      folder in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can experiment with a sample of a JSON file available at:
+          <span class="ph filepath">[OXYGEN-INSTALL-DIR]/samples/json/personal.json</span>. </div></div>
+    <section class="section" id="json-editor__section_zpk_gfw_thb"><h2 class="title sectiontitle">Text Mode Editor</h2>
+      
+      <div class="p">When editing JSON documents in the <span class="ph uicontrol">Text</span> editing mode, the <a class="xref" href="word-line-actions.html#word-line-actions">usual text editing actions</a> are
+        available, along with other editor-specific actions, including:<ul class="ul" id="json-editor__ul_jrz_25t_qmb">
+          <li class="li"><a class="xref" href="searching-documents.html">Search and Find/Replace</a></li>
+          <li class="li"><a class="xref" href="drag-and-drop-selected-text.html#drag-and-drop-selected-text">Drag and
+              Drop</a></li>
+          <li class="li"><a class="xref" href="validating-JSON.html">Validation</a></li>
+          <li class="li"><a class="xref" href="format-and-indent-xml.html#format-and-indent-xml">Format and Indent
+              (Pretty Print)</a></li>
+        </ul></div>
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Note:</span> You can run XPath expressions on open JSON documents, but in
+            <span class="ph uicontrol">Text</span> mode the XPath results cannot be mapped in the document.
+          However, they can be mapped in the <span class="ph uicontrol">Grid</span> editing mode. You can use
+          the <span class="ph uicontrol">Grid</span> button at the bottom of the editor panel to switch to that
+          editing mode.</div>
+      </div>
+    </section>
+    <section class="section" id="json-editor__section_e5s_r2w_thb"><h2 class="title sectiontitle">Grid Mode Editor</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to view and edit the JSON documents in the <a class="xref" href="grid-mode-editor.html#grid-mode-editor"><span class="ph uicontrol">Grid</span> mode</a>. The
+        JSON is represented in <span class="ph uicontrol">Grid</span> mode as a compound layout of nested
+        tables and the JSON data and structure can be easily manipulated with table-specific
+        operations or drag and drop operations on the grid components.</p>
+      <div class="p">
+        <figure class="fig fignone" id="json-editor__fig_r3l_n5t_qmb"><figcaption><span class="fig--title-label">Figure 1. </span>JSON Editor Grid Mode</figcaption>
+          
+          <img class="image" id="json-editor__image_s3l_n5t_qmb" src="../img/json-grid-mode.png">
+        </figure>
+      </div>
+      <div class="p"> You can also use the following JSON-specific contextual actions:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Array</span></dt>
+            <dd class="dd">Useful when you want to convert a JSON <em class="ph i">value</em> to <em class="ph i">array</em>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert value before</span></dt>
+            <dd class="dd">Inserts a value before the currently selected one.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert value after</span></dt>
+            <dd class="dd">Inserts a value after the currently selected one.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Append value as child</span></dt>
+            <dd class="dd">Appends a value as a child of the currently selected value.</dd>
+          
+        </dl></div>
+      <p class="p">You can <a class="xref" href="preferences-grid.html">customize the JSON grid
+          appearance</a> according to your needs. For instance, you can change the font, the cell
+        background, foreground, or even the colors from the table header gradients. The default
+        width of the columns can also be changed.</p>
+    </section>
+    <section class="section" id="json-editor__section_vbc_lfw_thb"><h2 class="title sectiontitle">Author Visual Editor</h2>
+      
+      <p class="p">You can edit JSON files in the visual <span class="ph uicontrol">Author</span> editing mode and you
+        have access to the various features and actions that are available when <a class="xref" href="editing-xml-documents-author.html">editing XML documents in
+            <span class="ph uicontrol">Author</span> mode</a>. When a JSON document is opened in
+          <span class="ph uicontrol">Author</span> mode, it is automatically converted to proper XML structure
+        using the built-in <a class="xref" href="convert-JSON-to-XML.html">JSON to XML Converter</a>. Additionally, for
+        <em class="ph i">Boolean</em>, <em class="ph i">Number</em>, and <em class="ph i">Null</em> types, an
+          <code class="ph codeph">oxy_Type="[symple_type]"</code> attribute structure is added in the XML to
+        preserve the type of the value from the JSON document.</p>
+      <div class="p">
+        <figure class="fig fignone" id="json-editor__fig_jhx_5nx_smb"><figcaption><span class="fig--title-label">Figure 2. </span>JSON Editor Author Mode</figcaption>
+          
+          <img class="image" id="json-editor__image_e4g_wnx_smb" src="../img/json-author-mode.png">
+        </figure>
+      </div>
+      <div class="p">You can also create your own custom JSON framework, similar to the <a class="xref" href="author-devel-guide-intro.html">process for creating custom XML frameworks</a>.
+        For example, to create a document type association (framework) for JSON documents, you
+          could:<ul class="ul" id="json-editor__ul_tjf_b5z_qmb">
+          <li class="li">Add a rule to match the <code class="ph codeph">"JSON"</code> as the root local name.</li>
+          <li class="li">Add a rule to match the <code class="ph codeph">topProperties</code> attribute that contains a value
+            that is the name of the properties from the first level of the JSON document.</li>
+          <li class="li">Add a rule to match the <code class="ph codeph">schema</code> attribute that contains a value that
+            is the associated schema from the <code class="ph codeph">$schema</code> property.</li>
+        </ul><div class="note note note_note"><span class="note__title">Note:</span> The default JSON framework has the <em class="ph i">Lowest</em> priority in the <a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+              Association</span> preferences page</a>. If you create a custom JSON
+          framework, you need to set it to a higher priority. Otherwise, the
+            <span class="ph uicontrol">Author</span> mode rendering will revert to the default JSON
+          framework.</div></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can experiment with some samples of custom JSON frameworks available in
+        the <span class="ph filepath">[OXYGEN-INSTALL-DIR]/samples/json/author/</span> directory. There is a
+        sample application form called <span class="ph filepath">residentCardForm.json</span> and a sample
+        travel guide called <span class="ph filepath">travel-guide.json</span>, along with referenced resources
+        in the <span class="ph filepath">images</span> folder.</div>
+      <p class="p">For more information about the visual editing support for JSON, watch our video
+        demonstration:</p>
+      <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/_C2dVpbGANQ" allowfullscreen="true"></iframe></div></p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-JSON.html">Editing JSON Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/editing-JSON.html">Editing JSON Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/JSON-navigate-references.html">Navigating References in JSON Documents</a></div></div></nav></article></main></body></html>

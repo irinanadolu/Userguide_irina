@@ -1,0 +1,118 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/customizing_webapp.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing_webapp.html"><meta name="DC.relation" scheme="URI" content="../dev_guide/introduction-dev-guide.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wa-product-vs-sdk"><title>Web Author vs. Web Author Component</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wa-product-vs-sdk"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Web Author vs. Web Author Component</h1>
+  <div class="body">
+    <p class="p">The purpose of this topic is to help you choose which distribution of <span class="ph">Oxygen XML Web Author</span> is appropriate for your particular use-case.</p>
+    <div class="p"><span class="ph">Oxygen XML Web Author</span> has two distributions:<ol class="ol">
+        <li class="li"><strong class="ph b">Oxygen XML Web Author</strong> (product) - This version can be downloaded from <a class="xref" href="https://www.oxygenxml.com/xml_web_author/download_oxygenxml_web_author.html" target="_blank" rel="external noopener">the Oxygen website</a> and is licensed according to
+          the <a class="xref" href="https://www.oxygenxml.com/eula_webauthor.html" target="_blank" rel="external noopener">Web Author License Agreement</a>.</li>
+        <li class="li"><strong class="ph b">Web Author Component</strong> - Provided as a Maven artifact (according to the <a class="xref" href="https://www.oxygenxml.com/sdk_agreement.html" target="_blank" rel="external noopener">SDK
+            Agreement</a>) that is used in the <a class="xref" href="https://github.com/oxygenxml/web-author-component-integration" target="_blank" rel="external noopener">Web Author Component integration project</a>. This project can be
+          used as a starting point for your integration.<div class="note note note_note"><span class="note__title">Note:</span> The formal definition for Web Author
+            Component inside the SDK agreement is:<div class="div"><em class="ph i">"“Web Author Component” is a subset of
+                Software composed of a server component operating as a service application and a
+                client component deployed to a web browser, such as an HTML5 based application,
+                where the client component is not installed on the client machine but is in use by
+                the client machine while the browser is connected to the server
+              component."</em></div></div></li>
+      </ol></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing_webapp.html">Oxygen XML Web Author Component</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/customizing_webapp.html">Oxygen XML Web Author Component</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../dev_guide/introduction-dev-guide.html">Developer Quick Start Guide</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="section_qtq_kzb_dbb">
+    <h2 class="title topictitle2" id="ariaid-title2">For End-Users</h2>
+    <div class="body">
+      <p class="p">For end-users, the recommended distribution is <strong class="ph b">Oxygen XML Web Author</strong> (product).</p>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title3" id="section_fhp_mzb_dbb">
+    <h2 class="title topictitle2" id="ariaid-title3">For Plugin and Framework Developers</h2>
+    <div class="body">
+      <div class="p">If you develop frameworks or plugins that provides enhanced functionality for <span class="ph">Oxygen XML Web Author</span>, it is recommended to distribute the plugin or framework
+        separately from Web Author. They will work with both types of distributions and the end-users can choose:<ul class="ul" id="section_fhp_mzb_dbb__ul_szt_vyc_5db">
+          <li class="li">To install your plugin or framework in Web Author.</li>
+          <li class="li">To use a solution based on Web Author that has the plugin or framework installed by
+            default.</li>
+          <li class="li">To use a solution based on Web Author and install the plugin or framework
+            themselves.</li>
+        </ul></div>
+      <div class="p">Example of such plugins/frameworks:<ul class="ul" id="section_fhp_mzb_dbb__ol_umn_v2c_dbb">
+          <li class="li">Integration with a terminology database.</li>
+          <li class="li">Adding support to edit embedded SVG snippets.</li>
+          <li class="li">Providing support for a specific XML language.</li>
+        </ul></div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title4" id="section_ov1_c1c_dbb">
+    <h2 class="title topictitle2" id="ariaid-title4">For Integration Developers</h2>
+    <div class="body">
+      <p class="p">If you want to integrate <span class="ph">Oxygen XML Web Author</span> into another application (for
+        example, a CMS), that you distribute to your end-users, there are several aspects to
+        consider when choosing between the two distributions:</p>
+      <section class="section" id="section_ov1_c1c_dbb__section_gfj_xyb_dbb"><h3 class="title sectiontitle">Functionality</h3>
+        
+        <p class="p">There are some features that are available in the installable <strong class="ph b">Oxygen XML Web
+            Author</strong> product requires an additional plugin to be available in the <strong class="ph b">Web Author
+            Component</strong>. For example, the <em class="ph i">File Comparison Tool</em> is available by default in
+          the <strong class="ph b">Oxygen XML Web Author</strong> product, but requires an additional plugin to be
+          installed for it to be available in the <strong class="ph b">Web Author Component</strong> version.</p>
+      </section>
+      <section class="section" id="section_ov1_c1c_dbb__section_slw_32c_dbb"><h3 class="title sectiontitle">Legal</h3>
+        
+        <p class="p">If you want to use the <strong class="ph b">Web Author Component</strong>, you must have your own application
+          that is not called <strong class="ph b">Oxygen XML Web Author</strong>, but will contain Web Author as a software
+          component provided by Syncro Soft. Hence, Syncro Soft does not have a direct legal link
+          with your users, you will handle the licensing of your application to your end-users.</p>
+        <div class="p">For the official details, you can consult the license agreements for both
+            distributions:<ol class="ol" id="section_ov1_c1c_dbb__ol_tlw_32c_dbb">
+            <li class="li"><strong class="ph b">Oxygen XML Web Author</strong> (product): <a class="xref" href="https://www.oxygenxml.com/eula_webauthor.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/eula_webauthor.html</a></li>
+            <li class="li"><strong class="ph b">Web Author Component</strong>: <a class="xref" href="https://www.oxygenxml.com/sdk_agreement.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/sdk_agreement.html</a></li>
+          </ol></div>
+      </section>
+      <section class="section" id="section_ov1_c1c_dbb__financial"><h3 class="title sectiontitle">Financial</h3>
+        
+        <p class="p">The prices for <strong class="ph b">Oxygen XML Web Author</strong> (product) are listed on the <strong class="ph b">Oxygen</strong>
+          website: <a class="xref" href="https://www.oxygenxml.com/xml_web_author/buy_oxygen_xml_web_author.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/xml_web_author/buy_oxygen_xml_web_author.html</a>.</p>
+        <p class="p">If you choose to use the <strong class="ph b">Web Author</strong> product to distribute as a plugin or
+          framework, then you act as a channel reseller, basically reselling <span class="ph">Oxygen XML Web Author</span> to your end-users and you must pay Syncro Soft the
+          corresponding cost of the license.</p>
+        <div class="p">The <strong class="ph b">Web Author Component</strong> has more flexible pricing alternatives for resellers that
+          are negotiated for each contract and include:<ul class="ul" id="section_ov1_c1c_dbb__ul_tht_wmx_rcb">
+            <li class="li">Subscription packages similar to the ones used for the Web Author product, but you
+              may get a discount depending on the partnership level (Gold, Silver, Bronze).</li>
+            <li class="li">Solution OEM license.</li>
+          </ul></div>
+        <p class="p">If you choose to integrate the <strong class="ph b">Web Author Component</strong> into your application, the
+          cost is based on royalties, rather than a cost for the license. That means you do not need
+          to pay for the ability to include the component in your application, but when you
+          distribute your application you must pay a royalty to Syncro Soft.</p>
+      </section>
+      <section class="section" id="section_ov1_c1c_dbb__section_tgf_xyb_dbb"><h3 class="title sectiontitle">Customization</h3>
+        
+        <p class="p">It is strongly recommended to implement any customization as a combination of plugins,
+          frameworks, and options. If you are using <strong class="ph b">Web Author Component</strong>, you can also alter
+          the Web Author files, but this is discouraged since those files are not considered API and
+          may change in a future version.</p>
+      </section>
+      <section class="section" id="section_ov1_c1c_dbb__section_ujp_2bc_dbb"><h3 class="title sectiontitle">Deployment</h3>
+        
+        <p class="p">If you want to use <strong class="ph b">Oxygen XML Web Author</strong> (product), you can install it using the
+          installation kits, then configure the plugins, frameworks, and options using a
+          browser-based UI. Alternatively, you can configure <span class="ph">Oxygen XML Web Author</span> to load
+          the configuration from a custom directory (<em class="ph i">Oxygen Data Directory</em>) along with
+          desired plugins, frameworks, and options.</p>
+        <p class="p">If you want to use <strong class="ph b">Web Author Component</strong>, you can use the <a class="xref" href="https://github.com/oxygenxml/web-author-component-integration" target="_blank" rel="external noopener">Web Author Component integration project</a> to build a custom WAR
+          file with plugins, frameworks, and options bundled. This WAR file can be deployed in any
+          Servlet container (for example, Tomcat).</p>
+      </section>
+      <section class="section" id="section_ov1_c1c_dbb__section_wxp_ldc_dbb"><h3 class="title sectiontitle">Distribution</h3>
+        
+        <p class="p">If you want to use <strong class="ph b">Oxygen XML Web Author</strong> (product), your users must download <span class="ph">Oxygen XML Web Author</span> from the <a class="xref" href="https://www.oxygenxml.com/xml_web_author/download_oxygenxml_web_author.html" target="_blank" rel="external noopener">Oxygen website</a>, while you will distribute your
+          plugins/frameworks to your users. You should provide instructions on how to deploy and use
+            <span class="ph">Oxygen XML Web Author</span>. Alternatively, you can install and configure it for
+          them.</p>
+        <p class="p">If you want to use <strong class="ph b">Web Author Component</strong>, you will distribute the customized WAR
+          file.</p>
+      </section>
+    </div>
+  </article>
+</article></main></body></html>

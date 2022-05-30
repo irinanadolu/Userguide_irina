@@ -1,0 +1,268 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/dg-java-api.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-step-by-step-example.html"><meta name="DC.relation" scheme="URI" content="../topics/extending-oxygen.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-operations-with-arguments"><title>Example 2 - Operations with Arguments - Report from Database Operation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-operations-with-arguments"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example 2 - Operations with Arguments - Report from Database Operation</h1>
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">In this example, an operation is created that connects to a relational database and
+        executes an SQL statement. The result should be inserted in the edited XML document as a
+        table. To make the operation fully configurable, it will have arguments for the <em class="ph i">database
+          connection string</em>, the <em class="ph i">user name</em>, the <em class="ph i">password</em> and the <em class="ph i">SQL
+          expression</em>.</p>
+    </section>
+    <section id="dg-operations-with-arguments__procedure-dg-operations-with-arguments"><ol class="ol steps" id="dg-operations-with-arguments__procedure-dg-operations-with-arguments"><li class="li step stepexpand">
+        <span class="ph cmd">Set up a sample project following <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">this set
+            of instructions</a>. The <dfn class="term">framework</dfn> project is
+            <strong class="ph b">oxygen-sample-framework</strong>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Create the class <em class="ph i">simple.documentation.framework.QueryDatabaseOperation</em>. This
+          class must implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorOperation.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorOperation</em></a>
+          interface.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.ArgumentDescriptor;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.ArgumentsMap;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorAccess;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorOperation;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorOperationException;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> QueryDatabaseOperation <strong class="hl-keyword">implements</strong> AuthorOperation{</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Now define the operation's arguments. For each of them, you will use a
+            <code class="ph codeph">String</code> constant representing the argument name:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">final</strong> String ARG_JDBC_DRIVER =<span class="hl-string">"jdbc_driver"</span>;
+<strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">final</strong> String ARG_USER =<span class="hl-string">"user"</span>;
+<strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">final</strong> String ARG_PASSWORD =<span class="hl-string">"password"</span>;
+<strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">final</strong> String ARG_SQL =<span class="hl-string">"sql"</span>;
+<strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">final</strong> String ARG_CONNECTION =<span class="hl-string">"connection"</span>;</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">You must describe the argument name and type. To do this, implement the
+            <em class="ph i">getArguments</em> method that will return an array of argument descriptors:</span>
+        <div class="itemgroup info">
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> ArgumentDescriptor[] getArguments() {
+		ArgumentDescriptor args[] = <strong class="hl-keyword">new</strong> ArgumentDescriptor[] {
+				<strong class="hl-keyword">new</strong> ArgumentDescriptor(
+						ARG_JDBC_DRIVER,
+						ArgumentDescriptor.TYPE_STRING,
+						<span class="hl-string">"The name of the Java class that is the JDBC driver."</span>),
+				<strong class="hl-keyword">new</strong> ArgumentDescriptor(
+						ARG_CONNECTION,
+						ArgumentDescriptor.TYPE_STRING,
+						<span class="hl-string">"The database URL connection string."</span>),
+				<strong class="hl-keyword">new</strong> ArgumentDescriptor(
+						ARG_USER,
+						ArgumentDescriptor.TYPE_STRING,
+						<span class="hl-string">"The name of the database user."</span>),
+				<strong class="hl-keyword">new</strong> ArgumentDescriptor(
+						ARG_PASSWORD,
+						ArgumentDescriptor.TYPE_STRING,
+						<span class="hl-string">"The database password."</span>),
+				<strong class="hl-keyword">new</strong> ArgumentDescriptor(
+						ARG_SQL,
+						ArgumentDescriptor.TYPE_STRING,
+						<span class="hl-string">"The SQL statement to be executed."</span>)
+		};
+		<strong class="hl-keyword">return</strong> args;
+	}</pre>
+          </div>
+          <p class="p">These names, types and descriptions will be listed in the
+              <span class="ph uicontrol">Arguments</span> table when the operation is configured.</p>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">When the operation is invoked, the implementation of the <em class="ph i">doOperation</em> method
+          extracts the arguments, forwards them to the method that connects to the database and
+          generates the XML fragment. The XML fragment is then inserted at the cursor
+          position.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> doOperation(AuthorAccess authorAccess, ArgumentsMap map)
+			<strong class="hl-keyword">throws</strong> IllegalArgumentException, AuthorOperationException {
+		
+		<em class="hl-comment">// Collects the arguments.</em>
+		String jdbcDriver = 
+			(String)map.getArgumentValue(ARG_JDBC_DRIVER);
+		String connection = 
+			(String)map.getArgumentValue(ARG_CONNECTION);
+		String user = 
+			(String)map.getArgumentValue(ARG_USER);
+		String password = 
+			(String)map.getArgumentValue(ARG_PASSWORD);
+		String sql = 
+			(String)map.getArgumentValue(ARG_SQL);
+
+		<strong class="hl-keyword">int</strong> caretPosition = authorAccess.getCaretOffset();
+		<strong class="hl-keyword">try</strong> {
+			authorAccess.getDocumentController().insertXMLFragment(
+					getFragment(jdbcDriver, connection, user, password, sql), 
+					caretPosition);
+		} <strong class="hl-keyword">catch</strong> (SQLException e) {
+			<strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> AuthorOperationException(
+					<span class="hl-string">"The operation failed due to the following database error: "</span> 
+     + e.getMessage(), e);
+		} <strong class="hl-keyword">catch</strong> (ClassNotFoundException e) {
+			<strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> AuthorOperationException(
+					<span class="hl-string">"The JDBC database driver was not found. Tried to load ' "</span> 
+     + jdbcDriver + <span class="hl-string">"'"</span>, e);
+		}
+	}
+</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The <em class="ph i">getFragment</em> method loads the JDBC driver, connects to the database and
+          extracts the data. The result is a <code class="keyword markupname xmlelement">&lt;table&gt;</code> element from the
+            <code class="ph codeph">http://www.oxygenxml.com/sample/documentation</code> namespace. The
+            <code class="keyword markupname xmlelement">&lt;header&gt;</code> element contains the names of the SQL columns. All the
+          text from the XML fragment is escaped. This means that the '&lt;' and '&amp;' characters
+          are replaced with the '&amp;lt;' and '&amp;amp;' character entities to ensure that the
+          fragment is well-formed.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">private</strong> String getFragment(
+		String jdbcDriver, 
+		String connectionURL, 
+		String user, 
+		String password, 
+		String sql) <strong class="hl-keyword">throws</strong> 
+			SQLException, 
+			ClassNotFoundException {		
+		
+      Properties pr = <strong class="hl-keyword">new</strong> Properties();
+      pr.put(<span class="hl-string">"characterEncoding"</span>, <span class="hl-string">"UTF8"</span>);
+      pr.put(<span class="hl-string">"useUnicode"</span>, <span class="hl-string">"TRUE"</span>);
+      pr.put(<span class="hl-string">"user"</span>, user);
+      pr.put(<span class="hl-string">"password"</span>, password);
+        
+      <em class="hl-comment">// Loads the database driver.</em>
+      Class.forName(jdbcDriver);        
+      <em class="hl-comment">// Opens the connection</em>
+      Connection connection = 
+        	DriverManager.getConnection(connectionURL, pr);
+      java.sql.Statement statement = 
+        	connection.createStatement();
+      ResultSet resultSet = 
+        	statement.executeQuery(sql);
+        
+      StringBuffer fragmentBuffer = <strong class="hl-keyword">new</strong> StringBuffer();
+      fragmentBuffer.append(
+        <span class="hl-string">"&lt;table xmlns="</span> + 
+        <span class="hl-string">"'http://www.oxygenxml.com/sample/documentation'&gt;"</span>);
+        
+      <em class="hl-comment">//</em>
+      <em class="hl-comment">// Creates the table header.</em>
+      <em class="hl-comment">//</em>
+      fragmentBuffer.append(<span class="hl-string">"&lt;header&gt;"</span>);
+      ResultSetMetaData metaData = resultSet.getMetaData();
+      <strong class="hl-keyword">int</strong> columnCount = metaData.getColumnCount();
+      <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">1</span>; i &lt;= columnCount; i++) {
+          fragmentBuffer.append(<span class="hl-string">"&lt;td&gt;"</span>);
+          fragmentBuffer.append(
+          		xmlEscape(metaData.getColumnName(i)));
+          fragmentBuffer.append(<span class="hl-string">"&lt;/td&gt;"</span>);
+      }
+      fragmentBuffer.append(<span class="hl-string">"&lt;/header&gt;"</span>);
+        
+      <em class="hl-comment">//</em>
+      <em class="hl-comment">// Creates the table content.</em>
+      <em class="hl-comment">//</em>
+      <strong class="hl-keyword">while</strong> (resultSet.next()) {
+          fragmentBuffer.append(<span class="hl-string">"&lt;tr&gt;"</span>);
+          <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">1</span>; i &lt;= columnCount; i++) {
+              fragmentBuffer.append(<span class="hl-string">"&lt;td&gt;"</span>);
+              fragmentBuffer.append(
+              		xmlEscape(resultSet.getObject(i)));
+              fragmentBuffer.append(<span class="hl-string">"&lt;/td&gt;"</span>);
+          }
+          fragmentBuffer.append(<span class="hl-string">"&lt;/tr&gt;"</span>);
+      }
+      
+      fragmentBuffer.append(<span class="hl-string">"&lt;/table&gt;"</span>);
+      
+      <em class="hl-comment">// Cleanup</em>
+      resultSet.close();
+      statement.close();
+      connection.close();
+      <strong class="hl-keyword">return</strong> fragmentBuffer.toString();        
+}</pre>
+          <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Package the compiled class into a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a>
+          file.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Copy the <dfn class="term">JAR</dfn> file and the JDBC driver files into your custom
+            <dfn class="term">framework</dfn> directory (<span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\[CUSTOM_FRAMEWORK_DIR]</span>).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Add the <dfn class="term">JARS</dfn> to the class path. To do this, open the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>, select
+            <strong class="ph b">SDF</strong> and click the <span class="ph uicontrol">Edit</span> button. Select the
+            <span class="ph uicontrol">Classpath</span> tab in the lower part of the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              Type</span> configuration dialog box</a> and click the <span class="ph uicontrol"><img class="image" id="dg-operations-with-arguments__image_en2_lt4_5r" src="../img/Add16.png">Add</span> button. In the
+          displayed dialog box, enter the location of the <dfn class="term">JAR</dfn> file, relative to the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph filepath">frameworks</span> folder.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Go to the <span class="ph uicontrol">Actions</span> subtab. The action properties are:</span>
+        <div class="itemgroup info">
+          <ul class="ul">
+            <li class="li">Set <strong class="ph b">ID</strong> to <strong class="ph b">clients_report</strong>.</li>
+            <li class="li">Set <strong class="ph b">Name</strong> to <strong class="ph b">Clients Report</strong>.</li>
+            <li class="li">Set <strong class="ph b">Menu access key</strong> to letter <strong class="ph b">r</strong>.</li>
+            <li class="li">Set <strong class="ph b">Description</strong> to <strong class="ph b">Connects to the database and collects the list of
+                clients</strong>.</li>
+            <li class="li">Set <strong class="ph b">Toolbar icon</strong> to <strong class="ph b">${framework}/TableDB20.png</strong> (the
+                <span class="ph filepath">TableDB20.png</span> icon is stored in the
+                <span class="ph filepath">frameworks/sdf</span> folder).</li>
+            <li class="li">Leave empty the <strong class="ph b">Menu icon</strong>.</li>
+            <li class="li">Set <strong class="ph b">shortcut key</strong> to <span class="ph uicontrol"><span class="keyword shortcut" id="dg-operations-with-arguments__ctrl_shift_c_shortcut">Ctrl + Shift
+                    + C (Command + Shift + C on OS X)</span></span>.</li>
+          </ul>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The action will work only if the current element is a <strong class="ph b">section</strong>. Set up the
+          operation as follows:</span>
+        <div class="itemgroup info">
+          <ul class="ul">
+            <li class="li">Set <strong class="ph b">XPath expression</strong>
+              to:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">local-name()</span>='section'</pre></li>
+            <li class="li">
+              <p class="p">Use the Java operation defined earlier to set the <strong class="ph b">Invoke operation</strong> field.
+                Click the <span class="ph uicontrol">Choose</span> button, then select
+                  <em class="ph i">simple.documentation.framework.QueryDatabaseOperation</em>. Once selected, the
+                list of arguments is displayed. In the figure below the first argument,
+                  <em class="ph i">jdbc_driver</em>, represents the class name of the MySQL JDBC driver. The
+                connection string has the URL syntax:
+                  <em class="ph i">jdbc://&lt;database_host&gt;:&lt;database_port&gt;/&lt;database_name&gt;</em>.</p>
+              <div class="p">The SQL expression used in the example follows, but it can be any valid SELECT
+                expression that can be applied to the
+                database:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-sql"><strong class="hl-keyword">SELECT</strong> userID, email <strong class="hl-keyword">FROM</strong> users</pre></div>
+            </li>
+          </ul>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Add the action to the toolbar, using the <span class="ph uicontrol">Toolbar</span> panel.</span>
+        <div class="itemgroup info">
+          <div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Java Operation Arguments Setup</figcaption>
+              
+              <img class="image" src="../img/sa_dg_operation_arguments_setup.png">
+            </figure>
+          </div>
+        </div>
+      </li></ol></section>
+    <section class="section result">
+      <p class="p">To test the action, open or create an XML file and place the cursor at a valid location.
+        Then click the <span class="ph uicontrol"><img class="image" id="dg-operations-with-arguments__image_vfk_kkz_tr" src="../img/TableDB20.png">Create
+          Report</span> button from the toolbar. You can see below the toolbar with the action
+        button and sample table inserted by the <span class="ph uicontrol">Clients Report</span> action.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Table Content Extracted from the Database</figcaption>
+          
+          <img class="image" src="../img/dg_database_operation_result.png">
+        </figure>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-java-api.html">Extending Author Functionality Through the Java API</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-step-by-step-example.html">Example 1 - Simple Use of a Dialog Box from an Author Mode Operation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/extending-oxygen.html" title="Information about extending Oxygen XML Editor using the SDK">Extending Oxygen With the SDK</a></div></div></nav></article></main></body></html>

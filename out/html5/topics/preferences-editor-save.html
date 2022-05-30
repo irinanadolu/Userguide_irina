@@ -1,0 +1,96 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Save,Save preferences"><meta name="keywords" content="Preferences, Save, Save preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-open.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-save"><title>Save Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-save"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Save Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> lets you control how files are saved. To configure the options for
+      saving documents, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and
+      go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Save</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm" id="preferences-editor-save__show-save-as-option">Show "Save as" option to save newly created documents in the "New" document
+            wizard</dt>
+          <dd class="dd">It is selected by default, but if you deselect this option, the <a class="xref" href="new-dialog-sa.html#new-dialog-sa__save-as-step"><span class="ph uicontrol">Save as</span>
+              option</a> will not be available in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New Document</span>
+              wizard</a>, so you will not have the ability to change the default name and path of
+            the new file.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-save__safe-save"><span class="ph uicontrol">Safe save (only for local files)</span></dt>
+          <dd class="dd">In the unlikely event of a failure when attempting a <span class="ph uicontrol">Save</span>
+            action, this option provides increased protection from corruption of the original file.
+            When this option is selected, it saves the content to a temporary file and if the save
+            is unsuccessful, the editor preserves its unsaved state status.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-save__enable-automatic-save"><span class="ph uicontrol">Automatically save the document every</span></dt>
+          <dd class="dd">If selected, your documents are automatically saved after a preset time interval that
+            is specified in the drop-down list.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">On Save, make backup copy with extension (only for local
+            files)</span></dt>
+          <dd class="dd">If selected, a backup copy is made when saving the edited document. This option is
+            available only for local files (files that are stored on the local file system). The
+            default backup file extension is <span class="ph filepath">.bak</span>, but that can be changed in
+            the text field.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-save__save-auto-recover"><span class="ph uicontrol">Save auto-recover information every</span></dt>
+          <dd class="dd">
+            <p class="p">If selected, your documents are automatically saved to a backup file after the time
+              interval specified in the drop-down list.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="preferences-editor-save__auto-recover-location"><span class="ph uicontrol">Auto-recover file location</span></dt>
+                  <dd class="dd">Specifies the location of the backup file for auto-recovery.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Validate document before saving</span></dt>
+          <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> runs a validation that checks your document for
+            errors before saving it.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Save all files before transformation or validation</span></dt>
+          <dd class="dd">Saves all opened files before validating or transforming an XML document. This ensures
+            that any dependencies are resolved when modifying the XML document and its XML
+            Schema.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-save__save-all-files-before-tool"><span class="ph uicontrol">Save all files before calling external tools</span></dt>
+          <dd class="dd">If selected, all files are saved before executing an <a class="xref" href="integrating-external-tools.html#integrating-external-tools">external tool</a>.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-save__auto-compile"><span class="ph uicontrol">Automatically compile LESS to CSS when saving</span></dt>
+          <dd class="dd">If selected, when you save a LESS file it will automatically be compiled to CSS
+            (deselected by default).<div class="note important note_important"><span class="note__title">Important:</span> If this option is selected, when you save
+              a LESS file, the CSS file that has the same name as the LESS file is overwritten
+              without warning. Make sure all your changes are made in the LESS file. Do not edit the
+              CSS file directly, as your changes might be lost.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Performance</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Clear undo buffer on save</span></dt>
+                  <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> clears its undo buffer when you save a
+                    document. Thus, modifications made prior to saving the document cannot be
+                    undone. Select this option if you frequently encounter <strong class="ph b">out of memory</strong>
+                    errors when editing large documents.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-open.html">Open Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor-format.html">Format Preferences</a></div></div></nav></article></main></body></html>

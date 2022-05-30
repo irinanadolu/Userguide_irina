@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="HTML documents,Validation"><meta name="keywords" content="HTML documents, Validation"><meta name="DC.relation" scheme="URI" content="../topics/edit-html-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/html-wellformed-details.html"><meta name="DC.relation" scheme="URI" content="../topics/html-content-completion.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="validating-html"><title>HTML Validation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="validating-html"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">HTML Validation</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a built-in default validator used for validating HTML
+      documents. It is based upon the W3C HTML Validator and the HTML documents are validated
+      against the <a class="xref" href="https://www.w3.org/TR/html53/" target="_blank" rel="external noopener">W3C
+        HTML5 specification</a>. The validator in <span class="ph">Oxygen XML Editor</span> only supports HTML5
+      structure. It presents the <a class="xref" href="marking-validation-errors.html">errors in the editor
+        similar to XML documents</a>. It also checks the embedded CSS content and the warnings
+      and errors are presented similar to the <a class="xref" href="validating-css-stylesheets.html">CSS
+        editor</a>.</p>
+    <section class="section" id="validating-html__section_ant_dts_flb"><h2 class="title sectiontitle">Validating HTML Against a Schematron</h2>
+      
+      <div class="p">It is also possible to validate HTML documents against a Schematron schema. Besides the
+        default HTML validator, <span class="ph">Oxygen XML Editor</span> also includes a built-in <em class="ph i">HTML Schematron
+          Validator</em> engine. There are several ways to validate an HTML document against a
+          Schematron:<ul class="ul" id="validating-html__ul_ck2_m5s_flb">
+          <li class="li"><strong class="ph b">Configure a Validation Scenario</strong> - You can <a class="xref" href="validation-scenario.html">create or edit a validation scenario</a>, change the <span class="ph uicontrol">File
+              type</span> column to <em class="ph i">HTML Document</em>, change the <span class="ph uicontrol">Validation
+              engine</span> column to <em class="ph i">HTML Schematron Validator</em>, and specify the
+            Schematron document in the <span class="ph uicontrol">Schema</span> column.</li>
+          <li class="li"><strong class="ph b">Manually Validate a Single Document</strong> - You can use the use the
+              <span class="ph uicontrol">Validate with</span> action from the <span class="ph uicontrol"><img class="image" id="validating-html__image_ct1_cnd_w3b" src="../img/ValidateDrop.png">Validation</span>
+            drop-down menu on the toolbar. This opens a dialog box where you can specify the
+            Schematron document to validate the current document against.</li>
+          <li class="li"><strong class="ph b">Batch Validate Multiple Documents</strong> - You can select multiple HTML documents in
+            the <span class="ph"><span class="ph uicontrol">Project</span></span>
+             view, right-click, and use the use the
+              <span class="ph uicontrol">Validate with schema</span> action from the
+              <span class="ph uicontrol">Validate</span> submenu. This opens a dialog box where you can specify
+            the Schematron document to validate the selected documents against.</li>
+        </ul><div class="note note note_note"><span class="note__title">Notes:</span> 
+          <ul class="ul" id="validating-html__ul_zjg_r1t_flb">
+            <li class="li">The Schematron must use the HTML5 namespace to reference the elements from the
+              instance.</li>
+            <li class="li">Implicit HTML elements (i.e. <code class="keyword markupname xmlelement">&lt;html&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;body&gt;</code>, <code class="keyword markupname xmlelement">&lt;tbody&gt;</code>) must be included in
+              an XPath expression in the Schematron document, even if they are missing from the HTML
+              document.</li>
+          </ul>
+        </div></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> The <span class="ph">Oxygen XML Editor</span> installation directory includes a
+          <span class="ph filepath">samples</span> folder that contains numerous sample files to help you learn
+        about features, certain file types, and XML technologies. For example, inside the
+          <span class="ph filepath">samples</span> folder, there is an <span class="ph filepath">html</span> folder with a
+          <span class="ph filepath">schematron</span> subfolder where you can find some samples that illustrate
+        HTML validation against a Schematron schema.</div>
+    </section>
+    <section class="section" id="validating-html__section_xmy_pts_flb"><h2 class="title sectiontitle">Validating HTML Against Other Types of Schema</h2>
+      
+      <p class="p">If your HTML document is XML well-formed, you could also configure a validation scenario to
+        validate it as an XML document against other types of schemas. You would <a class="xref" href="validation-scenario.html">create or edit a validation scenario</a>, make sure the
+          <span class="ph uicontrol">File type</span> column is set to <em class="ph i">XML Document</em>, select the
+        appropriate <span class="ph uicontrol">Validation engine</span>, and specify the schema document in the
+          <span class="ph uicontrol">Schema</span> column. </p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/edit-html-documents.html">Editing HTML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/html-wellformed-details.html">XML Well-Formedness Details for HTML Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/html-content-completion.html">HTML Content Completion Assistant</a></div></div></nav></article></main></body></html>

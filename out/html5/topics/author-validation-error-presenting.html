@@ -1,0 +1,119 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Validation errors,Validation errors in Author mode,XML documents,Validation,Author Mode,Validating XML Documents,Author Mode"><meta name="keywords" content="Author editing mode, Validation errors, Validation errors in Author mode, XML documents, Validation, Author Mode, Validating XML Documents, Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents-against-schema.html"><meta name="DC.relation" scheme="URI" content="../topics/marking-validation-errors.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing-assert-error-messages.html"><meta name="DC.relation" scheme="URI" content="validating-XML-documents-against-schema.html#validating-XML-documents-against-schema"><meta name="DC.relation" scheme="URI" content="validate-xml-with-sch.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-validation-error-presenting"><title>Presenting Validation Errors in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-validation-error-presenting"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Presenting Validation Errors in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">By default, <span class="ph">Oxygen XML Editor</span>
+      <a class="xref" href="automatic-validation.html#automatic-validation">automatically validates
+        documents</a> while editing in the <span class="ph uicontrol">Author</span> mode, and actions are
+      also available to <a class="xref" href="validation-actions-in-user-interface.html#validation-actions-in-user-interface">manually validate documents</a> on-request.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Presenting Validation Errors in Author Mode</figcaption>
+        
+        <img class="image" src="../img/sa_author_error_presenter.png">
+      </figure>
+    </div>
+    <section class="section" id="author-validation-error-presenting__validation_marker_locations"><h2 class="title sectiontitle">Validation Marker Locations</h2>
+      
+      <div class="p">In <span class="ph uicontrol">Author</span> mode, validation issues are marked in the following locations:<ul class="ul">
+          <li class="li">In the main editing pane, with the issue underlined in a color according to the type
+            of issue.</li>
+          <li class="li">In the right-side vertical stripe, with a marker that is colored according to the type
+            of issue.</li>
+          <li class="li">For attributes with detected issues, in the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a>, with the attribute and its value
+            colored according to the type of issue.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="author-validation-error-presenting__validation_marker_colors"><h2 class="title sectiontitle">Validation Marker Colors</h2>
+      
+      <div class="p">The colors for each type of issue are as follows:<ul class="ul">
+      <li class="li"><strong class="ph b">Validation Errors</strong> [Red] - By default, the underline in the editing pane, the marker
+        in the right vertical stripe, and the foreground color of the attribute in the
+          <span class="ph uicontrol">Attributes</span> view are colored in red.</li>
+      <li class="li"><strong class="ph b">Validation Warnings</strong> [Yellow] - By default, the underline in the editing pane, the
+        marker in the right vertical stripe, and the foreground color of the attribute in the
+          <span class="ph uicontrol">Attributes</span> view are colored in yellow.</li>
+      <li class="li"><strong class="ph b">Validation Info</strong> [Blue] - By default, the underline in the editing pane, the marker
+        in the right vertical stripe, and the foreground color of the attribute in the
+          <span class="ph uicontrol">Attributes</span> view are colored in blue.</li>
+    </ul></div>
+    </section>
+    <section class="section" id="author-validation-error-presenting__validation_markers_in_the_rightside_stripe"><h2 class="title sectiontitle">Validation Markers in the Right-Side Stripe</h2>
+      
+      <div class="p">Also, the stripe on the right side of the editor panel is designed to display
+      the issues found during the validation process and to help you locate them in the document.
+      The stripe contains the following:<dl class="dl">
+        
+          <dt class="dt dlterm">Upper Part of the Stripe</dt>
+          <dd class="dd">A success indicator square will turn green if the validation is successful or only
+            info messages are found, red if validation errors are found, or yellow if only
+            validation warnings are found. More details about the issues are displayed in a tooltip
+            when you hover over indicator square. If there are numerous problems, only the first
+            three are presented in the tooltip.</dd>
+        
+        
+          <dt class="dt dlterm">Middle Part of the Stripe</dt>
+          <dd class="dd">
+            <p class="p">Errors are presented with red markers, warnings with yellow markers, and info message
+              with blue markers. If you want to limit the number of markers that are displayed, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Document checking</span></span>, and specify the desired limit in the <a class="xref" href="preferences-editor-document-checking.html#preferences-editor-document-checking__maximum-number-highlights"><span class="ph uicontrol">Maximum number of validation highlights</span> option</a>.</p>
+            <p class="p">Clicking a marker will highlight the corresponding text area in the editor. The
+              validation message is also displayed both in a tooltip (when hovering over the
+              marker) and in the message area on the bottom of the <span class="ph">editor panel (clicking the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Document checking options</span> button
+                opens the <a class="xref" href="preferences-editor-document-checking.html"><span class="ph uicontrol">Document Checking</span> preferences page</a></span>. </p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Bottom Part of the Stripe</dt>
+          <dd class="dd">Two navigation arrows (<img class="image" src="../reusables/topics/../../img/NavArrows16.png">) can be used to jump
+            to the next or previous issue. The same actions can be triggered from <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Automatic validation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Next Error/Highlight</span></span> (<span class="ph uicontrol"><span class="keyword shortcut" id="author-validation-error-presenting__ctrl_period_shortcut">Ctrl + Period
+                    (Command + Period on OS X)</span></span>) and <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Automatic validation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Previous Error/Highlight</span></span> (<span class="ph uicontrol"><span class="keyword shortcut" id="author-validation-error-presenting__ctrl_comma_shortcut">Ctrl + Comma
+                    (Command + Comma on OS X)</span></span>). <span class="ph">Also, the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RemoveSelected16.gif">Remove All</span> button can be used
+              to clear all the validation markers.</span></dd>
+        
+      </dl></div>
+      <p class="p"><span class="ph"><span class="ph">You can configure the color
+          for each type in the <a class="xref" href="preferences-editor-document-checking.html"><span class="ph uicontrol">Document Checking</span> preferences page</a>.</span></span></p>
+    </section>
+    <section class="section" id="author-validation-error-presenting__hovering_over_validation_issues"><h2 class="title sectiontitle">Hovering Over Validation Issues</h2>
+      
+      <p class="p">Hovering over a validation issue presents a tooltip message with more details
+      about the problem and <a class="xref" href="xml-quick-fixes.html#xml-quick-fixes">possible
+          <dfn class="term">quick fixes</dfn></a> (if available for that issue). Also, when hovering over an
+      issue, pressing <span class="ph uicontrol"><span class="keyword shortcut">F2</span></span> will change the focus to the
+      tooltip where you can use <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> and
+          <span class="ph uicontrol"><span class="keyword shortcut">Shift + Tab</span></span> to navigate between quick fixes
+      and <span class="ph uicontrol"><span class="keyword shortcut">Space</span></span> to trigger them.</p>
+    </section>
+    <section class="section" id="author-validation-error-presenting__details_about_validation_issues"><h2 class="title sectiontitle">Details About Validation Issues</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li">Information about the issue is also displayed in the message area on the bottom of the
+            editor panel (clicking the <span class="ph uicontrol"><img class="image" src="../img/Options16.png">Document
+              checking options</span> button opens the <a class="xref" href="preferences-editor-document-checking.html"><span class="ph uicontrol">Document
+                Checking</span> preferences page</a> where you can configure some validation
+              options<span class="ph"> (such as the colors used to present the validation
+              issues)</span>. Some validation messages have an icon (<img class="image" id="author-validation-error-presenting__image_pgg_wcz_3mb" src="../img/Specs16.png">) and clicking it opens a dialog box with additional
+            information and a link to specifications.</li>
+          <li class="li">When a validation is processed, information about the
+            validation scenario is displayed in the stripe at the very bottom of the application. It
+            includes the name of the validation scenario and the status. If you hover over the
+            information, a tooltip is presented with more information. You can also click the <img class="image" id="author-validation-error-presenting__image_ib2_fnq_qlb" src="../img/Information16.png"> button to open the <a class="xref" href="view-status-information.html"><span class="ph uicontrol">Information</span>
+              view</a>, where even more details are displayed.<p class="p"><img class="image" id="author-validation-error-presenting__image_izh_mnq_qlb" src="../img/validation-tooltip.png"></p></li>
+          
+          <li class="li">If you want to see all the validation
+        messages grouped in the <a class="xref" href="results-view.html#results-view"><span class="ph">Results view</span></a>, use the <span class="ph uicontrol"><img class="image" id="author-validation-error-presenting__image_dnc_f1z_3mb" src="../reusables/topics/../../img/Validate16.png">Validate</span> action from
+        the toolbar or <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span> menu. To see more information about a validation message, right-click the
+        item in the <span class="ph uicontrol">Results</span> view and select <span class="ph uicontrol">Show
+          message</span>. Some validation messages have an icon (<img class="image" id="author-validation-error-presenting__d835e592" src="../reusables/topics/../../img/Specs16.png">) in the <span class="ph uicontrol">Info</span>
+        column and clicking it opens a dialog box with additional information and a link to
+        specifications.</li>
+          
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-XML-documents-against-schema.html">Validating XML Documents Against a Schema</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/marking-validation-errors.html">Presenting Validation Errors in Text Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/customizing-assert-error-messages.html">Customizing Assert Error Messages</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="validating-XML-documents-against-schema.html#validating-XML-documents-against-schema">Validating XML Documents Against a Schema</a></li><li class="linklist"><a class="link" href="validate-xml-with-sch.html">Presenting Schematron Validation Issues</a></li></ul></div></nav>
+</article></main></body></html>

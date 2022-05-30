@@ -1,0 +1,95 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Perspectives,Database,Database perspective"><meta name="keywords" content="Perspectives, Database, Database perspective"><meta name="DC.relation" scheme="URI" content="../topics/editing-perspectives.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugger-perspective.html"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-editing-modes.html"><meta name="DC.relation" scheme="URI" content="working-with-databases.html#working-with-databases"><meta name="DC.relation" scheme="URI" content="relational-database-explorer.html#relational-database-explorer"><meta name="DC.relation" scheme="URI" content="relational-table-explorer.html#relational-table-explorer"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="database-perspective"><title>Database Perspective</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="database-perspective"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Database Perspective</span>
+  </h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Database</span>
+      <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> allows you to manage
+      databases. To switch the focus to this <dfn class="term">perspective</dfn>, select <span class="ph">the <span class="ph uicontrol"><img class="image" src="../img/Database18.png">Database</span> button in the top-right corner of <span class="ph">Oxygen XML Editor</span> or <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open perspective</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Database</span></span></span> from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open perspective</span></span> menu.</p>
+    <div class="p">The <span class="ph uicontrol">Database</span>
+      <dfn class="term">perspective</dfn> offers various helpful features, including:<ul class="ul">
+        <li class="li">Support for browsing multiple connections at the same time.</li>
+        <li class="li">Support for both <em class="ph i">Relational</em> and <em class="ph i">Native XML</em> databases.</li>
+        <li class="li">Browsing the structure of databases.</li>
+        <li class="li">Viewing tables from databases.</li>
+        <li class="li">Inspecting or modifying data.</li>
+        <li class="li">Specifying XML Schemas for XML fields.</li>
+        <li class="li">SQL execution.</li>
+        <li class="li">XQuery execution.</li>
+        <li class="li">Data export to XML.</li>
+      </ul></div>
+    <section class="section" id="database-perspective__supported_databases"><h2 class="title sectiontitle">Supported Databases</h2>
+      
+      <div class="p"><span class="ph">Oxygen XML Editor</span> supports numerous types of databases, including: <ul class="ul">
+          <li class="li">Oracle Berkeley DB XML Database</li>
+          <li class="li">eXist XML Database</li>
+          <li class="li">IBM DB2 (Enterprise edition only)</li>
+          <li class="li">JDBC-ODBC Bridge</li>
+          <li class="li">MarkLogic (Enterprise edition only)</li>
+          <li class="li">Microsoft SQL Server 2005 and Microsoft SQL Server 2008 (Enterprise edition only)</li>
+          <li class="li">MySQL</li>
+          <li class="li">Oracle 11g (Enterprise edition only)</li>
+          <li class="li">PostgreSQL 8.3 (Enterprise edition only)</li>
+          <li class="li">SharePoint (CMS)</li>
+        </ul><div class="note note note_note"><span class="note__title">Note:</span> For the databases marked with "Enterprise edition only", the XML capabilities are
+          only available in the Enterprise edition of <span class="ph">Oxygen XML Editor</span>. For a detailed feature
+          matrix that compares the Academic, Professional, and Enterprise editions of <span class="ph">Oxygen XML Editor</span>
+          <a class="xref" href="https://www.oxygenxml.com/feature_matrix.html" target="_blank" rel="external noopener">go to the <span class="ph">Oxygen XML Editor</span> website</a>. </div></div>
+    </section>
+    <section class="section" id="database-perspective__supported_capabilities"><h2 class="title sectiontitle">Supported Capabilities</h2>
+      
+      <div class="p">The supported non-XML capabilities are as follows:<ul class="ul">
+          <li class="li">Browsing the structure of the database instance.</li>
+          <li class="li">Opening a database table in the <a class="xref" href="relational-table-explorer.html#relational-table-explorer"><span class="ph uicontrol">Table
+                Explorer</span> view</a>.</li>
+          <li class="li">Handling the values from <span class="ph uicontrol">XML Type</span> columns as String
+            values.</li>
+        </ul><div class="note note note_note"><span class="note__title">Note:</span> The non-XML capabilities are available in the Enterprise, Academic, and
+          Professional editions of <span class="ph">Oxygen XML Editor</span> by registering the database driver as a
+            <em class="ph i">Generic JDBC</em> type driver when defining the data source for accessing the
+          database. For more information, see <a class="xref" href="database-support.html#database-support">Database Connection Support</a>.</div></div>
+      <div class="p">The supported XML capabilities are as follows:<ul class="ul">
+          <li class="li">Displaying an XML Schema node in the tree of the database structure (for databases
+            with an XML-specific structure) with actions for opening, editing, and validating the
+            schemas in an <span class="ph">Oxygen XML Editor</span> editor panel.</li>
+          <li class="li">Handling the values from <span class="ph uicontrol">XML Type</span> columns as XML instance
+            documents that can be opened and edited in an <span class="ph">Oxygen XML Editor</span> editor panel.</li>
+          <li class="li">Validating an XML instance document added to an XML Type (column of a table,
+            etc.)</li>
+        </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> Connections configured on relational data sources can be used to
+          import data to XML or to generate XML schemas. </div></div>
+    </section>
+    <section class="section" id="database-perspective__layout_of_the_database_perspective"><h2 class="title sectiontitle">Layout of the Database Perspective</h2>
+      
+      <div class="p">The layout of this <dfn class="term">perspective</dfn> is composed of the following components:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Menus</span></dt>
+            <dd class="dd">Provides menu driven access to all the features and functions available in the
+                <span class="ph uicontrol">XQuery Debugger</span>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Toolbars</span></dt>
+            <dd class="dd">Contains all actions needed to configure and control the debugging process. <span class="ph">The <a class="xref" href="configure-toolbars.html#configure-toolbars">toolbars can be
+                  configured</a> to suit your specific needs.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Editor</span> Pane</dt>
+            <dd class="dd">The main editing pane where you spend most of your time reading, editing, applying
+              markup, and validating your documents.</dd>
+          
+          
+            <dt class="dt dlterm"><a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> View</a></dt>
+            <dd class="dd">Provides browsing support for the configured connections.</dd>
+          
+          
+            <dt class="dt dlterm"><a class="xref" href="relational-table-explorer.html#relational-table-explorer"><span class="ph uicontrol">Table Explorer</span> View</a></dt>
+            <dd class="dd">Provides table content editing support for inserting new rows, deleting table rows,
+              editing cell values, exporting to an XML file, and more.</dd>
+          
+        </dl></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-perspectives.html" title="The Editor, XSLT Debugger, XQuery Debugger, and Database perspectives">Perspectives</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-debugger-perspective.html">XQuery Debugger Perspective</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/oxygen-editing-modes.html" title="The Text, Grid, Author, and Schema Design editing modes">Editing Modes</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="working-with-databases.html#working-with-databases">Working with Databases</a></li><li class="linklist"><a class="link" href="relational-database-explorer.html#relational-database-explorer">Data Source Explorer View</a></li><li class="linklist"><a class="link" href="relational-table-explorer.html#relational-table-explorer">Table Explorer View</a></li></ul></div></nav>
+</article></main></body></html>

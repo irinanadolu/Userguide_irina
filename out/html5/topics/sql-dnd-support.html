@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/relational-sql-execution-support.html"><meta name="DC.relation" scheme="URI" content="../topics/relational-sql-execution-support.html"><meta name="DC.relation" scheme="URI" content="../topics/sql-validation.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sql-dnd-support"><title>Drag and Drop from Data Source Explorer View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sql-dnd-support"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Drag and Drop from Data Source Explorer View</h1>
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">Dragging operations from the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data
+            Source Explorer</span> view</a> and dropping them in the SQL Editor allows you
+        to create SQL statements quickly by inserting the names of tables and columns in the SQL
+        statements.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Configure a database connection (see the specific procedure for your database server in
+          the <a class="xref" href="database-support.html#database-support">Database Connection
+            Support</a> section).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Browse to the table you will use in your statement.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Drag the table or a column of the table into the editor where a SQL file is open.</span>
+        <div class="itemgroup stepresult">
+          <p class="p">Drag and drop actions are available both on the table and on its fields. A pop-up menu
+            is displayed in the SQL editor.</p>
+          <div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>SQL Statement Editing with Drag and Drop</figcaption>
+              
+              <img class="image" src="../img/sa_dnd_sql.png">
+            </figure>
+          </div>
+          <p class="p">
+            
+          </p>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the type of statement from the pop-up menu.</span>
+        <div class="itemgroup stepresult">
+          <p class="p">Depending on your choice, dragging a table results in one of the following statements
+            being inserted into the document:</p>
+          <ul class="ul">
+            <li class="li"><strong class="ph b">SELECT `<em class="ph i">field1</em>`,`<em class="ph i">field2</em>`, <em class="ph i">....</em> FROM `<em class="ph i">catalog</em>`.
+                  `<em class="ph i">table</em>`</strong> (for example: <code class="ph codeph">SELECT `DEPT`,`DEPTNAME`,`LOCATION` FROM
+                `camera`.`cameraDesc`</code>)</li>
+            <li class="li"><strong class="ph b">UPDATE `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>` SET `<em class="ph i">field1</em>`=,
+                  `<em class="ph i">field2</em>`=,<em class="ph i">.... </em></strong> (for example: <code class="ph codeph">UPDATE
+                `camera`.`cameraDesc` SET `DEPT`=, `DEPTNAME`=, `LOCATION`=</code>)</li>
+            <li class="li"><strong class="ph b">INSERT INTO `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>` ( `<em class="ph i">field1</em>`,`<em class="ph i">field2</em>`,
+                  <em class="ph i">....</em>) VALUES (, , )</strong> (for example: <code class="ph codeph">INSERT INTO
+                `camera`.`cameraDesc` (`DEPT`,`DEPTNAME`,`LOCATION`) VALUES (, , )</code>)</li>
+            <li class="li"><strong class="ph b">DELETE FROM `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>`</strong> (for example: <code class="ph codeph">DELETE
+                FROM `camera`.`cameraDesc`</code>)</li>
+          </ul>
+          <p class="p">Depending on your choice, dragging a column results in one of the following statements
+            being inserted into the document:</p>
+          <ul class="ul">
+            <li class="li"><strong class="ph b">SELECT `<em class="ph i">field</em>` FROM `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>`</strong> (for example:
+                <code class="ph codeph">SELECT `DEPT` FROM `camera`.`cameraDesc`</code> )</li>
+            <li class="li"><strong class="ph b">UPDATE `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>` SET `<em class="ph i">field</em>`=</strong> (for example:
+                <code class="ph codeph">UPDATE `camera`.`cameraDesc` SET `DEPT`=</code>)</li>
+            <li class="li"><strong class="ph b">INSERT INTO `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>` ( `<em class="ph i">field1</em>) VALUES ()</strong> (for
+              example: <code class="ph codeph">INSERT INTO `camera`.`cameraDesc` (`DEPT`) VALUES ()</code>)</li>
+            <li class="li"><strong class="ph b">DELETE FROM `<em class="ph i">catalog</em>`. `<em class="ph i">table</em>`</strong> (for example: <code class="ph codeph">DELETE
+                FROM `camera`.`cameraDesc` WHERE `DEPT`=</code>)</li>
+          </ul>
+        </div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/relational-sql-execution-support.html">SQL Execution Support</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/relational-sql-execution-support.html">SQL Execution Support</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sql-validation.html">SQL Validation</a></div></div></nav></article></main></body></html>

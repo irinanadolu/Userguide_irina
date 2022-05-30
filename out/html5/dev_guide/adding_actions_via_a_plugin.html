@@ -1,0 +1,34 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../dev_guide/workspace_access_plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="adding_actions_via_a_plugin"><title>Adding Toolbar and Menu Actions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="adding_actions_via_a_plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Adding Toolbar and Menu Actions</h1>
+    <div class="body">
+        <p class="p">A <a class="xref" href="../topics/workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events."><em class="ph i">Workspace Access</em> plugin
+        extension</a> can contribute custom actions to the contextual menu, main menus, or to the
+      general toolbars. </p>
+        <ul class="ul" id="adding_actions_via_a_plugin__ul_yrl_ytz_pgb">
+            <li class="li">
+                <p class="p"><strong class="ph b">Contributing a new toolbar action:</strong></p>
+                <p class="p">This <a class="xref" href="https://github.com/oxygenxml/sample-plugin-workspace-access" target="_blank" rel="external noopener">sample Workspace Access plugin</a> contributes a new
+          toolbar called <strong class="ph b">SampleWorkspaceAccessToolbarID</strong>. The <a class="xref" href="https://github.com/oxygenxml/sample-plugin-workspace-access/blob/master/src/main/java/com/oxygenxml/sdksamples/workspace/CustomWorkspaceAccessPluginExtension.java" target="_blank" rel="external noopener">java code</a> of the sample plugin will use the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/StandalonePluginWorkspace.html#addToolbarComponentsCustomizer-ro.sync.exml.workspace.api.standalone.ToolbarComponentsCustomizer-" target="_blank" rel="external noopener">toolbar components customizer API</a>.</p>
+            </li>
+            <li class="li">
+                <p class="p"><strong class="ph b">Contributing an action on the main menu:</strong></p>
+                <p class="p">As exemplified in the <a class="xref" href="https://github.com/oxygenxml/sample-plugin-workspace-access" target="_blank" rel="external noopener">sample plugin</a>, the <strong class="ph b">addMenuBarCustomizer</strong> API can be used
+          either to add a new menu or to customize the existing main menu.</p>
+            </li>
+            <li class="li">
+                <p class="p"><strong class="ph b">Contributing a contextual menu action:</strong></p>
+                <p class="p">The same <a class="xref" href="https://github.com/oxygenxml/sample-plugin-workspace-access" target="_blank" rel="external noopener">sample plugin</a> uses the
+            <strong class="ph b">addMenusAndToolbarsContributorCustomizer</strong> API to contribute a contextual menu
+          customizer. Such a customizer can be contributed either for the <strong class="ph b">Text</strong> or
+            <strong class="ph b">Author</strong> editing modes.</p>
+            </li>
+        </ul>
+        <p class="p">Once an action is added, you can define a new shortcut key for it using the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/StandalonePluginWorkspace.html#getActionsProvider--" target="_blank" rel="external noopener"><strong class="ph b">ActionProvider</strong></a> API. The action can use the
+          <strong class="ph b"><a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/editor/WSEditor.html" target="_blank" rel="external noopener">WSEditor API</a></strong> to make changes to an open XML
+      document.</p>
+        <p class="p">The same customizer API can be used to remove actions from the main menu, toolbars,
+      framework-specific menus, and contextual menus.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dev_guide/workspace_access_plugin.html">Workspace Access Plugin</a></div></div></nav></article></main></body></html>

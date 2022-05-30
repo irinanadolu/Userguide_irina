@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Encoding,UTF-8 BOM handling,Encoding preferences"><meta name="keywords" content="Preferences, Encoding, UTF-8 BOM handling, Encoding preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-document-templates.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-encoding"><title>Encoding Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-encoding"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Encoding Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> lets you configure how character encodings are recognized when opening
+      files and which encodings are used when saving files. To configure encoding options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">Encoding</span>.</p>
+    <div class="p">The following encoding options are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Fallback character encoding</span></dt>
+          <dd class="dd">Specifies the default character encoding of non-XML documents if their character
+            encoding cannot be determined from other sources (for example, it is not specified in
+            the document or determined by the file type).<div class="note note note_note"><span class="note__title">Note:</span> For certain document types, the
+              following encoding detection rules are used:<ul class="ul">
+                <li class="li">For XML, DTD, and CSS documents, <span class="ph">Oxygen XML Editor</span> tries to collect the
+                  character encoding from the document. If no such encoding is found, then
+                    <em class="ph i">UTF-8</em> is used.</li>
+                <li class="li">For JavaScript, JSON, SQL, XQuery, and RNC, the <em class="ph i">UTF-8</em> encoding is
+                  used.</li>
+              </ul></div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">UTF-8 BOM handling</span></dt>
+          <dd class="dd">This setting specifies how to handle the <em class="ph i">Byte Order Mark</em> (BOM) when <span class="ph">Oxygen XML Editor</span> saves a UTF-8 XML document: <ul class="ul">
+              <li class="li"><span class="ph uicontrol">Keep</span> (default) - Do not alter the BOM declaration of the
+                currently open file.</li>
+              <li class="li"><span class="ph uicontrol">Write</span> - Save the BOM bytes.</li>
+              <li class="li"><span class="ph uicontrol">Don't Write</span> - Do not save the BOM bytes. Loaded BOM bytes
+                are ignored.</li>
+            </ul><div class="note note note_note"><span class="note__title">Note:</span> The UTF-16 BOM is always preserved. UTF-32 documents have a
+                <em class="ph i">big-endian</em> byte order.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-encoding__encoding-errors-handling"><span class="ph uicontrol">Encoding errors handling</span></dt>
+          <dd class="dd">This setting specifies how to handle characters that cannot be represented in the
+            character encoding that is used when the document is opened. The available options are:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">REPORT</span> (default) - Displays an error identifying the
+                character that cannot be represented in the specified encoding. Unrecognized
+                characters are rendered as an empty box.</li>
+              <li class="li"><span class="ph uicontrol">REPLACE</span> - The character is replaced with a standard
+                replacement character. For example, if the encoding is UTF-8, the replacement
+                character has the Unicode code <code class="ph codeph">FFFD</code>, and if the encoding is ASCII,
+                the replacement character code is 63.</li>
+              <li class="li"><span class="ph uicontrol">IGNORE</span> - The error is ignored and the character is not
+                included in the document displayed in the editor.<div class="note attention note_attention"><span class="note__title">Attention:</span> If you edit
+                  and save the document, the characters that cannot be represented in the specified
+                  encoding are dropped.</div></li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span></dt>
+          <dd class="dd">Specifies the encoding to be used when invoking the <span class="ph uicontrol">Encode
+              Selection</span> or <span class="ph uicontrol">Decode Selection</span> actions for <a class="xref" href="text-mode-actions.html#text-mode-actions__base64-encode-decode"><em class="ph i">Base64</em></a>, <a class="xref" href="text-mode-actions.html#text-mode-actions__base32-encode-decode"><em class="ph i">Base32</em></a>, or <a class="xref" href="text-mode-actions.html#text-mode-actions__hex-encode-decode"><em class="ph i">Hex</em>
+              conversions</a>. The default setting is <em class="ph i">UTF8</em>.</dd>
+        
+        
+          <dt class="dt dlterm">Encode non-ASCII characters in URL paths</dt>
+          <dd class="dd">If selected (default), <span class="ph">Oxygen XML Editor</span> will escape non-ASCII characters (encode
+            them with their hexadecimal equivalent) within URL paths. If you are using a non-Latin
+            alphabet (such as Arab, Japanese, Chinese), it may be beneficial to deselect this option
+            so that non-ASCII characters in URL paths will not be escaped and will remain more
+            readable.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences.html">Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-document-templates.html">Document Templates Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div></div></nav></article></main></body></html>

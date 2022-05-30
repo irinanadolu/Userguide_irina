@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Troubleshooting,Date formatting issues"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Troubleshooting, Date formatting issues"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_comments_and_change_tracking_troubleshooting.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_failed_to_run_pipeline_the_entity_cannot_not_be_resolved_through_catalogs.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_fixing__error_parsing_css_file.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale"><title>The format-date() XPath Function Does not Respect the Specified Locale</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">The format-date() XPath Function Does not Respect the Specified Locale</h1>
+  
+    <div class="body troublebody">
+    <section class="section condition" id="dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <div class="p">Formatting a date using another language code, as in this example:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title:before {
+   <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">'format-date(current-date(), "[Mn] [Y]", "ru", (), ())'</span>);
+}</pre>results in an output like: <code class="ph codeph">[Language: en]september 2019</code>, with
+        the date being formatted in English.</div>
+    </section><div class="bodydiv troubleSolution"><section class="section cause" id="dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">The XPath expressions are evaluated using the Saxon HE processor. This processor does not
+          support languages other than English (<a class="xref" href="https://sourceforge.net/p/saxon/mailman/message/26849522/" target="_blank" rel="external noopener">https://sourceforge.net/p/saxon/mailman/message/26849522/</a>).</p>
+      </section>
+      <section class="section remedy" id="dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <div class="p">As a solution, you can either switch to a more language-neutral format that avoids the
+            months names:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title:before{
+   <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">'format-date( current-date(), "[M] [Y]", "en", (), ())'</span>);
+}</pre></div>
+          <div class="p">or you can use a more complex XPath expression like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title:before{
+            
+            <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">"let $cm:= format-date(current-date(), '[MNn]') \
+
+return  concat( \
+
+if ($cm= 'January') then  'JAN' else \
+
+if ($cm= 'February') then  'FEB' else \
+
+if ($cm= 'March') then  'MAR' else \
+
+if ($cm= 'April') then  'APR' else \
+
+if ($cm= 'May') then  'MAY' else \
+
+if ($cm= 'June') then  'JUNE' else \
+
+if ($cm= 'July') then  'JUL' else \
+
+if ($cm= 'August') then  'AUG' else \
+
+if ($cm= 'September') then  'SEPT' else \
+
+if ($cm= 'October') then  'OCT' else \
+
+if ($cm= 'November') then  'NOV' else  '' \
+
+, \
+
+' ', \
+
+format-date(current-date(), '[Y0001]') \
+
+) "</span>);
+
+}</pre></div>
+          <p class="p">Make sure the entire expression is rendered blue in the CSS editor. Replace the
+            capitalized month names with the translation in the desired language.</p>
+        </section>
+      </section></div></div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_comments_and_change_tracking_troubleshooting.html" title="Information about fixing publishing issues">Troubleshooting</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_failed_to_run_pipeline_the_entity_cannot_not_be_resolved_through_catalogs.html">Failed to Run Pipeline: The Entity Cannot Be Resolved Through Catalogs</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_fixing__error_parsing_css_file.html">Error Parsing CSS File - Caused by a Networking Problem</a></div></div></nav></article></main></body></html>

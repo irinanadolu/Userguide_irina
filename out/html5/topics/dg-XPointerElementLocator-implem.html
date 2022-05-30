@@ -1,0 +1,195 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-DefaultElementLocatorProvider-implem.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-IDElementLocator-implem.html"><meta name="DC.relation" scheme="URI" content="../topics/configuring-xml-node-renderer-customizer.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-XPointerElementLocator-implem"><title>XPointer Element Locator</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-XPointerElementLocator-implem"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XPointer Element Locator</h1>
+  <div class="body">
+    <p class="p"><em class="ph i">XPointerElementLocator</em> is an implementation of the abstract class <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/link/ElementLocator.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.link.ElementLocator</em></a>
+      for links that have one of the following XPointer element() scheme patterns:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">element (<em class="ph i">elementID</em>)</dt>
+          <dd class="dd">
+            <p class="p">Locate the element with the specified ID.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">element (<em class="ph i">/1/2/3</em>)</dt>
+          <dd class="dd">
+            <p class="p">A child sequence appearing alone identifies an element by means of stepwise
+              navigation, which is directed by a sequence of integers separated by slashes (/). Each
+              integer n locates the nth child element of the previously located element.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">element (<em class="ph i">elementID/3/4</em>)</dt>
+          <dd class="dd">
+            <p class="p">A child sequence appearing after a <em class="ph i">NCName</em> identifies an element by means of
+              stepwise navigation, starting from the element located by the given name.</p>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p">The constructor separates the ID/integers, which are delimited by slashes(/) into a sequence
+      of identifiers (an XPointer path). It will also check that the link has one of the supported
+      patterns of the XPointer element() scheme.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> XPointerElementLocator(IDTypeVerifier idVerifier, String link)
+                      <strong class="hl-keyword">throws</strong> ElementLocatorException {
+  <strong class="hl-keyword">super</strong>(link);
+  <strong class="hl-keyword">this</strong>.idVerifier = idVerifier;
+
+  link = link.substring(<span class="hl-string">"element("</span>.length(), link.length() - <span class="hl-number">1</span>);
+
+  StringTokenizer stringTokenizer = <strong class="hl-keyword">new</strong> StringTokenizer(link, <span class="hl-string">"/"</span>, false);
+  xpointerPath = <strong class="hl-keyword">new</strong> String[stringTokenizer.countTokens()];
+  <strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>;
+  <strong class="hl-keyword">while</strong> (stringTokenizer.hasMoreTokens()) {
+    xpointerPath[i] = stringTokenizer.nextToken();
+    <strong class="hl-keyword">boolean</strong> invalidFormat = false;
+    
+    <em class="hl-comment">// Empty xpointer component is not supported</em>
+    <strong class="hl-keyword">if</strong>(xpointerPath[i].length() == <span class="hl-number">0</span>){
+      invalidFormat = true;
+    }
+    
+    <strong class="hl-keyword">if</strong>(i &gt; <span class="hl-number">0</span>){
+      <strong class="hl-keyword">try</strong> {
+        Integer.parseInt(xpointerPath[i]);
+      } <strong class="hl-keyword">catch</strong> (NumberFormatException e) {
+        invalidFormat = true;
+      }
+    }
+
+    <strong class="hl-keyword">if</strong>(invalidFormat){
+      <strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> ElementLocatorException(
+        <span class="hl-string">"Only the element() scheme is supported when locating XPointer links."</span>
+        + <span class="hl-string">"Supported formats: element(elementID), element(/1/2/3), 
+</span>              element(elemID/<span class="hl-number">2</span>/<span class="hl-number">3</span>/<span class="hl-number">4</span>).<span class="hl-string">");
+</span>    }
+    i++;
+  }
+
+  <strong class="hl-keyword">if</strong>(Character.isDigit(xpointerPath[<span class="hl-number">0</span>].charAt(<span class="hl-number">0</span>))){
+    <em class="hl-comment">// This is the case when xpointer have the following pattern /1/5/7</em>
+    xpointerPathDepth = xpointerPath.length;
+  } <strong class="hl-keyword">else</strong> {
+    <em class="hl-comment">// This is the case when xpointer starts with an element ID</em>
+    xpointerPathDepth = -<span class="hl-number">1</span>;
+    startWithElementID  = true;
+  }
+}</pre>
+    <p class="p">The method <em class="ph i">startElement</em> will be invoked at the beginning of every element in the XML
+      document(even when the element is empty). The arguments it takes are</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">
+            <em class="ph i">uri</em>
+          </dt>
+          <dd class="dd">
+            <p class="p">The namespace URI, or the empty string if the element has no namespace URI or if
+              namespace processing is disabled.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">
+            <em class="ph i">localName</em>
+          </dt>
+          <dd class="dd">
+            <p class="p">Local name of the element.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">
+            <em class="ph i">qName</em>
+          </dt>
+          <dd class="dd">
+            <p class="p">Qualified name of the element.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">
+            <em class="ph i">atts</em>
+          </dt>
+          <dd class="dd">
+            <p class="p">Attributes attached to the element. If there are no attributes, this argument will be
+              empty.</p>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p">The method returns <code class="ph codeph">true</code> if the processed element is found to be the one
+      indicated by the link.</p>
+    <p class="p">The <em class="ph i">XPointerElementLocator</em> implementation of the <em class="ph i">startElement</em> will update the
+      depth of the current element and keep the index of the element in its parent. If the
+        <code class="ph codeph">xpointerPath</code> starts with an element ID then the current element ID is
+      verified to match the specified ID. If this is the case the depth of the XPointer is updated
+      taking into account the depth of the current element.</p>
+    <p class="p">If the XPointer path depth is the same as the current element depth then the kept indices of
+      the current element path are compared to the indices in the XPointer path. If all of them
+      match then the element has been found.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> startElement(String uri, String localName, 
+        String name, Attr[] atts) {
+  <strong class="hl-keyword">boolean</strong> linkLocated = false;
+  <em class="hl-comment">// Increase current element document depth</em>
+  startElementDepth ++;
+  
+  <strong class="hl-keyword">if</strong> (endElementDepth != startElementDepth) {
+    <em class="hl-comment">// The current element is the first child of the parent</em>
+    currentElementIndexStack.push(<strong class="hl-keyword">new</strong> Integer(<span class="hl-number">1</span>));
+  } <strong class="hl-keyword">else</strong> {
+    <em class="hl-comment">// Another element in the parent element</em>
+    currentElementIndexStack.push(<strong class="hl-keyword">new</strong> Integer(lastIndexInParent + <span class="hl-number">1</span>));
+  }
+  
+  <strong class="hl-keyword">if</strong> (startWithElementID) {
+    <em class="hl-comment">// This the case when xpointer path starts with an element ID.</em>
+    String xpointerElement = xpointerPath[<span class="hl-number">0</span>];
+    <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; atts.length; i++) {
+      <strong class="hl-keyword">if</strong>(xpointerElement.equals(atts[i].getValue())){
+        <strong class="hl-keyword">if</strong>(idVerifier.hasIDType(
+            localName, uri, atts[i].getQName(), atts[i].getNamespace())){
+          xpointerPathDepth = startElementDepth + xpointerPath.length - <span class="hl-number">1</span>;
+          <strong class="hl-keyword">break</strong>;
+        }
+      }
+    }
+  }
+      
+  <strong class="hl-keyword">if</strong> (xpointerPathDepth == startElementDepth){
+    <em class="hl-comment">// check if xpointer path matches with the current element path</em>
+    linkLocated = true;
+    <strong class="hl-keyword">try</strong> {        
+      <strong class="hl-keyword">int</strong> xpointerIdx = xpointerPath.length - <span class="hl-number">1</span>;
+      <strong class="hl-keyword">int</strong> stackIdx = currentElementIndexStack.size() - <span class="hl-number">1</span>;
+      <strong class="hl-keyword">int</strong> stopIdx = startWithElementID ? <span class="hl-number">1</span> : <span class="hl-number">0</span>;
+      <strong class="hl-keyword">while</strong> (xpointerIdx &gt;= stopIdx &amp;&amp; stackIdx &gt;= <span class="hl-number">0</span>) {
+        <strong class="hl-keyword">int</strong> xpointerIndex = Integer.parseInt(xpointerPath[xpointerIdx]);
+        <strong class="hl-keyword">int</strong> currentElementIndex = 
+          ((Integer)currentElementIndexStack.get(stackIdx)).intValue();
+        <strong class="hl-keyword">if</strong>(xpointerIndex != currentElementIndex) {
+          linkLocated = false;
+          <strong class="hl-keyword">break</strong>;
+        }
+        
+        xpointerIdx--;
+        stackIdx--;
+      }
+
+    } <strong class="hl-keyword">catch</strong> (NumberFormatException e) {
+      logger.warn(e,e);
+    }
+  }
+  <strong class="hl-keyword">return</strong> linkLocated;
+}</pre>
+    <p class="p">The method <em class="ph i">endElement</em> will be invoked at the end of every element in the XML document
+      (even when the element is empty).</p>
+    <p class="p">The <em class="ph i">XPointerElementLocator</em> implementation of the <em class="ph i">endElement</em> updates the depth
+      of the current element path and the index of the element in its parent.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> endElement(String uri, String localName, String name) {
+  endElementDepth = startElementDepth;
+  startElementDepth --;
+  lastIndexInParent = ((Integer)currentElementIndexStack.pop()).intValue();
+}</pre>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-DefaultElementLocatorProvider-implem.html">Default Link Target Reference Finder</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-IDElementLocator-implem.html">ID Element Locator</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/configuring-xml-node-renderer-customizer.html">Customizing XML Node Rendering</a></div></div></nav></article></main></body></html>

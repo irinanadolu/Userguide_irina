@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen SDK,Debugging an SDK extension,Plugins"><meta name="keywords" content="Oxygen SDK, Debugging an SDK extension, Plugins"><meta name="DC.relation" scheme="URI" content="../topics/testing-plugins-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/disable-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-sdk"><title>Debugging an Oxygen SDK Extension Using the Eclipse Workbench</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-sdk"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugging an Oxygen SDK Extension Using the Eclipse Workbench</h1>
+  
+  <div class="body">
+    <div class="p">To use the Eclipse workbench to debug problems in the code of an <a class="xref" href="../glossary/plugin.html"><dfn class="term">extension</dfn></a> without having to bundle its Java
+      classes in a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> library, perform the
+      following steps:<ol class="ol" id="debug-sdk__ol_ops_m3p_hj">
+        <li class="li"><a class="xref" href="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html" target="_blank" rel="external noopener">Download</a> and install <span class="ph">Oxygen XML Editor</span>.</li>
+        <li class="li">Create an Eclipse Java Project (for example, <span class="ph filepath">MySDKProject</span>) with the
+          corresponding Java sources (for example, a custom implementation of the
+            <em class="ph i">ro.sync.ecss.extensions.api.StylesFilter</em> interface). </li>
+        <li class="li">In the Project build path, add external <dfn class="term">JAR</dfn> references to all the
+            <dfn class="term">JAR</dfn> libraries in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span> folder. In the build
+          path <span class="ph uicontrol">Order and Export</span> panel, make sure that the
+            <span class="ph filepath">oxygen.jar</span> entry is before all other libraries. Now your Project
+          should compile successfully.</li>
+        <li class="li">Start the standalone version of <span class="ph">Oxygen XML Editor</span> from the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn></span> and in the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>, edit
+          the document type (for example, <strong class="ph b">DITA</strong>) to open the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              Type</span> configuration dialog box</a>. In the <strong class="ph b">Classpath</strong> tab, add a
+          reference to your Project's <span class="ph filepath">classes</span> directory and in the
+            <strong class="ph b">Extensions</strong> tab, select your custom <em class="ph i">StylesFilter</em> extension as a value for
+          the <strong class="ph b">CSS styles filter</strong> property. Close the application to save your changes.</li>
+        <li class="li">
+          <p class="p">Create a new Java Application configuration for debugging. The Main Class should be
+              <code class="ph codeph">ro.sync.exml.Oxygen</code>. The given VM Arguments should be:</p>
+          <p class="p"><code class="ph codeph">-Dcom.oxygenxml.app.descriptor=ro.sync.exml.EditorFrameDescriptor
+              -Xmx1024m</code></p>
+        </li>
+        <li class="li"><a class="xref" href="using-breakpoints.html#using-breakpoints__inserting_breakpoints">Add a
+              <dfn class="term">breakpoint</dfn></a> in one of the source Java classes.</li>
+        <li class="li">Debug the created configuration. When the code reaches your
+            <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoint</dfn></a>,
+          the Eclipse IDE debugging perspective should take over.</li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/testing-plugins-extensions.html">Testing Plugins and Java Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-plugin.html">Debugging a Plugin Using the Eclipse Workbench</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/disable-plugin.html">Disabling a Plugin</a></div></div></nav></article></main></body></html>

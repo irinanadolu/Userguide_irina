@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="webauthor-customize-with-css">
+  <title>Customizing the Document Editing Experience Using CSS</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Customizing Web Author using CSS</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="webappProduct"/> allows you to edit XML documents with a visual presentation
+      mode. The document rendering is controlled by CSS stylesheets. You can control how the XML
+      elements are visually presented, from basic aspects such as fonts, colors, and layout (tables,
+      lists, etc.) to more advanced aspects such as the in-place XML attribute editor, placeholders
+      for empty elements, or controlling which elements can be folded. </p>
+    <p><term>Oxygen XML Editor/Author</term> has a very useful <xref
+        href="https://www.oxygenxml.com/doc/ug-editor/topics/author-css-inspector-view.html"
+        format="html" scope="external">CSS inspector</xref> similar to those found in most modern
+      browsers. It can be used to quickly modify the CSS used to render your XML documents.</p>
+    <p>After making changes to the CSS, you can test the results by using the <xref
+        href="customizing_frameworks.dita#customizing_frameworks/developing_and_testing_a_framework_using_the_weba"
+        >Web Author Test Server add-on</xref>. Once you are happy with the changes, you need to
+        <xref href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-customize-default-CSS.html"
+        format="html" scope="external">associate the CSS with your framework</xref>.</p>
+    <section id="section_y4h_vqx_hz">
+      <title>Example: Customizing the Background for the Note Element in DITA</title>
+      <p>Suppose you want to configure Web Author to render the default DITA
+          <xmlelement>note</xmlelement> elements with a yellow background while rendering those with
+        the <xmlatt>type</xmlatt> attribute set to <codeph>danger</codeph> with s light red
+        background. You could do this by following these steps:<ol id="ol_tzy_2rx_hz">
+          <li>In <term>Oxygen XML Editor/Author</term>, create a new DITA topic and insert two
+              <xmlelement>note</xmlelement> elements (one without setting the <xmlatt>type</xmlatt>
+            attribute and the other setting the <codeph>type</codeph> attribute to
+            <b>danger</b>.</li>
+          <li>Right-click on the first <xmlelement>note</xmlelement> element and choose
+              <uicontrol>Inspect Styles</uicontrol>.</li>
+          <li>In the <uicontrol>CSS Inspector</uicontrol> view, you can see all the <xref
+              href="https://www.oxygenxml.com/doc/ug-editor/topics/author-css-inspector-view.html#author-css-inspector-view__displaying_rules"
+              format="html" scope="external">rules currently applied</xref> for notes. Click the
+            link associated with one of them to take you to the source CSS file.</li>
+          <li>Add the following code in the CSS
+            file:<codeblock outputclass="language-css">[class*="topic/note"] {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+[class*="topic/note"][type="danger"] {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}</codeblock></li>
+          <li>Switch to the XML document and see that the colors have changed.</li>
+          <li>Once you are happy with the changes, you need to <xref
+              href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-customize-default-CSS.html"
+              format="html" scope="external">associate the CSS with your framework</xref>.</li>
+          <li>You can check to see how <i>notes</i> look in Web Author by using the <xref
+              href="customizing_frameworks.dita#customizing_frameworks/developing_and_testing_a_framework_using_the_weba"
+              >Web Author Test Server add-on</xref>.</li>
+        </ol></p>
+    </section>
+  </body>
+</topic>

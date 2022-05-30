@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="default-options">
+  <title>Customizing Default Options</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Customizing default options</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> has an extensive set of options that you can configure. When <ph
+        keyref="product"/> in installed, these options are set to default values. You can provide a
+      different set of default values for an installation using an XML <i>options file</i>.</p>
+    <section id="creating_an_xml_options_file">
+      <title>Creating an XML <i>Options File</i></title>
+      <p>To create an <i>options file</i>, follow these steps:<ol id="ol_uvs_f52_1p">
+          <li>It is recommended that you use a fresh install for this procedure, to make sure that
+            you do not copy personal or local preferences. </li>
+          <li>Open <ph keyref="product"/> and <ph
+              conkeyref="reusables-preferences-pages/open-the-preferences-page"/>.</li>
+          <li>Go through the options and set them to the desired defaults.<ph
+              product="author developer editor"> Make sure that <xref
+                keyref="glossentry_global-options"><uicontrol>Global Options</uicontrol></xref> is
+              selected in each page.</ph>
+          </li>
+          <li product="author developer editor svnClient">Click <uicontrol>OK</uicontrol> and close
+            the <uicontrol>Preferences</uicontrol> dialog box. </li>
+          <li><ph product="author developer editor svnClient">Go to <menucascade>
+                <uicontrol>Options</uicontrol>
+                <uicontrol>Export Global Options</uicontrol>
+              </menucascade> to create an XML options file.</ph><ph
+              product="authorEclipse developerEclipse editorEclipse">Go to back to the main
+              preferences page and click <uicontrol>Export Global Options</uicontrol> to create an
+              XML options file.</ph></li>
+        </ol></p>
+    </section>
+    <section id="project-file-section" product="author developer editor">
+      <title>Controlling Which Options are Stored in the Default Options File</title>
+      <p>If you want to control exactly which option pages will be stored in the default options
+        file, you can choose to attach them to a project file (<filepath>.xpr</filepath> file
+        extension) by following this procedure:<ol id="ul_bdf_d5t_zd">
+          <li>You may want to use a fresh install for this procedure, to make sure that you do not
+            copy personal or local preferences.</li>
+          <li>In the <xref href="using-the-project-view.dita#using-the-project-view" format="dita"
+                ><uicontrol>Project</uicontrol> view</xref>, create a project or open an existing
+            one.</li>
+          <li><ph conkeyref="reusables-preferences-pages/Open-the-preferences-page"/>.</li>
+          <li>Configure the options in each preferences page that you want to be included in the
+            project file and switch the storage preference to <xref
+              keyref="glossentry_project-options"><uicontrol>Project Options</uicontrol></xref> in
+            each page.<note>Some pages do not have the <uicontrol>Project Options</uicontrol>
+              button, since the options they host might contain sensitive data (such as passwords,
+              for example) that is unsuitable for sharing with other users.</note></li>
+          <li>
+            <p>Click <uicontrol>OK</uicontrol> and close the <uicontrol>Preferences</uicontrol>
+              dialog box.</p>
+            <p>All explicitly set values are now saved in the project file. You can then share the
+              project file so that your team will have the same option configuration that you stored
+              in the project file.<note conkeyref="reusables-editing-documents/xpr-extension-note"
+                /><note conkeyref="reusables-editing-documents/security-note"/></p>
+          </li>
+        </ol></p>
+    </section>
+    <section id="using_customized_default_options">
+      <title>Configuring an Installation to Use Customized Default Options</title>
+      <p>There are several methods that you can use to configure an <ph keyref="product"/>
+        installation to use the customized default options from the created XML options file.<note
+          type="warning" product="author developer editor">The disadvantage of customizing the
+          default options is that if the end-user manually changes an option, the default value will
+          no longer be used. An alternative would be to <xref
+            href="#default-options/impose_a_set_of_options_using_a_sample_plugin" format="dita">use
+            a plugin to impose a set of options</xref>.</note></p>
+      <p>The possible methods for using customized default options during an installation
+        include:</p>
+      <ul id="ul_n5f_btb_md">
+        <li>
+          <p><b>Copy the XML Options File to the Installation Directory</b></p>
+          <p>In the <filepath><term conkeyref="reusables-user-guide/oxy-install-dir"/></filepath>,
+            create a folder called <filepath>preferences</filepath> and copy the created XML options
+            file into it <ph product="author developer editor svnClient">(for example,
+                  <filepath><term conkeyref="reusables-user-guide/oxy-install-dir"
+                />/preferences/default.xml</filepath>)</ph><ph
+              product="authorEclipse developerEclipse editorEclipse">(for example: <filepath
+                product="editorEclipse"><term conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/plugins/com.oxygenxml.editor/preferences/default.xml</filepath><filepath
+                product="authorEclipse"><term conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/plugins/com.oxygenxml.author/preferences/default.xml</filepath><filepath
+                product="developerEclipse"><term
+                  conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/plugins/com.oxygenxml.developer/preferences/default.xml</filepath>, or if the
+              plugin was installed as a drop-in: <filepath product="editorEclipse"><term
+                  conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/dropins/com.oxygenxml.editor/plugins/com.oxygenxml.editor/preferences/default.xml</filepath><filepath
+                product="authorEclipse"><term conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/dropins/com.oxygenxml.author/plugins/com.oxygenxml.author/preferences/default.xml</filepath><filepath
+                product="developerEclipse"><term
+                  conkeyref="reusables-user-guide/eclipse-install-dir"
+                />/dropins/com.oxygenxml.developer/plugins/com.oxygenxml.developer/preferences/default.xml</filepath>)</ph>.</p>
+        </li>
+        <li product="author developer editor svnClient">
+          <p><b>Specify a Path to the XML Options File in a Startup Parameter</b></p>
+          <p>Set the path to the XML options file as the value of the
+              <codeph>com.oxygenxml.default.options</codeph> system property in the <xref
+              href="set-parameter-in-startup-script.dita#set-parameter-in-startup-script">startup
+              parameters</xref>. The path can be specified with any of the following:<ul>
+              <li>A URL or file path relative to the application installation folder. For
+                example:<codeblock outputclass="language-ini">-Dcom.oxygenxml.default.options=options/default.xml</codeblock></li>
+              <li>A system variable that specifies the file path. For
+                example:<codeblock outputclass="language-ini">com.oxygenxml.default.options=${system(CONFIG)}/default.xml</codeblock></li>
+              <li>An environmental variable that specifies the file path. For
+                example:<codeblock outputclass="language-ini">com.oxygenxml.default.options=${env(CONFIG)}/default.xml</codeblock></li>
+            </ul></p>
+        </li>
+        <li product="authorEclipse developerEclipse editorEclipse">
+          <p><b>Specify a Path to the XML Options File in a Startup Parameter</b></p>
+          <p>Set the path to the XML options file as the value of the
+              <codeph>com.oxygenxml.default.options</codeph> system property in the Eclipse
+            configuration file (<filepath><term conkeyref="reusables-user-guide/eclipse-install-dir"
+              />/configuration/config.ini</filepath>). The path can be specified with any of the following:<ul>
+              <li>
+                <p>A URL or file path relative to the application installation folder. For
+                  example:<codeblock outputclass="language-ini">com.oxygenxml.default.options=file\:default.xml</codeblock></p>
+                <p>This will make <ph keyref="product"/> look for <filepath>default.xml</filepath>
+                  inside the installation folder (for example: <filepath product="editorEclipse"
+                      ><term conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/plugins/com.oxygenxml.editor/preferences/default.xml</filepath><filepath
+                    product="authorEclipse"><term
+                      conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/plugins/com.oxygenxml.author/preferences/default.xml</filepath><filepath
+                    product="developerEclipse"><term
+                      conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/plugins/com.oxygenxml.developer/preferences/default.xml</filepath>, or if the
+                  plugin was installed as a drop-in: <filepath product="editorEclipse"><term
+                      conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/dropins/com.oxygenxml.editor/plugins/com.oxygenxml.editor/preferences/default.xml</filepath><filepath
+                    product="authorEclipse"><term
+                      conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/dropins/com.oxygenxml.author/plugins/com.oxygenxml.author/preferences/default.xml</filepath><filepath
+                    product="developerEclipse"><term
+                      conkeyref="reusables-user-guide/eclipse-install-dir"
+                    />/dropins/com.oxygenxml.developer/plugins/com.oxygenxml.developer/preferences/default.xml</filepath>).</p>
+              </li>
+              <li>A system variable that specifies the file path. For
+                example:<codeblock outputclass="language-ini">com.oxygenxml.default.options=file\:${system(CONFIG)}/default.xml</codeblock></li>
+              <li>An environmental variable that specifies the file path. For
+                example:<codeblock outputclass="language-ini">com.oxygenxml.default.options=file\:${env(CONFIG)}/default.xml</codeblock></li>
+            </ul><note>In the Eclipse configuration file, the backslash (<codeph>\</codeph>) is
+              considered a special character. Therefore, use forward slashes for separators inside
+              the file path.</note></p>
+        </li>
+      </ul>
+    </section>
+    <section id="impose_a_set_of_options_using_a_sample_plugin" product="author developer editor">
+      <title>Impose a Set of Options Using a Plugin</title>
+      <p>The <xref href="https://www.oxygenxml.com/oxygen_sdk.html" format="html" scope="external"
+          >Oxygen XML SDK</xref> includes a sample Java-based
+          <b>oxygen-sample-plugin-impose-options</b> plugin that shows how to impose a set of
+        options for the end-users every time the API is called. It is possible to use this plugin to
+        impose options but still allow the end-user to change options by calling the API only once,
+        the first time the plugin starts along with <ph keyref="product"/>.</p>
+      <p>A similar JavaScript-based sample <b>impose-options</b> plugin is also available here:
+          <xref href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins" format="html"
+          scope="external"/>. This plugin imports a fixed set of options (saved in XML format) when
+          <ph keyref="product"/> starts.</p>
+    </section>
+  </body>
+  <related-links product="author developer editor">
+    <linklist>
+      <title>Related Information:</title>
+      <link href="sharing-possibilities.dita#sharing-possibilities"/>
+    </linklist>
+  </related-links>
+</topic>

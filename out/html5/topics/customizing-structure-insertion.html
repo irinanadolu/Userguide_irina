@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Customizing structure insertion,Customizing structure insertion"><meta name="keywords" content="Framework customization, Customizing structure insertion, Customizing structure insertion"><meta name="DC.relation" scheme="URI" content="../topics/dg-configuring-actions-menus-toolbar.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/adding-retina-hidpi-images-framework.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing-structure-insertion"><title>Customizing Text-to-Markup Automatic Conversions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing-structure-insertion"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Text-to-Markup Automatic Conversions</h1>
+  
+  <div class="body">
+    <p class="p">Some built-in frameworks include a configuration file that defines shortcut patterns that can
+      be used in <span class="ph uicontrol">Author</span> mode to automatically insert a certain XML structure.
+      More specifically, the XML structure (fragment) automatically replaces a specific prefix
+      pattern. For example, if you are editing a DITA document using the built-in DITA framework,
+      entering a hyphen (<strong class="ph b">-</strong>) followed by a space at the beginning of a paragraph would
+      automatically replace them with an unordered list element (<code class="keyword markupname xmlelement">&lt;ul&gt;</code>) with a
+      child list item element (<code class="keyword markupname xmlelement">&lt;li&gt;</code>). This is made possible by the
+        <dfn class="term">AutoCorrect</dfn> mechanism in <span class="ph">Oxygen XML Editor</span>.</p>
+    <div class="p">It is possible to customize the particular configuration file
+        (<span class="ph filepath">structureAutocorrect.xml</span>) to define your own markup insertion shortcut
+      patterns by following these steps:<ol class="ol" id="customizing-structure-insertion__ol_js3_4k5_kq">
+        <li class="li">Create a new <span class="ph filepath">resources</span> folder (if it does not already exist) in the
+            <span class="ph filepath">frameworks</span> directory for the particular document type (for example,
+            <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources</span>).</li>
+        <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+            <span class="ph uicontrol">Document Type Association</span>. Select the particular document type,
+          click the <span class="ph uicontrol">Edit</span> button, and in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> add a link to that
+            <span class="ph filepath">resources</span> folder (if it does not already exist).</li>
+        <li class="li">Create a new <span class="ph filepath">structureAutocorrect.xml</span> file or edit an existing one
+          (this file already exists in the <span class="ph filepath">resources</span> folder of particular
+          document types and you can use an existing file as a starting point for your
+          customization).</li>
+        <li class="li">
+          <div class="p">Make the appropriate changes to your <span class="ph filepath">structureAutocorrect.xml</span>
+            file. The file should look like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;structure-autocorrect&gt;</strong>
+  <em class="hl-comment">&lt;!-- Unordered lists --&gt;</em>
+  <strong class="hl-tag">&lt;prefix-replacement</strong> <span class="hl-attribute">prefix</span>=<span class="hl-value">"-"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;ul&gt;</strong><strong class="hl-tag">&lt;li/&gt;</strong><strong class="hl-tag">&lt;/ul&gt;</strong>
+  <strong class="hl-tag">&lt;/prefix-replacement&gt;</strong>  
+  <em class="hl-comment">&lt;!-- Ordered lists --&gt;</em>
+  <strong class="hl-tag">&lt;prefix-replacement</strong> <span class="hl-attribute">prefix</span>=<span class="hl-value">"1."</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;ol&gt;</strong><strong class="hl-tag">&lt;li/&gt;</strong><strong class="hl-tag">&lt;/ol&gt;</strong>
+  <strong class="hl-tag">&lt;/prefix-replacement&gt;</strong>  
+  <em class="hl-comment">&lt;!-- Code block --&gt;</em>  
+  <strong class="hl-tag">&lt;prefix-replacement</strong> <span class="hl-attribute">prefix</span>=<span class="hl-value">"```"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;codeblock/&gt;</strong>
+  <strong class="hl-tag">&lt;/prefix-replacement&gt;</strong>
+<strong class="hl-tag">&lt;/structure-autocorrect&gt;</strong> </pre></div>
+          <p class="p">Using this example, when a user enters one of the defined prefixes at the start of an
+            element that allows the corresponding fragment, <span class="ph">Oxygen XML Editor</span> will
+            automatically replace the prefix with its corresponding fragment. For example, entering
+            a hyphen (<strong class="ph b">-</strong>) at the beginning of a paragraph followed by a space would
+            automatically replace them with an unordered list element (<code class="keyword markupname xmlelement">&lt;ul&gt;</code>)
+            with a child list item element (<code class="keyword markupname xmlelement">&lt;li&gt;</code>). Any subsequently added
+            content would be placed inside the first node/element that does not have a child
+            node/element (in this example, the cursor would be placed in the first
+              <code class="keyword markupname xmlelement">&lt;li&gt;</code> element).</p>
+        </li>
+        <li class="li">Save the file in the <span class="ph filepath">resources</span> folder for the particular document
+          type, using the fixed name: <span class="ph filepath">structureAutocorrect.xml</span> (for example,
+            <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources/structureAutocorrect.xml</span>).</li>
+        <li class="li">Restart the application and open a document for your particular framework to test your
+            customization.<div class="note note note_note"><span class="note__title">Note:</span> Once the file is created, changes that you make to it are processed
+            by <span class="ph">Oxygen XML Editor</span> when you press the <span class="ph uicontrol"><img class="image" id="customizing-structure-insertion__image_zr1_xwc_mkb" src="../img/Reload16.png"> Reload</span> toolbar
+            button.</div></li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configuring-actions-menus-toolbar.html">Customizing the Editing Experience for a Framework</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-configure-content-completion.html">Customizing the Content Completion for a Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/adding-retina-hidpi-images-framework.html">Adding Retina/HiDPI Icons in a Framework</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Code References,Coderef"><meta name="keywords" content="DITA, Reusing content, Code References, Coderef"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-reuse.html"><meta name="DC.relation" scheme="URI" content="../topics/insert-dita-content-reference.html"><meta name="DC.relation" scheme="URI" content="../topics/conref-push-mechanism.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="coderef"><title>Working with Code References</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="coderef"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with Code References</h1>
+  
+  <div class="body">
+    <section class="section" id="coderef__content_reference_push_mechanism"><h2 class="title sectiontitle">Code References</h2>
+      
+      <p class="p">The DITA <code class="keyword markupname xmlelement">&lt;coderef&gt;</code> element can be used to reference an external file that
+        contains literal code. This is especially useful if you need to reference code from an
+        external source that may occasionally change. Another advantage is that you don't have to
+        convert illegal characters into their character equivalents. When the
+        <code class="keyword markupname xmlelement">&lt;coderef&gt;</code> is processed, the referenced code file is imported and delimiting
+        characters (such as <code class="ph codeph">&lt;</code> or <code class="ph codeph">&amp;</code>) are displayed as
+        standard text, rather than treated as XML markup.</p>
+      <p class="p">For more information about code references, see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/technicalContent/coderef.html" target="_blank" rel="external noopener">DITA 1.3 Specification: Coderef</a>.</p>
+    </section>
+    <section class="section" id="coderef__example_of_a_conref_push_scenario"><h2 class="title sectiontitle">Example of using a Coderef</h2>
+      
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>This code is an example of how to use a coderef.<strong class="hl-tag">&lt;/p&gt;</strong>
+  <strong class="hl-tag">&lt;codeblock&gt;</strong><strong class="hl-tag">&lt;coderef</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"MyExternalCode.xsl"</span><strong class="hl-tag">/&gt;</strong><strong class="hl-tag">&lt;/codeblock&gt;</strong></pre>
+    </section>
+    <section class="section" id="coderef__defining_line_ranges"><h2 class="title sectiontitle">Defining Line Ranges</h2>
+      
+      <p class="p">DITA-OT provides additional code reference processing support that allows you to define
+        line ranges in case you only want to reference certain parts of the external file, rather
+        than the whole file.</p>
+      <p class="p">For information and examples of how to define line ranges, see <a class="xref" href="http://www.dita-ot.org/dev/reference/extended-functionality.html" target="_blank" rel="external noopener">DITA Open Toolkit Documentation: Extended Code Reference
+          Processing</a>.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-reuse.html">Reusing DITA Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/insert-dita-content-reference.html">Reuse Content Dialog Box</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/conref-push-mechanism.html">Working with the Conref Push Mechanism</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-complex-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-complex-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/framework-customization-script-usecases.html"><meta name="DC.relation" scheme="URI" content="../topics/framework-customization-script-usecases.html"><meta name="DC.relation" scheme="URI" content="author-document-type-extension-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="framework-customization-script"><title>Creating/Extending a Custom Framework through an XML Descriptor File</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="framework-customization-script"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating/Extending a Custom Framework through an XML Descriptor File</h1>
+  <div class="body">
+    <p class="p">A custom <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type)
+      can be created using a special XML descriptor file, either from scratch or by extending an
+      existing built-in framework (such as DITA or DocBook) and then making modifications to it. You
+      can then easily <a class="xref" href="author-document-type-extension-sharing.html">share the custom
+        framework</a> with your team.</p>
+    <p class="p">The easiest way to create such a descriptor is to use the <a class="xref" href="new-dialog-sa.html"><strong class="ph b">New</strong> document wizard</a> and choose the <strong class="ph b">Extend Framework Script</strong> or <strong class="ph b">Create Framework
+        Script</strong> template.</p>
+    <section class="section" id="framework-customization-script__section_ukd_cxx_jnb"><h2 class="title sectiontitle">Creating a Custom Framework Starting from an Existing Framework</h2>
+      
+      <div class="p">To create a custom <dfn class="term">framework</dfn> by extending an existing one, follow these
+          steps:<ol class="ol" id="framework-customization-script__ol_lhq_dxx_jnb">
+          <li class="li">In a location where you have full write access, create a folder structure similar to
+            this: <span class="ph filepath">custom_frameworks/dita-extension</span>. </li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <a class="xref" href="framework-location.html#framework-location"><span class="ph menucascade"><span class="ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Locations</span></span></a>. Add the path to your <span class="ph filepath">custom_frameworks</span>
+            folder in the <span class="ph uicontrol">Additional frameworks directories</span> list and click
+              <span class="ph uicontrol">OK</span> or <span class="ph uicontrol">Apply</span> to save your changes and
+            close the dialog box.</li>
+          <li class="li">Click the <span class="ph uicontrol"><img class="image" id="framework-customization-script__image_hy1_zdp_sr" src="../img/New16.png">New</span> button on the toolbar and select the <span class="ph uicontrol">Extend Framework
+              Script</span> template. Save it inside the previously configured framework path
+            (e.g. <span class="ph filepath">custom_frameworks/dita-extension</span>).</li>
+          <li class="li">
+            <p class="p">Set the <code class="keyword markupname xmlatt">@base</code> attribute on the script element to the value of the
+              name of the extended framework (e.g. <strong class="ph b">DITA</strong>).</p>
+            <div class="note note note_note"><span class="note__title">Note:</span> Removing the <code class="keyword markupname xmlatt">@base</code> attribute will create a framework from
+              scratch.</div>
+          </li>
+          <li class="li">Edit the script as described in <a class="xref" href="framework-customization-script-usecases.html">Framework Descriptor File</a>.</li>
+          <li class="li">Compile the script to obtain the <span class="ph filepath">*.framework</span> file by using the
+              <span class="ph uicontrol">Compile Framework Extension script</span> action from the contextual
+            menu or by running the <span class="keyword cmdname">scripts/compileFrameworkScript.bat</span> external
+            tool.</li>
+        </ol></div>
+      <p class="p">To test your customization, open a document that matches the newly created framework and
+        inspect how your settings apply or go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Document Type Association</span></span> and inspect the newly generated framework structure.</p>
+    </section>
+    <section class="section" id="framework-customization-script__section_cpj_lxs_knb"><h2 class="title sectiontitle">Creating a Custom Framework Without a Base Framework</h2>
+      
+      <div class="p">To create a custom <dfn class="term">framework</dfn> without starting from an existing one, follow
+        these steps<ol class="ol" id="framework-customization-script__ol_dpj_lxs_knb">
+          <li class="li">In a location where you have full write access, create a folder structure similar to
+            this: <span class="ph filepath">custom_frameworks/dita-extension</span>. </li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <a class="xref" href="framework-location.html#framework-location"><span class="ph menucascade"><span class="ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Locations</span></span></a>. Add the path to your <span class="ph filepath">custom_frameworks</span>
+            folder in the <span class="ph uicontrol">Additional frameworks directories</span> list and click
+              <span class="ph uicontrol">OK</span> or <span class="ph uicontrol">Apply</span> to save your changes and
+            close the dialog box.</li>
+          <li class="li">Click <span class="ph uicontrol"><img class="image" id="framework-customization-script__image_tp5_blj_nnb" src="../img/New16.png">New</span> button on the toolbar and select the <span class="ph uicontrol">Create Framework
+              Script</span> template. Save it inside the previously configured framework path,
+              <span class="ph filepath">custom_frameworks/dita-extension</span>.</li>
+          <li class="li">Edit the script as described in <a class="xref" href="framework-customization-script-usecases.html">Framework Descriptor File</a>.</li>
+          <li class="li">Compile the script to obtain the <span class="ph filepath">*.framework</span> file by using the
+              <span class="ph uicontrol">Compile Framework Extension script</span> action from the contextual
+            menu or by running the <span class="keyword cmdname">scripts/compileFrameworkScript.bat</span> external
+            tool.</li>
+        </ol></div>
+      <p class="p">To test your customization, open a document that matches the newly created framework and
+        inspect how your settings apply or go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Document Type Association</span></span> and inspect the newly generated framework structure.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ul class="ullinks"><li class="link ulchildlink"><strong><a href="../topics/framework-customization-script-usecases.html">Framework Descriptor File</a></strong><br></li></ul><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-complex-customization-tutorial.html">Advanced Framework Customization</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-complex-customization-tutorial.html">Advanced Framework Customization</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/framework-customization-script-usecases.html">Framework Descriptor File</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a></li></ul></div></nav>
+</article></main></body></html>

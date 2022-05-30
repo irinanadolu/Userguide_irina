@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content="CHM Error HHC5010: Cannot open file,CHM Error HHC5003: Compilation failed while compiling file"><meta name="keywords" content="CHM Error HHC5010: Cannot open file, CHM Error HHC5003: Compilation failed while compiling file"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/failed-dita-chm-transformation-2.html"><meta name="DC.relation" scheme="URI" content="../topics/drag-and-drop-without-initial-selection-does-not-work.html"><meta name="DC.relation" scheme="URI" content="chm-output-format.html#chm-output-format"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="failed-dita-chm-transformation-compliation-failed"><title>DITA to CHM Transformation Fails - Compilation Failed</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="failed-dita-chm-transformation-compliation-failed"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA to CHM Transformation Fails - Compilation Failed</h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="failed-dita-chm-transformation-compliation-failed__problem_cannot_open_file"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">The DITA to CHM transformation fails with the following error: <code class="ph codeph">[exec] HHC5003:
+          Error: Compilation failed while compiling fileName</code>.</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="failed-dita-chm-transformation-compliation-failed__cause"><h2 class="title sectiontitle">Cause 1</h2>
+        
+        <p class="p">One possible cause for this error is that the processed file does not exist.</p>
+      </section>
+      <section class="section remedy" id="failed-dita-chm-transformation-compliation-failed__solution"><h2 class="title sectiontitle">Solution 1</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">To solve this issue, fix the file reference before executing the transformation
+            scenario again.</p>
+        </section>
+      </section>
+    </div>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="failed-dita-chm-transformation-compliation-failed__cause2"><h2 class="title sectiontitle">Cause 2</h2>
+        
+        <p class="p">Another possible cause for this error is that the processed file has a name that contains
+          space characters.</p>
+      </section>
+      <section class="section remedy" id="failed-dita-chm-transformation-compliation-failed__solution2"><h2 class="title sectiontitle">Solution 2</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">To solve the issue, remove any spacing from the file name and run the transformation
+            scenario again.</p>
+          <div class="p">
+            <div class="note tip note_tip"><span class="note__title">Tip:</span> It is a good practice to validate the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> before executing the transformation scenario. To do
+              so, run <a class="xref" href="dita-map-validate.html">the
+                  <span class="ph uicontrol">Validate and Check for Completeness</span> action</a>.
+              Depending on the selected options, it will report detected errors, such as topics
+              referenced in other topics (but not in the <dfn class="term">DITA map</dfn>), broken links, and
+              missing external resources.</div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/failed-dita-chm-transformation-2.html">DITA to CHM Transformation Fails - Cannot Open File</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/drag-and-drop-without-initial-selection-does-not-work.html">Drag and Drop Without Initial Selection Does Not Work</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="chm-output-format.html#chm-output-format">DITA Map CHM (Compiled HTML Help) Transformation</a></li></ul></div></nav>
+</article></main></body></html>

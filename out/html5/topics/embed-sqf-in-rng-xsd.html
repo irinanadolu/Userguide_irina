@@ -1,0 +1,50 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Embedded,SQF"><meta name="keywords" content="Schematron Quick Fixes, Embedded, SQF"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron-quick-fixes.html"><meta name="DC.relation" scheme="URI" content="../topics/search-and-refactor-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/SVG-documents.html"><meta name="DC.relation" scheme="URI" content="combined_RNG_and_SCH.html#combined_RNG_and_SCH"><meta name="DC.relation" scheme="URI" content="customizing-sqf.html#customizing-sqf"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="embed-sqf-in-rng-xsd"><title>Embedding Schematron Quick Fixes in Relax NG or XML Schema</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="embed-sqf-in-rng-xsd"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Embedding Schematron Quick Fixes in Relax NG or XML Schema</h1>
+  
+  <div class="body">
+    <p class="p">Schematron <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fixes</dfn></a> can be
+      embedded into an XML Schema through annotations (using the <code class="keyword markupname xmlelement">&lt;appinfo&gt;</code>
+      element), or in a Schematron rule embedded in the RELAX NG Schema. For more information about
+      embedding Schematron in XML Schema or Relax NG, see <a class="xref" href="combined_RNG_and_SCH.html#combined_RNG_and_SCH">Embedding Schematron Rules in XML Schema or RELAX NG</a>.</p>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> is able to extract and use the embedded Schematron <dfn class="term">Quick
+        Fixes</dfn>. To make the embedded Schematron <dfn class="term">Quick Fixes</dfn> available, follow
+      these steps:<ol class="ol">
+        <li class="li">Define a <a class="xref" href="validating-XML-documents-against-schema.html#validating-XML-documents-against-schema">validation against a schema</a>.</li>
+        <li class="li">For the <span class="ph uicontrol">Schema type</span>, choose <kbd class="ph userinput">XML Schema</kbd> or
+            <kbd class="ph userinput">Relax NG</kbd>.</li>
+        <li class="li">Select the <span class="ph uicontrol">Embedded Schematron rules</span> option.</li>
+      </ol></div>
+    <div class="p"><strong class="ph b">Example: Embedded Schematron Quick Fix in XML
+      Schema</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;xsd:appinfo&gt;</strong>
+  <strong class="hl-tag">&lt;sch:pattern&gt;</strong>
+    <strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong>
+	<strong class="hl-tag">&lt;sch:assert</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"..."</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"fixId"</span><strong class="hl-tag">&gt;</strong>Message.<strong class="hl-tag">&lt;/sch:assert&gt;</strong>
+	  <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fixId"</span><strong class="hl-tag">&gt;</strong>
+	    ......
+	  <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+    <strong class="hl-tag">&lt;/sch:rule&gt;</strong>
+  <strong class="hl-tag">&lt;/sch:pattern&gt;</strong>
+<strong class="hl-tag">&lt;/xsd:appinfo&gt;</strong></pre></div>
+    <div class="p"><strong class="ph b">Example: Embedded Schematron Quick Fix in Relax
+      NG</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;grammar</strong> 
+    <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://relaxng.org/ns/structure/1.0"</span>
+    <span class="hl-attribute">xmlns:sch</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span><strong class="hl-tag"> &gt;</strong>
+    <strong class="hl-tag">&lt;sch:pattern&gt;</strong>
+      <strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;sch:assert</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"..."</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"fixId"</span><strong class="hl-tag">&gt;</strong>Message.<strong class="hl-tag">&lt;/sch:assert&gt;</strong>
+    	<strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fixId"</span><strong class="hl-tag">&gt;</strong>
+    	  .....
+    	<strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+      <strong class="hl-tag">&lt;/sch:rule&gt;</strong>
+     <strong class="hl-tag">&lt;/sch:pattern&gt;</strong>
+     <strong class="hl-tag">&lt;start&gt;</strong>
+      ..............
+     <strong class="hl-tag">&lt;/start&gt;</strong>
+<strong class="hl-tag">&lt;/grammar&gt;</strong></pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> For more extensive examples, see the samples in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/schematron</span>
+      folder.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron-quick-fixes.html">Editing Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/search-and-refactor-sqf.html">Searching and Refactoring Operations in SQF</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/SVG-documents.html">Editing SVG Files</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="combined_RNG_and_SCH.html#combined_RNG_and_SCH">Embedding Schematron Rules in XML Schema or RELAX NG</a></li><li class="linklist"><a class="link" href="customizing-sqf.html#customizing-sqf">Defining Schematron Quick Fixes</a></li></ul></div></nav>
+</article></main></body></html>

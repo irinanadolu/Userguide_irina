@@ -1,0 +1,576 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="24.1">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="An editor variable is a shorthand notation for context-dependent information, such as a file or folder path, a time-stamp, or a date. It is used in the definition of a command (for example, the input ..."/><meta name="DC.rights.owner" content="(C) Copyright 2022"/><meta name="copyright" content="(C) Copyright 2022"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="topic"/><meta name="DC.subject" content="Editor variables"/><meta name="keywords" content="Editor variables"/><meta name="indexterms" content="Editor variables"/><meta name="DC.relation" content="../topics/configure-application.html"/><meta name="DC.relation" content="../topics/import-export-global-scenarios.html"/><meta name="DC.relation" content="../topics/custom-editor-variables.html"/><meta name="DC.relation" content="../topics/custom-editor-variables.html"/><meta name="DC.relation" content="code-templates.html#code-templates"/><meta name="DC.relation" content="selection-plugin.html#selection-plugin"/><meta name="DC.relation" content="installing-and-updating-add-ons.html"/><meta name="prodname" content=""/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="editor-variables"/><title>Editor Variables</title><!--  Generated with Oxygen version 24.1, build number 2022033103.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="editor-variables-d14162e4724"/><meta name="wh-source-relpath" content="topics/editor-variables.dita"/><meta name="wh-out-relpath" content="topics/editor-variables.html"/>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/lib/bootstrap/css/bootstrap.min.css"/>
+    
+    <link rel="stylesheet" href="../oxygen-webhelp/lib/jquery-ui/jquery-ui.min.css"/>
+    
+    <!-- Template default styles  -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic-page.css?buildId=2022033103"/>
+    
+    
+    <script src="../oxygen-webhelp/lib/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script data-main="../oxygen-webhelp/app/topic-page.js" src="../oxygen-webhelp/lib/requirejs/require.js"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2022033103"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/notes.css?buildId=2022033103"/></head>
+
+    <body id="editor-variables" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="booktitle">  <span class="ph mainbooktitle">  <span class="ph">Oxygen XML Author</span>  <span class="ph">23.0</span>  </span>  <span class="ph booktitlealt">User Guide</span>  </span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="getting-started-intro-d14162e901-mi" data-tocid="getting-started-intro-d14162e901" data-state="not-ready" class=" topicref " data-id="getting-started-intro"><span class="title"><a href="../topics/getting-started-intro.html">Getting Started</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="working-with-documents-d14162e5086-mi" data-tocid="working-with-documents-d14162e5086" data-state="not-ready" class=" topicref " data-id="working-with-documents"><span class="title"><a href="../topics/working-with-documents.html">Working With Any Type of Document</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="editing-documents-d14162e6883-mi" data-tocid="editing-documents-d14162e6883" data-state="not-ready" class=" topicref " data-id="editing-documents"><span class="title"><a href="../topics/editing-documents.html">Editing Documents</a></span></span></li><li role="menuitem"><span id="zulu-d14162e11164-mi" data-tocid="zulu-d14162e11164" data-state="leaf" class=" topicref " data-id="zulu"><span class="title"><a href="../topics/zulu.html">zulu</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="additional-doc-type-d14162e11768-mi" data-tocid="additional-doc-type-d14162e11768" data-state="not-ready" class=" topicref " data-id="additional-doc-type"><span class="title"><a href="../topics/additional-doc-type.html">Additional XML Editing Frameworks (Document Types)</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="transforming-documents-d14162e11834-mi" data-tocid="transforming-documents-d14162e11834" data-state="not-ready" class=" topicref " data-id="transforming-documents"><span class="title"><a href="../topics/transforming-documents.html">Publishing</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="author-dita-d14162e31939-mi" data-tocid="author-dita-d14162e31939" data-state="not-ready" class=" topicref " data-id="author-dita"><span class="title"><a href="../topics/author-dita.html">DITA Authoring</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="scripting_oxygen-d14162e34513-mi" data-tocid="scripting_oxygen-d14162e34513" data-state="not-ready" class=" topicref " data-id="scripting_oxygen"><span class="title"><a href="../topics/scripting_oxygen.html">Scripting Oxygen</a></span></span></li></ul></nav>
+                <div class=" wh_indexterms_link "><a href="../indexTerms.html" title="Index" aria-label="Go to index terms page"><span>Index</span></a></div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="configure-application"><div class="title"><a href="../topics/configure-application.html">Configuration</a><div class="wh-tooltip"><p class="shortdesc">Description of all of the options that allow you to configure <span class="ph">Oxygen XML Author</span></p></div></div></div></li><li class="active"><div class="topicref" data-id="editor-variables"><div class="title"><a href="../topics/editor-variables.html">Editor Variables</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../topics/import-export-global-scenarios.html" title="Import/Export Transformation or Validation Scenarios" aria-label="Previous topic: Import/Export Transformation or Validation Scenarios" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../topics/custom-editor-variables.html" title="Custom Editor Variables" aria-label="Next topic: Custom Editor Variables" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="configure-application-d14162e1936" class="topicref" data-id="configure-application" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action configure-application-d14162e1936-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/configure-application.html" id="configure-application-d14162e1936-link">Configuration</a><div class="wh-tooltip"><p class="shortdesc">Description of all of the options that allow you to configure <span class="ph">Oxygen XML Author</span></p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="preferences-d14162e1962" class="topicref" data-id="preferences" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action preferences-d14162e1962-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/preferences.html" id="preferences-d14162e1962-link">Preferences</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="option-layers-d14162e4572" class="topicref" data-id="option-layers" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action option-layers-d14162e4572-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/option-layers.html" id="option-layers-d14162e4572-link">Configuring Options</a></div></div></li><li role="treeitem"><div data-tocid="dockable-views-and-editors-d14162e4667" class="topicref" data-id="dockable-views-and-editors" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dockable-views-and-editors-2.html" id="dockable-views-and-editors-d14162e4667-link">Configuring the Layout of the Views and Editors</a></div></div></li><li role="treeitem"><div data-tocid="configure-toolbars-d14162e4686" class="topicref" data-id="configure-toolbars" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/configure-toolbars-2.html" id="configure-toolbars-d14162e4686-link">Configuring Toolbars</a></div></div></li><li role="treeitem"><div data-tocid="import-export-global-scenarios-d14162e4705" class="topicref" data-id="import-export-global-scenarios" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/import-export-global-scenarios.html" id="import-export-global-scenarios-d14162e4705-link">Import/Export Transformation or Validation Scenarios</a></div></div></li><li role="treeitem" aria-expanded="true" class="active"><div data-tocid="editor-variables-d14162e4724" class="topicref" data-id="editor-variables" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action editor-variables-d14162e4724-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editor-variables.html" id="editor-variables-d14162e4724-link">Editor Variables</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="custom-editor-variables-d14162e4743" class="topicref" data-id="custom-editor-variables" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/custom-editor-variables.html" id="custom-editor-variables-d14162e4743-link">Custom Editor Variables</a></div></div></li></ul></li><li role="treeitem"><div data-tocid="custom-system-properties-d14162e4762" class="topicref" data-id="custom-system-properties" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/custom-system-properties.html" id="custom-system-properties-d14162e4762-link">Custom System Properties</a></div></div></li><li role="treeitem"><div data-tocid="changing-user-interface-language-d14162e4781" class="topicref" data-id="changing-user-interface-language" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/changing-user-interface-language.html" id="changing-user-interface-language-d14162e4781-link">Localizing the User Interface</a></div></div></li><li role="treeitem"><div data-tocid="set-parameter-in-startup-script-d14162e4800" class="topicref" data-id="set-parameter-in-startup-script" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/set-parameter-in-startup-script.html" id="set-parameter-in-startup-script-d14162e4800-link">Setting a Java Virtual Machine Parameter when Launching <span class="ph">Oxygen XML Author</span></a></div></div></li><li role="treeitem"><div data-tocid="increase-memory-d14162e4878" class="topicref" data-id="increase-memory" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/increase-memory.html" id="increase-memory-d14162e4878-link">How to Increase the Amount of Available Memory</a></div></div></li></ul></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="- topic/title title topictitle1" id="ariaid-title1">Editor Variables</h1>
+  
+  <div class="- topic/body body">
+    <p class="- topic/p p">An editor variable is a shorthand notation for context-dependent information, such as a file
+      or folder path, a time-stamp, or a date. It is used in the definition of a command (for
+      example, the input URL of a transformation, the output file path of a transformation, or the
+      command line of an external tool) to make a command or a parameter generic and re-usable with
+      other input files. When the same command is applied to multiple files, the notation is
+      expanded at the execution of the command so that the same command has different effects
+      depending on the actual file.</p>
+    <p class="- topic/p p"><span class="- topic/ph ph">Oxygen XML Author</span> includes a variety of built-in editor variables. You can also create your own <a class="- topic/xref xref" href="custom-editor-variables.html#custom-editor-variables">custom editor variables</a> by using the <a class="- topic/xref xref" href="preferences-custom-editor-variables.html#preferences-custom-editor-variables"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Custom Editor Variables</span> preferences page</a>.</p>
+    <div class="- topic/p p">Editor variables are evaluated and automatically expanded in many places in the application, when:<ul class="- topic/ul ul" id="editor-variables__ul_bkm_by2_kmb" data-ofbid="editor-variables__ul_bkm_by2_kmb">
+      <li class="- topic/li li"><a class="- topic/xref xref" href="create-your-own-templates.html">Creating new documents from file templates</a>.</li>
+      <li class="- topic/li li"><a class="- topic/xref xref" href="create-your-own-templates.html">Inserting code templates</a> in the
+            <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Text</span><span class="- topic/ph ph"> or <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span>
+            editor modes</span>.</li>
+      <li class="- topic/li li">Running custom configured <a class="- topic/xref xref" href="integrating-external-tools.html">External Tools</a>.</li>
+      <li class="- topic/li li">Executing predefined <a class="- topic/xref xref" href="dg-default-author-operations.html">Author Mode Operations</a> that have editor variables given as parameter
+          values.</li>
+      <li class="- topic/li li">Running <a class="- topic/xref xref" href="edit-validation-scenario.html">validation scenarios</a> that use
+          editor variables inside to reference various resources.</li>
+      <li class="- topic/li li">Executing transformation scenarios (of type ANT, <a class="- topic/xref xref" href="dita-map-edit-parameters.html">DITA-OT</a>, <a class="- topic/xref xref" href="xslt-tab.html">XSLT</a>, etc.) that have editor variables set as parameter values or as values for
+          references to various resources.</li>
+      <li class="- topic/li li"><a class="- topic/xref xref" href="handling-css-imports.html">Expanding CSS imports</a> for editing in the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> visual
+          editing mode.</li>
+      <li class="- topic/li li">Using specific Java API <a class="- topic/xref xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/util/UtilAccess.html" target="_blank" rel="external noopener"><code class="+ topic/ph pr-d/codeph ph codeph">UtilAccess.expandEditorVariables(String,
+              URL)</code></a> from plugins and framework extensions.</li>
+      </ul></div>
+    <p class="- topic/p p">You can use the following editor variables in <span class="- topic/ph ph">Oxygen XML Author</span> commands of external
+      engines or other external tools, and in various places in the application, such as in
+      transformation scenarios, <span class="- topic/ph ph"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> mode
+        operations, </span>and validation scenarios:</p>
+    <ul class="- topic/ul ul">
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${activeConditionSet}</strong> - Current active <a class="- topic/xref xref" href="condition-sets-management.html#condition-sets-management">profiling condition set</a> name. If there is no
+        active condition set, the variable will be replaced with an <em class="+ topic/ph hi-d/i ph i">empty string</em>.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-af" data-ofbid="editor-variables__edVar-af"><strong class="+ topic/ph hi-d/b ph b">${af}</strong> - The local file path of the ZIP archive that includes the
+        currently edited document.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-afd" data-ofbid="editor-variables__edVar-afd"><strong class="+ topic/ph hi-d/b ph b">${afd}</strong> - The local directory path of the ZIP archive that includes
+        the currently edited document.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-afdu" data-ofbid="editor-variables__edVar-afdu"><strong class="+ topic/ph hi-d/b ph b">${afdu}</strong> - The URL path of the directory of the ZIP archive that
+        includes the currently edited document.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-afn" data-ofbid="editor-variables__edVar-afn"><strong class="+ topic/ph hi-d/b ph b">${afn}</strong> - The file name (without parent directory and without file
+        extension) of the zip archive that includes the currently edited file.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-afne" data-ofbid="editor-variables__edVar-afne"><strong class="+ topic/ph hi-d/b ph b">${afne}</strong> - The file name (with file extension, for example
+          <span class="+ topic/ph sw-d/filepath ph filepath">.zip</span> or <span class="+ topic/ph sw-d/filepath ph filepath">.epub</span>, but without parent directory) of
+        the zip archive that includes the currently edited file.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-afu" data-ofbid="editor-variables__edVar-afu"><strong class="+ topic/ph hi-d/b ph b">${afu}</strong> - The URL path of the ZIP archive that includes the currently
+        edited document.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-answer" data-ofbid="editor-variables__edVar-answer">
+        <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">${answer(@id)}</strong> - Used in conjunction with the <strong class="+ topic/ph hi-d/b ph b">${ask}</strong> editor variable. The
+            <strong class="+ topic/ph hi-d/b ph b">@id</strong> parameter is required and identifies the answer from the <strong class="+ topic/ph hi-d/b ph b">${ask}</strong> editor
+          variable with the same ID.</p>
+        <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd"&gt;</span>
+<strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"topic_lcf_1c4_tdb"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong><strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;body&gt;</strong>
+        <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"${ask('Set a data name', String, 'name', @name)}"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/data&gt;</strong> 
+        <strong class="hl-tag">&lt;p&gt;</strong>The name is: ${answer(@name)}<strong class="hl-tag">&lt;/p&gt;</strong>
+    <strong class="hl-tag">&lt;/body&gt;</strong>
+<strong class="hl-tag">&lt;/topic&gt;</strong></pre></div>
+      </li>
+      <li class="- topic/li li" id="editor-variables__edVar-ask" data-ofbid="editor-variables__edVar-ask"><strong class="+ topic/ph hi-d/b ph b">${ask('message', type, ('real_value1':'rendered_value1';
+          'real_value2':'rendered_value2'; ...), 'default_value', @id)}</strong> - To prompt for values
+        at runtime, use the <em class="+ topic/ph hi-d/i ph i">ask('message', type, ('real_value1':'rendered_value1';
+          'real_value2':'rendered_value2'; ...), 'default-value'')</em> editor variable. You can set
+        the following parameters:<ul class="- topic/ul ul">
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">'message'</strong> - The displayed message. Note the quotes that enclose the
+            message.</li>
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">'default-value'</strong> - Optional parameter. Provides a default value.</li>
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">@id</strong> - Optional parameter. Used for identifying the variable to reuse the answer
+            using the <strong class="+ topic/ph hi-d/b ph b">${answer(@id)}</strong> editor variable.</li>
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">type</strong> - Optional parameter (defaults to <strong class="+ topic/ph hi-d/b ph b">generic</strong>), with one of the
+            following values:<div class="- topic/note note note note_note"><span class="note__title">Note:</span> The title of the dialog box will be determined by the type of
+              parameter and as follows:<ul class="- topic/ul ul">
+                <li class="- topic/li li">For <em class="+ topic/ph hi-d/i ph i">url</em> and <em class="+ topic/ph hi-d/i ph i">relative_url</em> parameters, the title will be the name of
+                  the parameter and the value of the <em class="+ topic/ph hi-d/i ph i">'message'</em>.</li>
+                <li class="- topic/li li">For the other parameters listed below, the title will be the name of that
+                  respective parameter.</li>
+                <li class="- topic/li li">If no parameter is used, the title will be "Input".</li>
+              </ul></div><table class="- topic/table table frame-all" data-cols="2"><caption></caption><colgroup><col style="width:21.231422505307858%"/><col style="width:78.76857749469215%"/></colgroup><thead class="- topic/thead thead">
+                  <tr class="- topic/row">
+                    <th class="- topic/entry entry colsep-1 rowsep-1" id="editor-variables__edVar-ask__entry__1">Parameter</th>
+                    <th class="- topic/entry entry colsep-0 rowsep-1" id="editor-variables__edVar-ask__entry__2"></th>
+                  </tr>
+                </thead><tbody class="- topic/tbody tbody">
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">generic</strong> (default)</td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format</strong>: <em class="+ topic/ph hi-d/i ph i">${ask('message', generic, 'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> The input is considered to be generic text that
+                      requires no special handling.</td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><ul class="- topic/ul ul" id="editor-variables__ul_lm4_mvq_fnb" data-ofbid="editor-variables__ul_lm4_mvq_fnb">
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Hello world!')}</em> - The dialog box has a <em class="+ topic/ph hi-d/i ph i">Hello world!</em>
+                          message displayed.</li>
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Hello world!', generic, 'Hello again!')}</em> - The dialog box
+                          has a <em class="+ topic/ph hi-d/i ph i">Hello world!</em> message displayed and the value displayed in the
+                          input box is <em class="+ topic/ph hi-d/i ph i">'Hello again!'</em>.</li>
+                      </ul></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">url</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format:</strong>
+                      <em class="+ topic/ph hi-d/i ph i">${ask('message', url, 'default_value')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> Input is considered a URL. <span class="- topic/ph ph">Oxygen XML Author</span>
+                      checks that the provided URL is valid.</td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><ul class="- topic/ul ul">
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Input URL', url)}</em> - The displayed dialog box has the name
+                            <em class="+ topic/ph hi-d/i ph i">Input URL</em>. The expected input type is URL.</li>
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Input URL', url, 'http://www.example.com')}</em> - The
+                          displayed dialog box has the name <em class="+ topic/ph hi-d/i ph i">Input URL</em>. The expected input
+                          type is URL. The input field displays the default value
+                            <em class="+ topic/ph hi-d/i ph i">http://www.example.com</em>.</li>
+                      </ul></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">relative_url</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format:</strong>
+                      <em class="+ topic/ph hi-d/i ph i">${ask('message', relative_url, 'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> Input is considered a URL. <span class="- topic/ph ph">Oxygen XML Author</span>
+                      tries to make the URL relative to that of the document you are
+                        editing.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> If the <em class="+ topic/ph hi-d/i ph i">$ask</em> editor variable is expanded in content that
+                        is not yet saved (such as an <em class="+ topic/ph hi-d/i ph i">untitled</em> file, whose path cannot be
+                        determined), then <span class="- topic/ph ph">Oxygen XML Author</span> will transform it into an absolute
+                        URL.</div></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2">
+                      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong></p>
+                      <p class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">${ask('File location', relative_url, 'C:/example.txt')}</em> - The dialog
+                        box has the name <em class="+ topic/ph hi-d/i ph i">'File location'</em>. The URL inserted in the input box
+                        is made relative to the currently edited document location. </p>
+                    </td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">password</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format</strong>: <em class="+ topic/ph hi-d/i ph i">${ask('message', password, 'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> The input is hidden with bullet characters.</td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong>
+                      <ul class="- topic/ul ul">
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Input password', password)}</em> - The displayed dialog box has
+                          the name <em class="+ topic/ph hi-d/i ph i">'Input password'</em> and the input is hidden with bullet
+                          symbols.</li>
+                        <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Input password', password, 'abcd')}</em> - The displayed dialog
+                          box has the name <em class="+ topic/ph hi-d/i ph i">'Input password'</em> and the input hidden with bullet
+                          symbols. The input field already contains the default <strong class="+ topic/ph hi-d/b ph b">abcd</strong> value.
+                        </li>
+                      </ul></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">combobox</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format:</strong>
+                      <em class="+ topic/ph hi-d/i ph i">${ask('message', combobox,
+                        ('real_value1':'rendered_value1';...;'real_valueN':'rendered_valueN'),
+                        'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> Displays a dialog box that offers a drop-down menu.
+                      The drop-down menu is populated with the given <em class="+ topic/ph hi-d/i ph i">rendered_value</em> values.
+                      Choosing such a value will return its associated value
+                        (<em class="+ topic/ph hi-d/i ph i">real_value</em>).<div class="- topic/note note note note_note"><span class="note__title">Note:</span> The <em class="+ topic/ph hi-d/i ph i">'default'</em> parameter specifies the
+                        default-selected value and can match either a key or a value.</div></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><div class="- topic/p p">
+                        <ul class="- topic/ul ul">
+                          <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Operating System', combobox, ('win':'Microsoft
+                              Windows';'osx':'Mac OS X';'lnx':'Linux/UNIX'), 'osx')}</em> - The
+                            dialog box has the name <em class="+ topic/ph hi-d/i ph i">'Operating System'</em>. The drop-down menu
+                            displays the three given operating systems. The associated value will be
+                            returned based upon your selection. <div class="- topic/note note note note_note"><span class="note__title">Note:</span> In this example, the default
+                              value is indicated by the <em class="+ topic/ph hi-d/i ph i">osx</em> key. However, the same result
+                              could be obtained if the default value is indicated by <em class="+ topic/ph hi-d/i ph i">Mac OS
+                              X</em>, as in the following example: <em class="+ topic/ph hi-d/i ph i">${ask('Operating System',
+                                combobox, ('win':'Microsoft Windows';'osx':'Mac OS
+                                X';'lnx':'Linux/UNIX'), 'Mac OS X')}</em></div></li>
+                          <li class="- topic/li li"><em class="+ topic/ph hi-d/i ph i">${ask('Mobile OS', combobox, ('win':'Windows
+                              Mobile';'ios':'iOS';'and':'Android'), 'Android')}</em></li>
+                        </ul>
+                      </div></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-1" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">editable_combobox</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format:</strong>
+                      <em class="+ topic/ph hi-d/i ph i">${ask('message', editable_combobox,
+                        ('real_value1':'rendered_value1';...;'real_valueN':'rendered_valueN'),
+                        'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> Displays a dialog box that offers a drop-down menu
+                      with editable elements. The drop-down menu is populated with the given
+                        <em class="+ topic/ph hi-d/i ph i">rendered_value</em> values. Choosing such a value will return its
+                      associated real value (<em class="+ topic/ph hi-d/i ph i">real_value</em>) or the value inserted when you edit
+                      a list entry.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> The <em class="+ topic/ph hi-d/i ph i">'default'</em> parameter specifies the
+                        default-selected value and can match either a key or a value.</div></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><p class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">${ask('Operating System', editable_combobox,
+                          ('win':'Microsoft Windows';'osx':'Mac OS X';'lnx':'Linux/UNIX'),
+                          'osx')}</em> - The dialog box has the name <em class="+ topic/ph hi-d/i ph i">'Operating System'</em>. The
+                        drop-down menu displays the three given operating systems and also allows
+                        you to edit the entry. The associated value will be returned based upon your
+                        selection or the text you input. </p></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-1 rowsep-0" headers="editor-variables__edVar-ask__entry__1" rowspan="3"><strong class="+ topic/ph hi-d/b ph b">radio</strong></td>
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Format:</strong>
+                      <em class="+ topic/ph hi-d/i ph i">${ask('message', radio,
+                        ('real_value1':'rendered_value1';...;'real_valueN':'rendered_valueN'),
+                        'default')}</em></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-1" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Description:</strong> Displays a dialog box that offers a series of radio
+                      buttons. Each radio button displays a <em class="+ topic/ph hi-d/i ph i">'rendered_value</em> and will return
+                      an associated <em class="+ topic/ph hi-d/i ph i">real_value</em>.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> The <em class="+ topic/ph hi-d/i ph i">'default'</em> parameter specifies
+                        the default-selected value and can match either a key or a
+                      value.</div></td>
+                  </tr>
+                  <tr class="- topic/row">
+                    <td class="- topic/entry entry colsep-0 rowsep-0" headers="editor-variables__edVar-ask__entry__2"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><div class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">${ask('Operating System', radio, ('win':'Microsoft
+                          Windows';'osx':'Mac OS X';'lnx':'Linux/UNIX'), 'osx')}</em> - The dialog
+                        box has the name <em class="+ topic/ph hi-d/i ph i">'Operating System'</em>. The radio button group allows
+                        you to choose between the three operating systems.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> In this example,
+                            <code class="+ topic/ph pr-d/codeph ph codeph">Mac OS X</code> is the default-selected value and if selected,
+                          it would return <em class="+ topic/ph hi-d/i ph i">osx</em> for the output.</div></div></td>
+                  </tr>
+                </tbody></table></li>
+        </ul></li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${author.name}</strong> - Expands to the current author name that is set in the <a class="- topic/xref xref" href="preferences-track-changes.html#preferences-track-changes"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Review</span> preferences page</a>.</li>
+      <li class="- topic/li li" id="editor-variables__edvar-caret" data-ofbid="editor-variables__edvar-caret"><strong class="+ topic/ph hi-d/b ph b">${caret}</strong> - The position where the cursor is located. This variable
+        can be used in a code template, in <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> mode operations, or in a
+          <strong class="+ topic/ph hi-d/b ph b">selection</strong>
+        <dfn class="- topic/term term">plugin</dfn>.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> The
+            <strong class="+ topic/ph hi-d/b ph b">${caret}</strong> editor variable is available only for parameters that take XML content
+          as values. It is replaced with the <strong class="+ topic/ph hi-d/b ph b">${UNIQUE_CARET_MARKER_FOR_AUTHOR}</strong> macro. The
+          default Author operations process this macro and position the cursor at the designated
+          offset.</div><div class="- topic/note note note note_note"><span class="note__title">Note:</span> The
+            <strong class="+ topic/ph hi-d/b ph b">${caret}</strong> editor variable can be used for setting a fixed cursor position inside
+          an XML fragment. To set the cursor position depending on the fragment inserted in the
+          document, you can use <strong class="+ topic/ph hi-d/b ph b">AuthorDocumentFilter </strong> and inside the
+            <strong class="+ topic/ph hi-d/b ph b">insertFragment(AuthorDocumentFilterBypass, int, AuthorDocumentFragment)</strong> method,
+          use the <strong class="+ topic/ph hi-d/b ph b">AuthorDocumentFragment.setSuggestedRelativeCaretOffset(int)</strong> API on the
+          given fragment. </div></li>
+      <li class="- topic/li li" id="editor-variables__edvar-cf" data-ofbid="editor-variables__edvar-cf"><strong class="+ topic/ph hi-d/b ph b">${cf}</strong> - Current file as file path, that is the absolute file path of
+        the currently edited document.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-cfd" data-ofbid="editor-variables__edVar-cfd"><strong class="+ topic/ph hi-d/b ph b">${cfd}</strong> - Current file folder as file path, that is the path of the
+        currently edited document up to the name of the parent folder.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-cfdu" data-ofbid="editor-variables__edVar-cfdu"><strong class="+ topic/ph hi-d/b ph b">${cfdu}</strong> - Current file folder as URL, that is the path of the
+        currently edited document up to the name of the parent folder, represented as a URL.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-cfn" data-ofbid="editor-variables__edVar-cfn"><strong class="+ topic/ph hi-d/b ph b">${cfn}</strong> - Current file name without the extension and parent folder.
+        The current file is the one currently open and selected.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-cfne" data-ofbid="editor-variables__edVar-cfne"><strong class="+ topic/ph hi-d/b ph b">${cfne}</strong> - Current file name with extension. The current file is the
+        one currently open and selected.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-comma" data-ofbid="editor-variables__edVar-comma"><strong class="+ topic/ph hi-d/b ph b">${comma}</strong> - Used to display a comma when the actual comma symbol
+        would be considered part of some sort of instruction or delimiter.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${configured.ditaot.dir}</strong> - The default directory of the DITA Open Toolkit
+        distribution, as configured in the <a class="- topic/xref xref" href="preferences-dita.html#preferences-dita__DITA-OT-section"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">DITA</span> preferences page</a>.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${cp}</strong> - Current page number. Used to display the current page number
+        on each printed page in the <strong class="+ topic/ph hi-d/b ph b">Editor / Print</strong> Preferences page.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-currentFileURL" data-ofbid="editor-variables__edVar-currentFileURL"><strong class="+ topic/ph hi-d/b ph b">${currentFileURL}</strong> - Current file as URL, that is the
+        absolute file path of the currently edited document represented as URL.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-date" data-ofbid="editor-variables__edVar-date"><strong class="+ topic/ph hi-d/b ph b">${date(pattern)}</strong> - Current date. The allowed patterns are
+        equivalent to the ones in the <a class="- topic/xref xref" href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" target="_blank" rel="external noopener">Java SimpleDateFormat class</a>. <strong class="+ topic/ph hi-d/b ph b">Example:</strong>
+        <em class="+ topic/ph hi-d/i ph i">yyyy-MM-dd</em>.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> This editor variable supports both the <strong class="+ topic/ph hi-d/b ph b">xs:date</strong> and
+            <strong class="+ topic/ph hi-d/b ph b">xs:datetime</strong> parameters. For details about <strong class="+ topic/ph hi-d/b ph b">xs:date</strong>, go to: <a class="- topic/xref xref" href="http://www.w3.org/TR/xmlschema-2/#date" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema-2/#date</a>. For
+          details about <strong class="+ topic/ph hi-d/b ph b">xs:datetime</strong>, go to: <a class="- topic/xref xref" href="http://www.w3.org/TR/xmlschema-2/#dateTime" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema-2/#dateTime</a>.</div></li>
+      <li class="- topic/li li" id="editor-variables__edVar-dbgXML" data-ofbid="editor-variables__edVar-dbgXML"><strong class="+ topic/ph hi-d/b ph b">${dbgXML}</strong> - The local file path to the XML document that is
+        currently selected in the Debugger source combo box (for tools started from the XSLT/XQuery
+        Debugger).</li>
+      <li class="- topic/li li" id="editor-variables__edVar-dbgXSL" data-ofbid="editor-variables__edVar-dbgXSL"><strong class="+ topic/ph hi-d/b ph b">${dbgXSL}</strong> - The local file path to the XSL/XQuery document that
+        is currently selected in the Debugger stylesheet combo box (for tools started from the
+        XSLT/XQuery Debugger).</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${dita.dir.url}</strong> - A special local contextual editor variable that
+        gets expanded only in the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Libraries</span> dialog box that is accessible
+        from the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Advanced</span> tab of DITA transformation scenarios. The
+          <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Libraries</span> dialog box allows you to specify additional libraries
+          (<a class="- topic/xref xref" href="../glossary/jar.html"><dfn class="- topic/term term">JAR</dfn></a> files or additional class paths) to
+        be used by the transformer. This <em class="+ topic/ph hi-d/i ph i">${dita.dir.url}</em> editor variable gets expanded to the
+        value of the <em class="+ topic/ph hi-d/i ph i">dita.dir</em> parameter from the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Parameters</span> tab of the
+        DITA transformation scenario.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${ds}</strong> - The path of the detected schema as a local file path for the
+        current validated XML document.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${dsu}</strong> - The path of the detected schema as a URL for the current
+        validated XML document.</li>
+      <li class="- topic/li li" id="editor-variables__edvar-env" data-ofbid="editor-variables__edvar-env"><strong class="+ topic/ph hi-d/b ph b">${env(VAR_NAME)}</strong> - Value of the <em class="+ topic/ph hi-d/i ph i">VAR_NAME</em> environment
+        variable. The environment variables are managed by the operating system. If you are looking
+        for Java System Properties, use the <strong class="+ topic/ph hi-d/b ph b">${system(var.name)}</strong> editor variable.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${framework(fr_name)}</strong> - The path (as URL) of the
+          <em class="+ topic/ph hi-d/i ph i">fr_name</em> framework.</li>
+      <li class="- topic/li li" id="editor-variables__edvar-framework" data-ofbid="editor-variables__edvar-framework"><strong class="+ topic/ph hi-d/b ph b">${framework}</strong> - The path (as URL) of the current
+          <span class="+ topic/ph sw-d/filepath ph filepath">frameworks</span> directory.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${frameworkDir(fr_name)}</strong> - The path (as file path) of the <em class="+ topic/ph hi-d/i ph i">fr_name</em>
+          framework.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> Since multiple <dfn class="- topic/term term">frameworks</dfn> might have the same name (although
+          it is not recommended), for both <em class="+ topic/ph hi-d/i ph i">${framework(fr_name)}</em> and
+            <em class="+ topic/ph hi-d/i ph i">${frameworkDir(fr_name)}</em> editor variables <span class="- topic/ph ph">Oxygen XML Author</span> employs the
+          following algorithm when searching for a given <dfn class="- topic/term term">framework</dfn> name:<ul class="- topic/ul ul">
+            <li class="- topic/li li">All <dfn class="- topic/term term">frameworks</dfn> are sorted, from high to low, according to their <a class="- topic/xref xref" href="the-document-type-dialog.html#the-document-type-dialog__dta_priority"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Priority</span></a> setting from the <a class="- topic/xref xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Document Type</span> configuration dialog box</a>. Only
+                <dfn class="- topic/term term">frameworks</dfn> that have the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Enabled</span> checkbox
+              selected are taken into account.</li>
+            <li class="- topic/li li">Next, if the two or more <dfn class="- topic/term term">frameworks</dfn> have the same name and priority, a
+              further sorting based on the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Storage</span> setting is made, in the
+              exact following order:<ul class="- topic/ul ul">
+                <li class="- topic/li li"><dfn class="- topic/term term">Frameworks</dfn> stored in the internal <span class="- topic/ph ph">Oxygen XML Author</span>
+                  options.</li>
+                <li class="- topic/li li">Additional <dfn class="- topic/term term">frameworks</dfn> added in the <a class="- topic/xref xref" href="framework-location.html#framework-location"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Locations</span> preferences page</a>.</li>
+                <li class="- topic/li li"><dfn class="- topic/term term">Frameworks</dfn> installed using the add-ons support.</li>
+                <li class="- topic/li li"><dfn class="- topic/term term">Frameworks</dfn> found in the <a class="- topic/xref xref" href="framework-location.html#framework-location">main
+                      <dfn class="- topic/term term">framework</dfn> location</a> (<span class="+ topic/ph ui-d/uicontrol ph uicontrol">Default</span> or
+                    <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Custom</span>).</li>
+              </ul></li>
+          </ul></div></li>
+      <li class="- topic/li li" id="editor-variables__edVar-frameworkDir" data-ofbid="editor-variables__edVar-frameworkDir"><strong class="+ topic/ph hi-d/b ph b">${frameworkDir}</strong> - The path (as file path) of the current
+          <span class="+ topic/ph sw-d/filepath ph filepath">frameworks</span> directory.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-frameworks" data-ofbid="editor-variables__edVar-frameworks"><strong class="+ topic/ph hi-d/b ph b">${frameworks}</strong> - The path (as URL) of the
+          <span class="+ topic/ph sw-d/filepath ph filepath">frameworks</span> directory. When used to define references inside a
+        framework configuration, it expands to the parent folder of that specific framework folder.
+        Otherwise, it expands to the main frameworks folder defined in the <span class="+ topic/ph ui-d/menucascade ph menucascade"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Locations</span></span> preferences page.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-frameworksDir" data-ofbid="editor-variables__edVar-frameworksDir"><strong class="+ topic/ph hi-d/b ph b">${frameworksDir}</strong> - The path (as file path) of the
+          <span class="+ topic/ph sw-d/filepath ph filepath">frameworks</span> directory. When used to define references inside a
+        framework configuration, it expands to the parent folder of that specific framework folder.
+        Otherwise, it expands to the main <span class="+ topic/ph sw-d/filepath ph filepath">frameworks</span> folder defined in the <span class="+ topic/ph ui-d/menucascade ph menucascade"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Locations</span></span> preferences page.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-home" data-ofbid="editor-variables__edVar-home"><strong class="+ topic/ph hi-d/b ph b">${home}</strong> - The path (as URL) of the user home folder.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-homeDir" data-ofbid="editor-variables__edVar-homeDir"><strong class="+ topic/ph hi-d/b ph b">${homeDir}</strong> - The path (as file path) of the user home
+        folder.</li>
+      <li class="- topic/li li" id="editor-variables__localization" data-ofbid="editor-variables__localization"><strong class="+ topic/ph hi-d/b ph b">${i18n(key)}</strong> - Editor variable used only at
+        <dfn class="- topic/term term">framework</dfn>-level to allow translating names and descriptions of
+          <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> mode actions in multiple actions.<span class="- topic/ph ph"> For more details, see <a class="- topic/xref xref" href="localizing_frameworks.html">Localizing Frameworks</a>.</span></li>
+      <li class="- topic/li li" id="editor-variables__edVar-id" data-ofbid="editor-variables__edVar-id"><strong class="+ topic/ph hi-d/b ph b">${id}</strong> - Application-level unique identifier. It is a short sequence
+        of 10-12 letters and digits that is not guaranteed to be universally unique.</li>
+      <li class="- topic/li li">
+        <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">${makeRelative(base,location)}</strong> - Takes two URL-like paths as parameters and tries
+          to return a relative path. A use-case would be to insert content references to a certain
+          reusable component when defining code templates.</p>
+        <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">${makeRelative(${currentFileURL}, ${dictionaryURL}#gogu)}</pre></div>
+      </li>
+      <li class="- topic/li li" id="editor-variables__edVar-oxygenHome" data-ofbid="editor-variables__edVar-oxygenHome"><strong class="+ topic/ph hi-d/b ph b">${oxygenHome}</strong> - <span class="- topic/ph ph">Oxygen XML Author</span> installation folder as
+        URL.c</li>
+      <li class="- topic/li li" id="editor-variables__edVar-oxygenInstallDir" data-ofbid="editor-variables__edVar-oxygenInstallDir"><strong class="+ topic/ph hi-d/b ph b">${oxygenInstallDir}</strong> - <span class="- topic/ph ph">Oxygen XML Author</span>
+        installation folder as file path.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-pd" data-ofbid="editor-variables__edVar-pd"><strong class="+ topic/ph hi-d/b ph b">${pd}</strong> - The file path to the folder that contains the current project
+        file (<span class="+ topic/ph sw-d/filepath ph filepath">.xpr</span>).</li>
+      <li class="- topic/li li" id="editor-variables__edVar-pdu" data-ofbid="editor-variables__edVar-pdu"><strong class="+ topic/ph hi-d/b ph b">${pdu}</strong> - The URL path to the folder that contains the current
+        project file (<span class="+ topic/ph sw-d/filepath ph filepath">.xpr</span>).</li>
+      <li class="- topic/li li" id="editor-variables__edVar-pluginDir" data-ofbid="editor-variables__edVar-pluginDir"><strong class="+ topic/ph hi-d/b ph b">${pluginDir(pluginID)}</strong> - Each plugin has an ID specified in
+        its <span class="+ topic/ph sw-d/filepath ph filepath">plugin.xml</span> file. This editor variable expands to the file path of
+        the folder that contains the <span class="+ topic/ph sw-d/filepath ph filepath">plugin.xml</span> file where that specific plugin
+        ID is located.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-pluginDirURL" data-ofbid="editor-variables__edVar-pluginDirURL"><strong class="+ topic/ph hi-d/b ph b">${pluginDirURL(pluginID)}</strong> - Each plugin has an ID specified
+        in its <span class="+ topic/ph sw-d/filepath ph filepath">plugin.xml</span> file. This editor variable expands to the URL path of
+        the folder that contains the <span class="+ topic/ph sw-d/filepath ph filepath">plugin.xml</span> file where that specific plugin
+        ID is located.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${pn}</strong> - Current project name.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-ps" data-ofbid="editor-variables__edVar-ps"><strong class="+ topic/ph hi-d/b ph b">${ps}</strong> - Path separator, which is the separator that can be used on
+        the current platform (Windows, OS X, Linux) between library files specified in the class
+        path.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${rootMapDir}</strong> - Will be expanded to the current root map parent
+        directory file path.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${rootMapDirURL}</strong> - Will be expanded to the current root map
+        parent directory URL.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${rootMapFile}</strong> - Will be expanded to the current root map file
+        path.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${rootMapURL}</strong> - Will be expanded to the current root map URL. For
+        example, if in the main DITA Map you define a key with a certain
+        value:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-xml">  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"test"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong><strong class="hl-tag">&lt;keywords&gt;</strong><strong class="hl-tag">&lt;keyword&gt;</strong>ABC<strong class="hl-tag">&lt;/keyword&gt;</strong><strong class="hl-tag">&lt;/keywords&gt;</strong><strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/keydef&gt;</strong></pre>you
+        can modify a DITA-OT publishing parameter to have the value:
+          <code class="+ topic/ph pr-d/codeph ph codeph">${xpath_eval(doc('${rootMapURL}')//keydef[@keys='test']/keywords/keyword/text())}</code>.
+        It will be expanded to the value of that specified key name.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${selection}</strong> - The currently selected text content in the
+        currently edited document. This variable can be used in a code template, in
+          <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> mode operations, or in a <strong class="+ topic/ph hi-d/b ph b">selection</strong>
+        <dfn class="- topic/term term">plugin</dfn>.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-system" data-ofbid="editor-variables__edVar-system"><strong class="+ topic/ph hi-d/b ph b" id="editor-variables__java_system_properties">${system(var.name)}</strong> - Value of the
+          <em class="+ topic/ph hi-d/i ph i">var.name</em> Java System Property. The Java system properties can be specified in the
+        command-line arguments of the Java runtime as <em class="+ topic/ph hi-d/i ph i">-Dvar.name=var.value</em>. If you are
+        looking for operating system environment variables, use the <strong class="+ topic/ph hi-d/b ph b">${env(VAR_NAME)}</strong> editor
+        variable instead.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-timestamp" data-ofbid="editor-variables__edVar-timestamp"><strong class="+ topic/ph hi-d/b ph b">${timeStamp}</strong> - The timestamp, which is the current time in
+        Unix format. For example, it can be used to save transformation results in multiple output
+        files on each transformation.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${tp}</strong> - Total number of pages in the document. Used to display the
+        total number of pages on each printed page in the <strong class="+ topic/ph hi-d/b ph b">Editor / Print</strong> Preferences
+        page.</li>
+      <li class="- topic/li li" id="editor-variables__edVar-tsf" data-ofbid="editor-variables__edVar-tsf"><strong class="+ topic/ph hi-d/b ph b">${tsf}</strong> - The transformation result file path. If the current opened
+        file has an associated scenario that specifies a transformation output file, this variable
+        expands to it.</li>
+      <li class="- topic/li li" id="editor-variables__edvar-uuid" data-ofbid="editor-variables__edvar-uuid"><strong class="+ topic/ph hi-d/b ph b">${uuid}</strong> - Universally unique identifier, a unique sequence of 32
+        hexadecimal digits generated by the Java <a class="- topic/xref xref" href="http://docs.oracle.com/javase/7/docs/api/java/util/UUID.html" target="_blank" rel="external noopener">UUID</a> class.</li>
+      <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">${xmlCatalogFilesList}</strong> - A list of file paths that point
+        to all known XML catalog files, separated by semi-colons (;).</li>
+      <li class="- topic/li li" id="editor-variables__edVar-xpath" data-ofbid="editor-variables__edVar-xpath"><strong class="+ topic/ph hi-d/b ph b">${xpath_eval(expression)}</strong> - Evaluates an XPath expression.
+        Depending on the context, the expression can be:<ul class="- topic/ul ul" id="editor-variables__ul_bby_sss_wn" data-ofbid="editor-variables__ul_bby_sss_wn">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">static</strong> - When executed in a non-XML context. For example, you can use such
+              static expressions to perform string operations on other editor variables for
+              composing the name of the output file in a transformation scenario's <strong class="+ topic/ph hi-d/b ph b">Output</strong>
+              tab.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">${xpath_eval(upper-case(substring('${cfn}', 1, 4)))}</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">dynamic</strong> - When executed in an XML context. For example, you can use such
+              dynamic expression in a code template or as a value of a parameter of an
+                <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Author</span> mode operation.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">${ask('Set new ID attribute', generic, '${xpath_eval(@id)}')}</pre></div>
+          </li>
+        </ul></li>
+    </ul>
+  </div>
+  
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist"><strong>Related Information:</strong><ul class="linklist related_link"><li class="linklist"><a class="navheader_parent_path" href="code-templates.html#code-templates" title="Code Templates">Code Templates</a></li><li class="linklist"><a class="navheader_parent_path" href="selection-plugin.html#selection-plugin" title="This type of plugin allows you to manage selections of text.">Selection Plugin Extension</a></li><li class="linklist"><a class="navheader_parent_path" href="installing-and-updating-add-ons.html" title="Installing and Updating Add-ons">Installing and Updating Add-ons</a></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+ &lt;oXygen/&gt; XML WebHelp
+ </a></div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

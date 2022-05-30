@@ -1,0 +1,75 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_add_form_control_from_filter.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_extend_bundle.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_use_typograhic_quotation_marks"><title>Dynamically Modify the Content Inserted by the Author</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_use_typograhic_quotation_marks"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Dynamically Modify the Content Inserted by the Author</h1>
+  <div class="body">
+    <section class="section" id="api_faq_use_typograhic_quotation_marks__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Is there a way to insert typographic quotation marks instead of double quotes?</p>
+    </section>
+    <section class="section" id="api_faq_use_typograhic_quotation_marks__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">By using the API you can set a document filter to change the text that is inserted in the
+        document in <span class="ph uicontrol">Author</span> mode. You can use this method to change the
+        insertion of double quotes with the typographic quotes. </p>
+      <div class="p">Here is some sample code:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">    authorAccess.getDocumentController().setDocumentFilter
+(<strong class="hl-keyword">new</strong> AuthorDocumentFilter() {
+    <span class="hl-tag-doctype-comment">/**
+     * @see ro.sync.ecss.extensions.api.AuthorDocumentFilter#insertText
+(ro.sync.ecss.extensions.api.AuthorDocumentFilterBypass, int, java.lang.String)
+     */</span>
+    <em><span class="hl-annotation">@Override</span></em>
+    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> insertText(AuthorDocumentFilterBypass filterBypass, 
+<strong class="hl-keyword">int</strong> offset, String toInsert) {
+      <strong class="hl-keyword">if</strong>(toInsert.length() == <span class="hl-number">1</span> &amp;&amp; <span class="hl-string">"\""</span>.equals(toInsert)) {
+        <em class="hl-comment">//User typed a quote but he actually needs a smart quote.</em>
+        <em class="hl-comment">//So we either have to add \u201E (start smart quote)</em>
+        <em class="hl-comment">//Or we add \u201C (end smart quote)</em>
+        <em class="hl-comment">//Depending on whether there's already a start smart quote inserted</em>
+in the current paragraph.
+     
+      <strong class="hl-keyword">try</strong> {
+        AuthorNode currentNode = 
+authorAccess.getDocumentController().getNodeAtOffset(offset);
+        <strong class="hl-keyword">int</strong> startofTextInCurrentNode = currentNode.getStartOffset();
+        <strong class="hl-keyword">if</strong>(offset &gt; startofTextInCurrentNode) {
+          Segment seg = <strong class="hl-keyword">new</strong> Segment();
+        authorAccess.getDocumentController().getChars(startofTextInCurrentNode, 
+offset - startofTextInCurrentNode, seg);
+          String previosTextInNode = seg.toString();
+          <strong class="hl-keyword">boolean</strong> insertStartQuote = true;
+          <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = previosTextInNode.length() - <span class="hl-number">1</span>; i &gt;= <span class="hl-number">0</span>; i--) {
+            <strong class="hl-keyword">char</strong> ch = previosTextInNode.charAt(i);
+            <strong class="hl-keyword">if</strong>(<span class="hl-string">'\u201C'</span> == ch) {
+              <em class="hl-comment">//Found end of smart quote, so yes, we should insert a start one</em>
+              <strong class="hl-keyword">break</strong>;
+            } <strong class="hl-keyword">else</strong> <strong class="hl-keyword">if</strong>(<span class="hl-string">'\u201E'</span> == ch) {
+              <em class="hl-comment">//Found start quote, so we should insert an end one.</em>
+              insertStartQuote = false;
+              <strong class="hl-keyword">break</strong>;
+            }
+          }
+         
+          <strong class="hl-keyword">if</strong>(insertStartQuote) {
+            toInsert = <span class="hl-string">"\u201E"</span>;
+          } <strong class="hl-keyword">else</strong> {
+            toInsert = <span class="hl-string">"\u201C"</span>;
+          }
+        }
+      } <strong class="hl-keyword">catch</strong> (BadLocationException e) {
+        e.printStackTrace();
+      }
+    }
+    System.err.println(<span class="hl-string">"INSERT TEXT |"</span> + toInsert + <span class="hl-string">"|"</span>);
+    <strong class="hl-keyword">super</strong>.insertText(filterBypass, offset, toInsert);
+  }
+});
+</pre></div>
+      <p class="p">You can find the online Javadoc for <code class="ph codeph">AuthorDocumentFilter</code> API here: <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorDocumentFilter.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorDocumentFilter.html</a></p>
+      <p class="p">An alternative to using a document filtering is the use of a <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorSchemaAwareEditingHandlerAdapter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorSchemaAwareEditingHandlerAdapter</em></a>,
+        which has clear callbacks indicating the source from where the API is called (Paste, Drag
+        and Drop, Typing).</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_add_form_control_from_filter.html">Dynamically Add Form Controls Using a Styles Filter</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_extend_bundle.html">Extend the Java Functionality of an Existing Framework (Document Type)</a></div></div></nav></article></main></body></html>

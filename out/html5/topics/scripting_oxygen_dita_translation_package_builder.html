@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen.html"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen_transform.html"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen_batch_converter.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scripting_oxygen_dita_translation_package_builder"><title>DITA Translation Package Builder</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scripting_oxygen_dita_translation_package_builder"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Translation Package Builder</h1>
+  <div class="body">
+    <div class="note attention note_attention"><span class="note__title">Attention:</span> To run this script, you are required to
+        purchase a special <a class="xref" href="https://www.oxygenxml.com/oxygen_scripting.html" target="_blank" rel="external noopener">scripting commercial license</a>.</div>
+    <p class="p">The <span class="ph uicontrol">DITA Translation Package Builder</span> script helps you to build a
+      translation package for DITA files that can be sent to translators. You can also extract the
+      changed files back into your project once you receive the package back from the
+      translators.</p>
+    <div class="p">This script requires the <span class="ph uicontrol">DITA Translation Package Builder</span> add-on to be
+      installed in the <a class="xref" href="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=Other" target="_blank" rel="external noopener">all platforms distribution</a> of <span class="ph">Oxygen XML Editor</span>.
+      To install it the add-on, follow these instructions:<ol class="ol" id="scripting_oxygen_dita_translation_package_builder__ol_nn2_2vb_vmb">
+        <li class="li">Go on the <span class="ph uicontrol">DITA Translation Package Builder</span> plugin
+            <span class="ph uicontrol">Releases</span> page and download the latest <a class="xref" href="https://github.com/oxygenxml/oxygen-dita-translation-package-builder/releases/latest" target="_blank" rel="external noopener">translation-package-builder-{version}-plugin.jar</a>
+          package.</li>
+        <li class="li">Unzip it inside <span class="ph filepath">{oxygenInstallDir}/plugins</span>.<div class="note note note_note"><span class="note__title">Note:</span> Do not create any
+            intermediate folders. Afterwards, the file system should look like this:
+              <span class="ph filepath">{oxygenInstallDir}/plugins/translation-package-builder-{version}/plugin.xml</span></div></li>
+      </ol></div>
+    <section class="section" id="scripting_oxygen_dita_translation_package_builder__section_gbd_tzb_vmb"><h2 class="title sectiontitle">Examples for the DITA Translation Package Builder Script</h2>
+      
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Generating a Milestone
+        File</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">sh scripts/translationPackageBuilder.sh -gm -i ditamapFile [-m milestoneFile] [-verbose]</pre></div>
+      <p class="p">This action is the first one to use. It will generate an unique hash for each documentation
+        resource. This information will be used by the second action to detect which files have been
+        modified. A milestone file should be generated the first time you install this plugin and
+        henceforth, after each package is sent to translators.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">-gm</dt>
+            <dd class="dd">Requests the generation of a milestone file.</dd>
+          
+          
+            <dt class="dt dlterm">-i ditamapFile</dt>
+            <dd class="dd">The main DITA map file.</dd>
+          
+          
+            <dt class="dt dlterm">-m milestoneFile</dt>
+            <dd class="dd">The path to the milestone file. If missing, it is assumed that the milestone will be
+              saved in the DITA map parent folder with the following name:
+                <span class="ph filepath">{ditamapName}_translation_milestone.xml</span>.</dd>
+          
+          
+            <dt class="dt dlterm">-verbose</dt>
+            <dd class="dd">Generates a console log about the performed steps. It is useful for debugging.</dd>
+          
+        </dl>
+      </div>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Creating a Package with the Modified Files to Send to
+        Translation</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">sh scripts/translationPackageBuilder.sh  -gp -i ditamapFile [-m milestoneFile] -p package.zip [-verbose]</pre></div>
+      <p class="p">This action detects which files have been changed since the last generated milestone. These
+        files are packed inside a ZIP file that can be sent to translators. After doing this, you
+        can also generate a new milestone so that the next package will only contain new
+        changes.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">-gp</dt>
+            <dd class="dd">Requests the generation of a package with the modified files.</dd>
+          
+          
+            <dt class="dt dlterm">-i ditamapFile</dt>
+            <dd class="dd">The main DITA map file.</dd>
+          
+          
+            <dt class="dt dlterm">-m milestoneFile</dt>
+            <dd class="dd">The path to the milestone file. If missing, it is assumed that the milestone will be
+              located in the DITA map parent folder with the following name:
+                <span class="ph filepath">{ditamapName}_translation_milestone.xml</span>.</dd>
+          
+          
+            <dt class="dt dlterm">-p package.zip</dt>
+            <dd class="dd">The path to the zip archive where all the modified files are collected.</dd>
+          
+          
+            <dt class="dt dlterm">-verbose</dt>
+            <dd class="dd">Generates a console log about the performed steps. It is useful for debugging.</dd>
+          
+        </dl>
+      </div>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Applying a Translation Package Over a DITA
+        Map</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">sh scripts/translationPackageBuilder.sh -ap -i ditamapFile -p package.zip [-verbose]</pre></div>
+      <p class="p">When the translated files arrive from the translator, you should open the DITA map that
+        corresponds to the received language (e.g. open
+          <span class="ph uicontrol">dita-map-french.ditamap</span> if the package contains the french
+        translation). Invoking this action will extract the changed files inside the map's
+        directory.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">-ap</dt>
+            <dd class="dd">Requests the application of a translation package over a DITA map.</dd>
+          
+          
+            <dt class="dt dlterm">-i ditamapFile</dt>
+            <dd class="dd">The main DITA map file that matches the received package language. For example, if
+              the package contains topics translated into French, then this map is the French
+              version of your DITA map.</dd>
+          
+          
+            <dt class="dt dlterm">-p package.zip</dt>
+            <dd class="dd">The path to the archive with all the translated files.</dd>
+          
+          
+            <dt class="dt dlterm">-verbose</dt>
+            <dd class="dd">Generates a console log about the performed steps. It is useful for debugging.</dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/scripting_oxygen.html" title="Details about the scripting possibilities that are available with Oxygen XML Editor">Scripting Oxygen</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/scripting_oxygen_transform.html">Transform</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/scripting_oxygen_batch_converter.html">Batch Converter</a></div></div></nav></article></main></body></html>

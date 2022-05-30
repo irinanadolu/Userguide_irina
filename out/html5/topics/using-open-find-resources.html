@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Searching documents,Open/Find Resource,In content,In content"><meta name="keywords" content="Searching documents, Open/Find Resource, In content, In content"><meta name="DC.relation" scheme="URI" content="../topics/searching-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/open-find-resource-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/search-in-file-paths.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="using-open-find-resources"><title>Searching in Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="using-open-find-resources"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Searching in Content</h1>
+  
+  <div class="body">
+    <p class="p">To perform a search through the content of your resources, open the <a class="xref" href="open-find-resource-dialog.html#open-find-resource-dialog"><span class="ph uicontrol">Open/Find
+          Resource</span> dialog box</a> (from the <span class="ph uicontrol">Find</span> menu or with
+          <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Shift
+                    + R (Command + Shift + R on OS X)</span></span>) or the <a class="xref" href="open-find-resource-view.html#open-find-resource-view"><span class="ph uicontrol">Open/Find Resource</span> view</a> (by default, located on the left
+      side of the editor), select the <span class="ph uicontrol">in content</span> option, and in the search
+      field enter the terms that you want to search for. </p>
+    <p class="p">The <span class="ph uicontrol">Open/Find Resource</span> feature is powered by <a class="xref" href="http://lucene.apache.org/core/" target="_blank" rel="external noopener">Apache Lucene</a>.
+      Apache Lucene is a free open source information retrieval software library.</p>
+    <p class="p">You can use the <span class="ph uicontrol">Open/Find Resource</span> feature to either perform a simple
+      text search or a more complex search using the <a class="xref" href="http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html" target="_blank" rel="external noopener">Apache Lucene - Query Parser Syntax</a>.</p>
+    <section class="section" id="using-open-find-resources__complex_query_syntax_using_lucene_syntax"><h2 class="title sectiontitle">Complex Query Patterns Using Lucene Syntax</h2>
+      
+      <p class="p">Using the <a class="xref" href="http://lucene.apache.org/core/old_versioned_docs/versions/2_9_1/queryparsersyntax.html" target="_blank" rel="external noopener">Apache Lucene - Query Parser Syntax</a> means you can
+        perform any of the following searches:</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Term Searches</strong></u></p>
+            <div class="p">Searching for plain
+              text:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Garden Preparation</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Element-Specific Searches</strong></u></p>
+            <div class="p">Searching for content that belongs to a specific
+              element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">title:"Garden Preparation"</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Wildcard Searches</strong></u></p>
+            <div class="p">Using wildcards to make your search more
+              permissive:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Garden Prepar?tion</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Fuzzy Searches</strong></u></p>
+            <div class="p">If you are not sure of the exact form of a term that you are interested in, use the
+              fuzzy search to find the terms that are similar to the search term. To perform a fuzzy
+              search, use the <code class="ph codeph">~</code> symbol after the word that you are not sure
+              of:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Garden Preparing~</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Proximity Searches</strong></u></p>
+            <div class="p">Use proximity searches to find words that are within a specific distance away. To
+              perform a proximity search, use the <code class="ph codeph">~</code> symbol at the end of your
+              search. For example, to search for the word <strong class="ph b">Garden</strong> and the word
+                <strong class="ph b">Preparation</strong> within 6 words of each other
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">"Garden Preparation"~6</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Range Searches</strong></u></p>
+            <div class="p">Use range searches to match documents whose element values are between the lower and
+              upper bound specified in the range query. For example, to find all documents whose
+              titles are between <strong class="ph b">Iris</strong> and <strong class="ph b">Lilac</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">title:{Iris TO Lilac}</pre></div>
+            <div class="p">The curly brackets denote an exclusive query. The results you get when using this
+              query are all the documents whose titles are between <strong class="ph b">Iris</strong> and <strong class="ph b">Lilac</strong>, but
+              not including <strong class="ph b">Iris</strong> and <strong class="ph b">Lilac</strong>. To create an inclusive query use square
+              brackets:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">title:[Iris to Lilac]</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Term Boosting Searches</strong></u></p>
+            <div class="p">Use term prioritising searches if the fragment of text that you are searching for
+              contains certain words that are more important to your search than the rest of them.
+              For example, if you are searching for <strong class="ph b">Autumn Flower</strong>, a good idea is to
+              prioritize the word <strong class="ph b">Autumn</strong> since the word <strong class="ph b">Flower</strong> occurs more often. To
+              prioritize a word use the <code class="ph codeph">^</code>
+              symbol:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Autumn^6 Flower</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Searches Using Boolean Operators</strong></u></p>
+            <p class="p">You can use the <span class="ph uicontrol">AND</span>, <span class="ph uicontrol">+</span>,
+                <span class="ph uicontrol">OR</span>, <span class="ph uicontrol">-</span>, and <span class="ph uicontrol">NOT</span>
+              operators. </p>
+            <div class="p">To search for documents that contain both the words <strong class="ph b">Garden</strong> and
+                <strong class="ph b">Preparation</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Garden AND Preparation</pre></div>
+            <div class="p">To search for documents that must contain the word <strong class="ph b">Garden</strong> and may contain the
+              word <strong class="ph b">Preparation</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">+Garden Preparation</pre></div>
+            <div class="p">To search for documents that contain either the word <strong class="ph b">Garden</strong> or the word
+                <strong class="ph b">Preparation</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Garden OR Preparation</pre></div>
+            <div class="p">To search for documents that contain <strong class="ph b">Garden Preparation</strong> but not <strong class="ph b">Preparation
+                of the Flowers</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">"Garden Preparation" - "Preparation of the Flowers"</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Searches Using Grouping</strong></u></p>
+            <div class="p">To search either for the word <strong class="ph b">Garden</strong> or <strong class="ph b">Preparation</strong>, and the word
+                <strong class="ph b">Flowers</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">(Garden OR Preparation) AND Flowers</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Searches Using Element Grouping</strong></u></p>
+            <div class="p">To search for a title that contains both the word <strong class="ph b">Flowers</strong> and the phrase
+                <strong class="ph b">Garden Preparation</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">title:(+Flowers +"Garden Preparation")</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Searching for Special Characters</strong></u></p>
+            <div class="p">Sometimes you might need to search your content for special character, such
+              as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">+ - &amp;&amp; || ! ( ) { } [ ] ^ ~ * ? : \</pre></div>
+            <div class="p">In this case, you should surround your search query with quotes. For example, to
+              search for <strong class="ph b">(Hydrogen + Oxygen)=Water</strong>,
+              use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">"(Hydrogen + Oxygen)</span>=Water"</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/searching-documents.html">Search and Find/Replace Features</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/open-find-resource-dialog.html">Open/Find Resource Dialog Box</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/search-in-file-paths.html">Searching in File Paths</a></div></div></nav></article></main></body></html>

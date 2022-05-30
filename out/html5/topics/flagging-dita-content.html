@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Flagging DITA content"><meta name="keywords" content="WebHelp Responsive, Flagging DITA content"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-edit-link.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-responsive-sharepoint.html"><meta name="DC.relation" scheme="URI" content="dita-ditaval-file.html#dita-ditaval-file"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="flagging-dita-content"><title>How to Flag DITA Content in WebHelp Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="flagging-dita-content"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Flag DITA Content in WebHelp Output</h1>
+  
+  
+  <div class="body">
+    <p class="p">Flagging content in WebHelp output involves defining a set of images that will be used for
+      marking content across your information set.</p>
+    <p class="p">To flag DITA content, you need to create a filter file that defines properties that will be
+      applied on elements to be flagged. Generally, flagging is supported for <a class="xref" href="../glossary/block-element.html"><dfn class="term">block elements</dfn></a> (such as paragraphs),
+      but not for phrase-level elements within a paragraph. This ensures that the images that will
+      flag the content are easily scanned by the reader, instead of being buried in the text.</p>
+    <section class="section" id="flagging-dita-content__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Publishing Template</h2>
+      
+      <div class="p">To flag content in DITA Map to WebHelp output using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing Template</dfn></a>, follow
+        this procedure:<ol class="ol">
+          <li class="li">Create a DITA filter file (DITAVAL) and add it in a directory of your choice (for
+            example, named <span class="ph filepath">myFile.ditaval</span>.</li>
+          <li class="li">Define the property for the elements you want to be flagged. For example, if you want
+            to flag any element that has the <code class="keyword markupname xmlatt">@audience</code> attribute set to
+              <code class="ph codeph">programmer</code>, the content of the DITAVAL file should look like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span> 
+<strong class="hl-tag">&lt;val&gt;</strong>
+  <strong class="hl-tag">&lt;prop</strong> <span class="hl-attribute">att</span>=<span class="hl-value">"audience"</span> <span class="hl-attribute">val</span>=<span class="hl-value">"programmer"</span> <span class="hl-attribute">action</span>=<span class="hl-value">"flag"</span>
+ <span class="hl-attribute">img</span>=<span class="hl-value">"D:\resource\delta.gif"</span> <span class="hl-attribute">alt</span>=<span class="hl-value">"sample alt text"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/val&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> For
+              an element to be flagged, at least one attribute-value pair needs to have a property
+              declared in the DITAVAL file.</div></li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add the
+              <code class="ph codeph">args.filter</code> parameter in the <dfn class="term">parameters</dfn> section with its
+            value set to the path of the DITAVAL file you
+            created.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.filter"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"resources/myFile.ditaval"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="flagging-dita-content__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To flag content in the DITA Map to WebHelp output using a transformation scenario from
+        within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Create a DITA filter file (DITAVAL) and add it in a directory of your choice (for
+            example, named <span class="ph filepath">myFile.ditaval</span>.</li>
+          <li class="li">Define the property for the elements you want to be flagged. For example, if you want
+            to flag any element that has the <code class="keyword markupname xmlatt">@audience</code> attribute set to
+              <code class="ph codeph">programmer</code>, the content of the DITAVAL file should look like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span> 
+<strong class="hl-tag">&lt;val&gt;</strong>
+  <strong class="hl-tag">&lt;prop</strong> <span class="hl-attribute">att</span>=<span class="hl-value">"audience"</span> <span class="hl-attribute">val</span>=<span class="hl-value">"programmer"</span> <span class="hl-attribute">action</span>=<span class="hl-value">"flag"</span>
+ <span class="hl-attribute">img</span>=<span class="hl-value">"D:\resource\delta.gif"</span> <span class="hl-attribute">alt</span>=<span class="hl-value">"sample alt text"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/val&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> For
+              an element to be flagged, at least one attribute-value pair needs to have a property
+              declared in the DITAVAL file.</div></li>
+          <li class="li">Edit a <span class="ph uicontrol">DITA Map to WebHelp</span> transformation scenario.</li>
+          <li class="li">Specify the DITAVAL file in the <span class="ph uicontrol">Filters</span> tab (with the
+              <span class="ph uicontrol">Use DITAVAL File</span> option).</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/wh-edit-link.html">How to Add an Edit Link to Launch Oxygen XML Web Author</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/webhelp-responsive-sharepoint.html">How to Deploy the Output on a SharePoint Site</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-ditaval-file.html#dita-ditaval-file">Filtering Profiling Values with a DITAVAL File</a></li></ul></div></nav>
+</article></main></body></html>

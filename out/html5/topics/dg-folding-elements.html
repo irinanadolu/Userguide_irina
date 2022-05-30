@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="Used to configure whether or not the content of an element can be expanded or collapsed."><meta name="DC.subject" content="CSS extensions,Additional CSS properties,-oxy-foldable property,Additional CSS properties,-oxy-not-foldable-child property,-oxy-folded property"><meta name="keywords" content="CSS extensions, Additional CSS properties, -oxy-foldable property, Additional CSS properties, -oxy-not-foldable-child property, -oxy-folded property"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-additional-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/floating-toolbar-property.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-link-elements.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-folding-elements"><title>Folding Elements: -oxy-foldable Property</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-folding-elements"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Folding Elements: -oxy-foldable Property</h1>
+  
+  
+  <div class="body"><p class="shortdesc">Used to configure whether or not the content of an element can be expanded or
+    collapsed.</p>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> allows you to declare some elements to be <a class="xref" href="../glossary/foldable-element.html"><dfn class="term">foldable</dfn></a>. This is especially
+      useful when working with large documents organized in logical blocks, editing a large DocBook
+      article or book, for instance. <span class="ph">Oxygen XML Editor</span> marks the <dfn class="term">foldable</dfn> content
+      with a small blue triangle. When you hover with your mouse pointer over this marker, a dotted
+      line borders the collapsible content. The following actions are available in the
+        <span class="ph uicontrol">Folding</span> submenu of the contextual menu:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ToggleFold16.png">Toggle Fold</span></dt>
+          <dd class="dd">Toggles the state of the current fold.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CloseOtherFolds16.png">Collapse Other
+              Folds</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dg-folding-elements__ctrl_numpad_slash_shortcut">Ctrl + NumPad/ (Command + NumPad/ on OS X)</span></span>)</dt>
+          <dd class="dd">Folds all the elements except the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CollapseChildFolds16.png">Collapse Child
+              Folds</span>
+            <span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="dg-folding-elements__ctrl_numpad_._shortcut">Ctrl +
+                    NumPad. (Command + NumPad. on OS X)</span></span>)</span></dt>
+          <dd class="dd">Folds the elements indented with one level inside the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ExpandChildFolds16.png">Expand Child
+              Folds</span>
+            </dt>
+          <dd class="dd">Unfolds all child elements of the currently selected element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ExpandAll16.png">Expand
+              All</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dg-folding-elements__ctrl_numpad_asterisk_shortcut">Ctrl + NumPad* (Command + NumPad* on OS
+                    X)</span></span>)</dt>
+          <dd class="dd">Unfolds all elements in the current document.</dd>
+        
+      </dl></div>
+    <div class="p">To define the element whose content can be <dfn class="term">folded</dfn> by the user, you must use the
+      property: <code class="ph codeph">-oxy-foldable:true;</code>. To define the elements that are
+        <dfn class="term">folded</dfn> by default, use the <code class="ph codeph">-oxy-folded:true</code> property.<div class="note note note_note"><span class="note__title">Note:</span> The
+          <code class="ph codeph">-oxy-folded</code> property works in conjunction with the
+          <code class="ph codeph">-oxy-foldable</code> property. Thus, the <code class="ph codeph">folded</code> property is
+        ignored if the <code class="ph codeph">-oxy-foldable</code> property is not set on the same
+        element.</div></div>
+    <div class="p">When collapsing an element, it is useful to keep some of its content visible (for example, a
+      short description of the collapsed region). The property
+        <code class="ph codeph">-oxy-not-foldable-child</code> is used to identify the child element that is kept
+      visible. It accepts as value an element name or a list of comma-separated element names. The
+      first child element from the XML document that appears in the list of element names will be
+      identified as the not <dfn class="term">foldable</dfn> child and displayed. If the element is marked as
+        <dfn class="term">foldable</dfn> (<code class="ph codeph">-oxy-foldable:true;</code>) but it doesn't have the
+      property <code class="ph codeph">-oxy-not-foldable-child</code> or none of the specified
+        <dfn class="term">non-foldable</dfn> children exists, then the element is still <dfn class="term">foldable</dfn>.
+      In this case the element kept visible when <dfn class="term">folded</dfn> will be the
+        <code class="ph codeph">before</code> pseudo-element.<div class="note note note_note"><span class="note__title">Note:</span> Deprecated properties
+        <code class="ph codeph">foldable</code>, <code class="ph codeph">not-foldable-child</code>, and <code class="ph codeph">folded</code>
+        are also supported.</div></div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: Folding DocBook Elements</u></strong></p>
+    <div class="p">All the elements below can have a <code class="keyword markupname xmlelement">&lt;title&gt;</code> child element and are considered to
+      be logical sections. You mark them as being <dfn class="term">foldable</dfn> leaving the
+      <code class="keyword markupname xmlelement">&lt;title&gt;</code> element
+      visible.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">set,
+book,
+part,
+reference,
+chapter,
+preface,
+article,
+sect1,
+sect2,
+sect3,
+sect4,
+section,
+appendix,
+figure,
+example,
+table {
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: title;
+}</pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-css-additional-properties.html">Additional CSS Properties</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/floating-toolbar-property.html" title="Used to display a configured floating toolbar in Author mode.">Floating Toolbar: -oxy-floating-toolbar Property</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-link-elements.html" title="Used to specify that a particular element should be considered a link.">Links: -oxy-link Property</a></div></div></nav></article></main></body></html>

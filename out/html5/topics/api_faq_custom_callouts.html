@@ -1,0 +1,245 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_customize_author_popup.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_highlight_content.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_custom_callouts"><title>Add Custom Callouts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_custom_callouts"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Add Custom Callouts</h1>
+  <div class="body">
+    <section class="section" id="api_faq_custom_callouts__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">I want to highlight validation errors, instead of underlining them (for example, changing
+        the text background color to red or yellow). Also, I want a message displayed directly at
+        the error position that describes the problem. Is this possible using the API?</p>
+    </section>
+    <section class="section" id="api_faq_custom_callouts__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">The Plugins API allows you to set a <em class="ph i">ValidationProblemsFilter</em> that gets notified when
+        automatic validation errors are available. Then you can map each of the problems to an
+        offset range in the <span class="ph uicontrol">Author</span> mode using the API
+          <em class="ph i">WSTextBasedEditorPage.getStartEndOffsets(DocumentPositionedInfo)</em>. For each of those
+        offsets, you can add either persistent or non-persistent highlights. If you add persistent
+        highlights, you can also customize callouts to appear for each of them. The downside is that
+        they need to be removed before the document gets saved. The result would look something like
+        this:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Custom Callouts with Persistent Highlights</figcaption>
+          
+          <img class="image" id="api_faq_custom_callouts__image_b5x_xhk_wh" src="../img/apiErrorCallouts.png">
+        </figure>
+      </div>
+      <div class="p">Here is a working
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><span class="hl-tag-doctype-comment">/**
+* Plugin extension - workspace access extension.
+*/</span>
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> CustomWorkspaceAccessPluginExtension 
+                     <strong class="hl-keyword">implements</strong> WorkspaceAccessPluginExtension {
+     
+<span class="hl-tag-doctype-comment">/**
+* @see ro.sync.exml.plugin.workspace.WorkspaceAccessPluginExtension
+   #applicationStarted(
+ro.sync.exml.workspace.api.standalone.StandalonePluginWorkspace)
+*/</span>
+    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> applicationStarted
+(<strong class="hl-keyword">final</strong> StandalonePluginWorkspace pluginWorkspaceAccess) {
+        pluginWorkspaceAccess.addEditorChangeListener
+(<strong class="hl-keyword">new</strong> WSEditorChangeListener() {
+          <span class="hl-tag-doctype-comment">/**
+           * @see WSEditorChangeListener#editorOpened(java.net.URL)
+           */</span>
+          <em><span class="hl-annotation">@Override</span></em>
+          <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorOpened(URL editorLocation) {
+            <strong class="hl-keyword">final</strong> WSEditor currentEditor = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, StandalonePluginWorkspace.MAIN_EDITING_AREA);
+            WSEditorPage currentPage = currentEditor.getCurrentPage();
+            <strong class="hl-keyword">if</strong>(currentPage <strong class="hl-keyword">instanceof</strong> WSAuthorEditorPage) {
+              <strong class="hl-keyword">final</strong> WSAuthorEditorPage currentAuthorPage = 
+(WSAuthorEditorPage)currentPage;
+              currentAuthorPage.getPersistentHighlighter().setHighlightRenderer
+(<strong class="hl-keyword">new</strong> PersistentHighlightRenderer() {
+                <em><span class="hl-annotation">@Override</span></em>
+                <strong class="hl-keyword">public</strong> String getTooltip(AuthorPersistentHighlight highlight) {
+                  <strong class="hl-keyword">return</strong> highlight.getClonedProperties().get(<span class="hl-string">"message"</span>);
+                }
+                <em><span class="hl-annotation">@Override</span></em>
+                <strong class="hl-keyword">public</strong> HighlightPainter getHighlightPainter
+(AuthorPersistentHighlight highlight) {
+                  <em class="hl-comment">//Depending on severity could have different color.</em>
+                  ColorHighlightPainter painter = <strong class="hl-keyword">new</strong> ColorHighlightPainter
+(Color.COLOR_RED, -<span class="hl-number">1</span>, -<span class="hl-number">1</span>);
+                  painter.setBgColor(Color.COLOR_RED);
+                  <strong class="hl-keyword">return</strong> painter;
+                }
+              });
+         currentAuthorPage.getReviewController()
+         .getAuthorCalloutsController().setCalloutsRenderingInformationProvider(
+               <strong class="hl-keyword">new</strong> CalloutsRenderingInformationProvider() {
+               <em><span class="hl-annotation">@Override</span></em>
+     <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> shouldRenderAsCallout(AuthorPersistentHighlight highlight) {
+                  <em class="hl-comment">//All custom highlights are ours</em>
+                  <strong class="hl-keyword">return</strong> true;
+                }
+                <em><span class="hl-annotation">@Override</span></em>
+     <strong class="hl-keyword">public</strong> AuthorCalloutRenderingInformation getCalloutRenderingInformation(
+                    <strong class="hl-keyword">final</strong> AuthorPersistentHighlight highlight) {
+                  <strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> AuthorCalloutRenderingInformation() {
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">long</strong> getTimestamp() {
+                      <em class="hl-comment">//Not interesting</em>
+                      <strong class="hl-keyword">return</strong> -<span class="hl-number">1</span>;
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> String getContentFromTarget(<strong class="hl-keyword">int</strong> limit) {
+                      <strong class="hl-keyword">return</strong> <span class="hl-string">""</span>;
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> String getComment(<strong class="hl-keyword">int</strong> limit) {
+                      <strong class="hl-keyword">return</strong> highlight.getClonedProperties().get(<span class="hl-string">"message"</span>);
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> Color getColor() {
+                      <strong class="hl-keyword">return</strong> Color.COLOR_RED;
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> String getCalloutType() {
+                      <strong class="hl-keyword">return</strong> <span class="hl-string">"Problem"</span>;
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> String getAuthor() {
+                      <strong class="hl-keyword">return</strong> <span class="hl-string">""</span>;
+                    }
+                    <em><span class="hl-annotation">@Override</span></em>
+                    <strong class="hl-keyword">public</strong> Map&lt;String, String&gt; getAdditionalData() {
+                      <strong class="hl-keyword">return</strong> null;
+                    }
+                  };
+                }
+              });
+ currentEditor.addValidationProblemsFilter(<strong class="hl-keyword">new</strong> ValidationProblemsFilter() {
+    List&lt;<strong class="hl-keyword">int</strong>[]&gt; lastStartEndOffsets = <strong class="hl-keyword">new</strong> ArrayList&lt;<strong class="hl-keyword">int</strong>[]&gt;();
+    <span class="hl-tag-doctype-comment">/**
+    * @see ro.sync.exml.workspace.api.editor.validation.ValidationProblemsFilter
+    #filterValidationProblems
+(ro.sync.exml.workspace.api.editor.validation.ValidationProblems)
+      */</span>
+   <em><span class="hl-annotation">@Override</span></em>
+   <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> filterValidationProblems(ValidationProblems validationProblems) {
+     List&lt;<strong class="hl-keyword">int</strong>[]&gt; startEndOffsets = <strong class="hl-keyword">new</strong> ArrayList&lt;<strong class="hl-keyword">int</strong>[]&gt;();
+     List&lt;DocumentPositionedInfo&gt; problemsList = 
+validationProblems.getProblemsList();
+     <strong class="hl-keyword">if</strong>(problemsList != null) {
+       <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; problemsList.size(); i++) {
+         <strong class="hl-keyword">try</strong> {
+ startEndOffsets.add(currentAuthorPage.getStartEndOffsets(problemsList.get(i)));
+         } <strong class="hl-keyword">catch</strong> (BadLocationException e) {
+           e.printStackTrace();
+         }
+       }
+     }
+       <strong class="hl-keyword">if</strong>(lastStartEndOffsets.size() != startEndOffsets.size()) {
+         <em class="hl-comment">//Continue</em>
+       } <strong class="hl-keyword">else</strong> {
+         <strong class="hl-keyword">boolean</strong> equal = true;
+         <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; startEndOffsets.size(); i++) {
+           <strong class="hl-keyword">int</strong>[] o1 = startEndOffsets.get(i);
+           <strong class="hl-keyword">int</strong>[] o2 = lastStartEndOffsets.get(i);
+           <strong class="hl-keyword">if</strong>(o1 == null &amp;&amp; o2 == null) {
+             <em class="hl-comment">//Continue</em>
+           } <strong class="hl-keyword">else</strong>  <strong class="hl-keyword">if</strong>(o1 != null &amp;&amp; o2 != null
+               &amp;&amp; o1[<span class="hl-number">0</span>] == o2[<span class="hl-number">0</span>] &amp;&amp; o1[<span class="hl-number">1</span>] == o2[<span class="hl-number">1</span>]){
+             <em class="hl-comment">//Continue</em>
+           } <strong class="hl-keyword">else</strong> {
+             equal = false;
+             <strong class="hl-keyword">break</strong>;
+           }
+         }
+         <strong class="hl-keyword">if</strong>(equal) {
+           <em class="hl-comment">//Same list of problems already displayed.</em>
+           <strong class="hl-keyword">return</strong>;
+         }
+       }
+       <em class="hl-comment">//Keep last used offsets.</em>
+       lastStartEndOffsets = startEndOffsets;
+     <strong class="hl-keyword">try</strong> {
+       <strong class="hl-keyword">if</strong>(! SwingUtilities.isEventDispatchThread()) {
+         SwingUtilities.invokeAndWait(<strong class="hl-keyword">new</strong> Runnable() {
+           <em><span class="hl-annotation">@Override</span></em>
+         <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> run() {
+             <em class="hl-comment">//First remove all custom highlights.</em>
+     currentAuthorPage.getPersistentHighlighter().removeAllHighlights();
+           }
+         });
+     }
+     } <strong class="hl-keyword">catch</strong> (InterruptedException e1) {
+     e1.printStackTrace();
+     } <strong class="hl-keyword">catch</strong> (InvocationTargetException e1) {
+       e1.printStackTrace();
+     }
+     <strong class="hl-keyword">if</strong>(problemsList != null) {
+       <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; problemsList.size(); i++) {
+         <em class="hl-comment">//A reported problem (could be warning, could be error).</em>
+         DocumentPositionedInfo dpi = problemsList.get(i);
+         <strong class="hl-keyword">try</strong> {
+           <strong class="hl-keyword">final</strong> <strong class="hl-keyword">int</strong>[] currentOffsets = startEndOffsets.get(i);
+           <strong class="hl-keyword">if</strong>(currentOffsets != null) {
+             <em class="hl-comment">//These are offsets in the Author content.</em>
+             <strong class="hl-keyword">final</strong> LinkedHashMap&lt;String, String&gt; highlightProps = 
+<strong class="hl-keyword">new</strong> LinkedHashMap&lt;String, String&gt;();
+             highlightProps.put(<span class="hl-string">"message"</span>, dpi.getMessage());
+             highlightProps.put(<span class="hl-string">"severity"</span>, dpi.getSeverityAsString());
+             <strong class="hl-keyword">if</strong>(! SwingUtilities.isEventDispatchThread()) {
+               SwingUtilities.invokeAndWait(<strong class="hl-keyword">new</strong> Runnable() {
+                 <em><span class="hl-annotation">@Override</span></em>
+                 <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> run() {
+                  currentAuthorPage.getPersistentHighlighter().addHighlight(
+                   currentOffsets[<span class="hl-number">0</span>], currentOffsets[<span class="hl-number">1</span>] - <span class="hl-number">1</span>, highlightProps);
+            }
+               });
+             }
+          }
+         } <strong class="hl-keyword">catch</strong> (InterruptedException e) {
+           e.printStackTrace();
+         } <strong class="hl-keyword">catch</strong> (InvocationTargetException e) {
+           e.printStackTrace();
+         }
+      }
+     }
+   }
+});
+ currentEditor.addEditorListener(<strong class="hl-keyword">new</strong> WSEditorListener() {
+  <span class="hl-tag-doctype-comment">/**
+  * @see WSEditorListener#editorAboutToBeSavedVeto(int)
+  */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> editorAboutToBeSavedVeto(<strong class="hl-keyword">int</strong> operationType) {
+      <strong class="hl-keyword">try</strong> {
+       <strong class="hl-keyword">if</strong>(! SwingUtilities.isEventDispatchThread()) {
+        SwingUtilities.invokeAndWait(<strong class="hl-keyword">new</strong> Runnable() {
+          <em><span class="hl-annotation">@Override</span></em>
+          <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> run() {
+            <em class="hl-comment">//Remove all persistent highlights before saving</em>
+             currentAuthorPage.getPersistentHighlighter().removeAllHighlights();
+           }
+        });
+       }
+     } <strong class="hl-keyword">catch</strong> (InterruptedException e) {
+     e.printStackTrace();
+    } <strong class="hl-keyword">catch</strong> (InvocationTargetException e) {
+       e.printStackTrace();
+    }
+    <strong class="hl-keyword">return</strong> true;
+    }
+   });
+  }
+ }
+}, StandalonePluginWorkspace.MAIN_EDITING_AREA);
+      }
+     
+
+<span class="hl-tag-doctype-comment">/**
+* @see WorkspaceAccessPluginExtension#applicationClosing()
+       */</span>
+      <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> applicationClosing() {
+        <strong class="hl-keyword">return</strong> true;
+      }
+    }</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_customize_author_popup.html">Add Custom Actions to the Contextual Menu?</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_highlight_content.html">Add Custom Highlights to Content</a></div></div></nav></article></main></body></html>

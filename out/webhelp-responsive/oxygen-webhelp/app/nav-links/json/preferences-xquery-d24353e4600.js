@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Saxon-HE\/PE\/EE Preferences","href":"topics\/preferences-xquery-saxon.html","attributes":{"data-id":"preferences-xquery-saxon"},"menu":{"hasChildren":false},"tocID":"preferences-xquery-saxon-d24353e4619","next":"preferences-xquery-saxon-d24353e4619"}]});

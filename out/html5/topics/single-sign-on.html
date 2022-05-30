@@ -1,0 +1,17 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Single sign-on"><meta name="keywords" content="Single sign-on"><meta name="DC.relation" scheme="URI" content="../topics/http-authentication-schemes.html"><meta name="DC.relation" scheme="URI" content="../topics/http-authentication-schemes.html"><meta name="DC.relation" scheme="URI" content="../topics/switch-editor-tab.html"><meta name="DC.relation" scheme="URI" content="set-parameter-in-startup-script.html#set-parameter-in-startup-script"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="single-sign-on"><title>Single Sign-on</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="single-sign-on"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Single Sign-on</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> implements the <em class="ph i">Single sign-on</em> property (meaning that you can
+      log on once and gain access to multiple services without being prompted to log on for each of
+      them), based on the <strong class="ph b">Kerberos</strong> protocol and relies on a <em class="ph i">ticket-granting ticket
+        (TGT)</em> that <span class="ph">Oxygen XML Editor</span> obtains from the operating system.<div class="note restriction note_restriction"><span class="note__title">Restriction:</span> This <em class="ph i">Single sign-on</em> support is not available for SharePoint
+        integrations.</div></div>
+    <div class="p">To turn on the <strong class="ph b">Kerberos</strong>-based authentication, you need to add the following system
+      property in the <span class="ph"><span class="ph filepath">.vmoptions</span>
+        configuration file or start-up script</span>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">-Djavax.security.auth.useSubjectCredsOnly</span>=false</pre></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/http-authentication-schemes.html">HTTP Authentication Schemes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/http-authentication-schemes.html">HTTP Authentication Schemes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/switch-editor-tab.html">Switching, Moving, or Hiding Editor Tabs</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="set-parameter-in-startup-script.html#set-parameter-in-startup-script">Setting a Java Virtual Machine Parameter when Launching Oxygen XML Editor</a></li></ul></div></nav>
+</article></main></body></html>

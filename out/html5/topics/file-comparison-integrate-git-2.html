@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Compare Files tool,Integrate with Git"><meta name="keywords" content="Compare Files tool, Integrate with Git"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-command-line-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-integrate-sourcetree-2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="file-comparison-integrate-git"><title>How to Integrate the File Comparison Tool with Git</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="file-comparison-integrate-git"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Integrate the File Comparison Tool with Git</h1>
+  
+  <div class="body">
+    <p class="p">The file comparison tool can be integrated with Git clients. It requires that you configure
+      your <span class="ph filepath">.gitconfig</span> file and then you can simply start the tool from the
+      command line.</p>
+    <div class="p">To integrate the <span class="ph uicontrol">Compare Files</span> tool with your Git client, follow this procedure:<ol class="ol">
+        <li class="li">Use one of the following methods to instruct your Git client to use the
+            <dfn class="term">Oxygen</dfn>
+          <span class="ph uicontrol">Compare Files</span> tool:<ul class="ul">
+            <li class="li"><strong class="ph b">Manual Configuration</strong> - Locate your Git user-specific configuration file
+                (<span class="ph filepath">.gitconfig</span>) and edit it with a text editor (for example, in
+              Windows, the <span class="ph filepath">.gitconfig</span> file is most likely located in your user
+              home directory). Add (or replace) the following
+                lines:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><strong class="hl-keyword">[diff]</strong>
+<span class="hl-attribute">    tool </span>= oxygendiff
+<strong class="hl-keyword">[merge]</strong>
+<span class="hl-attribute">    tool </span>= oxygendiff
+<strong class="hl-keyword">[difftool "oxygendiff"]</strong>
+<span class="hl-attribute">    cmd </span>= '[pathToOxygenInstallDir]/diffFiles.exe' -ext $REMOTE $LOCAL $LOCAL
+<strong class="hl-keyword">[mergetool "oxygendiff"]</strong>
+<span class="hl-attribute">    cmd </span>= '[pathToOxygenInstallDir]/diffFiles.exe' -ext $LOCAL $REMOTE $BASE $MERGED
+<span class="hl-attribute">    trustExitCode </span>= true
+<strong class="hl-keyword">[difftool]</strong>
+<span class="hl-attribute">    prompt </span>= false</pre><div class="note note note_note"><span class="note__title">Note:</span> For
+                Mac OS X, the <strong class="ph b">cmd</strong> lines would start with something like: <strong class="ph b">sh
+                  "/Applications/Oxygen XML Editor/diffFiles.sh"</strong>. For Linux, the <strong class="ph b">cmd</strong>
+                lines would start with something like: <strong class="ph b">sh "/Oxygen XML
+                Editor/diffFiles.sh"</strong>.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> On Redhat 7, the following command
+                would work, where the whole command is quoted and then inside that, the path to
+                  <span class="ph filepath">diffFiles.sh</span> is
+                quoted:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><strong class="hl-keyword">[difftool "oxygendiff"]</strong>
+<span class="hl-attribute">   cmd </span>= '"/home/user/Oxygen XML Editor 21/diffFiles.sh"' -ext $REMOTE $LOCAL $LOCAL
+<strong class="hl-keyword">[mergetool "oxygendiff"]</strong>
+<span class="hl-attribute">   cmd </span>= '"/home/user/Oxygen XML Editor 21/diffFiles.sh"' -ext $LOCAL $REMOTE $BASE 
+<span class="hl-attribute">        $MERGED trustExitCode </span>= true</pre></div></li>
+            <li class="li"><strong class="ph b">Command Line Configuration</strong> - To automatically configure the
+                <span class="ph filepath">.gitconfig</span> file, you can run the following commands from a
+              command
+                line:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">git config --global diff.tool oxygendiff
+git config --global difftool.oxygendiff.cmd '[Oxygen install dir]/diffFiles.exe -ext
+$REMOTE $LOCAL $LOCAL'
+git config --global merge.tool oxygendiff
+git config --global mergetool.oxygendiff.cmd '[Oxygen install dir]/diffFiles.exe
+-ext $LOCAL $REMOTE $BASE $MERGED'
+git config --global mergetool.oxygendiff.trustExitCode true</pre><div class="note note note_note"><span class="note__title">Note:</span> For
+                Mac OS X, the <dfn class="term">Oxygen</dfn> file comparison tool would be specified in the
+                second and fourth commands with something like: <strong class="ph b">sh "/Applications/Oxygen XML
+                  Editor/diffFiles.sh"</strong>. For Linux, it would be something like: <strong class="ph b">sh "/Oxygen
+                  XML Editor/diffFiles.sh"</strong>.</div></li>
+          </ul></li>
+        <li class="li">To start the <span class="ph uicontrol">Compare Files</span> tool and see a comparison of changes
+          for a particular file, run the following command from a command
+            line:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">git difftool [PathToFile]</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> If the file you want to compare has conflicts, you can start the
+              <span class="ph uicontrol">Compare Files</span> tool as a <em class="ph i">merge conflict resolution</em> tool
+            by running the following
+            command:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">git mergetool [PathToFile]</pre></div></li>
+      </ol></div>
+    <p class="p">For more information about the Git <em class="ph i">difftool</em> syntax, see <a class="xref" href="https://git-scm.com/docs/git-difftool" target="_blank" rel="external noopener">https://git-scm.com/docs/git-difftool</a>.</p>
+    <p class="p">For more information about the Git <em class="ph i">mergetool</em> syntax, see <a class="xref" href="https://git-scm.com/docs/git-mergetool" target="_blank" rel="external noopener">https://git-scm.com/docs/git-mergetool</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/file-comparison-2.html">Compare Files Tool</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/file-comparison-command-line-2.html">Starting File Comparison Tool from a Command Line</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/file-comparison-integrate-sourcetree-2.html">How to Integrate the File Comparison Tool with Sourcetree</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Testing Remote WSDL Files","href":"topics\/testing-remote-wsdl-files.html","attributes":{"data-id":"testing-remote-wsdl-files"},"menu":{"hasChildren":false},"tocID":"testing-remote-wsdl-files-d24353e16802","topics":[]}]});

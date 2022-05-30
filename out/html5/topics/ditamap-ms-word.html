@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DITA Map to MS Office Word,DITA Map to MS Office Word transformation,Transform DITA document to MS Word,DITA to Word"><meta name="keywords" content="Transformation Scenarios, DITA Map to MS Office Word, DITA Map to MS Office Word transformation, Transform DITA document to MS Word, DITA to Word"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-map-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-pdf-transformation.html"><meta name="DC.relation" scheme="URI" content="../topics/chm-output-format.html"><meta name="DC.relation" scheme="URI" content="edit-scenario-dialog.html#edit-scenario-dialog"><meta name="DC.relation" scheme="URI" content="configure-transformation-dialog.html#configure-transformation-dialog"><meta name="DC.relation" scheme="URI" content="ooxml-to-dita.html#ooxml-to-dita"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="ditamap-ms-word"><title>DITA Map MS Office Word Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="ditamap-ms-word"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Map MS Office Word Transformation</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> comes bundled with a transformation scenario that allows you to
+      convert <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA maps</dfn></a> to Microsoft Office
+      Word documents. It utilizes the <a class="xref" href="https://github.com/jelovirt/com.elovirta.ooxml" target="_blank" rel="external noopener"><strong class="ph b">DITA to Word plugin</strong> created by Jarno Elovirta</a>.
+      This <dfn class="term">plugin</dfn> contains a Word document named <strong class="ph b">Normal.docx</strong> (located in:
+          <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/<dfn class="term">DITA-OT3.x</dfn>/plugins/com.elovirta.ooxml/resources</span>) that is used by the transformation
+      scenario as a template to generate the final Word document.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can make
+        general modifications to the <strong class="ph b">Normal.docx</strong> template file to alter the published
+        output.</div></div>
+    <section class="section" id="ditamap-ms-word__creating_the_transformation_scenario"><h2 class="title sectiontitle">Configuring the Transformation Scenario</h2>
+      
+      <div class="p">To configure a <strong class="ph b">DITA Map to MS Office Word</strong> transformation scenario, follow these
+          steps:<ol class="ol" id="ditamap-ms-word__ol_z3j_gxq_vr">
+          <li class="li">Open the DITA map<span class="ph"> in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a></span>.</li>
+          <li class="li">Click the <span class="ph uicontrol"><img class="image" id="ditamap-ms-word__image_d3c_lxq_vr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s)</span> button<span class="ph"> from the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a> toolbar</span>.</li>
+          <li class="li">Select <span class="ph uicontrol">DITA Map MS Office Word</span>.</li>
+          <li class="li">For advanced customizations, in the <span class="ph uicontrol">Parameters</span> tab you can use
+            any of the following parameters that are unique to this transformation scenario to
+            specify paths to files that affect the output in various ways:<ul class="ul" id="ditamap-ms-word__ul_uqz_txq_vr">
+              <li class="li"><strong class="ph b">dotx.file</strong> - Specifies the path to a Word template file
+                  (<span class="ph filepath">.docx</span>) that will be used in the transformation to generate
+                the final Word document. Set this parameter if you want to use a different template
+                file other than the <strong class="ph b">Normal.docx</strong> file that is used by default.</li>
+              <li class="li"><strong class="ph b">document.flat.xsl</strong> - Specifies the path to a pre-process clean-up
+                stylesheet.</li>
+              <li class="li"><strong class="ph b">core.xsl</strong> - Specifies the path to a core metadata stylesheet.</li>
+              <li class="li"><strong class="ph b">custom.xsl</strong> - Specifies the path to a custom metadata stylesheet.</li>
+              <li class="li"><strong class="ph b">document.xsl</strong> - Specifies the path to a main document stylesheet.</li>
+              <li class="li"><strong class="ph b">comments.xsl</strong> - Specifies the path to a comments stylesheet.</li>
+              <li class="li"><strong class="ph b">numbering.xsl</strong> - Specifies the path to a list and title numbering
+                stylesheet.</li>
+              <li class="li"><strong class="ph b">footnotes.xsl</strong> - Specifies the path to a footnote stylesheet.</li>
+              <li class="li"><strong class="ph b">document.xml.xsl</strong> - Specifies the path to a document relations metadata
+                stylesheet.</li>
+              <li class="li"><strong class="ph b">inkscape.exec</strong> - Specifies the path to an Inkscape (open-source vector
+                graphics editor) executable file.</li>
+            </ul></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> and run the transformation scenario.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> The result of the transformation will automatically be opened in your
+        system's default word processing application (such as Microsoft Word).</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita-map-transformation-scenarios.html">DITA Map Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-pdf-transformation.html">DITA Map PDF - based on XSL-FO Transformation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/chm-output-format.html">DITA Map CHM (Compiled HTML Help) Transformation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="edit-scenario-dialog.html#edit-scenario-dialog">Editing a Transformation Scenario</a></li><li class="linklist"><a class="link" href="configure-transformation-dialog.html#configure-transformation-dialog">Configure Transformation Scenario(s) Dialog Box</a></li><li class="linklist"><a class="link" href="ooxml-to-dita.html#ooxml-to-dita">Migrating MS Office Documents to DITA</a></li></ul></div></nav>
+</article></main></body></html>

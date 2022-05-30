@@ -1,0 +1,117 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Sample XML Files Generator,Sample XML File Generator preferences"><meta name="keywords" content="Preferences, Sample XML Files Generator, Sample XML File Generator preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xml.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xproc-engines.html"><meta name="DC.relation" scheme="URI" content="xml-schema-instance-generator.html#xml-schema-instance-generator"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-xml-instances-generator"><title>Sample XML Files Generator Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-xml-instances-generator"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Sample XML Files Generator Preferences</h1>
+  
+  <div class="body">
+    <p class="p">The <a class="xref" href="xml-schema-instance-generator.html#xml-schema-instance-generator"><span class="ph uicontrol">Generate Sample XML Files</span> tool</a> (available on the <span class="ph uicontrol">Tools</span> menu) allows you to generate
+      XML instance documents based on an XML Schema. There are various options that can be
+      configured within the tool and these options are also available in the <span class="ph uicontrol">Sample XML
+        Files Generator</span> preferences page. This allows you to set default values for
+      these options. To configure the options for generating the XML files, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Sample XML Files Generator</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate optional elements</span></dt>
+            <dd class="dd">When selected, all elements are generated, including the optional ones (having the
+                <code class="ph codeph">minOccurs</code> attribute set to 0 in the schema).</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate optional attributes</span></dt>
+            <dd class="dd">When selected, all attributes are generated, including the optional ones (having the
+                <code class="ph codeph">use</code> attribute set to <code class="ph codeph">optional</code> in the schema).</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Values of elements and attributes</span></dt>
+            <dd class="dd">Controls the content of generated attribute and element values. The following
+              choices are available: <ul class="ul">
+                <li class="li"><span class="ph uicontrol">None</span> - No content is inserted.</li>
+                <li class="li"><span class="ph uicontrol">Default</span> - Inserts a default value depending on the data
+                  type descriptor of the particular element or attribute. The default value can be
+                  either the data type name or an incremental name of the attribute or element
+                  (according to the global option from the <span class="ph uicontrol">Sample XML Files
+                    Generator</span> preferences page). Note that type restrictions are ignored
+                  when this option is selected. For example, if an element is of a type that
+                  restricts an <span class="ph uicontrol">xs:string</span> with the
+                    <span class="ph uicontrol">xs:maxLength</span> facet to allow strings with a maximum length
+                  of 3, the XML instance generator tool may generate string element values longer
+                  than 3 characters.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - Inserts a random value depending on the data
+                  type descriptor of the particular element or attribute.<div class="note important note_important"><span class="note__title">Important:</span> If
+                    all of the following are true, the <span class="ph uicontrol">Generate Sample XML
+                      Files</span> tool outputs invalid values:<ul class="ul">
+                      <li class="li">At least one of the restrictions is a <code class="ph codeph">regexp</code>.</li>
+                      <li class="li">The value generated after applying the regexp does not match the
+                        restrictions imposed by one of the facets.</li>
+                    </ul></div></li>
+              </ul></dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Preferred number of repetitions</span></dt>
+            <dd class="dd">Allows you to set the preferred number of repeating elements related to
+                <code class="ph codeph">minOccurs</code> and <code class="ph codeph">maxOccurs</code> facets defined in the XML
+              Schema. <ul class="ul">
+                <li class="li">If the value set here is between <code class="ph codeph">minOccurs</code> and
+                    <code class="ph codeph">maxOccurs</code>, then that value is used.</li>
+                <li class="li">If the value set here is less than <code class="ph codeph">minOccurs</code>, then the
+                    <code class="ph codeph">minOccurs</code> value is used.</li>
+                <li class="li">If the value set here is greater than <code class="ph codeph">maxOccurs</code>, then
+                    <code class="ph codeph">maxOccurs</code> is used.</li>
+              </ul></dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Maximum recursion level</span></dt>
+            <dd class="dd">If a recursion is found, this option controls the maximum allowed depth of the same
+              element.</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Type alternative strategy</span></dt>
+            <dd class="dd">Used for the <code class="keyword markupname xmlelement">&lt;xs:alternative&gt;</code> element from XML Schema 1.1. The
+              possible strategies are:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">First</span> - The first valid alternative type is always
+                  used.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - A random alternative type is used.</li>
+              </ul></dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Choice strategy</span></dt>
+            <dd class="dd">Used for <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or
+                <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> elements. The possible strategies are:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">First</span> - The first branch of
+                    <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or the head element of
+                    <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> is always used.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - A random branch of
+                    <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or a substitute element or the head element
+                  of a <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> is used.</li>
+              </ul></dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate the other options as comments</span></dt>
+            <dd class="dd">If selected, generates the other possible choices or substitutions (for
+                <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> and <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code>).
+              These alternatives are generated inside comments groups so you can uncomment and use
+              them later. Use this option with care (for example, on a restricted namespace and
+              element) as it may generate large result files.</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Use incremental attribute / element names as default</span></dt>
+            <dd class="dd">If selected, the value of an element or attribute starts with the name of that
+              element or attribute. For example, for an <code class="keyword markupname xmlelement">&lt;a&gt;</code> element the generated
+              values are: <code class="ph codeph">a1</code>, <code class="ph codeph">a2</code>, <code class="ph codeph">a3</code>, and so on.
+              If not selected, the value is the name of the type of that element / attribute (for
+              example: <code class="ph codeph">string</code>, <code class="ph codeph">decimal</code>, etc.)</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Maximum length</span></dt>
+            <dd class="dd">The maximum length of string values generated for elements and attributes.</dd>
+          
+        
+            <dt class="dt dlterm"><span class="ph uicontrol">Discard optional elements after nested level</span></dt>
+            <dd class="dd">The optional elements that exceed the specified nested level are discarded. This
+              option is useful for limiting deeply nested element definitions that can quickly
+              result in very large XML documents.</dd>
+          
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-xml.html">XML Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/schematron-preferences-page.html">Schematron Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-xproc-engines.html">XProc Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xml-schema-instance-generator.html#xml-schema-instance-generator">Generating Sample XML Files</a></li></ul></div></nav>
+</article></main></body></html>

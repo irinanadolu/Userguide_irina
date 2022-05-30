@@ -1,0 +1,157 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Spell Check,Spell check preferences"><meta name="keywords" content="Preferences, Spell Check, Spell check preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/increasing-stack.html"><meta name="DC.relation" scheme="URI" content="../topics/dictionaries-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/dictionaries-preferences-page.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-spell-check"><title>Spell Check Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-spell-check"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Spell Check Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph"><span class="ph">Oxygen XML Editor</span> provides
+        support for spell checking in the <a class="xref" href="text-mode-editor.html#text-mode-editor"><span class="ph uicontrol">Text</span></a> and <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span></a> editing modes.</span> To configure the <span class="ph uicontrol">Spell
+        Check</span> options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Spell Check</span></span>.</p>
+    <p class="p">The following options are available:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="preferences-editor-spell-check__automatic-spell-check"><span class="ph uicontrol">Automatic spell check</span></dt>
+          <dd class="dd">
+            <p class="p">This option is not selected by default. When selected, <span class="ph">Oxygen XML Editor</span>
+              automatically checks the spelling as you type and highlights misspelled words in the
+              document.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">Select editors</dt>
+                  <dd class="dd">You can select which editors (and therefore which file types) will
+                    automatically be spell checked. File types such as CSS and DTD are excluded by
+                    default since automatic spell checking is not usually helpful in these types of
+                    files.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Spell check highlight color</span></dt>
+          <dd class="dd">Use this option to set the color used by the spell check engine to highlight spelling
+            errors.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-spell-check__lang-options-section"><span class="ph uicontrol">Language options</span> section</dt>
+          <dd class="dd">
+            <p class="p">This section includes the following language options:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="preferences-editor-spell-check__default-language"><span class="ph uicontrol">Default language</span></dt>
+                  <dd class="dd">The default language list allows you to choose the language used by the spell
+                    check engine when the language is not specified in the source file. <span class="ph">You can <a class="xref" href="using-check-spelling.html">add additional dictionaries to the
+                        spell check engines</a>.</span></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Use "lang" and "xml:lang" attributes</span></dt>
+                  <dd class="dd">When this option is selected, the contents of an element with one of the
+                      <code class="keyword markupname xmlatt">@lang</code> or <code class="keyword markupname xmlatt">@xml:lang</code> attributes is checked in
+                    that language. Choose between the following two options for instances when these
+                    attributes are missing:<ul class="ul">
+                      <li class="li"><span class="ph uicontrol">Use the default language</span> - If the
+                          <code class="keyword markupname xmlatt">@lang</code> and <code class="keyword markupname xmlatt">@xml:lang</code> attributes are
+                        missing, the selection in the <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check__default-language"><span class="ph uicontrol">Default language</span> list</a> is used.</li>
+                      <li class="li"><span class="ph uicontrol">Do not check</span> - If the <code class="keyword markupname xmlatt">@lang</code> and
+                          <code class="keyword markupname xmlatt">@xml:lang</code> attributes are missing, the element is not
+                        checked.</li>
+                    </ul></dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">XML spell checking in</span> section</dt>
+          <dd class="dd"> You can choose to check the spelling inside the following XML items: <ul class="ul">
+              <li class="li"><span class="ph uicontrol">Comments</span></li>
+              <li class="li"><span class="ph uicontrol">Processing instructions</span></li>
+              <li class="li"><span class="ph uicontrol">Attribute values</span></li>
+              <li class="li"><span class="ph uicontrol">Text</span></li>
+              <li class="li"><span class="ph uicontrol">CDATA</span></li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Options</span> section</dt>
+          <dd class="dd">
+            <p class="p">This section includes the following other options:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Check capitalization</span></dt>
+                  <dd class="dd">When selected, the spell checker reports detected capitalization
+                      errors.<div class="note note note_note"><span class="note__title">Note:</span> This option will not have any effect on words stored in
+                      dictionaries, term lists, and the list of learned words because they are not
+                      handled as case-sensitive.</div></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Check punctuation</span></dt>
+                  <dd class="dd">When selected, the spell checker checks punctuation. Misplaced white space and
+                    unusual sequences, such as a period following a comma, are highlighted as
+                    errors.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore mixed case words</span></dt>
+                  <dd class="dd">When selected, the spell checker does not check words containing mixed case
+                    characters (for example, <em class="ph i">SpellChecker</em>).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore acronyms</span></dt>
+                  <dd class="dd">Available only for the <strong class="ph b">Hunspell Spell Checker</strong>. When selected, acronyms
+                    are not reported as errors.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore words with digits</span></dt>
+                  <dd class="dd">When selected, the spell checker does not check words containing digits (for
+                    example, <em class="ph i">b2b</em>).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore duplicates</span></dt>
+                  <dd class="dd">When selected, the spell checker does not signal two successive identical
+                    words as an error.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore URL</span></dt>
+                  <dd class="dd">When selected, the spell checker ignores words recognized as URLs or file
+                    names (for example, <em class="ph i">www.oxygenxml.com</em> or <em class="ph i">c:\boot.ini</em>).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Allow compounds words</span></dt>
+                  <dd class="dd">When selected, all words formed by concatenating two legal words with a hyphen
+                    (hyphenated compounds) are accepted. If recognized by the language, two words
+                    concatenated without hyphen (closed compounds) are also accepted.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Allow file extensions</span></dt>
+                  <dd class="dd">When selected, the spell checker accepts any word ending with recognized file
+                    extensions (for example, <em class="ph i">myfile.txt</em> or <em class="ph i">index.html</em>).</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-spell-check__ignore-elements-section"><span class="ph uicontrol">Ignore elements</span> section</dt>
+          <dd class="dd">
+            <div class="p">You can use the <span class="ph uicontrol">Add</span> and <span class="ph uicontrol">Remove</span> buttons
+              to configure a list of element names or XPath expressions to be ignored by the spell
+              checker. The following restricted set of XPath expressions are supported:<ul class="ul" id="preferences-editor-spell-check__ul_zm3_x3y_qr">
+                <li class="li">'/' and '//' separators</li>
+                <li class="li">'*' wildcard</li>
+              </ul></div>
+            <p class="p">An example of an allowed XPath expression is: <em class="ph i">/a/*/b</em>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">AutoCorrect options</span> link</dt>
+          <dd class="dd">Use this link to navigate to the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page"><span class="ph uicontrol">AutoCorrect</span> preferences page</a>.</dd>
+        
+      </dl>
+    </div>
+    
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dictionaries-preferences-page.html">Spell Check Dictionaries Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/increasing-stack.html">Increasing the Stack Size for Validation Engines</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dictionaries-preferences-page.html">Spell Check Dictionaries Preferences</a></div></div></nav></article></main></body></html>

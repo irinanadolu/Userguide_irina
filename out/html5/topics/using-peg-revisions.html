@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/faq.html"><meta name="DC.relation" scheme="URI" content="../topics/update-newly-added-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/checksum-mismatch-error.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="using-peg-revisions"><title>Accessing Old Items from a Repository</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="using-peg-revisions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Accessing Old Items from a Repository</h1>
+  <div class="body">
+    <p class="p">Usually, you point to an item from a repository using a URL. However, sometimes this might
+      not be enough because the URL alone might point to a different item than the one you want and
+      a <em class="ph i">peg revision</em> is needed.</p>
+    <p class="p">A Subversion repository tracks any change made to its items by using <em class="ph i">revisions</em>, which
+      contain information such as the name of the author who made the changes, the date when they
+      were made, and a number that uniquely identifies each of them. Over time, an item from a
+      specific location in a repository evolves as a result of committing changes to it. When an
+      item is deleted, its entire life cycle (all changes made to it from the moment it was created)
+      remains recorded in the history of the repository. If a new item is created, with the same
+      name and in the same location of the repository as a previously existing one, then both items
+      are identified by the same URL even though they are located in different time frames. This is
+      when a <em class="ph i">peg revision</em> comes in handy. A <em class="ph i">peg revision</em> is nothing more than a normal
+      revision, but the difference between them is made by their usage. Many of the Subversion
+      commands also accept a peg revision as a way to precisely identify an item in time, beside an
+        <em class="ph i">operative revision</em> (the revision regarding the used command).</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong></p>
+    <div class="p">To illustrate an example, consider the following:<ul class="ul" id="using-peg-revisions__ul_yd4_yys_34">
+        <li class="li">A new repository file <code class="ph codeph">config</code> was created, identified by the URL
+            <code class="ph codeph">http://host.com/myRepository/dir/config</code>.</li>
+        <li class="li">The file has been created at revision <code class="ph codeph">10</code>.</li>
+        <li class="li">Over time, the file was modified by committing revisions <code class="ph codeph">12, 15,
+          17</code>.</li>
+      </ul></div>
+    <div class="p">To access a specific version of the file identified by the
+        <code class="ph codeph">http://host.com/myRepository/dir/config</code> URL, you need to use a
+      corresponding revision (the operative revision):<ul class="ul" id="using-peg-revisions__ul_a1t_b1t_34">
+        <li class="li">If a revision number is used that is lower than <code class="ph codeph">10</code>, an error is
+          triggered, because the file has not been created yet.</li>
+        <li class="li">If a revision number is used that is between <code class="ph codeph">10</code> and
+          <code class="ph codeph">19</code>, the specific version you are interested in would be
+            obtained.<div class="note note note_note"><span class="note__title">Note:</span> Although the file was modified in revisions <code class="ph codeph">12, 15, 17</code>,
+            it existed in all revisions between <code class="ph codeph">10</code> and <code class="ph codeph">19</code>.
+            Starting with a revision where the file is modified, it has the same content across all
+            revisions generated in the repository until another revision where it is modified
+            again.</div></li>
+      </ul></div>
+    <p class="p">At this point, the file is deleted, creating revision <code class="ph codeph">20</code>. Now, no version of
+      the file can be accessed because it no longer exists in the latest repository revision. This
+      is due to the fact that Subversion automatically uses the <code class="ph codeph">HEAD</code> revision as a
+      peg revision (it assumes any item currently exists in the repository if not instructed
+      otherwise). However, using any of the revision numbers from the <code class="ph codeph">10-19</code>
+      interval (when the file existed) as a peg revision (beside the operative revision), will help
+      Subversion to properly identify the time frame when the file existed, and access the file
+      version corresponding to the operative revision. If you use a revision number greater than
+        <code class="ph codeph">19</code>, this will also trigger an error.</p>
+    <p class="p">Continuing the example, suppose that at revision <code class="ph codeph">30</code>, a directory called
+        <code class="ph codeph">config</code> is created in the same repository location as the deleted file. This
+      means that the new directory will be identified by the same repository address:
+        <code class="ph codeph">http://host.com/myRepository/dir/config</code>. If you only use this URL in any
+      Subversion command, you will access the new directory. You will also access the same directory
+      if you use any revision number equal to or greater than <code class="ph codeph">30</code> as peg revision.
+      However, if you are interested in accessing an old version of the previously existing file,
+      then you must use one of the revisions that existed (<code class="ph codeph">10-19</code>), as a peg
+      revision, similar to the previous case.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/faq.html">Technical Issues</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/update-newly-added-resources.html">Updating Newly Added Resources</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/checksum-mismatch-error.html">Checksum Mismatch Error</a></div></div></nav></article></main></body></html>

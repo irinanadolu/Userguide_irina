@@ -1,0 +1,102 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS."><meta name="DC.subject" content="CSS extensions,Form Controls,Button,Form Controls"><meta name="keywords" content="CSS extensions, Form Controls, Button, Form Controls"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-browser-form-control.html"><meta name="DC.relation" scheme="URI" content="../topics/button-group-editor.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="dg-action-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="button-editor"><title>Button Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="button-editor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Button Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_button</code> built-in form control is used for graphical user
+    interface objects that invoke a custom <span class="ph uicontrol">Author</span> mode action (defined in the
+    associated Document Type) referencing it by its ID, or directly in the CSS.</p>
+    <div class="p">The <code class="ph codeph">oxy_button</code> form control supports the following properties:<ul class="ul" id="button-editor__ul_pln_sst_wq">
+        <li class="li"><span class="ph"><strong class="ph b">fontInherit</strong> - This value
+          specifies whether or not the form control inherits its font from its parent element. The
+          values of this property can be <code class="ph codeph">true</code> or <code class="ph codeph">false</code> (default
+          value). To make the form control inherit its font from its parent element, set the
+            <code class="ph codeph">fontInherit</code> property to <code class="ph codeph">true</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">color</strong> - Specifies the foreground color
+          of the form control. If the value of the <code class="ph codeph">color</code> property is
+            <code class="ph codeph">inherit</code>, the form control has the same color as the element that was used to insert it.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">visible</strong> - Specifies whether or not the form control is
+          visible. The possible values of this property are <code class="ph codeph">true</code> (default value)
+          and <code class="ph codeph">false</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">transparent</strong> - Flattens the aspect
+          of the button form control, removing its border and background. The values of this
+          property can be <code class="ph codeph">true</code> or <code class="ph codeph">false</code> (default
+          value).</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">showText</strong> - Specifies if the action text should be displayed on the
+        button form control. If this property is missing then the button displays the icon only if
+        it is available, or the text if the icon is not available. The values of this property can
+        be <code class="ph codeph">true</code> or
+          <code class="ph codeph">false</code>.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">element {
+  <strong class="hl-keyword">content</strong>: oxy_button(actionID, <span class="hl-string">'remove.attribute'</span>, showText, true);
+}</pre></li>
+        <li class="li"><span class="ph"><strong class="ph b">showIcon</strong> - Specifies if the action icon should be displayed on the
+        button form control. If this property is missing then the button displays the icon only if
+        it is available, or the text if the icon is not available. The values of this property can
+        be <code class="ph codeph">true</code> or <code class="ph codeph">false</code>.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">element {
+  <strong class="hl-keyword">content</strong>: oxy_button(actionID, <span class="hl-string">'remove.attribute'</span>, showIcon, true);
+}</pre></li>
+        <li class="li"><span class="ph"><strong class="ph b">enableInReadOnlyContext</strong> - To enable <a class="xref" href="button-editor.html#button-editor" title="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS.">button form controls</a> or
+            <a class="xref" href="button-group-editor.html#button-group-editor" title="The oxy_buttonGroup built-in form control is used for a graphical user interface group of buttons that invokes one of several custom Author mode actions (defined in the associated Document Type) referencing it by its ID, or directly in the CSS.">groups of buttons
+            form controls</a> this property needs to be set to <code class="ph codeph">true</code>. This
+          property can be used to specify areas as <em class="ph i">read-only</em> (by setting the
+            <code class="ph codeph">-oxy-editable</code> property to <code class="ph codeph">false</code>). This is useful when
+          you want to use an action that does not modify the context.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">hoverPseudoclassName</strong> - Allows
+          you to change the way an element is rendered when you hover over a form control. The value
+          is the name of a CSS pseudo-class. When you hover over the form control, the specified
+          pseudo-class will be set on the element that contains the form control.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p:before {
+  <strong class="hl-keyword">content</strong>: oxy_button(hoverPseudoclassName, <span class="hl-string">'showBorder'</span>)
+}
+p:showBorder {
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid red;
+}</pre></li>
+        <li class="li"><span class="ph"><strong class="ph b">actionContext</strong> - Specifies the
+          context that the action associated with the form control is executed. Its possible
+          values are <code class="ph codeph">element</code> (default value) and <code class="ph codeph">caret</code>. If you
+          select the <code class="ph codeph">element</code> value, the context is the element that holds the form
+          control. If you select the <code class="ph codeph">caret</code> value, the action is invoked at the
+          cursor location. If the cursor is not inside the element that holds the form control, the
+            <code class="ph codeph">element</code> value is selected automatically.</span></li>
+        <li class="li"><strong class="ph b">actionID</strong> - The ID of the action, specified in the <a class="xref" href="the-action-dialog.html"><dfn class="term">document type
+              association</dfn></a>, that is invoked when you click the button.<div class="note note note_note"><span class="note__title">Note:</span> The element
+              that contains the form control represents the context where the action is
+              invoked.</div></li>
+        <li class="li"><span class="ph"><strong class="ph b">action</strong> - Defines an action
+          directly, rather than using the <code class="ph codeph">actionID</code> parameter to reference an action
+          from the <a class="xref" href="the-action-dialog.html"><dfn class="term">document type
+              association</dfn></a>. This property is defined using the <a class="xref" href="dg-action-function.html" title="This function allows you to define actions directly in the CSS, rather than referencing them from the associated framework."><em class="ph i">oxy_action</em>
+          function</a>.</span><div class="note tip note_tip"><span class="note__title">Tip:</span> You can also create a button form control <a class="xref" href="dg-action-function.html#dg-action-function__button-form-control-directly">directly from an <em class="ph i">oxy_action</em>
+            function</a>.</div><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy_button(action, oxy_action(
+          name, <span class="hl-string">'Insert'</span>, 
+          description, <span class="hl-string">'Insert an element after the current one'</span>, 
+          icon, url(<span class="hl-string">'insert.png'</span>), 
+          operation, <span class="hl-string">'InsertFragmentOperation'</span>, 
+          arg-fragment, <span class="hl-string">'&lt;element&gt;${caret}&lt;/element&gt;'</span>,
+          arg-insertLocation, <span class="hl-string">'.'</span>,
+          arg-insertPosition, <span class="hl-string">'After'</span>
+))</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> To execute multiple actions sequentially, you can use the <a class="xref" href="dg-compound-action-function.html#dg-compound-action-function" title="This function allows you to define multiple actions that will be executed sequentially."><em class="ph i">oxy_compound_action</em> function</a>.</div></li>
+      </ul></div>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_button</em> Form
+      Control</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">button:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Label:"</span>
+     oxy_button(
+         <em class="hl-comment">/* This action is declared in the document type 
+            associated with the XML document. */</em>
+         actionID, <span class="hl-string">"insert.popupWithMultipleSelection"</span>);
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_button</code> form control in a CSS
+      file <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="button-editor__image_vwz_d2h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_button</code> code template. Also, an <img class="image" id="button-editor__image_ugg_22h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_button_in_place_action</code> code template is available that inserts an
+        <code class="ph codeph">oxy_button</code> function that includes an <code class="ph codeph">action</code>
+          parameter.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/oxy-browser-form-control.html" title="The oxy_browser built-in form control is used for providing a mechanism to integrate HTML frames or interact with SVG documents directly in the Author mode editor. It can also be used to load HTML that executes JavaScript and from that JavaScript you can access the Oxygen XML Editor workspace.">Browser Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/button-group-editor.html" title="The oxy_buttonGroup built-in form control is used for a graphical user interface group of buttons that invokes one of several custom Author mode actions (defined in the associated Document Type) referencing it by its ID, or directly in the CSS.">Button Group Form Control</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li><li class="linklist"><a class="link" href="dg-action-function.html" title="This function allows you to define actions directly in the CSS, rather than referencing them from the associated framework.">Actions: oxy_action() Function</a></li></ul></div></nav>
+</article></main></body></html>

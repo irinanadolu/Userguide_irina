@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="DITA,Reusing content,Reusable components,Create Reusable Component"><meta name="keywords" content="DITA, Reusing content, Reusable components, Create Reusable Component"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-reuse-content.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-creating-reusable-content"><title>Creating a Reusable Content Component</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-creating-reusable-content"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating a Reusable Content Component</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <div class="p"><span class="ph">Oxygen XML Editor</span> makes it easy to create reusable content components from existing
+        topic content.<div class="note note note_note"><span class="note__title">Note:</span> To ensure that the topic file that contains the reusable component is a
+          valid container for the reusable content component, <span class="ph">Oxygen XML Editor</span> attempts to use
+          the same schema information in the current topic for the file that contains the reused
+          component. If it cannot create a valid instance of the reused content file with this
+          approach, the application creates a specialized topic type on the fly. This specialization
+          is designed to make sure that the content is compatible with the topic type that it is
+          created from.</div></div>
+      <p class="p">Follow these steps to create a reusable component:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">In <span class="ph uicontrol">Author</span> mode, select the content you want to make into a
+          reusable component (or place the cursor inside an element you want to reuse).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the <span class="ph uicontrol">Create Reusable Component</span> action that is available in
+          the <span class="ph uicontrol">DITA</span> menu or the <span class="ph uicontrol">Reuse</span> submenu of the
+          contextual menu.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Create Reusable Component</span> dialog box is
+          displayed.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Use the <span class="ph uicontrol">Reuse Content</span> drop-down list to select the scope of the
+          content to be made reusable. It allows you to select how much of the current content you
+          want to make reusable. The choices presented include the element at the current cursor
+          position and its ancestor elements.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Add a description. This becomes the title of the topic that contains the reusable
+          component, but is not part of the reusable content. It is just to help you identify the
+          reusable content and will not become part of your output.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">If the <span class="ph uicontrol">Replace selection with content reference</span> option is
+          selected, the selection in the current topic will be replaced with a content reference
+            (<code class="keyword markupname xmlatt">@conref</code>) that points to the new reusable component. If multiple
+          elements are selected (for example, multiple steps or list items), the selection will be
+          replaced with a content reference range (<code class="keyword markupname xmlatt">@conref</code> and
+            <code class="keyword markupname xmlatt">@conrefend</code>).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select a file name and location to save the topic containing the reusable component and
+          click <span class="ph uicontrol">Save</span>. It is considered best practice to save or store
+          reusable components in an area set aside for that purpose.</span>
+      </li></ol></section>
+    <section class="section result">
+      <p class="p">You now have a reusable component that you can reference in other topics by using a <a class="xref" href="eppo-create-conref.html#eppo-create-conref">content reference</a> or <a class="xref" href="eppo-create-conkeyref.html#eppo-create-conkeyref">content key reference</a>.
+        Also, if the <span class="ph uicontrol">Replace selection with content reference</span> option was
+        selected, <span class="ph">Oxygen XML Editor</span> replaces the selected content with a content reference that
+        will be displayed in your current topic with a gray background and it can only be edited in
+        the source file (the new reusable component). To edit the source file, click the
+            <span class="ph uicontrol"><img class="image" id="eppo-creating-reusable-content__image_p2t_wwm_wr" src="../img/editContent.png">Edit
+          Content</span> icon at the beginning of the content reference.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-reusable-components.html">Working with Reusable Components</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-reusable-components.html">Working with Reusable Components</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-reuse-content.html">Inserting a Reusable Content Component</a></div></div></nav></article></main></body></html>

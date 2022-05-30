@@ -1,0 +1,313 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="JSON documents,Contextual menu actions,Contextual menu actions in JSON"><meta name="keywords" content="JSON documents, Contextual menu actions, Contextual menu actions in JSON"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/json-instance-generator.html"><meta name="DC.relation" scheme="URI" content="../topics/json-transforming.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="JSON-contexutal-menu-actions"><title>Contextual Menu Actions in JSON Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="JSON-contexutal-menu-actions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Contextual Menu Actions in JSON Documents</h1>
+  
+  <div class="body">
+    <p class="p">When editing JSON documents, <span class="ph">Oxygen XML Editor</span> provides the following actions in the
+      contextual menu:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="JSON-contexutal-menu-actions__image_brg_3z1_5r" src="../img/Cut16.png">Cut</span>,
+                <span class="ph uicontrol"><img class="image" id="JSON-contexutal-menu-actions__image_sf4_lst_tr" src="../img/Copy16.png">Copy</span>,
+                <span class="ph uicontrol"><img class="image" id="JSON-contexutal-menu-actions__image_cwr_cqt_tr" src="../img/Paste16.png">Paste</span></dt>
+          <dd class="dd">Executes the typical editing actions on the currently selected content.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy JSON Pointer</span></dt>
+          <dd class="dd">Creates a <dfn class="term">JSON Pointer</dfn> at the current cursor location and copies the
+            expression that denotes the JSON pointer to the system clipboard.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy XPath</span></dt>
+          <dd class="dd">Copies the XPath expression of the current property from the current editor to the
+            clipboard.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/GoToMatchingTag16.png">Go to Matching
+              Bracket</span>
+            <span class="ph uicontrol">(<span class="keyword shortcut">Ctrl + Shift
+                    + G (Command + Shift + G on OS X)</span>)</span></dt>
+          <dd class="dd">Moves the cursor to the end bracket that matches the start bracket, or vice
+            versa.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Source</span> submenu</dt>
+          <dd class="dd">
+            <p class="p">This submenu includes the following actions:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">To Lower Case</span></dt>
+                  <dd class="dd">Converts the content selection to lower case characters. This works with
+                    contiguous and multiple selections.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">To Upper Case</span></dt>
+                  <dd class="dd">Converts the selected content to upper case characters. This works with
+                    contiguous and multiple selections.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Capitalize Lines</span></dt>
+                  <dd class="dd">It capitalizes the first letter found on every new line that is selected. Only
+                    the first letter is affected, the rest of the line remains the same. If the
+                    first character on the new line is not a letter then no changes are made.</dd>
+                
+                
+          <dt class="dt dlterm" id="JSON-contexutal-menu-actions__convert-hex-sequence"><span class="ph uicontrol">Convert Hexadecimal Sequence to Character (<span class="keyword shortcut">Ctrl + Shift
+                    + X (Command + Shift + X on OS X)</span>)</span></dt>
+          <dd class="dd">
+            <div class="p">Converts a sequence of hexadecimal characters to the corresponding <a class="xref" href="working-with-unicode.html">Unicode character</a>. The action
+              can be invoked if there is a selection containing a valid hexadecimal sequence or if
+              the cursor is placed at the right side of a valid hexadecimal sequence. A valid
+              hexadecimal sequence can be composed of 2 to 4 hexadecimal characters and may or may
+              not be preceded by the <code class="ph codeph">0x</code> or <code class="ph codeph">0X</code> prefix. Examples of
+              valid sequences and the characters they will be converted to:<ul class="ul">
+                <li class="li"><code class="ph codeph">0x0045</code> will be converted to <code class="ph codeph">E</code></li>
+                <li class="li"><code class="ph codeph">0X0125</code> to <code class="ph codeph">ĥ</code></li>
+                <li class="li"><code class="ph codeph">265</code> to <code class="ph codeph">ɥ</code></li>
+                <li class="li"><code class="ph codeph">2190</code> to <code class="ph codeph">←</code><div class="note note note_note"><span class="note__title">Note:</span> For more information about
+                    finding the hexadecimal value of a character, see <a class="xref" href="unicode-toolbar.html#unicode-toolbar__finding_the_decimal_hexidecimal_or_unicode_equiva">Finding the Decimal, Hexadecimal, or Character Entity Equivalent</a>.</div></li>
+              </ul></div>
+          </dd>
+        
+                
+                  <dt class="dt dlterm" id="JSON-contexutal-menu-actions__base64-encode-decode"><span class="ph uicontrol">Base64 Encode/Decode</span> submenu</dt>
+                  <dd class="dd">
+                    <p class="p">This submenu include the following actions for encoding or decoding <strong class="ph b">base
+                        64</strong> schemes:</p>
+                    <div class="p">
+                      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Import File to Encode and Insert</span></dt>
+          <dd class="dd">
+            <p class="p">Encodes a file and then inserts the encoded content into the current document at the
+              cursor position.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection and Export to File</span></dt>
+          <dd class="dd">
+            <p class="p">Decodes a selection of text from the current document and then exports (saves) the
+              result to another file.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Encode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of encoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of decoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="JSON-contexutal-menu-actions__modify-all-matches"><span class="ph uicontrol">Modify All Matches</span></dt>
+          <dd class="dd">Use this option to modify (in-place) all the occurrences of the selected content (or
+            the contiguous fragment where the cursor is located). When you use this option, a thin
+            rectangle replaces the highlights and allows you to start editing. If matches with
+            different letter cases are found, a dialog box is displayed that allows you select
+            whether you want to modify only matches with the same letter case or all matches.</dd>
+        
+      </dl>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="JSON-contexutal-menu-actions__base32-encode-decode"><span class="ph uicontrol">Base32 Encode/Decode</span> submenu</dt>
+                  <dd class="dd">
+                    <p class="p">This submenu include the following actions for encoding or decoding
+                        <strong class="ph b">base32</strong> schemes:</p>
+                    <div class="p">
+                      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Import File to Encode and Insert</span></dt>
+          <dd class="dd">
+            <p class="p">Encodes a file and then inserts the encoded content into the current document at the
+              cursor position.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection and Export to File</span></dt>
+          <dd class="dd">
+            <p class="p">Decodes a selection of text from the current document and then exports (saves) the
+              result to another file.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Encode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of encoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of decoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="JSON-contexutal-menu-actions__d442e1577"><span class="ph uicontrol">Modify All Matches</span></dt>
+          <dd class="dd">Use this option to modify (in-place) all the occurrences of the selected content (or
+            the contiguous fragment where the cursor is located). When you use this option, a thin
+            rectangle replaces the highlights and allows you to start editing. If matches with
+            different letter cases are found, a dialog box is displayed that allows you select
+            whether you want to modify only matches with the same letter case or all matches.</dd>
+        
+      </dl>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="JSON-contexutal-menu-actions__hex-encode-decode"><span class="ph uicontrol">Hex Encode/Decode</span> submenu</dt>
+                  <dd class="dd">
+                    <p class="p">This submenu include the following actions for encoding or decoding
+                        <strong class="ph b">hex</strong> schemes:</p>
+                    <div class="p">
+                      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Import File to Encode and Insert</span></dt>
+          <dd class="dd">
+            <p class="p">Encodes a file and then inserts the encoded content into the current document at the
+              cursor position.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection and Export to File</span></dt>
+          <dd class="dd">
+            <p class="p">Decodes a selection of text from the current document and then exports (saves) the
+              result to another file.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Encode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of encoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Decode Selection</span></dt>
+          <dd class="dd">
+            <p class="p">Replaces a selection of text with the result of decoding that selection.<span class="ph"> By default, a dialog box is displayed that allows
+                you to select the encoding to use. There is an option to choose to not show this
+                dialog box in the future. In this case, the encoding that is specified in the <a class="xref" href="preferences-encoding.html#preferences-encoding__encoding-dlentry"><span class="ph uicontrol">Encoding for Base64, Base32, Hex conversions</span> option in
+                  the <span class="ph uicontrol">Encoding</span> preferences page</a> will be used.
+                Likewise, the same is true if the <a class="xref" href="preferences-messages.html#preferences-messages__show-encoding-dialog"><span class="ph uicontrol">Show the dialog box for choosing the encoding for Base64, Base 32,
+                    Hex conversions</span> option is not selected in the
+                    <span class="ph uicontrol">Messages</span> preference page</a>.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="JSON-contexutal-menu-actions__d442e1577"><span class="ph uicontrol">Modify All Matches</span></dt>
+          <dd class="dd">Use this option to modify (in-place) all the occurrences of the selected content (or
+            the contiguous fragment where the cursor is located). When you use this option, a thin
+            rectangle replaces the highlights and allows you to start editing. If matches with
+            different letter cases are found, a dialog box is displayed that allows you select
+            whether you want to modify only matches with the same letter case or all matches.</dd>
+        
+      </dl>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Join and Normalize Lines</span>
+                    <span class="ph uicontrol">(<span class="keyword shortcut">Ctrl + J (Command + J on
+                    OS X)</span>)</span></dt>
+                  <dd class="dd">For the current selection, this action joins the lines by replacing the
+                      <em class="ph i">line separator</em> with a single space character. It also normalizes the
+                    whitespaces by replacing a sequence of such characters with a single space.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert new line after (<span class="keyword shortcut">Ctrl +
+                    Alt + Enter (Command + Alt + Enter on OS X)</span>)</span>
+                  </dt>
+                  <dd class="dd">This action has the same result as moving the cursor to the end of the current
+                    line and pressing the <em class="ph i">ENTER</em> key.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Modify All Matches</span></dt>
+          <dd class="dd">Use this option to modify (in-place) all the occurrences of the selected content (or
+            the contiguous fragment where the cursor is located). When you use this option, a thin
+            rectangle replaces the highlights and allows you to start editing. If matches with
+            different letter cases are found, a dialog box is displayed that allows you select
+            whether you want to modify only matches with the same letter case or all matches.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Go to Definition</span></dt>
+          <dd class="dd">Navigates to the definition of the current property.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open</span> submenu</dt>
+          <dd class="dd">
+            <p class="p">The following actions are available in this submenu:</p>
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Open File at Cursor</span></dt>
+          <dd class="dd">Opens the file at the cursor position in a new panel. If the file path represents a
+            directory path, it will be opened in system file browser. If the file at the specified
+            location does not exist, an error dialog box is displayed and it includes a
+              <span class="ph uicontrol">Create new file</span> button that starts the <span class="ph uicontrol">New
+              document</span> wizard. This allows you to choose the type or the template for
+            the file. If the action succeeds, the file is created with the referenced location and
+            name and is opened in a new editor panel.<span class="ph"> If the
+              file is an image file, it will be opened in the <a class="xref" href="image-preview.html"><strong class="ph b">Image Preview</strong> pane</a>.</span></dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Open File at Cursor in System Application</span></dt>
+          <dd class="dd">Opens the file (identified by its link) or web page (identified by a web link) found
+            at the cursor position. The target is opened in the default system application associated
+            with that file type.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare</span></dt>
+          <dd class="dd">Opens the current file in <a class="xref" href="file-comparison.html#file-comparison">the <span class="ph uicontrol">Compare
+                Files</span> tool</a>.</dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-JSON.html">Editing JSON Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/json-instance-generator.html">Generating Sample JSON Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/json-transforming.html">Transforming and Querying JSON Documents</a></div></div></nav></article></main></body></html>

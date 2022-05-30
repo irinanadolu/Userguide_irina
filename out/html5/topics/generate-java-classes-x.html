@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Generate Java classes from XSD,Generate Java classes from XSD tool"><meta name="keywords" content="Generate Java classes from XSD, Generate Java classes from XSD tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-flat-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/compile-xsl-for-saxon-x-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="generate-java-classes"><title>Generating Java Classes from XML Schema</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="generate-java-classes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Java Classes from XML Schema</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a tool for generating Java classes from an XML Schema (XSD)
+      file. The <span class="ph uicontrol">Generate Java classes from XML Schema (XSD)</span> action for
+      invoking the tool can be found in the <span class="ph uicontrol">Tools</span> menu. It requires an
+      additional add-on to be installed, so the first time you invoke the action, <span class="ph">Oxygen XML Editor</span> will present a dialog box asking if you want to install it. Once
+      installed, you need to restart <span class="ph">Oxygen XML Editor</span> and the action will invoke the Java
+      class generator tool.</p>
+    <p class="p">To generate Java classes, follow these steps:</p>
+    <ol class="ol" id="generate-java-classes__procedure-import-from-HTML">
+      <li class="li">
+        <p class="p">Select the <span class="ph uicontrol">Generate Java classes from XML Schema (XSD)</span> action from
+          the <span class="ph uicontrol">Tools</span> menu.</p>
+        <p class="p"><strong class="ph b">Step Result:</strong> The <span class="ph uicontrol">Generate Java classes from XML Schema
+            (XSD)</span> dialog box is displayed:</p>
+        <div class="p">
+          <figure class="fig fignone" id="generate-java-classes__fig_mvj_pvd_w3b"><figcaption><span class="fig--title-label">Figure 1. </span>Generate Java Classes from XML Schema (XSD) Dialog Box</figcaption>
+            
+            <img class="image" id="generate-java-classes__image_twc_5qf_jd" src="../img/java-class-generator.png">
+          </figure>
+        </div>
+      </li>
+      <li class="li">Choose or enter the <span class="ph uicontrol">XSD URL</span> of the XML Schema document.</li>
+      <li class="li">Choose the path for the <span class="ph uicontrol">Output folder</span> where the generated files
+        will be stored.</li>
+      <li class="li">[Optional] You can choose the <span class="ph uicontrol">Package name</span> for the Java package
+        that will contain the generated source files. If not specified, the name will be generated
+        based on the value of the <code class="keyword markupname xmlatt">@targetNamespace</code> attribute.</li>
+      <li class="li">[Optional] You can select the <span class="ph uicontrol">Open in Editor</span> option to open the
+          <span class="ph filepath">ObjectFactory.java</span> file in the editor. This java class contains
+        factory methods for all other classes in the package.</li>
+      <li class="li">Click the <span class="ph uicontrol">Generate</span> button.</li>
+    </ol>
+    <p class="p"><strong class="ph b">Result:</strong> The Java class files will be generated inside the new package, located in the
+      specified output folder.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-schema-flat-x-tools.html">Flatten an XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/compile-xsl-for-saxon-x-tools.html">Compiling an XSL Stylesheet for Saxon</a></div></div></nav></article></main></body></html>

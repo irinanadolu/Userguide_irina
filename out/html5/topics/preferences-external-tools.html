@@ -1,0 +1,100 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,External Tools,External tool preferences,External tool configuration"><meta name="keywords" content="Preferences, External Tools, External tool preferences, External tool configuration"><meta name="DC.relation" scheme="URI" content="../topics/preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-menu-shortcut-keys.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-external-tools"><title>External Tools Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-external-tools"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">External Tools Preferences</h1>
+  
+  <div class="body">
+    <p class="p">A command-line tool can be started in the <span class="ph">Oxygen XML Editor</span> user interface as if from
+      the command line of the operating system shell. The <span class="ph uicontrol">External Tools</span>
+      preferences page allows you to add and configure these external tools that could be used while
+      working with <span class="ph">Oxygen XML Editor</span>. To access this preferences page, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">External Tools</span> (or select <span class="ph uicontrol">Configure</span> from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu).</p>
+    <p class="p">This preferences page presents a list of the external tools that have been configured. You
+      can use the buttons at the bottom of the page to configure the items in the list. Once a tool
+      has been configured, you can open it by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu or from the <span class="ph uicontrol"><img class="image" id="preferences-external-tools__image_thp_gpz_vr" src="../img/ExternalTools20.png">External Tools</span> drop-down menu on the toolbar (the
+        <span class="ph uicontrol">Tools</span> toolbar needs to be selected in the <a class="xref" href="configure-toolbars.html#configure-toolbars"><span class="ph uicontrol">Configure Toolbars</span>
+        dialog box</a>).</p>
+    <section class="section" id="preferences-external-tools__configure-external-tool"><h2 class="title sectiontitle">How to Configure an External Tool</h2>
+      
+      <div class="p">To configure an external tool in the <span class="ph uicontrol">External Tools</span> preferences
+        page, use any of the following buttons at the bottom of the page:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">New</span> - Adds a new external tool to the list.</li>
+          <li class="li"><span class="ph uicontrol">Edit</span> - Allows you to configure an existing external tool,
+            selected from the list.</li>
+          <li class="li"><span class="ph uicontrol">Duplicate</span> - Duplicates an existing external tool, selected from
+            the list, to use as a template for configuring a similar tool.</li>
+        </ul> Any of those three buttons opens the <span class="ph uicontrol">External Tools</span>
+        configuration dialog box.</div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>External Tools Configuration Dialog Box</figcaption>
+          
+          <img class="image" src="../img/sa_external_tools.png">
+        </figure>
+      </div>
+      <div class="p">This configuration dialog box includes the following options:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+            <dd class="dd">The name of tool that will be displayed in the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu and in the <span class="ph uicontrol"><img class="image" src="../img/ExternalTools20.png">External Tools</span> drop-down menu on toolbar.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Description</span></dt>
+            <dd class="dd">A description of the tool displayed as a tooltip where the tool name is used.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Working directory</span></dt>
+            <dd class="dd">The directory that the external tool will use to store intermediate and final
+              results. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span> You can
+              use one of the following editor variables: <a class="xref" href="editor-variables.html#editor-variables__edVar-cfd"><strong class="ph b">${cfd}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-pd"><strong class="ph b">${pd}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-oxygenInstallDir"><strong class="ph b">${oxygenInstallDir}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-homeDir"><strong class="ph b">${homeDir}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-system"><strong class="ph b" id="preferences-external-tools__java_system_properties">${system(var.name)}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-date"><strong class="ph b">${date(pattern)}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-xpath"><strong class="ph b">${xpath_eval(expression)}</strong></a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Command line</span></dt>
+            <dd class="dd">The command line that will start the external tool. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span> You can use one of
+              the following editor variables: <a class="xref" href="editor-variables.html#editor-variables__edVar-homeDir"><strong class="ph b">${homeDir}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-home"><strong class="ph b">${home}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-cfn"><strong class="ph b">${cfn}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-cfne"><strong class="ph b">${cfne}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edvar-cf"><strong class="ph b">${cf}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-currentFileURL"><strong class="ph b">${currentFileURL}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-cfd"><strong class="ph b">${cfd}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-cfdu"><strong class="ph b">${cfdu}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-tsf"><strong class="ph b">${tsf}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-pd"><strong class="ph b">${pd}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-pdu"><strong class="ph b">${pdu}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-oxygenInstallDir"><strong class="ph b">${oxygenInstallDir}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-oxygenHome"><strong class="ph b">${oxygenHome}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-frameworksDir"><strong class="ph b">${frameworksDir}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-frameworks"><strong class="ph b">${frameworks}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-ps"><strong class="ph b">${ps}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-timestamp"><strong class="ph b">${timeStamp}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edvar-uuid"><strong class="ph b">${uuid}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-id"><strong class="ph b">${id}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-afn"><strong class="ph b">${afn}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-afne"><strong class="ph b">${afne}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-af"><strong class="ph b">${af}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-afu"><strong class="ph b">${afu}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-afd"><strong class="ph b">${afd}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-afdu"><strong class="ph b">${afdu}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-ask"><strong class="ph b">${ask('message',
+                  type, 'default_value')}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-dbgXML"><strong class="ph b">${dbgXML}</strong></a>,
+                <a class="xref" href="editor-variables.html#editor-variables__edVar-dbgXSL"><strong class="ph b">${dbgXSL}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edvar-env"><strong class="ph b">${env(VAR_NAME)}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-system"><strong class="ph b">${system(var.name)}</strong></a>, <a class="xref" href="editor-variables.html#editor-variables__edVar-date"><strong class="ph b">${date(pattern)}</strong></a>, and <a class="xref" href="editor-variables.html#editor-variables__edVar-xpath"><strong class="ph b">${xpath_eval(expression)}</strong></a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Show output messages</span></dt>
+            <dd class="dd">
+              <div class="p">When this option is selected, all the messages emitted by the external tool are
+                displayed in the <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span> view</a>. When this option is not selected,
+                only the error messages are displayed. You can also choose the output encoding and
+                content type:<ul class="ul">
+                  <li class="li"><span class="ph uicontrol">Output encoding</span> - The encoding of the output stream of
+                    the external tool that will be used by<span class="ph">Oxygen XML Editor</span> to read the output
+                    of the tool. </li>
+                  <li class="li"><span class="ph uicontrol">Output content type</span> - A list of predefined content type
+                    formats that instruct<span class="ph">Oxygen XML Editor</span> how to display the generated output.
+                    For example, setting the <span class="ph uicontrol">Output content type</span> to
+                      <code class="ph codeph">text/xml</code> enables the syntax coloring of XML output.</li>
+                </ul></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Error Encoding</span></dt>
+            <dd class="dd">The encoding of the error stream of the external tool that will be used by <span class="ph">Oxygen XML Editor</span> to read the error stream.</dd>
+          
+          
+            <dt class="dt dlterm" id="preferences-external-tools__shortcut-key"><span class="ph uicontrol">Shortcut key</span></dt>
+            <dd class="dd">You can choose a keyboard shortcut that can be used to launch the external
+              tool.</dd>
+          
+        </dl></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences.html">Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-plugins.html">Plugins Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-menu-shortcut-keys.html">Menu Shortcut Keys Preferences</a></div></div></nav></article></main></body></html>

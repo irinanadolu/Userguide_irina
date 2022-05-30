@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Importing Data from text files,Import txt files,Import csv files"><meta name="keywords" content="Importing Data from text files, Import txt files, Import csv files"><meta name="DC.relation" scheme="URI" content="../topics/import-introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/import-introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/import-from-ms-excel-files.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="import-text"><title>Import from Text Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="import-text"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Import from Text Files</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes the possibility of importing text files
+          (<span class="ph filepath">txt</span> or <span class="ph filepath">csv</span> file extensions) as XML
+        documents.</p>
+      <p class="p">To import a text file into an XML file, follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Go to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Import</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Text File</span></span>.</span>
+        <div class="itemgroup stepresult">A <span class="ph uicontrol">Select text file</span> dialog box is displayed.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the URL of the text file (<span class="ph filepath">txt</span> or <span class="ph filepath">csv</span>
+          file extensions).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the encoding of the text file.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click the <span class="ph uicontrol">Next</span> button.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Import
+            Criteria</span> dialog box is displayed.<div class="p">
+            <figure class="fig fignone" id="import-text__fig_nv3_l3x_ls"><figcaption><span class="fig--title-label">Figure 1. </span>Import Criteria Dialog Box</figcaption>
+              
+              <img class="image" id="import-text__image_zjb_43x_ls" src="../img/sa_import_text_file.png">
+            </figure>
+          </div><p class="p">
+            
+          </p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Configure the settings for the conversion.</span>
+        <ol type="a" class="ol substeps" id="import-text__substeps_myr_wpw_ls">
+          <li class="li substep">
+            <span class="ph cmd">Select the <span class="ph uicontrol">Field delimiter</span> for the import settings. You can
+              choose between the following: <kbd class="ph userinput">Comma</kbd>,
+                <kbd class="ph userinput">Semicolon</kbd>, <kbd class="ph userinput">Tab</kbd>,
+                <kbd class="ph userinput">Space</kbd>, or <kbd class="ph userinput">Pipe</kbd>.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd">The <span class="ph uicontrol">Import settings</span> section presents the input data in a
+              tabular form. By default, all data items are converted to element content
+                  (<span class="ph uicontrol"><img class="image" id="import-text__image_zk2_kqw_ls" src="../img/ConvertToElement.png"></span> symbol), but this can be overridden by clicking the individual column
+              headers. Clicking a column header once causes the data from this column to be
+              converted to attribute values (<span class="ph uicontrol"><img class="image" id="import-text__image_al2_kqw_ls" src="../img/ConvertToAttribute.png"></span> symbol). Clicking a second time causes the
+              column data to be ignored (<span class="ph uicontrol"><img class="image" id="import-text__image_bl2_kqw_ls" src="../img/IgnoreData.png"></span> symbol) when generating the XML file. You can
+              cycle through these three options by continuing to click the column header.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">First row contains field names</span> - If this option is selected,
+              the default column headers are replaced (where such information is available) by the
+              content of the first row. In other words, the first row is interpreted as containing
+              the field names. The changes are also visible in the preview panel.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Customize</span> - This button opens a <span class="ph uicontrol">Presentation
+                Names</span> dialog box that allows you to edit the name, XML name, and
+              conversion criterion for the root and row elements. The XML names can be edited by
+              double-clicking the desired item and entering the label. The conversion criteria can
+              also be modified by selecting one of the following options in the drop-down menu:
+                <kbd class="ph userinput">ELEMENT</kbd>, <kbd class="ph userinput">ATTRIBUTE</kbd>, or
+                <kbd class="ph userinput">SKIPPED</kbd>. </span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol"><img class="image" id="import-text__image_zfm_4qw_ls" src="../img/Options16.png">Import
+                Settings</span> - Clicking this button opens the <a class="xref" href="preferences-xml-import.html#preferences-xml-import"><span class="ph uicontrol">Import</span> preferences page</a> that allows you to
+              configure more import options.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd">The <span class="ph uicontrol">XML Import Preview</span> panel contains an example of what the
+              generated XML document looks like.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Open in editor</span> - If selected, the new XML document created
+              from the imported text file is opened in the editor.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Save in file</span> - If selected, the new XML document is saved in
+              the specified path.</span>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click <span class="ph uicontrol">Import</span> to generate
+          the XML document.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/import-introduction.html" title="Information about how to import data from external sources into XML documents">Importing Data</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/import-introduction.html" title="Information about how to import data from external sources into XML documents">Importing Data</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/import-from-ms-excel-files.html">Import from MS Excel Files</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Index,Change style and letters,Style labels,Add a leader,Change number format,Table style layout"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Index, Change style and letters, Style labels, Add a leader, Change number format, Table style layout"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_pdf_bookmarks.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_footnotes.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_index"><title>Index</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_index">
+  <h1 class="title topictitle1" id="ariaid-title1">Index</h1>
+  
+  <div class="body">
+    <p class="p">The content of an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element is used to produce an index
+      entry in the generated index. You can nest <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to
+      create multi-level indexes. The content is not output as part of the topic content, only as
+      part of the index tree.</p>
+    <p class="p">To add an index to your publication, you just need to add <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+      elements inside the <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> section (inside a
+        <code class="keyword markupname xmlelement">&lt;metadata&gt;</code> element):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;title&gt;</strong>The topic title.<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;prolog&gt;</strong>
+    <strong class="hl-tag">&lt;metadata&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;indexterm&gt;</strong>Installing <strong class="hl-tag">&lt;indexterm&gt;</strong>Water Pump<strong class="hl-tag">&lt;/indexterm&gt;</strong><strong class="hl-tag">&lt;/indexterm&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/metadata&gt;</strong>
+  <strong class="hl-tag">&lt;/prolog&gt;</strong>
+  <strong class="hl-tag">&lt;body&gt;</strong>
+    .....</pre>
+    <p class="p">or in the content itself:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+<strong class="hl-tag">&lt;p&gt;</strong>Open the lid then turn the body pump to the right. 
+<strong class="hl-tag">&lt;indexterm&gt;</strong>Installing <strong class="hl-tag">&lt;indexterm&gt;</strong>Water Pump<strong class="hl-tag">&lt;/indexterm&gt;</strong><strong class="hl-tag">&lt;/indexterm&gt;</strong> 
+<strong class="hl-tag">&lt;/p&gt;</strong>
+...</pre>
+    </div>
+    <p class="p">If you are using a bookmap, you need to specify where the index list should be presented (for
+      instance in the <em class="ph i">backmatter</em> of the book. Technically, it is possible to also add it to
+      the frontmatter, but this is unusual). This is done using an
+        <code class="keyword markupname xmlelement">&lt;indexlist&gt;</code> element in the <code class="keyword markupname xmlelement">&lt;booklists&gt;</code> element
+      (inside the <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code>):</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"tasks/troubleshooting.dita"</span><strong class="hl-tag">&gt;</strong>
+	...
+    <strong class="hl-tag">&lt;/chapter&gt;</strong>
+    <strong class="hl-tag">&lt;backmatter&gt;</strong>
+        <strong class="hl-tag">&lt;booklists&gt;</strong>
+            <strong class="hl-tag">&lt;indexlist/&gt;</strong>
+        <strong class="hl-tag">&lt;/booklists&gt;</strong>
+    <strong class="hl-tag">&lt;/backmatter&gt;</strong>
+<strong class="hl-tag">&lt;/bookmap&gt;</strong></pre>
+    </div>
+    <p class="p">For plain maps, the index list is automatically added at the end of the publication, with no
+      need to modify the map.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_pdf_bookmarks.html">PDF Bookmarks</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_footnotes.html">Footnotes</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_index___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Index - XML Fragment</h2>
+  <div class="body">
+    <p class="p">In the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+        map file</a>, the structure that holds the index tree is the
+        <code class="keyword markupname xmlelement">&lt;opentopic-index:index.groups&gt;</code> element.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map "</span><strong class="hl-tag"> &gt;</strong>
+    <strong class="hl-tag">&lt;oxy:front-page&gt;</strong>
+        ... 
+    <strong class="hl-tag">&lt;/oxy:front-page&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic:map</strong> <span class="hl-attribute">xmlns:opentopic</span>=<span class="hl-value">"http://www.idiominc.com/opentopic"</span><strong class="hl-tag">&gt;</strong>
+        ...
+    <strong class="hl-tag">&lt;/opentopic:map&gt;</strong>
+    <strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic "</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Request Support<strong class="hl-tag">&lt;/title&gt;</strong>
+       ...
+    <strong class="hl-tag">&lt;/topic&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic-index:index.groups</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"d16e5548"</span><strong class="hl-tag">&gt;</strong>
+      ...
+    <strong class="hl-tag">&lt;/opentopic-index:index.groups&gt;</strong>
+<strong class="hl-tag">&lt;/map&gt;</strong></pre>
+    <div class="p">Each of the groups contain:<ul class="ul" id="dcpp_index___input_xml_fragment__ul_ywx_xrs_5cb">
+        <li class="li">A label, the starting letter ("T" in the following example). </li>
+        <li class="li">A tree of <code class="keyword markupname xmlelement">&lt;opentopic-index:index.entry&gt;</code> elements.</li>
+      </ul></div>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;opentopic-index:index.group&gt;</strong>
+
+ <strong class="hl-tag">&lt;opentopic-index:label&gt;</strong>T<strong class="hl-tag">&lt;/opentopic-index:label&gt;</strong>
+
+  <strong class="hl-tag">&lt;opentopic-index:index.entry</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"table of contents"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic-index:formatted-value&gt;</strong>table of contents<strong class="hl-tag">&lt;/opentopic-index:formatted-value&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic-index:refID</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"table of contents:"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;oxy:index-link</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span> 
+               <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e3988"</span><strong class="hl-tag">&gt;</strong> [d16e3988]
+        <strong class="hl-tag">&lt;/oxy:index-link&gt;</strong>
+    <strong class="hl-tag">&lt;/opentopic-index:refID&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic-index:index.entry</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"change header"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;opentopic-index:formatted-value&gt;</strong>change header<strong class="hl-tag">&lt;/opentopic-index:formatted-value&gt;</strong>
+        <strong class="hl-tag">&lt;opentopic-index:refID</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"table of contents:change header:"</span><strong class="hl-tag">&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:index-link</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span> 
+                <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e4176"</span><strong class="hl-tag">&gt;</strong>
+                [d16e4176] <strong class="hl-tag">&lt;/oxy:index-link&gt;</strong>
+        <strong class="hl-tag">&lt;/opentopic-index:refID&gt;</strong>
+    <strong class="hl-tag">&lt;/opentopic-index:index.entry&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic-index:index.entry</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"style"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;opentopic-index:formatted-value&gt;</strong>style<strong class="hl-tag">&lt;/opentopic-index:formatted-value&gt;</strong>
+        <strong class="hl-tag">&lt;opentopic-index:refID</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"table of contents:style:"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;oxy:index-link</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span> 
+                <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e4120"</span><strong class="hl-tag">&gt;</strong>
+                [d16e4120] <strong class="hl-tag">&lt;/oxy:index-link&gt;</strong>
+        <strong class="hl-tag">&lt;/opentopic-index:refID&gt;</strong>
+  <strong class="hl-tag">&lt;/opentopic-index:index.entry&gt;</strong>
+ <strong class="hl-tag">&lt;/opentopic-index:index.entry&gt;</strong>
+<strong class="hl-tag">&lt;/opentopic-index:index.group&gt;</strong></pre>
+    <div class="p">Each of the entries contain:<ul class="ul" id="dcpp_index___input_xml_fragment__ul_ojf_vqc_b2b">
+        <li class="li">The formatted value (<code class="keyword markupname xmlelement">&lt;opentopic-index:formatted-value&gt;</code>).</li>
+        <li class="li">A link to the publication content
+            (<code class="keyword markupname xmlelement">&lt;opentopic-index:refID&gt;</code>/<code class="keyword markupname xmlelement">&lt;oxy:index-link&gt;</code>).</li>
+        <li class="li">Possibly other child entries.</li>
+      </ul></div>
+    <div class="div"><p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"> <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map map"</span><strong class="hl-tag"> &gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"front-page/front-page"</span><strong class="hl-tag">&gt;</strong>
+        ... 
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"toc/toc toc"</span><strong class="hl-tag">&gt;</strong>
+        ...
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic topic"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title"</span><strong class="hl-tag">&gt;</strong>Request Support<strong class="hl-tag">&lt;/title&gt;</strong>
+       ...
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/groups groups"</span><strong class="hl-tag">&gt;</strong>
+      ...
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/map&gt;</strong></pre>The
+      index group content
+      becomes:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/group group"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/label label"</span><strong class="hl-tag">&gt;</strong>T<strong class="hl-tag">&lt;/div&gt;</strong>
+
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/entry entry"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/formatted-value formatted-value"</span><strong class="hl-tag">&gt;</strong>table of contents<strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/refid refid"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/link link"</span>
+               <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e3988"</span><strong class="hl-tag">&gt;</strong> [d16e3988]
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/entry entry"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/formatted-value formatted-value"</span><strong class="hl-tag">&gt;</strong>change header<strong class="hl-tag">&lt;/div&gt;</strong>
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/refid refid"</span><strong class="hl-tag">&gt;</strong>
+             <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/link link"</span>
+                <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e4176"</span><strong class="hl-tag">&gt;</strong> [d16e4176] <strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/entry entry"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/formatted-value formatted-value"</span><strong class="hl-tag">&gt;</strong>style<strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/refid refid"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" index/link link"</span>
+                <span class="hl-attribute">href</span>=<span class="hl-value">"#d16e4120"</span><strong class="hl-tag">&gt;</strong> [d16e4120] <strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_index___built_in_css">
+    <h2 class="title topictitle2" id="ariaid-title3">Index - Built-in CSS</h2>
+    <div class="body">
+        <p class="p">All index styling is found in: <span class="ph filepath">[PLUGIN_DIR]css/print/p-index.css</span>.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_style_the_index_title_and_the_letters_0">
+    <h2 class="title topictitle2" id="ariaid-title4">How to Style the Index Page Title and the Grouping Letters</h2>
+  
+    <div class="body">
+        <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rules:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"index/groups"</span>] *[class ~= <span class="hl-string">"index/group"</span>] *[class ~= <span class="hl-string">"index/label"</span>] {
+    <strong class="hl-keyword">font-size</strong>:<span class="hl-number">1.5</span>em;
+    <strong class="hl-keyword">color</strong>:navy;
+}
+
+*[class ~= <span class="hl-string">"index/groups"</span>]:before {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"- Index - "</span>;
+    <strong class="hl-keyword">color</strong>:navy;
+    <strong class="hl-keyword">font-size</strong>: <span class="hl-number">4</span>em;
+}</pre>
+        <div class="p">The result is: <br><img class="image" id="dcpp_how_to_style_the_index_title_and_the_letters_0__image_z1b_mxs_5cb" src="../img/dcpp_how_to_style_the_index_title_and_the_letters.png"><br></div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_style_the_indexterms">
+    <h2 class="title topictitle2" id="ariaid-title5">How to Style the Index Terms Labels</h2>
+  
+    <div class="body">
+        <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rule:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">'index/groups'</span>] *[class ~= <span class="hl-string">'index/formatted-value'</span>] {
+    <strong class="hl-keyword">font-style</strong>:oblique;
+    <strong class="hl-keyword">color</strong>:gray;
+}</pre>
+        <div class="p">The result is: <br><img class="image" id="dcpp_how_to_style_the_indexterms__image_eq2_qws_5cb" src="../img/dcpp_how_to_style_the_indexterms_labels.png" alt="Screenshot of the Index section from a publication"><br></div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_add_filling_dots__a_leader__between_the_index_labels_and_the_page_numbers">
+  <h2 class="title topictitle2" id="ariaid-title6">How to Add Filling Dots Between the Index Labels and the Page Numbers</h2>
+  
+  <div class="body">
+    <p class="p">Suppose you want the leader CSS content to generate a row of dots. It is necessary that the
+      parent entry has the text justified. </p>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rule:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">
+*[class~=<span class="hl-string">"index/formatted-value"</span>],
+*[class~=<span class="hl-string">"index/refid"</span>] {
+    <strong class="hl-keyword">display</strong>:inline;
+}
+
+
+<em class="hl-comment">/* Hide the sequences of links that actually do not contain links. */</em>
+*[class~=<span class="hl-string">"index/group"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] &gt; *[class~=<span class="hl-string">"index/refid"</span>]{
+	<strong class="hl-keyword">display</strong>:none;
+}
+*[class~=<span class="hl-string">"index/group"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] &gt; *[class~=<span class="hl-string">"index/refid"</span>]:has(*[class~=<span class="hl-string">"index/link"</span>]){
+	<strong class="hl-keyword">display</strong>:inline;
+}
+
+*[class~=<span class="hl-string">"index/group"</span>] *[class~=<span class="hl-string">"index/entry"</span>] {
+    <strong class="hl-keyword">text-align</strong>:justify;
+}
+*[class~=<span class="hl-string">"index/group"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] &gt; *[class~=<span class="hl-string">"index/refid"</span>]:before{
+    <strong class="hl-keyword">content</strong>:leader(<span class="hl-string">'.'</span>);
+}</pre>
+    </div>
+    <p class="p">The output now contains the dots:</p>
+    <img class="image" id="dcpp_how_to_add_filling_dots__a_leader__between_the_index_labels_and_the_page_numbers__image_j3d_fzs_5cb" src="../img/dcpp_how_to_add_filling_dots__a_leader__between_the_index_labels_and_the_page_numbers.png" alt="Screenshot with the Index section from a publication">
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_reset_the_page_numbers_for_index_pages">
+  <h2 class="title topictitle2" id="ariaid-title7">How to Change the Index Page Number Format and Reset its Value </h2>
+  
+  <div class="body">
+    <p class="p">The page number is reset at the beginning of the index page by the built-in CSS rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"index/groups"</span>] {
+        <strong class="hl-keyword">counter-reset</strong>: page <span class="hl-number">1</span>;
+}</pre>
+    <p class="p">If you want to start the page counter from a different initial number, just change the value
+      of this counter. For example, to continue the normal page counting, use:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"index/groups"</span>] {
+        <strong class="hl-keyword">counter-reset</strong>: none;
+}</pre>
+    </div>
+    <p class="p">If you need to style the page number differently (for example, using decimals), add the
+      following CSS rule in your <a class="xref" href="dcpp_the_customization_css.html">customization
+        CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> index {
+        @bottom-center      {          <strong class="hl-keyword">content</strong>: counter(page, decimal) }
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_impose_a_table_like_index_layout">
+  <h2 class="title topictitle2" id="ariaid-title8">How to Impose a Table-like Index Layout</h2>
+  
+  <div class="body">
+    <p class="p">In case you need to place the index labels and links on the same line but with some extra
+      alignment constraints, you can use inline blocks to give the index a table-like
+      appearance:</p>
+    <img class="image" id="dcpp_how_to_impose_a_table_like_index_layout__image_jy1_bzf_lhb" src="../img/dcpp_how_to_impose_a_table_like_index_layout.png">
+    <div class="p">You need to place the elements that have the following class on the same line:<dl class="dl">
+        
+          <dt class="dt dlterm">index/formatted-value</dt>
+          <dd class="dd">This is the text of the index term.</dd>
+        
+        
+          <dt class="dt dlterm">index/refid</dt>
+          <dd class="dd">This element contains a list of links.</dd>
+        
+      </dl></div>
+    <p class="p">A fixed width is used for the formatted value and the links container (almost half of the
+      available width). To achieve the index hierarchical layout, set progressive padding to the
+      formatted value text.</p>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"index/formatted-value"</span>],
+*[class~=<span class="hl-string">"index/refid"</span>]{
+   <strong class="hl-keyword">display</strong>:inline-block;
+}
+
+*[class~=<span class="hl-string">"index/formatted-value"</span>]{
+   <strong class="hl-keyword">width</strong>:<span class="hl-number">45</span>%;
+}
+*[class~=<span class="hl-string">"index/refid"</span>] {
+   <strong class="hl-keyword">width</strong>:<span class="hl-number">45</span>%;
+}
+
+
+<em class="hl-comment">/* Hide the sequences of links that actually do not contain links. */</em>
+*[class ~= <span class="hl-string">"index/groups"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] &gt; *[class~=<span class="hl-string">"index/refid"</span>]{
+	<strong class="hl-keyword">display</strong>:none;
+}
+*[class ~= <span class="hl-string">"index/groups"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] &gt; *[class~=<span class="hl-string">"index/refid"</span>]:has(*[class~=<span class="hl-string">"index/link"</span>]){
+	<strong class="hl-keyword">display</strong>:inline-block;
+}
+
+<em class="hl-comment">/* Move the nesting of indexterms from margin to padding */</em>
+*[class ~= <span class="hl-string">"index/groups"</span>] *[class ~= <span class="hl-string">"index/entry"</span>] {
+    <strong class="hl-keyword">margin-left</strong>: <span class="hl-number">0</span>;
+}
+*[class ~= <span class="hl-string">"index/groups"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class~=<span class="hl-string">"index/formatted-value"</span>]{
+    <strong class="hl-keyword">padding-left</strong>: <span class="hl-number">0.2</span>em;
+}
+*[class ~= <span class="hl-string">"index/groups"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class~=<span class="hl-string">"index/formatted-value"</span>]{
+    <strong class="hl-keyword">padding-left</strong>: <span class="hl-number">0.4</span>em;
+}
+*[class ~= <span class="hl-string">"index/groups"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class ~= <span class="hl-string">"index/entry"</span>] 
+	*[class~=<span class="hl-string">"index/formatted-value"</span>]{
+    <strong class="hl-keyword">padding-left</strong>: <span class="hl-number">0.6</span>em;
+}
+
+<em class="hl-comment">/* Some styling */</em>
+*[class~=<span class="hl-string">"index/formatted-value"</span>],
+*[class~=<span class="hl-string">"index/refid"</span>]{
+    <strong class="hl-keyword">padding</strong>:<span class="hl-number">0.2</span>em;
+    <strong class="hl-keyword">background-color</strong>:#EEEEEE;
+}</pre>
+    <p class="p">To avoid bleeding of the index term label, you may need to mark it as being hyphenated:</p>
+    <div class="p"><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"index/formatted-value"</span>] {
+	hyphens:auto;
+}</pre>To
+      activate hyphenation, see: <a class="xref" href="dcpp_hyphenation.html#dcpp_how_to_enable_hyphenation_for_entire_document">How to Enable Hyphenation for Entire Map</a>.</div>
+  </div>
+</article></article></article></main></body></html>

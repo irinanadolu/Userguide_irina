@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron,Editing features"><meta name="keywords" content="Schematron, Editing features"><meta name="DC.relation" scheme="URI" content="../topics/editing-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-xproc-scripts.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-schematron-in-master-files-content.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-schematron-in-master-files-content.html"><meta name="DC.relation" scheme="URI" content="../topics/validate-xml-with-sch.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-integrating-framework.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-validation.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/combined_RNG_and_SCH.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-outline-view.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-resource-hierarchy-view.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-highlight-component-occurrences.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-search-refactor-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-quick-assist-support.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-unit-test-xspec.html"><meta name="DC.relation" scheme="URI" content="xml-editor-specific-actions.html#xml-editor-specific-actions"><meta name="DC.relation" scheme="URI" content="associate-schema-to-document.html#associate-schema-to-document"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="editing-schematron"><title>Editing Schematron Schemas</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="editing-schematron"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Schematron Schemas</h1>
+  
+  <div class="body">
+    <p class="p">Schematron is a simple and powerful Structural Schema Language for making assertions about
+      patterns found in XML documents. It relies almost entirely on XPath query patterns for
+      defining rules and checks. Schematron validation rules allow you to specify a meaningful error
+      message. This error message is provided to you if an error is encountered during the
+      validation stage.</p>
+    <div class="p">There are numerous online resources out there to help you get started with writing Schematron
+      rules. Here are just a few that might help you:<ul class="ul">
+        <li class="li"><a class="xref" href="http://dh.newtfire.org/explainSchematron.html" target="_blank" rel="external noopener">Guide to Schema Writing with Schematron</a></li>
+        <li class="li"><a class="xref" href="https://www.oxygenxml.com/events/2014/oXygen-user-meetup-Prague.html#Schematron_development_with_oXygen" target="_blank" rel="external noopener">Presentation: Schematron Development with
+          Oxygen</a></li>
+      </ul></div>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> assists you in editing Schematron documents with schema-based content
+      completion, syntax highlight, search and refactor actions, and dedicated icons for the <a class="xref" href="schematron-outline-view.html#schematron-outline-view"><span class="ph uicontrol">Outline</span>
+        view</a>. You can create a new Schematron schema using one of the Schematron templates
+      available in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>.</p>
+    <p class="p">For information about applying and detecting Schematron schemas, see <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document">Associating a Schema to XML Documents</a>.</p>
+    <section class="section" id="editing-schematron__validating_xml_documents_against_schematron"><h2 class="title sectiontitle">Validating XML Documents Against Schematron</h2>
+      
+      <p class="p">The Skeleton XSLT processor is used for validation and conforms with ISO Schematron or
+        Schematron 1.5. It allows you to <a class="xref" href="validate-xml-with-sch.html">validate XML documents against
+          Schematron schemas</a> or against combined RELAX NG / W3C XML Schema and Schematron.
+      </p>
+    </section>
+    <section class="section" id="editing-schematron__how_to_specify_the_query_language_binding"><h2 class="title sectiontitle">How to Specify the Query Language Binding</h2>
+      
+      <div class="p">You can specify the query language binding to be used in the Schematron schema by doing the
+          following:<ul class="ul" id="editing-schematron__ul_f3c_jz1_gs">
+          <li class="li">For embedded ISO Schematron, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Schematron</span></span>, and select it in the <a class="xref" href="schematron-preferences-page.html#schematron-preferences-page__embedded-rules-query-language"><span class="ph uicontrol">Embedded rules query language binding</span> option</a>.</li>
+          <li class="li">For standalone ISO Schematron, specify the version by setting the query language to be
+            used in a <code class="keyword markupname xmlatt">@queryBinding</code> attribute on the schema root element. For more
+            information, see the <a class="xref" href="http://www.schematron.com/iso/" target="_blank" rel="external noopener">Query Language Binding section of the Schematron
+              specifications</a>.</li>
+          <li class="li">For Schematron 1.5 (standalone and embedded), <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Schematron</span></span>, and select the version in the <a class="xref" href="schematron-preferences-page.html#schematron-preferences-page__xpath-version"><span class="ph uicontrol">XPath Version</span> option</a>.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="editing-schematron__multilingual_support_in_schematron_messages"><h2 class="title sectiontitle">Multi-Lingual Support in Schematron Messages</h2>
+      
+      <p class="p">You can specify the desired language for the validation messages in <a class="xref" href="schematron-preferences-page.html#schematron-preferences-page">the
+            <span class="ph uicontrol">Schematron Preferences</span> page</a>. The Schematron validation
+        messages can be presented in multiple languages by defining the language for each message
+        using the Schematron <code class="keyword markupname xmlelement">&lt;diagnostics&gt;</code> element. For more information, see
+        the <a class="xref" href="http://www.schematron.com/iso/" target="_blank" rel="external noopener">Use of
+          Schematron for Multi-Lingual Schemas</a> specification.</p>
+    </section>
+    <section class="section" id="editing-schematron__how_to_customize_color_schemes_in_schematron"><h2 class="title sectiontitle">How to Customize Color Schemes in Schematron</h2>
+      
+      <p class="p">The Schematron editor renders the XPath expressions with dedicated color schemes. To
+        customize the coloring schemes, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Syntax Highlight</span></span>.</p>
+    </section>
+    <section class="section" id="editing-schematron__schematron_transformation_scenario"><h2 class="title sectiontitle">Schematron Transformation Scenario</h2>
+      
+      <p class="p">When you create a Schematron document, <span class="ph">Oxygen XML Editor</span> provides a built-in
+        transformation scenario. You can use this scenario to obtain the XSLT style-sheet
+        corresponding to the Schematron schema. You can apply this XSLT stylesheet to XML documents
+        to obtain the Schematron validation results.</p>
+    </section>
+    <p class="p">For more information about the Schematron support in <span class="ph">Oxygen XML Editor</span>, watch our video
+      demonstrations:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/HdcZA3DJi7E" allowfullscreen="true"></iframe></div></p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/y3u3wlO92e4" allowfullscreen="true"></iframe></div></p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/FQNSsg57S4E" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/edit-schematron-in-master-files-content.html">Editing Schematron Schema in the Master Files Context</a><br></li><li class="link olchildlink"><a href="../topics/validate-xml-with-sch.html">Presenting Schematron Validation Issues</a><br></li><li class="link olchildlink"><a href="../topics/schematron-integrating-framework.html">Integrating Schematron Rules in a Framework and Sharing Them</a><br></li><li class="link olchildlink"><a href="../topics/schematron-validation.html">Validating Schematron Documents</a><br></li><li class="link olchildlink"><a href="../topics/schematron-content-completion.html">Content Completion in Schematron Documents</a><br></li><li class="link olchildlink"><a href="../topics/schematron-syntax-highlight.html">Syntax Highlighting in Schematron</a><br></li><li class="link olchildlink"><a href="../topics/combined_RNG_and_SCH.html">Embedding Schematron Rules in XML Schema or RELAX NG</a><br></li><li class="link olchildlink"><a href="../topics/schematron-outline-view.html">Schematron Outline View</a><br></li><li class="link olchildlink"><a href="../topics/schematron-resource-hierarchy-view.html">Schematron Resource Hierarchy/Dependencies View</a><br></li><li class="link olchildlink"><a href="../topics/schematron-highlight-component-occurrences.html">Highlight Component Occurrences in Schematron Documents</a><br></li><li class="link olchildlink"><a href="../topics/schematron-search-refactor-operations.html">Searching and Refactoring Operations in Schematron Documents</a><br></li><li class="link olchildlink"><a href="../topics/schematron-quick-assist-support.html">Quick Assist Support in Schematron Documents</a><br></li><li class="link olchildlink"><a href="../topics/schematron-unit-test-xspec.html">Schematron Unit Test (XSpec)</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-documents.html" title="Details about the various types of supported documents and their unique editing features">Editing Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/editing-xproc-scripts.html">Editing XProc Scripts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/edit-schematron-in-master-files-content.html">Editing Schematron Schema in the Master Files Context</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xml-editor-specific-actions.html#xml-editor-specific-actions">Editing XML Documents in Text Mode</a></li><li class="linklist"><a class="link" href="associate-schema-to-document.html#associate-schema-to-document">Associating a Schema to XML Documents</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content"><meta name="keywords" content="DITA, Reusing content"><meta name="DC.relation" scheme="URI" content="../topics/author-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-creating-glossary.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-reuse-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-reuse-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-content-references.html"><meta name="DC.relation" scheme="URI" content="../topics/coderef.html"><meta name="DC.relation" scheme="URI" content="../topics/conref-push-mechanism.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-variables.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-keyscopes.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-branch-filtering.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components-view.html"><meta name="DC.relation" scheme="URI" content="eppo-background-keys.html#eppo-background-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-pathfinder-reuse"><title>Reusing DITA Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-pathfinder-reuse"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Reusing DITA Content</h1>
+  
+  <div class="body">
+    <p class="p">Reusing content is one of the key features of DITA and DITA provides several methods for
+      reusing content. <span class="ph">Oxygen XML Editor</span> provides support for each of these methods.</p>
+    <section class="section" id="eppo-pathfinder-reuse__reusing_topics_in_dita_maps"><h2 class="title sectiontitle">Reusing Topics in DITA Maps</h2>
+      
+      <p class="p">A DITA topic does not belong to any one publication. You add a DITA topic to a publication
+        by referencing it in a map. You can <a class="xref" href="eppo-reuse-topics.html">reference the same
+          topic in multiple maps</a>. </p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__reusing_content_with_references_and_keys"><h2 class="title sectiontitle">Reusing Content with References and Keys</h2>
+      
+      <p class="p">DITA allows you to reuse content by referencing it in another topic. DITA provides <a class="xref" href="working-with-content-references.html">several mechanisms for including content by
+          reference</a> (<em class="ph i">conref</em>, <em class="ph i">conkeyref</em>, <em class="ph i">coderef</em>). A <a class="xref" href="eppo-create-conref.html"><code class="ph codeph">conref</code> (content reference)</a> creates
+        a direct reference to a specific element of another topic. A <a class="xref" href="eppo-create-conkeyref.html"><code class="ph codeph">conkeyref</code> (content key
+          reference)</a> creates a reference to a key, which then points to a specific element in
+        another topic. The advantage of using a <em class="ph i">conkeyref</em> is that you can change the element
+        that is included by changing the key reference. For example, since keys are defined in maps,
+        if you include a topic in multiple maps, you can use a different key reference in each map.
+        A <em class="ph i">coderef</em> references an external file that contains literal code.</p>
+      <p class="p"><span class="ph">Oxygen XML Editor</span> provides support for all of these mechanisms. </p>
+      <p class="p">While the <em class="ph i">conref</em> and <em class="ph i">conkeyref</em> mechanisms can be used to reference any
+        content element, it is considered best practice to only <em class="ph i">conref</em> or <em class="ph i">conkeyref</em>
+        content that is specifically set and managed as reusable content. This practice helps reduce
+        expensive errors, such as an author accidentally deleting the source element that other
+        topics are including by the reference. <span class="ph">Oxygen XML Editor</span> can help you create a reusable
+        component from your current content. </p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__reusing_content_with_reusable_components"><h2 class="title sectiontitle">Reusing Content with Reusable Components</h2>
+      
+      <p class="p">DITA allows you to select content in a topic, create a <a class="xref" href="dita-reusable-components.html">reusable component</a> from it and reference that
+        component in other locations. Each reusable component is created as a separate file. Anytime
+        the content needs to be edited, you only need to update it in the component file and all the
+        locations in your topics that reference it will also be updated. This can help you to
+        maintain continuity and accuracy throughout your documents.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__reusing_content_with_variables"><h2 class="title sectiontitle">Reusing Content with Variables</h2>
+      
+      <p class="p">DITA allows you to replace the content of certain elements with a value that is pointed to
+        by a key. This mechanism effectively means that you can <a class="xref" href="eppo-variables.html">create variables in your content</a>, which you can then create multiple outputs by
+        changing the value that the key points to. This is done by profiling the definition of the
+        key value, or by substituting another map with a different key value.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__reusing_content_with_dita_13_concepts"><h2 class="title sectiontitle">Reusing Content with DITA 1.3 Concepts</h2>
+      
+      <p class="p">DITA 1.3 allows you to use some advanced concepts to expand content reuse possibilities
+        even further. <a class="xref" href="dita-keyscopes.html"><em class="ph i">Key Scopes</em> (or scoped keys)</a>
+        allow you to reuse topics with variable content depending on the particular context and it
+        maximizes reuse possibilities for keys. <a class="xref" href="dita-branch-filtering.html"><em class="ph i">Branch
+            Filtering</em></a> allows you to reuse the same content that is profiled in multiple
+        ways within the same publication, each time using a different filter.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__dita_reusable_components_view"><h2 class="title sectiontitle">DITA Reusable Components View</h2>
+      
+      <p class="p">If you use a large amount of keys or reusable components in your DITA project, the <a class="xref" href="dita-reusable-components-view.html"><span class="ph uicontrol">DITA Reusable Components</span>
+          view</a> can be quite helpful. It collects all of the keys and reusable components that
+        are defined in the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> and
+        presents them in a dynamic table where you can easily locate and insert references to
+        them.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-reuse__reuse_actions_in"><h2 class="title sectiontitle">Reuse Actions in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes some actions that are specifically designed for DITA
+        reusable content. These actions are available in the contextual menu, the
+          <span class="ph uicontrol">DITA</span> menu, and some are available on the toolbar.</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="eppo-pathfinder-reuse__image_h2y_rwx_sr" src="../reusables/topics/../../img/Conref16.png">Reuse
+              Content</span></dt>
+          <dd class="dd">
+            <p class="p">This action provides a mechanism for reusing content fragments. It opens the <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference"><span class="ph uicontrol">Reuse Content</span> dialog box</a> that allows you to insert
+              several types of references to reusable content at the cursor position. The types of
+              references that you can insert using this dialog box include <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference__conref-section">content references (<code class="keyword markupname xmlatt">@conref</code>)</a>, <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference__conkeyref-section">content key references (<code class="keyword markupname xmlatt">@conkeyref</code>)</a>, or <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference__key-ref-options-section">key references to metadata (<code class="keyword markupname xmlatt">@keyref</code>)</a>.</p>
+          </dd>
+        
+        </dl>
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Push Current Element</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="conref-push-mechanism.html#conref-push-mechanism"><span class="ph uicontrol">Push current element</span> dialog box</a> that allows content
+            from a source topic to be inserted into another topic without any special coding in the
+            topic where the content will be re-used.</dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit Content Reference</span></dt>
+          <dd class="dd">This action is available for elements with a <code class="keyword markupname xmlatt">@conref</code> or
+              <code class="keyword markupname xmlatt">@conkeyref</code> attribute. It opens the <span class="ph uicontrol">Edit Content
+              Reference</span> dialog box that allows you to edit the source location (or key)
+            and source element of a content reference (or content key reference), and the reference
+            details (<code class="keyword markupname xmlatt">@conref</code>/<code class="keyword markupname xmlatt">@conkeyref</code> and
+              <code class="keyword markupname xmlatt">@conrefend</code> attributes). For more information, see <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference">Reuse Content Dialog Box</a>.</dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace Reference with Content</span></dt>
+          <dd class="dd">Replaces the referenced fragment (<code class="keyword markupname xmlatt">@conref</code> or
+              <code class="keyword markupname xmlatt">@conkeyref</code>) at the cursor position with its content from it source.
+            This action is useful if you want to make changes to the content in the currently edited
+            document without changing the referenced fragment in its source location. If the source
+            content includes references to other topics/resources (<em class="ph i">hrefs</em>), the operation also
+            resolves those references relative to the new location. Attributes are preserved
+            according to the following priority:<ol class="ol">
+              <li class="li">Attributes from the elements in the current document that reference other content
+                are preserved except for attributes with a <code class="ph codeph">-dita-use-conref-target</code>
+                value.</li>
+              <li class="li">Attributes from the referenced content are brought into the replaced elements in
+                the current document except for <code class="keyword markupname xmlatt">@id</code> attributes.</li>
+            </ol></dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace All References with Content</span></dt>
+          <dd class="dd">
+            <div class="p">Replaces all referenced fragments (<code class="keyword markupname xmlatt">@keyref</code>, <code class="keyword markupname xmlatt">@conref</code>,
+              or <code class="keyword markupname xmlatt">@conkeyref</code>) in the current document with the content. Attributes
+              are preserved according to the following priority:<ol class="ol" id="eppo-pathfinder-reuse__ol_vbd_fmq_y3b">
+                <li class="li">Attributes from the elements in the current document that reference other
+                  content are preserved except for attributes with a
+                    <code class="ph codeph">-dita-use-conref-target</code> value.</li>
+                <li class="li">Attributes from the referenced content are brought into the replaced elements in
+                  the current document except for <code class="keyword markupname xmlatt">@id</code> attributes.</li>
+              </ol></div>
+            <p class="p">For <em class="ph i">keyrefs</em> inside <code class="keyword markupname xmlelement">&lt;xref&gt;</code> or
+                <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, the <code class="keyword markupname xmlatt">@keyref</code> attribute is
+              changed to an <code class="keyword markupname xmlatt">@href</code> attribute, while the rest of the content for the
+                <em class="ph i">keyref</em> is replaced with its source content.</p>
+            <p class="p">If the source content includes references to other topics/resources (<em class="ph i">hrefs</em>),
+              the operation also resolves those references relative to the new location.</p>
+          </dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Remove Content Reference</span></dt>
+          <dd class="dd">Removes the content reference (<code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code>)
+            inside the element at the cursor position.</dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Create Reusable Component</span></dt>
+          <dd class="dd">Opens a dialog box that helps you to create a reusable component from the current
+            element or selection of elements. If the <span class="ph uicontrol">Replace selection with content
+              reference</span> option is selected in the dialog box, the selection will be
+            replaced with a content reference (<code class="keyword markupname xmlatt">@conref</code>). If multiple elements are
+            selected (for example, multiple steps or list items), the selection will be replaced
+            with a content reference range (<code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code>).
+            For more information, see <a class="xref" href="eppo-creating-reusable-content.html#eppo-creating-reusable-content">Creating a Reusable Content Component</a>.</dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert Reusable Component</span></dt>
+          <dd class="dd">Inserts a reusable component at cursor location. For more information, see <a class="xref" href="eppo-reuse-content.html#eppo-reuse-content">Inserting a Reusable Content Component</a>.</dd>
+        
+        </dl>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/eppo-reuse-topics.html">Reusing DITA Topics in Multiple Maps</a><br></li><li class="link olchildlink"><a href="../topics/working-with-content-references.html">Working with Content References</a><br></li><li class="link olchildlink"><a href="../topics/coderef.html">Working with Code References</a><br></li><li class="link olchildlink"><a href="../topics/conref-push-mechanism.html">Working with the Conref Push Mechanism</a><br></li><li class="link olchildlink"><a href="../topics/dita-reusable-components.html">Working with Reusable Components</a><br></li><li class="link olchildlink"><a href="../topics/eppo-variables.html">Working with Variable Text in DITA</a><br></li><li class="link olchildlink"><a href="../topics/dita-keyscopes.html">Working with DITA 1.3 Key Scopes</a><br></li><li class="link olchildlink"><a href="../topics/dita-branch-filtering.html">Working with DITA 1.3 Branch Filtering</a><br></li><li class="link olchildlink"><a href="../topics/dita-reusable-components-view.html">DITA Reusable Components View</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita.html" title="A guide to help content authors who create and publish DITA content">DITA Authoring</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-creating-glossary.html">Working with a Glossary of Terms in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-reuse-topics.html">Reusing DITA Topics in Multiple Maps</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a></li></ul></div></nav>
+</article></main></body></html>

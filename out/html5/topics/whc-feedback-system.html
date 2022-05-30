@@ -1,0 +1,80 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Classic,Comments component"><meta name="keywords" content="WebHelp Classic, Comments component"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-classic-output.html"><meta name="DC.relation" scheme="URI" content="../topics/using-the-webhelp-plugin-docbook.html"><meta name="DC.relation" scheme="URI" content="../topics/deploying-webhelp-responsive-feedback-x-publishing2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whc-feedback-system"><title>Deploying the Oxygen Feedback Comments Component</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whc-feedback-system"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Deploying the Oxygen Feedback Comments Component</h1>
+  
+  <div class="body">
+    <p class="p">You can add a comments component in your WebHelp Classic output to provide a simple and
+      efficient way for your community to interact and offer feedback. The comments component is
+      contributed by <strong class="ph b">Oxygen Feedback</strong>, a modern comment management system that can be
+      integrated with your WebHelp Classic output to provide a comments area at the bottom of each
+      WebHelp page where readers can add new comments or reply to existing ones.</p>
+    <p class="p"><strong class="ph b">Oxygen Feedback</strong> includes a modern, user-friendly administration interface where you
+      can moderate comments, manage users, view statistics, and configure settings. It is very easy
+      to integrate and there are no requirements for installing additional software.</p>
+    <p class="p">An add-on is also available that contributes a <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/topics/ofb-feedback-comments-manager.html" target="_blank" rel="external noopener"><span class="ph uicontrol">Feedback Comments Manager</span> view</a>
+      in <em class="ph i">Oxygen XML Editor/Author</em> where the documentation team can see all the comments added
+      in your WebHelp output. This means they can react to user feedback by making corrections and
+      updating the source content without leaving the application.</p>
+    <section class="section" id="whc-feedback-system__section_csd_rhx_fjb"><h2 class="title sectiontitle">Adding the Feedback System to WebHelp Classic Documentation</h2>
+      
+      <p class="p"><strong class="ph b"><u class="ph u">Prerequisite</u></strong></p>
+      <p class="p">To install and manage <strong class="ph b">Oxygen Feedback</strong>, you will need to obtain a license for the
+        product. This requires that you choose a subscription plan during the installation
+        procedure. To see the subscription plans prior to installing the product, go to: <a class="xref" href="https://www.oxygenxml.com/oxygen_feedback/buy_feedback.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/oxygen_feedback/buy_feedback.html</a>.</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Installation Procedure</u></strong><ol class="ol" id="whc-feedback-system__ol_pwy_sjx_fjb">
+          <li class="li">Log in to your Feedback account from the <em class="ph i">administration login page</em> (<a class="xref" href="https://feedback.oxygenxml.com/login" target="_blank" rel="external noopener">https://feedback.oxygenxml.com/login</a>). You can
+            click on <span class="ph uicontrol">Log in with Google</span> or <span class="ph uicontrol">Log in with
+              Facebook</span> to create an account using your Google or Facebook credentials,
+            or click the <span class="ph uicontrol">Sign Up</span> tab to create an account using your name and
+            email address.</li>
+          <li class="li">Click the <span class="ph uicontrol">Add site</span> button to create a site configuration. If
+            you have not already selected a subscription plan, you will be directed to a page where
+            you can choose from several options.</li>
+          <li class="li">In the <span class="ph uicontrol">Settings</span> page, enter a <span class="ph uicontrol">Name</span> and
+              <span class="ph uicontrol">Description</span> for the site configuration. There are some optional
+            settings that can be adjusted according to your needs. For more details, see the <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/topics/ofb-creating-site.html#ariaid-title2" target="_blank" rel="external noopener">Site Settings topic</a>. Click
+              <span class="ph uicontrol">Continue</span>.</li>
+          <li class="li">In the <span class="ph uicontrol">Initial version</span> page, enter the <span class="ph uicontrol">Base
+              URL</span> for your website (you can add additional URLs by clicking the
+                <span class="ph uicontrol"><img class="image" id="whc-feedback-system__image_sxt_dmx_fjb" src="../img/ofb-Add18.png">Add</span> button). You can also specify an <span class="ph uicontrol">Initial
+              version</span> if you want it to be something other than <em class="ph i">1.0</em>. If you do
+            not plan to have multiple versions, leave the version as <em class="ph i">1.0</em>. For more details,
+            see the <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/topics/ofb-creating-site.html#ariaid-title3" target="_blank" rel="external noopener">Initial Version topic</a>. Click
+              <span class="ph uicontrol">Continue</span>.</li>
+          <li class="li">In the <span class="ph uicontrol">Installation</span> page, choose a site generation option:<ol class="ol" type="a" id="whc-feedback-system__ol_pmh_dnx_fjb">
+              <li class="li">If you will generate the documentation using a transformation scenario in
+                  <em class="ph i">Oxygen XML Editor/Author</em>, select the <span class="ph uicontrol">Oxygen XML
+                  Editor</span> option and continue with these steps:<ol class="ol" type="i" id="whc-feedback-system__ol_i3r_xny_pkb">
+                  <li class="li">Copy the generated HTML fragment and click <span class="ph uicontrol">Finish</span>.</li>
+                  <li class="li">Create an XML file (for example, <code class="ph codeph">feedback-install.xml</code>) with
+                    the generated installation fragment.</li>
+                  <li class="li">In <em class="ph i">Oxygen XML Editor/Author</em>, open the <span class="ph uicontrol">Configure
+                      Transformation Scenario(s)</span> dialog box.</li>
+                  <li class="li">Select and duplicate the <a class="xref" href="docbook5_webhelp_output.html"><span class="ph uicontrol">DocBook WebHelp Classic</span> scenario</a>.</li>
+                  <li class="li">Go to the <span class="ph uicontrol">Parameters</span> tab.</li>
+                  <li class="li">Set the <code class="ph codeph">webhelp.footer.file</code> parameter to reference the path
+                    of the fragment file created earlier.</li>
+                </ol></li>
+              <li class="li">If you will generate the documentation using a command-line script, select the
+                  <span class="ph uicontrol">Oxygen XML WebHelp</span> option and continue with these steps:<ol class="ol" type="i" id="whc-feedback-system__ol_myt_djb_qkb">
+                  <li class="li">Copy the generated HTML fragment and click <span class="ph uicontrol">Finish</span>.</li>
+                  <li class="li">Create an XML file (for example, <span class="ph filepath">feedback-install.xml</span>)
+                    with the generated installation fragment.</li>
+                  <li class="li">Use the <code class="ph codeph">webhelp.footer.file</code> parameter in your command-line
+                    script to specify the path to the file you just created. For
+                    example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">docbook.bat -Dwebhelp.footer.file</span>=c:\path\to\feedback-install.xml</pre></li>
+                </ol></li>
+            </ol></li>
+          <li class="li">[Optional] If you want the <strong class="ph b">Oxygen Feedback</strong> comments component to fill the
+            entire page width, contribute a custom CSS file (use the
+              <code class="ph codeph">html.stylesheet</code> parameter to reference it) that contains the
+            following style rule:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">div.footer {
+  float: none<em class="hl-comment">;</em>
+}</pre></li>
+        </ol></div>
+      <p class="p">For more details about <strong class="ph b">Oxygen Feedback</strong>, how to configure settings, moderate
+        comments, view statistics, and much more, see the <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/index.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Feedback</strong> user guide</a>.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webhelp-classic-output.html">WebHelp Classic Output for DocBook</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/using-the-webhelp-plugin-docbook.html">Generating WebHelp Classic Output for DocBook</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/deploying-webhelp-responsive-feedback-x-publishing2.html">Deploying a PHP-based Feedback-Enabled System</a></div></div></nav></article></main></body></html>

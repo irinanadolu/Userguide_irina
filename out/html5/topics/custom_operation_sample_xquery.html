@@ -1,0 +1,167 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-refactoring-operation-descriptor.html"><meta name="DC.relation" scheme="URI" content="../topics/custom_operation_sample.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom_operation_sample_xquery"><title>XQuery Update Script for Creating a Custom Operation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom_operation_sample_xquery"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XQuery Update Script for Creating a Custom Operation</h1>
+  <div class="body">
+    <p class="p">To demonstrate creating a custom operation, suppose that you have a task where you need to
+      convert an attribute into an element and insert it inside another element. A specific example
+      would be if you have a project with a variety of <code class="keyword markupname xmlelement">&lt;image&gt;</code> elements where a
+      deprecated <code class="keyword markupname xmlatt">@alt</code> attribute was used for the description and you want to convert
+      all instances of that attribute into an element with the same name and insert it as the first
+      child of the <code class="keyword markupname xmlelement">&lt;image&gt;</code> element. </p>
+    <p class="p">Thus, the task is to convert this attribute into an element with the same name and insert it
+      as the first child of the image element. </p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Example: Custom XML Refactoring Operation</figcaption>
+        
+        <img class="image" id="custom_operation_sample_xquery__image_xwx_yww_gr" src="../img/xml_refactor3.png">
+      </figure>
+    </div>
+    <p class="p">An XQuery Update script can be used to implement the new custom XML refactoring operation.
+      The second requirement is an <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery__descriptor-example-section">XML
+        Refactoring operation descriptor file</a> that contains the path to the XQuery Update
+      script.</p>
+    <div class="note restriction note_restriction"><span class="note__title">Restriction:</span> There is a limitation to using an XQuery script in that <em class="ph i">comments</em>
+      or <em class="ph i">processing instructions</em> that are in any node before or after the root element cannot
+      be modified by an XML Refactoring operation. In other words, XML Refactoring operations can
+      only be performed on <em class="ph i">comments</em> or <em class="ph i">processing instructions</em> that are inside the
+      root element. However, as a work around to this limitation, you can use <a class="xref" href="custom_operation_sample.html#custom_operation_sample__using_saxon_extension_functions_to_allow_custom_r">Saxon extension functions and the XSLT stylesheet method</a> to implement the new custom
+      XML refactoring operation.</div>
+    <section class="section" id="custom_operation_sample_xquery__xquery-example-section"><h2 class="title sectiontitle">Example of an XQuery Update Script for Creating a Custom Operation to <em class="ph i">Convert an
+          Attribute to an Element</em>
+      </h2>
+      
+      <div class="p">The XQuery Update script does the following:<ul class="ul" id="custom_operation_sample_xquery__ul_rhp_bsn_kr">
+          <li class="li">Iterates over all elements from the document that have the specified local name and
+            namespace.</li>
+          <li class="li">Finds the attribute that will be converted to an element. </li>
+          <li class="li">Computes the <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> of the new
+            element to be inserted and inserts it as the first child of the parent element.</li>
+        </ul><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">(: 
+    XQuery document used to implement 'Convert attribute to element'
+      operation from XML Refactoring tool.
+:)
+
+declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
+declare option output:method   "xml";
+declare option output:indent   "no"; 
+
+(: Local name of the attribute's parent element. :)
+declare variable $element_localName as xs:string external;
+
+(: Namespace of the attribute's parent element. :)
+declare variable $element_namespace as xs:string external;
+
+(: The local name of the attribute to be converted :)
+declare variable $attribute_localName as xs:string external;
+
+(: The namespace of the attribute to be converted :)
+declare variable $attribute_namespace as xs:string external;
+
+(: Local name of the new element. :)
+declare variable $new_element_localName as xs:string external;
+
+(: Namespace of the new element. :)
+declare variable $new_element_namespace as xs:string external;
+
+(: Convert attribute to element:)
+for $node in //*
+(: Find the attribute to convert :)
+let $attribute := 
+    $node/@*[local-name() = $attribute_localName and
+    ($attribute_namespace = '<strong class="hl-tag">&lt;ANY&gt;</strong>' or $attribute_namespace = namespace-uri())]
+    
+(: Compute the prefix for the new element to insert :)
+let $prefix := 
+    for $p in in-scope-prefixes($node)
+      where $new_element_namespace = namespace-uri-for-prefix($p, $node)
+return $p
+
+(: Compute the qname for the new element to insert :)    
+let $new_element_qName :=
+    if (empty($prefix) or $prefix[1] = '') then $new_element_localName
+    else $prefix[1] || ':' || $new_element_localName
+    
+ where ('<strong class="hl-tag">&lt;ANY&gt;</strong>' = $element_localName or local-name($node) = $element_localName)
+   and 
+ ($element_namespace = '<strong class="hl-tag">&lt;ANY&gt;</strong>' or $element_namespace = namespace-uri($node))
+        
+  return 
+    if (exists($attribute)) then
+      (insert node element {QName($new_element_namespace, $new_element_qName)} 
+      {string($attribute)} as first into $node,
+      delete node $attribute)
+      else ()</pre></div>
+    </section>
+    <section class="section" id="custom_operation_sample_xquery__descriptor-example-section"><h2 class="title sectiontitle">Example of an Operation Descriptor File That References the XQuery Script for Creating
+        a Custom Operation to <em class="ph i">Convert an Attribute to an Element</em></h2>
+      
+      <p class="p">After you have developed the XQuery script, you have to create an XML Refactoring operation
+        descriptor. This descriptor is used by the application to load the operation details such as
+        name, description, or parameters.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+<strong class="hl-tag">&lt;refactoringOperationDescriptor</strong> 
+ <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+ <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/xmlRefactoring"</span> 
+ <span class="hl-attribute">id</span>=<span class="hl-value">"convert-attribute-to-element"</span> 
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Convert attribute to element"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;description&gt;</strong>Converts the specified attribute to an element. 
+           The new element will be inserted as first child of the attribute's
+           parent element.<strong class="hl-tag">&lt;/description&gt;</strong>    
+ <em class="hl-comment">&lt;!-- For the XSLT stylesheet option uncomment the following line and comment
+           the line referring the XQuery Update script --&gt;</em>
+ <em class="hl-comment">&lt;!-- &lt;script type="XSLT" href="convert-attribute-to-element.xsl"/&gt; --&gt;</em> 
+ <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"XQUERY_UPDATE"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"convert-attribute-to-element.xq"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;parameters&gt;</strong>
+   <strong class="hl-tag">&lt;description&gt;</strong>Specify the attribute to be converted to element.<strong class="hl-tag">&lt;/description&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Parent element"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;elementParameter</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"elemID"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_localName"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element.<strong class="hl-tag">&lt;/description&gt;</strong>            
+        <strong class="hl-tag">&lt;/localName&gt;</strong>
+       <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element<strong class="hl-tag">&lt;/description&gt;</strong>            
+       <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+     <strong class="hl-tag">&lt;/elementParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Attribute"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;attributeParameter</strong> <span class="hl-attribute">dependsOn</span>=<span class="hl-value">"elemID"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_localName"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Name of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+      <strong class="hl-tag">&lt;/localName&gt;</strong>
+     <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;description&gt;</strong>Namespace of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+     <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+     <strong class="hl-tag">&lt;/attributeParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+    <strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"New element"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;elementParameter&gt;</strong>
+           <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_localName"</span><strong class="hl-tag">&gt;</strong>
+               <strong class="hl-tag">&lt;description&gt;</strong>The name of the new element.<strong class="hl-tag">&lt;/description&gt;</strong>
+           <strong class="hl-tag">&lt;/localName&gt;</strong>
+           <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"new_element_namespace"</span><strong class="hl-tag">&gt;</strong>
+               <strong class="hl-tag">&lt;description&gt;</strong>The namespace of the new element.<strong class="hl-tag">&lt;/description&gt;</strong>
+           <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+        <strong class="hl-tag">&lt;/elementParameter&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+  <strong class="hl-tag">&lt;/parameters&gt;</strong>
+<strong class="hl-tag">&lt;/refactoringOperationDescriptor&gt;</strong></pre>
+    </section>
+    <section class="section" id="custom_operation_sample_xquery__results"><h2 class="title sectiontitle">Results</h2>
+      
+      <p class="p">After you have created these files, copy them into a folder <a class="xref" href="sharing-custom-refactoring-operations.html">scanned by <span class="ph">Oxygen XML Editor</span> when
+          it loads the custom operation</a>. When the XML Refactoring tool is started again, you
+        will see the created operation.</p>
+      <p class="p">Since various parameters can be specified, this custom operation can also be used for other
+        similar tasks. The following image shows the parameters that can be specified in the example
+        of the custom operation to convert an attribute to an element:</p>
+      <div class="p">
+        <figure class="fig fignone" id="custom_operation_sample_xquery__fig_vsr_3fd_jr"><figcaption><span class="fig--title-label">Figure 2. </span>Example: XML Refactoring Wizard for a Custom Operation</figcaption>
+          
+          <img class="image" id="custom_operation_sample_xquery__image_tsb_lfd_jr" src="../img/custom_refactoring_operation.png">
+        </figure>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/custom-refactoring-operations.html">Custom Refactoring Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-refactoring-operation-descriptor.html">Custom Refactoring Operation Descriptor File</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/custom_operation_sample.html">XSLT Stylesheet for Creating a Custom Operation</a></div></div></nav></article></main></body></html>

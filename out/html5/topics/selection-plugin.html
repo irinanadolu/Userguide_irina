@@ -1,0 +1,125 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="description" content="This type of plugin allows you to manage selections of text."><meta name="DC.subject" content="Plugin extensions,Selection,Selection plugin extension,Uppercase plugin"><meta name="keywords" content="Plugin extensions, Selection, Selection plugin extension, Uppercase plugin"><meta name="DC.relation" scheme="URI" content="../topics/text-editing-mode-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/general-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/document-plugin.html"><meta name="DC.relation" scheme="URI" content="editor-variables.html#editor-variables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="selection-plugin"><title>Selection Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="selection-plugin">
+  <h1 class="title topictitle1" id="ariaid-title1">Selection Plugin Extension</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    manage selections of text.</p>
+    <p class="p">A <strong class="ph b">selection</strong>
+      <dfn class="term">plugin</dfn> can be applied to both XML and non-XML documents. The <dfn class="term">plugin</dfn>
+      is started by making a selection in the editor, then selecting the corresponding menu item
+      from the <span class="ph uicontrol">Plugins</span> submenu in the contextual menu of
+        <span class="ph uicontrol">Text</span> mode.</p>
+    <p class="p">This <dfn class="term">plugin</dfn> type provides the following API:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><strong class="ph b"><em class="ph i">SelectionPluginExtension</em> interface</strong></dt>
+          <dd class="dd">The context containing the selected text is passed to the extension and the processed
+            result is going to replace the initial selection. The
+              <em class="ph i">process(GeneralPluginContext)</em> method must return a <em class="ph i">SelectionPluginResult</em>
+            object that contains the result of the processing. The <em class="ph i">String</em> value returned by
+            the <em class="ph i">SelectionPluginResult</em> object can include <a class="xref" href="editor-variables.html#editor-variables">editor variables</a> such as
+              <em class="ph i">${caret}</em> and <em class="ph i">${selection}</em>.</dd>
+        
+        
+          <dt class="dt dlterm"><strong class="ph b"><em class="ph i">SelectionPluginContext</em> object</strong></dt>
+          <dd class="dd">Represents the context and provides four methods: <ul class="ul">
+              <li class="li"><strong class="ph b">getSelection()</strong> - Returns a <code class="ph codeph">String</code> that is the current
+                selection of text.</li>
+              <li class="li"><strong class="ph b">getFrame()</strong> - Returns a <code class="ph codeph">Frame</code> that is the editing
+                frame.</li>
+              <li class="li"><strong class="ph b">getPluginWorkspace()</strong> - Returns access to the workspace of <span class="ph">Oxygen XML Editor</span>.</li>
+              <li class="li"><strong class="ph b">getDocumentURL()</strong> - Returns the URL of the currently edited document.</li>
+            </ul></dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/text-editing-mode-plugins.html">Plugin Extensions Designed to Work only in the Text Editing Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/general-plugin.html" title="This type of plugin allows you to invoke custom code to interact with the workspace in Text mode.">General Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/document-plugin.html" title="This type of plugin allows you to manage the current document.">Document Plugin Extension</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="editor-variables.html#editor-variables">Editor Variables</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="example-uppercase-plugin">
+  <h2 class="title topictitle2" id="ariaid-title2">Example - Uppercase Plugin</h2>
+  
+  <div class="body">
+    <p class="p">The following <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> is called
+        <strong class="ph b">UppercasePlugin</strong> and is an example of a <a class="xref" href="selection-plugin.html#selection-plugin" title="This type of plugin allows you to manage selections of text.">Selection
+        <dfn class="term">plugin</dfn>.</a>. It is used in <span class="ph">Oxygen XML Editor</span> for capitalizing the
+      characters in the current selection. This example consists of two Java classes and the
+        <dfn class="term">plugin</dfn> descriptor file (<span class="ph filepath">plugin.xml</span>):</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">UppercasePlugin.java</strong>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+<strong class="hl-keyword">package</strong> ro.sync.sample.plugin.uppercase;
+
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.Plugin;
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.PluginDescriptor;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> UppercasePlugin <strong class="hl-keyword">extends</strong> Plugin {
+    <span class="hl-tag-doctype-comment">/**
+    * Plugin instance.
+    */</span>
+    <strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> UppercasePlugin instance = null;  
+    
+    <span class="hl-tag-doctype-comment">/**
+    * UppercasePlugin constructor.
+    * 
+    * @param descriptor Plugin descriptor object.
+    */</span>
+    <strong class="hl-keyword">public</strong> UppercasePlugin(PluginDescriptor descriptor) {
+        <strong class="hl-keyword">super</strong>(descriptor);
+    
+        <strong class="hl-keyword">if</strong> (instance != null) {
+            <strong class="hl-keyword">throw</strong> <strong class="hl-keyword">new</strong> IllegalStateException(<span class="hl-string">"Already instantiated !"</span>);
+        }    
+        instance = <strong class="hl-keyword">this</strong>;
+    }
+    
+    <span class="hl-tag-doctype-comment">/**
+    * Get the plugin instance.
+    * 
+    * @return the shared plugin instance.
+    */</span>
+    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">static</strong> UppercasePlugin getInstance() {
+        <strong class="hl-keyword">return</strong> instance;
+    }
+}
+</pre></li>
+      <li class="li"><strong class="ph b">UppercasePluginExtension.java</strong>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+<strong class="hl-keyword">package</strong> ro.sync.sample.plugin.uppercase;
+
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.selection.SelectionPluginContext;
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.selection.SelectionPluginExtension;
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.selection.SelectionPluginResult;
+<strong class="hl-keyword">import</strong> ro.sync.exml.plugin.selection.SelectionPluginResultImpl;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> UppercasePluginExtension <strong class="hl-keyword">implements</strong> SelectionPluginExtension {
+    <span class="hl-tag-doctype-comment">/**
+    * Convert the text to uppercase.
+    *
+    *@param  context  Selection context.
+    *@return          Uppercase plugin result.
+    */</span>
+    <strong class="hl-keyword">public</strong> SelectionPluginResult process(SelectionPluginContext context) {
+        <strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SelectionPluginResultImpl(
+            context.getSelection().toUpperCase());
+    }
+}
+</pre></li>
+      <li class="li"><strong class="ph b">plugin.xml</strong>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">
+<span class="hl-tag-doctype">&lt;!DOCTYPE plugin SYSTEM "../plugin.dtd"&gt;</span>
+<strong class="hl-tag">&lt;plugin</strong>
+    <span class="hl-attribute">name</span>=<span class="hl-value">"UpperCase"</span>
+    <span class="hl-attribute">description</span>=<span class="hl-value">"Convert the selection to uppercase"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"1.0.0"</span>
+    <span class="hl-attribute">vendor</span>=<span class="hl-value">"SyncRO"</span>
+    <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.sample.plugin.uppercase.UppercasePlugin"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;runtime&gt;</strong>
+        <strong class="hl-tag">&lt;library</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"lib/uppercase.jar"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/runtime&gt;</strong>
+    <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"selectionProcessor"</span> 
+     <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.sample.plugin.uppercase.UppercasePluginExtension"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong>
+</pre></li>
+    </ul>
+  </div>
+</article></article></article></main></body></html>

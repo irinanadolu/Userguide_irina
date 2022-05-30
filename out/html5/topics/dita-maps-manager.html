@@ -1,0 +1,927 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps,DITA Maps Manager"><meta name="keywords" content="DITA, Maps, DITA Maps Manager"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/creating-dita-map.html"><meta name="DC.relation" scheme="URI" content="dita-map-validate.html"><meta name="DC.relation" scheme="URI" content="author-dita-map-extensions.html"><meta name="DC.relation" scheme="URI" content="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-maps-manager"><title>DITA Maps Manager</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-maps-manager"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Maps Manager</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides a view for managing and editing <a href="../glossary/ditamap.html" title="A DITA map is a component of the DITA framework that provides the means for a hierarchical collection of DITA topics that can be processed to form an output. Maps do not contain the content of topics, but only references to them. These are known as topic references. Usually, the maps are saved on disk or in a CMS with the extension .ditamap. Maps can also contain relationship tables that establish relationships between the topics contained within the map. Relationship tables are also used to generate links in your published document. You can use your map or bookmap to generate a deliverable using an output type such as XHTML, PDF, HTML Help, or Eclipse Help."><dfn class="term">DITA maps</dfn></a>. The <span class="ph uicontrol">DITA Maps Manager</span>
+      view presents a <dfn class="term">DITA map</dfn> as a tree or table of contents. It allows you to
+      navigate the topics and maps, make changes, and apply transformation scenarios to obtain
+      various output formats. By default, it is located to the left of the main editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <p class="p">The <span class="ph uicontrol">DITA Maps Manager</span> includes a variety of useful actions to help you
+      edit and organize the structure of your <dfn class="term">DITA maps</dfn> and topics. The actions that
+      are available and their functions depend on the type of nodes that are selected in the
+        <span class="ph uicontrol">DITA Maps Manager</span>. If you select multiple sibling nodes, the result
+      of the actions will be applied to all the selected nodes. If you select multiple nodes that
+      are not on the same hierarchical level, the actions will be applied to the parent node and the
+      child nodes will inherit certain attributes from the parent node.</p>
+    <div class="p">
+      <figure class="fig fignone" id="dita-maps-manager__figure-dita-maps-manager-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>DITA Maps Manager View</figcaption>
+        
+        <img class="image" src="../img/sa_dita_maps_manager_view.png">
+      </figure>
+    </div>
+    <p class="p">Each node is displayed with an icon representing the type of DITA resource. For example, a
+      DITA Map is displayed with an <img class="image" id="dita-maps-manager__image_brs_21k_nnb" src="../img/DITAMap16.png">
+      icon, a DITA Topic is displayed with <img class="image" id="dita-maps-manager__image_kp2_tzj_nnb" src="../img/DITATopic16.png">, a DITA Task is displayed with <img class="image" id="dita-maps-manager__image_llk_l1k_nnb" src="../img/DITATask16.png">, etc. Any node that has
+        <code class="ph codeph">processing-role="resource-only"</code> set in its properties is displayed with a
+      gray dot in the bottom-right corner of the icon (<img class="image" id="dita-maps-manager__image_e1f_cbk_nnb" src="../img/DITAResourceOnly16.png">).</p>
+    <section class="section" id="dita-maps-manager__opening_maps_in_the_dita_maps_manager"><h2 class="title sectiontitle">Opening Maps in the DITA Maps Manager</h2>
+      
+      <div class="p">The <span class="ph uicontrol">DITA Maps Manager</span> view supports opening multiple maps at the
+        same time, with each one presented in its own tab. To open a <dfn class="term">DITA map</dfn> in the
+          <span class="ph uicontrol">DITA Maps Manager</span>, use any of the following methods:<ul class="ul">
+          <li class="li">To open a submap in its own tab, simply double-click it (or right-click it and select
+              <span class="ph uicontrol">Open</span>).</li>
+          <li class="li">If you open a file with a <span class="ph filepath">.ditamap</span> or
+              <span class="ph filepath">.bookmap</span> extension (from the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> or a system browser), a dialog box is
+            opened that offers you the choice of opening it in the <span class="ph uicontrol">DITA Maps
+              Manager</span> or the XML editor.<div class="note note note_note"><span class="note__title">Note:</span> If you select the <span class="ph uicontrol">Do not show
+                the dialog again</span> option, it will always be opened in the method that you
+              choose and you will not be asked in the future. However, you can reset this by
+              selecting the <span class="ph uicontrol">Always ask</span> choice for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__when-opening-dlentry"><span class="ph uicontrol">When
+                  opening a map</span> option in the <span class="ph uicontrol">DITA</span> preferences
+                page</a>.</div></li>
+          <li class="li">Right-click a map file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and select <span class="ph menucascade"><span class="ph uicontrol">Open with</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA Maps Manager</span></span>.</li>
+          
+          <li class="li">If you have a <dfn class="term">DITA map</dfn> file open in the XML
+            editor, you can right-click the title tab and select <span class="ph uicontrol">Open in DITA Maps
+              Manager View</span>.</li>
+        </ul></div>
+      <p class="p">By default, when a map is opened in the <span class="ph uicontrol">DITA Maps
+          Manager</span>, its index is automatically refreshed. You can disable this feature by
+        deselecting the <a class="xref" href="preferences-open-find-resources.html#preferences-open-find-resources__refresh-index"><span class="ph uicontrol">Refresh index when opening a map in DITA Maps Manager</span>
+          option</a> in the <span class="ph uicontrol">Open/Find Resource</span> preferences page.</p>
+    </section>
+    <section class="section" id="dita-maps-manager__submap_nodes"><h2 class="title sectiontitle">Submap Nodes</h2>
+      
+      <p class="p">If your <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> (<dfn class="term">main DITA
+          map</dfn>) references other maps (submaps), they can be expanded and you can navigate
+        their content in the <span class="ph uicontrol">DITA Maps Manager</span>, but the references within
+        those submaps are not editable, by default, unless you open the submap separately in its own
+        tab. The references within submap nodes are shown with a gray background.</p>
+      <p class="p"><img class="image" src="../img/submap_nodes.png"></p>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to be able to edit submaps when
+        the main (root/parent) map is open in the <span class="ph uicontrol">DITA Maps Manager</span>, go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Maps</span></span> and select the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__allow-submaps-editing"><span class="ph uicontrol">Allow referenced submaps to be edited</span> option</a>.</div>
+    </section>
+    <section class="section" id="dita-maps-manager__drag_and_drop_in_the_dita_maps_manager"><h2 class="title sectiontitle">Moving Nodes in the DITA Maps Manager</h2>
+      
+      <p class="p">You can move topics or nodes within the same map, or other maps, by dragging and dropping
+        them into the desired position. You can arrange the nodes by dragging and dropping one or
+        more nodes at a time. You can arrange multiple topics by dragging them while pressing the
+            <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> or
+            <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> key. Drop operations can be performed
+        before, after, or as child of the targeted node.</p>
+      <p class="p">Operations include:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Copy</span></dt>
+            <dd class="dd">Select the nodes you want to copy and start dragging them. Before dropping them in
+              the appropriate place, press and hold the
+                <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> key. The mouse pointer changes to a
+                <img class="image" src="../img/DocExpand16.png"> symbol to indicate that a copy operation is
+              being performed.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Move</span></dt>
+            <dd class="dd">Select the nodes you want to move and drag and drop them in the appropriate
+              place.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Promote</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__alt_left_shortcut">Alt +
+                    LeftArrow</span></span>)
+                /<span class="ph uicontrol">Demote</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__alt_right_shortcut">Alt +
+                    RightArrow</span></span>)</dt>
+            <dd class="dd">You can move nodes between child and parent nodes by using the
+                <span class="ph uicontrol">Promote</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e278">Alt +
+                    LeftArrow</span></span>) and
+                <span class="ph uicontrol">Demote</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e292">Alt +
+                    RightArrow</span></span>) operations.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-maps-manager__dita_maps_manager_toolbar"><h2 class="title sectiontitle">DITA Maps Manager Toolbar</h2>
+      
+      <div class="p">The toolbar includes the following actions (also available in the <span class="ph uicontrol">DITA
+          Maps</span> menu) and their availability depend on the nodes that are selected:<div class="note note note_note"><span class="note__title">Note:</span> If multiple nodes are selected, the availability of the actions
+      depends on the nodes that are selected.</div></div>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_jnc_y4r_flb" src="../img/New16.png">New DITA
+                Map</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="new-dialog-sa.html"><span class="ph uicontrol">New
+                  Document</span> wizard</a> that you can use to create a new DITA map document.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_y4b_dpq_sr" src="../img/BrowseDrop.png">Open</span> Drop-down Menu</dt>
+            <dd class="dd">You can use this drop-down menu to open new <dfn class="term">DITA maps</dfn> or to reopen
+              recently viewed maps. The drop-down menu contains the following:<ul class="ul" id="dita-maps-manager__ul_ncb_jtw_5q">
+                <li class="li">List of recently viewed <dfn class="term">DITA maps</dfn> that can be selected to reopen
+                  them.</li>
+                <li class="li"><span class="ph uicontrol">Clear history</span> - Clears the history list of the recently
+                  viewed <dfn class="term">DITA maps</dfn>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_jg4_2lp_sr" src="../img/Open16.png">Open</span> - Allows you to open the map in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span>
+                    view</a>. You can also open a map by dragging it from the file system
+                  explorer and dropping it into the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span> view</a>.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_ivv_x3p_sr" src="../img/OpenURL16.png">Open
+                    URL</span> - Displays the <span class="ph uicontrol">Open
+                    URL</span> dialog box where you can specify a URL (defined by a protocol,
+                  host, resource path, and an optional port) or use the browsing actions in the
+                      <span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_n4x_qrn_ps" src="../img/URL_Drop.png">Browse for
+                    remote file</span> drop-down menu.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_p5s_1jq_sr" src="../img/Save16.png">Save
+                  <span class="keyword shortcut">(Ctrl + S (Meta + S on Mac OS))</span></span></dt>
+            <dd class="dd">Saves the current <dfn class="term">DITA map</dfn>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_vjz_3vv_sr" src="../img/ValidateAndCheck16.png">Validate and Check for Completeness</span></dt>
+            <dd class="dd"><a class="xref" href="dita-map-validate.html">Checks the
+                validity and integrity</a> of the map.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_mrv_w3v_kr" src="../img/ApplyStyleSheet16.png">Apply Transformation Scenario(s)</span></dt>
+            <dd class="dd"><a class="xref" href="builtin-transformation-scenarios.html#builtin-transformation-scenarios">Applies the DITA Map transformation scenario</a> that is associated with the
+              current map.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_mwj_lvv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s)</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenarios(s)</span> dialog box</a>
+              where you can edit or create transformation scenarios or <a class="xref" href="dita-ot-transformation.html" title="This type of transformation specifies the parameters for an Ant transformation that executes a DITA-OT build script. Oxygen XML Editor includes a built-in version of Ant and a built-in version of DITA-OT, but other versions can be set in the scenario.">associate a DITA Map transformation
+                scenario</a> with the current map.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_yx1_xm1_5r" src="../img/OpenMapInEditorResolvedTopics16.png">Open Map in Editor with Resolved Topics</span></dt>
+            <dd class="dd">
+              <p class="p">Opens the <dfn class="term">DITA map</dfn> in the main editor area with content from all topic
+                references expanded in-place. Referenced content is presented as read-only by
+                default. To edit it, you must use the <strong class="ph b">Edit Reference</strong> contextual menu action
+                to open the source topic that contains the referenced content.</p>
+              <p class="p">If you want to edit the referenced topics directly without having to open the
+                source document, go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit Modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span></span> and select the <a class="xref" href="preferences-author.html#preferences-author__allow-referenced-content"><span class="ph uicontrol">Allow referenced content to be edited (Experimental)</span>
+                  option</a>. Since a single topic may be referenced in multiple places in the
+                DITA map, be careful not to make conflicting changes to that topic.</p>
+              <div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to print the expanded content, you should consider
+                changing selecting <span class="ph uicontrol">+ Print ready</span> from the
+                  <span class="ph uicontrol">Styles</span> drop-down menu on the toolbar.</div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_zrr_wm1_5r" src="../img/OpenMapInEditor16.png">Open
+                Map in Editor</span></dt>
+            <dd class="dd">For complex operations that cannot be performed in the simplified <span class="ph uicontrol">DITA
+                Maps Manager</span> view (for instance, editing a relationship table) you can
+              open the map in the main editing area. <div class="note note note_note"><span class="note__title">Note:</span> You can also use this action to open
+                referenced <dfn class="term">DITA maps</dfn> in the <span class="ph uicontrol">Editor</span>.</div></dd>
+          
+          
+            <dt class="dt dlterm" id="dita-maps-manager__link-with-editor"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_xzr_nft_tr" src="../img/CaretUpdateOff16.png">Link
+                with Editor</span></dt>
+            <dd class="dd">Toggles the synchronization between the file path of the current editor and the
+              selected topic reference in the <span class="ph uicontrol">DITA Maps Manager</span> view. If
+              enabled, it results in the following types of synchronizations:<ul class="ul" id="dita-maps-manager__ul_nq4_xkq_jkb">
+                <li class="li">If you select a topic tab in the main editing area and it is referenced in the
+                  map currently opened in the <span class="ph uicontrol">DITA Maps Manager</span>, the
+                  reference to that topic is selected in the <span class="ph uicontrol">DITA Maps
+                    Manager</span>.</li>
+                <li class="li">If you have a map opened in both the <span class="ph uicontrol">DITA Maps Manager</span>
+                  and the main editor, selecting the map tab in the main editing area opens that map
+                  in the <span class="ph uicontrol">DITA Maps Manager</span>.</li>
+                <li class="li">If you have a map opened in both the <span class="ph uicontrol">DITA Maps Manager</span>
+                  and the main editor (<span class="ph uicontrol">Author</span> mode) and, selecting one or
+                  more <em class="ph i">topicrefs</em> in the <span class="ph uicontrol">DITA Maps Manager</span> will also
+                  select the same <em class="ph i">topicrefs</em> in the main editor.</li>
+                <li class="li">If you have a map opened in both the <span class="ph uicontrol">DITA Maps Manager</span>
+                  and the main editor (<span class="ph uicontrol">Author</span> mode) and, selecting one or
+                  more <em class="ph i">topicrefs</em> in the main editor will also select the same
+                    <em class="ph i">topicrefs</em> in the <span class="ph uicontrol">DITA Maps Manager</span>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_xyt_t3v_1q" src="../img/Settings16.png">Settings</span></dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm" id="dita-maps-manager__show-extended-toolbar"><span class="ph uicontrol">Show extended toolbar</span></dt>
+                    <dd class="dd">Toggles whether or not the extended toolbar will be displayed in the
+                        <span class="ph uicontrol">DITA Maps Manager</span> toolbar.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Show context toolbar</span></dt>
+                    <dd class="dd">Toggles whether or not the <a class="xref" href="dita-maps-manager.html#dita-maps-manager__root-map"><span class="ph uicontrol">Context</span> option</a> will be displayed
+                      in the <span class="ph uicontrol">DITA Maps Manager</span> toolbar.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Show topic titles</span></dt>
+                    <dd class="dd">Toggles how topics are presented in the <span class="ph uicontrol">DITA Maps
+                        Manager</span>. If selected, the title of each topic is shown.
+                      Otherwise, the file path (value of the <code class="keyword markupname xmlatt">@href</code> attribute) for
+                      each topic is shown. </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm" id="dita-maps-manager__root-map">Root Map Drop-down menu </dt>
+            <dd class="dd">The drop-down menu displayed after <span class="ph uicontrol">Context</span> can be used to
+              specify the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">DITA root map</dfn></a>) that
+                <span class="ph">Oxygen XML Editor</span> uses to define a hierarchical structure of submaps and to
+              establish a <a class="xref" href="../glossary/key-space.html"><dfn class="term">key space</dfn></a> that
+              defines the keys that are propagated throughout the entire map structure. For more
+              information, see <a class="xref" href="root-map.html">Selecting a Root Map</a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_xv5_dpq_sr" src="../img/DITAMapChooserDrop.png">Choose
+                Root Map</span> Drop-down menu</dt>
+            <dd class="dd">You can use this drop-down menu to browse for <dfn class="term">root maps</dfn> with the
+              following choices:<ul class="ul" id="dita-maps-manager__ul_mnq_2ww_5q">
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_kq3_fmp_sr" src="../img/Open16.png">Browse for
+                    local file</span> - Opens a local file browser dialog box, allowing you to
+                  select a local <dfn class="term">root map</dfn>.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_znd_wvm_ks" src="../img/OpenURL16.png">Browse for
+                    remote file</span> - Displays the <span class="ph"><a class="xref" href="sa-open-url-dialog.html#sa-open-url-dialog"><span class="ph uicontrol">Open URL
+                      </span> dialog box</a></span> that allows you to select a remotely stored <dfn class="term">root
+                    map</dfn>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_fhm_h4p_sr" src="../img/OpenArchive16.png">Browse
+                    for archived file</span> - Displays the <a class="xref" href="archive-browser-view.html#archive-browser-view"><span class="ph uicontrol">Archive
+                      Browser</span></a> that allows you to browse the content of an archive
+                  and choose a <dfn class="term">root map</dfn>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_cqn_fww_5q" src="../img/OpenDatasourceExplorer16.png">Browse Data Source Explorer</span> - Opens the
+                    <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span></a> that allows you to browse
+                  the data sources defined in the <a class="xref" href="preferences-data-sources.html#preferences-data-sources">Data Sources
+                    preferences page</a>.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can open the <span class="ph uicontrol">Data
+                      Sources</span> preferences page by using the <span class="ph uicontrol">Configure
+                      Database Sources</span> shortcut from the <span class="ph uicontrol">Open URL</span>
+                    dialog box.</div></li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_fqn_fww_5q" src="../img/OpenResource16.png">Search for file</span> - Displays the <a class="xref" href="open-find-resource-dialog.html#open-find-resource-dialog"><span class="ph uicontrol">Find Resource</span> dialog
+                    box</a> to search for a <dfn class="term">root
+                  map</dfn>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_gvd_tn1_5r" src="../img/ProfilingDrop.png">Profiling/Conditional Text</span> Drop-down Menu</dt>
+            <dd class="dd">You can use this drop-down menu to select and <a class="xref" href="dita-apply-profiling-conditional-set.html">apply a defined profiling condition
+                set</a> to filter the content based on that condition set. The drop-down menu
+              also contains the following other options: <ul class="ul" id="dita-maps-manager__ul_csv_w3v_kr">
+                <li class="li"><span class="ph uicontrol">Show Profiling Colors and Styles</span> - Select this option to
+                  turn on conditional styling. To configure the colors and styles <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Profiling/Conditional Text</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Colors and Styles</span></span>.</li>
+                <li class="li"><span class="ph uicontrol">Show Profiling Attributes</span> - Select this option to display
+                  the values of the profiling attributes at the end of the titles of topic
+                  references. When selected, the values of the profiling attributes are displayed in
+                  both the <span class="ph uicontrol">DITA Maps Manager</span> view and in the
+                    <span class="ph uicontrol">Author</span> view.</li>
+                <li class="li"><span class="ph uicontrol">Show Excluded Content</span> - Controls if the content filtered
+                  out by a particular condition set is hidden or grayed-out in the editor area and
+                  in the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span></a> and <span class="ph uicontrol">DITA Maps
+                    Manager</span> views. When this option is selected, the content filtered by
+                  the currently applied condition set is grayed-out. To show only the content that
+                  matches the currently applied condition set, deselect this option.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_a22_2pt_tr" src="../img/Options16.png">Profiling
+                    Settings</span> - Opens the preferences page for adding and editing the
+                  profiling conditions that you can apply in the <span class="ph uicontrol">DITA Maps
+                    Manager</span> view and the <span class="ph uicontrol">Author</span> mode editing
+                  pane. When a <a class="xref" href="condition-sets-management.html#condition-sets-management">profiling condition set</a> is applied, the keys that are defined in the
+                    <dfn class="term">DITA map</dfn> are gathered by filtering out the excluded content.</li>
+              </ul></dd>
+          
+        </dl>
+      </div>
+      <div class="p"><span class="ph">The following additional actions are displayed in the toolbar
+          when the <span class="ph uicontrol">Show extended toolbar</span> option is selected in the
+              <span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_q4m_2zr_js" src="../img/Settings16.png">Settings</span> menu:</span><dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_hqh_4zr_js" src="../img/Topicref16.png">Insert Topic
+                Reference</span></dt>
+            <dd class="dd">Opens <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">the
+                  <span class="ph uicontrol">Insert Reference</span> dialog box</a> that allows you to
+              insert references to targets such as topics, maps, topic sets, or key
+              definitions.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_vrn_nhw_sr" src="../img/RefreshReferences16.png">Refresh References</span></dt>
+            <dd class="dd">You can use this action to manually trigger a refresh and update of all referenced
+              documents. This action is useful when the referenced documents are modified
+              externally. When they are modified and saved from <span class="ph">Oxygen XML Editor</span>, the
+                <dfn class="term">DITA map</dfn> is updated automatically.</dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_zqp_g51_zs" src="../reusables/topics/../../img/DockableFrameProperties16.png">Edit Properties</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Edit Properties</span> dialog box that allows you to
+            configure the properties of a selected node. For more details about this dialog box, see
+              <a class="xref" href="dita-edit-properties.html#dita-edit-properties">Edit Properties Dialog Box</a>.</dd>
+        
+          
+            <dt class="dt dlterm" id="dita-maps-manager__edit-attributes-dlentry"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_urr_xbs_js" src="../img/Attribute16.gif">Edit
+                Attributes</span></dt>
+            <dd class="dd">Opens a small in-place editor that allows you to edit the attributes of a selected
+              node. You can find more details about this action in the <a class="xref" href="author-attributes-view.html#author-attributes-view">Attributes View in Author Mode</a> topic.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_vnx_bcs_js" src="../img/Remove16.png">Delete</span></dt>
+            <dd class="dd">Deletes the selected node.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_jfs_dcs_js" src="../img/NodeUp16.png">Move
+                Up</span></dt>
+            <dd class="dd">Moves the selected node up within the <dfn class="term">DITA map</dfn> tree.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_hqc_fcs_js" src="../img/NodeDown16.png">Move
+                Down</span></dt>
+            <dd class="dd">Moves the selected node down within the <dfn class="term">DITA map</dfn> tree.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_o5w_fcs_js" src="../img/NodePromote16.png">Promote</span><span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e278">Alt +
+                    LeftArrow</span></span>)</span></dt>
+            <dd class="dd">Moves the selected node up one level to the level of its parent node.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_fxr_gcs_js" src="../img/NodeDemote16.png">Demote</span><span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e292">Alt +
+                    RightArrow</span></span>)</span></dt>
+            <dd class="dd">Moves the selected node down one level to the level of its child nodes.</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="dita-maps-manager__contextual_menu_of_the_dita_maps_manager"><h2 class="title sectiontitle">Contextual Menu of the DITA Maps Manager</h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Root Map</dt>
+            <dd class="dd">
+              <p class="p">The following actions can be invoked from the contextual menu on the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> of an opened <dfn class="term">DITA
+                  map</dfn> (many of them are also available in the<span class="ph uicontrol">DITA Maps</span>
+                menu):</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_k1w_ym1_5r" src="../img/OpenMapInEditor16.png">Open Map in Editor</span></dt>
+                    <dd class="dd">For complex operations that cannot be performed in the simplified
+                        <span class="ph uicontrol">DITA Maps Manager</span> view (for instance, editing a
+                      relationship table) you can open the map in the main editing area.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_xsd_zm1_5r" src="../img/OpenMapInEditorResolvedTopics16.png">Open Map in Editor with Resolved
+                      Topics</span></dt>
+                    <dd class="dd">Opens the <dfn class="term">DITA map</dfn> in the main editor area with content from
+                      all topic references, expanded in-place. Content from the referenced topics is
+                      presented as read-only and you have to use the contextual menu action <strong class="ph b">Edit
+                        Reference</strong> to open the topic for editing.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Export DITA Map</span></dt>
+                    <dd class="dd">Opens a dialog box that allows you to choose a destination for exporting the
+                        <dfn class="term">DITA map</dfn>. It also includes an <span class="ph uicontrol">Export as Zip
+                        archive</span> option that allows you to package the <dfn class="term">DITA
+                        map</dfn> as a zip archive. The result will contain all directly and
+                      indirectly referenced topics from the DITA Map.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Find Unreferenced Resources</span></dt>
+                    <dd class="dd">Allows you to search for orphaned resources that are not referenced in the
+                        <dfn class="term">DITA maps</dfn>.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ShowFusion18.png">Add to Review
+            Task</span></dt>
+          <dd class="dd">This action can be used to add the selected documents to a task in the
+              <span class="ph uicontrol">Content Fusion Tasks Manager</span> view. <strong class="ph b">Oxygen Content Fusion</strong>
+            is a flexible, intuitive collaboration platform designed to adapt to any type of
+            documentation review workflow. This functionality is available through a pre-installed
+              <a class="xref" href="content-fusion-addon.html">connector add-on</a>. To fully
+            take advantage of all of the benefits and features of <strong class="ph b">Content Fusion</strong>, your
+            organization will need an <strong class="ph b">Oxygen Content Fusion Enterprise Server</strong>. For more
+            information, see the <a class="xref" href="https://www.oxygenxml.com/content_fusion/get_started.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Content Fusion</strong> website</a>.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_lmr_vlx_pkb" src="../img/Feedback16.png">Show
+                        Feedback Comments Manager</span></dt>
+                    <dd class="dd">Opens the <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/topics/ofb-feedback-comments-manager.html" target="_blank" rel="external noopener"><span class="ph uicontrol">Feedback Comments
+                          Manager</span> view</a>. This view is for those who use <a class="xref" href="https://www.oxygenxml.com/doc/ug-feedback/index.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Feedback</strong></a> to provide a
+                      commenting component in WebHelp output. This view makes it possible to see all
+                      the comments added by users in WebHelp output directly in <span class="ph">Oxygen XML Editor</span>.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e418" src="../reusables/topics/../../img/DockableFrameProperties16.png">Edit Properties</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Edit Properties</span> dialog box that allows you to
+            configure the properties of a selected node. For more details about this dialog box, see
+              <a class="xref" href="dita-edit-properties.html#dita-edit-properties">Edit Properties Dialog Box</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Fast Create Topics</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="fast-create-topics.html#fast-create-topics"><span class="ph uicontrol">Fast Create Topics</span> dialog box</a> that allows you to
+            quickly create multiple skeleton topics at once and you can specify their hierarchical
+            structure within the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+            map</dfn></a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Append Child</span> submenu</dt>
+          <dd class="dd">Container sub-menu for a number of actions that create a map node as a child of the
+            currently selected node: <ul class="ul" id="dita-maps-manager__append-or-insert-ul">
+              <li class="li"><span class="ph uicontrol">New</span> - Opens a dialog box that allows you to configure some
+                options for <a class="xref" href="create-topic-in-map.html#create-topic-in-map">inserting a new topic</a>.</li>
+              <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_oyq_3vx_sr" src="../reusables/topics/../../img/Topicref16.png">Reference</span> - Inserts a reference to a topic file. You can find more
+                details about this action in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Reference to the currently edited file</span> - Inserts a
+                reference to the currently edited file. You can find more details about this action
+                in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Key Reference</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__keydef-target-section">insert a <em class="ph i">targeted key definition</em></a> (for example, to target a resource
+                such as an image or external link).</li>
+              <li class="li"><span class="ph uicontrol">Key Reference with Keyword</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__key-def-section">define a key and a value inside a <em class="ph i">keyword</em></a>.</li>
+              <li class="li">A set of actions that open the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref"><span class="ph uicontrol">Insert Reference</span> dialog box</a> that allow you to
+                insert various reference specializations (such as <span class="ph uicontrol">Anchor
+                  Reference</span>, <span class="ph uicontrol">Glossary Reference</span>, <span class="ph uicontrol">Map
+                  Reference</span>, <span class="ph uicontrol">Navigation Reference</span>,
+                  <span class="ph uicontrol">Topic Group</span>, <span class="ph uicontrol">Topic Head</span>,
+                  <span class="ph uicontrol">Topic Reference</span>, <span class="ph uicontrol">Topic Set</span>,
+                  <span class="ph uicontrol">Topic Set Reference</span>).</li>
+            </ul></dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_gys_4pd_cs" src="../reusables/topics/../../img/SearchReferences16.png">Search References</span></dt>
+          <dd class="dd">Searches all references to the current topic in the entire <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a>. It also reports references
+            that are defined as related links in relationship tables. If you have <a class="xref" href="dita-master-files.html">enabled Master Files support</a>, it
+            also searches for references in the DITA maps added to the Master Files folder.</dd>
+        
+                  
+                    <dt class="dt dlterm" id="dita-maps-manager__refactoring-dlentry"><span class="ph uicontrol">Refactoring</span> submenu</dt>
+                    <dd class="dd">
+                      <p class="p">The following actions are available from this submenu when invokes from a
+                        root map:</p>
+                      <div class="p">
+                        <dl class="dl">
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename resource</span></dt>
+                  <dd class="dd">Allows you to <a class="xref" href="move-rename-resource.html#move-rename-resource">change the
+                      name of a resource linked in the edited <dfn class="term">DITA map</dfn></a> and you
+                    have the option of updating all the references to the renamed DITA resource. If
+                    you have <a class="xref" href="dita-master-files.html">enabled Master Files
+                      support</a>, it also searches for references in the DITA maps added to the
+                    Master Files folder and it provides the option of updating all the references
+                    even for non-DITA resources.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Move resource</span></dt>
+                  <dd class="dd">Allows you to <a class="xref" href="move-rename-resource.html#move-rename-resource">change the
+                      location on disk of a resource linked in the edited <dfn class="term">DITA
+                      map</dfn></a> and you have the option of updating all the references to
+                    the moved DITA resources. If you have <a class="xref" href="dita-master-files.html">enabled Master Files
+                    support</a>, it also searches for references in the DITA maps added to the
+                    Master Files folder and it provides the option of updating all the references
+                    even for non-DITA resources.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename Key</span></dt>
+                  <dd class="dd">Use this operation to rename a key. It also updates all references to it. Note
+                    that it does not work on DITA 1.3 key scopes.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to Concept</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Concept
+                    topic type (for example, Topic to Concept).</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to General Task</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA General
+                    Task topic type (for example, Task to General Task). A DITA <dfn class="term">General
+                      Task</dfn> is a less restrictive alternative to the <dfn class="term">Strict Task</dfn>
+                    information type.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to Reference</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Reference
+                    topic type (for example, Topic to Reference).</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to Task</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Task topic
+                    type (for example, Topic to Task).</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to Topic</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Topic (for
+                    example, Task to Topic).</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert to Troubleshooting</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA
+                    Troubleshooting topic type (for example, Topic to Troubleshooting).</dd>
+                
+                          
+                  <dt class="dt dlterm">Other XML Refactoring Actions</dt>
+                  <dd class="dd">For your convenience, the last 5 <a class="xref" href="refactoring-xml-documents.html">XML Refactoring tool
+                      operations</a> that were finished or previewed will also appear in this
+                    submenu.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_wvw_zft_kr" src="../reusables/topics/../../img/XMLRefactoring16.png">XML Refactoring</span></dt>
+                  <dd class="dd">Opens <a class="xref" href="refactoring-xml-documents.html">the XML
+                      Refactoring tool wizard</a> that presents refactoring operations to assist
+                    you with managing the structure of your XML documents.</dd>
+                
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_pbj_xhk_qr" src="../reusables/topics/../../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+            find and replace content across multiple files.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_sq4_wpd_cs" src="../reusables/topics/../../img/CheckSpelling16.png">Check
+              Spelling in Files</span></dt>
+          <dd class="dd">Allows you to <a class="xref" href="spell-check-in-files.html#spell-check-in-files__spell-check-dita-maps">spell check multiple files</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_cwr_cqt_tr" src="../reusables/topics/../../img/Paste16.png">Paste</span></dt>
+          <dd class="dd">Allows you to paste content from the clipboard into the <dfn class="term">DITA map</dfn>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Paste Before</span></dt>
+          <dd class="dd">Pastes the content of the clipboard (only if it is a part of the <dfn class="term">DITA
+            map</dfn>) before the currently selected <dfn class="term">DITA map</dfn> node.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Paste After</span></dt>
+          <dd class="dd">Pastes the content of the clipboard (only if it is a part of the <dfn class="term">DITA
+            map</dfn>) after the currently selected <dfn class="term">DITA map</dfn> node.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_lny_prd_cs" src="../reusables/topics/../../img/ExpandAll16.png">Expand All</span></dt>
+          <dd class="dd">Allows you to expand the entire <dfn class="term">DITA map</dfn> structure.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_yl1_r3t_tr" src="../reusables/topics/../../img/CollapseAll16.png">Collapse
+              All</span></dt>
+          <dd class="dd">Allows you to collapse the entire <dfn class="term">DITA map</dfn> structure.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Editable Child Nodes</dt>
+            <dd class="dd">
+              <div class="p">The following actions are available when the contextual menu is invoked on an
+                editable child node of a <dfn class="term">DITA map</dfn> (submaps need to be opened in the
+                  <span class="ph uicontrol">DITA Maps Manager</span> to access these actions since they are in
+                a read-only state in the parent map):<div class="note note note_note"><span class="note__title">Note:</span> If multiple nodes are selected, the availability of the actions
+      depends on the nodes that are selected.</div></div>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Open</span></dt>
+          <dd class="dd">Opens the selected resource in the editor.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ShowFusion18.png">Add to Review
+            Task</span></dt>
+          <dd class="dd">This action can be used to add the selected documents to a task in the
+              <span class="ph uicontrol">Content Fusion Tasks Manager</span> view. <strong class="ph b">Oxygen Content Fusion</strong>
+            is a flexible, intuitive collaboration platform designed to adapt to any type of
+            documentation review workflow. This functionality is available through a pre-installed
+              <a class="xref" href="content-fusion-addon.html">connector add-on</a>. To fully
+            take advantage of all of the benefits and features of <strong class="ph b">Content Fusion</strong>, your
+            organization will need an <strong class="ph b">Oxygen Content Fusion Enterprise Server</strong>. For more
+            information, see the <a class="xref" href="https://www.oxygenxml.com/content_fusion/get_started.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Content Fusion</strong> website</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e418" src="../reusables/topics/../../img/DockableFrameProperties16.png">Edit Properties</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Edit Properties</span> dialog box that allows you to
+            configure the properties of a selected node. For more details about this dialog box, see
+              <a class="xref" href="dita-edit-properties.html#dita-edit-properties">Edit Properties Dialog Box</a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Fast Create Topics</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="fast-create-topics.html#fast-create-topics"><span class="ph uicontrol">Fast Create Topics</span> dialog box</a> that allows you to
+            quickly create multiple skeleton topics at once and you can specify their hierarchical
+            structure within the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+            map</dfn></a>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Append Child</span> submenu</dt>
+          <dd class="dd">Container sub-menu for a number of actions that create a map node as a child of the
+            currently selected node: <ul class="ul" id="dita-maps-manager__d1668e458">
+              <li class="li"><span class="ph uicontrol">New</span> - Opens a dialog box that allows you to configure some
+                options for <a class="xref" href="create-topic-in-map.html#create-topic-in-map">inserting a new topic</a>.</li>
+              <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e470" src="../reusables/topics/../../img/Topicref16.png">Reference</span> - Inserts a reference to a topic file. You can find more
+                details about this action in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Reference to the currently edited file</span> - Inserts a
+                reference to the currently edited file. You can find more details about this action
+                in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Key Reference</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__keydef-target-section">insert a <em class="ph i">targeted key definition</em></a> (for example, to target a resource
+                such as an image or external link).</li>
+              <li class="li"><span class="ph uicontrol">Key Reference with Keyword</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__key-def-section">define a key and a value inside a <em class="ph i">keyword</em></a>.</li>
+              <li class="li">A set of actions that open the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref"><span class="ph uicontrol">Insert Reference</span> dialog box</a> that allow you to
+                insert various reference specializations (such as <span class="ph uicontrol">Anchor
+                  Reference</span>, <span class="ph uicontrol">Glossary Reference</span>, <span class="ph uicontrol">Map
+                  Reference</span>, <span class="ph uicontrol">Navigation Reference</span>,
+                  <span class="ph uicontrol">Topic Group</span>, <span class="ph uicontrol">Topic Head</span>,
+                  <span class="ph uicontrol">Topic Reference</span>, <span class="ph uicontrol">Topic Set</span>,
+                  <span class="ph uicontrol">Topic Set Reference</span>).</li>
+            </ul></dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert Before</span> submenu</dt>
+                    <dd class="dd">Container sub-menus for a number of actions that create a map node as a
+                      sibling of the currently selected node, above the current node in the map:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">New</span> - Opens a dialog box that allows you to configure some
+                options for <a class="xref" href="create-topic-in-map.html#create-topic-in-map">inserting a new topic</a>.</li>
+              <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e470" src="../reusables/topics/../../img/Topicref16.png">Reference</span> - Inserts a reference to a topic file. You can find more
+                details about this action in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Reference to the currently edited file</span> - Inserts a
+                reference to the currently edited file. You can find more details about this action
+                in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Key Reference</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__keydef-target-section">insert a <em class="ph i">targeted key definition</em></a> (for example, to target a resource
+                such as an image or external link).</li>
+              <li class="li"><span class="ph uicontrol">Key Reference with Keyword</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__key-def-section">define a key and a value inside a <em class="ph i">keyword</em></a>.</li>
+              <li class="li">A set of actions that open the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref"><span class="ph uicontrol">Insert Reference</span> dialog box</a> that allow you to
+                insert various reference specializations (such as <span class="ph uicontrol">Anchor
+                  Reference</span>, <span class="ph uicontrol">Glossary Reference</span>, <span class="ph uicontrol">Map
+                  Reference</span>, <span class="ph uicontrol">Navigation Reference</span>,
+                  <span class="ph uicontrol">Topic Group</span>, <span class="ph uicontrol">Topic Head</span>,
+                  <span class="ph uicontrol">Topic Reference</span>, <span class="ph uicontrol">Topic Set</span>,
+                  <span class="ph uicontrol">Topic Set Reference</span>).</li>
+            </ul></dd>
+                  
+                  
+                    <dt class="dt dlterm" id="dita-maps-manager__insert-after-dlentry"><span class="ph uicontrol">Insert After</span> submenu</dt>
+                    <dd class="dd">Container sub-menus for a number of actions that create a map node as a
+                      sibling of the currently selected node, below the current node in the map:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">New</span> - Opens a dialog box that allows you to configure some
+                options for <a class="xref" href="create-topic-in-map.html#create-topic-in-map">inserting a new topic</a>.</li>
+              <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e470" src="../reusables/topics/../../img/Topicref16.png">Reference</span> - Inserts a reference to a topic file. You can find more
+                details about this action in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Reference to the currently edited file</span> - Inserts a
+                reference to the currently edited file. You can find more details about this action
+                in the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref">Inserting References</a> topic.</li>
+              <li class="li"><span class="ph uicontrol">Key Reference</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__keydef-target-section">insert a <em class="ph i">targeted key definition</em></a> (for example, to target a resource
+                such as an image or external link).</li>
+              <li class="li"><span class="ph uicontrol">Key Reference with Keyword</span> - Opens an <span class="ph uicontrol">Insert Key
+                  Definition</span> dialog box that allows you to <a class="xref" href="insert-define-keys.html#insert-define-keys__key-def-section">define a key and a value inside a <em class="ph i">keyword</em></a>.</li>
+              <li class="li">A set of actions that open the <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref"><span class="ph uicontrol">Insert Reference</span> dialog box</a> that allow you to
+                insert various reference specializations (such as <span class="ph uicontrol">Anchor
+                  Reference</span>, <span class="ph uicontrol">Glossary Reference</span>, <span class="ph uicontrol">Map
+                  Reference</span>, <span class="ph uicontrol">Navigation Reference</span>,
+                  <span class="ph uicontrol">Topic Group</span>, <span class="ph uicontrol">Topic Head</span>,
+                  <span class="ph uicontrol">Topic Reference</span>, <span class="ph uicontrol">Topic Set</span>,
+                  <span class="ph uicontrol">Topic Set Reference</span>).</li>
+            </ul></dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e21" src="../reusables/topics/../../img/SearchReferences16.png">Search References</span></dt>
+          <dd class="dd">Searches all references to the current topic in the entire <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a>. It also reports references
+            that are defined as related links in relationship tables. If you have <a class="xref" href="dita-master-files.html">enabled Master Files support</a>, it
+            also searches for references in the DITA maps added to the Master Files folder.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Refactoring</span> submenu</dt>
+          <dd class="dd">
+            <p class="p">The following actions are available from this submenu:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert Markdown to DITA Topic</span> (Available for Markdown
+                    documents)</dt>
+                  <dd class="dd">Opens a dialog box that allows you to configure options for <a class="xref" href="markdown-dita.html#markdown-dita__convert-md-dita">converting the Markdown document into a DITA topic</a>.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__rename-resource"><span class="ph uicontrol">Rename resource</span></dt>
+                  <dd class="dd">Allows you to <a class="xref" href="move-rename-resource.html#move-rename-resource">change the
+                      name of a resource linked in the edited <dfn class="term">DITA map</dfn></a> and you
+                    have the option of updating all the references to the renamed DITA resource. If
+                    you have <a class="xref" href="dita-master-files.html">enabled Master Files
+                      support</a>, it also searches for references in the DITA maps added to the
+                    Master Files folder and it provides the option of updating all the references
+                    even for non-DITA resources.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__move-resource"><span class="ph uicontrol">Move resource</span></dt>
+                  <dd class="dd">Allows you to <a class="xref" href="move-rename-resource.html#move-rename-resource">change the
+                      location on disk of a resource linked in the edited <dfn class="term">DITA
+                      map</dfn></a> and you have the option of updating all the references to
+                    the moved DITA resources. If you have <a class="xref" href="dita-master-files.html">enabled Master Files
+                    support</a>, it also searches for references in the DITA maps added to the
+                    Master Files folder and it provides the option of updating all the references
+                    even for non-DITA resources.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__extract-dita-map"><span class="ph uicontrol">Extract to New DITA Map</span></dt>
+                  <dd class="dd">Use this operation to extract editable topics into a new <dfn class="term">DITA
+                    map</dfn>. The operation will open a map creation dialog box where you can
+                    select the type of map and configure the title or file name. Click
+                      <span class="ph uicontrol">Create</span> to complete the operation and a new DITA map
+                    will be inserted at the location where the action was invoked with the selected
+                    topic references moved into the new map.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__rename-key"><span class="ph uicontrol">Rename Key</span></dt>
+                  <dd class="dd">Use this operation to rename a key. It also updates all references to it. Note
+                    that it does not work on DITA 1.3 key scopes.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__nested-topics"><span class="ph uicontrol">Convert Nested Topics to New Topics</span><span class="ph"> (Available from the
+                      contextual menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                          Maps Manager</span></a>)</span></dt>
+                  <dd class="dd">Use this operation on topics that contain nested
+                      <code class="keyword markupname xmlelement">&lt;topic&gt;</code> elements to convert each nested topic to a new
+                      topic.<span class="ph"> Also, the new
+                      topics are added in the <span class="ph uicontrol">DITA Maps Manager</span> as the first
+                      child topics of the original topic.</span></dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__sections-topics"><span class="ph uicontrol">Convert Sections to New Topics</span><span class="ph"> (Available from the
+                      contextual menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                          Maps Manager</span></a>)</span></dt>
+                  <dd class="dd">Use this operation on topics that contain multiple sections to convert each
+                    section to a new topic.<span class="ph">
+                      Also, the new topics are added in the <span class="ph uicontrol">DITA Maps Manager</span>
+                      as the first child topics of the original topic.</span></dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-concept"><span class="ph uicontrol">Convert to Concept</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Concept
+                    topic type (for example, Topic to Concept).</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-general"><span class="ph uicontrol">Convert to General Task</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA General
+                    Task topic type (for example, Task to General Task). A DITA <dfn class="term">General
+                      Task</dfn> is a less restrictive alternative to the <dfn class="term">Strict Task</dfn>
+                    information type.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-reference"><span class="ph uicontrol">Convert to Reference</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Reference
+                    topic type (for example, Topic to Reference).</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-task"><span class="ph uicontrol">Convert to Task</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Task topic
+                    type (for example, Topic to Task).</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-topic"><span class="ph uicontrol">Convert to Topic</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Topic (for
+                    example, Task to Topic).</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__convert-to-trouble"><span class="ph uicontrol">Convert to Troubleshooting</span></dt>
+                  <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA
+                    Troubleshooting topic type (for example, Topic to Troubleshooting).</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__other-xml-refactoring">Other XML Refactoring Actions</dt>
+                  <dd class="dd">For your convenience, the last 5 <a class="xref" href="refactoring-xml-documents.html">XML Refactoring tool
+                      operations</a> that were finished or previewed will also appear in this
+                    submenu.</dd>
+                
+                
+                  <dt class="dt dlterm" id="dita-maps-manager__xml-refactoring"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e256" src="../reusables/topics/../../img/XMLRefactoring16.png">XML Refactoring</span></dt>
+                  <dd class="dd">Opens <a class="xref" href="refactoring-xml-documents.html">the XML
+                      Refactoring tool wizard</a> that presents refactoring operations to assist
+                    you with managing the structure of your XML documents.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e274" src="../reusables/topics/../../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+            find and replace content across multiple files.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e290" src="../reusables/topics/../../img/CheckSpelling16.png">Check
+              Spelling in Files</span></dt>
+          <dd class="dd">Allows you to <a class="xref" href="spell-check-in-files.html#spell-check-in-files__spell-check-dita-maps">spell check multiple files</a>.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_brg_3z1_5r" src="../img/Cut16.png">Cut</span>
+                    </dt>
+                    <dd class="dd">Deletes the currently selected node and copies it to the clipboard.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_mzs_p3h_ps" src="../reusables/topics/../../img/Copy16.png">Copy</span></dt>
+          <dd class="dd">Copies the currently selected node to the clipboard.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e316" src="../reusables/topics/../../img/Paste16.png">Paste</span></dt>
+          <dd class="dd">Allows you to paste content from the clipboard into the <dfn class="term">DITA map</dfn>.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Paste Before</span></dt>
+          <dd class="dd">Pastes the content of the clipboard (only if it is a part of the <dfn class="term">DITA
+            map</dfn>) before the currently selected <dfn class="term">DITA map</dfn> node.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Paste After</span></dt>
+          <dd class="dd">Pastes the content of the clipboard (only if it is a part of the <dfn class="term">DITA
+            map</dfn>) after the currently selected <dfn class="term">DITA map</dfn> node.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_arl_jpd_cs" src="../img/Remove16.png">Delete</span></dt>
+                    <dd class="dd">Deletes the currently selected node from the <dfn class="term">DITA map</dfn>.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_jrq_mph_5r" src="../reusables/topics/../../img/TrashIcon16.gif">Remove from
+              Disk</span></dt>
+          <dd class="dd">This action can be used to remove the selected resource(s) from disk. Selecting this
+            action will open a confirmation dialog box where you can also choose to remove the
+            descendants by selecting the <span class="ph uicontrol">Also remove all descendants</span> option.
+            If you proceed, a search for references is triggered. If multiple references are
+            detected for any of the selected resources, you will have the option to review them
+            since this would lead to broken links. If you have <a class="xref" href="dita-master-files.html">enabled Master Files support</a>, it
+            also searches for references in the DITA maps added to the Master Files folder.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Organize</span></dt>
+                    <dd class="dd">Allows you to organize the <dfn class="term">DITA map</dfn> with the several submenu
+                        actions:<ul class="ul" id="dita-maps-manager__ul_ujg_112_vq">
+                        <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_hns_3q1_5r" src="../img/NodeUp16.png">Move
+                            Up</span> - Moves the selected node up within the <dfn class="term">DITA
+                            map</dfn> tree.</li>
+                        <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_evb_jq1_5r" src="../img/NodeDown16.png">Move Down</span> - Moves the selected node down within the
+                            <dfn class="term">DITA map</dfn> tree.</li>
+                        <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_ljl_jq1_5r" src="../img/NodePromote16.png">Promote</span><span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e278">Alt +
+                    LeftArrow</span></span>)</span> - Moves
+                          the selected node up one level to the level of its parent node.</li>
+                        <li class="li"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_ylv_jq1_5r" src="../img/NodeDemote16.png">Demote</span><span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="dita-maps-manager__d458e292">Alt +
+                    RightArrow</span></span>)</span> - Moves
+                          the selected node down one level to the level of its child nodes.</li>
+                      </ul></dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e379" src="../reusables/topics/../../img/ExpandAll16.png">Expand All</span></dt>
+          <dd class="dd">Allows you to expand the entire <dfn class="term">DITA map</dfn> structure.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__d1668e393" src="../reusables/topics/../../img/CollapseAll16.png">Collapse
+              All</span></dt>
+          <dd class="dd">Allows you to collapse the entire <dfn class="term">DITA map</dfn> structure.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Other Nodes</dt>
+            <dd class="dd">
+              <p class="p">The following additional actions are available when the contextual menu is invoked
+                from other nodes, such as a <dfn class="term">submap</dfn> node or a relationship table:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Open Map in Editor</span> (available when invoking on a
+                      submap)</dt>
+                    <dd class="dd">Opens the currently selected <dfn class="term">DITA map</dfn> in the editor.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Open parent DITA map</span> (available when invoking on a
+                      read-only topic reference or a submap reference)</dt>
+                    <dd class="dd">Opens the parent <dfn class="term">DITA map</dfn> of the currently selected reference
+                      in the <span class="ph uicontrol">DITA Maps Manager</span>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-maps-manager__image_qms_vyb_qs" src="../img/Attribute16.gif">Edit
+                        Attributes</span> (only available for relationship table nodes)</dt>
+                    <dd class="dd">Opens a small in-place editor that allows you to edit the attributes of a
+                      selected node. You can find more details about this action in the <a class="xref" href="author-attributes-view.html#author-attributes-view">Attributes View in Author Mode</a> topic.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Edit Profiling Attributes</span> (only available for
+                      relationship table nodes)</dt>
+                    <dd class="dd">Allows you to change the <a class="xref" href="profiling-conditional-text.html#profiling-conditional-text">profiling
+                        attributes</a> defined on the selected node.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <p class="p">For more information about the <span class="ph uicontrol">DITA Maps Manager</span> view and many of its
+      features, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/ozFZz6YZMCY" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-documents.html">Working with DITA Maps</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-pathfinder-documents.html">Working with DITA Maps</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/creating-dita-map.html">Creating a Map</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-map-validate.html">DITA Map Validation and Completeness Check</a></li><li class="linklist"><a class="link" href="author-dita-map-extensions.html">DITA Map Author Mode Actions</a></li><li class="linklist"><a class="link" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files">Find/Replace in Multiple Files</a></li></ul></div></nav>
+</article></main></body></html>

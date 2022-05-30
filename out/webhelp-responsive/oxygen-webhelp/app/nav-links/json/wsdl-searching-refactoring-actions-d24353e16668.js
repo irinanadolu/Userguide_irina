@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Searching and Refactoring Operations Scope in WSDL Documents","href":"topics\/wsdl-search-refactor-operation-scope.html","attributes":{"data-id":"wsdl-search-refactor-operation-scope"},"menu":{"hasChildren":false},"tocID":"wsdl-search-refactor-operation-scope-d24353e16687","topics":[]}]});

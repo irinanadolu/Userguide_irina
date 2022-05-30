@@ -1,0 +1,137 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Add-ons,Terminology checker,Custom grammar checker"><meta name="keywords" content="Add-ons, Terminology checker, Custom grammar checker"><meta name="DC.relation" scheme="URI" content="../topics/add-ons.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon-transformer-addon.html"><meta name="DC.relation" scheme="URI" content="../topics/translator-helper-addon.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="terminology-checker-addon"><title>Terminology Checker Add-on</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="terminology-checker-addon"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Terminology Checker Add-on</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> offers an add-on that provides  support for checking terminology. Once
+      the add-on is installed, you can create a terminology file with a set of rules for each term
+      (or sequence of characters) you want flagged. After referencing the custom file, <span class="ph">Oxygen XML Editor</span> will automatically highlight matched terms in the <strong class="ph b">Author</strong> visual
+      editing mode and offer some contextual menu actions.</p>
+    <p class="p">To add this terminology checking functionality to <span class="ph">Oxygen XML Editor</span>, follow this
+      procedure:</p>
+    <ol class="ol" id="terminology-checker-addon__ol_wjr_sjc_mnb">
+      <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Install new add-ons</span></span> to open an add-on selection dialog box. </li>
+      <li class="li">Enter or paste <strong class="ph b">https://www.oxygenxml.com/InstData/Addons/default/updateSite.xml</strong> in
+        the <span class="ph uicontrol">Show add-ons from</span> field or select it from the drop-down
+        menu.</li>
+      <li class="li">Select the <strong class="ph b">Terminology Checker </strong> add-on and click <span class="ph uicontrol">Next</span>. </li>
+      <li class="li">Select the <strong class="ph b">I accept all terms of the end-user license agreement</strong> option and click
+          <span class="ph uicontrol">Finish</span>. </li>
+      <li class="li">Restart the application.</li>
+    </ol>
+    <section class="section" id="terminology-checker-addon__section_ym2_vjc_mnb"><h2 class="title sectiontitle">Creating Custom Rules for the Terminology Checker</h2>
+      
+      <p class="p">To create your own custom rules for the terminology checker, follow this procedure:</p>
+      <div class="p">
+        <ol class="ol">
+          <li class="li">Create a terminology file. There is a template available to help you get started in
+            the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New
+                Document</span> wizard</a>. Click the <span class="ph uicontrol"><img class="image" id="terminology-checker-addon__image_hy1_zdp_sr" src="../img/New16.png">New</span> button on the toolbar or select <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span> and search for the <em class="ph i">Terminology File</em> template. Here is an example
+            of the structure for this type of
+                file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;incorrect-terms&gt;</strong>
+    <strong class="hl-tag">&lt;incorrect-term</strong> <span class="hl-attribute">ignorecase</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;match&gt;</strong>Oxygen<strong class="hl-tag">&lt;/match&gt;</strong>
+        <strong class="hl-tag">&lt;suggestion&gt;</strong><strong class="hl-tag">&lt;/suggestion&gt;</strong>
+        <strong class="hl-tag">&lt;message&gt;</strong>Product name should be inside a tag.<strong class="hl-tag">&lt;/message&gt;</strong>
+    <strong class="hl-tag">&lt;/incorrect-term&gt;</strong>
+<strong class="hl-tag">&lt;/incorrect-terms&gt;</strong></pre><div class="p"><strong class="ph b">Notes:</strong><ul class="ul" id="terminology-checker-addon__ul_ppr_ybj_dmb">
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;incorrect-term&gt;</code> element must include a
+                    <code class="keyword markupname xmlelement">&lt;match&gt;</code> element.</li>
+                <li class="li">On the <code class="keyword markupname xmlelement">&lt;match&gt;</code> element, you can specify the
+                    <code class="keyword markupname xmlatt">@type</code> attribute with the values <code class="ph codeph">character</code>,
+                    <code class="ph codeph">whole-words</code>, or <code class="ph codeph">regular-expression</code>. The
+                  default value is <code class="ph codeph">whole-word</code>, except when the matched term
+                  contains Japanese, Chinese, or Korean characters because Asian languages do not
+                  usually use spaces to separate words.
+                  Example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;incorrect-term&gt;</strong>
+        <strong class="hl-tag">&lt;match</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"character"</span><strong class="hl-tag">&gt;</strong>ing<strong class="hl-tag">&lt;/match&gt;</strong>
+        <strong class="hl-tag">&lt;message&gt;</strong>Progresive tense should not be allowed<strong class="hl-tag">&lt;/message&gt;</strong>
+    <strong class="hl-tag">&lt;/incorrect-term&gt;</strong></pre></li>
+                <li class="li">Each <code class="keyword markupname xmlelement">&lt;match&gt;</code> element has a <code class="keyword markupname xmlatt">@severity</code>
+                  attribute that can be set to one of the values <code class="ph codeph">info</code>,
+                    <code class="ph codeph">warning</code>, or <code class="ph codeph">error</code>.
+                  Example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;incorrect-term</strong> <span class="hl-attribute">severity</span>=<span class="hl-value">"error"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;match&gt;</strong>he<strong class="hl-tag">&lt;/match&gt;</strong>
+        <strong class="hl-tag">&lt;message&gt;</strong>Pronounts should be avoided.<strong class="hl-tag">&lt;/message&gt;</strong>
+    <strong class="hl-tag">&lt;/incorrect-term&gt;</strong></pre></li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;suggestion&gt;</code> element can be left blank or there can
+                  be one or more of them inside the <code class="keyword markupname xmlelement">&lt;incorrect-term&gt;</code> element.
+                  It supports regular expressions grouping.</li>
+                <li class="li">If you want to replace the match with an XML fragment, you can set the
+                    <code class="keyword markupname xmlatt">@format</code> attribute on the <code class="keyword markupname xmlelement">&lt;suggestion&gt;</code>
+                  element with the value <code class="ph codeph">xml</code>. For
+                  example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">   <strong class="hl-tag">&lt;incorrect-term</strong> <span class="hl-attribute">ignorecase</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;match</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"whole-word"</span><strong class="hl-tag">&gt;</strong>Oxygen XML Editor<strong class="hl-tag">&lt;/match&gt;</strong>
+        <strong class="hl-tag">&lt;suggestion</strong> <span class="hl-attribute">format</span>=<span class="hl-value">"xml"</span><strong class="hl-tag">&gt;</strong>&amp;lt;ph keyref=&amp;quot;oxygen&amp;quot;/&gt;<strong class="hl-tag">&lt;/suggestion&gt;</strong>
+        <strong class="hl-tag">&lt;message&gt;</strong>Replace all occurrences of product with key reference<strong class="hl-tag">&lt;/message&gt;</strong>
+    <strong class="hl-tag">&lt;/incorrect-term&gt;</strong></pre></li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;message&gt;</code> element is optional. If present, its
+                  content is displayed in a tooltip when you hover over a highlight. It supports
+                  regular expressions grouping.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@ignorecase</code> attribute specifies whether or not the match is
+                  case-sensitive.</li>
+              </ul></div></li>
+          <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Plugins</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Terminology Checker</span></span> and in the <span class="ph uicontrol">Terminology Folder</span> field, specify the
+            folder where your terminology file is located.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> several times to apply the changes and close the
+            preferences dialog box.</li>
+        </ol>
+      </div>
+      <div class="p"><strong class="ph b">Result:</strong> If any of the terms (or sequence of characters) that are defined in the
+        terminology file are detected in any open file, <span class="ph">Oxygen XML Editor</span> highlights the
+        matches in the <span class="ph uicontrol">Author</span> visual editing mode.<div class="note note note_note"><span class="note__title">Note:</span> If you have a folder
+          named <span class="ph filepath">oxygen-term-checker</span> in the current project that is open in the
+            <span class="ph uicontrol">Project</span> view, all the files in that folder will also be loaded by
+          the terminology checker.</div></div>
+    </section>
+    <section class="section" id="terminology-checker-addon__section_ov1_kjc_mnb"><h2 class="title sectiontitle">Using Vale Rules with the Terminology Checker</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Terminology Checker</span> has partial support for applying custom
+          <em class="ph i">Vale</em> rules.</p>
+      <p class="p">Supported <a class="xref" href="https://docs.errata.ai/vale/scoping" target="_blank" rel="external noopener">Vale scopes</a>: <span class="ph uicontrol">heading</span>, <span class="ph uicontrol">table.header</span>,
+          <span class="ph uicontrol">table.cell</span>, <span class="ph uicontrol">list</span>,
+          <span class="ph uicontrol">paragraph</span>,
+          <span class="ph uicontrol">code</span>,<span class="ph uicontrol">strong</span>,<span class="ph uicontrol">emphasis</span>.</p>
+      <p class="p">Supported <a class="xref" href="https://docs.errata.ai/vale/styles" target="_blank" rel="external noopener">Vale extension points</a>: <span class="ph uicontrol">Existence</span>,
+          <span class="ph uicontrol">Substitution</span>, <span class="ph uicontrol">Occurrence</span>.</p>
+      <div class="p"><strong class="ph b">Result:</strong> If any of the terms (or sequence of characters) that are defined in the
+        terminology file are detected in any open file, <span class="ph">Oxygen XML Editor</span> highlights the
+        matches in the <span class="ph uicontrol">Author</span> visual editing mode.<div class="note note note_note"><span class="note__title">Note:</span> If you have a folder
+          named <span class="ph filepath">oxygen-term-checker</span> in the current project that is open in the
+            <span class="ph uicontrol">Project</span> view, all the files in that folder will also be loaded by
+          the terminology checker. As an example, the <span class="ph">Oxygen XML Editor</span> user guide has a folder
+          with some of the <a class="xref" href="https://github.com/errata-ai/Microsoft/tree/master/Microsoft" target="_blank" rel="external noopener">Microsoft style guide rules</a>: <a class="xref" href="https://github.com/oxygenxml/userguide/tree/dev/DITA/oxygen-term-checker" target="_blank" rel="external noopener">https://github.com/oxygenxml/userguide/tree/dev/DITA/oxygen-term-checker</a>. Once the user guide project is opened in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph uicontrol">Project</span> view, the add-on will start using those rules to check the
+          content.</div></div>
+    </section>
+    <section class="section" id="terminology-checker-addon__section_ql2_bkc_mnb"><h2 class="title sectiontitle">Working with the Terminology Checker</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Terminology Helper</span> side view shows all problems found in the
+        document. You can right-click each problem to apply possible fixes or to find out more
+        details about it. The tooltip for each problem displays a custom message and more
+        information (e.g. for <em class="ph i">Vale</em> rules, it also displays the name of the Vale rule file
+        that defines the rule). You can filter problems based on their severity, match, and message
+        and the toolbar has actions to navigate between problems or to open the
+          <span class="ph uicontrol">Terminology Checker</span> preferences page.</p>
+      <div class="p">You can also right-click problems highlighted in the <span class="ph uicontrol">Author</span> visual
+        editing mode to access the following contextual menu actions:<ul class="ul" id="terminology-checker-addon__ul_k4z_b2j_dmb">
+          <li class="li"><strong class="ph b">Replace with "…"</strong> - Replaces the currently highlighted match with the content
+            inside the <code class="keyword markupname xmlelement">&lt;suggestion&gt;</code> element.</li>
+          <li class="li"><strong class="ph b">Replace all with "…"</strong> - Replaces all instances of the highlighted match found in
+            the current document with the content inside the <code class="keyword markupname xmlelement">&lt;suggestion&gt;</code>
+            element.</li>
+          <li class="li"><strong class="ph b">Correct all matching highlights</strong> - Replaces all highlighted matches (all matched
+            terms) within the document with the content inside the first
+              <code class="keyword markupname xmlelement">&lt;suggestion&gt;</code> element from the terminology file.</li>
+        </ul></div>
+      <p class="p">The terminology checking can be disabled by clicking the <span class="ph uicontrol"><img class="image" id="terminology-checker-addon__image_uxb_xtv_1nb" src="../img/ShowTerminology18.png">Show/Hide Terminology
+          Highlights</span> toolbar button. The checker automatically skips space-preserve
+        elements such as codeblocks.</p>
+      <p class="p">In the <span class="ph">Oxygen XML Editor</span>
+        <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Plugins</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Terminology Checker</span></span> page, you can define the highlight colors to be used for each issue depending
+        on its severity. You can also reference a folder that contains the terminology rules. This
+        folder can contain other folders with terminology files or just the terminology files.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/add-ons.html" title="Information about extending Oxygen XML Editor with add-ons">Add-ons</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/saxon-transformer-addon.html">Saxon XSLT and XQuery Transformer Add-on</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/translator-helper-addon.html">Translator Helper Add-on</a></div></div></nav></article></main></body></html>

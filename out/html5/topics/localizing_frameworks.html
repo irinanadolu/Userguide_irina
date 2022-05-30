@@ -1,0 +1,100 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Localizing frameworks"><meta name="keywords" content="Localizing frameworks"><meta name="DC.relation" scheme="URI" content="../topics/dg-complex-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/selecting-combining-multiple-css-styles.html"><meta name="DC.relation" scheme="URI" content="../topics/author-document-type-extension-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="localizing_frameworks"><title>Localizing Frameworks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="localizing_frameworks"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Localizing Frameworks</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> supports <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> localization (translating <dfn class="term">framework</dfn> actions,
+      buttons, and menu entries to various languages). This lets you develop and distribute a
+        <dfn class="term">framework</dfn> to users that speak other languages without changing the distributed
+        <dfn class="term">framework</dfn>. <span class="ph">Changing the language used in
+          <span class="ph">Oxygen XML Editor</span> in the Global preferences page is enough to set the right language
+        for each <dfn class="term">framework</dfn>.</span></p>
+    <p class="p">To localize the content of a <dfn class="term">framework</dfn>, follow this procedure:</p>
+    <div class="p">
+      <ol class="ol" id="localizing_frameworks__ol_xxx_hdy_4lb">
+        <li class="li">
+          <p class="p">Create a <span class="ph filepath">translation.xml</span> file that contains all the translation
+            (key, value) mappings. The <span class="ph filepath">translation.xml</span> has the following
+            format:</p>
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;translation&gt;</strong>
+    <strong class="hl-tag">&lt;languageList&gt;</strong>
+        <strong class="hl-tag">&lt;language</strong> <span class="hl-attribute">description</span>=<span class="hl-value">"English"</span> <span class="hl-attribute">lang</span>=<span class="hl-value">"en_US"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;language</strong> <span class="hl-attribute">description</span>=<span class="hl-value">"German"</span> <span class="hl-attribute">lang</span>=<span class="hl-value">"de_DE"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;language</strong> <span class="hl-attribute">description</span>=<span class="hl-value">"French"</span> <span class="hl-attribute">lang</span>=<span class="hl-value">"fr_FR"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/languageList&gt;</strong>
+    <strong class="hl-tag">&lt;key</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"list"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;comment&gt;</strong>List menu item name.<strong class="hl-tag">&lt;/comment&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"en_US"</span><strong class="hl-tag">&gt;</strong>List<strong class="hl-tag">&lt;/val&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"de_DE"</span><strong class="hl-tag">&gt;</strong>Liste<strong class="hl-tag">&lt;/val&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"fr_FR"</span><strong class="hl-tag">&gt;</strong>Liste<strong class="hl-tag">&lt;/val&gt;</strong>
+    <strong class="hl-tag">&lt;/key&gt;</strong>  
+......................
+<strong class="hl-tag">&lt;/translation&gt;</strong> </pre>
+          </div>
+          <p class="p"><span class="ph">Oxygen XML Editor</span> matches the GUI language with the language set in the
+              <span class="ph filepath">translation.xml</span> file. If this language is not found, the first
+            available language declared in the <code class="keyword markupname xmlelement">&lt;languagelist&gt;</code> tag for the
+            corresponding <dfn class="term">framework</dfn> is used.</p>
+        </li>
+        <li class="li">The <span class="ph filepath">translation.xml</span> file must be stored in a directory named <span class="ph filepath">i18n</span> located in the framework folder. You also need to add a reference to the <span class="ph filepath">i18n</span> directory in the <a class="xref" href="document-type-classpath-tab.html"><span class="ph uicontrol">Classpath</span> list corresponding to the edited document type</a>.</li>
+        <li class="li">
+          <div class="p">After you create this file, you can use the keys defined in it to customize the name
+            and description of the following:<ul class="ul" id="localizing_frameworks__ul_jsf_mdy_4lb">
+              <li class="li">Actions</li>
+              <li class="li">Menu entries</li>
+              <li class="li">Contextual menus</li>
+              <li class="li">Toolbars</li>
+              <li class="li">Static CSS content</li>
+            </ul></div>
+          <p class="p">For example, if you want to localize the bold action, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <span class="ph uicontrol">Document Type Association</span>. Use the <span class="ph uicontrol">New</span>
+            or <span class="ph uicontrol">Edit</span> button to open the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                type</span> configuration dialog box</a>, go to <span class="ph menucascade"><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Actions</span></span>, and rename the bold action to <code class="ph codeph">${i18n(translation_key)}</code>.
+            Actions with a name format other than <code class="ph codeph">${i18n(translation_key)}</code> are not
+            localized. <em class="ph i">Translation_key</em> corresponds to the key from the
+              <span class="ph filepath">translation.xml</span> file.</p>
+        </li>
+        <li class="li">
+          <p class="p">Next, open the <span class="ph filepath">translation.xml</span> file and edit the translation entry
+            if it exists or create one if it does not exist. This is an example of an entry in the
+            translation.xml file:</p>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;key</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"translation_key"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;comment&gt;</strong>Bold action name.<strong class="hl-tag">&lt;/comment&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"en_US"</span><strong class="hl-tag">&gt;</strong>Bold<strong class="hl-tag">&lt;/val&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"de_DE"</span><strong class="hl-tag">&gt;</strong>Bold<strong class="hl-tag">&lt;/val&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"fr_FR"</span><strong class="hl-tag">&gt;</strong>Bold<strong class="hl-tag">&lt;/val&gt;</strong>
+    <strong class="hl-tag">&lt;/key&gt;</strong></pre>
+          <p class="p">To use a description from the <span class="ph filepath">translation.xml</span> file in the Java
+            code used by your custom <dfn class="term">framework</dfn>, use the new <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorAccess.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorAccess.getAuthorResourceBundle()</em></a>
+            API method to request the associated value for a certain key. This allows all the dialog
+            boxes that you present from your custom operations to have labels translated in multiple
+            languages.</p>
+          <div class="p">You can also reference a key directly in the CSS
+            content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title:before{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">"${i18n(title.key)} : "</span>;
+}</pre></div>
+          <div class="note note note_note"><span class="note__title">Note:</span> You can enter any language you want in the <code class="keyword markupname xmlelement">&lt;languagelist&gt;</code> tag
+            and any number of keys.</div>
+        </li>
+      </ol>
+    </div>
+    <div class="note note note_note"><span class="note__title">DocBook Example:</span> 
+      <p class="p">The <span class="ph filepath">translation.xml</span> file for the DocBook <dfn class="term">framework</dfn> is
+        located here:<span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/docbook/i18n/translation.xml</span>. In the
+          <span class="ph uicontrol">Classpath</span> list corresponding to the DocBook document type, the
+        following entry was added: <code class="ph codeph">${framework}/i18n/</code>.</p>
+      <p class="p">To see how the DocBook actions are defined to use these keys for their name and
+        description, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go
+        to <span class="ph menucascade"><span class="ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Actions</span></span>. If you look in the Java class
+          <em class="ph i">ro.sync.ecss.extensions.docbook.table.SADocbookTableCustomizerDialog</em> available in
+        the <em class="ph i">oxygen-sample-framework</em> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+          SDK</a> Maven archetype, you can see how the new
+          <em class="ph i">ro.sync.ecss.extensions.api.AuthorResourceBundle</em> API is used to retrieve localized
+        descriptions for various keys.</p>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-complex-customization-tutorial.html">Advanced Framework Customization</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/selecting-combining-multiple-css-styles.html">Configuring and Managing Multiple CSS Styles for a Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-document-type-extension-sharing.html">Sharing a Custom Framework</a></div></div></nav></article></main></body></html>

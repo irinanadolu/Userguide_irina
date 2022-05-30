@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron schemas,Content completion"><meta name="keywords" content="Schematron schemas, Content completion"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-validation.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-syntax-highlight.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="schematron-content-completion"><title>Content Completion in Schematron Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="schematron-content-completion"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Content Completion in Schematron Documents</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> helps you edit a Schematron schema through the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a>, offering proposals that are valid at the cursor position. It can be
+      manually activated with the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span>
+      shortcut.</p>
+    <p class="p">When you edit the value of an attribute that refers a component, the proposed components are
+      collected from the entire schema hierarchy. For example, if the editing context is
+        <code class="ph codeph">phase/active/@pattern</code>, the <dfn class="term">Content Completion Assistant</dfn>
+      proposes all the defined patterns.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> For Schematron resources, the <dfn class="term">Content Completion Assistant</dfn> collects its
+      components starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master
+        files</dfn></a>. The <dfn class="term">master files</dfn> can be defined in the project or in the
+      associated validation scenario. For further details about the <dfn class="term">Master Files</dfn>
+      support go to <a class="xref" href="defining_master_files.html#defining_master_files">Defining Master
+        Files at Project Level</a>. </div>
+    <p class="p">If the editing context is an attribute value that is an XPath expression (such as
+        <code class="ph codeph">assert/@test</code> or <code class="ph codeph">report/@test</code>), the <dfn class="term">Content
+        Completion Assistant</dfn> offers the names of XPath functions, the XPath axes, and
+      user-defined variables.</p>
+    <p class="p">The <dfn class="term">Content Completion Assistant</dfn> displays XSLT 1.0 functions and optionally XSLT
+      2.0 / 3.0 functions in the attributes <em class="ph i">path</em>, <em class="ph i">select</em>, <em class="ph i">context</em>,
+        <em class="ph i">subject</em>, <em class="ph i">test</em> depending on <a class="xref" href="schematron-preferences-page.html">the
+        Schematron options</a> that are set in Preferences pages. If the Saxon <span class="ph">6.5.5</span> namespace (<code class="ph codeph">xmlns:saxon="http://icl.com/saxon"</code>)
+      or the Saxon <span class="ph">9.9.1.5</span> namespace is declared in the Schematron schema
+        (<code class="ph codeph">xmlns:saxon="http://saxon.sf.net/"</code>) the content completion also displays
+      the XSLT Saxon extension functions as in the following figure:</p>
+    <div class="p">
+      <figure class="fig fignone" id="schematron-content-completion__figure-content-completion-schematron-ext-functions-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>XSLT Extension Functions in Schematron Schema Content Completion</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_sch_ext_fct.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <dfn class="term">Content Completion Assistant</dfn> also includes <a class="xref" href="code-templates.html">code templates that can be used to quickly insert code fragments</a> into Schematron
+      documents.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron.html">Editing Schematron Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/schematron-validation.html">Validating Schematron Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/schematron-syntax-highlight.html">Syntax Highlighting in Schematron</a></div></div></nav></article></main></body></html>

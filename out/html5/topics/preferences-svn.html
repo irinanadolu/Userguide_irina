@@ -1,0 +1,80 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,SVN,SVN preferences"><meta name="keywords" content="Preferences, SVN, SVN preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/download-database-drivers.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-diff.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-messages.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-svn"><title>SVN Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-svn"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">SVN Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure the options for the SVN client tool, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">SVN</span>. Some other preferences for the embedded SVN client tool can be
+      set in the global files called <span class="ph filepath">config</span> and <span class="ph filepath">servers</span>.
+      These files contain parameters that act as defaults applied to all the SVN client tools that
+      are used by the same user on their computer login account. To open these files for editing,
+      launch the embedded SVN client tool (<span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="preferences-svn__image_tsk_4k3_ls" src="../img/SyncroSVNClient16.png">SVN
+          Client</span></span>) and select <span class="ph menucascade"><span class="ph uicontrol">Global Runtime Configuration</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit 'config' file</span></span> or <span class="ph menucascade"><span class="ph uicontrol">Global Runtime Configuration</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit 'servers' file</span></span> from the SVN client <span class="ph uicontrol">Options</span> menu.</p>
+    <div class="p">
+      <figure class="fig fignone" id="preferences-svn__figure-svn-preferences"><figcaption><span class="fig--title-label">Figure 1. </span>SVN Preferences Panel</figcaption>
+        
+        <img class="image" src="../img/sa_svn_options.png">
+      </figure>
+    </div>
+    <div class="p">The following SVN options can be configured in this preferences page:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable symbolic link support</span> (<em class="ph i">available only on Mac OS X and
+              Linux</em>)</dt>
+          <dd class="dd">Apache Subversion™ can put a symbolic link under version control,
+            via the usual SVN <em class="ph i">add</em> command. The Subversion repository has no internal concept
+            of a symbolic link. It stores a versioned symbolic link as an ordinary file with a
+              <code class="ph codeph">svn:special</code> property attached. On Unix/Linux, the SVN client sees the
+            property and translates the file into a symbolic link in the working copy. If the
+            symbolic link support is disabled, the versioned symbolic links appear as a text file
+            instead of symbolic link.<div class="note note note_note"><span class="note__title">Note:</span> Windows file systems have no symbolic links, so a Windows
+              client will not do any such translation and the object appears as a normal
+              file.</div><div class="note important note_important"><span class="note__title">Important:</span> It is recommended to disable symbolic links support
+              if you do not have versioned symbolic links in your repository, since the SVN
+              operations will work faster. However, you should not disable this option when you do
+              have versioned symbolic links in repository. In that case a workaround would be to
+              reference the working copy by its real path, instead of a path that includes a
+              symbolic link.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-svn__allow-unversioned-obstructions"><span class="ph uicontrol">Allow unversioned obstructions</span></dt>
+          <dd class="dd">Controls how to handle a situation where working copy resources are ignored /
+            unversioned when performing an update operation and incoming files (from the repository)
+            with the same name and location intersect with those being ignored / unversioned. If the
+            option is selected, the incoming items will become BASE revisions of the ones already
+            present in the working copy, and those present will be made versioned resources and will
+            be marked as modified (exactly as if the user first made the update operation and then
+            modified the files). If the option is not selected, the update operation will fail when
+            encountering files in this situation, possibly leaving other files not updated. By
+            default, this option is selected.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Use unsafe copy operations</span></dt>
+          <dd class="dd">Sometimes when the working copy is accessed through Samba and the SVN client cannot
+            make a safe copy of the committed file due to a delay in getting a write permission, the
+            result is that the committed file will be saved with zero length (the content is
+            removed) and an error will be reported. In this case, this option should be selected so
+            that the SVN client does not try to make the safe copy.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Results Console</span></dt>
+          <dd class="dd">Specifies the maximum number of lines displayed in the <span class="ph uicontrol">Console</span>
+            view. The default value is 1000.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Annotations View</span></dt>
+          <dd class="dd">Sets the color used in the editor panel for highlighting all the changes contributed
+            to a resource by the revision selected in <a class="xref" href="annotations-view.html">the
+                <span class="ph uicontrol">Annotations</span> view</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Revision Graph</span></dt>
+          <dd class="dd">Enables caching for the action of computing a revision graph. When a new revision
+            graph is requested, one of the caches from the previous actions may be used that will
+            avoid running the whole query again on the SVN server. If a cache is used, it will
+            finish the action much faster.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/preferences-svn-working-copy.html">Working Copy Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-svn-diff.html">Diff Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-svn-messages.html">Messages Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences.html">Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/download-database-drivers.html">Download Links for Database Drivers</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-svn-working-copy.html">Working Copy Preferences</a></div></div></nav></article></main></body></html>

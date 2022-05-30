@@ -1,0 +1,34 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-refactoring-operation-descriptor-x-tools.html"><meta name="DC.relation" scheme="URI" content="custom_operation_sample_xquery.html#custom_operation_sample_xquery"><meta name="DC.relation" scheme="URI" content="custom_operation_sample.html#custom_operation_sample"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom-refactoring-xquery-script"><title>Custom Refactoring Script</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom-refactoring-xquery-script"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Refactoring Script</h1>
+  <div class="body">
+    <p class="p">The first step in creating a custom refactoring operation is to create an <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery Update
+        script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample">XSLT
+        stylesheet</a> that is needed to process the refactoring operations. The easiest way to
+      create this script file is to use the <strong class="ph b">New</strong> document wizard to create a new <strong class="ph b">XQuery</strong>
+      or <span class="ph uicontrol">XSLT</span> file and you can use the <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery method
+        example</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample">XSLT
+        method example</a> to help you with the content.</p>
+    <p class="p">There are cases when it is necessary to add parameters in the <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery
+        script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample">XSLT
+        stylesheet</a>. For instance, if you want to rename an element, you may want to declare
+      an external parameter associated with the name of the element to be renamed. To allow you to
+      specify the value for these parameters, they need to be declared in the <em class="ph i">refactoring
+        operation descriptor file</em> that is associated with this operation.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> The XQuery Update processing is disabled by default in <span class="ph">Oxygen XML Editor</span>. Thus, if
+      you want to create or edit an XQuery Update script you have to enable this mechanism by
+      creating an <a class="xref" href="xquery-transformation.html" title="This type of transformation specifies the parameters and location of an XML source that the edited XQuery file is applied on.">XQuery transformation scenario</a> and
+      choose <span class="ph uicontrol">Saxon EE</span> as the transformation engine. Also, you need to make
+      sure the <a class="xref" href="transform-xquery-advanced-saxon-options.html#transform-xquery-advanced-saxon-options__enable-xquery-update-option"><span class="ph uicontrol">Enable XQuery update</span> option is selected in the Saxon processor
+        advanced options</a>.</div>
+    <div class="note note note_note"><span class="note__title">Note:</span> If you are using an XSLT file, XPath expressions that are passed as parameters will
+      automatically be rewritten to conform with the mapping of the namespace prefixes declared in
+      the <a class="xref" href="preferences-xpath.html#preferences-xpath"><span class="ph uicontrol">XML /XSLT-FO-XQuery /
+          XPath</span> preferences page</a>.</div>
+    <p class="p">The next step in creating a custom refactoring operation is to create an <strong class="ph b">XML Refactoring
+        Operation Descriptor</strong> file contains the path to the <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery__descriptor-example-section">XQuery Update script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample__descriptor-example-section">XSLT
+        stylesheet</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/custom-refactoring-operations-x-tools.html">Custom Refactoring Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/custom-refactoring-operations-x-tools.html">Custom Refactoring Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-refactoring-operation-descriptor-x-tools.html">Custom Refactoring Operation Descriptor File</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery Update Script for Creating a Custom Operation</a></li><li class="linklist"><a class="link" href="custom_operation_sample.html#custom_operation_sample">XSLT Stylesheet for Creating a Custom Operation</a></li></ul></div></nav>
+</article></main></body></html>

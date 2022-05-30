@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps,Create submap"><meta name="keywords" content="DITA, Maps, Create submap"><meta name="DC.relation" scheme="URI" content="../topics/creating-dita-map.html"><meta name="DC.relation" scheme="URI" content="../topics/root-map.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-create-book-map.html"><meta name="DC.relation" scheme="URI" content="eppo-manage-map.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-submaps"><title>Creating DITA Submaps</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-submaps"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating DITA Submaps</h1>
+  
+  <div class="body">
+    <p class="p">You can break up a large <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> into
+      more manageable pieces by creating submaps. A submap is simply a <dfn class="term">DITA map</dfn> that is
+      included by another <dfn class="term">DITA map</dfn>. There is no separate markup for a submap. </p>
+    <p class="p">For example, if you are creating a book, you might use one submap for each chapter of the
+      book. If you are reusing a set of topics in multiple publications, you might collect them into
+      a map and reuse the map as a submap in multiple other maps, rather than referencing the topics
+      individually from the new maps. </p>
+    <p class="p">You add a submap to a map the same way that you would <a class="xref" href="eppo-add-topic-to-map.html">add a new topic or insert an existing topic into a map</a>, except you choose a map
+      rather than a topic to create or add. When adding a submap to a map make sure that you use a
+      <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element or a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with the
+        <code class="keyword markupname xmlatt">@format</code> attribute set to <code class="ph codeph">ditamap</code>. In most cases, <span class="ph">Oxygen XML Editor</span> takes care of this for you. </p>
+    <section class="section" id="eppo-submaps__adding_a_submap_to_a_map"><h2 class="title sectiontitle">Adding a Submap to a Map</h2>
+      
+      <p class="p">To add a submap to a map:</p>
+      <ol class="ol" id="eppo-submaps__ol_xtr_d3g_1q">
+        <li class="li">Right-click the place in the current map where you want to add the new submap.</li>
+        <li class="li">
+          <p class="p">To insert the submap as a child of the selected node, select <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>. To insert the submap as a sibling to the current node, select <span class="ph menucascade"><span class="ph uicontrol">Insert After</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span> or <span class="ph menucascade"><span class="ph uicontrol">Insert Before</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>.</p>
+          <p class="p"><strong class="ph b">Step Result:</strong> This opens a <a class="xref" href="create-topic-in-map.html#create-topic-in-map"><span class="ph uicontrol">New</span> DITA
+              file dialog box</a> that allows you to select the type of document and assists you
+            with naming it.</p>
+        </li>
+        <li class="li">Select the type of map in one of the folders inside the <span class="ph uicontrol">DITA Map</span>
+          folder and give it a name (the file should have a <span class="ph filepath">.ditamap</span> file
+          extension).</li>
+        <li class="li">Click <span class="ph uicontrol">Create</span> to insert the submap.</li>
+      </ol>
+    </section>
+    <div class="p">You can manage and move submaps the same as you would with topics. They can also be expanded
+      and you can navigate their content in the <span class="ph uicontrol">DITA Maps Manager</span> when the
+      root (main) DITA map is open, but the references within those submaps are not editable, by
+      default, unless you open the submap separately in its own tab.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to be able to edit submaps when
+        the main (root/parent) map is open in the <span class="ph uicontrol">DITA Maps Manager</span>, go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Maps</span></span> and select the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__allow-submaps-editing"><span class="ph uicontrol">Allow referenced submaps to be edited</span> option</a>.</div></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/creating-dita-map.html">Creating a Map</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/root-map.html">Selecting a Root Map</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-create-book-map.html">Creating a Bookmap in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-manage-map.html">Managing DITA Maps</a></li></ul></div></nav>
+</article></main></body></html>

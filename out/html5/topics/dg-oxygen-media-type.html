@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen media type,Media query"><meta name="keywords" content="Oxygen media type, Media query"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-support-in-author.html"><meta name="DC.relation" scheme="URI" content="../topics/show-external-pis.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-standard-css-at-rules.html"><meta name="DC.relation" scheme="URI" content="dg-media-at-rule.html#dg-media-at-rule"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-oxygen-media-type"><title>Specifying Media Types in the CSS</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-oxygen-media-type"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Specifying Media Types in the CSS </h1>
+  
+  <div class="body">
+    <p class="p">The CSS stylesheets can specify how a document is presented on different types of media (on
+      the screen, paper, etc.) You can specify that some of the selectors from your CSS should be
+      taken into account only in the <span class="ph">Oxygen XML Editor</span>
+      <span class="ph uicontrol">Author</span> mode and ignored in other media types. This can be accomplished
+      by using the <code class="ph codeph">oxygen</code> media type.</p>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxygen</em> Media
+      Type</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">b{
+ <strong class="hl-keyword">font-weight</strong>:bold;
+ <strong class="hl-keyword">display</strong>:inline; 
+}
+
+<span class="hl-directive">@media</span> oxygen{
+ b{
+  <strong class="hl-keyword">text-decoration</strong>:underline;
+ }
+}</pre></div>
+    <p class="p">This example results in the text being bold if the document is opened in a web browser that
+      does not recognize <code class="ph codeph">@media oxygen</code>, while the text is bold and underlined when
+      opened in <span class="ph">Oxygen XML Editor</span>
+      <span class="ph uicontrol">Author</span> mode.</p>
+    <div class="p">You can also use the <code class="ph codeph">oxygen</code> media type to specify CSS selectors to be
+      applied in certain operating systems or platforms by using the <code class="ph codeph">os</code> and
+        <code class="ph codeph">platform</code> properties. For example, you can specify one set of style rules
+      for displaying <span class="ph">Oxygen XML Editor</span> in Windows, and another set of style rules for Mac OS.
+      The supported properties are as follows:<ul class="ul" id="dg-oxygen-media-type__ul_bf1_3jb_zq">
+        <li class="li"><strong class="ph b">os</strong> - The possible values are: <code class="ph codeph">win</code>, <code class="ph codeph">linux</code>, or
+            <code class="ph codeph">mac</code>.</li>
+        <li class="li"><strong class="ph b">platform</strong> - The possible values are: <code class="ph codeph">standalone</code>,
+            <code class="ph codeph">eclipse</code>, or <code class="ph codeph">webapp</code>.</li>
+      </ul></div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">os</em> and <em class="ph i">platform</em> Properties</u></strong></p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@media</span> oxygen AND (os:<span class="hl-string">"win"</span>) AND (platform:<span class="hl-string">"standalone"</span>) {
+    p{
+        <strong class="hl-keyword">content</strong>:<span class="hl-string">"PPP"</span>;
+    }
+}</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-css-support-in-author.html">Customizing Author Mode Through CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/show-external-pis.html">Displaying Processing Instructions from Other XML Editors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-standard-css-at-rules.html">CSS At-Rules</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-media-at-rule.html#dg-media-at-rule">@media Rule</a></li></ul></div></nav>
+</article></main></body></html>

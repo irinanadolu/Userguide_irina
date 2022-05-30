@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Validation,Check Well-formedness,Validating XML Documents,Check Well-formedness,Check Well-Formedness action"><meta name="keywords" content="XML documents, Validation, Check Well-formedness, Validating XML Documents, Check Well-formedness, Check Well-Formedness action"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents-against-schema.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="checking-xml-well-formedness"><title>Checking XML Well-Formedness</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="checking-xml-well-formedness"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Checking XML Well-Formedness</h1>
+  
+  <div class="body">
+    <p class="p">A <em class="ph i">Well-formed XML</em> document is a document that conforms to the XML syntax rules. A
+        <em class="ph i">Namespace Well-Formed XML</em> document is a document that is <em class="ph i">Well-formed XML</em> and
+      is also <em class="ph i">Namespace-wellformed</em> and <em class="ph i">Namespace-valid</em>.</p>
+    <section class="section" id="checking-xml-well-formedness__wellformedness_rules"><h2 class="title sectiontitle">Well-Formedness Rules</h2>
+      
+      <p class="p">The XML Syntax rules for <em class="ph i">Well-formed XML</em> include:</p>
+      <ul class="ul">
+        <li class="li">All XML elements must have a closing tag.</li>
+        <li class="li">XML tags are case-sensitive.</li>
+        <li class="li">All XML elements must be properly nested.</li>
+        <li class="li">All XML documents must have a root element.</li>
+        <li class="li">Attribute values must always be quoted.</li>
+        <li class="li">With XML, whitespace is preserved.</li>
+      </ul>
+      <p class="p">The <em class="ph i">Namespace-wellformed</em> rules include:</p>
+      <ul class="ul">
+        <li class="li">All element and attribute names contain either zero or one colon.</li>
+        <li class="li">No entity names, processing instruction targets, or notation names contain any
+          colons.</li>
+      </ul>
+      <p class="p">The <em class="ph i">Namespace-valid</em> rules include:</p>
+      <ul class="ul">
+        <li class="li">The <em class="ph i">xml</em> prefix is by definition bound to the namespace name:
+            <em class="ph i">http://www.w3.org/XML/1998/namespace</em>. It MAY be declared, but MUST NOT be
+          undeclared or bound to any other namespace name. Other prefixes MUST NOT be bound to this
+          namespace name.</li>
+        <li class="li">The <em class="ph i">xmlns</em> prefix is used only to declare namespace bindings and is by definition
+          bound to the namespace name: <em class="ph i">http://www.w3.org/2000/xmlns/</em>. It MUST NOT be declared
+          or undeclared. Other prefixes MUST NOT be bound to this namespace name.</li>
+        <li class="li">All other prefixes beginning with the three-letter sequence <em class="ph i">x</em>, <em class="ph i">m</em>,
+          <em class="ph i">l</em>, in any case combination, are reserved. This means that users SHOULD NOT use them
+          except as defined by later specifications and processors MUST NOT treat them as fatal
+          errors.</li>
+        <li class="li">The namespace prefix (unless it is <em class="ph i">xml</em> or <em class="ph i">xmlns</em>) MUST have been declared
+          in a namespace declaration attribute in either the start tag of the element where the
+          prefix is used or in an ancestor element (for example, an element in whose content the
+          prefixed markup occurs). Furthermore, the attribute value in the innermost such
+          declaration MUST NOT be an empty string.</li>
+      </ul>
+    </section>
+    <section class="section" id="checking-xml-well-formedness__check_for_wellformedness"><h2 class="title sectiontitle">Check for Well-Formedness</h2>
+      
+      <div class="p">To check if a document is <em class="ph i">Namespace Well-Formed XML</em> and <em class="ph i">Namespace-valid</em>:<ul class="ul">
+          <li class="li">Select the <span class="ph uicontrol"><img class="image" src="../img/WellFormed16.png">Check
+              Well-Formedness</span>
+            <span class="ph uicontrol">(<span class="keyword shortcut">Ctrl + Shift
+                    + W (Command + Shift + W on OS X)</span>)</span> action from
+            the <span class="ph uicontrol"><img class="image" src="../img/ValidateDrop.png">Validation</span> drop-down
+            menu on the toolbar (or the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span> menu).</li>
+          <li class="li">A selection of files can be checked for well-formedness by selecting the
+                <span class="ph uicontrol"><img class="image" src="../img/WellFormed16.png">Check Well-Formedness</span>
+            action from the <span class="ph uicontrol">Validate</span> submenu when invoking the contextual
+            menu in the <a class="xref" href="using-the-project-view.html"><span class="ph uicontrol">Project</span> view</a>.</li>
+        </ul></div>
+      <p class="p"><strong class="ph b">Result:</strong> If any errors are found, the result is displayed in the message panel at the
+        bottom of the editor. Each error is displayed as one record in the result list and is
+        accompanied by an error message. Clicking the record will open the document containing the
+        error and highlight its approximate location.</p>
+    </section>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: A non <em class="ph i">Well-formed XML</em>
+      Document</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;root&gt;</strong><strong class="hl-tag">&lt;tag&gt;</strong><strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+    <div class="p">When <span class="ph uicontrol">Check Well-Formedness</span> is performed the following error is
+      raised:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">The element type "tag" must be terminated by the matching end-tag "<strong class="hl-tag">&lt;/tag&gt;</strong>"</pre></div>
+    <p class="p">To resolve the error, click the record in the result list and it will locate and highlight
+      the approximate position of the error. In this case, identify the tag that is missing an end
+      tag and insert &lt;/tag&gt;.</p>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: A non <em class="ph i">Namespace-wellformed</em>
+      Document</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;prefix:elem&gt;</strong><strong class="hl-tag">&lt;/prefix:elem&gt;</strong></pre></div>
+    <div class="p">When <span class="ph uicontrol">Check document form</span> is performed the following error is raised:
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">The prefix "prefix" for element "prefix:elem" is not bound.</pre></div>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: A non <em class="ph i">Namespace-valid</em>
+      Document</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:y&gt;</strong><strong class="hl-tag">&lt;/x:y&gt;</strong></pre></div>
+    <div class="p">When <span class="ph uicontrol">Check document form</span> is performed the following error is raised:
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">The prefix "x" for element "x:y" is not bound.</pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-XML-documents.html">Validating XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validating-XML-documents.html">Validating XML Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/validating-XML-documents-against-schema.html">Validating XML Documents Against a Schema</a></div></div></nav></article></main></body></html>

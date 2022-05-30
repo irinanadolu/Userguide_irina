@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents-against-schema.html"><meta name="DC.relation" scheme="URI" content="../topics/validation-resolve-schema-ref-with-xml-catalog.html"><meta name="DC.relation" scheme="URI" content="../topics/combined_RNG_and_SCH-x2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="validation-example"><title>Validation Example - A DocBook Validation Error</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="validation-example"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Validation Example - A DocBook Validation Error</h1>
+  <div class="body">
+    <p class="p">In the following DocBook 4 document, the content of the <code class="keyword markupname xmlelement">&lt;listitem&gt;</code> element
+      does not match the rules of the DocBook 4 schema (<span class="ph filepath">docbookx.dtd</span>).</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+     "http://www.docbook.org/xml/4.4/docbookx.dtd"&gt;</span>
+<strong class="hl-tag">&lt;article&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong>Article Title<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;sect1&gt;</strong>
+      <strong class="hl-tag">&lt;title&gt;</strong>Section1 Title<strong class="hl-tag">&lt;/title&gt;</strong>
+      <strong class="hl-tag">&lt;itemizedlist&gt;</strong>
+        <strong class="hl-tag">&lt;listitem&gt;</strong>
+          <strong class="hl-tag">&lt;link&gt;</strong>a link here<strong class="hl-tag">&lt;/link&gt;</strong>
+        <strong class="hl-tag">&lt;/listitem&gt;</strong>
+      <strong class="hl-tag">&lt;/itemizedlist&gt;</strong>
+    <strong class="hl-tag">&lt;/sect1&gt;</strong>
+<strong class="hl-tag">&lt;/article&gt;</strong></pre>
+    <p class="p">The <span class="ph uicontrol"><img class="image" src="../img/Validate16.png">Validate Document</span> action will
+      return the following error:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">
+Unexpected element "link". The content of the parent element type must match 
+"(calloutlist|glosslist|bibliolist|itemizedlist|orderedlist|segmentedlist|simplelist
+|variablelist|caution|important|note|tip|warning|literallayout|programlisting
+|programlistingco|screen|screenco|screenshot|synopsis|cmdsynopsis|funcsynopsis
+|classsynopsis|fieldsynopsis|constructorsynopsis|destructorsynopsis|methodsynopsis
+|formalpara|para|simpara|address|blockquote|graphic|graphicco|mediaobject|mediaobjectco
+|informalequation|informalexample|informalfigure|informaltable|equation|example|figure
+|table|msgset|procedure|sidebar|qandaset|task|anchor|bridgehead|remark|highlights
+|abstract|authorblurb|epigraph|indexterm|beginpage)+".
+</pre>
+    <p class="p">This error message is a little more difficult to understand, so understanding of the syntax
+      or processing rules for the DocBook XML DTD <code class="keyword markupname xmlelement">&lt;listitem&gt;</code> element is recommended.
+      However, the error message does offer a clue as to the source of the problem, indicating that
+        <q class="q">The content of element type must match</q>.</p>
+    <p class="p">Fortunately, most standards-based DTDs, XML Schemas, and Relax NG schemas are supplied with
+      reference documentation. This enables you to read about the element. In this case, you should
+      learn about the child elements of <code class="keyword markupname xmlelement">&lt;listitem&gt;</code> and their nesting rules.
+      Once you have correctly inserted the required child element and nested it in accordance with
+      the XML rules, the document will become valid.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-XML-documents-against-schema.html">Validating XML Documents Against a Schema</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validation-resolve-schema-ref-with-xml-catalog.html">Resolving References to Remote Schemas with an XML Catalog</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/combined_RNG_and_SCH-x2.html">Embedding Schematron Rules in XML Schema or RELAX NG</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-extension-state-listener.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-column-width-provider.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-column-width-provider.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-cell-spanning-provider.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-rowsep-colsep-provider.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-styling-table-element"><title>Configuring Tables</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-styling-table-element"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring Tables</h1>
+  <div class="body">
+    <p class="p">There are standard CSS properties used to indicate what elements are tables, table rows and
+      table cells. What CSS is missing is the possibility to indicate the cell spanning, row
+      separators or the column widths. <span class="ph">Oxygen XML Editor</span> offers support for adding extensions
+      to solve these problems.</p>
+    <p class="p">The table in this example is a simple one. The header must be formatted in a different way
+      than the ordinary rows, so it will have a background color.</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">table{
+    <strong class="hl-keyword">display</strong>:table;
+    <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid navy;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">1</span>em;
+    <strong class="hl-keyword">max-width</strong>:<span class="hl-number">1000</span>px;
+    <strong class="hl-keyword">min-width</strong>:<span class="hl-number">150</span>px;
+}
+
+table[<strong class="hl-keyword">width</strong>]{
+  <strong class="hl-keyword">width</strong>:attr(<strong class="hl-keyword">width</strong>, length);
+}
+
+tr, header{
+    <strong class="hl-keyword">display</strong>:table-row;
+}
+
+header{
+    <strong class="hl-keyword">background-color</strong>: silver;
+    <strong class="hl-keyword">color</strong>:inherit
+}
+
+td{
+  <strong class="hl-keyword">display</strong>:table-cell;
+  <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid navy;
+  <strong class="hl-keyword">padding</strong>:<span class="hl-number">1</span>em;
+}</pre>
+    </div>
+    <p class="p">Suppose that in the schema, the <code class="keyword markupname xmlelement">&lt;td&gt;</code> tag has the attributes
+        <code class="keyword markupname xmlatt">@row_span</code> and <code class="keyword markupname xmlatt">@column_span</code> that are not automatically
+      recognized by <span class="ph">Oxygen XML Editor</span>, a Java extension will be implemented that will provide
+      information about the cell spanning. See the section <a class="xref" href="dg-table-cell-spanning-provider.html">Configuring a Table Cell Span
+      Provider</a>.</p>
+    <p class="p">Suppose the column widths are specified by the <code class="keyword markupname xmlatt">@width</code> attribute of the
+      <code class="keyword markupname xmlelement">&lt;customcol&gt;</code> elements that are not automatically recognized by <span class="ph">Oxygen XML Editor</span>. It is necessary to implement a Java extension that will provide
+      information about the column widths. For more information, see <a class="xref" href="dg-table-column-width-provider.html">Configuring a Table Column Width
+      Provider</a>.</p>
+    <p class="p">The table from the example does not make use of the attributes <code class="keyword markupname xmlatt">@colsep</code> and
+        <code class="keyword markupname xmlatt">@rowsep</code> (which are automatically recognized) but if you want the rows to be
+      separated by horizontal lines, it is necessary to implement a Java extension that will provide
+      information about the row and column separators. For more information, see <a class="xref" href="dg-table-rowsep-colsep-provider.html">Configuring a Table Cell Row and Column Separator Provider</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dg-table-column-width-provider.html">Configuring a Table Column Width Provider</a><br></li><li class="link olchildlink"><a href="../topics/dg-table-cell-spanning-provider.html">Configuring a Table Cell Span Provider</a><br></li><li class="link olchildlink"><a href="../topics/dg-table-rowsep-colsep-provider.html">Configuring a Table Cell Row and Column Separator Provider</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-author-extension-state-listener.html">Configuring a State Listener for Author Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-table-column-width-provider.html">Configuring a Table Column Width Provider</a></div></div></nav></article></main></body></html>

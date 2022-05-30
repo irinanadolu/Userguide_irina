@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Open file at start-up"><meta name="keywords" content="Open file at start-up"><meta name="DC.relation" scheme="URI" content="../topics/opening-existing-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/opening-current-document-in-browser.html"><meta name="DC.relation" scheme="URI" content="../topics/opening-document-from-cli.html"><meta name="DC.relation" scheme="URI" content="opening-document-from-cli.html#opening-document-from-cli"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="open-local-file-from-cmd"><title>Opening Local Files at Start-up</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="open-local-file-from-cmd"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Opening Local Files at Start-up</h1>
+  
+  <div class="body">
+    <div class="p">There are two possibilities for opening local files at startup from a command line by adding
+      their file paths as parameters:<ul class="ul">
+        <li class="li"><strong class="ph b">scriptName [pathToXMLFile1] [pathToXMLFile2]</strong><ul class="ul">
+            <li class="li"><strong class="ph b">scriptName</strong> is the name of the startup script for your platform (<span class="ph">oxygen.bat</span>
+               on Windows,<span class="ph">
+                <span class="ph filepath">oxygen.sh</span>
+              </span>
+               on Mac OS X and Linux).</li>
+            <li class="li"><strong class="ph b">pathToXMLFileN</strong> is the name of a local XML file.</li>
+          </ul></li>
+        <li class="li">
+          <p class="p">An XML file and a schema file to be associated automatically to the file and used for
+            validation and content completion:</p>
+          <div class="p"><code class="ph codeph">scriptName -instance pathToXMLFile -schema pathToSchemaFile -schemaType
+              XML_SCHEMA|DTD_SCHEMA|RNG_SCHEMA|RNC_SCHEMA -dtName documentTypeName</code><ul class="ul" id="open-local-file-from-cmd__ul_uvt_gcd_y3b">
+              <li class="li"><strong class="ph b">scriptName</strong> is the name of the startup script for your platform
+                  (<span class="ph filepath">oxygen.bat</span> on Windows, or <span class="ph filepath">oxygen.sh</span> on
+                Mac OS X and Linux).</li>
+              <li class="li"><strong class="ph b">pathToXMLFile</strong> is the name of a local XML file.</li>
+              <li class="li"><strong class="ph b">pathToSchemaFile</strong> is the name of the schema that you want to associate to
+                the XML file, the four constants (XML_SCHEMA, DTD_SCHEMA, RNG_SCHEMA, RNC_SCHEMA)
+                are the possible schema types (XML Schema, DTD, Relax NG schema in full syntax,
+                Relax NG schema in compact syntax).</li>
+              <li class="li"><strong class="ph b">documentTypeName</strong> specifies the name of the document type that has the
+                schema defined. If the document type is already set in preferences, its schema and
+                type are updated.</li>
+            </ul></div>
+        </li>
+      </ul></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> You can use the <em class="ph i">-h</em> or <em class="ph i">--help</em> parameters to see more detailed
+      information about possible values. </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/opening-existing-documents.html">Opening Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/opening-current-document-in-browser.html">Opening the Current Document in a System Application</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/opening-document-from-cli.html">Opening a Document at a Specific Location Using a Command-Line Interface</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="opening-document-from-cli.html#opening-document-from-cli">Opening a Document at a Specific Location Using a Command-Line Interface</a></li></ul></div></nav>
+</article></main></body></html>

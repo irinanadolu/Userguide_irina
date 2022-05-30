@@ -1,0 +1,263 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Generate Sample XML Files tool"><meta name="keywords" content="XML Schemas, Generate Sample XML Files tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/localizing-refactoring-operations-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/converting-between-schema-languages-x-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-instance-generator"><title>Generating Sample XML Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-instance-generator"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Sample XML Files</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> offers support to generate sample XML files both from XML schema 1.0
+      and XML schema 1.1, depending on the XML schema version set in <a class="xref" href="xml-schema-preferences-page.html#xml-schema-preferences-page__default-schema-version"><span class="ph uicontrol">XML Schema</span> preferences page</a>.</p>
+    <p class="p">To generate sample XML files from an XML Schema, use the <span class="ph uicontrol"><img class="image" id="xml-schema-instance-generator__image_vmv_zbn_ds" src="../img/XMLGenerator16.png">Generate Sample XML
+        Files</span> action from the <span class="ph uicontrol">Tools</span>
+      menu. This action is also available in the contextual menu of the schema <a class="xref" href="xml-schema-diagram-editing-actions.html">Design mode</a>. The action opens the
+        <span class="ph uicontrol">Generate Sample XML Files</span> dialog box that allows you to configure a
+      variety of options for generating the files.</p>
+    <p class="p">The <span class="ph uicontrol">Generate Sample XML Files</span> dialog box contains three tabs with
+      various configurable options. Default values for these options can be set in the <a class="xref" href="preferences-xml-instances-generator.html#preferences-xml-instances-generator"><span class="ph uicontrol">Sample XML Files Generator</span> preferences page</a>.<span class="ph"> You can also run the tool from the command line using exported
+        options.</span></p>
+    <section class="section" id="xml-schema-instance-generator__section_fcm_3zw_lkb"><h2 class="title sectiontitle">Schema Tab</h2>
+      
+      <p class="p">The first set of options for the <span class="ph uicontrol"><img class="image" id="xml-schema-instance-generator__image_ey3_pzw_lkb" src="../img/XMLGenerator16.png">Generate Sample XML Files</span> tool are found in the
+          <span class="ph uicontrol">Schema</span> tab.</p>
+      <div class="p">
+        <figure class="fig fignone" id="xml-schema-instance-generator__fig_bk1_jzw_lkb"><figcaption><span class="fig--title-label">Figure 1. </span>Generate Sample XML Files Dialog Box (Schema Tab)</figcaption>
+          
+          <img class="image" id="xml-schema-instance-generator__image_ck1_jzw_lkb" src="../img/sa_generate_xml_dialog.png">
+        </figure>
+      </div>
+      <div class="p">This tab includes the following options:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+            <dd class="dd">Specifies the URL of the Schema location. You can specify the path by using the text
+              field, the history drop-down menu, or the browsing actions in the <span class="ph uicontrol"><img class="image" id="xml-schema-instance-generator__image_dk1_jzw_lkb" src="../img/BrowseDrop.png">Browse</span> drop-down
+              list.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Namespace</span></dt>
+            <dd class="dd">Displays the namespace of the selected schema.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Root Element</span></dt>
+            <dd class="dd">After the schema is selected, this drop-down menu is populated with all root
+              candidates gathered from the schema. Choose the root of the output XML documents.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Output folder</span></dt>
+            <dd class="dd">Path to the folder where the generated XML instances will be saved.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Filename prefix</span> and <span class="ph uicontrol">Extension</span></dt>
+            <dd class="dd">You can specify the prefix and extension for the file name that will be generated.
+              Generated file names have the following format: <code class="ph codeph">prefixN.extension</code>,
+              where <code class="ph codeph">N</code> represents an incremental number from 0 up to the specified
+                <span class="ph uicontrol">Number of instances</span>.</dd>
+          
+          
+            <dt class="dt dlterm" id="xml-schema-instance-generator__number-instances"><span class="ph uicontrol">Number of instances</span></dt>
+            <dd class="dd">The number of XML files to be generated.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Open first instance in editor</span></dt>
+            <dd class="dd">When selected, the first generated XML file is opened in the editor.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Namespaces</span> section</dt>
+            <dd class="dd">You can specify the <span class="ph uicontrol">Default Namespace</span>, as well as the
+              prefixes for the namespaces.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Export settings</span></dt>
+            <dd class="dd">Use this button to save the current settings for future use.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Import settings</span></dt>
+            <dd class="dd">Use this button to load previously exported settings.</dd>
+          
+        </dl></div>
+      <p class="p">You can click <span class="ph uicontrol">OK</span> at any point to generate the sample XML files.</p>
+    </section>
+    <section class="section" id="xml-schema-instance-generator__section_cn1_lzw_lkb"><h2 class="title sectiontitle">Options Tab</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Options</span> tab allows you to set specific options for namespaces
+        and elements.</p>
+      <div class="p">
+        <figure class="fig fignone" id="xml-schema-instance-generator__fig_aw1_nzw_lkb"><figcaption><span class="fig--title-label">Figure 2. </span>Generate Sample XML Files Dialog Box (Options Tab)</figcaption>
+          
+          <img class="image" id="xml-schema-instance-generator__image_bw1_nzw_lkb" src="../img/sa_generate_xml_dialog_options.png">
+        </figure>
+      </div>
+      <div class="p">This tab includes the following options:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Namespace / Element</span> table</dt>
+            <dd class="dd">Allows you to set a namespace for each element name that appears in an XML document
+              instance. The following prefix-to-namespace associations are available:<ul class="ul" id="xml-schema-instance-generator__ul_cw1_nzw_lkb">
+                <li class="li">All elements from all namespaces (<code class="ph codeph">&lt;ANY&gt;</code> -
+                    <code class="ph codeph">&lt;ANY&gt;</code>). This is the default setting.</li>
+                <li class="li">All elements from a specific namespace.</li>
+                <li class="li">A specific element from a specific namespace.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Settings</span> subtab</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Namespace</span></dt>
+                    <dd class="dd">Displays the namespace specified in the table at the top of the dialog
+                      box.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Element</span></dt>
+                    <dd class="dd">Displays the element specified in the table at the top of the dialog
+                      box.</dd>
+                  
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate optional elements</span></dt>
+            <dd class="dd">When selected, all elements are generated, including the optional ones (having the
+                <code class="ph codeph">minOccurs</code> attribute set to 0 in the schema).</dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate optional attributes</span></dt>
+            <dd class="dd">When selected, all attributes are generated, including the optional ones (having the
+                <code class="ph codeph">use</code> attribute set to <code class="ph codeph">optional</code> in the schema).</dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Values of elements and attributes</span></dt>
+            <dd class="dd">Controls the content of generated attribute and element values. The following
+              choices are available: <ul class="ul">
+                <li class="li"><span class="ph uicontrol">None</span> - No content is inserted.</li>
+                <li class="li"><span class="ph uicontrol">Default</span> - Inserts a default value depending on the data
+                  type descriptor of the particular element or attribute. The default value can be
+                  either the data type name or an incremental name of the attribute or element
+                  (according to the global option from the <span class="ph uicontrol">Sample XML Files
+                    Generator</span> preferences page). Note that type restrictions are ignored
+                  when this option is selected. For example, if an element is of a type that
+                  restricts an <span class="ph uicontrol">xs:string</span> with the
+                    <span class="ph uicontrol">xs:maxLength</span> facet to allow strings with a maximum length
+                  of 3, the XML instance generator tool may generate string element values longer
+                  than 3 characters.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - Inserts a random value depending on the data
+                  type descriptor of the particular element or attribute.<div class="note important note_important"><span class="note__title">Important:</span> If
+                    all of the following are true, the <span class="ph uicontrol">Generate Sample XML
+                      Files</span> tool outputs invalid values:<ul class="ul">
+                      <li class="li">At least one of the restrictions is a <code class="ph codeph">regexp</code>.</li>
+                      <li class="li">The value generated after applying the regexp does not match the
+                        restrictions imposed by one of the facets.</li>
+                    </ul></div></li>
+              </ul></dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Preferred number of repetitions</span></dt>
+            <dd class="dd">Allows you to set the preferred number of repeating elements related to
+                <code class="ph codeph">minOccurs</code> and <code class="ph codeph">maxOccurs</code> facets defined in the XML
+              Schema. <ul class="ul">
+                <li class="li">If the value set here is between <code class="ph codeph">minOccurs</code> and
+                    <code class="ph codeph">maxOccurs</code>, then that value is used.</li>
+                <li class="li">If the value set here is less than <code class="ph codeph">minOccurs</code>, then the
+                    <code class="ph codeph">minOccurs</code> value is used.</li>
+                <li class="li">If the value set here is greater than <code class="ph codeph">maxOccurs</code>, then
+                    <code class="ph codeph">maxOccurs</code> is used.</li>
+              </ul></dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Maximum recursion level</span></dt>
+            <dd class="dd">If a recursion is found, this option controls the maximum allowed depth of the same
+              element.</dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Type alternative strategy</span></dt>
+            <dd class="dd">Used for the <code class="keyword markupname xmlelement">&lt;xs:alternative&gt;</code> element from XML Schema 1.1. The
+              possible strategies are:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">First</span> - The first valid alternative type is always
+                  used.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - A random alternative type is used.</li>
+              </ul></dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Choice strategy</span></dt>
+            <dd class="dd">Used for <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or
+                <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> elements. The possible strategies are:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">First</span> - The first branch of
+                    <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or the head element of
+                    <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> is always used.</li>
+                <li class="li"><span class="ph uicontrol">Random</span> - A random branch of
+                    <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> or a substitute element or the head element
+                  of a <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code> is used.</li>
+              </ul></dd>
+          
+                  
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate the other options as comments</span></dt>
+            <dd class="dd">If selected, generates the other possible choices or substitutions (for
+                <code class="keyword markupname xmlelement">&lt;xs:choice&gt;</code> and <code class="keyword markupname xmlelement">&lt;substitutionGroup&gt;</code>).
+              These alternatives are generated inside comments groups so you can uncomment and use
+              them later. Use this option with care (for example, on a restricted namespace and
+              element) as it may generate large result files.</dd>
+          
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Element values</span> subtab</dt>
+            <dd class="dd">Allows you to add values that are used to generate the content of elements. If there
+              are multiple values, then the values are used in a random order.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Attribute values</span> subtab</dt>
+            <dd class="dd">Allows you to add values that are used to generate the content of attributes. If
+              there are multiple values, then the values are used in a random order.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Export settings</span></dt>
+            <dd class="dd">Use this button to save the current settings for future use.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Import settings</span></dt>
+            <dd class="dd">Use this button to load previously exported settings.</dd>
+          
+        </dl></div>
+      <p class="p">You can click <span class="ph uicontrol">OK</span> at any point to generate the sample XML files.</p>
+    </section>
+    <section class="section" id="xml-schema-instance-generator__section_zz3_rzw_lkb"><h2 class="title sectiontitle">Advanced Tab</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Advanced</span> tab allows you to set some options regarding output
+        values and performance.</p>
+      <div class="p">
+        <figure class="fig fignone" id="xml-schema-instance-generator__fig_llv_szw_lkb"><figcaption><span class="fig--title-label">Figure 3. </span>Generate Sample XML Files Dialog Box (Advanced Tab)</figcaption>
+          
+          <img class="image" id="xml-schema-instance-generator__image_mlv_szw_lkb" src="../img/sa_generate_xml_dialog_advanced_tab.png">
+        </figure>
+      </div>
+      <div class="p">This tab includes the following options:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Use incremental attribute / element names as default</span></dt>
+            <dd class="dd">If selected, the value of an element or attribute starts with the name of that
+              element or attribute. For example, for an <code class="keyword markupname xmlelement">&lt;a&gt;</code> element the generated
+              values are: <code class="ph codeph">a1</code>, <code class="ph codeph">a2</code>, <code class="ph codeph">a3</code>, and so on.
+              If not selected, the value is the name of the type of that element / attribute (for
+              example: <code class="ph codeph">string</code>, <code class="ph codeph">decimal</code>, etc.)</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Maximum length</span></dt>
+            <dd class="dd">The maximum length of string values generated for elements and attributes.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Discard optional elements after nested level</span></dt>
+            <dd class="dd">The optional elements that exceed the specified nested level are discarded. This
+              option is useful for limiting deeply nested element definitions that can quickly
+              result in very large XML documents.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Export settings</span></dt>
+            <dd class="dd">Use this button to save the current settings for future use.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Import settings</span></dt>
+            <dd class="dd">Use this button to load previously exported settings.</dd>
+          
+        </dl></div>
+    </section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> This function can be executed from an automated
+      command-line script, for more details, see <a class="xref" href="scripting_oxygen.html">Scripting Oxygen</a>.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/localizing-refactoring-operations-x-tools.html">Localizing XML Refactoring Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/converting-between-schema-languages-x-tools.html">Converting Schema to Another Schema Language</a></div></div></nav></article></main></body></html>

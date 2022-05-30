@@ -1,0 +1,166 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen XML Author Component,Frequently Asked Questions"><meta name="keywords" content="Oxygen XML Author Component, Frequently Asked Questions"><meta name="DC.relation" scheme="URI" content="../topics/author-component.html"><meta name="DC.relation" scheme="URI" content="../topics/author-component-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_print_document_in_applet.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_print_document_in_applet.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="component_faq"><title>Frequently Asked Questions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="component_faq"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Frequently Asked Questions </h1>
+  
+  <div class="body">
+    <section class="section" id="component_faq__installation_and_licensing"><h2 class="title sectiontitle">Installation and Licensing </h2>
+      
+      <ol class="ol">
+        <li class="li">
+          <p class="p">Are there any client requirements beyond the Java VM?</p>
+          <p class="p">Oracle (formerly Sun) Java JRE version 1.8. At least 200 MB disk space and 200MB free
+            memory is necessary for the <span class="ph">Oxygen XML Author Component</span>.</p>
+        </li>
+        <li class="li">
+          <p class="p">Does the <span class="ph">Oxygen XML Author Component</span> support multiple documents being open
+            simultaneously? What are the licensing ramifications?</p>
+          <p class="p">A single <em class="ph i">AuthorComponentFactory</em> instance can create multiple
+              <em class="ph i">EditorComponentProvider</em> editors that can then be added and managed by the
+            developer who customizes the component in a Swing <em class="ph i">JTabbedPane</em>. A single license
+            (floating or user-based) is enough for this.</p>
+          <p class="p">If you need to run multiple distinct Java processes using the <span class="ph">Oxygen XML Author Component</span>, the current floating license model allows for only two
+            concurrent components from the same computer when using the HTTP floating license
+            server. An additional started component will take an extra license seat. </p>
+        </li>
+      </ol>
+    </section>
+    <section class="section" id="component_faq__functionality"><h2 class="title sectiontitle">Functionality</h2>
+      
+      <ol class="ol">
+        <li class="li">
+          <p class="p">What graphic formats can be directly rendered in the <span class="ph">Oxygen XML Author Component</span>?</p>
+          <p class="p">GIF, JPEG, PNG, BMP and SVG.</p>
+        </li>
+        <li class="li">
+          <p class="p">Can links be embedded to retrieve (from the server) and "play" other types of
+            digital assets, such as audio or video files?</p>
+          <p class="p">You could add listeners to intercept clicks and open the clicked links. This would
+            require a good knowledge of the <em class="ph i">Oxygen SDK</em>. The <span class="ph">Oxygen XML Author Component</span>
+            can only render static images (no GIF animations). </p>
+        </li>
+        <li class="li">
+          <p class="p">Does the <span class="ph">Oxygen XML Author Component</span> provide methods for uploading ancillary files
+            (new graphics, for instance) to the hosting server?</p>
+          <p class="p">No.</p>
+        </li>
+        <li class="li">
+          <p class="p">Does the <span class="ph">Oxygen XML Author Component</span> provide any type of autosave functionality?</p>
+          <p class="p">By default no, but you could customize it to save its content periodically to a file on
+            disk.</p>
+        </li>
+        <li class="li">
+          <p class="p">Assuming multiple documents can be edited simultaneously, can content be copied, cut,
+            and pasted from one <span class="ph">Oxygen XML Author Component</span> "instance" to another?</p>
+          <p class="p">Yes.</p>
+        </li>
+        <li class="li">
+          <p class="p">Does the <span class="ph">Oxygen XML Author Component</span> support pasting content from external sources
+            (such as a web page or a Microsoft Word document and, if so, to what extent?</p>
+          <p class="p">If no customizations are available, the content is pasted as simple text.
+            Customizations are provided for the major <dfn class="term">frameworks</dfn> (DITA, DocBook, TEI,
+            etc.) that use a conversion XSLT stylesheet to convert HTML content from clipboard to
+            the target XML.</p>
+        </li>
+        <li class="li">
+          <p class="p">Can UTF-8 characters (such as Greeks, mathematical symbols, etc.) be inserted and
+            rendered?</p>
+          <p class="p">Any UTF-8 character can be inserted and rendered, provided that the font used for
+            editing supports rendering the characters. The font can be changed by developers but not
+            by the users. When using a logical font (by default, <em class="ph i">Serif</em> for the <span class="ph">Oxygen XML Author Component</span>), the JVM will know how to map all characters to glyphs.
+            There is no character map available but you could implement one.</p>
+        </li>
+      </ol>
+    </section>
+    <section class="section" id="component_faq__customization"><h2 class="title sectiontitle">Customization</h2>
+      
+      <ol class="ol">
+        <li class="li">
+          <p class="p">Describe, in general terms, the menus, toolbars, contextual menu options, helper panes,
+            and so on, that are available for the <span class="ph">Oxygen XML Author Component</span> out-of-the box.</p>
+          <p class="p">You can mount all actions available in the standalone <span class="ph">Oxygen XML Editor</span>
+            application on your custom toolbar. This includes custom actions defined in the
+              <dfn class="term">framework</dfn> customized for each XML type. </p>
+          <p class="p">The <span class="ph">Oxygen XML Author Component</span> also can provide the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span></a>, <a class="xref" href="model-panel.html#model-panel"><span class="ph uicontrol">Model</span></a>, <a class="xref" href="author-elements-view.html#author-elements-view"><span class="ph uicontrol">Elements</span></a>, and <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span></a> views that can be added to your own
+            panels.</p>
+        </li>
+        <li class="li">
+          <p class="p">Describe, in general terms, the actions, project resources (for example, DTD/Schema for
+            validation purposes, CSS/XSL for styling, etc.) and typical level of effort that would
+            be required to deploy a <span class="ph">Oxygen XML Author Component</span> solution for a customer with a
+            proprietary DTD.</p>
+          <p class="p">The <span class="ph uicontrol">Author</span> mode internal engine uses CSS to render XML. </p>
+          <p class="p">For a special type of XML, you can create a custom <dfn class="term">framework</dfn> (which also
+            works in an <span class="ph">Oxygen XML Editor</span> standalone version) that would also contain default
+            schemas and custom actions. A simple <dfn class="term">framework</dfn> would probably need 2-3
+            weeks development time. For a complex <dfn class="term">framework</dfn> with many custom actions,
+            it could take a long time. <span class="ph">Oxygen XML Editor</span> has built-in <dfn class="term">frameworks</dfn>
+            for editing (DocBook, DITA, TEI, etc.) and sources for them are available in <a class="xref" href="https://www.oxygenxml.com/developer.html#XML_Editor_Authoring_SDK" target="_blank" rel="external noopener"> the Oxygen SDK</a>.</p>
+          <p class="p">Multiple <dfn class="term">frameworks</dfn> can co-exist in the same <span class="ph">Oxygen XML Editor</span>
+            instance and can be used at the same time for editing XML documents.</p>
+        </li>
+        <li class="li">
+          <p class="p">Many customers desire a very simplistic interface for contributors (with little or no
+            XML expertise) but a more robust XML editing environment for editors (or other users
+            with more advanced XML expertise). How well does the <span class="ph">Oxygen XML Author Component</span>
+            support varying degrees of user interface complexity and capability?</p>
+          <div class="p">
+            <ul class="ul">
+              <li class="li">
+                <p class="p"><em class="ph i">Showing/hiding menus, toolbars, helpers, etc.</em></p>
+                <p class="p">You assemble all the UI parts from the <span class="ph">Oxygen XML Author Component</span>. For
+                  example, you could provide two implementations: one for advanced users and one for
+                  content authors.</p>
+              </li>
+              <li class="li">
+                <p class="p"><em class="ph i">Forcing behaviors (for example, ensuring <a class="xref" href="../glossary/track-changes.html">change tracking</a> is on and preventing
+                    it from being shut down).</em></p>
+                <p class="p">You could avoid placing the <dfn class="term">change tracking</dfn> toolbar actions in the
+                  UI. You could also use the API to turn <dfn class="term">change tracking</dfn> ON when the
+                  content has been loaded.</p>
+              </li>
+              <li class="li">
+                <p class="p"><em class="ph i">Preventing access to "privileged" editor processes (for example,
+                    accept/reject changes).</em></p>
+                <p class="p">You can remove the <dfn class="term">change tracking</dfn> actions completely in a custom
+                  implementation, including the ones from the contextual menu.</p>
+              </li>
+              <li class="li">
+                <p class="p"><em class="ph i">Presenting and/or describing XML constructs (for example, tags) in
+                    "plain-English".</em></p>
+                <p class="p">Using our API, you can customize what the Outline view or Breadcrumb displays for
+                  each XML tag. You can also customize the in-place content completion list.</p>
+              </li>
+              <li class="li">
+                <p class="p"><em class="ph i">Presenting a small subset of the overall XML tag set (rather than the full tag
+                    set) for use by contributors (for example, allowing an author to only insert
+                    Heading, Para, and inline emphasis).</em></p>
+                <p class="p">The API allows for a content completion filter that also affects the
+                    <em class="ph i">Elements</em> view.</p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="li">
+          <p class="p">Does the <span class="ph">Oxygen XML Author Component</span> API provide access to the XML document, for
+            manipulation purposes, using common XML syntax (such as DOM, XPath, etc.)?</p>
+          <p class="p">Yes, using the <span class="ph">Oxygen XML Author Component</span> API.</p>
+        </li>
+        <li class="li">
+          <p class="p">Can custom dialog boxes be developed and launched to collect information in a
+            "form" (with scripting behind to tag the collection information and embed it
+            in the XML document)?</p>
+          <p class="p">Yes.</p>
+        </li>
+        <li class="li">
+          <p class="p">Can project resources and customizations be readily shared between the desktop and
+            component versions of your <span class="ph">Oxygen XML Author Component</span> product line?</p>
+          <p class="p">A <dfn class="term">framework</dfn> developed for the standalone version of the <span class="ph">Oxygen XML Editor</span> application can then be bundled with the <span class="ph">Oxygen XML Author Component</span>. For example, you could use the same <dfn class="term">framework</dfn>
+            that you use in the <span class="ph">Oxygen XML Editor</span> standalone distribution. </p>
+          <p class="p">A custom editing solution can deploy one or more <dfn class="term">frameworks</dfn> that can be
+            used at the same time.</p>
+        </li>
+      </ol>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/api_faq_print_document_in_applet.html">Print Document Within the Oxygen XML Author Component</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-component.html">Oxygen XML Author Component</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-component-plugins.html">Using Plugins with the Oxygen XML Author Component</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_print_document_in_applet.html">Print Document Within the Oxygen XML Author Component</a></div></div></nav></article></main></body></html>

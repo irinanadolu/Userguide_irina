@@ -1,0 +1,110 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Code Blocks"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Code Blocks"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_styling_the_contents.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_tables.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_notes.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_code_blocks"><title>Code Blocks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_code_blocks">
+    <h1 class="title topictitle1" id="ariaid-title1">Code Blocks</h1>
+  
+    <div class="body">
+        <p class="p">Code blocks are used to render section of programming code.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_styling_the_contents.html">Styling the Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_tables.html">Tables</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_notes.html">Notes</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_enable_code_syntax_highlight">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Enable Code Syntax Highlighting</h2>
+  <div class="body">
+    <p class="p">This topic refers only to the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation
+      type. </p>
+    <p class="p">You can use syntax highlighting to make it easier to read your code snippets by displaying
+      each type of code in different colors and fonts. In the DITA topics, set the
+        <code class="keyword markupname xmlatt">@outputclass</code> attribute on the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> elements to
+      one of these values:</p>
+    <ul class="ul">
+      <li class="li">language-bourne</li>
+      <li class="li">language-c</li>
+      <li class="li">language-cpp</li>
+      <li class="li">language-csharp</li>
+      <li class="li">language-css</li>
+      <li class="li">language-ini</li>
+      <li class="li">language-java</li>
+      <li class="li">language-javascript</li>
+      <li class="li">language-json</li>
+      <li class="li">language-lua</li>
+      <li class="li">language-perl</li>
+      <li class="li">language-php</li>
+      <li class="li">language-python</li>
+      <li class="li">language-ruby</li>
+      <li class="li">language-sql</li>
+      <li class="li">language-xml</li>
+      <li class="li">language-xquery</li>
+    </ul>
+    <p class="p">For example, for a java snippet:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;codeblock</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"language-java"</span><strong class="hl-tag">&gt;</strong>
+   for (int i=0; i <strong class="hl-tag">&lt;100;</strong> <span class="hl-attribute">i++)</span> <span class="hl-attribute">{</span><strong class="hl-tag">
+     //</strong> do something
+   }
+<strong class="hl-tag">&lt;/codeblock&gt;</strong></pre>
+    <p class="p">The resulting HTML fragment in the merged HTML5 document is:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"> <strong class="hl-tag">&lt;pre</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"+ topic/pre pr-d/codeblock pre codeblock language-java"</span> 
+    <span class="hl-attribute">xml:space</span>=<span class="hl-value">"preserve"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;strong</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"hl-keyword"</span> <span class="hl-attribute">style</span>=<span class="hl-value">"color:#7f0055"</span><strong class="hl-tag">&gt;</strong>for<strong class="hl-tag">&lt;/strong&gt;</strong> 
+       (<strong class="hl-tag">&lt;strong</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"hl-keyword"</span> <span class="hl-attribute">style</span>=<span class="hl-value">"color:#7f0055"</span><strong class="hl-tag">&gt;</strong>int<strong class="hl-tag">&lt;/strong&gt;</strong> 
+         i=<strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"hl-number"</span><strong class="hl-tag">&gt;</strong>0<strong class="hl-tag">&lt;/span&gt;</strong>; i 
+            <strong class="hl-tag">&lt;&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"hl-number"</span><strong class="hl-tag">&gt;</strong>100<strong class="hl-tag">&lt;/span&gt;</strong>; i++) {
+     <strong class="hl-tag">&lt;em</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"hl-comment"</span> <span class="hl-attribute">style</span>=<span class="hl-value">"color:#006400"</span><strong class="hl-tag">&gt;</strong>// do something<strong class="hl-tag">&lt;/em&gt;</strong>
+   }
+<strong class="hl-tag">&lt;/pre&gt;</strong></pre>
+    <p class="p">And in the output, it will be rendered as:</p>
+    <img class="image" id="dcpp_how_to_enable_code_syntax_highlight__image_rcs_f4d_b2b" src="../img/dcpp_how_to_enable_code_syntax_highlight_java.png">
+    <section class="section" id="dcpp_how_to_enable_code_syntax_highlight__section_vvl_z4d_b2b"><h3 class="title sectiontitle">Changing the Colors for the Syntax Highlighting </h3>
+      
+      <p class="p">As you can see in the above example, the HTML elements <code class="keyword markupname xmlelement">&lt;span&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;strong&gt;</code> are used to color the content. Since they have a
+          <code class="keyword markupname xmlatt">@style</code> attribute set, the overriding properties need to be marked with
+          <code class="ph codeph">!important</code>. </p>
+      <p class="p">Suppose you want to color the keywords in red and the comments in blue. To do so, add the
+        following to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hl-keyword {
+  <strong class="hl-keyword">color</strong>: red !important;
+}
+.hl-comment {
+  <strong class="hl-keyword">color</strong>: blue !important;
+}</pre>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_disable_line_wrap_in_code_blocks">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Disable Line Wrapping in Code Blocks</h2>
+  <div class="body">
+    <p class="p">By default, code blocks have the content wrapped to avoid the bleeding of long lines out of
+      the page. To avoid wrapping, add the following in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"pr-d/codeblock"</span>] {
+   <strong class="hl-keyword">white-space</strong>: pre;
+}</pre>
+    <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation type, the best solution
+      to distinguish between lines is to leave them wrapped, but color each line with a different
+      background (zebra coloring). An example is provided here: <a class="xref" href="pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_deal_with_unwanted_returns_in_code_blocks">
+    <h2 class="title topictitle2" id="ariaid-title4">How to Deal with Unwanted Returns in Code Blocks</h2>
+    <div class="body">
+        <p class="p">There are cases where the source file contains long lines of code that need to continue
+      onto the next line in the rendered PDF (to wrap visually). </p>
+		<p class="p">When the user copies the block from the PDF reader, they get two separated lines. This means
+      that the command fails when users copy it from the PDF to the command-line terminal (because
+      it comes in as two commands). </p>
+		<p class="p">For example, the command:</p>
+		<div class="p">
+			<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">$gist = ls -l * | count -n | some more </pre>
+		</div>
+		<p class="p">May be rendered in the PDF on two lines:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">$gist = ls -l * | count -n 
+| some more </pre>
+		<p class="p">And this is invalid when used in the terminal.</p>
+		<p class="p">There is no CSS workaround for this, but to manually format the command line, add a line
+      continuation character like this:</p>
+		<div class="p">
+			<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">$gist = ls -l * | count -n \
+| some more </pre>
+		</div>
+		<div class="note note note_note"><span class="note__title">Note:</span> For Linux/Mac OSX, the continuation character is the backslash <code class="ph codeph">\</code>. For
+      Windows, this is the shift character <code class="ph codeph">^</code>.</div>
+		<p class="p">The command-line processor will now recognize that the first line is continuing on to the next
+      one.</p>
+    </div>
+</article></article></article></main></body></html>

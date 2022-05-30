@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Custom Validation Engines,Custom validation engine preferences"><meta name="keywords" content="Preferences, Custom Validation Engines, Custom validation engine preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-document-checking.html"><meta name="DC.relation" scheme="URI" content="../topics/increasing-stack.html"><meta name="DC.relation" scheme="URI" content="editor-variables.html#editor-variables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-custom-validation"><title>Custom Validation Engines Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-custom-validation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Validation Engines Preferences</h1>
+  
+  <div class="body">
+    <p class="p">As the name implies, the <span class="ph uicontrol">Custom Validation Engines</span> preferences page
+      displays the list of custom validation engines that can be associated to a particular editor
+      and used for validating documents. To access this page, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Document Validation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Custom Validation Engines</span></span>.</p>
+    <p class="p">If you want to add a new custom validation tool or edit the properties of an existing one,
+      you can use the <span class="ph uicontrol">Custom Validator</span> dialog box displayed by pressing the
+        <span class="ph uicontrol">New</span> or <span class="ph uicontrol">Edit</span> button.</p>
+    <div class="p">
+      <figure class="fig fignone" id="preferences-editor-custom-validation__custom-validator-dialog-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Custom Validator Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_custom_validator_dialog.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">The <span class="ph uicontrol">Custom Validator</span> dialog box allows you to configure the following parameters:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+          <dd class="dd">Name of the custom validation engine that will be displayed in the <span class="ph uicontrol"><img class="image" id="preferences-editor-custom-validation__image_i41_p1w_sr" src="../img/ValidateDrop.png">Validation</span> toolbar
+            drop-down menu.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Executable path</span></dt>
+          <dd class="dd">Path to the executable file of the custom validation tool. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Working directory</span></dt>
+          <dd class="dd">The working directory of the custom validation tool. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Associated editors</span></dt>
+          <dd class="dd">The editors that can perform validation with the external tool (XML editor, XSL
+            editor, XSD editor, etc.)</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Command-line arguments for detected schemas</span></dt>
+          <dd class="dd">Command-line arguments used in the commands that validate the currently edited file
+            against various types of schema (XML Schema, Relax NG full syntax, Relax NG compact
+            syntax, NVDL, Schematron, DTD, etc.) The arguments can include any custom switch (such
+            as <span class="keyword option">-rng</span>) and the following <a class="xref" href="editor-variables.html#editor-variables">editor variables</a>:<ul class="ul">
+              <li class="li"><strong class="ph b">${cf}</strong> - Current file as file path, that is the absolute file path of
+        the currently edited document.</li>
+              <li class="li"><strong class="ph b">${currentFileURL}</strong> - Current file as URL, that is the
+        absolute file path of the currently edited document represented as URL.</li>
+              <li class="li"><strong class="ph b">${ds}</strong> - The path of the detected schema as a local file path for the
+        current validated XML document.</li>
+              <li class="li"><strong class="ph b">${dsu}</strong> - The path of the detected schema as a URL for the current
+        validated XML document.</li>
+            </ul></dd>
+        
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/increasing-stack.html">Increasing the Stack Size for Validation Engines</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor-document-checking.html">Document Validation Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="editor-variables.html#editor-variables">Editor Variables</a></li></ul></div></nav>
+</article></main></body></html>

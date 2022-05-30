@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,Embed HTML Content"><meta name="keywords" content="DITA, Topics, Embed HTML Content"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents-author.html"><meta name="DC.relation" scheme="URI" content="../topics/author-adding-media.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-mathml.html"><meta name="DC.relation" scheme="URI" content="whr-add-videos.html#whr-add-videos"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-embed-html"><title>Embedding HTML Content in DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-embed-html"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Embedding HTML Content in DITA Topics</h1>
+  
+  <div class="body">
+    <p class="p">The DITA Open Toolkit that comes bundled with <span class="ph">Oxygen XML Editor</span> includes a pre-installed
+        <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> that allows you to embed
+      well-formed HTML content directly in a DITA topic.</p>
+    <p class="p">For example, suppose you wanted to embed a YouTube video directly in a DITA topic.</p>
+    <div class="p">The DITA topic would look like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">....
+<strong class="hl-tag">&lt;foreign</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"html-embed"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;![CDATA[</strong>
+                &lt;iframe width="420" height="315" 
+                  src="https://www.youtube.com/embed/qepRkQxhTX" 
+                  frameborder="0" allowfullscreen="true"&gt;
+                &lt;/iframe&gt;
+                <strong class="hl-tag">]]&gt;</strong><strong class="hl-tag">&lt;/foreign&gt;</strong>
+....</pre></div>
+    <div class="p">The converted HTML output would look like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...........
+<strong class="hl-tag">&lt;iframe</strong> <span class="hl-attribute">width</span>=<span class="hl-value">"420"</span> <span class="hl-attribute">height</span>=<span class="hl-value">"315"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"https://www.youtube.com/embed/qepRkQxhTX"</span> 
+<span class="hl-attribute">frameborder</span>=<span class="hl-value">"0"</span> <span class="hl-attribute">allowfullscreen</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+<strong class="hl-tag">&lt;/iframe&gt;</strong>
+............</pre></div>
+    <p class="p">The <dfn class="term">plugin</dfn> is also available on the <a class="xref" href="https://github.com/oxygenxml/dita-embed-html" target="_blank" rel="external noopener"><em class="ph i">oxygenxml GitHub projects page</em></a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents-author.html">Editing XML Documents in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-adding-media.html">Adding Video, Audio, and Embedded HTML Resources</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-editing-mathml.html">Editing MathML Notations</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="whr-add-videos.html#whr-add-videos">How to Add Video and Audio Objects in DITA WebHelp Output</a></li></ul></div></nav>
+</article></main></body></html>

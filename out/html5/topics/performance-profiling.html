@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Performance profiling,XSLT Debugger perspective,Debugging XQuery,XQuery Debugger perspective,Performance profiling"><meta name="keywords" content="Debugging XSLT, Performance profiling, XSLT Debugger perspective, Debugging XQuery, XQuery Debugger perspective, Performance profiling"><meta name="DC.relation" scheme="URI" content="../topics/debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/using-breakpoints.html"><meta name="DC.relation" scheme="URI" content="../topics/invocation-tree-view.html"><meta name="DC.relation" scheme="URI" content="../topics/invocation-tree-view.html"><meta name="DC.relation" scheme="URI" content="../topics/hotspots-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="performance-profiling"><title>Performance Profiling of XSLT Stylesheets and XQuery Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="performance-profiling"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Performance Profiling of XSLT Stylesheets and XQuery Documents</h1>
+  
+  <div class="body">
+    <p class="p">Whether you are trying to identify a performance issue that is causing your production
+      XSLT/XQuery transformation to not meet customer expectations or you are trying to proactively
+      identify issues prior to deploying your XSLT/XQuery transformation, using the XSLT/XQuery
+      profiler feature is essential to helping you save time and ultimately ensure a better
+      performing, more scalable XSLT/XQuery transformation.</p>
+    <p class="p">The XSLT/XQuery profiling feature can use any available XSLT/XQuery processor that can be
+      used for debugging and it is available from the debugging <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>.</p>
+    <section class="section" id="performance-profiling__enabling_the_profiler"><h2 class="title sectiontitle">Enabling the Profiler</h2>
+      
+      <p class="p">Enabling and disabling the profiler is controlled by the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__profiling"><span class="ph uicontrol"><img class="image" id="performance-profiling__image_orn_y2n_wr" src="../img/Profiling16.png">/<img class="image" src="../img/ProfilingSelected16.png">Profiler</span> button from the debugger
+          Control toolbar</a>. The XSLT/XQuery profiler is off by default. This option is not
+        available during a debugger session so you need to set it before starting the
+        transformation. For information about a common debugging procedure, see <a class="xref" href="steps-in-typical-debug-process.html">Steps in a Typical Debugging Process</a>.</p>
+    </section>
+    <section class="section" id="performance-profiling__profiling_information_views"><h2 class="title sectiontitle">Profiling Information Views</h2>
+      
+      <p class="p">Immediately after enabling the profiler, two new information views are added to the current
+        debugger <a class="xref" href="debug-info-view.html">information views</a>:</p>
+      <ul class="ul">
+        <li class="li"><a class="xref" href="invocation-tree-view.html"><span class="ph uicontrol">Invocation tree</span>
+            view</a> on left side</li>
+        <li class="li"><a class="xref" href="hotspots-view.html"><span class="ph uicontrol">Hotspots</span> view</a> on right
+          side</li>
+      </ul>
+      <p class="p">Profiling data is available only after the transformation ends successfully.</p>
+      <p class="p">On the left side (<a class="xref" href="invocation-tree-view.html"><span class="ph uicontrol">Invocation
+            tree</span> view</a>), you can examine how style instructions are processed.
+        This result view is also named call-tree, as it represents the order of style processing.
+        The profiling result shows the duration time for each of the style-instruction including the
+        time needed for its called children.</p>
+      <p class="p">On the right side (<a class="xref" href="hotspots-view.html"><span class="ph uicontrol">Hotspots</span>
+          view</a>), you can immediately spot the time the processor spent in each instruction.
+        As an instruction usually calls other instructions, the used time of the called instruction
+        is extracted from the duration time of the caller (the hotspot only presents the inherent
+        time of the instruction).</p>
+    </section>
+    <section class="section" id="performance-profiling__source_backmapping"><h2 class="title sectiontitle">Source Backmapping</h2>
+      
+      <p class="p">In either the <a class="xref" href="invocation-tree-view.html"><span class="ph uicontrol">Invocation
+          tree</span></a> or <a class="xref" href="hotspots-view.html"><span class="ph uicontrol">Hotspots</span>
+          view</a>, you can use the backmapping feature to find the XSLT stylesheet or XQuery
+        expression definition. Clicking the selected item causes <span class="ph">Oxygen XML Editor</span> to highlight
+        the XSLT stylesheet or XQuery expression source line where the instruction is defined.</p>
+      <div class="p">
+        <figure class="fig fignone" id="performance-profiling__figure-profiler-backmapping-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Source Backmapping</figcaption>
+          
+          <img class="image" src="../img/sa_profiler_backmapping.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+    </section>
+    <section class="section" id="performance-profiling__saving_and_customizing_profiling_data"><h2 class="title sectiontitle">Saving and Customizing Profiling Data</h2>
+      
+      <p class="p">The profiling data can be saved (exported) into XML and HTML format. In either the <a class="xref" href="invocation-tree-view.html"><span class="ph uicontrol">Invocation tree</span></a> or <a class="xref" href="hotspots-view.html"><span class="ph uicontrol">Hotspots</span> view</a>, right-click
+        anywhere in the view and select <span class="ph uicontrol">Export to XML</span> or <span class="ph uicontrol">Export to
+          HTML</span>. The HTML report can be customized based upon the profiling raw data.
+        When you select <span class="ph uicontrol">Export to HTML</span>, <span class="ph">Oxygen XML Editor</span> will save it
+        as XML and apply an XSLT stylesheet to render the report as XML. You can customize these
+        stylesheets to suit your needs. By default, they are located in: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/profiler/</span>.</p>
+    </section>
+    <section class="section" id="performance-profiling__other_profiling_notes"><h2 class="title sectiontitle">Other Profiling Notes</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li">If you want to change the <a class="xref" href="preferences-profiler.html">XSLT/XQuery profiler
+              settings</a>, use the contextual menu and choose the corresponding <span class="ph uicontrol">View
+              settings</span> entry.</li>
+          <li class="li">Profiling exhaustive transformations may run into an <strong class="ph b">OutOfMemory</strong> error due to
+            the large amount of information being collected. If this is the case, you can close
+            unused projects when running the profiling or use high values for Java VM options
+              <code class="ph codeph">-Xms</code> and <code class="ph codeph">-Xmx</code>. If this does not help you can shorten
+            your source XML file and try again.</li>
+          <li class="li">
+            <p class="p">For more information about the XSLT/XQuery Profiler, watch our video
+              demonstration:</p>
+            <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/4ftHschjLqA" allowfullscreen="true"></iframe></div></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/invocation-tree-view.html">Invocation Tree View</a><br></li><li class="link olchildlink"><a href="../topics/hotspots-view.html">Hotspots View</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debugging.html" title="The debugging interface that detects problems with XSLT and XQuery transformations">Debugging XSLT Stylesheets and XQuery Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/using-breakpoints.html">Using Breakpoints</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/invocation-tree-view.html">Invocation Tree View</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,Edit topics,Content completion"><meta name="keywords" content="DITA, Topics, Edit topics, Content completion"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/fast-create-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-convert-topics.html"><meta name="DC.relation" scheme="URI" content="eppo-first-dita-topic.html#eppo-first-dita-topic"><meta name="DC.relation" scheme="URI" content="author-dita-extensions.html#author-dita-extensions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-edit-topics"><title>Editing DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-edit-topics"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing DITA Topics</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides a number of features to help you edit DITA topics. A DITA
+      topic is an XML document, thus all the editing features that <span class="ph">Oxygen XML Editor</span> provides
+      for editing XML documents also apply to DITA topics. <span class="ph">Oxygen XML Editor</span> also provides
+      extensive additional support specifically for DITA. </p>
+    <section class="section" id="eppo-edit-topics__opening_a_dita_topic"><h2 class="title sectiontitle">Opening a DITA Topic</h2>
+      
+      <div class="p">There are several ways to open a DITA topic in the XML editor. Use any of the following
+        methods to open a topic:<ul class="ul">
+          <li class="li">Double-click the topic in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span></a> (or right-click the topic and
+            select <span class="ph uicontrol">Open</span>).</li>
+          <li class="li">Double-click the file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> (or
+            right-click the file and select <span class="ph uicontrol">Open</span>).</li>
+          <li class="li" id="eppo-edit-topics__open-map-editor-li">If you have a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+                map</dfn></a> opened in the XML editor, you can click the <img class="image" src="../img/OpenTopicref16.png"> icon to the left of the topic.</li>
+          <li class="li">Drag a DITA file from your system browser and drop it in the XML editor.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="eppo-edit-topics__visual_editing_in_author_mode"><h2 class="title sectiontitle">Visual Editing in <span class="ph uicontrol">Author</span> Mode</h2>
+      
+      <p class="p">DITA is an <a class="xref" href="getting-started-first-XML-document.html">XML format</a>, although you do not
+        have to write raw XML to create and edit DITA topics. <span class="ph">Oxygen XML Editor</span> provides a
+        graphical view of your topics in <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>. Your topics will likely open in
+          <span class="ph uicontrol">Author</span> mode by default, so this is the first view you will see when
+        you open or edit a DITA topic. If your topic does not open in <span class="ph uicontrol">Author</span>
+        mode, just click <span class="ph uicontrol">Author</span> at the bottom left of the editor window to
+        switch to this mode.</p>
+      <p class="p"><span class="ph uicontrol">Author</span> mode presents a graphical view of the document you are
+        editing, similar to the view you would see in a word processor. However, there are some
+        differences, including:</p>
+      <ul class="ul" id="eppo-edit-topics__ul_sh1_wcs_zp">
+        <li class="li"><span class="ph uicontrol">Author</span> mode is not a <strong class="ph b">WYSIWYG</strong> view. It does not show you
+          exactly what your content will look like when printed or displayed on-screen. The
+          appearance of your output is determined by the DITA publishing process, and your
+          organization may have modified that process to change how the output is displayed. <span class="ph">Oxygen XML Editor</span> has no way of determining what your final output will look like or
+          where line breaks or page breaks will fall. Treat <span class="ph uicontrol">Author</span> mode as a
+          friendly visual editing environment, not a faithful preview of your output.</li>
+        <li class="li">Your document is still an XML document. <span class="ph uicontrol">Author</span> mode creates a
+          visual representation of your document by applying a CSS stylesheet to the XML. You can
+          see the XML at any time by switching to <a class="xref" href="text-mode-editor.html#text-mode-editor"><span class="ph uicontrol">Text</span> mode</a>.
+          You, or someone in your organization, can change how the <span class="ph uicontrol">Author</span>
+          view looks by changing the CSS stylesheet or providing an alternate stylesheet. </li>
+        <li class="li">Your aim in editing a DITA document is not to make it look right, but to create a
+          complete and correct DITA XML document. <span class="ph uicontrol">Author</span> mode keeps you
+          informed of the correctness of your content by highlighting XML errors in the text and
+          showing you the current status in a box at the top right of the editor window. Green means
+          that your document is valid, yellow means valid with warnings, and red means invalid.
+          Warnings and errors are displayed when you place the cursor on the error location.</li>
+        <li class="li">Your XML elements may have attributes set on them. Conventionally, attributes are used
+          to contain metadata that is not displayed to the reader. By default, attributes are not
+          displayed in the <span class="ph uicontrol">Author</span> view (though there are some exceptions) and
+          cannot be edited directly in the <span class="ph uicontrol">Author</span> view (though in some cases
+          the CSS that drives the display may use form controls to let you edit attributes
+          directly). To edit the attributes of an element, place your cursor on the element and
+          press <span class="ph uicontrol"><span class="keyword shortcut">Alt+Enter</span></span> to bring up the attribute
+          editor. Alternatively, you can use the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> to edit attributes.</li>
+      </ul>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can select <span class="ph uicontrol">Hints</span> from the
+          <span class="ph uicontrol">Styles</span> drop-down menu (available on the <span class="ph uicontrol">Author
+          Styles</span> toolbar) to display tooltips throughout the DITA document that offers
+        additional information to help you with the DITA structure. For more information, see the
+          <a class="xref" href="selecting-combining-multiple-css-styles.html#selecting-combining-multiple-css-styles">Selecting and Combining Multiple CSS Styles</a> section.</div>
+    </section>
+    <section class="section" id="eppo-edit-topics__content_completion_assistance"><h2 class="title sectiontitle">Content Completion Assistance</h2>
+      
+      <div class="p">Since it is a structured format, DITA only allows certain elements in certain places. The
+        set of elements allowed differs from one DITA topic type to another (this is what makes one
+        topic type different from another). To help you figure out which elements you can add in any
+        given place and help you understand what they mean, <span class="ph">Oxygen XML Editor</span> has a number of
+          <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+            Assistant</dfn></a> features.<ul class="ul" id="eppo-edit-topics__ul_r1m_kfs_zp">
+          <li class="li">
+            <p class="p"><strong class="ph b">The Enter key:</strong> In <span class="ph uicontrol">Author</span> mode, the
+                  <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> key does not create line breaks,
+              it brings up the <dfn class="term">Content Completion Assistant</dfn> to help you enter a new
+              element. In XML, you do not use line breaks to separate paragraphs. You create
+              paragraphs by creating paragraph elements (element <code class="keyword markupname xmlelement">&lt;p&gt;</code> in DITA)
+              and tools insert the line breaks in the output and on-screen.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Content Completion Assistant</figcaption>
+                
+                <img class="image" id="eppo-edit-topics__image_jyk_xgs_zp" src="../img/author_content_completion.png">
+              </figure>
+            </div>
+            <p class="p">The <dfn class="term">Content Completion Assistant</dfn> not only suggests new elements you can
+              add. If you press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> at the end of a
+                <a class="xref" href="../glossary/block-element.html"><dfn class="term">block element</dfn></a> (such as a
+              paragraph) it suggests creating a new element of the same type. If you press
+                  <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> in the middle of a <dfn class="term">block
+                element</dfn>, it suggests splitting that element into two elements. </p>
+            <p class="p">A useful consequence of this behavior is that you can create a new paragraph simply
+              by hitting <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> twice (just as you might
+              in a text editor).</p>
+            <p class="p">As you highlight an element name, a basic description of the element is displayed.
+              Select the desired element and press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>
+              to create it.</p>
+            <p class="p">To wrap an element around an existing element or piece of text, simply select it and
+              press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> and use the <dfn class="term">Content
+                Completion Assistant</dfn> to choose the wrapper element.</p>
+          </li>
+          <li class="li"><strong class="ph b">The Model view:</strong> You can see the entire model of the current element by opening
+            the <a class="xref" href="model-panel.html#model-panel"><span class="ph uicontrol">Model</span> view</a> (<span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Model</span></span>, if the view is not already open). The <span class="ph uicontrol">Model</span> view
+            shows you what type of content the current element can contain, all the child elements
+            it can contain, all its permitted attributes, and their types. </li>
+        </ul></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can also select <span class="ph uicontrol">Inline actions</span> from the
+          <span class="ph uicontrol">Styles</span> drop-down menu (available on the <span class="ph uicontrol">Author
+          Styles</span> toolbar) to display possible elements that are allowed to be inserted
+        at various locations throughout the DITA document. For more information, see the <a class="xref" href="selecting-combining-multiple-css-styles.html#selecting-combining-multiple-css-styles">Selecting and Combining Multiple CSS Styles</a> section.</div>
+    </section>
+    <section class="section" id="eppo-edit-topics__dita_toolbar"><h2 class="title sectiontitle">DITA Editing Actions</h2>
+      
+      <p class="p">A variety of actions are available in the DITA <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> to specifically assist you with editing DITA documents.
+        These various actions are available in the contextual menu, the <span class="ph uicontrol">DITA</span>
+        menu, the <span class="ph uicontrol">DITA (Author Custom Actions)</span> toolbar, or the <dfn class="term">Content
+          Completion Assistant</dfn>.</p>
+      <p class="p">The <span class="ph uicontrol">DITA</span> toolbar contains buttons for inserting a number of common
+        DITA elements (elements that are found in most DITA topic types). </p>
+      <br><img class="image" id="eppo-edit-topics__image_bny_tjs_zp" src="../img/sa_dita_toolbar.png"><br>
+      <div class="p">If the <span class="ph uicontrol">DITA</span> toolbar is not displayed, right-click anywhere on the
+        toolbar area, select <span class="ph uicontrol">Configure Toolbars</span>, and select it from the
+        displayed dialog box. <div class="note note note_note"><span class="note__title">Note:</span> The <span class="ph uicontrol">DITA</span> toolbar contains a list of the
+          most common elements and actions for DITA, such as inserting an image, creating a link,
+          inserting a content reference, or creating a table. It does not contain a button for
+          inserting every possible DITA element. For a complete list of elements that you can insert
+          at the current location in your document, press <span class="ph uicontrol">Enter</span> to open the
+            <dfn class="term">Content Completion Assistant</dfn>.</div></div>
+      <p class="p">Whenever the current document in the editor is a DITA document, the
+          <span class="ph uicontrol">DITA</span> menu is displayed in the menu bar. It contains a large number
+        of actions for inserting elements, creating content references and keys, editing DITA
+        documents, and controlling the display. These actions are specific to DITA and supplement
+        the general editing commands available for all document types. Many of these actions are
+        also conveniently available in the contextual menu. In addition to the <a class="xref" href="author-dita-extensions.html#author-dita-extensions">DITA
+          <dfn class="term">framework</dfn>-specific actions</a>, the contextual menu also includes various
+          <a class="xref" href="author-contextual-menu.html#author-contextual-menu"><em class="ph i">general</em>
+          <span class="ph uicontrol">Author</span> mode contextual menu actions</a>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-structure.html">Working with DITA Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/fast-create-topics.html">Fast Create Multiple DITA Topics</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-convert-topics.html">Converting DITA Topics to Another Type</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-first-dita-topic.html#eppo-first-dita-topic">Getting Started with DITA</a></li><li class="linklist"><a class="link" href="author-dita-extensions.html#author-dita-extensions">DITA Topic Author Mode Actions</a></li></ul></div></nav>
+</article></main></body></html>

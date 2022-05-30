@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Add-ons,Vale linter,Markdown grammar checker,HTML grammar checker"><meta name="keywords" content="Add-ons, Vale linter, Markdown grammar checker, HTML grammar checker"><meta name="DC.relation" scheme="URI" content="../topics/add-ons.html"><meta name="DC.relation" scheme="URI" content="../topics/xspec-helper-view-addon.html"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="vale-linter-addon"><title>Vale Validation Add-on</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="vale-linter-addon"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Vale Validation Add-on</h1>
+  
+  <div class="body">
+    <p class="p">The Vale Validation add-on runs the <a class="xref" href="https://docs.errata.ai/vale/about" target="_blank" rel="external noopener">Vale linter</a> over the currently edited file and
+      presents the validation errors in the results area at the bottom of the application. A
+        <dfn class="term">Linter</dfn> is a tool that automatically verifies specific rules against your code
+      or documentation. This is useful for enforcing a style guide or for catching commonly mistaken
+      branding issues.</p>
+    <p class="p">To add install this plugin to <span class="ph">Oxygen XML Editor</span>, follow this procedure:</p>
+    <ol class="ol" id="vale-linter-addon__ol_wjr_sjc_mnb">
+      <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Install new add-ons</span></span> to open an add-on selection dialog box. </li>
+      <li class="li">Enter or paste <strong class="ph b">https://www.oxygenxml.com/InstData/Addons/default/updateSite.xml</strong> in
+        the <span class="ph uicontrol">Show add-ons from</span> field or select it from the drop-down
+        menu.</li>
+      <li class="li">Select the <strong class="ph b">Vale Validation plugin</strong> add-on and click <span class="ph uicontrol">Next</span>. </li>
+      <li class="li">Select the <strong class="ph b">I accept all terms of the end-user license agreement</strong> option and click
+          <span class="ph uicontrol">Finish</span>. </li>
+      <li class="li">Restart the application.</li>
+    </ol>
+    <section class="section" id="vale-linter-addon__section_ym2_vjc_mnb"><h2 class="title sectiontitle">Setup the Oxygen Vale Validation</h2>
+      
+      <div class="p">To setup the Vale validation, follow this procedure:<ol class="ol" id="vale-linter-addon__ol_br5_xr5_pnb">
+          <li class="li">
+            <p class="p">Download and unzip the proper <a class="xref" href="https://github.com/errata-ai/vale/releases" target="_blank" rel="external noopener">Vale executable</a> for your OS. On Linux and Mac,
+              you need to give executable permission to the Vale executable. You can do this by
+              opening a console in the Vale directory and running:</p>
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">chmod u+x vale</pre>
+          </li>
+          <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Plugins</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Vale Validation</span></span> and specify the path to the previously downloaded Vale executable.</li>
+          <li class="li" id="vale-linter-addon__vale-ini-setup">In the same preferences page, you can also specify a path to a
+              <a class="xref" href="https://docs.errata.ai/vale/config" target="_blank" rel="external noopener">Vale
+              configuration file (<span class="ph filepath">.vale.ini</span>)</a>. Vale <a class="xref" href="https://docs.errata.ai/vale/config#search-process" target="_blank" rel="external noopener">automatically detects this file</a> by looking 6 levels up in the
+            current file's ancestor directories, but you can also impose one.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="vale-linter-addon__section_ov1_kjc_mnb"><h2 class="title sectiontitle">Vale Styles</h2>
+      
+      <p class="p">Vale uses collections of individual <a class="xref" href="http://yaml.org" target="_blank" rel="external noopener">YAML</a> files (or "rules") to enforce particular writing constructs.
+        These collections are referred to as <em class="ph i">styles</em> and are organized in a nested folder
+        structure at a user-specified location. The <a class="xref" href="https://docs.errata.ai/vale/config" target="_blank" rel="external noopener"><span class="ph filepath">.vale.ini</span></a> file is where you'll
+        control the majority of Vale's behavior, including which files to lint and how to lint them.
+        Vale <a class="xref" href="https://docs.errata.ai/vale/config#search-process" target="_blank" rel="external noopener">automatically detects <span class="ph filepath">.vale.ini</span></a>, but you can
+        also specify the path to <span class="ph filepath">.vale.ini</span> from the plugin's preferences page (<span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Plugins</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Vale Validation</span></span>).</p>
+    </section>
+    <section class="section" id="vale-linter-addon__section_pzq_fs5_pnb"><h2 class="title sectiontitle">Third-party Styles</h2>
+      
+      <p class="p">Vale has a growing selection of pre-made styles available for download from its <a class="xref" href="https://github.com/errata-ai/styles#available-styles" target="_blank" rel="external noopener">style library</a>.</p>
+    </section>
+    <section class="section" id="vale-linter-addon__section_ql2_bkc_mnb"><h2 class="title sectiontitle">Validation</h2>
+      
+      <div class="p">After downloading the <a class="xref" href="vale-linter-addon.html#vale-linter-addon__section_ym2_vjc_mnb">Vale executable</a>, <a class="xref" href="vale-linter-addon.html#vale-linter-addon__section_ov1_kjc_mnb">creating or downloading Vale styles</a>, and <a class="xref" href="vale-linter-addon.html#vale-linter-addon__vale-ini-setup">specifying the path to
+            <span class="ph filepath">.vale.ini</span></a>, the add-on will intercept the <a class="xref" href="automatic-validation.html">Automatic Validation</a> and <a class="xref" href="validation-actions-in-user-interface.html">Manual Validation</a> and contribute
+        errors and warning obtained by running Vale validation over the current file. The errors and
+        warnings are highlighted in the editor.<div class="note note note_note"><span class="note__title">Note:</span> Although Vale supports <a class="xref" href="https://docs.errata.ai/vale/scoping#formats" target="_blank" rel="external noopener">multiple file formats</a>, the Vale Validation add-on currently only supports <a class="xref" href="https://docs.errata.ai/vale/scoping#markdown" target="_blank" rel="external noopener">Markdown (*.md files)</a> and <a class="xref" href="https://docs.errata.ai/vale/scoping#html" target="_blank" rel="external noopener">HTML files</a>.</div></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/add-ons.html" title="Information about extending Oxygen XML Editor with add-ons">Add-ons</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xspec-helper-view-addon.html">XSpec Helper View Add-on</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div></div></nav></article></main></body></html>

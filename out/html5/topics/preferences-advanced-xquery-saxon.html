@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Saxon-HE/PE/EE XQuery Advanced,Saxon HE/PE/EE advanced XQuery preferences"><meta name="keywords" content="Preferences, Saxon-HE/PE/EE XQuery Advanced, Saxon HE/PE/EE advanced XQuery preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xquery-saxon.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xquery-saxon.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-debugger.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-advanced-xquery-saxon"><title>Saxon HE/PE/EE Advanced Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-advanced-xquery-saxon"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Saxon HE/PE/EE Advanced Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure <span class="ph uicontrol">Saxon HE/PE/EE Advanced</span> preferences, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT-XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Saxon-HE/PE/EE</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Advanced</span></span>.</p>
+    <p class="p">The advanced XQuery options that can be configured for the Saxon <span class="ph">9.9.1.5</span> XQuery transformer (all editions: Home Edition, Professional
+      Edition, Enterprise Edition) are as follows:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol">URI Resolver class name</span> - Allows you to specify a custom
+        implementation for the URI resolver used by the XQuery Saxon <span class="ph">9.9.1.5</span> transformer (the <span class="keyword option">-r</span> option when run from the command line). The class
+        name must be fully specified and the corresponding <dfn class="term">JAR</dfn> or class extension must
+        be configured from <a class="xref" href="xslt-xquery-extensions.html">the dialog box for configuring
+          the XQuery extension</a> for the particular transformation scenario.<div class="note note note_note"><span class="note__title">Note:</span> If your
+            <code class="ph codeph">URIResolver</code> implementation does not recognize the given resource, the
+            <code class="ph codeph">resolve(String href, String base)</code> method should return a
+            <code class="ph codeph">null</code> value. Otherwise, the given resource will not be resolved through
+          the <a class="xref" href="using-XML-Catalogs.html#using-XML-Catalogs"><dfn class="term">XML
+            Catalog</dfn></a>.</div></li>
+      <li class="li"><span class="ph uicontrol">Collection URI Resolver class name</span> - Allows you to specify a custom
+        implementation for the Collection URI resolver used by the XQuery Saxon <span class="ph">9.9.1.5</span> transformer (the <span class="keyword option">-cr</span> option when run from
+        the command line). The class name must be fully specified and the corresponding
+          <dfn class="term">JAR</dfn> or class extension must be configured from <a class="xref" href="xslt-xquery-extensions.html">the dialog box for configuring the XQuery
+          extension</a> for the particular transformation scenario.</li>
+    </ul>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-xquery-saxon.html">Saxon-HE/PE/EE Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-xquery-saxon.html">Saxon-HE/PE/EE Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-debugger.html">Debugger Preferences</a></div></div></nav></article></main></body></html>

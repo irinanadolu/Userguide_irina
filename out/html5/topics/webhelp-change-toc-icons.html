@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Classic,Changing icons in the table of contents"><meta name="keywords" content="WebHelp Classic, Changing icons in the table of contents"><meta name="DC.relation" scheme="URI" content="../topics/wh-classic-change-layout-styles.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customization-ol-numbering-classic.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customizations-toc.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="webhelp-change-toc-icons"><title>How to Change the Icons in a WebHelp Classic Table of Contents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="webhelp-change-toc-icons"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Change the Icons in a WebHelp Classic Table of Contents</h1>
+  
+  <div class="body">
+    <div class="p">You can change the icons that appear in a WebHelp Classic table of contents by assigning new
+      image files in a custom CSS file. By default, these icons are defined with the following CSS
+      codes (the first example is the icon that appears for a collapsed menu and the second for an
+      expanded
+      menu):<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuClosed{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'../img/book_closed16.png'</span>) no-repeat;
+    <strong class="hl-keyword">padding-left</strong>: <span class="hl-number">16</span>px;
+    <strong class="hl-keyword">cursor</strong>: pointer;
+}</pre><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuOpened{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'../img/book_opened16.png'</span>) no-repeat;
+    <strong class="hl-keyword">padding-left</strong>: <span class="hl-number">16</span>px;
+    <strong class="hl-keyword">cursor</strong>: pointer;
+}</pre></div>
+    <section class="section" id="webhelp-change-toc-icons__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To assign other icons and use a transformation scenario from within <strong class="ph b">Oxygen XML
+          Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Create a custom CSS file that assigns your desired icons to the
+              <code class="ph codeph">.hasSubMenuClosed</code> and <code class="ph codeph">.hasSubMenuOpened</code>
+            properties.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuClosed{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'TOC-my-closed-button.png'</span>) no-repeat;
+}</pre><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuOpened{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'TOC-my-opened-button.png'</span>) no-repeat;
+}</pre></li>
+          <li class="li">It is recommended that you store the image files in the same directory as the default
+            icons (<span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\docbook\xsl\com.oxygenxml.webhelp.classic\oxygen-webhelp\resources\img\</span>).</li>
+          <li class="li"><span class="ph">Edit the WebHelp transformation
+        scenario and open the <span class="ph uicontrol">Parameters</span> tab.</span> Set the
+              <code class="ph codeph">html.stylesheet</code> parameter to the path of your custom CSS file.</li>
+          <li class="li">Run the WebHelp transformation scenario to generate the output.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="webhelp-change-toc-icons__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Script Outside of Oxygen XML Editor/Author</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> Running WebHelp transformations from a script outside of <strong class="ph b">Oxygen XML
+        Editor/Author</strong> requires an additional license and some additional setup:<ul class="ul">
+        <li class="li">You must have a valid license for the <strong class="ph b">Oxygen XML WebHelp Plugin</strong> (<a class="xref" href="https://www.oxygenxml.com/buy_webhelp.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/buy_webhelp.html</a>).</li>
+        <li class="li">The <strong class="ph b">Oxygen XML WebHelp Plugin</strong> must be installed and integrated.</li>
+      </ul></div>
+      <div class="p">To assign other icons and use a <a class="xref" href="using-the-webhelp-plugin-docbook.html">script
+          outside of <strong class="ph b">Oxygen XML Editor/Author</strong></a>, follow this procedure:<ol class="ol">
+          <li class="li">Create a custom CSS file that assigns your desired icons to the
+              <code class="ph codeph">.hasSubMenuClosed</code> and <code class="ph codeph">.hasSubMenuOpened</code>
+            properties.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuClosed{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'TOC-my-closed-button.png'</span>) no-repeat;
+}</pre><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.hasSubMenuOpened{
+    <strong class="hl-keyword">background</strong>: url(<span class="hl-string">'TOC-my-opened-button.png'</span>) no-repeat;
+}</pre></li>
+          <li class="li">It is recommended that you store the image files in the same directory as the default
+            icons (<span class="ph filepath">[DocBook XSL
+              directory]\com.oxygenxml.webhelp.classic\oxygen-webhelp\resources\img\</span>).</li>
+          <li class="li">Reference your custom CSS file. Use the <code class="ph codeph">html.stylesheet</code> parameter in
+            your transformation script and set its value to the path of your custom CSS file.</li>
+          <li class="li">
+            <p class="p">Execute the transformation script.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/wh-classic-change-layout-styles.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp-customization-ol-numbering-classic.html">How to Change Number Styles for Ordered Lists</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/webhelp-customizations-toc.html">How to Customize the Appearance of Selected Items in the Table of Contents</a></div></div></nav></article></main></body></html>

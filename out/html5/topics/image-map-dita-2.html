@@ -1,0 +1,331 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,Image maps,Image Map Editor,Author editing mode,Image Map Editor,XML documents,Author Mode editing,Image Map Editor,Image Map Editor in DITA"><meta name="keywords" content="DITA, Topics, Image maps, Image Map Editor, Author editing mode, Image Map Editor, XML documents, Author Mode editing, Image Map Editor, Image Map Editor in DITA"><meta name="DC.relation" scheme="URI" content="../topics/image-map-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-docbook.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/imagemap.html"><meta name="DC.relation" scheme="URI" content="eppo-adding-images.html#eppo-adding-images"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="image-map-dita"><title>Image Maps in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="image-map-dita"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Image Maps in DITA</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes support for <strong class="ph b">image maps</strong> in DITA documents through
+      the use of the <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element. This feature provides an easy way to create
+      hyperlinks in various areas within an image without having to divide the image into separate
+      image files. The visual <span class="ph uicontrol">Author</span> editing mode includes an
+        <span class="ph uicontrol">Image Map Editor</span> that helps you to easily create and configure image
+      maps.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Image Map Editor in DITA</figcaption>
+        
+        <img class="image" src="../img/image_map_dita.png">
+      </figure>
+    </div>
+    <section class="section" id="image-map-dita__image_map_editor_interface_in_dita"><h2 class="title sectiontitle">Image Map Editor Interface in DITA</h2>
+      
+      <div class="p">The interface of the <span class="ph uicontrol">Image Map Editor</span> consists of the following
+        sections and actions:<dl class="dl">
+          
+          <dt class="dt dlterm" id="image-map-dita__toolbar">Toolbar</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="image-map-dita__rect"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewRectangle20.png">New
+                      Rectangle</span></dt>
+                  <dd class="dd">Use this button to draw a rectangular shape over an area in the image. You can
+                    drag any of the four points to adjust the size and shape of the rectangle.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__circle"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewCircle20.png">New
+                    Circle</span></dt>
+                  <dd class="dd">Use this button to draw a circle over an area in the image. You can drag any
+                    of the four points to adjust the size of the circle.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__poly"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewPolygon20.png">New
+                    Polygon</span></dt>
+                  <dd class="dd">Use this button to draw a polygon shape over an area in the image. This action
+                    opens a dialog box that allows you to select the number of points for the
+                    polygon. You can drag any of the points to adjust the size and shape of the
+                    polygon.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__Free-Form"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/FreeForm20.png">New Free Form
+                      Shape</span></dt>
+                  <dd class="dd">Use this button to draw a free form shape over an area in the image. After
+                    selecting this button, left-click anywhere in the image to place the first point
+                    of your shape. Then move the cursor to the location of the next desired point
+                    and left-click to place the next point, and so on. To complete the shape (area),
+                    click the first point again and a line will automatically be added from the last
+                    point that was added, or simply double-click the last point to automatically add
+                    the line from the last point back to the first.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__duplicate"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CopyArea20.png">Duplicate</span></dt>
+                  <dd class="dd">Use this button to create a duplicate of the currently selected shape.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__delete"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteArea20.png">Delete</span></dt>
+                  <dd class="dd">Use this button to delete the currently selected shape.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__undo"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Undo20.png">Undo</span></dt>
+                  <dd class="dd">Use this button to undo the last action.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__redo"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Redo20.png">Redo</span></dt>
+                  <dd class="dd">Use this button to redo the last action that was undone.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__show-numbers"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ShowLayers20.png">Show/Hide
+                      Numbers</span></dt>
+                  <dd class="dd">Use this button to toggle between showing or hiding the numbers for the
+                    shapes.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__bring-front"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BringShapeToFront20.png">Bring Shape to
+                      Front</span></dt>
+                  <dd class="dd">Use this button to bring the currently selected shape forward to the top
+                    layer.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__bring-forward"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BringShapeForward20.png">Bring Shape
+                      Forward</span></dt>
+                  <dd class="dd">Use this button to bring the currently selected shape forward one layer.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__send-backward"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SendShapeBackward20.png">Send Shape
+                      Backward</span></dt>
+                  <dd class="dd">Use this button to send the currently selected shape back one layer.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__send-back"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SendShapeToBack20.png">Send Shape to
+                      Back</span></dt>
+                  <dd class="dd">Use this button to send the currently selected shape back to the bottom
+                    layer.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__color-chooser"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ColorChooser20.png">Color
+                      Chooser</span></dt>
+                  <dd class="dd">Use this drop-down menu to select a color scheme for the lines and numbers of
+                    the shapes.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__zoom"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ZoomSlider20.png">Zoom
+                    Slider</span></dt>
+                  <dd class="dd">Use this slider to zoom the image in or out in the main image pane.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+            <dt class="dt dlterm" id="image-map-dita__image-map-image-pane">Image Pane</dt>
+            <dd class="dd">
+              <p class="p">This main Image Pane is where you work with shapes to add
+              hyperlinks to multiple areas within an image. The editing mechanisms that are
+              supported in the Image Pane include the following:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><u class="ph u">Mouse Controls and Keyboard Shortcuts</u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li">Use the mouse to select and move shapes around in the image pane. It is easy to
+                see which shape is selected in this image pane because the border of the selected
+                shape changes from a solid line to a dotted one.</li>
+              <li class="li">You can also drag any of the points of a selected shape to adjust its size and
+                shape.</li>
+              <li class="li">You can hold down the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> key to
+                select multiple shapes and then move them simultaneously.</li>
+              <li class="li">You can also move shapes by using the arrow keys on your keyboard. In addition,
+                you can hold down <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> while using the
+                arrow keys to move the shape further or
+                  <span class="ph uicontrol"><span class="keyword shortcut">Alt</span></span> to move it 1 pixel at a time.</li>
+              <li class="li">To zoom in or out, you can use the <span class="ph uicontrol"><span class="keyword shortcut">NumPad
+                  +</span></span> or <span class="ph uicontrol"><span class="keyword shortcut">NumPad -</span></span>
+                keys respectively. Use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + NumPad 0</span></span>
+                to reset the zoom level to its default value.</li>
+              <li class="li">You can use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Z</span></span> to undo an action
+                or <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Y</span></span> to redo the last action that
+                was undone.</li>
+            </ul>
+          </dd>
+        
+                  
+          <dt class="dt dlterm" id="image-map-dita__contextual-menu-dlentry"><u class="ph u">Contextual Menu Actions Available in the Image Pane</u></dt>
+          <dd class="dd">
+            <p class="p">You can right-click the shapes, points, or anywhere in the Image Pane to invoke the
+              contextual menu where the following actions are available:</p>
+            <div class="p">
+              <dl class="dl" id="image-map-dita__contextual-dl">
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-add-point"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Add16.png">Add Point</span></dt>
+                  <dd class="dd">Adds a point to <em class="ph i">Polygon</em> or <em class="ph i">Free Form</em> shapes.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-remove-point"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Remove16.png">Remove Point</span></dt>
+                  <dd class="dd">Removes the current point from <em class="ph i">Polygon</em> or <em class="ph i">Free Form</em> shapes.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-duplicate"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CopyArea20.png">Duplicate</span></dt>
+                  <dd class="dd">Create a duplicate of the currently selected shape.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-delete"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteArea20.png">Delete</span></dt>
+                  <dd class="dd">Delete the currently selected shape.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-rectangle"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewRectangle20.png">New
+                      Rectangle</span></dt>
+                  <dd class="dd">Creates a rectangular shape over an area in the image. You can drag any of the
+                    four points to adjust the size and shape of the rectangle.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewCircle20.png">New
+                    Circle</span></dt>
+                  <dd class="dd">Creates a circle over an area in the image. You can drag any of the four
+                    points to adjust the size of the circle.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-polygon"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewPolygon20.png">New
+                    Polygon</span></dt>
+                  <dd class="dd">Creates a polygon shape over an area in the image. This action opens a dialog
+                    box that allows you to select the number of points for the polygon. You can drag
+                    any of the points to adjust the size and shape of the polygon.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-undo"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Undo20.png">Undo</span></dt>
+                  <dd class="dd">Use this action to undo the last action.</dd>
+                
+                
+                  <dt class="dt dlterm" id="image-map-dita__contextual-redo"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Redo20.png">Redo</span></dt>
+                  <dd class="dd">Use this action to redo the last action that was undone.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm" id="image-map-dita__shape-table">Shape Table</dt>
+            <dd class="dd">The table at the right of the <em class="ph i">Image Pane</em> is a sequential list of all the
+              areas (shapes) that have been added in the image. It shows their number, type, and
+              description (if one has been added). If you select one of the entries in the table,
+              the corresponding shape will be selected in the <em class="ph i">Image Pane</em>.</dd>
+          
+          
+            <dt class="dt dlterm">Properties</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Type</span></dt>
+                    <dd class="dd">Displays information about the selected coordinate.</dd>
+                  
+                  
+                    <dt class="dt dlterm" id="image-map-dita__target"><span class="ph uicontrol">Target</span></dt>
+                    <dd class="dd">
+                      <p class="p">Allows you to choose the target resource that you want the selected area
+                        (shape) to be linked to. Select a target by using the <span class="ph uicontrol"><img class="image" id="image-map-dita__image_nbp_mkx_sr" src="../img/LinkDrop.png">Link</span>
+                        drop-down menu to the right of the text field. You can choose between the
+                        following types of links: <span class="ph uicontrol">Cross Reference</span>,
+                          <span class="ph uicontrol">File Reference</span>, or <span class="ph uicontrol">Web Link</span>.
+                        All three types will open a dialog box that allows you to define the target
+                        resource. This linking process is similar to the normal process of <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__inserting_a_link_in">inserting links in DITA</a> by using the identical <span class="ph uicontrol"><img class="image" id="image-map-dita__image_arv_kn1_1jb" src="../img/LinkDrop.png">Link</span>
+                        drop-down menu from the main toolbar.</p>
+                      <p class="p">When you click <span class="ph uicontrol">OK</span> to finalize your changes in the
+                          <span class="ph uicontrol">Image Map Editor</span>, an <code class="keyword markupname xmlelement">&lt;xref&gt;</code>
+                        element will be inserted with either an <code class="keyword markupname xmlatt">@href</code> attribute or a
+                          <code class="keyword markupname xmlatt">@keyref</code> attribute. Additional attributes may also be
+                        inserted and their values depend on the target and the type of link. For
+                        details about the three types of links and their dialog boxes, see <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__inserting_a_link_in">Inserting a Link in Oxygen XML Editor</a>.</p>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm" id="image-map-dita__description"><span class="ph uicontrol">Description</span></dt>
+                    <dd class="dd">You can enter an optional description for the selected area (shape) that
+                      will be displayed in the <a class="xref" href="image-map-dita-2.html#image-map-dita__image-map-details"><span class="ph uicontrol">Image Map Details</span> section</a> in
+                        <span class="ph uicontrol">Author</span> mode and as a tooltip message when the end-user hovers over the hyperlink in the output.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="image-map-dita__how_to_create_an_image_map_in_dita"><h2 class="title sectiontitle">How to Create an Image Map in DITA</h2>
+      
+      <div class="p">To create an image map on an existing image in a DITA document, follow these steps:<ol class="ol">
+          <li class="li">
+            <p class="p">Right-click the image and select <span class="ph uicontrol">Image Map Editor</span>.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> This action will apply an <em class="ph i">image map</em> to the current image
+              and open the <span class="ph uicontrol">Image Map Editor</span> dialog box.</p>
+          </li>
+          <li class="li">Add hyperlinks to the image by selecting one of the shape buttons (<span class="ph uicontrol"><img class="image" src="../img/NewRectangle20.png">New Rectangle</span>, <span class="ph uicontrol"><img class="image" src="../img/NewCircle20.png">New Circle</span>, or <span class="ph uicontrol"><img class="image" src="../img/NewPolygon20.png">New Polygon</span>).</li>
+          <li class="li">Move the shape to the desired area in the image and drag any of the points on the
+            shape to adjust its size or form. You can use the <a class="xref" href="image-map-dita-2.html#image-map-dita__toolbar">other buttons on the toolbar</a> to adjust its layer and color, or to
+            perform other editing actions.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can right-click any of the points,
+              shapes, or anywhere in the Image Pane to access various helpful <a class="xref" href="image-map-dita-2.html#image-map-dita__contextual-menu-dlentry">contextual menu
+                actions</a>. For example, the easiest way to remove a point is to right-click the
+              point and select <span class="ph uicontrol"><img class="image" src="../img/Remove16.png">Remove
+                Point</span>.</div></li>
+          <li class="li">With the shape selected, use one of the <a class="xref" href="image-map-dita-2.html#image-map-dita__target">linking options</a> in the <span class="ph uicontrol"><img class="image" src="../img/LinkDrop.png">Link</span> drop-down menu to select a target
+            resource (or enter its path in the <a class="xref" href="image-map-dita-2.html#image-map-dita__target"><span class="ph uicontrol">Target</span></a> text field).</li>
+          <li class="li">(Optional) Enter a <a class="xref" href="image-map-dita-2.html#image-map-dita__description"><span class="ph uicontrol">Description</span></a> for the selected area (shape).</li>
+          <li class="li">If you want to add more hyperlinks to the image, select a shape button again and
+            repeat the appropriate steps.</li>
+          <li class="li">When you are finished creating hyperlinks, click <span class="ph uicontrol">OK</span> to process
+            your changes.</li>
+        </ol></div>
+      <div class="p"><strong class="ph b">Result:</strong> The <em class="ph i">image map</em> is applied on the image and the appropriate
+        elements and attributes are automatically added. In <span class="ph uicontrol">Author</span> mode, the
+        image map is now rendered over the image. If the image includes an <code class="keyword markupname xmlelement">&lt;alt&gt;</code>
+        element, its value will be displayed under the image. The following two buttons will also
+        now be available under the image in <span class="ph uicontrol">Author</span> mode:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">Image Map Editor</span> - Click this button to open the
+              <span class="ph uicontrol">Image Map Editor</span>.</li>
+          <li class="li" id="image-map-dita__image-map-details"><span class="ph uicontrol">Image Map Details</span> - Click this button to
+            expand a section that displays the details of the image map and allows you to change the
+            shape and coordinates of the hyperlinked areas. Keep in mind that if you change the
+            shape in this section, you also need to add or remove coordinates to match the
+            requirements of the new shape.</li>
+        </ul></div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Image Map Details</figcaption>
+          
+          <img class="image" src="../img/image-map-details.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="image-map-dita__how_to_edit_an_existing_image_map_in_dita"><h2 class="title sectiontitle">How to Edit an Existing Image Map in DITA</h2>
+      
+      <div class="p">To edit an existing image map, use any of the following methods:<ul class="ul">
+          <li class="li">Simply double-click the image.</li>
+          <li class="li">Right-click the image and select <span class="ph uicontrol">Image Map Editor</span>.</li>
+          <li class="li">Click the <span class="ph uicontrol">Image Map Editor</span> button below the image.</li>
+        </ul>All three methods open the <span class="ph uicontrol">Image Map Editor</span> where you can make
+        changes to the image map using the various features described above. You can also make
+        changes to the XML structure of the image map in the <span class="ph uicontrol">Text</span> editing
+        mode.</div>
+      <p class="p">You can also click the <span class="ph uicontrol">Image Map Details</span> button below the image to
+        expand a section that displays the details of the image map and allows you to change the
+        shape and coordinates of the hyperlinked areas. Keep in mind that if you change the shape in
+        this section, you also need to add or remove coordinates to match the requirements of the
+        new shape.</p>
+    </section>
+    <section class="section" id="image-map-dita__overlapping_areas"><h2 class="title sectiontitle">Overlapping Areas</h2>
+      
+      <p class="p">If shapes overlap one another in the <span class="ph uicontrol">Image Map Editor</span>, the one on
+        the top layer takes precedence. The number shown inside each shape represents its layer (if
+        the numbers are not displayed, click the <span class="ph uicontrol"><img class="image" src="../img/ShowLayers20.png">Show/Hide Numbers</span> button on the <a class="xref" href="image-map-dita-2.html#image-map-dita__toolbar"><span class="ph uicontrol">Image Map Editor</span> toolbar</a>). To change the layer
+        order for a shape, use the layer buttons on the <a class="xref" href="image-map-dita-2.html#image-map-dita__toolbar"><span class="ph uicontrol">Image Map Editor</span> toolbar</a> (<img class="image" src="../img/BringShapeToFront20.png">, <img class="image" src="../img/BringShapeForward20.png">,
+          <img class="image" src="../img/SendShapeBackward20.png">, <img class="image" src="../img/SendShapeToBack20.png">).</p>
+      <p class="p">If you insert a shape and all of its coordinates are completely inside another shape, the
+          <span class="ph uicontrol">Image Map Editor</span> will display a warning to let you know that the
+        shape is entirely covered by a bigger shape. Keep in mind that if a shape is completely
+        inside another shape, its hyperlink will only be accessible if its layer is on top of the
+        bigger shape.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/image-map-editor.html">Image Map Editor</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/image-map-editor.html">Image Map Editor</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/image-map-docbook.html">Image Maps in DocBook</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/imagemap.html" target="_blank" rel="external noopener">DITA 'imagemap' Element Specifications</a></li><li class="linklist"><a class="link" href="eppo-adding-images.html#eppo-adding-images">Working with Images in DITA Topics</a></li></ul></div></nav>
+</article></main></body></html>

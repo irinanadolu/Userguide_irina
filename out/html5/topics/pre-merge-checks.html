@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/merge-branches.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-branches.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-revisions-range.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="pre-merge-checks"><title>Pre-Merge Checks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="pre-merge-checks"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Pre-Merge Checks</h1>
+  <div class="body">
+    <p class="p">Before performing a merge, it is recommended to make sure that the working copy target item
+      is ready for the merge operation. The SVN Client includes a best practices step that checks
+      various conditions of the working copy target item to ensure that the merge operation will
+      succeed. By selecting the <span class="ph uicontrol">Perform pre-merge best practices checks of the working
+        copy target</span> option in the first page of the <span class="ph uicontrol">Merge</span> wizard,
+      the <span class="ph uicontrol">Pre-merge checks</span> wizard page is displayed to give you a summary of
+      the verified conditions. </p>
+    <div class="p">
+      <figure class="fig fignone" id="pre-merge-checks__fig_qrm_sll_4r"><figcaption><span class="fig--title-label">Figure 1. </span>Pre-Merge Checks Wizard Page</figcaption>
+        
+        <img class="image" id="pre-merge-checks__image_psv_5ll_4r" src="../img/svn_pre_merge_checks.png">
+      </figure>
+    </div>
+    <p class="p">The following conditions are checked in this operation:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">No local modifications</span></dt>
+          <dd class="dd">The working copy item (or any of its children) receiving the merge should not contain
+            uncommitted changes, to make it easier to revert merge-generated changes if you
+            encounter unexpected results.<div class="note tip note_tip"><span class="note__title">Tip:</span> If this condition fails, you should
+                <em class="ph i">commit</em> or <em class="ph i">revert</em> the local modifications before merging. </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">No switched children</span></dt>
+          <dd class="dd">None of the children of the working copy item receiving the merge should be switched,
+            to avoid incomplete merges and <em class="ph i">subtree mergeinfo</em>.<div class="note tip note_tip"><span class="note__title">Tip:</span> If this
+              condition fails, you should switch back all the children before merging. </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Complete working copy tree</span></dt>
+          <dd class="dd">The working copy item receiving the merge should be a complete directory tree
+            structure with an infinite depth, to avoid incomplete merges and <em class="ph i">subtree
+              mergeinfo</em>.<div class="note tip note_tip"><span class="note__title">Tip:</span> If this condition fails, you should change the
+                <em class="ph i">sticky</em> depth of the working copy item receiving the merge to <em class="ph i">infinity</em>
+              value. </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">No mixed revisions</span></dt>
+          <dd class="dd">To avoid unexpected merge conflicts, the working copy item that is receiving the merge
+            should not contain items that were updated to other revisions. <div class="note tip note_tip"><span class="note__title">Tip:</span> If this
+              condition fails, you should <em class="ph i">update</em> the working copy before merging.</div></dd>
+        
+      </dl>
+    </div>
+    <div class="p">Each condition is marked with an icon that represents the state of the condition. The
+      possible states are as follows:<ul class="ul" id="pre-merge-checks__ul_k33_pql_4r">
+        <li class="li"><img class="image" id="pre-merge-checks__image_hrl_14q_4r" src="../img/SVNMarkResolved16.png"> (<strong class="ph b">Successful</strong>) -
+          The condition is fulfilled successfully.</li>
+        <li class="li"><img class="image" id="pre-merge-checks__image_njy_sdn_wr" src="../img/Hotspot16.png"> (<strong class="ph b">Warning</strong>) - The
+          condition is not fulfilled, but it is not mandatory. </li>
+        <li class="li"><img class="image" id="pre-merge-checks__image_tjz_jpq_4r" src="../img/SVNError.png"> (<strong class="ph b">Error</strong>) - The condition
+          is not fulfilled and is mandatory (therefore, the operation cannot proceed until you solve
+          the error).</li>
+      </ul></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> For each condition state, a message is displayed that gives you additional
+      information about the results and, for warning or errors, a hint that explains how you can
+      solve them.</div>
+    <div class="note important note_important"><span class="note__title">Important:</span> After solving any of the warnings or errors, it is recommended that you
+      perform the <em class="ph i">pre-merge checks</em> again to make sure your new changes are valid.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/merge-branches.html">Merging</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/merge-branches.html">Merging</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/merge-revisions-range.html">Merge Revisions</a></div></div></nav></article></main></body></html>

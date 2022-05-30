@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/author-managing-changes.html"><meta name="DC.relation" scheme="URI" content="../topics/track-changes-limitations.html"><meta name="DC.relation" scheme="URI" content="../topics/author-managing-comments.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="track-changes-format"><title>Tracked Changes XML Markup</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="track-changes-format"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Tracked Changes XML Markup</h1>
+  <div class="body">
+    <div class="p">Depending on the type of edits, the following markup appears in the document source code when
+      you activate the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Track Changes</dfn>
+        feature</a>:<table class="table frame-all" id="track-changes-format__table_udr_t4z_whb"><caption></caption><colgroup><col style="width:12.903225806451612%"><col style="width:28.12903225806452%"><col style="width:29.03225806451613%"><col style="width:29.935483870967737%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry colsep-1 rowsep-1" id="track-changes-format__table_udr_t4z_whb__entry__1">Edit Type</th>
+              <th class="entry colsep-1 rowsep-1" id="track-changes-format__table_udr_t4z_whb__entry__2">Processing Instruction Start Marker</th>
+              <th class="entry colsep-1 rowsep-1" id="track-changes-format__table_udr_t4z_whb__entry__3">Processing Instruction End Marker</th>
+              <th class="entry colsep-1 rowsep-1" id="track-changes-format__table_udr_t4z_whb__entry__4">Attributes</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Insertion</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_insert_start?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"><code class="keyword markupname xmlelement">&lt;?oxy_insert_end?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">author, timestamp</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Split</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_insert_start?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"><code class="keyword markupname xmlelement">&lt;?oxy_insert_end?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">author, timestamp, type="split"</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Surround</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_insert_start?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"><code class="keyword markupname xmlelement">&lt;?oxy_insert_end?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">author, timestamp, type="surround"</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Deletion</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_delete?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"> _</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">author, timestamp, content</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Comment</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_comment_start?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"><code class="keyword markupname xmlelement">&lt;?oxy_comment_end?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">author, timestamp, comment, mid</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__1">Attribute Change</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__2"><code class="keyword markupname xmlelement">&lt;?oxy_attributes?&gt;</code></td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__3"> _</td>
+              <td class="entry colsep-1 rowsep-1" headers="track-changes-format__table_udr_t4z_whb__entry__4">id, type, oldValue, author, timestamp</td>
+            </tr>
+          </tbody></table></div>
+    <p class="p">If a comment intersects another, the <code class="keyword markupname xmlatt">@mid</code> attribute is used to correctly
+      identify start and end processing instruction markers.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-managing-changes.html">Managing Tracked Changes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/track-changes-limitations.html">Tracked Changes Limitations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-managing-comments.html">Managing Comments</a></div></div></nav></article></main></body></html>

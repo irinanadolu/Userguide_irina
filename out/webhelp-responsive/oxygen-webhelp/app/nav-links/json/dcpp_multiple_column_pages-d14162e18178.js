@@ -1,0 +1,1 @@
+define({"topics":[{"title":"How to Use a Two Column Layout","href":"topics\/dcpp_multiple_column_pages.html#dcpp_how_to_use_a_two_column_layout","attributes":{"data-id":"dcpp_how_to_use_a_two_column_layout"},"menu":{"hasChildren":false},"tocID":"dcpp_how_to_use_a_two_column_layout-d14162e18197","topics":[]}]});

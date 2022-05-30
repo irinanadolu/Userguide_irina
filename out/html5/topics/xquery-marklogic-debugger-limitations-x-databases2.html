@@ -1,0 +1,33 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-marklogic-x-databases2.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-berkeley-x-databases2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xquery-marklogic-debugger-limitations"><title>Peculiarities and Limitations of the MarkLogic Debugger</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xquery-marklogic-debugger-limitations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Peculiarities and Limitations of the MarkLogic Debugger</h1>
+  <div class="body">
+    <p class="p">MarkLogic debugger has the following peculiarities and limitations:</p>
+    <ul class="ul">
+      <li class="li">Debugging support is only available for MarkLogic server versions 4.0 or newer.</li>
+      <li class="li">For MarkLogic server versions 4.0 or newer, there are three XQuery syntaxes that are
+        supported: <em class="ph i">'0.9-ml' (inherited from MarkLogic 3.2</em>), <em class="ph i">'1.0-ml'</em>, and
+        <em class="ph i">'1.0'</em>.</li>
+      <li class="li">All declared variables are presented as strings. The <span class="ph uicontrol">Value</span> column
+        of the <span class="ph uicontrol">Variables</span> view contains the expression from the variable
+        declaration. It can be evaluated by copying the expression with the <span class="ph uicontrol">Copy
+          value</span> action from the contextual menu of <a class="xref" href="debug-variables-view.html#debug-variables-view">the
+            <span class="ph uicontrol">Variables</span> view</a> and pasting it in <a class="xref" href="debug-xwatch-view.html#debug-xwatch-view">the
+            <span class="ph uicontrol">XWatch</span> view</a>.</li>
+      <li class="li">There is no support for <a class="xref" href="determining-what-template-generated-particular-output.html">output to
+          source mapping</a>.</li>
+      <li class="li">There is no support for <a class="xref" href="debug-trace-view.html">showing the trace</a>.</li>
+      <li class="li">You can only set <a class="xref" href="debug-breakpoints-view.html">breakpoints</a> in imported
+        modules in one of the following cases:<ul class="ul">
+          <li class="li">When you open the module from the context of the application server involved in the
+            debugging, using the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>.</li>
+          <li class="li">When the debugger automatically opens the modules in the Editor. </li>
+        </ul></li>
+      <li class="li">No <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoints</dfn></a>
+        are set in modules from the same server that are not involved in the current debugging
+        session.</li>
+      <li class="li">No support for <a class="xref" href="performance-profiling.html#performance-profiling">profiling</a> when an XQuery transformation is executed in the debugger.</li>
+    </ul>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xquery-debugging-with-marklogic-x-databases2.html">Debugging with MarkLogic</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html">Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-debugging-with-berkeley-x-databases2.html">Debugging with Berkeley DB XML</a></div></div></nav></article></main></body></html>

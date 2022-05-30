@@ -1,0 +1,105 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/merge-branches.html"><meta name="DC.relation" scheme="URI" content="../topics/synchronize-branch.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-trees.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="merge-branch"><title>Reintegrate a Branch</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="merge-branch"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Reintegrate a Branch</h1>
+  <div class="body taskbody">
+    <section class="section prereq" id="merge-branch__reintegrate-merge-prereq">
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Prerequisites:</span> There are some conditions that apply to
+          reintegrate a branch:<ul class="ul" id="merge-branch__ul_ncf_wtq_skb">
+            <li class="li">The server must support merge tracking.</li>
+            <li class="li">The source branch (to be reintegrated) must be coherently synchronized with its
+              parent branch. This means that all revisions between the branching point and the last
+              revision merged from the parent branch to the child branch must be merged to the
+              latter one (there must be no missing revisions in-between).</li>
+            <li class="li">The working copy <strong class="ph b">must not</strong> contain the following:<ul class="ul" id="merge-branch__ul_tbg_4lg_34">
+                <li class="li">Local modifications.</li>
+                <li class="li">A mixture of revisions (all items must point to the same revision).</li>
+                <li class="li">Sparse directories (all directories must be of <strong class="ph b">infinity</strong> depth).</li>
+                <li class="li">Switched items.</li>
+              </ul></li>
+            <li class="li">The revision of the working copy must be greater than or equal to the last revision
+              of the parent branch with which the child branch was synchronized.</li>
+          </ul></div>
+        <div class="note tip note_tip"><span class="note__title">Tip:</span> You can use <a class="xref" href="pre-merge-checks.html#pre-merge-checks">the
+              <dfn class="term">pre-merge checks</dfn> option</a> to make sure these conditions are
+          fulfilled.</div>
+      </div>
+      <p class="p">This method is useful when you have a feature branch on which the development has concluded
+        and it should be merged back into its parent branch. Since you have kept the feature branch
+        synchronized with its parent, the latest versions of them will be absolutely identical
+        except for your feature branch changes. These changes can be reintegrated into the parent
+        branch by using a working copy of it and the <span class="ph uicontrol">Reintegrate a branch</span>
+        option.</p>
+      <div class="p">This method uses the <em class="ph i">merge-tracking</em> features of Apache
+          Subversion™ to automatically calculate the correct revision ranges and to perform
+        additional checks that will ensure that the branch to be reintegrated has been fully updated
+        with its parent changes. This ensures that you do not accidentally undo work that others
+        have committed to the parent branch since the last time you synchronized the child branch
+        with it. After the merge, all branch development will be completely merged back into the
+        parent branch, and the child branch will be redundant and can be deleted from the
+          repository.<div class="note tip note_tip"><span class="note__title">Tip:</span> Before reintegrating the child branch it is recommended to
+          synchronize it with its parent branch one more time, to help avoid any possible
+          conflicts.</div></div>
+      <p class="p">To reintegrate a child branch into its parent branch, follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand" id="merge-branch__start-wizard">
+        <span class="ph cmd">Go to menu <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Merge</span></span>.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Merge</span> wizard is opened.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the <span class="ph uicontrol">Reintegrate a branch</span> option.</span>
+        <div class="itemgroup info">
+          <div class="note note note_note"><span class="note__title">Note:</span> This option is not available if the selected working copy item (or if it is a
+            directory, any of the items inside of it) has any type of modification. This is because
+            it is mandatory for the target item to have no modifications.</div>
+        </div>
+      </li><li class="li step stepexpand" id="merge-branch__pre-merge-checks-step">
+        <span class="ph cmd">It is recommended that you select the <span class="ph uicontrol">Perform pre-merge best practices
+            checks of the working copy target</span> option to make sure that the working copy
+          target item is ready for the merge operation.</span>
+        <ol type="a" class="ol substeps" id="merge-branch__substeps_b4c_vqr_4r">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Next</span> button.</span>
+            <div class="itemgroup stepresult">If the <span class="ph uicontrol">Perform pre-merge best practices checks of the working
+                copy target</span> option is selected, <a class="xref" href="pre-merge-checks.html#pre-merge-checks">the <span class="ph uicontrol">Pre-Merge
+                  Checks</span> wizard page</a> is displayed.<div class="note note note_note"><span class="note__title">Note:</span> If errors are found you
+                need to solve them before proceeding.</div></div>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click the <span class="ph uicontrol">Next</span> button.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Reintegrate a branch</span> wizard page is
+          displayed.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">In the <strong class="ph b">Child branch (URL)</strong> text box, enter <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">the URL of the child <dfn class="term">branch</dfn> to be reintegrated</a>. This means that the
+          URL must belong to the same repository as your working copy that was created from the
+          parent branch.</span>
+        <div class="itemgroup info"><span class="ph" id="merge-branch__merge_browse_source_repository">You may also click the
+              <span class="ph uicontrol">Browse</span> button to browse the repository and find the desired
+            branch. If you have previously merged from this branch, then you can simply use the
+            drop-down menu, which displays a history of previously used URLs.</span><div class="note tip note_tip"><span class="note__title">Tip:</span> <span class="ph" id="merge-branch__merge-source-peg-revision">You can also specify a <a class="xref" href="using-peg-revisions.html#using-peg-revisions"><dfn class="term">peg revision</dfn></a>
+              at the end of the URL (for example, <code class="ph codeph">URL@rev1234</code>).</span> The peg
+            revision specifies both the peg revision of the URL and the latest revision that will be
+            considered for merging. By default, the <code class="ph codeph">HEAD</code> revision is
+            assumed.</div></div>
+        <div class="itemgroup stepresult"><span class="ph" id="merge-branch__options-set-result">The <a class="xref" href="merge-options.html#merge-options"><span class="ph uicontrol">Merge Options</span>
+              wizard page</a> is displayed that allows you to configure options for the
+            operation.</span><div class="note note note_note"><span class="note__title">Note:</span> Since a <em class="ph i">reintegrate merge</em> is so specialized, most of the
+            merge options are not available, except for those in the <span class="ph uicontrol">File
+              Comparison</span> category.</div></div>
+      </li><li class="li step stepexpand" id="merge-branch__perform-merge">
+        <span class="ph cmd">Click the <span class="ph uicontrol">Merge</span> button.</span>
+        <div class="itemgroup stepresult">The merge operation is performed.</div>
+      </li></ol></section>
+    <section class="section result" id="merge-branch__merge-result">
+      <p class="p">If the merge is completed successfully, all the changes corresponding to the selected
+        revisions should be merged in your working copy.</p>
+    </section>
+    <section class="section postreq" id="merge-branch__merge-postreq">
+      <div class="p">It is recommended to look at the results of the merge, in the working copy, to review the
+        changes and see if it meets your expectations. Since merging can sometimes be complicated,
+          <a class="xref" href="resolve-merge-conflicts.html#resolve-merge-conflicts">you may need to resolve conflicts</a> after making major changes.<div class="note note note_note"><span class="note__title">Note:</span> <span class="ph" id="merge-branch__commit-merge-result">The merge result is only in your local working copy and needs
+            to be committed to the repository for it to be available to others.</span></div></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/merge-branches.html">Merging</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/synchronize-branch.html">Synchronize a Branch</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/merge-trees.html">Merge Two Different Trees</a></div></div></nav></article></main></body></html>

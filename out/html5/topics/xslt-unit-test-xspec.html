@@ -1,0 +1,103 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Unit test (XSpec)"><meta name="keywords" content="XSLT, Unit test (XSpec)"><meta name="DC.relation" scheme="URI" content="../topics/editing-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-quick-assist.html"><meta name="DC.relation" scheme="URI" content="../topics/documentation-XSLT-Stylesheet.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xslt-unit-test-xspec"><title>XSLT Unit Test (XSpec)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xslt-unit-test-xspec"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT Unit Test (XSpec)</h1>
+  
+  <div class="body">
+    <p class="p">XSpec is a behavior driven development (BDD) <dfn class="term">framework</dfn> for
+        XSLT, XQuery, and Schematron. XSpec consists of syntax for describing the behavior of your
+        XSLT, XQuery, or Schematron code, and some code that enables you to test your code against
+        those descriptions.</p>
+    <section class="section" id="xslt-unit-test-xspec__creating_an_xslt_unit_test"><h2 class="title sectiontitle">Creating an XSLT Unit Test</h2>
+      
+      <p class="p">To create an XSLT Unit Test, go to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT Unit Test</span></span>. You can also create an XSLT Unit Test from the contextual menu of an XSL
+        file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a>. <span class="ph">Oxygen XML Editor</span> allows you to customize the XSpec document when you create it. In the
+        customization dialog box, you can enter the path to an XSL document or to a master XSL
+        document.</p>
+      <p class="p">When you create an XSpec document based on an XSL document, <span class="ph">Oxygen XML Editor</span> uses
+        information from the validation and transformation scenarios associated with the XSL file.
+        From the transformation scenario <span class="ph">Oxygen XML Editor</span> uses extensions and properties of
+        Saxon <span class="ph">9.9.1.5</span>, improving the Ant scenario associated with the XSpec
+        document. </p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>New XSLT Unit Test Wizard</figcaption>
+          
+          <img class="image" src="../img/New_XSLT_Unit_Test_wizard.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+    </section>
+    <section class="section" id="xslt-unit-test-xspec__running_an_xslt_unit_test"><h2 class="title sectiontitle">Running an XSLT Unit Test</h2>
+      
+      <p class="p">To run a Unit Test, open the XSpec file in an editor and click
+            <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ApplyStyleSheet16.png">Apply Transformation
+          Scenario(s)</span> on the main toolbar. This will run the built-in <span class="ph uicontrol">Run
+          XSpec Test</span> transformation scenario that is defined in the XSpec <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>.</p>
+    </section>
+    <section class="section" id="xslt-unit-test-xspec__testing_a_stylesheet"><h2 class="title sectiontitle">Testing a Stylesheet</h2>
+      
+      <div class="p">An XSpec file contains one or more test scenarios. You can test a stylesheet in one of the
+        following ways:<ul class="ul">
+          <li class="li">
+            <div class="p"><strong class="ph b">Test an entire stylesheet</strong> - Testing is performed in a certain context. You can
+              define a context as follows:<ul class="ul" id="xslt-unit-test-xspec__ul_gvx_yzk_tlb">
+                <li class="li">Inline context, building the test based on a
+                  string.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:scenario</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"when processing a para element"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:context&gt;</strong>
+        <strong class="hl-tag">&lt;para&gt;</strong>...<strong class="hl-tag">&lt;/para&gt;</strong>
+    <strong class="hl-tag">&lt;/x:context&gt;</strong>
+    ...
+<strong class="hl-tag">&lt;/x:scenario&gt;</strong>  </pre></li>
+                <li class="li">Based on an external file, or on a part of an external file extracted with an
+                  XPath
+                  expression.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:scenario</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"when processing a para element"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:context</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"source/test.xml"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"/doc/body/p[1]"</span><strong class="hl-tag"> /&gt;</strong>
+    ...
+<strong class="hl-tag">&lt;/x:scenario&gt;</strong>  </pre></li>
+              </ul></div>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Test a function</strong>:</p>
+            <div class="p">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:scenario</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"when capitalising a string"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;x:call</strong> <span class="hl-attribute">function</span>=<span class="hl-value">"eg:capital-case"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:param</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"'an example string'"</span><strong class="hl-tag"> /&gt;</strong>
+    <strong class="hl-tag">&lt;x:param</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"true()"</span><strong class="hl-tag"> /&gt;</strong>
+  <strong class="hl-tag">&lt;/x:call&gt;</strong>
+  ...
+<strong class="hl-tag">&lt;/x:scenario&gt;</strong>  </pre>
+            </div>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Test a template with a name</strong>:</p>
+            <div class="p">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:scenario</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"when creating a table"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;x:call</strong> <span class="hl-attribute">template</span>=<span class="hl-value">"createTable"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"nodes"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;value&gt;</strong>A<strong class="hl-tag">&lt;/value&gt;</strong>
+      <strong class="hl-tag">&lt;value&gt;</strong>B<strong class="hl-tag">&lt;/value&gt;</strong>
+    <strong class="hl-tag">&lt;/x:param&gt;</strong>
+    <strong class="hl-tag">&lt;x:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"cols"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"2"</span><strong class="hl-tag"> /&gt;</strong>
+  <strong class="hl-tag">&lt;/x:call&gt;</strong>
+<strong class="hl-tag">&lt;/x:scenario&gt;</strong></pre>
+            </div>
+          </li>
+        </ul></div>
+      <p class="p">You can reference test files between each other, which allows you to define a suite of
+        tests. For further details about test scenarios, go to <a class="xref" href="https://github.com/xspec/xspec/wiki/Writing-Scenarios" target="_blank" rel="external noopener">https://github.com/xspec/xspec/wiki/Writing-Scenarios</a>.</p>
+    </section>
+    <section class="section" id="xslt-unit-test-xspec__adding_a_catalog_to_an_xspec_transformation"><h2 class="title sectiontitle">Adding a Catalog to an XSpec Transformation</h2>
+      
+      <div class="p">If your XSLT needs a catalog, you can add one to the XSpec transformation by doing one of
+        the following:<ul class="ul">
+        <li class="li">If you are using a <a class="xref" href="grouping-documents-xml-projects.html#grouping-documents-xml-projects">project</a> in <span class="ph">Oxygen XML Editor</span>, create a <span class="ph filepath">catalog.xml</span>
+          file in the project directory. This catalog will then be loaded automatically.</li>
+        <li class="li"><a class="xref" href="edit-scenario-dialog.html#edit-scenario-dialog">Edit</a> the
+            <span class="ph uicontrol">Run XSpec Test</span> transformation scenario, go to the <a class="xref" href="ant-transformation-parameters-tab.html#ant-transformation-parameters-tab"><span class="ph uicontrol">Parameters</span> tab</a>, and set the value of the
+            <code class="ph codeph">catalog</code> parameter to the location of your catalog file.</li>
+      </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xslt-stylesheets.html">Editing XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xslt-quick-assist.html">XSLT Quick Assist Support</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/documentation-XSLT-Stylesheet.html">Generating Documentation for an XSLT Stylesheet</a></div></div></nav></article></main></body></html>

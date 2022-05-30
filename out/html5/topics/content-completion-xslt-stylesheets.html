@@ -1,0 +1,81 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Content completion"><meta name="keywords" content="XSLT, Content completion"><meta name="DC.relation" scheme="URI" content="../topics/editing-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-quick-fix.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xpath-expressions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="content-completion-xslt-stylesheets"><title>Content Completion in XSLT Stylesheets</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="content-completion-xslt-stylesheets"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Content Completion in XSLT Stylesheets</h1>
+  
+  <div class="body">
+    <p class="p">The list of proposals offered by the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion Assistant</dfn></a> in XSLT are context-sensitive and
+      includes proposals that are valid at the current cursor position. It can be manually activated
+      with the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> shortcut.</p>
+    <p class="p">You can enhance the list of proposals by specifying an additional schema. This schema is
+      defined in the <a class="xref" href="preferences-content-completion-xsl.html"><span class="ph uicontrol">Content
+          Completion / XSLT</span> preferences</a> page and can be any of the following: XML
+      Schema, DTD, RELAX NG schema, or NVDL schema.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XSLT Content Completion Assistant</figcaption>
+        
+        <img class="image" src="../img/content-completion-xsl.png">
+      </figure>
+    </div>
+    <div class="p">The feature is activated in <span class="ph uicontrol">Text</span> mode in the
+      following situations: <ul class="ul">
+        <li class="li">After you enter the <span class="ph uicontrol"><span class="keyword shortcut">&lt;</span></span> character when
+          inserting an element, it is automatically activated after a short delay.<span class="ph"> You can
+            adjust the activation delay with the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__activation-delay"><span class="ph uicontrol">Activation delay of
+                the proposals window (ms)</span> option</a> from the <span class="ph uicontrol">Content
+              Completion</span> preferences page.</span></li>
+        <li class="li">After typing a partial element or attribute name, you can manually activate it by
+          pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> or <span class="ph uicontrol"><span class="keyword shortcut" id="content-completion-xslt-stylesheets__alt_slash_shortcut">Alt + ForwardSlash
+                    (Command + Alt + ForwardSlash on OS X)</span></span>. If there is only one valid
+          proposal at the current location, it is inserted without displaying the list of
+          proposals.</li>
+      </ul></div>
+    <p class="p">The <dfn class="term">Content Completion Assistant</dfn> proposes numerous item types (such as
+      templates, variables, parameters, keys, etc.) that are defined in the current stylesheet, and
+      in the imported and included XSLT stylesheets. The <dfn class="term">Content Completion Assistant</dfn>
+      also includes <a class="xref" href="code-templates.html">code templates that can be used to quickly
+        insert code fragments</a> into stylesheets.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> For XSL and XSD resources, the <dfn class="term">Content Completion Assistant</dfn> collects its
+      components starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master
+        files</dfn></a>. The <dfn class="term">master files</dfn> can be defined in the project or in the
+      associated validation scenario. For further details about the <dfn class="term">Master Files</dfn>
+      support go to <a class="xref" href="defining_master_files.html#defining_master_files">Defining Master
+        Files at Project Level</a>. </div>
+    <div class="p">The extension functions included in the Saxon <span class="ph">6.5.5</span> and <span class="ph">9.9.1.5</span> transformation
+      engines are presented in the content completion list only if the Saxon namespace
+        (<em class="ph i">http://saxon.sf.net</em> for XSLT version 2.0 / 3.0 or <em class="ph i">http://icl.com/saxon</em> for
+      XSLT version 1.0) is declared and one of the following conditions is true:<ul class="ul">
+        <li class="li">The edited file has a transformation scenario that uses as transformation engine Saxon
+            <span class="ph">6.5.5</span> (for XSLT version 1.0), Saxon <span class="ph">9.9.1.5</span> PE or Saxon <span class="ph">9.9.1.5</span> EE (for XSLT
+          version 2.0 / 3.0).</li>
+        <li class="li">The edited file has a validation scenario that uses as validation engine Saxon <span class="ph">6.5.5</span> (for version 1.0), Saxon <span class="ph">9.9.1.5</span>
+          PE or Saxon <span class="ph">9.9.1.5</span> EE (for version 2.0 / 3.0).</li>
+        <li class="li">The validation engine specified in <a class="xref" href="preferences-xslt.html">Options</a>
+          page is Saxon <span class="ph">6.5.5</span> (for version 1.0), Saxon <span class="ph">9.9.1.5</span> PE or Saxon <span class="ph">9.9.1.5</span> EE (for
+          version 2.0 / 3.0).</li>
+      </ul></div>
+    <p class="p">Additionally. the Saxon-CE-specific extension functions and instructions are presented in the
+      list of content completion assistance proposals only if the
+        <code class="ph codeph">http://saxonica.com/ns/interactiveXSLT</code> namespace is declared.</p>
+    <p class="p">Namespace prefixes in the scope of the current context are presented at the top of the
+      content completion assistance window to speed up the insertion into the document of prefixed
+      elements.</p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xslt-stylesheets__figure-content-completion-namespace-prefixes-oxygen"><figcaption><span class="fig--title-label">Figure 2. </span>Namespace Prefixes in the Content Completion Assistant</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_namespace_prefixes.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">For the common namespaces such as XSL namespace
+        (<code class="ph codeph">http://www.w3.org/1999/XSL/Transform</code>), XML Schema namespace
+        (<code class="ph codeph">http://www.w3.org/2001/XMLSchema</code>), or Saxon namespace
+        (<code class="ph codeph">http://icl.com/saxon</code> for version 1.0,
+        <code class="ph codeph">http://saxon.sf.net/</code> for version 2.0 / 3.0), <span class="ph">Oxygen XML Editor</span>
+      provides an easy mode to declare them by proposing a prefix for these namespaces.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/content-completion-xpath-expressions.html">Content Completion in XPath Expressions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xslt-stylesheets.html">Editing XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xslt-quick-fix.html">XSLT Quick Fix Support</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/content-completion-xpath-expressions.html">Content Completion in XPath Expressions</a></div></div></nav></article></main></body></html>

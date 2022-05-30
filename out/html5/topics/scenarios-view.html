@@ -1,0 +1,188 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios view"><meta name="keywords" content="Transformation Scenarios view"><meta name="DC.relation" scheme="URI" content="../topics/transformation-scenario.html"><meta name="DC.relation" scheme="URI" content="../topics/transformation-scenarios-sharing.html"><meta name="DC.relation" scheme="URI" content="../topics/wh_webhelp_output.html"><meta name="DC.relation" scheme="URI" content="edit-scenario-dialog.html#edit-scenario-dialog"><meta name="DC.relation" scheme="URI" content="defining-new-transformation-scenario.html#defining-new-transformation-scenario"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scenarios-view"><title>Transformation Scenarios View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scenarios-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Transformation Scenarios View</h1>
+  
+  <div class="body">
+    <p class="p">You can manage the transformation scenarios by using the <span class="ph uicontrol">Transformation
+        Scenarios</span> view. To open this view, select <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Transformation Scenarios</span></span>.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Transformation Scenarios view</figcaption>
+        
+        <img class="image" src="../img/sa_scenarios_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> supports multiple scenarios association. To associate multiple
+      scenarios with a document, select the checkboxes in front of each scenario. You can also
+      associate multiple scenarios with a document from the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box</a>. </p>
+    <div class="p"><span class="ph">The <span class="ph uicontrol">Transformation Scenarios</span>
+        view presents both global and <a class="xref" href="../glossary/project-options.html">project-level</a>
+        scenarios. </span>By default, <span class="ph">Oxygen XML Editor</span> presents the items in the following order:<ol class="ol">
+        <li class="li">Scenarios that match the current <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>.</li>
+        <li class="li">Scenarios that match the current project.</li>
+        <li class="li">Scenarios that match other <dfn class="term">frameworks</dfn>.</li>
+      </ol></div>
+    <section class="section" id="scenarios-view__toolbarcontextual_menu_actions_and_options"><h2 class="title sectiontitle">Toolbar/Contextual Menu Actions and Options</h2>
+      
+      <p class="p">The following actions and options are available on the toolbar or in the contextual
+        menu:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/ApplyStyleSheet16.png">Apply
+                selected scenarios</span></dt>
+            <dd class="dd">Select this option to run the current transformation scenario.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="scenarios-view__image_axy_b4s_tr" src="../img/DebugScenario16.png">Debug
+                selected scenario</span></dt>
+            <dd class="dd">Select this option to switch to the <span class="ph uicontrol">Debugger</span>
+              <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> and initialize
+              it with the parameters from the scenario (the XML, XSLT, or XQuery input, the
+              transformation engine, the XSLT parameters).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/NewScenarioDrop.png">New</span></dt>
+            <dd class="dd">This drop-down menu contains a list of the <a class="xref" href="defining-new-transformation-scenario.html#defining-new-transformation-scenario">scenarios that you can create</a>. <span class="ph">Oxygen XML Editor</span> determines the most
+              appropriate scenarios for the current type of file and displays them at the beginning
+              of the list, followed by the rest of the scenarios. </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Duplicate</span></dt>
+            <dd class="dd">Adds a new scenario to the list that is a duplicate of the current scenario. It is
+              useful for creating a scenario that is similar to an existing one.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="scenarios-view__image_l3r_sns_tr" src="../img/Wrench16.png">Edit</span></dt>
+            <dd class="dd">Opens the dialog box that allows you to configure various options in several tabs,
+              depending on the type of transformation scenario that was selected. For information
+              about all the specific options in the various tabs, see the <a class="xref" href="edit-scenario-dialog.html#edit-scenario-dialog__transformation_types">Transformation Types section</a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/RemoveSelected16.gif">Remove</span></dt>
+            <dd class="dd">Removes the current scenario from the list. This action is also available by using
+              the <span class="ph uicontrol">Delete</span> key.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Change storage</span></dt>
+            <dd class="dd">Use this option to change the storage location of the selected scenario. You are
+              also able to keep the original storage location and make a copy of the selected
+              scenario in the target storage location.</dd>
+          
+          
+            <dt class="dt dlterm" id="scenarios-view__import-scenarios"><span class="ph uicontrol"><img class="image" src="../img/ImportScenario16.png">Import
+                scenarios</span></dt>
+            <dd class="dd">This option opens the <span class="ph uicontrol">Import scenarios</span> dialog box that allows
+              you to select the <span class="ph filepath">scenarios</span> file that contains the scenarios you
+              want to import. If one of the scenarios you import is identical to an existing
+              scenario, <span class="ph">Oxygen XML Editor</span> ignores it. If a conflict appears (an imported
+              scenario has the same name as an existing one), you can choose between two options: <ul class="ul">
+                <li class="li">Keep or replace the existing scenario.</li>
+                <li class="li">Keep both scenarios. <div class="note note note_note"><span class="note__title">Note:</span> When you keep both scenarios, <span class="ph">Oxygen XML Editor</span>
+                    adds <span class="ph filepath">imported</span> to the name of the imported scenario.
+                  </div></li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/ExportScenario16.png">Export
+                selected scenarios</span></dt>
+            <dd class="dd">Use this option to export transformation and validation scenarios individually. <span class="ph">Oxygen XML Editor</span> creates a <span class="ph filepath">scenarios</span> file that contains the
+              scenarios that you export.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span></dt>
+            <dd class="dd">
+              <p class="p">This drop-down menu allows you to configure the following options (many of these
+                options are also available if you right-click the name of a column):</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Show all scenarios</span></dt>
+          <dd class="dd">Select this option to display all the available scenarios, regardless of the document
+            they are associated with.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Show only the scenarios available for the editor</span></dt>
+          <dd class="dd">Select this option to only display the scenarios that <span class="ph">Oxygen XML Editor</span> can apply
+            for the current document type.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Show associated scenarios</span></dt>
+          <dd class="dd">Select this option to only display the scenarios associated with the document you are
+            editing.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Change storage</span></dt>
+                    <dd class="dd">Use this option to change the storage location of the selected scenario to
+                        <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project
+                          Options</span></a> or <a class="xref" href="../glossary/global-options.html"><span class="ph uicontrol">Global Options</span></a>. You are also able to keep
+                      the original storage location and make a copy of the selected scenario in the
+                      new storage location.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ImportScenario16.png">Import
+            scenarios</span></dt>
+          <dd class="dd">This option opens the <span class="ph uicontrol">Import scenarios</span> dialog box that allows
+            you to select the <span class="ph filepath">scenarios</span> file that contains the scenarios you
+            want to import. If one of the scenarios you import is identical to an existing scenario,
+              <span class="ph">Oxygen XML Editor</span> ignores it. If a conflict appears (an imported scenario has the
+            same name as an existing one), you can choose between two options: <ul class="ul">
+              <li class="li">Keep or replace the existing scenario.</li>
+              <li class="li">Keep both scenarios. <div class="note note note_note"><span class="note__title">Note:</span> When you keep both scenarios, <span class="ph">Oxygen XML Editor</span>
+                  adds <span class="ph filepath">imported</span> to the name of the imported
+                scenario.</div></li>
+            </ul></dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ImportScenario16.png">Export selected
+              scenarios</span></dt>
+          <dd class="dd">Use this option to export selected scenarios individually. <span class="ph">Oxygen XML Editor</span>
+            creates a <span class="ph filepath">scenarios</span> file that contains the exported scenarios. This
+            is useful if you want to share scenarios with others or export them to another
+            computer.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Show Type</span></dt>
+          <dd class="dd">Use this option to display the transformation type of each scenario.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Show Storage</span></dt>
+          <dd class="dd">Use this option to display the storage location of the scenarios.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by Association</span></dt>
+          <dd class="dd">Select this option to group the scenarios depending on whether or not they are
+            associated with the current document.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by Type</span></dt>
+          <dd class="dd">Select this option to group the scenarios by their type.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by Storage</span></dt>
+          <dd class="dd">Select this option to group the scenarios by their storage location.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Flat16.png">Ungroup all</span></dt>
+          <dd class="dd">Select this option to ungroup all the scenarios.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Reset Layout</span></dt>
+          <dd class="dd">Select this option to restore the default settings of the layout.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <p class="p">Your selections in the <span class="ph uicontrol">Transformation Scenarios</span> view are persistent so
+      the configured associations for the current document will be remembered whenever the document
+      is opened. </p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/transformation-scenario.html">Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/transformation-scenarios-sharing.html">Sharing Transformation Scenarios</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wh_webhelp_output.html">WebHelp Output Customization</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="edit-scenario-dialog.html#edit-scenario-dialog">Editing a Transformation Scenario</a></li><li class="linklist"><a class="link" href="defining-new-transformation-scenario.html#defining-new-transformation-scenario">Creating New Transformation Scenarios</a></li></ul></div></nav>
+</article></main></body></html>

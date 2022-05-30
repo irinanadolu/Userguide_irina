@@ -1,0 +1,154 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Customize document templates,Document templates,Customizing"><meta name="keywords" content="Customize document templates, Document templates, Customizing"><meta name="DC.relation" scheme="URI" content="../topics/creating-new-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/create-your-own-templates.html"><meta name="DC.relation" scheme="URI" content="../topics/sharing-templates.html"><meta name="DC.relation" scheme="URI" content="create-your-own-templates.html#create-your-own-templates"><meta name="DC.relation" scheme="URI" content="sharing-templates.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing-templates"><title>Customizing Document Templates</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing-templates"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Document Templates</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to customize certain aspects of built-in or custom document
+      templates. For example, you can customize the icons or specify a prefix/suffix that will be
+      used for the proposed file name in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>.</p>
+    <section class="section" id="customizing-templates__create-properties-file"><h2 class="title sectiontitle">Customizing the Icons for a Document Template</h2>
+      
+      <div class="p">If you want to customize the icons to be used for document templates, use a properties file
+        to specify the icons using the following procedure:<ol class="ol">
+          <li class="li">Create a new properties file or edit an existing one following these guidelines:<ol class="ol" type="a">
+              <li class="li">If you want to create a new properties file, you can use the <strong class="ph b">Properties</strong>
+                template found in the <span class="ph uicontrol">New Document</span> folder in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>. If you want to edit an existing template,
+                you can find them within the subfolders in the <span class="ph filepath">templates</span> folder
+                for each framework (for example, the DITA topic properties file is located in:
+                  <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/templates/topic/topic.properties</span>).</li>
+              <li class="li">Use the same name as your custom template file except with a
+                  <span class="ph filepath">.properties</span> extension (for example,
+                  <span class="ph filepath">MyTemplate.properties</span>).</li>
+              <li class="li">In this properties file, specify the paths to the icons that will be used in the
+                new file wizard. The properties file should look like
+                  this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">type</span>=general
+<span class="hl-attribute">smallIcon</span>=../icons/Article_16.png
+<span class="hl-attribute">bigIcon</span>=../icons/Article_48.png</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> For DITA files, the <code class="ph codeph">type</code> property needs to be set to
+                    <strong class="ph b">dita</strong>. Otherwise, the template will not appear in the dialog box for
+                  creating new DITA topics<span class="ph">
+                    from the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                        Maps Manager</span></a></span>. For all other types of files, set it
+                  to <strong class="ph b">general</strong>. The icons specified in this properties file will only be used
+                  for the new file wizards and not in any other part of the interface.</div><div class="note important note_important"><span class="note__title">Important:</span> If you created a new template and chose to use a custom directory
+                  for the new template (in <a class="xref" href="create-your-own-templates.html#create-your-own-templates__step2">step 2 of
+                    the new template procedure</a>), make sure the path to the icons is relative
+                  to that directory.</div></li>
+            </ol></li>
+          <li class="li">Save the properties file in the same directory as your custom template.</li>
+          <li class="li">Open the new file wizard (<span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>) and you should see your custom icons next to the document template in
+            the appropriate folder.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="customizing-templates__add_a_prefix_or_suffix_to_file_names_for_a_custom"><h2 class="title sectiontitle">Add a Prefix or Suffix to File Names for a Document Template</h2>
+      
+      <div class="p">You can use a properties file for each document template to add a prefix or suffix to the
+        file name that is proposed in certain dialog boxes when you create a new file from that
+        template. This applies to the following new document dialog boxes: <ul class="ul" id="customizing-templates__new-doc-dialog-boxes-ul">
+          <li class="li">The new document dialog box that appears when you
+            click the <span class="ph uicontrol"><img class="image" id="customizing-templates__image_hy1_zdp_sr" src="../img/New16.png">New</span> button on the toolbar (or <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>). The prefix or suffix is added to the name of the file in the
+              <span class="ph uicontrol">Save as</span> field.</li>
+          
+          <li class="li">The new document dialog box that appears when you
+            select <span class="ph menucascade"><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">File</span></span> from the contextual menu in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a>. The prefix or suffix is added to the
+            name of the file in the <span class="ph uicontrol">File name</span> field.</li>
+          
+          <li class="li">For DITA files, it also applies to
+            the new document dialog box that appears when you select <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>, <span class="ph menucascade"><span class="ph uicontrol">Insert Before</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>, or <span class="ph menucascade"><span class="ph uicontrol">Insert After</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span> from the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span></a>. The prefix or suffix is added to
+            the name of the file in the <span class="ph uicontrol">Save as</span> field.</li>
+          <li class="li">For DITA files, it also applies to
+            the <a class="xref" href="fast-create-topics.html#fast-create-topics"><span class="ph uicontrol">Fast Create
+                Topics</span> dialog box</a> that you can use to create multiple skeleton
+            topics at once. </li>
+        </ul></div>
+      <div class="p">To add a prefix or suffix to the file names for a document template, follow these steps:<ol class="ol">
+          <li class="li">
+            <div class="p">Create a new properties file or edit an existing one.<ul class="ul" id="customizing-templates__ul_b3c_hm1_x3b">
+                <li class="li">
+                  <p class="p">If you create a new properties file, use the same name as the template file
+                    except with a <span class="ph filepath">.properties</span> extension (for example,
+                      <span class="ph filepath">MyTemplate.properties</span>). This properties file will specify
+                    the prefix/suffix that will be used to propose the file name in the new file
+                    wizards.</p>
+                  <div class="p" id="customizing-templates__define-pre-suf">When defining the prefix/suffix, the properties file should
+                    look something like
+                    this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">type</span>=general
+<span class="hl-attribute">filenamePrefix</span>=prod_
+<span class="hl-attribute">filenameSuffix</span>=_test</pre></div>
+                  <div class="p">
+                    <div class="note important note_important"><span class="note__title">Important:</span> For DITA files, the <code class="ph codeph">type</code> property needs
+                      to be set to <strong class="ph b">dita</strong>. For all other types of files, set it to
+                        <strong class="ph b">general</strong>.</div>
+                  </div>
+                </li>
+                <li class="li">If you edit an existing template, simply define the prefix/suffix as specified
+                    <a class="xref" href="customizing-templates.html#customizing-templates__define-pre-suf">above</a>.</li>
+              </ul></div>
+          </li>
+          <li class="li">Save the properties file in the same directory as the document template.</li>
+          <li class="li">Open the new document wizard (<a class="xref" href="customizing-templates.html#customizing-templates__new-doc-dialog-boxes-ul">using the methods
+              described above</a>) and when you select the appropriate template, you should see
+            your prefix or suffix in the file name that is proposed in that dialog box.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="customizing-templates__configure_the_displayed_names_for_document_templa"><h2 class="title sectiontitle">Configure the Displayed Names for Document Templates</h2>
+      
+      <div class="p">To change the name that is displayed for a document template, use the following procedure:<ol class="ol">
+          <li class="li">Create a new properties file or edit an existing one. If you create a new properties
+            file, use the same name as the template file except with a
+              <span class="ph filepath">.properties</span> extension (for example,
+              <span class="ph filepath">MyTemplate.properties</span>).</li>
+          <li class="li">
+            <div class="p">Add a <code class="ph codeph">displayName</code> property in the properties
+              file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">displayName</span>=My Template Name</pre></div>
+            <div class="p">
+              <div class="note tip note_tip"><span class="note__title">Tip:</span> The names for <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>-specific document templates (such as DITA
+                  <em class="ph i">Topic</em> or DocBook <em class="ph i">Article</em>, as you would see in the
+                  <span class="ph uicontrol">Framework templates</span> folder in the
+                  <span class="ph uicontrol">New</span> file wizard) can be translated via the
+                internationalization support. In this case, the properties file should contain
+                something
+                  like:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">displayName</span>=${i18n(tag)}</pre><p class="p">where
+                    <em class="ph i">tag</em> refers to an entry in the <span class="ph filepath">translation.xml</span> file
+                  for that specific framework (for example,
+                    <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/i18n/translation.xml</span> for
+                  DITA).</p></div>
+            </div>
+          </li>
+          <li class="li">Save the properties file in the same directory as the document template.</li>
+          <li class="li">Open the new file wizard (<span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span>) and you should see the new name for the template.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="customizing-templates__adding_placeholders_or_hints_in_a_document_templa"><h2 class="title sectiontitle">Adding Placeholders or Hints in a Document Template</h2>
+      
+      <p class="p">A document template might contain empty elements and it may not be clear to the Author what
+        should be inserted in them. You can define placeholders in document templates that provide
+        hints for Authors to help them understand what type of content should be added in any
+        particular empty element within the document. The placeholder text is specified using a
+        processing instruction and the placeholders are removed when the Author inserts content in
+        the corresponding element.</p>
+      <div class="p">To define placeholders in a document template to provide authors with hints, follow this procedure:<ol class="ol">
+          <li class="li">Edit the document template.</li>
+          <li class="li">Add placeholders in the form of processing instructions within the elements where you
+            want hints to be displayed when an Author creates a document from the template. For
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd"&gt;</span>
+<strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"pi"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong><span class="hl-directive">&lt;?oxy-placeholder content="Enter a title"?&gt;</span><strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;shortdesc&gt;</strong><span class="hl-directive">&lt;?oxy-placeholder content="Writing short descriptions 
+         induces the writer to clarify the main thesis of the topic.
+         We recommended a 50 word limit."?&gt;</span><strong class="hl-tag">&lt;/shortdesc&gt;</strong>
+  <strong class="hl-tag">&lt;body&gt;</strong>
+    <strong class="hl-tag">&lt;p&gt;</strong><span class="hl-directive">&lt;?oxy-placeholder content="A paragraph element should be a self-contained
+         unit dealing with one idea or point."?&gt;</span><strong class="hl-tag">&lt;/p&gt;</strong>
+  <strong class="hl-tag">&lt;/body&gt;</strong>
+<strong class="hl-tag">&lt;/topic&gt;</strong></pre></li>
+          <li class="li">Save the template file.</li>
+          <li class="li">Use the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document
+              wizard</a> to create a new document using your customized
+            template and you should see the hints in the open document.</li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/creating-new-documents.html">Creating New Documents and Templates</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/create-your-own-templates.html">Creating New Document Templates</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sharing-templates.html">Sharing Custom Document Templates</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="create-your-own-templates.html#create-your-own-templates">Creating New Document Templates</a></li><li class="linklist"><a class="link" href="sharing-templates.html">Sharing Custom Document Templates</a></li></ul></div></nav>
+</article></main></body></html>

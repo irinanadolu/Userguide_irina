@@ -1,0 +1,157 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,XInclude,XInclude 1.1 features"><meta name="keywords" content="XML documents, XInclude, XInclude 1.1 features"><meta name="DC.relation" scheme="URI" content="../topics/large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/large-documents-DTD-entities.html"><meta name="DC.relation" scheme="URI" content="../topics/refactoring-xml-documents.html"><meta name="DC.relation" scheme="URI" content="https://www.w3.org/TR/xinclude-11/"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="including-document-parts-with-XInclude"><title>Combining XML Documents and Fragments Using XInclude</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="including-document-parts-with-XInclude"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Combining XML Documents and Fragments Using XInclude</h1>
+  
+  <div class="body">
+    <p class="p"><strong class="ph b">XInclude</strong> is a standard for assembling XML instances into another XML document through
+      inclusion. A <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a> can be
+      dynamically created from smaller XML documents without having to physically duplicate the
+      content of the smaller files. The advantage of using XInclude instead of the <a class="xref" href="large-documents-DTD-entities.html#large-documents-DTD-entities">DTD Entities
+        method</a> is that each of the assembled documents is permitted to contain a Document
+      Type Declaration (DOCTYPE). This means that each file is a valid XML instance and can be
+      independently validated. It also means that the main document, which includes smaller
+      instances, can be validated without having to remove or comment out the DOCTYPE (as is the
+      case with External Entities).</p>
+    <section class="section" id="including-document-parts-with-XInclude__enabling_xinclude_support_in"><h2 class="title sectiontitle">Enabling XInclude Support in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <p class="p">The XInclude support in <span class="ph">Oxygen XML Editor</span> is enabled by default. It is controlled
+        by the <a class="xref" href="preferences-xml-parser.html#preferences-xml-parser__enable-xinclude"><span class="ph uicontrol">Enable XInclude processing</span> option</a> in the <a class="xref" href="preferences-xml-parser.html#preferences-xml-parser"><span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span></span> preferences page</a>. When enabled, <span class="ph">Oxygen XML Editor</span> will be
+        able to validate and transform documents comprised of parts added using XInclude.</p>
+    </section>
+    <section class="section" id="including-document-parts-with-XInclude__example_using_xinclude_to_combine_chapters_in_an_"><h2 class="title sectiontitle">Example: Using XInclude to Combine Files</h2>
+      
+      <div class="p">A chapter file (<span class="ph filepath">introduction.xml</span>) looks like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"&gt;</span>
+<strong class="hl-tag">&lt;chapter&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong>Getting started<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;section&gt;</strong>
+        <strong class="hl-tag">&lt;title&gt;</strong>Section title<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;para&gt;</strong>Para text<strong class="hl-tag">&lt;/para&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+<strong class="hl-tag">&lt;/chapter&gt;</strong></pre></div>
+      <div class="p">The main article (<dfn class="term">master file</dfn>) looks like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.docbook.org/xml/4.3/docbookx.dtd"
+[ &lt;!ENTITY % xinclude SYSTEM "../frameworks/docbook/dtd/xinclude.mod"&gt;
+%xinclude;
+]&gt;</span>
+<strong class="hl-tag">&lt;article&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong>Install guide<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;para&gt;</strong>This is the install guide.<strong class="hl-tag">&lt;/para&gt;</strong>
+    <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span> 
+                    <span class="hl-attribute">href</span>=<span class="hl-value">"introduction.xml"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;xi:fallback&gt;</strong>
+        <strong class="hl-tag">&lt;para&gt;</strong>
+          <strong class="hl-tag">&lt;emphasis&gt;</strong>FIXME: MISSING XINCLUDE CONTENT<strong class="hl-tag">&lt;/emphasis&gt;</strong>
+        <strong class="hl-tag">&lt;/para&gt;</strong>
+      <strong class="hl-tag">&lt;/xi:fallback&gt;</strong>
+    <strong class="hl-tag">&lt;/xi:include&gt;</strong>
+<strong class="hl-tag">&lt;/article&gt;</strong></pre></div>
+      <div class="p">In this example, note the following:<ul class="ul">
+          <li class="li">The DOCTYPE declaration defines an entity that references a file containing the
+            information to add the <em class="ph i">xi</em> namespace to certain elements defined by the DocBook
+            DTD.</li>
+          <li class="li">The href attribute of the <em class="ph i">xi:include</em> element specifies that the
+              <span class="ph filepath">introduction.xml</span> file will replace the <em class="ph i">xi:include</em> element
+            when the document is parsed.</li>
+          <li class="li">If the <span class="ph filepath">introduction.xml</span> file cannot be found, the parser will use
+            the value of the <em class="ph i">xi:fallback</em> element - a <em class="ph i">FIXME</em> message.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="including-document-parts-with-XInclude__example_using_xinclude_to_combine_fragments_of_fi"><h2 class="title sectiontitle">Example: Using XInclude to Combine Fragments of Files</h2>
+      
+      <div class="p">If you want to include only a fragment of a file in the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a>, the fragment must be
+        contained in a tag having an <code class="keyword markupname xmlatt">@xml:id</code> attribute and you must use an XPointer
+        expression pointing to the <code class="keyword markupname xmlatt">@xml:id</code> value.<div class="note notice note_notice"><span class="note__title">Notice:</span> <span class="ph">Oxygen XML Editor</span> supports the <a class="xref" href="http://www.w3.org/TR/2003/REC-xptr-framework-20030325/" target="_blank" rel="external noopener">XPointer <dfn class="term">Framework</dfn></a> and the <a class="xref" href="http://www.w3.org/TR/2003/REC-xptr-element-20030325/" target="_blank" rel="external noopener">XPointer element() Scheme</a>, but it does NOT support the <a class="xref" href="https://www.w3.org/TR/xptr-xpointer/" target="_blank" rel="external noopener">XPointer
+            xpointer() Scheme</a>.</div></div>
+      <div class="p">For example, if the <dfn class="term">master file</dfn>
+        is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-directive">&lt;?xml-model href="test.rng" type="application/xml" 
+        schematypens="http://relaxng.org/ns/structure/1.0"?&gt;</span>
+<strong class="hl-tag">&lt;test&gt;</strong>
+    <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"a.xml"</span> <span class="hl-attribute">xpointer</span>=<span class="hl-value">"a1"</span>
+        <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/test&gt;</strong>        </pre></div>
+      <div class="p">and the file (<span class="ph filepath">a.xml</span>)
+        is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;test&gt;</strong>
+    <strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">xml:id</span>=<span class="hl-value">"a1"</span><strong class="hl-tag">&gt;</strong>test<strong class="hl-tag">&lt;/a&gt;</strong>
+<strong class="hl-tag">&lt;/test&gt;</strong>        </pre></div>
+      <div class="p">after resolving the XPointer reference, the document
+        is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-directive">&lt;?xml-model href="test.rng" type="application/xml" 
+          schematypens="http://relaxng.org/ns/structure/1.0"?&gt;</span>
+<strong class="hl-tag">&lt;test&gt;</strong>
+    <strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">xml:id</span>=<span class="hl-value">"a1"</span> <span class="hl-attribute">xml:base</span>=<span class="hl-value">"a.xml"</span><strong class="hl-tag">&gt;</strong>test<strong class="hl-tag">&lt;/a&gt;</strong>
+<strong class="hl-tag">&lt;/test&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="including-document-parts-with-XInclude__d1299e178"><h2 class="title sectiontitle">Viewing the Expanded Content in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">When a transformation scenario is applied on the <dfn class="term">master file</dfn>, an intermediary
+        file combines all the referenced content and it will be expanded in the final output. If you
+        want to see how the referenced content will be expanded before applying the
+          transformation<span class="ph">, you can do one of
+          the following:</span><ul class="ul">
+          <li class="li">Simply switch to <span class="ph uicontrol">Author</span> mode.</li>
+          <li class="li">Create a minimal XSLT stylesheet that simply copies the XML content, then create a new
+            XSLT transformation scenario that applies the stylesheet over the XML. The XSLT
+            stylesheet would look like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">xmlns:math</span>=<span class="hl-value">"http://www.w3.org/2005/xpath-functions/math"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs math"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"3.0"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+    
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+        </ul></div>
+    </section>
+    <section class="section" id="including-document-parts-with-XInclude__xinclude_11_features"><h2 class="title sectiontitle">XInclude 1.1 Features</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> offers partial support for XInclude 1.1 features. This includes
+        support for fragment identifiers and attribute copying.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Fragment Identifiers</strong></u></p>
+            <p class="p">You can use <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> to reference a text file and specify
+              the <code class="ph codeph">@fragid</code> value so that you only get part of that text file in the
+              main document. For some examples and to see how the
+                <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> gets expanded when the <code class="keyword markupname xmlatt">@fragid</code>
+              specifies a line range or character range, see <a class="xref" href="https://www.w3.org/TR/xinclude-11/#text-example-2" target="_blank" rel="external noopener"><strong class="ph b">Textual Inclusion Examples with RFC5147 Fragment
+                Identifiers</strong></a>.</p>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Attribute Copying</strong></u></p>
+            <p class="p">Any <dfn class="term">namespaced</dfn> attribute defined on the
+                <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> element will be passed to the root element of
+              the included content.</p>
+            <div class="p">For example, if you have
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"section2.xml"</span> <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span> 
+  <span class="hl-attribute">xml:id</span>=<span class="hl-value">"sectInner1"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <div class="p">and <span class="ph filepath">section2.xml</span> looks like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sect2</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://docbook.org/ns/docbook"</span> <span class="hl-attribute">version</span>=<span class="hl-value">"5.0"</span>
+    <span class="hl-attribute">xmlns:xlink</span>=<span class="hl-value">"http://www.w3.org/1999/xlink"</span> <span class="hl-attribute">xml:id</span>=<span class="hl-value">"section2"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong>FS2<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;para&gt;</strong>P2<strong class="hl-tag">&lt;/para&gt;</strong>
+<strong class="hl-tag">&lt;/sect2&gt;</strong></pre></div>
+            <p class="p">then the final processed result will have the original
+                <code class="ph codeph">xml:id="section2"</code> replaced with the value specified in the
+                <em class="ph i">xi:included</em> section.</p>
+            <p class="p">For more information, see <a class="xref" href="https://www.w3.org/TR/xinclude-11/#attribute-copying" target="_blank" rel="external noopener"><strong class="ph b">Attribute Copying when Processing XML</strong></a>. Also, to see
+              more examples, see <a class="xref" href="https://www.w3.org/TR/xinclude-11/#att-copy-example" target="_blank" rel="external noopener"><strong class="ph b">Attribute Copying Examples</strong></a>.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/large-documents.html">Combining XML Content Using DTD Entities and XInclude</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/large-documents-DTD-entities.html">Combining XML Document Content Using DTD Entities</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/refactoring-xml-documents.html">Refactoring XML Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.w3.org/TR/xinclude-11/" target="_blank" rel="external noopener">W3C Specifications: XML Inclusions (XInclude) Version 1.1</a></li></ul></div></nav>
+</article></main></body></html>

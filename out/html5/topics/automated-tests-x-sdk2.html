@@ -1,0 +1,117 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen SDK,Automated tests,Plugins"><meta name="keywords" content="Oxygen SDK, Automated tests, Plugins"><meta name="DC.relation" scheme="URI" content="../topics/testing-plugins-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/testing-plugins-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-plugin-intelliJ.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="automated-tests"><title>Creating and Running Automated Tests</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="automated-tests"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating and Running Automated Tests</h1>
+  
+  <div class="body">
+    <p class="p">If you have developed complex custom <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugins</dfn></a> or <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> (document types), the best way to test your implementation
+      and ensure that further changes will not interfere with the current behavior is to make
+      automated tests for your customization.</p>
+    <p class="p">An <span class="ph"><span class="ph">Oxygen XML Editor</span></span> standalone installation includes a main
+        <span class="ph filepath">oxygen.jar</span> library located in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn></span>. That <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> library contains a base class for testing
+      developer customizations named: <em class="ph i">ro.sync.exml.workspace.api.PluginWorkspaceTCBase</em>.</p>
+    <p class="p">To develop <em class="ph i">JUnit</em> tests for your customizations using the Eclipse workbench, follow
+      these steps:</p>
+    <ol class="ol" id="automated-tests__ol_g45_pdc_mh">
+      <li class="li">Create a new Eclipse Java project and copy the entire contents of the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn></span> folder to the new
+        project.</li>
+      <li class="li">Add all <dfn class="term">JAR</dfn> libraries present in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span> directory to the
+          <span class="ph uicontrol">Java Build Path</span>-&gt;<span class="ph uicontrol">Libraries</span> tab. Make sure
+        that the main <dfn class="term">JAR</dfn> library <span class="ph filepath">oxygen.jar</span> or
+          <span class="ph filepath">oxygenAuthor.jar</span> is the first one in the Java classpath by moving it
+        up in the <span class="ph uicontrol">Order and Export</span> tab.</li>
+      <li class="li">Click <strong class="ph b">Add Library</strong> and add the <a class="xref" href="https://github.com/junit-team/junit/wiki/Download-and-Install" target="_blank" rel="external noopener"><em class="ph i">JUnit</em></a> and <a class="xref" href="https://sourceforge.net/projects/jfcunit/" target="_blank" rel="external noopener"><em class="ph i">JFCUnit</em></a> libraries.</li>
+      <li class="li">Create a new Java class that extends
+          <em class="ph i">ro.sync.exml.workspace.api.PluginWorkspaceTCBase</em>.</li>
+      <li class="li">Pass the following parameters to the constructor of the super class: <ul class="ul" id="automated-tests__ul_dnz_3fc_mh">
+          <li class="li"><strong class="ph b">File installationFolder</strong> - The file path to the main application
+            installation directory. If not specified, it defaults to the folder where the test is
+            started.</li>
+          <li class="li"><strong class="ph b">File frameworksFolder</strong> - The file path to the
+              <span class="ph filepath">frameworks</span> directory. It can point to a custom
+              <dfn class="term">framework</dfn> directory where it resides.</li>
+          <li class="li"><strong class="ph b">File pluginsFolder</strong> - The file path to the
+              <span class="ph filepath">plugins</span> directory. It can point to a custom <dfn class="term">plugin</dfn>
+            directory where it resides.</li>
+          <li class="li"><strong class="ph b">File optionsFolder</strong> - The folder that contains the application
+            options. If not specified, the application will auto-detect the location based on the
+            started product ID.</li>
+          <li class="li"><strong class="ph b">String licenseKey</strong> - The license key used to license the test
+            class.</li>
+          <li class="li"><strong class="ph b">int productID</strong> - The ID of the product and should be one of the
+            following: <code class="ph codeph">PluginWorkspaceTCBase.XML_AUTHOR_PRODUCT</code>,
+              <code class="ph codeph">PluginWorkspaceTCBase.XML_EDITOR_PRODUCT</code>, or
+              <code class="ph codeph">PluginWorkspaceTCBase.XML_DEVELOPER_PRODUCT</code>.</li>
+        </ul></li>
+      <li class="li">Create test methods that use the API in the base class to open XML files and perform
+        various actions on them. Your test class could look something like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> MyTestClass <strong class="hl-keyword">extends</strong> PluginWorkspaceTCBase {
+	
+<span class="hl-tag-doctype-comment">/**
+ * Constructor.
+ */</span>
+<strong class="hl-keyword">public</strong> MyTestClass() <strong class="hl-keyword">throws</strong> Exception {
+	<strong class="hl-keyword">super</strong>(null, <strong class="hl-keyword">new</strong> File(<span class="hl-string">"frameworks"</span>), <strong class="hl-keyword">new</strong> File(<span class="hl-string">"plugins"</span>), null, 
+<span class="hl-string">"------START-LICENSE-KEY------\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Registration_Name=Developer\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Company=\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Category=Enterprise\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Component=XML-Editor, XSLT-Debugger, Saxon-SA\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Version=14\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Number_of_Licenses=1\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Date=09-04-2012\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"Trial=31\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+	<span class="hl-string">"SGN=MCwCFGNoEGJSeiC3XCYIyalvjzHhGhhqAhRNRDpEu8RIWb8icCJO7HqfVP4++A\\=\\=\n"</span> + 
+	<span class="hl-string">"\n"</span> + 
+<span class="hl-string">"-------END-LICENSE-KEY-------"</span>, 
+ PluginWorkspaceTCBase.XML_AUTHOR_PRODUCT);
+	}
+	
+ <span class="hl-tag-doctype-comment">/**
+   * &lt;p&gt;&lt;b&gt;Description:&lt;/b&gt; TC for opening a file and using a bold operation&lt;/p&gt;
+   * &lt;p&gt;&lt;b&gt;Bug ID:&lt;/b&gt; EXM-20417&lt;/p&gt;
+   *
+   * @author radu_coravu
+   *
+   * @throws Exception
+   */</span>
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> testOpenFileAndBoldEXM_<span class="hl-number">20417</span>() <strong class="hl-keyword">throws</strong> Exception {
+      WSEditor ed = open(<strong class="hl-keyword">new</strong> File
+(<span class="hl-string">"D:/projects/eXml/test/authorExtensions/dita/sampleSmall.xml"</span>).toURL());
+	    <em class="hl-comment">//Move caret</em>
+	    moveCaretRelativeTo(<span class="hl-string">"Context"</span>, <span class="hl-number">1</span>, false);
+	    
+	    <em class="hl-comment">//Insert &lt;b&gt;</em>
+	    invokeAuthorExtensionActionForID(<span class="hl-string">"bold"</span>);
+	    assertEquals(<span class="hl-string">"&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n"</span> + 
+	    		<span class="hl-string">"&lt;!DOCTYPE task PUBLIC \"-//OASIS//DTD DITA Task//EN\"
+</span> \<span class="hl-string">"http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd\"&gt;\n"</span> + 
+	    		<span class="hl-string">"&lt;task id=\"taskId\"&gt;\n"</span> + 
+	    		<span class="hl-string">"    &lt;title&gt;Task &lt;b&gt;title&lt;/b&gt;&lt;/title&gt;\n"</span> + 
+	    		<span class="hl-string">"    &lt;prolog/&gt;\n"</span> + 
+	    		<span class="hl-string">"    &lt;taskbody&gt;\n"</span> + 
+	    		<span class="hl-string">"        &lt;context&gt;\n"</span> + 
+	    		<span class="hl-string">"            &lt;p&gt;Context for the current task&lt;/p&gt;\n"</span> + 
+	    		<span class="hl-string">"        &lt;/context&gt;\n"</span> + 
+	    		<span class="hl-string">"        &lt;steps&gt;\n"</span> + 
+	    		<span class="hl-string">"            &lt;step&gt;\n"</span> + 
+	    		<span class="hl-string">"                &lt;cmd&gt;Task step.&lt;/cmd&gt;\n"</span> + 
+	    		<span class="hl-string">"            &lt;/step&gt;\n"</span> + 
+	    		<span class="hl-string">"        &lt;/steps&gt;\n"</span> + 
+	    		<span class="hl-string">"    &lt;/taskbody&gt;\n"</span> + 
+	    		<span class="hl-string">"&lt;/task&gt;\n"</span> + 
+	    		<span class="hl-string">""</span>, getCurrentEditorXMLContent());
+	  }
+}</pre></li>
+    </ol>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/testing-plugins-extensions.html">Testing Plugins and Java Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/testing-plugins-extensions.html">Testing Plugins and Java Extensions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-plugin-intelliJ.html">Debugging a Plugin Using IntelliJ IDEA</a></div></div></nav></article></main></body></html>

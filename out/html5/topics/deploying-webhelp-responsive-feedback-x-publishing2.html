@@ -1,0 +1,136 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Classic with Feedback,Deploying,Installing"><meta name="keywords" content="WebHelp Classic with Feedback, Deploying, Installing"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-classic-output.html"><meta name="DC.relation" scheme="URI" content="../topics/whc-feedback-system.html"><meta name="DC.relation" scheme="URI" content="../topics/refreshing-webhelp-responsive-feedback-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/refreshing-webhelp-responsive-feedback-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/managing-webhelp-responsive-feedback-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="managing-webhelp-feedback.html#managing-webhelp-feedback"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="deploying-webhelp-feedback"><title>Deploying a PHP-based Feedback-Enabled System</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="deploying-webhelp-feedback"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Deploying a PHP-based Feedback-Enabled System</h1>
+  
+  <div class="body" id="deploying-webhelp-feedback__installation">
+    <section class="section" id="deploying-webhelp-feedback__system-requirements"><h2 class="title sectiontitle">System Requirements</h2>
+      
+      <div class="p">The feedback-enabled WebHelp system requires a standard server deployment. You can request
+        this from your server administrator and it requires the following system components:<ul class="ul" id="deploying-webhelp-feedback__ul_qtg_mnh_ws">
+          <li class="li">A Web server (such as <em class="ph i">Apache Web Server</em>)</li>
+          <li class="li">A <em class="ph i">MySQL</em> or <em class="ph i">MariaDB</em> database server</li>
+          <li class="li">A database admin tool (such as <em class="ph i">phpMyAdmin</em>)</li>
+          <li class="li">PHP Version 5.1.6 or later</li>
+        </ul>The WebHelp system supports most of the recent versions of the following browsers:
+        Chrome, Firefox, Edge, Internet Explorer, Safari, Opera.</div>
+    </section>
+    <section class="section" id="deploying-webhelp-feedback__create-database-section"><h2 class="title sectiontitle">Create WebHelp with Feedback Database</h2>
+      
+      <div class="p">The <strong class="ph b">WebHelp with Feedback</strong> system needs a database to store user details and the
+        actual feedback, and a user added to it with all privileges. After this is created, you
+        should have the following information:<ul class="ul" id="deploying-webhelp-feedback__ul_f1m_3hk_vs">
+          <li class="li">Database name</li>
+          <li class="li">Username</li>
+          <li class="li">Password</li>
+        </ul></div>
+      <p class="p">Exactly how you create the database and user depends on your web host and your particular
+        needs. </p>
+    </section>
+    <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong></p>
+    <p class="p">The following procedure uses <em class="ph i">phpMyAdmin</em> to create a MySQL database for the feedback
+      system and a MySQL user with privileges for that database. The feedback system uses these
+      credentials to connect to the database.</p>
+    <div class="p">Using <em class="ph i">phpMyAdmin</em> to create a database: <ol class="ol" id="deploying-webhelp-feedback__ol_als_nkk_vs">
+        <li class="li">Access the <em class="ph i">phpMyAdmin</em> instance running on your server.</li>
+        <li class="li">Click <em class="ph i">Databases</em> (in the right frame) and then create a <em class="ph i">database</em>. You can
+          give it any name you want (for example <em class="ph i">comments</em>).</li>
+        <li class="li">Create a user with connection privileges for this database. </li>
+        <li class="li">Under <em class="ph i">localhost</em>, in the right frame, click <em class="ph i">Privileges</em> and then at the
+          bottom of the page click the <span class="ph uicontrol">reload the privileges</span> link.</li>
+      </ol></div>
+    <section class="section" id="deploying-webhelp-feedback__deploying-webhelp"><h2 class="title sectiontitle">Deploying the WebHelp with Feedback Output</h2>
+      
+      <div class="p">If you have a web server configured with PHP and MySQL, you can deploy the <strong class="ph b">WebHelp with
+          Feedback</strong> output by following these steps:<ol class="ol" id="deploying-webhelp-feedback__ol_jfm_3mk_vs">
+          <li class="li">Connect to your server using an FTP client.</li>
+          <li class="li">Locate the home directory (from now on, referred to as <em class="ph i">DOCUMENT_ROOT</em>) of your
+            server.</li>
+          <li class="li">Copy the transformation output folder into the <span class="ph filepath">DOCUMENT_ROOT</span>
+            folder.</li>
+          <li class="li">Rename it to something relevant (for example,
+            <span class="ph filepath">myProductWebHelp</span>).</li>
+          <li class="li">Open the output folder (for example,
+              <span class="ph filepath">http://[YOUR_SERVER]/myProductWebHelp/)</span>. You are redirected to
+            the installation wizard. Proceed with the installation as follows:<ol class="ol" type="a" id="deploying-webhelp-feedback__ol_lgm_lnk_vs">
+              <li class="li">Verify that the prerequisites are met.</li>
+              <li class="li">Click <span class="ph uicontrol">Start Installation</span>.</li>
+              <li class="li">Configure the <span class="ph uicontrol">Deployment Settings</span> section. Default values
+                are provided, but you should adjust them as needed.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can change
+                  some of the options later. The installation creates a
+                    <span class="ph filepath">config.php</span> file in
+                    <span class="ph filepath">[OXYGEN_WEBHELP_INSTALL_DIR]/feedback/resources/php/config/config.php</span>
+                  where all your configuration options are stored.</div></li>
+              <li class="li">Configure the <span class="ph uicontrol">MySql Database Connection Settings</span> section.
+                Use the information (database name, username, password) from the <a class="xref" href="deploying-webhelp-responsive-feedback-x-publishing2.html#deploying-webhelp-feedback__create-database-section">Create WebHelp with Feedback Database section</a> to fill in the
+                appropriate text boxes.<div class="note warning note_warning" id="deploying-webhelp-feedback__create-db-note"><span class="note__title">Warning:</span> Selecting the
+                    <span class="ph uicontrol">Create new database structure</span> option will overwrite any
+                  existing data in the selected database, if it already exists. Therefore, it is
+                  useful the first time you install the <strong class="ph b">WebHelp with Feedback</strong> system, but you
+                  do not want to select this option on subsequent deployments.</div></li>
+              <li class="li">If you are using a domain (such as <em class="ph i">OpenLDAP</em> or <em class="ph i">Active Directory</em>) to
+                manage users in your organization, select the <span class="ph uicontrol">Enable LDAP
+                  Authentication</span> option. This will allow you to configure the LDAP
+                server, which will provide information and credentials for users who will access the
+                WebHelp system. Also, this will allow you to choose which of the domain users will
+                have administrator privileges.</li>
+              <li class="li">
+                <p class="p">If the <span class="ph uicontrol">Create new database structure</span> option is selected,
+                  the <span class="ph uicontrol">Create WebHelp Administrator Account</span> section becomes
+                  available. Here you can set the administrator account data. The administrator is
+                  able to moderate new posts and manage WebHelp users.</p>
+                <div class="p">The same database can be used to store comments for multiple <strong class="ph b">WebHelp with
+                    Feedback</strong> deployments. If a topic is available in multiple deployments and
+                  there are comments associated with it, you can choose to display the comments in
+                  all deployments that share the database. To do this, select the <span class="ph uicontrol">Display
+                    comments from other products</span> option. In the <span class="ph uicontrol">Display
+                    comments from</span> section, a list with the deployments sharing the same
+                  database is displayed. Select the deployments allowed to share common
+                    feedback.<div class="note note note_note"><span class="note__title">Note:</span> You can restrict the displayed comments of a product depending on
+                    its version. If you have two products that use the same database and you
+                    restrict one of them to display comments starting from a certain version, the
+                    comments of the other product are also displayed from the specified version
+                    onwards. </div></div>
+              </li>
+              <li class="li">Click <span class="ph uicontrol">Next Step</span>.</li>
+              <li class="li">Remove the installation folder from your web server.<div class="note important note_important"><span class="note__title">Important:</span> When
+                  you publish subsequent iterations of your <strong class="ph b">WebHelp with Feedback</strong> system, you
+                  will not upload the <span class="ph filepath">/install</span> folder in the output, as you
+                  only need it uploaded the first time you create the installation. On subsequent
+                  uploads, you will just upload the other output files.</div></li>
+              <li class="li">In your Web browser, go to your <strong class="ph b">WebHelp with Feedback</strong> system main
+                page.</li>
+            </ol></li>
+        </ol></div>
+    </section>
+    <section class="section" id="deploying-webhelp-feedback__testing_your_webhelp_classic_with_feedback_system"><h2 class="title sectiontitle">Testing Your WebHelp with Feedback System</h2>
+      
+      <div class="p">To test your system, create a user and post a comment. Check to see if the notification
+        emails are delivered to your email inbox.<div class="note note note_note"><span class="note__title">Note:</span> To read debug messages generated by the
+            system:<ol class="ol" id="deploying-webhelp-feedback__ol_hyx_lpk_vs">
+            <li class="li">Enable <em class="ph i">JavaScript</em> logging by doing one of the following:<ul class="ul" id="deploying-webhelp-feedback__ul_iyx_lpk_vs">
+                <li class="li">Open the <span class="ph filepath">log.js</span> file, locate the <code class="ph codeph">var log= new
+                    Log(Level.NONE);</code> line, and change the logging level to:
+                    <code class="ph codeph">Level.INFO</code>, <code class="ph codeph">Level.DEBUG</code>,
+                    <code class="ph codeph">Level.WARN</code>, or <code class="ph codeph">Level.ERROR</code>.</li>
+                <li class="li">Append <code class="ph codeph">?log=true</code> to the WebHelp URL.</li>
+              </ul></li>
+            <li class="li">Inspect the PHP and Apache server log files.</li>
+          </ol></div></div>
+    </section>
+    <section class="section" id="deploying-webhelp-feedback__documentation_product_id_and_version"><h2 class="title sectiontitle">Documentation Product ID and Version</h2>
+      
+      <div class="p">When you run a <strong class="ph b">WebHelp with Feedback</strong> transformation scenario, by default you are
+        prompted for a documentation product ID and version number. This is needed when multiple
+        WebHelp systems are deployed on the same server. Think of your WebHelp output as a
+          <em class="ph i">product</em>. If you have three different WebHelp outputs, you have three different
+          <em class="ph i">products</em> (each with their own unique documentation product ID). This identifier is
+        included in a configuration file so that comments are tied to a particular output (product
+        ID and version number).<div class="note note note_note"><span class="note__title">Note:</span> The <strong class="ph b">WebHelp with Feedback</strong> installation includes a
+          configuration option (<span class="ph uicontrol">Display comments from other products</span>) that
+          allows you to choose to have comments visible in other specified
+        <em class="ph i">products</em>.</div></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/refreshing-webhelp-responsive-feedback-x-publishing2.html">Refreshing the Content of a Feedback-Enabled System</a><br></li><li class="link olchildlink"><a href="../topics/managing-webhelp-responsive-feedback-x-publishing2.html">Managing Users and Comments in a Feedback-Enabled System</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webhelp-classic-output.html">WebHelp Classic Output for DocBook</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whc-feedback-system.html">Deploying the Oxygen Feedback Comments Component</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/refreshing-webhelp-responsive-feedback-x-publishing2.html">Refreshing the Content of a Feedback-Enabled System</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="managing-webhelp-feedback.html#managing-webhelp-feedback">Managing Users and Comments in a Feedback-Enabled System</a></li></ul></div></nav>
+</article></main></body></html>

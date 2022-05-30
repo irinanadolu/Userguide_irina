@@ -1,0 +1,412 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Metadata,,Keywords,Index terms,Custom,Cover page,Header,Footer,Changing the keywords,Title property,Changing the title property,Key values,Use key value in CSS"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Metadata, , Keywords, Index terms, Custom, Cover page, Header, Footer, Changing the keywords, Title property, Changing the title property, Key values, Use key value in CSS"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_headers_and_footers.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_cover_page.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_metadata"><title>Metadata</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_metadata">
+    <h1 class="title topictitle1" id="ariaid-title1">Metadata</h1>
+  
+    <div class="body">
+        <p class="p">DITA has a solid vocabulary for specifying metadata. There are
+        <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> elements in the topics, and
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>, <code class="keyword markupname xmlelement">&lt;bookmeta&gt;</code> elements in the
+      bookmaps. They can be used to define authors, dates, audiences, organizations, etc. See: <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/metadata-in-maps-and-topics.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/metadata-in-maps-and-topics.html</a></p>
+        <p class="p">It is up to you to decide where this information should be presented, in the PDF content
+      or in the PDF document properties.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_headers_and_footers.html">Page Headers and Footers</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_cover_page.html">Cover (Title) Page</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_metadata___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Metadata - XML Fragment</h2>
+  <div class="body">
+    <p class="p">In the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+        map file</a>, the metadata section is placed inside the
+        <code class="keyword markupname xmlelement">&lt;oxy:front-page&gt;</code> element. This is different from the original
+      placement in the map or bookmap (after the title), but allows for the usage of information
+      from it in the title page.</p>
+    <section class="section" id="dcpp_metadata___input_xml_fragment__section_crq_myd_scb"><h3 class="title sectiontitle">Bookmaps</h3>
+      
+      <p class="p">This is an example of a section taken from a merged bookmap. It only contains some of the
+        possible metadata elements. The <code class="ph codeph">bookmeta</code> metadata section is inherited from
+          <code class="ph codeph">topicmeta</code>:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span>
+  <span class="hl-attribute">xmlns:opentopic-index</span>=<span class="hl-value">"http://www.idiominc.com/opentopic/index"</span> <span class="hl-attribute">cascade</span>=<span class="hl-value">"merge"</span> 
+    <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map bookmap/bookmap "</span>
+  <span class="hl-attribute">ditaarch:DITAArchVersion</span>=<span class="hl-value">"1.3"</span><strong class="hl-tag"> &gt;</strong>
+    
+  <strong class="hl-tag">&lt;oxy:front-page</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span><strong class="hl-tag">&gt;</strong>
+       
+   <strong class="hl-tag">&lt;bookmeta</strong> <span class="hl-attribute">xmlns:dita-ot</span>=<span class="hl-value">"http://dita-ot.sourceforge.net/ns/201007/dita-ot"</span>
+     <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta bookmap/bookmeta "</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;author</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/author "</span><strong class="hl-tag">&gt;</strong>Howe Tuduit<strong class="hl-tag">&lt;/author&gt;</strong>
+     <strong class="hl-tag">&lt;bookid</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookid "</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;isbn</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/isbn "</span><strong class="hl-tag">&gt;</strong>071271271X<strong class="hl-tag">&lt;/isbn&gt;</strong>
+       <strong class="hl-tag">&lt;booknumber</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/booknumber "</span><strong class="hl-tag">&gt;</strong>SG99-9999-00<strong class="hl-tag">&lt;/booknumber&gt;</strong>
+        <strong class="hl-tag">&lt;maintainer</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/maintainer "</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;organization</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/organization "</span><strong class="hl-tag">&gt;</strong>ACME Tools<strong class="hl-tag">&lt;/organization&gt;</strong>
+        <strong class="hl-tag">&lt;person</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/person "</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;/maintainer&gt;</strong>
+     <strong class="hl-tag">&lt;/bookid&gt;</strong>
+     <strong class="hl-tag">&lt;bookrights</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookrights "</span><strong class="hl-tag">&gt;</strong>
+        ...
+         <strong class="hl-tag">&lt;bookowner</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookowner "</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;organization</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/organization "</span><strong class="hl-tag">&gt;</strong>ACME Tools, Inc.<strong class="hl-tag">&lt;/organization&gt;</strong>
+         <strong class="hl-tag">&lt;/bookowner&gt;</strong>
+     <strong class="hl-tag">&lt;/bookrights&gt;</strong>
+        <strong class="hl-tag">&lt;/bookmeta&gt;</strong>
+        
+        <strong class="hl-tag">&lt;oxy:front-page-title&gt;</strong>
+            ...
+...</pre>
+    </section>
+    <div class="div">
+      <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> 
+    <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map bookmap/bookmap bookmap"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+    
+   <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>
+       
+   <strong class="hl-tag">&lt;div</strong> 
+     <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta bookmap/bookmeta boometa"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/author author"</span><strong class="hl-tag">&gt;</strong>Howe Tuduit<strong class="hl-tag">&lt;/div&gt;</strong>
+     <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookid bookid"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/isbn isbn"</span><strong class="hl-tag">&gt;</strong>071271271X<strong class="hl-tag">&lt;/div&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/booknumber booknumber"</span><strong class="hl-tag">&gt;</strong>SG99-9999-00<strong class="hl-tag">&lt;/div&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/maintainer maintainer"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/organization organization"</span><strong class="hl-tag">&gt;</strong>ACME Tools<strong class="hl-tag">&lt;/div&gt;</strong>
+          <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/person person"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookrights bookrights"</span><strong class="hl-tag">&gt;</strong>
+        ...
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/bookowner bookowner"</span><strong class="hl-tag">&gt;</strong>
+              <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data bookmap/organization organization"</span><strong class="hl-tag">&gt;</strong>
+                                          ACME Tools, Inc.
+              <strong class="hl-tag">&lt;/div&gt;</strong>
+         <strong class="hl-tag">&lt;/div&gt;</strong>
+       <strong class="hl-tag">&lt;/div&gt;</strong>
+     <strong class="hl-tag">&lt;/div&gt;</strong>
+        
+     <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page-title front-page-title"</span><strong class="hl-tag">&gt;</strong>
+            ...
+...</pre>
+    </div>
+    <section class="section" id="dcpp_metadata___input_xml_fragment__section_hpg_xyd_scb"><h3 class="title sectiontitle">Maps</h3>
+      
+      <p class="p">The maps have a more simple structure, they use the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+        element for metadata sections. This is also a simplified example, as there may be many more
+        elements in the metadata section:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span>
+    <span class="hl-attribute">xmlns:opentopic-index</span>=<span class="hl-value">"http://www.idiominc.com/opentopic/index"</span> 
+          <span class="hl-attribute">cascade</span>=<span class="hl-value">"merge"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map "</span>
+    <span class="hl-attribute">ditaarch:DITAArchVersion</span>=<span class="hl-value">"1.3"</span><strong class="hl-tag">&gt;</strong>
+    ...
+    
+<strong class="hl-tag">&lt;oxy:front-page</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span><strong class="hl-tag">&gt;</strong>
+    
+  <strong class="hl-tag">&lt;topicmeta</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta "</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;author</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/author "</span><strong class="hl-tag">&gt;</strong>Dan C<strong class="hl-tag">&lt;/author&gt;</strong>
+      <strong class="hl-tag">&lt;metadata</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/metadata "</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;prodinfo</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/prodinfo "</span><strong class="hl-tag">&gt;</strong>
+             <strong class="hl-tag">&lt;prodname</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/prodname "</span><strong class="hl-tag">&gt;</strong>oXygen PDF CSS DITA Plugin<strong class="hl-tag">&lt;/prodname&gt;</strong>
+         <strong class="hl-tag">&lt;/prodinfo&gt;</strong>
+      <strong class="hl-tag">&lt;/metadata&gt;</strong>
+      <strong class="hl-tag">&lt;audience</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/audience "</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+...</pre>
+      <div class="div">
+        <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span>
+    <span class="hl-attribute">xmlns:opentopic-index</span>=<span class="hl-value">"http://www.idiominc.com/opentopic/index"</span> 
+          <span class="hl-attribute">cascade</span>=<span class="hl-value">"merge"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map "</span>
+    <span class="hl-attribute">ditaarch:DITAArchVersion</span>=<span class="hl-value">"1.3"</span><strong class="hl-tag">&gt;</strong>
+    ...
+    
+<strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>
+    
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta topicmeta"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/author author"</span><strong class="hl-tag">&gt;</strong>Dan C<strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/metadata metadata"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/prodinfo prodinfo"</span><strong class="hl-tag">&gt;</strong>
+             <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/prodname prodname"</span><strong class="hl-tag">&gt;</strong>oXygen PDF CSS DITA Plugin<strong class="hl-tag">&lt;/div&gt;</strong>
+         <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/audience audience"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+...</pre>
+      </div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_metadata___built_in_css_rules">
+  <h2 class="title topictitle2" id="ariaid-title3">Metadata - Built-in CSS rules</h2>
+  <div class="body">
+    <p class="p">The <span class="ph filepath">[PLUGIN_DIR]/css/print/p-meta.css</span> file contains the rules that
+      extract metadata. </p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_create_a_searchable_pdf">
+    <h2 class="title topictitle2" id="ariaid-title4">How to Create a Searchable PDF</h2>
+  
+    <div class="body">
+        <div class="p">To make a PDF searchable, you need to add some <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> or
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements inside bookmaps, maps, or topics. Most of the
+      search engines will parse the resulting document and extract those keywords and create a
+      search base.<div class="note note note_note"><span class="note__title">Note:</span> Both <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> and <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+        elements can be combined inside the <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> element. They will be
+        equally processed by the search engine.</div>In the generated PDF, keywords are displayed
+      in the Document Properties.</div>
+    <section class="section" id="dcpp_how_to_create_a_searchable_pdf__section_r2c_mf4_2nb"><h3 class="title sectiontitle">Bookmaps</h3>
+      
+      <div class="p">If you want your keywords to appear inside a bookmap, you need to define them inside the
+          <code class="keyword markupname xmlelement">&lt;bookmeta&gt;</code>
+        element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap&gt;</strong>
+  ...
+  <strong class="hl-tag">&lt;bookmeta&gt;</strong>
+    <strong class="hl-tag">&lt;keywords&gt;</strong>
+      <strong class="hl-tag">&lt;keyword&gt;</strong>web server<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;keyword&gt;</strong>hard disk<strong class="hl-tag">&lt;/keyword&gt;</strong>
+    <strong class="hl-tag">&lt;/keywords&gt;</strong>
+  <strong class="hl-tag">&lt;/bookmeta&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="dcpp_how_to_create_a_searchable_pdf__section_an3_cs4_2nb"><h3 class="title sectiontitle">Maps</h3>
+      
+      <div class="p">If you want your keywords to appear inside a map, you need to define them inside the
+          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+        element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map&gt;</strong>
+  ...
+  <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+    <strong class="hl-tag">&lt;keywords&gt;</strong>
+      <strong class="hl-tag">&lt;keyword&gt;</strong>flowers<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;indexterm&gt;</strong>care and preparation<strong class="hl-tag">&lt;/indexterm&gt;</strong>
+      <strong class="hl-tag">&lt;keyword&gt;</strong>seasons<strong class="hl-tag">&lt;/keyword&gt;</strong>
+    <strong class="hl-tag">&lt;/keywords&gt;</strong>
+  <strong class="hl-tag">&lt;/topicmeta&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="dcpp_how_to_create_a_searchable_pdf__section_t4z_ys4_2nb"><h3 class="title sectiontitle">Topics</h3>
+      
+      <div class="p">If you want your keywords to appear inside one or more topics, you need to define them
+        inside the <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>
+          element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic&gt;</strong>
+  ...
+  <strong class="hl-tag">&lt;prolog&gt;</strong>
+    <strong class="hl-tag">&lt;metadata&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;indexterm&gt;</strong>iris<strong class="hl-tag">&lt;/indexterm&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/metadata&gt;</strong>
+  <strong class="hl-tag">&lt;/prolog&gt;</strong></pre><div class="note warning note_warning"><span class="note__title">Warning:</span> Keywords must be at map level or at topic
+          level, you cannot combine them.</div></div>
+    </section>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_add_custom_pdf_metadata">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Add the Publication Audience to the Custom PDF Metadata</h2>
+  
+  <div class="body">
+    <div class="p">The audience element indicates the users the publication is addressing. This can be placed
+      inside a <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element in a <code class="keyword markupname xmlelement">&lt;map&gt;</code> as in
+      the following
+      example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+        ...
+        <strong class="hl-tag">&lt;audience</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"programmer"</span> <span class="hl-attribute">job</span>=<span class="hl-value">"programming"</span> <span class="hl-attribute">experiencelevel</span>=<span class="hl-value">"expert"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+    <p class="p">To collect the <code class="keyword markupname xmlatt">@type</code> attribute, add the following in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"map/topicmeta"</span>] &gt; *[class ~= <span class="hl-string">"topic/audience"</span>] {
+    -oxy-pdf-meta-custom: <span class="hl-string">"Audience"</span> attr(type);
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> It is best to use the class selector (such as <code class="ph codeph">*[class ~=
+      "map/topicmeta"]</code>) instead of <code class="ph codeph">topicmeta</code> to cover cases where the
+      elements are specialized (for instance, in a bookmap the <code class="ph codeph">bookmeta</code> is a
+        <code class="ph codeph">topicmeta</code>, so your selector will also function for bookmaps, not only
+      simple maps. </div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The selector begins with <code class="ph codeph">map &gt; </code> to choose the
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> that is a direct child of the map, not other
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> elements from other <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+      elements.</div>
+    <p class="p">The metadata is displayed in the <span class="ph uicontrol">Custom</span> tab of the <span class="ph uicontrol">Document
+        Properties</span> dialog box from Acrobat Reader:</p>
+    <img class="image" id="dcpp_how_to_add_custom_pdf_metadata__image_lyx_xw2_scb" src="../img/dcpp_acrobat_reader_document_properties_custom.png" alt="Document Properties dialog in Acrobat Reader">
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_show_metadata_in_the_content">
+  <h2 class="title topictitle2" id="ariaid-title6">How to Show Metadata in the Cover Page</h2>
+  
+  <div class="body">
+    <div class="p">Suppose you need to present the <strong class="ph b">Author</strong> and the <strong class="ph b">ISBN</strong> (when it exists) just under
+      the publication title and suppose your bookmap
+      contains:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"taskbook"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;booktitle&gt;</strong>
+        <strong class="hl-tag">&lt;booklibrary&gt;</strong>Retro Tools<strong class="hl-tag">&lt;/booklibrary&gt;</strong>
+        <strong class="hl-tag">&lt;mainbooktitle&gt;</strong>Product tasks<strong class="hl-tag">&lt;/mainbooktitle&gt;</strong>
+        <strong class="hl-tag">&lt;booktitlealt&gt;</strong>Tasks and what they can do<strong class="hl-tag">&lt;/booktitlealt&gt;</strong>
+    <strong class="hl-tag">&lt;/booktitle&gt;</strong>
+    <strong class="hl-tag">&lt;bookmeta&gt;</strong>        
+        <strong class="hl-tag">&lt;author&gt;</strong>Howe Tuduit<strong class="hl-tag">&lt;/author&gt;</strong>
+        <strong class="hl-tag">&lt;critdates&gt;</strong>
+            <strong class="hl-tag">&lt;created</strong> <span class="hl-attribute">date</span>=<span class="hl-value">"1/1/2015"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;revised</strong> <span class="hl-attribute">modified</span>=<span class="hl-value">"3/4/2016"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;revised</strong> <span class="hl-attribute">modified</span>=<span class="hl-value">"3/5/2016"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/critdates&gt;</strong>
+        <strong class="hl-tag">&lt;bookid&gt;</strong>
+            <strong class="hl-tag">&lt;isbn&gt;</strong>071271271X<strong class="hl-tag">&lt;/isbn&gt;</strong>
+            <strong class="hl-tag">&lt;booknumber&gt;</strong>SG99-9999-00<strong class="hl-tag">&lt;/booknumber&gt;</strong>
+...        </pre></div>
+    <div class="p">The entire <code class="keyword markupname xmlelement">&lt;booktitle&gt;</code> element content is displayed on the first page
+      of the PDF, so if you need to add the information after it, in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the following CSS
+      rules:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"bookmap/booktitle"</span>]:after {
+    <strong class="hl-keyword">display</strong>: block;
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"by "</span> oxy_xpath(<span class="hl-string">'//*[contains(@class, " bookmap/bookmeta ")]/*[contains(@class, " topic/author ")]/text()'</span>);
+    <strong class="hl-keyword">margin-top</strong>: <span class="hl-number">4</span>em;
+    <strong class="hl-keyword">text-align</strong>: center;
+    <strong class="hl-keyword">color</strong>: gray;
+}
+*[class ~= <span class="hl-string">"bookmap/booktitle"</span>]:after(<span class="hl-number">2</span>) {
+    <strong class="hl-keyword">display</strong>: block;
+    <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">'if(//*[contains(@class, " bookmap/isbn ")]) then concat("ISBN ", //*[contains(@class, " bookmap/isbn ")]/text()) else ""'</span>); 
+    <strong class="hl-keyword">text-align</strong>: center;
+    <strong class="hl-keyword">color</strong>: gray;
+}</pre></div>
+    <div class="p">The following CSS extensions were used in this example: <ul class="ul" id="dcpp_how_to_show_metadata_in_the_content__ul_c3t_xcf_scb">
+        <li class="li"><strong class="ph b"><a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-xpath-function.html" target="_blank" rel="external noopener">oxy_xpath</a></strong> - Executes an XPath expression and
+          returns a string content. Use this whenever you need to extract data from elements other
+          than the one matched by the CSS rule selector.</li>
+        <li class="li"><strong class="ph b"><code class="ph codeph">:after(N)</code></strong> - Creates more than one <em class="ph i">after</em> pseudo-element.
+          The argument value represents how far the generated content is from the real content. In
+          the example above, the content of the <code class="ph codeph">:after</code> is closer to the title
+          (upper) than the content of the <code class="ph codeph">:after(2)</code>.</li>
+      </ul><div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">attr()</code> CSS function can also be used but is limited to
+        extracting attribute values from the matched element.</div></div>
+    <section class="section" id="dcpp_how_to_show_metadata_in_the_content__section_d5l_mdf_scb"><h3 class="title sectiontitle">Generating Synthetic Pages for Metadata.</h3>
+      
+      <p class="p">Suppose you need to show this information on a page that follows the title page, instead of
+        on the title page. In this case, you need to prepare a named page and place the content in
+        it. In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+        following CSS rules:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> page-for-meta {
+    <strong class="hl-keyword">background-color</strong>: yellow; <em class="hl-comment">/* Just to see it better*/</em>
+    @top-left-corner {
+        <strong class="hl-keyword">content</strong>:<span class="hl-string">""</span>; <em class="hl-comment">/* Remove the default header */</em>
+    }
+    @top-right-corner {
+        <strong class="hl-keyword">content</strong>:<span class="hl-string">""</span>; <em class="hl-comment">/* Remove the default header */</em>
+    }
+}
+
+*[class ~= <span class="hl-string">"bookmap/booktitle"</span>]:after {
+    page: page-for-meta;
+}
+*[class ~= <span class="hl-string">"bookmap/booktitle"</span>]:after(<span class="hl-number">2</span>) {
+    page: page-for-meta;
+}</pre>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_show_metadata_in_the_header_or_footer">
+  <h2 class="title topictitle2" id="ariaid-title7">How to Show Metadata in the Header or Footer </h2>
+  
+  <div class="body">
+    <p class="p">The header and footer are composed of page margin boxes that can be populated with static
+      text by using <em class="ph i">string-sets</em>. </p>
+    <div class="p">If you need to add some of the map metadata to the header of the front page (for example, the
+        <strong class="ph b">creation date</strong>), add the following CSS rules in your <a class="xref" href="dcpp_the_customization_css.html">customization
+        CSS</a>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"front-page/front-page"</span>] &gt; 
+  *[class ~= <span class="hl-string">"map/topicmeta"</span>] &gt; 
+    *[class ~= <span class="hl-string">"topic/critdates"</span>] &gt; 
+      *[class ~= <span class="hl-string">"topic/created"</span>]{
+    string-set: mapcreated attr(date);
+}
+    
+
+<span class="hl-directive">@page</span> front-page {    	
+     @top-center {
+          <strong class="hl-keyword">content</strong>: <span class="hl-string">"Created: "</span> string(mapcreated);
+     }
+}</pre><div class="note note note_note"><span class="note__title">Note:</span> The
+          <em class="ph i">front-page</em> is the name of a page that used to present the element with the class
+        "front-page/front-page". The above page rule is combined with the default styles.</div></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_remove_or_change_the_pdf_keywords">
+    <h2 class="title topictitle2" id="ariaid-title8">How to Remove or Change the PDF Keywords</h2>
+  
+    <div class="body">
+        <p class="p">The keywords defined in the prolog sections of topics are automatically collected and set
+      as PDF keywords. These are shown by the readers in the PDF document properties window.</p>
+		<p class="p">If you need to remove them, you can use the following CSS snippet in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root {
+	-oxy-pdf-meta-keywords:<span class="hl-string">""</span>;
+}</pre>
+		<p class="p">To change them, if you have a hard-coded list, you just enumerate each of them in the property
+      content, separating them with comma:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root {
+	-oxy-pdf-meta-keywords:<span class="hl-string">"alpha, beta, gamma"</span>;
+}</pre>
+		<p class="p">If you need to extract them by other criteria from the merged map, you can use the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-xpath-function.html" target="_blank" rel="external noopener"><code class="ph codeph">oxy_xpath()</code> function</a> instead of the hard-coded
+      list.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title9" id="dcpp_how_to_change_the_pdf_publication_title">
+    <h2 class="title topictitle2" id="ariaid-title9">How to Change the PDF Publication Title Property</h2>
+  
+    <div class="body">
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;title&gt;</code> element of a bookmap is quite complex and contains
+      elements for the book library and an alternate title:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"> <strong class="hl-tag">&lt;booktitle&gt;</strong>
+    <strong class="hl-tag">&lt;booklibrary&gt;</strong>Retro Tools<strong class="hl-tag">&lt;/booklibrary&gt;</strong>
+    <strong class="hl-tag">&lt;mainbooktitle&gt;</strong>Main Book Title<strong class="hl-tag">&lt;/mainbooktitle&gt;</strong>
+    <strong class="hl-tag">&lt;booktitlealt&gt;</strong>Book Title Alternative<strong class="hl-tag">&lt;/booktitlealt&gt;</strong>
+  <strong class="hl-tag">&lt;/booktitle&gt;</strong></pre>
+		<p class="p">For the publication title, the built-in CSS uses only the content of the
+        <code class="keyword markupname xmlelement">&lt;mainbooktitle&gt;</code>. If you want to collect all of the text from the
+        <code class="keyword markupname xmlelement">&lt;booktitle&gt;</code>, you can add the following rule to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root {
+    -oxy-pdf-meta-title: oxy_xpath(<span class="hl-string">'(//*[contains(@class, "bookmap/booktitlealt")])[1]/text()'</span>);
+    -oxy-pdf-meta-description: <span class="hl-string">""</span>;
+}</pre>
+		<p class="p">An XPath expression is used to collect all the <code class="keyword markupname xmlelement">&lt;booktitlealt&gt;</code> elements
+      from the merged map, select the first one, then use its text.</p>
+		<p class="p">The built-in CSS uses the <code class="keyword markupname xmlelement">&lt;booktitlealt&gt;</code> as the PDF description. In the
+      example above, this property is cleared since it was moved as a title.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title10" id="dcpp_how_to_use_a_key_value_from_the_map_in_the_css">
+    <h2 class="title topictitle2" id="ariaid-title10">How to Use a Key Value from the Map in the CSS</h2>
+  
+    <div class="body">
+        <p class="p">To use a key value in the CSS, the key must be referenced from the content (either a
+      topic or map). </p>
+		<p class="p">If you do not have it referenced, you may force a reference by using the
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> or <code class="keyword markupname xmlelement">&lt;bookmeta&gt;</code> section of your map
+      and a <code class="keyword markupname xmlelement">&lt;data&gt;</code> element. This has no effect on the published content, but
+      allows the CSS rules to use its content.</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;bookmeta&gt;</strong>
+    ....
+    <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"my_key"</span><strong class="hl-tag">/&gt;</strong>
+    ....
+  <strong class="hl-tag">&lt;/bookmeta&gt;</strong></pre>
+		<p class="p">This is expanded in the merged HTML file to: </p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta bookmap/bookmeta topicmeta bookmeta"</span><strong class="hl-tag">&gt;</strong>
+	...
+	<strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"my_key"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/data data"</span><strong class="hl-tag">&gt;</strong>
+		<strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/keyword keyword"</span><strong class="hl-tag">&gt;</strong>KEY VALUE<strong class="hl-tag">&lt;/div&gt;</strong>
+	<strong class="hl-tag">&lt;/div&gt;</strong>
+	...
+<strong class="hl-tag">&lt;/div&gt;</strong></pre>
+		<p class="p">Suppose that you need the expanded key value in the footer of the publication. You can define a
+      string-set on this <code class="ph codeph">data</code> element:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/data"</span>][keyref=<span class="hl-string">"my_key"</span>] {
+	string-set: key-string <strong class="hl-keyword">content</strong>(text);
+}
+<span class="hl-directive">@page</span> {	
+	@bottom-left {
+		<strong class="hl-keyword">content</strong>: <span class="hl-string">"My key is: "</span> string(key-string) !important;		
+	}
+}</pre>
+		<p class="p">Or you can use the value from a <code class="ph codeph">:before</code> pseudo-element, like the one for the
+      title:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/title"</span>]:before {
+	<strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">"//*[contains(@class, 'topic/data')][@keyref = 'my_key']//text()"</span>);
+}</pre>
+		<p class="p">Another use-case is to use the key as a source for a custom PDF document property:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/data"</span>][keyref=<span class="hl-string">"my_key"</span>] {
+	-oxy-pdf-meta-custom: attr(keyref) <strong class="hl-keyword">content</strong>(text);
+}</pre>
+    </div>
+</article></article></article></main></body></html>

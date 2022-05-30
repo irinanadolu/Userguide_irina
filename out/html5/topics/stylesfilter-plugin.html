@@ -1,0 +1,23 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This type of plugin allows you to dynamically modify the CSS styles used to render elements in the Author mode."><meta name="DC.subject" content="Plugin extensions,Styles Filter,Styles Filter plugin extension"><meta name="keywords" content="Plugin extensions, Styles Filter, Styles Filter plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/resource-locking-custom-protocol-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/targeted-url-handler-plugin.html"><meta name="DC.relation" scheme="URI" content="dg-author-css-styles-filter.html#dg-author-css-styles-filter"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="stylesfilter-plugin"><title>Styles Filter Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="stylesfilter-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Styles Filter Plugin Extension</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    dynamically modify the CSS styles used to render elements in the <span class="ph uicontrol">Author</span>
+    mode.</p>
+  <p class="p">The <dfn class="term">plugin</dfn> must extend the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/plugin/author/css/filter/GeneralStylesFilterExtension.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.plugin.author.css.filter.GeneralStylesFilterExtension</em></a>
+      class. This class has a callback on which you can alter the styles for an
+        <span class="ph uicontrol">Author</span> mode element. </p>
+    <p class="p">This extension point is similar with the Styles Filter that you set at the <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> level. The only difference is
+      that the <dfn class="term">plugin</dfn> filters styles are used for any open XML document, regardless
+      of the document type. The changes made by this <dfn class="term">plugin</dfn> are prioritized over the
+      changes made by the <dfn class="term">framework</dfn>-level filter.</p>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> Alternatively, you can use the <a class="xref" href="author-stylesheet-extension.html#author-stylesheet-extension" title="This type of plugin allows you to add a stylesheet (CSS or LESS) that renders elements in Author mode.">AuthorStylesheet plugin extension</a>, which does not require any additional Java
+        development and is compatible with <span class="ph">Oxygen XML Web Author</span>.</div>
+    </div>
+ </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/resource-locking-custom-protocol-plugin.html" title="This type of plugin allows you to work with a custom designed protocol for retrieving and storing files and it can lock a resource when opening it in Oxygen XML Editor.">Resource Locking Custom Protocol Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/targeted-url-handler-plugin.html" title="This type of plugin can be used when it is necessary to impose custom URL stream handlers for specific URLs.">Targeted URL Stream Handler Plugin Extension</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-author-css-styles-filter.html#dg-author-css-styles-filter">Customizing the CSS Styles Filter</a></li></ul></div></nav>
+</article></main></body></html>

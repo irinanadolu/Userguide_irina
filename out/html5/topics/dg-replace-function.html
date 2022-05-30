@@ -1,0 +1,111 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function is used to replace a string of text."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_replace"><meta name="keywords" content="CSS extensions, Custom functions, oxy_replace"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-parent-url-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-substring-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-replace-function"><title>Replace: oxy_replace() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-replace-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Replace: oxy_replace() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function is used to replace a string of text.</p>
+    <p class="p">The <code class="ph codeph">oxy_replace()</code> function has two signatures:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Syntax 1:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_replace</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>text</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>target</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>replacement</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <p class="p">This function replaces each substring of the text that matches the literal target
+              string with the specified literal replacement string.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><strong class="ph b">text</strong></dt>
+                  <dd class="dd">The text in which the replace will occur.</dd>
+                
+                
+                  <dt class="dt dlterm"><strong class="ph b">target</strong></dt>
+                  <dd class="dd">The target string to be replaced.</dd>
+                
+                
+                  <dt class="dt dlterm"><strong class="ph b">replacement</strong></dt>
+                  <dd class="dd">The string replacement.</dd>
+                
+              </dl>
+            </div>
+            <div class="p"><u class="ph u"><strong class="ph b">Example:</strong></u> Suppose that you have image references but you want to see
+              other thumbnail images that reside in the same folder in the visual
+                <span class="ph uicontrol">Author</span> editing
+              mode:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[href]{
+ <strong class="hl-keyword">content</strong>:oxy_url(oxy_base-uri(), oxy_replace(attr(href), 
+    <span class="hl-string">'.jpeg'</span>, <span class="hl-string">'Thumbnail.jpeg'</span>));
+}</pre></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Syntax 2:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_replace</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>text</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>target</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>replacement</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>isRegExp</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <p class="p">This function replaces each substring of the text that matches the target string with
+              the specified replacement string.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">
+                    <strong class="ph b">text</strong></dt>
+                  <dd class="dd">The text in which the replace will occur.</dd>
+                
+                
+                  <dt class="dt dlterm">
+                    <strong class="ph b">target</strong></dt>
+                  <dd class="dd">The target string to be replaced.</dd>
+                
+                
+                  <dt class="dt dlterm">
+                    <strong class="ph b">replacement</strong></dt>
+                  <dd class="dd">The string replacement.</dd>
+                
+                
+                  <dt class="dt dlterm">
+                    <strong class="ph b">isRegExp</strong></dt>
+                  <dd class="dd">If <em class="ph i">true</em> the target and replacement arguments are considered regular
+                    expressions, if <em class="ph i">false</em> they are considered literal strings.</dd>
+                
+              </dl>
+            </div>
+            <div class="p"><u class="ph u"><strong class="ph b">Example:</strong></u> Suppose that you want to use a regular expression to replace
+              all space sequences with an
+              underscore:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[title]{
+ <strong class="hl-keyword">content</strong>:oxy_replace(attr(title), <span class="hl-string">"\\s+"</span>, <span class="hl-string">"_"</span>, true)
+}</pre></div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-parent-url-function.html" title="This function evaluates the parent URL of a URL received as string.">Parent URL: oxy_parent-url() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-substring-function.html" title="This function is used to return a string of text.">Substring of Text: oxy_substring() Function</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Branches/Tags,Importing resources"><meta name="keywords" content="SVN Client, Branches/Tags, Importing resources"><meta name="DC.relation" scheme="URI" content="../topics/working-with-repositories.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-repositories.html"><meta name="DC.relation" scheme="URI" content="../topics/export-repos.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="import-repos"><title>Importing Resources Into a Repository</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="import-repos"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Importing Resources Into a Repository</h1>
+  
+  <div class="body">
+    <p class="p">Importing resources into a repository is the process of copying local files and directories
+      into a repository so that they can be managed by an Apache Subversion™
+      server. If you have already been using Subversion and you have an existing working copy you
+      want to use, then you will likely want to follow the procedure for <a class="xref" href="use-existing-working-copy.html">using an existing working copy</a>.</p>
+    <p class="p">The <span class="ph uicontrol">Import folder</span> and <span class="ph uicontrol">Import Files</span>
+      actions are available from the <span class="ph uicontrol">Import</span> submenu of the
+        <span class="ph uicontrol">Repository</span> menu or of the contextual menu in the
+        <span class="ph uicontrol">Repositories</span> view. These actions open a dialog box that allow you to
+      select the directories or files that will be imported into the selected repository
+      location.</p>
+    <p class="p">The <span class="ph uicontrol">Import folder</span> action opens the <span class="ph uicontrol">Import
+        folder</span> dialog box.</p>
+    <div class="p">
+      <figure class="fig fignone" id="import-repos__fig_flg_r4y_4r"><figcaption><span class="fig--title-label">Figure 1. </span><span class="ph uicontrol">Import Folder</span> Dialog Box</figcaption>
+        
+        <img class="image" id="import-repos__image_mpb_x4y_4r" src="../img/svn_import_folder.png">
+      </figure>
+    </div>
+    <div class="p">You can configure the following options:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Folder</span></dt>
+          <dd class="dd">Specify <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__local-path-section">the
+              local folder</a> by using the text box or the <span class="ph uicontrol">Browse</span> button.
+            This folder should not be empty or already under version control.<div class="note important note_important"><span class="note__title">Important:</span> By default, the SVN system only imports the content of the specified folder, and not
+              the folder itself. Therefore, it is recommended to use the
+                <span class="ph uicontrol">Browse</span> button to select the local folder so that the client
+              will automatically append the name of it to the specified URL.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+          <dd class="dd">Specify <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">the
+              repository location</a> that will be used to access the folder to be
+                imported.<div class="note note note_note"><span class="note__title">Note:</span> <em class="ph i">Peg revisions</em> have no effect for this operation since it
+              is used to send information to the repository.  </div><div class="note attention note_attention"><span class="note__title">Attention:</span> If the
+              new location already exists, make sure that it is an empty directory to avoid mixing
+              your project content with other files (if items exist with the same name, an error
+              will occur and the operation will not proceed). Otherwise, if the address does not
+              exist, it is created automatically. </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Depth</span></dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Recursive (infinity)</span></dt>
+                  <dd class="dd">Imports all the files and folders contained in the selected folder.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Immediate children (immediates)</span></dt>
+                  <dd class="dd">Imports only the child files and folders without recursing subfolders.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">File children only (files)</span></dt>
+                  <dd class="dd">Imports only the child files.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">This folder only (empty)</span></dt>
+                  <dd class="dd">Imports only the selected folder (no child file or folder is included).</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="import-repos__share-files-dlentry"><span class="ph uicontrol">Share files matching global ignore patterns</span></dt>
+          <dd class="dd">When selected, the file names that match the patterns defined in either of the
+            following locations are also imported into the repository:<ul class="ul" id="import-repos__ul_xgf_cck_4r">
+              <li class="li">The <code class="ph codeph">global-ignores</code> property in <a class="xref" href="svn-preferences.html#svn-preferences">the SVN configuration
+                file</a>.</li>
+              <li class="li">The <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy__svn-options-app-global-ignores"><span class="ph uicontrol">File name ignore patterns</span> option</a> in the <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy"><span class="ph menucascade"><span class="ph uicontrol">SVN</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Working Copy</span></span> preferences page</a>.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm" id="import-repos__enable-disable-auto-dlentry"><span class="ph uicontrol">Enable automatic properties</span>/<span class="ph uicontrol">Disable automatic
+              properties</span></dt>
+          <dd class="dd">Enables or disables automatic property assignment (per runtime configuration rules),
+            overriding the <code class="ph codeph">enable-auto-props</code> runtime configuration directive,
+            defined in <a class="xref" href="svn-preferences.html#svn-preferences">the SVN configuration
+              file</a>.<div class="note note note_note"><span class="note__title">Note:</span> This option is available only when there are defined properties to
+              be applied automatically for newly added items under version control. You can define
+              these properties in the SVN <code class="ph codeph">config</code> file (in the
+                <code class="ph codeph">auto-props</code> section). Based on the value of the
+                <code class="ph codeph">enable-auto-props</code> runtime configuration directive, the presented
+              option is either <span class="ph uicontrol">Enable automatic properties</span>, or
+                <span class="ph uicontrol">Disable automatic properties</span>.</div></dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-repositories.html">Working with Repositories</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/working-with-repositories.html">Working with Repositories</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/export-repos.html">Exporting Resources From a Repository</a></div></div></nav></article></main></body></html>

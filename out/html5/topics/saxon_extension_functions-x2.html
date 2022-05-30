@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/xslt-tab-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/advanced-saxon-xslt-options-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/fo-processor-tab-x-publishing2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="saxon_extension_functions"><title>Using Saxon Integrated Extension Functions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="saxon_extension_functions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Using Saxon Integrated Extension Functions</h1>
+  <div class="body">
+    <p class="p">Saxon, the transformation and validation engine used by <span class="ph">Oxygen XML Editor</span>, can be
+      customized by adding custom functions (called <a class="xref" href="https://www.saxonica.com/documentation9.5/extensibility/integratedfunctions/" target="_blank" rel="external noopener">Integrated Extension Functions</a>) that can be called
+      from XPath.</p>
+    <div class="p">To define such a function, follow these steps:<ol class="ol" id="saxon_extension_functions__ol_smm_sk2_nfb">
+        <li class="li">Create a file with a Java class that extends
+            <code class="ph codeph">net.sf.saxon.lib.ExtensionFunctionDefinition</code>. Here is an
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">private</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">class</strong> ShiftLeft <strong class="hl-keyword">extends</strong> ExtensionFunctionDefinition {
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> StructuredQName getFunctionQName() {
+    <strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> StructuredQName(<span class="hl-string">"eg"</span>, <span class="hl-string">"http://example.com/saxon-extension"</span>, <span class="hl-string">"shift-left"</span>);
+  }
+
+
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> SequenceType[] getArgumentTypes() {
+  	<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SequenceType[] {SequenceType.SINGLE_INTEGER, SequenceType.SINGLE_INTEGER};
+  }
+
+
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> SequenceType getResultType(SequenceType[] suppliedArgumentTypes) {
+  	<strong class="hl-keyword">return</strong> SequenceType.SINGLE_INTEGER;
+  }
+
+
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> ExtensionFunctionCall makeCallExpression() {
+  	<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> ExtensionFunctionCall() {
+	  <strong class="hl-keyword">public</strong> SequenceIterator call(SequenceIterator[] arguments, XPathContext context)
+                    <strong class="hl-keyword">throws</strong> XPathException {
+  	    <strong class="hl-keyword">long</strong> v0 = ((IntegerValue)arguments[<span class="hl-number">0</span>].next()).longValue();
+  		<strong class="hl-keyword">long</strong> v1 = ((IntegerValue)arguments[<span class="hl-number">1</span>].next()).longValue();
+  		<strong class="hl-keyword">long</strong> result = v0&lt;&lt;v1;
+        <strong class="hl-keyword">return</strong> Value.asIterator(Int64Value.makeIntegerValue(result));
+      }
+    };
+  }
+}</pre></li>
+        <li class="li">Compile the class and add it to a JAR file. </li>
+        <li class="li">Add a file called <strong class="ph b">net.sf.saxon.lib.ExtensionFunctionDefinition</strong> that contains the
+          fully qualified name of the Java class in the <span class="ph filepath">META-INF/services/</span>
+          folder of the JAR file.<div class="note note note_note"><span class="note__title">Note:</span> To add more function definitions in the same JAR file, you
+            need to add their fully qualified names on different lines.</div></li>
+      </ol></div>
+    <div class="p">To enable <span class="ph">Oxygen XML Editor</span> to pick up your custom function definition, the JAR file
+      should be added to the classpath of the transformer. Here are some possibilities:<ul class="ul" id="saxon_extension_functions__ul_kcp_mr2_nfb">
+        <li class="li">If you develop a framework, you just need to link the JAR file <a class="xref" href="document-type-classpath-tab.html">in the
+              <span class="ph uicontrol">Classpath</span> tab</a>.</li>
+        <li class="li">In a <a class="xref" href="create-validation-scenario.html">validation scenario</a>, you can use the <span class="ph uicontrol">Extensions</span> button to
+          open a dialog box where you can add libraries.</li>
+        <li class="li">In a transformation scenario, you can use the <a class="xref" href="xslt-tab.html#xslt-tab__extensions"><span class="ph uicontrol">Extensions</span> button in the <span class="ph uicontrol">XSLT</span>
+            tab</a> to open a dialog box where you can add libraries.</li>
+        <li class="li">You can also create a plugin that <a class="xref" href="oxygen-plugin.html">contributes such a JAR file in the classpath</a>.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xslt-tab-x-publishing2.html">XSLT Tab</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/advanced-saxon-xslt-options-x-publishing2.html">Advanced Saxon HE/PE/EE XSLT Transformation Options</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/fo-processor-tab-x-publishing2.html">FO Processor Tab (XSLT Transformations)</a></div></div></nav></article></main></body></html>

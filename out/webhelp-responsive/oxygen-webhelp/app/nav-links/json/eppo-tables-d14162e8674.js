@@ -1,0 +1,1 @@
+define({"topics":[{"title":"DITA Table Layouts","href":"topics\/author-editing-tables-dita-2.html","attributes":{"data-id":"author-editing-tables-dita"},"menu":{"hasChildren":false},"tocID":"author-editing-tables-dita-d14162e8693","next":"author-editing-tables-dita-d14162e8693"}]});

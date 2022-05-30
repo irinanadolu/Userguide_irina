@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Class Loader issues"><meta name="keywords" content="Class Loader issues"><meta name="DC.relation" scheme="URI" content="../topics/howto-cms-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/howto-cms-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/howto-custom-protocol-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="class-loading-issues"><title>Class Loading Issues</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="class-loading-issues"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Class Loading Issues</h1>
+  
+  <div class="body">
+    <p class="p">It is possible that the Java libraries you have specified in the <dfn class="term">plugin</dfn>
+      libraries list conflict with the ones already loaded by <span class="ph">Oxygen XML Editor</span>. To instruct
+      the <dfn class="term">plugin</dfn> to prefer its libraries over the ones used by <span class="ph">Oxygen XML Editor</span>,
+      you can add the following attribute on the <code class="ph codeph">&lt;plugin&gt;</code> root element:
+        <code class="ph codeph">classLoaderType="preferReferencedResources"</code> from the
+        <span class="ph filepath">plugin.xml</span> descriptor file.</p>
+    <p class="p">A <strong class="ph b">Late Delegation Class Loader</strong> (the main class loader in <span class="ph">Oxygen XML Editor</span>) is a
+        <code class="ph codeph">java.net.URLClassLoader</code> extension that prefers to search classes in its own
+      libraries list and only if a class is not found there to delegate to the parent class loader. </p>
+    <p class="p">The main <span class="ph">Oxygen XML Editor</span> Class Loader uses as libraries all <dfn class="term">JARS</dfn>
+      specified in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\lib</span> directory. Its parent class loader is the default JVM Class loader. For
+      each <dfn class="term">plugin</dfn> instance, a separate class loader is created having as parent the <span class="ph">Oxygen XML Editor</span> Class Loader.</p>
+    <p class="p">The <dfn class="term">plugin</dfn> class loader can be either a standard
+        <code class="ph codeph">java.net.URLClassLoader</code> or a <code class="ph codeph">LateDelegationClassLoader</code>
+      (depending on the attribute <code class="ph codeph">classLoaderType</code> in the
+        <span class="ph filepath">plugin.xml</span>). Its parent class loader is always the <span class="ph">Oxygen XML Editor</span>
+      <code class="ph codeph">LateDelegationClassLoader</code>.</p>
+    <div class="p">If you experience additional problems, such
+      as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">java.lang.LinkageError: ClassCastException: 
+attempting to cast 
+jar:file:/C:/jdk1.<span class="hl-number">6.0</span>_<span class="hl-number">06</span>/jre/lib/rt.jar!/
+javax/xml/ws/spi/Provider.<strong class="hl-keyword">class</strong>
+tojar:file:/D:/Program
+ Files/Oxygen XML Editor
+ <span class="hl-number">12</span>/plugins/wspcaccess/../../xdocs/lib/jaxws/
+jaxws-api.jar!/javax/xml/ws/spi/Provider.<strong class="hl-keyword">class</strong>
+ at javax.xml.ws.spi.Provider.provider(
+Provider.java:<span class="hl-number">94</span>) at
+ javax.xml.ws.Service.&lt;init&gt;(Service.java:<span class="hl-number">56</span>)
+.............................................
+</pre>The
+      cause could be the fact that some classes are instantiated using the context class loader of
+      the current thread. The most straightforward fix is to write your code in a <em class="ph i">try/finally</em>
+      statement:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">ClassLoader oldClassLoader = 
+    Thread.currentThread().getContextClassLoader();
+<strong class="hl-keyword">try</strong> {
+  <em class="hl-comment">//This is the implementation of the </em>
+  <em class="hl-comment">//WorkspaceAccessPluginExtension plugin interface.</em>
+  Thread.currentThread().setContextClassLoader(
+    CustomWorkspaceAccessPluginExtension.
+      <strong class="hl-keyword">this</strong>.getClass().getClassLoader());
+  <em class="hl-comment">//WRITE YOUR CODE HERE</em>
+} <strong class="hl-keyword">finally</strong> {
+  Thread.currentThread().
+   setContextClassLoader(oldClassLoader);
+}</pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/howto-cms-plugin.html">How to Write a CMS Integration Plugin</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/howto-cms-plugin.html">How to Write a CMS Integration Plugin</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/howto-custom-protocol-plugin.html">How to Write A Custom Protocol Plugin</a></div></div></nav></article></main></body></html>

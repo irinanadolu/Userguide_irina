@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Bookmap styling"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Bookmap styling"><meta name="DC.relation" scheme="URI" content="../topics/pdf-css-customization.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_parametrized_styling.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_how_to_omit_the_front_page__table_of_contents__etc_for_a_plain_dita_map.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_how_to_omit_the_front_page__table_of_contents__etc_for_a_plain_dita_map.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_how_to_make_chapters_individual_publications.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_control_the_content_of_bookmaps"><title>Controlling the Publication Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_control_the_content_of_bookmaps"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Controlling the Publication Content</h1>
+  
+  <div class="body">
+    <div class="p">Using a plain DITA map, the transformation will produce a publication with a front page, a
+      table of contents, chapters with content, and an index at the end. This is appropriate for
+      most cases, but there are use cases where some adjustments are necessary. For example, if you
+      want to do one of the following: <ul class="ul" id="dcpp_control_the_content_of_bookmaps__ul_llc_h3b_rfb">
+        <li class="li">Remove the TOC or index.</li>
+        <li class="li">Add a glossary.</li>
+        <li class="li">Change the position of the TOC or the index relative to the sibling topics.</li>
+        <li class="li">Add a preface, frontmatter, or backmatter with copyright notices, abstracts, list of
+          tables, list of figures, etc.</li>
+      </ul>All of these can be achieved using a DITA <strong class="ph b">bookmap</strong>.</div>
+    <p class="p">A bookmap has a more elaborate structure than a regular map. You should start by defining the
+      title structure, with a main title and alternative title:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-tag-doctype">&lt;!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN"  "bookmap.dtd"&gt;</span>
+<strong class="hl-tag">&lt;bookmap</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"taskbook"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;booktitle&gt;</strong>
+    <strong class="hl-tag">&lt;mainbooktitle&gt;</strong>Publication Title<strong class="hl-tag">&lt;/mainbooktitle&gt;</strong>
+    <strong class="hl-tag">&lt;booktitlealt&gt;</strong>A very short description of the publication<strong class="hl-tag">&lt;/booktitlealt&gt;</strong>
+  <strong class="hl-tag">&lt;/booktitle&gt;</strong></pre>
+    <p class="p">Then you may define a frontmatter. For this, you can link the topics that need to appear
+      before the main content. You can also define the location where the table of contents will be
+      placed. In the example below, it appears between the <span class="ph filepath">abstract.dita</span> and
+        <span class="ph filepath">foreword.dita</span> topics: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;frontmatter&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/abstract.dita"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;booklists&gt;</strong>
+      <strong class="hl-tag">&lt;toc/&gt;</strong>
+    <strong class="hl-tag">&lt;/booklists&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/foreword.dita"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/frontmatter&gt;</strong></pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> To remove the TOC from the publication, just omit the <code class="keyword markupname xmlelement">&lt;toc&gt;</code> element
+      from the <code class="keyword markupname xmlelement">&lt;booklists&gt;</code> element.</div>
+    <p class="p">Next, the topics are grouped into chapters:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  ...
+  <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/installation.dita"</span><strong class="hl-tag"> /&gt;</strong>
+  ...</pre>
+    <p class="p">At the end, you could define the structure of the backmatter. Just like for the frontmatter,
+      you can include some topics and some generated content (such as the index). In the example
+      below, the glossary is defined to come after the index, followed by a list of figures and list
+      of tables. At the very end, there is a topic with some thank you notes.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;backmatter&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/conclusion.dita"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;booklists&gt;</strong>
+      <strong class="hl-tag">&lt;indexlist/&gt;</strong>
+
+      <strong class="hl-tag">&lt;glossarylist&gt;</strong>
+        <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/xp.dita"</span> <span class="hl-attribute">keys</span>=<span class="hl-value">"xp"</span> <span class="hl-attribute">print</span>=<span class="hl-value">"yes"</span><strong class="hl-tag"> /&gt;</strong>
+        <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/anti_lock_braking_system.dita"</span> <span class="hl-attribute">keys</span>=<span class="hl-value">"abs"</span> <span class="hl-attribute">print</span>=<span class="hl-value">"yes"</span><strong class="hl-tag"> /&gt;</strong>
+      <strong class="hl-tag">&lt;/glossarylist&gt;</strong>
+
+      <strong class="hl-tag">&lt;figurelist/&gt;</strong>
+      <strong class="hl-tag">&lt;tablelist/&gt;</strong>     
+    <strong class="hl-tag">&lt;/booklists&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/thanks.dita"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/backmatter&gt;</strong></pre>
+    <p class="p">As you can see, the bookmap offers much better control over the final content of the
+      publication. It also offers more options in controlling the metadata that will go into the PDF
+      (see the <a class="xref" href="dcpp_metadata.html">Metadata</a> topic).</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dcpp_how_to_omit_the_front_page__table_of_contents__etc_for_a_plain_dita_map.html">How to Omit the Front Page, TOC, Glossary, Index for a Plain DITA Map</a><br></li><li class="link olchildlink"><a href="../topics/dcpp_how_to_make_chapters_individual_publications.html">How to Make Chapters Look Like Individual Publications</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pdf-css-customization.html">CSS-based DITA to PDF Customization</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_parametrized_styling.html">Styling Through Custom Parameters</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_how_to_omit_the_front_page__table_of_contents__etc_for_a_plain_dita_map.html">How to Omit the Front Page, TOC, Glossary, Index for a Plain DITA Map</a></div></div></nav></article></main></body></html>

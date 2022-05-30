@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_save_untitled.html"><meta name="DC.relation" scheme="URI" content="../topics/api-faq-style-entities.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_split_on_enter"><title>Split Paragraph on Enter (Instead of Showing Content Completion List)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_split_on_enter"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Split Paragraph on Enter (Instead of Showing Content Completion List)</h1>
+  <div class="body">
+    <section class="section" id="api_faq_split_on_enter__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Is it possible to split the paragraph on <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>
+        instead of showing the content completion list?</p>
+    </section>
+    <section class="section" id="api_faq_split_on_enter__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">Yes, it is possible by creating your own custom operation.</p>
+      <div class="p">To obtain this behavior, follow this procedure:<ol class="ol">
+          <li class="li">Create a <a class="xref" href="addCustomActionHowTo.html#addCustomActionHowTo">custom
+                <span class="ph uicontrol">Author</span> mode operation</a> that handles the split. You can
+            use the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorDocumentController.html#split-ro.sync.ecss.extensions.api.node.AuthorNode-int-" target="_blank" rel="external noopener"><code class="ph codeph">AuthorDocumentController.split</code>
+              API</a> to achieve this.</li>
+          <li class="li">Create a JAR library that contains its compiled version.</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+              <span class="ph uicontrol">Document Types Association</span>, and select your
+              <dfn class="term">framework</dfn>.</li>
+          <li class="li">Click <span class="ph uicontrol">Edit</span> and in the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                Type</span> configuration dialog box</a>, go to the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> and add a reference to the JAR library
+            for your custom operation.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Author</span> tab, then go to the
+              <span class="ph uicontrol">Actions</span> subtab.</li>
+          <li class="li">Click the <span class="ph uicontrol"><img class="image" id="api_faq_split_on_enter__image_p55_2t4_5r" src="../img/Add16.png">New</span> button and use the <a class="xref" href="the-action-dialog.html#the-action-dialog"><span class="ph uicontrol">Action</span> dialog
+              box</a> to create your own paragraph split action.</li>
+          <li class="li">Make sure you assign <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> as the
+              <span class="ph uicontrol">Shortcut Key</span> and specify your custom operation in the
+              <span class="ph uicontrol">Operations</span> section.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> Now, when you press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>, your
+        Java operation will be invoked to split the paragraph instead of opening the <dfn class="term">Content
+          Completion Assistant</dfn>.</p>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> The <dfn class="term">Content Completion Assistant</dfn> can still be invoked by using
+        the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl+Space</span></span> keyboard shortcut.</div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_save_untitled.html">Save a New Document with a Predefined File Name Pattern</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api-faq-style-entities.html">Use Custom Rendering Styles for Entity References, Comments, or PIs</a></div></div></nav></article></main></body></html>

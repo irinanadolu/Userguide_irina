@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function allows you to define actions directly in the CSS, rather than referencing them from the associated framework."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_action"><meta name="keywords" content="CSS extensions, Custom functions, oxy_action"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-arithmetic-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-action-list-function.html"><meta name="DC.relation" scheme="URI" content="button-editor.html#button-editor"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-action-function"><title>Actions: oxy_action() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-action-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Actions: oxy_action() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function allows you to define actions directly in the CSS, rather than referencing
+    them from the associated framework.</p>
+    <p class="p">The <code class="ph codeph">oxy_action()</code> function is frequently used from the <a class="xref" href="button-editor.html" title="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS."><em class="ph i">oxy_button()</em> function</a> that provides a graphical
+      button for invoking a custom action. The action is normally defined in the associated Document
+      Type (<dfn class="term">framework</dfn> configuration) but the <code class="ph codeph">oxy_action()</code> function
+      allows you to define it directly in the CSS instead of the <dfn class="term">framework</dfn>
+      configuration.</p>
+    <p class="p">The arguments received by the <code class="ph codeph">oxy_action()</code> function are a list of properties
+      that define an action. The following properties are supported:</p>
+    <div class="p">
+      <ul class="ul">
+        <li class="li"><strong class="ph b">name</strong> - The name of the action. It will be displayed as the label for the button
+          or menu item.</li>
+        <li class="li"><strong class="ph b">description</strong> (optional) - A short description with details about the result of the
+          action.</li>
+        <li class="li" id="dg-action-function__icon-li"><strong class="ph b">icon</strong> (optional) - A path relative to the CSS pointing to an image
+          (the icon for the action). The path can point to resources that are packed in <span class="ph">Oxygen XML Editor</span> (<span class="ph filepath">oxygen.jar</span>) by starting its value with
+            <code class="ph codeph">/</code> (for example, <span class="ph filepath">/images/Remove16.png</span>). It can also
+          be expressed using an <a class="xref" href="editor-variables.html"><dfn class="term">editor
+              variable</dfn></a>.</li>
+        <li class="li" id="dg-action-function__operation-li"><strong class="ph b">operation</strong> - The name of the Java class implementing the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorOperation.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorOperation</em></a>
+          interface. There is also a variety of <a class="xref" href="dg-default-author-operations.html">predefined operations</a> that
+          can be used. <div class="note note note_note"><span class="note__title">Note:</span> If the name of the operation specified in the CSS is not qualified (has
+            no Java package name), then it is considered to be one of the built-in <span class="ph">Oxygen XML Editor</span> operations from
+              <code class="ph codeph">ro.sync.ecss.extensions.commons.operations</code> package. If the class is
+            not found in this package, then it will be loaded using the specified name.</div></li>
+        <li class="li" id="dg-action-function__arg-li"><strong class="ph b">arg-<em class="ph i">&lt;string&gt;</em></strong> - All arguments with the <code class="ph codeph">arg-</code>
+          prefix are passed to the operation (the string that follows the <code class="ph codeph">arg-</code>
+          prefix is passed).</li>
+        <li class="li" id="dg-action-function__id-li"><strong class="ph b">ID</strong> - (optional) - The ID of the action from the
+          <dfn class="term">framework</dfn>. If this is specified, all others parameters are disregarded.</li>
+      </ul>
+    </div>
+    <div class="p"><u class="ph u"><strong class="ph b">Example: <em class="ph i">oxy_action</em> function inside an <a class="xref" href="button-editor.html#button-editor" title="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS."><em class="ph i">oxy_button</em> form
+      control</a>:</strong></u><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy_button(
+   action, oxy_action(
+            name, <span class="hl-string">'Insert'</span>, 
+            description, <span class="hl-string">'Insert an element after the current one'</span>, 
+            icon, url(<span class="hl-string">'insert.png'</span>), 
+            operation, 
+             <span class="hl-string">'InsertFragmentOperation'</span>, 
+            arg-fragment, <span class="hl-string">'&lt;element&gt;${caret}&lt;/element&gt;'</span>,
+            arg-insertLocation, <span class="hl-string">'.'</span>,
+            arg-insertPosition, <span class="hl-string">'After'</span>), 
+            showIcon, true)</pre></div>
+    <p class="p"><u class="ph u"><strong class="ph b">Example: <em class="ph i">oxy_action</em> Function</strong></u></p>
+    <div class="p" id="dg-action-function__button-form-control-directly">You can also create a button form control directly from an
+        <code class="ph codeph">oxy_action</code>
+      function:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy_action(
+            name, <span class="hl-string">'Insert'</span>, 
+            description, <span class="hl-string">'Insert an element after the current one'</span>, 
+            operation, <span class="hl-string">'InsertFragmentOperation'</span>, 
+            arg-fragment, <span class="hl-string">'&lt;element&gt;${caret}&lt;/element&gt;'</span>,
+            arg-insertLocation, <span class="hl-string">'.'</span>,
+            arg-insertPosition, <span class="hl-string">'After'</span>)</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> A code template is available to make it easy to add the
+        <code class="ph codeph">oxy_action</code> function with the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="dg-action-function__image_wq3_k2h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_action</code> code template.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-css-arithmetic-functions.html" title="Arithmetic Functions that are supported.">Arithmetic Functions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-action-list-function.html" title="This function allows you to define a sequential list of actions directly in the CSS, rather than referencing them from the associated framework.">Action Lists: oxy_action_list() Function</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="button-editor.html#button-editor" title="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS.">Button Form Control</a></li></ul></div></nav>
+</article></main></body></html>

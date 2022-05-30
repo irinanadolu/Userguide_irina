@@ -1,0 +1,197 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,XML formatting"><meta name="keywords" content="Preferences, XML formatting"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format-xml-whitespaces.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format-xml-whitespaces.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-format-xml"><title>XML Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-format-xml"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure the <span class="ph uicontrol">XML</span> Formatting options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Format</span>
+            Section</dt>
+          <dd class="dd">
+            <p class="p">This section includes the following drop-down boxes:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preserve empty lines</span></dt>
+                  <dd class="dd">The <span class="ph uicontrol">Format and Indent</span> operation preserves all empty
+                    lines found in the document.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preserve text as it is</span></dt>
+                  <dd class="dd">The <span class="ph uicontrol">Format and Indent</span> operation preserves text content
+                    as it is, without removing or adding any white space.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preserve line breaks in attributes</span></dt>
+                  <dd class="dd">Line breaks found in attribute values are preserved.<div class="note note note_note"><span class="note__title">Note:</span> When this option is
+                      selected, the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__break-long-attributes"><span class="ph uicontrol">Break long attributes</span> option</a> is
+                      automatically disabled.</div></dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-editor-format-xml__break-long-attributes"><span class="ph uicontrol">Break long attributes</span></dt>
+                  <dd class="dd">The <span class="ph uicontrol">Format and Indent</span> operation breaks long attribute
+                    values.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Indent inline elements</span></dt>
+                  <dd class="dd">
+                    <p class="p">The <a href="../glossary/inline-element.html" title="An inline element is intended to be displayed in the same line of text as its siblings or the surrounding text. For instance, strong and emphasis in HTML are inline elements. It is distinct from a block element, which is visually separated from its siblings."><dfn class="term">inline elements</dfn></a> are
+                      indented on separate lines if they are preceded by white spaces and they
+                      follow another element start or end tag. For example:</p>
+                    <div class="p">Original XML:
+                      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;root&gt;</strong>
+  text <strong class="hl-tag">&lt;parent&gt;</strong> <strong class="hl-tag">&lt;child&gt;</strong><strong class="hl-tag">&lt;/child&gt;</strong> <strong class="hl-tag">&lt;/parent&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+                    <div class="p"><span class="ph uicontrol">Indent inline elements</span>
+                      selected:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;root&gt;</strong> text <strong class="hl-tag">&lt;parent&gt;</strong>
+    <strong class="hl-tag">&lt;child/&gt;</strong>
+  <strong class="hl-tag">&lt;/parent&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+                    <div class="p"><span class="ph uicontrol">Indent inline elements</span> not
+                      selected:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;root&gt;</strong> text <strong class="hl-tag">&lt;parent&gt;</strong> <strong class="hl-tag">&lt;child/&gt;</strong> <strong class="hl-tag">&lt;/parent&gt;</strong> <strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Expand empty elements</span></dt>
+                  <dd class="dd">If not selected (default), the <span class="ph uicontrol">Format and Indent</span>
+                    operation results in an empty XML element being serialized in a compact form
+                      (<code class="ph codeph">&lt;a atr1="v1"/&gt;</code>). If selected, the same operation
+                    results in empty XML elements being serialized in expanded form (for example,
+                      <code class="ph codeph">&lt;a atr1="v1"&gt;&lt;/a&gt;</code>).<div class="note note note_note"><span class="note__title">Notes:</span> 
+                      <ul class="ul">
+                        <li class="li">When using the <span class="ph uicontrol">Format and Indent</span> operation in
+                            <span class="ph uicontrol">Text</span> mode, if the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__schema-aware-format-indent"><span class="ph uicontrol">Schema-aware format and indent</span>
+                            option</a> is enabled, <span class="ph">Oxygen XML Editor</span> will use information
+                          from the associated schema and avoid expanding tags for elements that are
+                          defined as <em class="ph i">empty</em> in the schema.</li>
+                        <li class="li">When saving a document in <span class="ph uicontrol">Author</span> mode, if the
+                            <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware__schema-aware-normalization"><span class="ph uicontrol">Schema-aware normalization, format, and indent</span>
+                            option in the <span class="ph uicontrol">Schema-Aware</span> preferences
+                            page</a> is enabled, <span class="ph">Oxygen XML Editor</span> will use information from
+                          the associated schema and avoid expanding tags for elements that are
+                          defined as <em class="ph i">empty</em> in the schema (therefore, text or other elements
+                          are not allowed inside them).</li>
+                      </ul>
+                    </div></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Sort attributes</span></dt>
+                  <dd class="dd">The <span class="ph uicontrol">Format and Indent</span> operation sorts the attributes of
+                    an element lexicographically.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Add space before slash in empty elements</span></dt>
+                  <dd class="dd">Inserts a space character before the trailing / and &gt; of empty
+                    elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Break line before an attribute name</span></dt>
+                  <dd class="dd">When selected, the <span class="ph uicontrol">Format and Indent</span> operation always
+                    breaks the line before any attribute name in an XML element. By default, the
+                    setting is not selected, which means that new lines might still be added before
+                    the attribute names but only if the line of content would overflow the maximum
+                    line width specified in the <a class="xref" href="preferences-editor-format.html"><span class="ph uicontrol">Format</span> preferences page</a>.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-format-xml__element-spacing-section"><span class="ph uicontrol">Element Spacing</span> Section</dt>
+          <dd class="dd">
+            <p class="p">This section controls how the application handles whitespaces found in XML content.
+              You can <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">Remove</span> element names or
+              simplified XPath expressions in the various tabs.</p>
+            <p class="p" id="preferences-editor-format-xml__simplified-XPath">The XPath expressions can accept multiple attribute conditions
+              and inside each condition you can use <em class="ph i">AND/OR</em> boolean operators and parentheses
+              to override the priority.</p>
+            <div class="p">You can use one or more of the following attribute conditions (default attribute
+              values are not taken into account):<ul class="ul">
+                <li class="li"><em class="ph i">element[@attr]</em> - Matches all instances of the specified element that
+                  include the specified attribute.</li>
+                <li class="li"><em class="ph i">element[not(@attr)]</em> - Matches all instances of the specified element that
+                  do not include the specified attribute.</li>
+                <li class="li"><em class="ph i">element[@attr = "value"]</em> - Matches all instances of the specified element
+                  that include the specified attribute with the given value.</li>
+                <li class="li"><em class="ph i">element[@attr != "value"]</em> - Matches all instances of the specified
+                  element that include the specified attribute and its value is different than the
+                  one given.</li>
+              </ul></div>
+            <div class="p"><strong class="ph b">Example:</strong> The following is an example of how you could use multiple boolean
+              operators and parentheses inside an attribute
+              condition:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">*[@a and @b or @c and @d]
+*[@a and (@b or @c) and @d]</pre></div>
+            <div class="p">The following are just examples of how simplified XPath expressions might look like:<ul class="ul">
+                <li class="li"><code class="ph codeph">elementName</code></li>
+                <li class="li"><code class="ph codeph">//elementName</code></li>
+                <li class="li"><code class="ph codeph">/elementName1/elementName2/elementName3</code></li>
+                <li class="li"><code class="ph codeph">//xs:localName</code> Note: The namespace prefixes (such as
+                    <code class="ph codeph">xs</code>) are treated as part of the element name without taking its
+                  binding to a namespace into account.</li>
+                <li class="li"><code class="ph codeph">//xs:documentation[@lang="en"]</code></li>
+              </ul></div>
+            <div class="p">The tabs are as follows:<dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preserve space</span></dt>
+                  <dd class="dd">List of elements that will have the <span class="ph uicontrol">Format and Indent</span>
+                    operation preserve the whitespaces (such as blanks, tabs, and newlines).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Default space</span></dt>
+                  <dd class="dd">List of elements that will have the content normalized (multiple contiguous
+                    whitespaces are replaced by a single space), before applying the
+                      <span class="ph uicontrol">Format and Indent</span> operation.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Mixed content</span></dt>
+                  <dd class="dd">The elements from this list are treated as mixed content when applying the
+                      <span class="ph uicontrol">Format and Indent</span> operation. The lines are split only
+                    when whitespaces are encountered.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Line break</span></dt>
+                  <dd class="dd">List of elements that will have line breaks inserted, regardless of their
+                    content. You can choose to break the line <em class="ph i">before</em> the element,
+                      <em class="ph i">after</em>, or both.</dd>
+                
+              </dl></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-format-xml__schema-aware-format-indent"><span class="ph uicontrol" id="preferences-editor-format-xml__pref_sa_format">Schema-aware format and indent</span></dt>
+          <dd class="dd">The <span class="ph uicontrol">Format and Indent</span> operation takes the schema information
+            into account with regard to the <em class="ph i">space preserve</em>, <em class="ph i">mixed</em>, or <em class="ph i">element
+              only</em> properties of an element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Indent</span> Section</dt>
+          <dd class="dd">
+            <p class="p">Includes the following options:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Indent (when typing) in preserve space elements</span></dt>
+                  <dd class="dd">Normally, the <dfn class="term">Preserve space</dfn> elements (identified by the
+                      <code class="ph codeph">xml:space</code> attribute set to <code class="ph codeph">preserve</code> or by
+                    their presence in the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__element-spacing-section"><span class="ph uicontrol">Preserve space</span> tab of the <span class="ph uicontrol">Element
+                        Spacing</span> list</a>) are ignored by the <span class="ph uicontrol">Format and
+                      Indent</span> operation. When this option is selected and you edit one of
+                    these elements, its content is formatted.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Indent on paste - sections with number of lines less than
+                      300</span></dt>
+                  <dd class="dd">When you paste a chunk of text that has fewer than 300 lines, the inserted
+                    content is indented. To keep the original indent style of the document you copy
+                    content from, deselect this option.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/preferences-editor-format-xml-whitespaces.html">Whitespaces Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor-format.html">Format Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-format.html">Format Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor-format-xml-whitespaces.html">Whitespaces Preferences</a></div></div></nav></article></main></body></html>

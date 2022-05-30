@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Debugging XSLT,Steps in a typical debugging process,XSLT Debugger perspective,Steps in a typical debugging process,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Steps in a typical debugging process, XSLT Debugger perspective, Steps in a typical debugging process, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/multiple-output-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/determining-what-template-generated-particular-output.html"><meta name="DC.relation" scheme="URI" content="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="steps-in-typical-debug-process"><title>Steps in a Typical Debugging Process</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="steps-in-typical-debug-process"><main role="main"><article role="article" aria-labelledby="steps-in-typical-debug-process__typical-debug-process-title">
+  <h1 class="title topictitle1" id="steps-in-typical-debug-process__typical-debug-process-title">Steps in a Typical Debugging Process</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">Depending on your situation and needs, the debugging process might be more complex, but the
+        following procedure is an example of a typical debugging process:</p>
+    </section>
+    <section id="steps-in-typical-debug-process__procedure-debug-stylesheet"><ol class="ol steps" id="steps-in-typical-debug-process__procedure-debug-stylesheet"><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph">
+            <a class="xref" href="opening-existing-documents.html">Open the source XML document</a> and
+              <a class="xref" href="opening-existing-documents.html"> the XSLT/XQuery document.</a>
+          </span></span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">If you are in the <span class="ph uicontrol">Editor</span>
+          <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>, switch to the
+            <span class="ph uicontrol">XSLT Debugger</span> or <span class="ph uicontrol">XQuery Debugger</span>
+          <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> with one of the
+          following actions:</span>
+        <ul class="ul choices">
+          <li class="li choice">Select <span class="ph"><span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open perspective</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT Debugger/XQuery Debugger</span></span> or the <span class="ph uicontrol"><img class="image" src="../img/Debugger18.png">XSLT
+                Debugger</span>/<span class="ph uicontrol"><img class="image" src="../img/DebuggerXQuery18.png">XQuery
+                Debugger</span> button in the top-right corner of the
+              interface</span>.</li>
+          <li class="li choice">Select <span class="ph"><span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Debug scenario</span></span> or use the <span class="ph uicontrol"><img class="image" src="../img/DebugScenario16.png">Debug
+                scenario</span> action on the toolbar.</span>. This action initializes the
+            Debugger <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> with the
+            parameters of the transformation scenario. Any modification applied to the scenario
+            parameters (the transformer engine, XSLT parameters, transformer extensions, etc.) will
+            be saved back in the scenario when exiting from the Debugger
+            <dfn class="term">perspective</dfn>.</li>
+        </ul>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the source XML document in the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-xml-selector">XML source
+            selector of the Control toolbar</a>. In the case of XQuery debugging, if your XQuery
+          document has no implicit source, set the source selector value to
+            <span class="ph uicontrol">NONE</span>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the XSLT/XQuery document in the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-xsl-selector">XSL/XQuery
+            selector of the Control toolbar</a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set XSLT/XQuery parameters using the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-parameters"><span class="ph uicontrol">Configure parameters</span> button on the Control
+          toolbar</a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd"><a class="xref" href="using-breakpoints.html">Set one or more breakpoints</a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Step through the stylesheet using the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-step-into">following
+            buttons available on the Control toolbar</a>:</span>
+        <ul class="ul choices">
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_yck_g2t_tr" src="../img/StepInto16.gif">Step
+              into</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_iz1_q2t_tr" src="../img/StepOver16.gif">Step
+              over</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_hsg_s2t_tr" src="../img/StepOut16.gif">Step
+              out</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_kmm_lrf_wr" src="../img/Run16.gif">Run</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_gf5_lrf_wr" src="../img/RunToCursor16.gif">Run to
+              cursor</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_pmb_mrf_wr" src="../img/RunToEnd16.gif">Run to
+              end</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_t4l_wsf_wr" src="../img/PauseDebugging16.gif">Pause</span></li>
+          <li class="li choice"><span class="ph uicontrol"><img class="image" id="steps-in-typical-debug-process__image_k5x_y1p_5r" src="../img/StopExternalTool16.png">Stop</span></li>
+        </ul>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Examine the data in the information views to find the bug in the transformation
+          process.</span>
+        <div class="itemgroup info">For more information about fixing bugs in the transformation, see: <a class="xref" href="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output">Identify the XSLT / XQuery Expression that Generated Particular Output</a>.</div>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debugging.html" title="The debugging interface that detects problems with XSLT and XQuery transformations">Debugging XSLT Stylesheets and XQuery Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/multiple-output-documents.html">Multiple Output Documents in XSLT 2.0 and XSLT 3.0</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/determining-what-template-generated-particular-output.html">Identify the XSLT / XQuery Expression that Generated Particular Output</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output">Identify the XSLT / XQuery Expression that Generated Particular Output</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Creating New Documents Based on Templates","href":"topics\/creating-from-templates.html","attributes":{"data-id":"creating-from-templates"},"menu":{"hasChildren":false},"tocID":"creating-from-templates-d24353e8969","topics":[]}]});

@@ -1,0 +1,31 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Working copy resource management,Delete resources"><meta name="keywords" content="SVN Client, Working copy resource management, Delete resources"><meta name="DC.relation" scheme="URI" content="../topics/manage-working-copy-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/ignore-resources-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/copy-resources-working-copy.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="delete-resources-working-copy"><title>Delete Resources</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="delete-resources-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Delete Resources</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol"><img class="image" id="delete-resources-working-copy__image_uvd_tbp_5r" src="../img/SVNDelete16.gif">Delete</span>
+      action is available in the contextual menu of the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a>. When you delete an item from the working
+      copy, it is marked as <em class="ph i">deleted</em> (scheduled for deletion from repository upon the next
+      commit) and removed from the file system. Depending on the state of each item, you are
+      prompted to confirm the operation.</p>
+    <div class="p">If a resource is deleted from the file system without Subversion's knowledge, the resource is
+      marked as <em class="ph i">missing</em> ( <img class="image" src="../img/SVNWCMissing10.png"> ) in your working
+      copy. You can decide what you want to do with a <em class="ph i">missing</em> item:<ul class="ul">
+        <li class="li">In the case of a commit, any <em class="ph i">missing</em> item is first automatically deleted
+          and then committed.<div class="note note note_note"><span class="note__title">Note:</span> Not any <em class="ph i">missing</em> item can be committed as
+              <em class="ph i">deleted</em>, and removed from the repository. For example, you cannot commit
+            an item that no longer exists on the disk and that was scheduled for addition ( <img class="image" id="delete-resources-working-copy__image_nfh_4jp_5r" src="../img/SVNWCAdded10.png"> ) previously, since this item
+            does not exist in the repository, but you can use the <span class="ph uicontrol">Delete</span>
+            action instead.</div></li>
+        <li class="li">If you want to recover <em class="ph i">missing</em> items, either <a class="xref" href="update-working-copy.html">update</a> the items themselves or one of their
+          parent directories. This fetches their latest version from the repository.</li>
+      </ul></div>
+    <div class="p">You can also delete conflicting items (file content conflicts, property conflicts,
+      tree-conflicts) and Syncro SVN Client automatically marks them as resolved.<div class="note note note_note"><span class="note__title">Note:</span> It is
+        recommended that you resolve conflicts manually to avoid loosing any important remote
+        modifications.</div></div>
+    <p class="p">Finally, you can change your mind and <a class="xref" href="revert-changes.html">revert</a> the
+      deleted items to their initial, pristine, state.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/manage-working-copy-resources.html">Manage Working Copy Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/ignore-resources-working-copy.html">Ignore Resources Not Under Version Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/copy-resources-working-copy.html">Copy Resources</a></div></div></nav></article></main></body></html>

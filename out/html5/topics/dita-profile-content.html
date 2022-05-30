@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Profiling,Creating or editing profiling attributes"><meta name="keywords" content="DITA, Profiling, Creating or editing profiling attributes"><meta name="DC.relation" scheme="URI" content="../topics/dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-apply-profiling-attributes.html"><meta name="DC.relation" scheme="URI" content="dita-apply-profiling-attributes.html#dita-apply-profiling-attributes"><meta name="DC.relation" scheme="URI" content="dita-condition-sets-management.html#dita-condition-sets-management"><meta name="DC.relation" scheme="URI" content="dita-apply-profiling-conditional-set.html#dita-apply-profiling-conditional-set"><meta name="DC.relation" scheme="URI" content="profiling-conditional-text-markers.html#profiling-conditional-text-markers"><meta name="DC.relation" scheme="URI" content="dita-apply-styles.html#dita-apply-styles"><meta name="DC.relation" scheme="URI" content="dita-profiling-attribute-groups.html"><meta name="DC.relation" scheme="URI" content="dita-ditaval-file.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-profile-content"><title>Creating and Editing Profiling Attributes in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-profile-content"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating and Editing Profiling Attributes in DITA</h1>
+  
+  <div class="body">
+    <p class="p">You can filter DITA content or the structure of a document by using profiling attributes or
+        <a class="xref" href="dita-condition-sets-management.html#dita-condition-sets-management">profiling
+        conditions sets</a>.</p>
+    <section class="section" id="dita-profile-content__define-profiling-attributes"><h2 class="title sectiontitle">Defining Profiling Attributes for DITA Content</h2>
+      
+      <div class="p">To create or edit profiling attributes for filtering DITA content, follow these steps:<ol class="ol">
+          <li class="li"><span class="ph">If you are creating a new attribute, make sure the attribute is already
+          defined in the document DTD or schema before continuing with the procedure.</span><div class="note tip note_tip"><span class="note__title">Tip:</span> For less
+              technical users who do not want to create attribute specializations in DTD/XML Schema,
+              you may want to use <a class="xref" href="dita-profiling-attribute-groups.html">profiling
+                attribute groups</a> instead (use an existing profiling attribute with
+              sub-attributes).</div></li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Profiling / Conditional Text</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Attributes and Condition Sets</span></span>.<div class="note note note_note"><span class="note__title">Information:</span> The <a class="xref" href="preferences-attributes-and-condition-sets.html#preferences-attributes-and-condition-sets__profiling-attributes-section"><span class="ph uicontrol">Profiling Attributes</span> section</a> is used to define the
+              attributes and their values. For DITA documents, the default attributes are included
+                (<code class="keyword markupname xmlatt">@audience</code>, <code class="keyword markupname xmlatt">@platform</code>, <code class="keyword markupname xmlatt">@product</code>,
+                <code class="keyword markupname xmlatt">@props</code>, <code class="keyword markupname xmlatt">@otherprops</code>, and <code class="keyword markupname xmlatt">@rev</code>), but
+              if a <a class="xref" href="subject-scheme-map.html#subject-scheme-map"><dfn class="term">Subject
+                  Scheme Map</dfn></a> is used for profiling your content, you will see the
+              attributes defined in your <dfn class="term">subject scheme map</dfn> instead.</div></li>
+          <li class="li">
+            <p class="p"><span class="ph">To add new attributes and values, click the <span class="ph uicontrol">New</span> button at the bottom of the
+              <span class="ph uicontrol">Profiling Attributes</span> table. To customize existing attributes
+            and their values, select an attribute and click the <span class="ph uicontrol">Edit</span> button.</span></p>
+            <p class="p"><strong class="ph b">Step Result:</strong> In either case, this opens a <span class="ph uicontrol">Profiling
+            Attribute</span> configuration dialog box where you can define attributes that
+          exist in your schema.</p>
+            <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Profiling Attribute Dialog Box</figcaption>
+            
+            <img class="image" src="../reusables/topics/../../img/profiling_attribute_dialog.png">
+          </figure>
+        </div>
+            <p class="p">
+          
+        </p>
+            <div class="p"><span class="ph">The following options are available in this dialog box:</span><dl class="dl">
+                
+              <dt class="dt dlterm"><span class="ph uicontrol">Document type</span></dt>
+              <dd class="dd">Select the document type (<a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>).<div class="note tip note_tip"><span class="note__title">Tip:</span> You can use the
+                    <code class="ph codeph">*</code> or <code class="ph codeph">?</code> wildcards in this combo box. For
+                  example, <code class="ph codeph">DITA*</code> would match any document type that starts with
+                    <em class="ph i">"DITA"</em>. You can also specify multiple document types by using commas to
+                  separate them.</div></dd>
+            
+                
+              <dt class="dt dlterm"><span class="ph uicontrol">Attribute name</span></dt>
+              <dd class="dd">The name of the profiling attribute.</dd>
+            
+                
+              <dt class="dt dlterm"><span class="ph uicontrol">Display name</span></dt>
+              <dd class="dd">This optional field is used for descriptive rendering in profiling dialog
+                boxes.</dd>
+            
+                
+                  <dt class="dt dlterm" id="dita-profile-content__attr-values-table">Attribute Values Table</dt>
+                  <dd class="dd">
+                    <p class="p">This table displays information about the values for the profiling attribute.
+                      You can configure them by using the buttons at the bottom of the table
+                        (<span class="ph uicontrol">New</span>, <span class="ph uicontrol">Edit</span>, <span class="ph uicontrol">Delete</span>).</p>
+                    <div class="p">The columns are as follows:<ul class="ul">
+                        <li class="li"><span class="ph uicontrol">Value</span> - The attribute value. You can also define
+                          profiling attribute groups using the following format:
+                            <code class="ph codeph">ParentAttrValue(SubAttrValue1 SubAttrValue2)</code>. For more
+                          information, see <a class="xref" href="dita-profiling-attribute-groups.html">Conditional Profiling Attribute Groups</a>.</li>
+                        <li class="li"><span class="ph uicontrol">Label</span> - You can specify a label for the attribute
+                          value that will be rendered as its name in various components in
+                            <span class="ph uicontrol">Author</span> mode (<a class="xref" href="dita-apply-profiling-attributes.html#dita-apply-profiling-attributes"><span class="ph uicontrol">Edit Profiling Attributes</span> dialog box</a>,
+                            <a class="xref" href="dita-condition-sets-management.html#dita-condition-sets-management"><span class="ph uicontrol">Condition Set</span> dialog box</a>, <a class="xref" href="dita-edit-properties.html#dita-edit-properties__profiling_tab"><span class="ph uicontrol">Profiling</span> tab in the <span class="ph uicontrol">Edit
+                              Properties</span> dialog box</a>, <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                              Manager</span></a>). If the <span class="ph uicontrol">Label</span> is
+                          not specified, the <span class="ph uicontrol">Value</span> will be used as its
+                          rendered name.</li>
+                        <li class="li"><span class="ph uicontrol">Description</span> - A description for the attribute
+                          value that will be displayed in this table.</li>
+                      </ul></div>
+                  </dd>
+                
+                
+              <dt class="dt dlterm"><span class="ph uicontrol">Single value</span></dt>
+              <dd class="dd">Select this option if you want the attribute to only accept a single value.</dd>
+            
+                
+              <dt class="dt dlterm"><span class="ph uicontrol">Multiple values separated by</span></dt>
+              <dd class="dd">Select this option if you want the attribute to accept multiple values, and you
+                can choose the type of delimiter to use. You can choose between <em class="ph i">space</em>,
+                  <em class="ph i">comma</em>, and <em class="ph i">semicolon</em>, or you can enter a custom delimiter in the
+                text field. A custom delimiter must be supported by the specified document type. For
+                example, the DITA document type only accepts spaces as delimiters for attribute
+                values.</dd>
+            
+              </dl></div>
+          </li>
+          <li class="li">After defining or configuring the attributes and their values
+        according to your needs, click <span class="ph uicontrol">OK</span> to confirm your selections and
+        close the <span class="ph uicontrol">Profiling Attributes</span> configuration dialog box.</li>
+          <li class="li">Click <span class="ph uicontrol">Apply</span> to save the changes.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> You should see your changes in the <span class="ph uicontrol">Profiling
+          Attribute</span> table.</p>
+      <p class="p">You can also use the <span class="ph uicontrol">Profiling Condition Sets</span> section to apply more
+        complex filters on your DITA content.</p>
+    </section>
+    <section class="section" id="dita-profile-content__d1138e231"><h2 class="title sectiontitle">Adding Profiling Attribute Values Directly in a Document</h2>
+      
+      <div class="p">You can add values directly to the existing profiling attributes in a document using the
+          <a class="xref" href="editing-attributes-author-mode.html#editing-attributes-author-mode">In-Place Attributes Editor</a> in <span class="ph uicontrol">Author</span> mode, the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a>, or in the source code in
+          <span class="ph uicontrol">Text</span> mode. However, this just adds them to the document and does
+        not change the conditional text configuration. If you invoke the <span class="ph uicontrol">Edit Profiling
+          Attributes</span> action (from the contextual menu in <span class="ph uicontrol">Author</span>
+        mode) on the new value, the <span class="ph uicontrol">Profiling Values Conflict</span> dialog box will
+        appear and it includes an <span class="ph uicontrol">Add these values to the configuration</span>
+        action that will automatically add the new value to the particular profiling attribute. It
+        also includes an <span class="ph uicontrol">Edit the configuration</span> action that opens the <a class="xref" href="preferences-attributes-and-condition-sets.html"><span class="ph uicontrol">Attributes
+            and Condition Sets</span> preferences page</a> where you can edit the profiling
+          configuration.<div class="note note note_note"><span class="note__title">Note:</span> If the <a class="xref" href="preferences-attributes-and-condition-sets.html#preferences-attributes-and-condition-sets__allow-values"><span class="ph uicontrol">Allow contributing extra profiling attribute values</span>
+            option</a> is not selected in the <span class="ph uicontrol">Attributes and Condition
+            Sets</span> preferences page, the <span class="ph uicontrol">Profiling Values Conflict</span>
+          dialog box will never appear, so this automatically adding value not be possible.<div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Profiling Values Conflict Dialog Box</figcaption>
+              
+              <img class="image" src="../reusables/topics/../../img/profiling_values_conflict_dialog.png">
+            </figure>
+          </div></div></div>
+    </section>
+    <section class="section" id="dita-profile-content__d1131e235"><h2 class="title sectiontitle">Sharing Profiling Attribute Configurations</h2>
+      
+      <p class="p">Your profiling configuration can be shared with other users through a project file. If you
+        select <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project
+          Options</span></a> at the bottom of the <span class="ph uicontrol">Profiling/Conditional
+          Text</span> preferences page, your configuration is stored in the project file and
+        can be shared with others. For instance, if your project file is saved on a version control
+        system (such as SVN, CVS, or Source Safe) or in a shared folder, your team will have the
+        same option configuration that you stored in the project file.</p>
+      <p class="p">For more information about sharing project files, see <a class="xref" href="sharing-projects.html#sharing-projects">Sharing a Project - Team Collaboration</a>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-apply-profiling-attributes.html">Applying Profiling Attributes in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-apply-profiling-attributes.html#dita-apply-profiling-attributes">Applying Profiling Attributes in DITA</a></li><li class="linklist"><a class="link" href="dita-condition-sets-management.html#dita-condition-sets-management">Creating and Editing Profiling Condition Sets in DITA</a></li><li class="linklist"><a class="link" href="dita-apply-profiling-conditional-set.html#dita-apply-profiling-conditional-set">Applying Profiling Condition Sets in DITA</a></li><li class="linklist"><a class="link" href="profiling-conditional-text-markers.html#profiling-conditional-text-markers">Showing and Filtering Profiled Content in DITA</a></li><li class="linklist"><a class="link" href="dita-apply-styles.html#dita-apply-styles">Customizing Colors and Styles for Rendering Profiling in Author Mode</a></li><li class="linklist"><a class="link" href="dita-profiling-attribute-groups.html">Conditional Profiling Attribute Groups</a></li><li class="linklist"><a class="link" href="dita-ditaval-file.html">Filtering Profiling Values with a DITAVAL File</a></li></ul></div></nav>
+</article></main></body></html>

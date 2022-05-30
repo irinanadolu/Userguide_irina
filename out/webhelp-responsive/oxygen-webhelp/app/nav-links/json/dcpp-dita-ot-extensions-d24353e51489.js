@@ -1,0 +1,1 @@
+define({"topics":[{"title":"How to Contribute a Custom CSS to the Transformation from a DITA-OT Plugin","href":"topics\/dcpp-contribute-css-from-plugin_2.html","attributes":{"data-id":"dcpp-contribute-css-from-plugin"},"menu":{"hasChildren":false},"tocID":"dcpp-contribute-css-from-plugin-d24353e51511","topics":[]}]});

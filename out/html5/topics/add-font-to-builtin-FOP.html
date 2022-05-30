@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Add fonts to built-in FO processor"><meta name="keywords" content="Add fonts to built-in FO processor"><meta name="DC.relation" scheme="URI" content="../topics/xsl-fo-processors.html"><meta name="DC.relation" scheme="URI" content="../topics/add-font-to-builtin-FOP-simplified.html"><meta name="DC.relation" scheme="URI" content="../topics/built-in-fop-additional-libraries.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-font-to-builtin-FOP"><title>Add a Font to the Built-in FO Processor - Advanced Version</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-font-to-builtin-FOP"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Add a Font to the Built-in FO Processor - Advanced Version</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">If an XML document is transformed to PDF using the built-in Apache FOP processor but it
+        contains some Unicode characters that cannot be rendered by the default PDF fonts, then a
+        special font that is capable to render these characters must be configured and embedded in
+        the PDF result.</p>
+      <div class="note important note_important"><span class="note__title">Important:</span> On Windows, fonts are located into the
+          <span class="ph filepath">C:\Windows\Fonts</span> directory. On Mac, they are placed in
+          <span class="ph filepath">/Library/Fonts</span>. To install a new font on your system, it is enough to
+        copy it in the <span class="ph filepath">Fonts</span> directory. If a special font is installed in the
+        operating system, there is a simple way of telling FOP to look for it. See <a class="xref" href="add-font-to-builtin-FOP-simplified.html">the simplified procedure for
+          adding a font to FOP</a>.</div>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Locate the font.</span>
+        <div class="itemgroup info">
+          <p class="p">First, find out the name of a font that has the glyphs for the special characters you
+            used. One font that covers most characters, including Japanese, Cyrillic, and Greek, is
+            Arial Unicode MS.</p>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Register the font in the FOP configuration.</span>
+        <div class="itemgroup info">
+          <div class="note note note_note"><span class="note__title">Note:</span> DITA PDF transformations have their own <span class="ph filepath">fop.xconf</span>
+                (<span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2.fop/fop/conf/fop.xconf</span>). If the font is not
+            installed in the system, it needs to be referenced in the
+            <span class="ph filepath">fop.xconf</span>.</div>
+        </div>
+        <ol type="a" class="ol substeps">
+          <li class="li substep">
+            <span class="ph cmd">For information about registering the font in the FOP Configuration, see: <a class="xref" href="https://xmlgraphics.apache.org/fop/2.3/fonts.html" target="_blank" rel="external noopener">https://xmlgraphics.apache.org/fop/2.3/fonts.html</a>.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT/FO/XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">FO Processors</span></span>, and enter the path of the FOP configuration file in the
+                <span class="ph uicontrol">Configuration file</span> text field.</span>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the font on the document content.</span>
+        <div class="itemgroup info">This is usually done with XSLT stylesheet parameters and depends on the document type
+          processed by the stylesheet.<p class="p"><strong class="ph b"><u class="ph u">DocBook Example:</u></strong> For DocBook documents, you
+            can start with the built-in scenario called <strong class="ph b">DocBook PDF</strong>, <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">edit the XSLT parameters</a>, and set the font name (for example,
+              <dfn class="term">Arialuni</dfn>) to the <code class="ph codeph">body.font.family</code> and
+              <code class="ph codeph">title.font.family</code> parameters.</p><p class="p"><strong class="ph b"><u class="ph u">TEI Example:</u></strong> For
+            TEI documents, you can start with the built-in scenario called <strong class="ph b">TEI PDF</strong>, <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">edit the XSLT parameters</a>, and set the font name (for example,
+              <dfn class="term">Arialuni</dfn>) to the <code class="ph codeph">bodyFont</code> and <code class="ph codeph">sansFont</code>
+            parameters.</p><div class="p"><strong class="ph b"><u class="ph u">DITA Example:</u></strong> For DITA to PDF transformations using
+            DITA-OT modify the following two files:<ul class="ul">
+              <li class="li"><span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/cfg/fo/font-mappings.xml</span> - The
+                  <code class="keyword markupname xmlelement">&lt;font-face&gt;</code> element included in each
+                  <code class="keyword markupname xmlelement">&lt;physical-font&gt;</code> element that has the
+                  <code class="ph codeph">char-set="default"</code> attribute must contain the name of the
+                font.</li>
+              <li class="li"><span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/fop/conf/fop.xconf</span> - A
+                  <code class="keyword markupname xmlelement">&lt;font&gt;</code> element must be inserted in the
+                  <code class="keyword markupname xmlelement">&lt;fonts&gt;</code> element, which is inside the
+                  <code class="keyword markupname xmlelement">&lt;renderer&gt;</code> element that has the
+                  <code class="ph codeph">mime="application/pdf"</code> attribute.</li>
+            </ul></div><p class="p">For more information, see: <a class="xref" href="https://xmlgraphics.apache.org/fop/2.1/fonts.html" target="_blank" rel="external noopener">https://xmlgraphics.apache.org/fop/2.1/fonts.html</a>.</p></div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xsl-fo-processors.html">XSL-FO (Apache FOP) Processor for Generating PDF Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-font-to-builtin-FOP-simplified.html">Add a Font to the Built-in FO Processor - Simple Version</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/built-in-fop-additional-libraries.html">Adding Libraries to the Built-in FO Processor (XML with XSLT and FO)</a></div></div></nav></article></main></body></html>

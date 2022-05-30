@@ -1,0 +1,74 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen XML Author Component,Licensing"><meta name="keywords" content="Oxygen XML Author Component, Licensing"><meta name="DC.relation" scheme="URI" content="../topics/author-component.html"><meta name="DC.relation" scheme="URI" content="../topics/author-component.html"><meta name="DC.relation" scheme="URI" content="../topics/component_installation_requirements.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/sdk_agreement.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="component_licensing"><title>Licensing</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="component_licensing"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Licensing</h1>
+  
+  <div class="body">
+    <p class="p">The licensing terms and conditions for the <span class="ph">Oxygen XML Author Component</span> are defined in the
+        <a class="xref" href="https://www.oxygenxml.com/sdk_agreement.html" target="_blank" rel="external noopener"><strong class="ph b"><em class="ph i">Oxygen SDK</em> License Agreement</strong></a>. To obtain the licensing terms and
+      conditions and other licensing information as well, you can also contact the support team at
+        <strong class="ph b">support@oxygenxml.com</strong>. You may also obtain a free of charge evaluation license key
+      for development purposes, subject to registration. Any deployment of an application developed
+      using the <span class="ph">Oxygen XML Author Component</span> is also subject to the terms of the SDK agreement. </p>
+    <div class="p">There are two main categories of <span class="ph">Oxygen XML Author Component</span> integrations:<ul class="ul" id="component_licensing__ol_k22_sbr_y3">
+        <li class="li">
+          <p class="p"><strong class="ph b"><u class="ph u">Integration for internal use</u>:</strong></p>
+          <p class="p">You develop an application that embeds the <em class="ph i">Author Component</em> to be used
+            internally (in your company or by you). You can buy and use previously purchased <span class="ph">Oxygen XML Editor</span> floating licenses to enable the runtime usage of the <span class="ph">Oxygen XML Author Component</span> as it was integrated into the application.</p>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b"><u class="ph u">Integration for external use</u>:</strong></p>
+          <p class="p">Using the <span class="ph">Oxygen XML Author Component</span>, you create an application that you distribute
+            to other users outside your company (with a CMS for example). In this case, you should
+            apply for a Value Added Reseller (VAR) partnership by contacting the <strong class="ph b">Oxygen Sales
+              Team</strong> (<a class="xref" href="https://www.oxygenxml.com/sales_support.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/sales_support.html</a>).</p>
+        </li>
+      </ul></div>
+    <p class="p">From a technical point of view, the <span class="ph">Oxygen XML Author Component</span> provides the Java API
+      to:</p>
+    <div class="p">
+      <ul class="ul" id="component_licensing__ul_rkh_r4r_y3">
+        <li class="li">
+          <p class="p"><strong class="ph b"><u class="ph u">Inject floating license server details in the Java code</u>:</strong></p>
+          <div class="p">The following link provides details about how to configure an HTTP floating license
+            server: <a class="xref" href="https://www.oxygenxml.com/license_server.html#floating_license_servlet" target="_blank" rel="external noopener">https://www.oxygenxml.com/license_server.html#floating_license_servlet</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">AuthorComponentFactory.getInstance().init(frameworkZips, 
+  optionsZipURL, codeBase, appID,
+      <em class="hl-comment">//The servlet URL</em>
+      <span class="hl-string">"http://www.host.com/servlet"</span>, 
+      <em class="hl-comment">//The HTTP credentials user name</em>
+      <span class="hl-string">"userName"</span>, 
+      <em class="hl-comment">//The HTTP credentials password</em>
+      <span class="hl-string">"password"</span>);
+...</pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b"><u class="ph u">(Deprecated) Display the license registration dialog box, where the user will
+                paste their license key</u>:</strong></p>
+          <div class="p">This is the default behavior if a <em class="ph i">null</em> license key is set using the API (as in
+            the following example). This transfers the licensing responsibility to the end-user. The
+            user can license an <span class="ph">Oxygen XML Author Component</span> using standard named-user based
+                <span class="ph"><span class="ph">Oxygen XML Editor</span></span> license keys. The license key will be saved to the
+            local user's disk and on subsequent runs, the user will not be asked again to provide a
+            license
+            key.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">AuthorComponentFactory.getInstance().init(
+   frameworkZips, optionsZipURL, codeBase, appID,
+   <em class="hl-comment">//Null license key, will ask the user.</em>
+   null);
+...</pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b"><u class="ph u">(Deprecated) Inject the licensing information key directly in the component's
+                Java code</u>:</strong></p>
+          <div class="p">Note that this method can only be used for <strong class="ph b">evaluation</strong> and <strong class="ph b">site</strong> license
+            keys. For
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">AuthorComponentFactory.getInstance().init(
+   frameworkZips, optionsZipURL, codeBase, appID,
+   <em class="hl-comment">//The license key if it is a fixed license.</em>
+   licenseKey);
+...</pre></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-component.html">Oxygen XML Author Component</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-component.html">Oxygen XML Author Component</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/component_installation_requirements.html">Installation Requirements</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/sdk_agreement.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/sdk_agreement.html</a></li></ul></div></nav>
+</article></main></body></html>

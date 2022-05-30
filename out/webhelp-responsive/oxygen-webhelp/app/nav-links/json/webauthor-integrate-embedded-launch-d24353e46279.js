@@ -1,0 +1,1 @@
+define({"topics":[{"title":"OXY-URL: File URLs in <span class=\"ph\">Oxygen XML Web Author<\/span>","href":"topics\/oxy-url.html","attributes":{"data-id":"oxy-url"},"menu":{"hasChildren":false},"tocID":"oxy-url-d24353e46298","topics":[]}]});

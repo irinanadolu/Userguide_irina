@@ -1,0 +1,135 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WSDL documents,Generate documentation for WSDL documents,Generate WSDL Documentation tool"><meta name="keywords" content="WSDL documents, Generate documentation for WSDL documents, Generate WSDL Documentation tool"><meta name="DC.relation" scheme="URI" content="../topics/editing-wsdl-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-quick-assist-support.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-documentation-html.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-documentation-html.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-documentation-custom-format.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wsdl-generating-documentation"><title>Generating Documentation for WSDL Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wsdl-generating-documentation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Documentation for WSDL Documents</h1>
+  
+  <div class="body">
+    <div class="p">You can use <span class="ph">Oxygen XML Editor</span> to generate detailed documentation for the components of a
+      WSDL document in HTML format. You can select the WSDL components to include in your output and
+      the level of details to present for each of them. Also, the components are hyperlinked. You
+      can also generate the documentation in a <a class="xref" href="wsdl-documentation-custom-format.html#wsdl-documentation-custom-format">custom output
+        format</a> by using a custom stylesheet.<div class="note note note_note"><span class="note__title">Note:</span> The WSDL documentation includes the XML
+        Schema components that belong to the internal or imported XML schemas.</div></div>
+    <p class="p">To generate documentation for a WSDL document, select <span class="ph uicontrol">WSDL
+        Documentation</span> from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Generate Documentation</span></span> menu or from the <span class="ph"><span class="ph uicontrol">Generate
+          Documentation</span> submenu in the contextual menu of the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+          view</a></span>.<span class="ph"> You can also open
+        the tool by using the <span class="ph uicontrol"><img class="image" id="wsdl-generating-documentation__image_rqx_msd_qnb" src="../img/GenerateDocumentation16.png">Generate Documentation</span> toolbar button.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="wsdl-generating-documentation__figure-xslt-doc-dialog-output-panel-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>WSDL Documentation Dialog Box</figcaption>
+        
+        <img class="image" src="../img/wsdl-documentation-dialog.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">Input URL</span> field of the dialog box must contain the full path to
+      the WSDL document that you want to generate documentation for. The WSDL document may be a
+      local or a remote file. You can specify the path to the WSDL file by entering it in the text
+      field, or by using the <span class="ph uicontrol"><img class="image" id="wsdl-generating-documentation__image_pyh_flb_gs" src="../img/InsertEditorVariables16.png">Insert Editor Variables</span> button or the options in the
+          <span class="ph uicontrol"><img class="image" id="wsdl-generating-documentation__image_pmx_flb_gs" src="../img/BrowseDrop.png">Browse</span>
+      drop-down menu.</p>
+    <section class="section" id="wsdl-generating-documentation__output_tab"><h2 class="title sectiontitle">Output Tab</h2>
+      
+      <div class="p">The following options are available in the <span class="ph uicontrol">Output</span> tab:<ul class="ul" id="wsdl-generating-documentation__ul_gwz_4lb_gs">
+          <li class="li"><span class="ph uicontrol">Format</span> - Allows you to choose between the following formats:<ul class="ul" id="wsdl-generating-documentation__ul_pnl_ztg_gs">
+              <li class="li"><span class="ph uicontrol">HTML</span> - The documentation is generated in <a class="xref" href="wsdl-documentation-html.html#wsdl-documentation-html">HTML output
+                  format</a>.</li>
+              <li class="li"><span class="ph uicontrol">Custom</span> - The documentation is generated in a <a class="xref" href="wsdl-documentation-custom-format.html#wsdl-documentation-custom-format">custom output format</a>, allowing you to control the output. Click the
+                  <span class="ph uicontrol">Options</span> button to open a <span class="ph uicontrol">Custom format
+                  options</span> dialog box where you can specify a custom stylesheet for
+                creating the output. There is also an option to <span class="ph uicontrol">Copy additional resources
+                  to the output folder</span> and you can select the path to the additional
+                  <span class="ph uicontrol">Resources</span> that you want to copy. You can also choose to
+                keep the intermediate XML files created during the documentation process by
+                deselecting the <span class="ph uicontrol">Delete intermediate XML file</span> option.</li>
+            </ul></li>
+          <li class="li"><span class="ph uicontrol">Output file</span> - You can specify the path of the output file by
+            entering it in the text field, or by using the <span class="ph uicontrol"><img class="image" id="wsdl-generating-documentation__image_pdh_bwg_gs" src="../img/InsertEditorVariables16.png"> Insert Editor
+              Variables</span> button or the options in the <span class="ph uicontrol"><img class="image" id="wsdl-generating-documentation__image_qdh_bwg_gs" src="../img/BrowseDrop.png">Browse</span> drop-down
+            menu.</li>
+          <li class="li"><span class="ph uicontrol">Split output into multiple files</span> - Instructs the application to
+            split the output into multiple files. For large WSDL documents, choosing a different
+            split criterion may generate smaller output files providing a faster documentation
+            browsing. You can choose to split them by namespace, location, or component name.</li>
+          <li class="li"><span class="ph uicontrol">Open in Browser/System Application</span> - Opens the result in the
+            system application associated with the output file type.<div class="note note note_note"><span class="note__title">Note:</span> To set the browser or
+              system application that will be used, <span class="ph"><span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+                  <span class="ph uicontrol">Global</span>, and set it in the <span class="ph uicontrol">Default Internet
+                  browser</span> field</span>. This will take precedence over the default
+              system application settings.</div></li>
+          <li class="li"><span class="ph uicontrol">Keep only the annotations with xml:lang set to</span> - The generated
+            output will contain only the annotations with the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+            set to the selected language. If you choose a primary language code (for example,
+              <span class="ph uicontrol">en</span> for English), this includes all its possible variations
+              (<span class="ph uicontrol">en-us</span>, <span class="ph uicontrol">en-uk</span>, etc.).</li>
+        </ul></div>
+    </section>
+    <section class="section" id="wsdl-generating-documentation__setting_tab"><h2 class="title sectiontitle">Setting Tab</h2>
+      
+      <p class="p">When you generate documentation for a WSDL document, you can choose what components to
+        include in the output and the details to be included in the documentation.</p>
+      <div class="p">
+        <figure class="fig fignone" id="wsdl-generating-documentation__figure-xslt-doc-dialog-settings-panel-oxygen"><figcaption><span class="fig--title-label">Figure 2. </span>Settings Tab of the WSDL Documentation Dialog Box</figcaption>
+          
+          <img class="image" id="wsdl-generating-documentation__image_jhk_zm3_gs" src="../img/sa_wsdl_settings_button.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p">The <span class="ph uicontrol">Settings</span> tab allows you to choose whether or not to include the
+          following:<ul class="ul" id="wsdl-generating-documentation__ul_lhk_zm3_gs">
+          <li class="li"><span class="ph uicontrol">Components</span><ul class="ul" id="wsdl-generating-documentation__ul_mhk_zm3_gs">
+              <li class="li"><span class="ph uicontrol">Services</span> - Specifies whether or not the generated
+                documentation includes the WSDL services.</li>
+              <li class="li"><span class="ph uicontrol">Bindings</span> - Specifies whether or not the generated
+                documentation includes the WSDL bindings.</li>
+              <li class="li"><span class="ph uicontrol">Port Types</span> - Specifies whether or not the generated
+                documentation includes the WSDL port types.</li>
+              <li class="li"><span class="ph uicontrol">Messages</span> - Specifies whether or not the generated
+                documentation includes the WSDL messages.</li>
+              <li class="li"><span class="ph uicontrol">XML Schema Components</span> - Specifies whether or not the
+                generated documentation includes the XML Schema components.</li>
+              <li class="li"><span class="ph uicontrol">Only global elements and types</span> - Specifies whether or not
+                the generated documentation includes only global elements and types.</li>
+            </ul></li>
+          <li class="li"><span class="ph uicontrol">Component Details</span><ul class="ul" id="wsdl-generating-documentation__ul_ohk_zm3_gs">
+              <li class="li"><span class="ph uicontrol">Namespace</span> - Presents the namespace information for WSDL or
+                XML Schema components.</li>
+              <li class="li"><span class="ph uicontrol">Location</span> - Presents the location information for each WSDL
+                or XML Schema component.</li>
+              <li class="li"><span class="ph uicontrol">Used by</span> - Presents the list of components that reference
+                the current one.</li>
+              <li class="li"><span class="ph uicontrol">Documentation</span> - Presents the component documentation. If
+                you choose <span class="ph uicontrol">Escape XML Content</span>, the XML tags are presented in
+                the documentation.</li>
+              <li class="li"><span class="ph uicontrol">Source</span> - Presents the XML fragment that defines the current
+                component.</li>
+              <li class="li"><span class="ph uicontrol">Instance</span> - Generates a sample XML instance for the current
+                  component.<div class="note note note_note"><span class="note__title">Note:</span> This option applies to the XML Schema components only.</div></li>
+              <li class="li"><span class="ph uicontrol">XML Schema Diagram</span> - Displays the diagram for each XML
+                Schema component. You can choose the image format (JPEG, PNG, <span class="ph">GIF, </span>SVG) to use for the diagram section.</li>
+              <li class="li"><span class="ph uicontrol">Diagram annotations</span> - Specifies whether or not the
+                annotations of the components presented in the diagram sections are included.</li>
+            </ul></li>
+          <li class="li"><span class="ph uicontrol">Generate index</span> - Displays an index with the components included
+            in the documentation.<ul class="ul" id="wsdl-generating-documentation__ul_ggv_rk3_gs">
+              <li class="li"><span class="ph uicontrol">Include local elements and attributes</span> - If selected, local
+                elements and attributes are included in the documentation index.</li>
+              <li class="li"><span class="ph uicontrol">Include resource hierarchy</span> - Specifies whether or not the
+                resource hierarchy for an XML Schema documentation is generated. It is deselected by
+                default.</li>
+            </ul></li>
+        </ul></div>
+    </section>
+    <p class="p"><span class="ph uicontrol">Export settings</span> - Save the current settings in a settings file for
+      further use (for example, if you need the exported settings file for <a class="xref" href="https://www.oxygenxml.com/oxygen_scripting.html" target="_blank" rel="external noopener">generating the documentation from the command-line interface</a>).</p>
+    <p class="p"><span class="ph uicontrol">Import settings</span> - Reloads the settings from the exported file.</p>
+    <p class="p"><span class="ph uicontrol">Generate</span> - Use this button to generate the WSDL documentation.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> This function can be executed from an automated
+      command-line script, for more details, see <a class="xref" href="scripting_oxygen.html">Scripting Oxygen</a>.</div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/wsdl-documentation-html.html">Generating WSDL Documentation in HTML Format</a><br></li><li class="link olchildlink"><a href="../topics/wsdl-documentation-custom-format.html">Generating WSDL Documentation in a Custom Format</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-wsdl-documents.html">Editing WSDL Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/wsdl-quick-assist-support.html">Quick Assist Support in WSDL Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wsdl-documentation-html.html">Generating WSDL Documentation in HTML Format</a></div></div></nav></article></main></body></html>

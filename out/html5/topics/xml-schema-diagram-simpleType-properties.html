@@ -1,0 +1,141 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Design editing mode,Components,xs:simpleType,XML Schemas,Design mode editing"><meta name="keywords" content="Design editing mode, Components, xs:simpleType, XML Schemas, Design mode editing"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-components.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-complexType-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-alternative-properties.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-diagram-simpleType-properties"><title>xs:simpleType</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-diagram-simpleType-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">xs:simpleType</h1>
+  
+  <div class="body">
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>The <em class="ph i">xs:simpleType</em> Component</figcaption>
+        
+        <img class="image" src="../img/schema_diagram_simpleType.png">
+      </figure>
+    </div>
+    <p class="p">Defines a simple type. A simple type definition is a set of constraints on strings and
+      information about the values they encode, applicable to the normalized value of an attribute
+      information item or of an element information item with no element children. Informally, it
+      applies to the values of attributes and the text-only content of elements. See more info at
+        <a class="xref" href="http://www.w3.org/TR/xmlschema11-1/#element-simpleType" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema11-1/#element-simpleType</a>.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> A simple type that is a base type to another type will be rendered with yellow
+      background.</div>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title"><em class="ph i">xs:simpleType</em> Properties</span></caption><colgroup><col><col><col><col></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-simpleType-properties__entry__1">Name</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-simpleType-properties__entry__2">Description</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-simpleType-properties__entry__3">Possible Values</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-simpleType-properties__entry__4">Scope</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Name</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">Simple type name. Always required.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Any NCName</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">Only for global simple types. If missing, will be displayed as '[simpleType]' in
+              diagram.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Derivation</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">A simple type category</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">restriction, list, or union</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For all simple types</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Base Type</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">A simple type definition component. Required if derivation method is set to
+              restriction.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">All global simple types and built-in simple types. In addition another 3
+              proposals are present: [anonymous restriction], [anonymous list], [anonymous union]
+              for easily create anonymous simple types. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For global and anonymous simple types with the derivation method set to
+              restriction</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Item Type</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">A simple type definition component. Required if derivation method is set to list. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">All global simple types and built-in simple types(from schema for schema). In
+              addition another 3 proposals are present: [anonymous restriction], [anonymous list],
+              [anonymous union] for easily create anonymous simple types. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For global and anonymous simple types with the derivation method set to list.
+              Derivation by list is the process of transforming a simple datatype (named the item
+              type) into a whitespace-separated list of values from this datatype. The item type can
+              be defined inline by adding a simpleType definition as a child element of the list
+              element, or by reference, using the itemType attribute (it is an error to use
+              both).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Member Types</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">Category for grouping union members</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For global and anonymous simple types with the derivation method set to
+              union</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Member</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2"> A simple type definition component. Required if derivation method is set to
+              union. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">All global simple types and built-in simple types(from schema for schema). In
+              addition another 3 proposals are present: [anonymous restriction], [anonymous list],
+              [anonymous union] for easily create anonymous simple types. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For global and anonymous simple types with the derivation method set to union.
+              Deriving a simple datatype by union merges the lexical spaces of several simple
+              datatypes (called member types) to create a new simple datatype. The member types can
+              be defined either by reference (through the memberTypes attribute) or embedded as
+              simple datatype local definitions in the xs:union element. Both styles can be
+              mixed.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Final</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">Blocks any further derivations of this datatype (by list, union, derivation or
+              all)</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">#all, list, restriction, union, list restriction, list union, restriction union.
+              In addition, [Empty] proposal is present for set empty string as value.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">Only for global simple types</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">ID</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">The component ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Any ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For all simple types</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Component</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">The name of the edited component</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">Only for global and local simple types</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">Namespace</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">The component namespace</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">For global simple types</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__1">
+              <strong class="ph b">System ID</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__2">The component system ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-simpleType-properties__entry__4">Not present for built-in simple types</td>
+          </tr>
+        </tbody></table>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xml-schema-components.html">XML Schema Components</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-schema-diagram-complexType-properties.html">xs:complexType</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-diagram-alternative-properties.html">xs:alternative</a></div></div></nav></article></main></body></html>

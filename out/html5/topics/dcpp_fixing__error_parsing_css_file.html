@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Troubleshooting,Error parsing,I/O exception,Unknown host"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Troubleshooting, Error parsing, I/O exception, Unknown host"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_comments_and_change_tracking_troubleshooting.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_glossentries_referenced_using_glossref_are_not_displayed.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_fixing__error_parsing_css_file"><title>Error Parsing CSS File - Caused by a Networking Problem</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_fixing__error_parsing_css_file"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Error Parsing CSS File - Caused by a Networking Problem</h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="dcpp_fixing__error_parsing_css_file__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">My custom styles are not applied and in the transformation results console, I get an error
+        containing one of the following: <code class="ph codeph">I/O exception</code>, <code class="ph codeph">Unknown
+          host</code>, <code class="ph codeph">Error parsing</code>.</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="dcpp_fixing__error_parsing_css_file__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <div class="p">One of the CSS files contains references to resources from another website that is
+          currently inaccessible. These resources may include: <ul class="ul" id="dcpp_fixing__error_parsing_css_file__ul_bbj_4fs_g2b">
+            <li class="li">Fonts</li>
+            <li class="li">Images</li>
+            <li class="li">Other CSS files</li>
+          </ul><div class="note note note_note"><span class="note__title">Note:</span> If you exported one of the built-in publishing templates from the
+            transformation scenario dialog, it is possible that the associated CSS files use an
+            imported Google Font.</div>
+        </div>
+      </section>
+      <section class="section remedy" id="dcpp_fixing__error_parsing_css_file__remedy"><h2 class="title sectiontitle">Remedy</h2>
+        
+        <section><ol class="ol steps"><li class="li step stepexpand">
+            <span class="ph cmd">Check your proxy settings (ask the system administrator for help).</span>
+          </li><li class="li step stepexpand">
+            <span class="ph cmd">If the server is still inaccessible from the transformation process, download the
+              remote resources using a web browser, save them in the customization CSS file folder,
+              and refer them directly from your CSS.</span>
+            <div class="itemgroup info">
+              <div class="note note note_note"><span class="note__title">Note:</span> If the problem is caused by a remote font, see <a class="xref" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_fonts.html#ariaid-title6" target="_blank" rel="external noopener">Using Local Fonts</a>.</div>
+            </div>
+          </li></ol></section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_comments_and_change_tracking_troubleshooting.html" title="Information about fixing publishing issues">Troubleshooting</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_the_xpath_function_format_date_does_not_format_using_the_specified_locale.html">The format-date() XPath Function Does not Respect the Specified Locale</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_glossentries_referenced_using_glossref_are_not_displayed.html">Glossary Entries Referenced Using 'glossref' are not Displayed</a></div></div></nav></article></main></body></html>

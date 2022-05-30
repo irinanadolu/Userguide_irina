@@ -1,0 +1,59 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XPath Expressions,XPath Results view"><meta name="keywords" content="XPath Expressions, XPath Results view"><meta name="DC.relation" scheme="URI" content="../topics/running-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-builder-view.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-catalogs.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xpath-results"><title>XPath Expression Results View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xpath-results"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XPath Expression Results View</h1>
+  
+  <div class="body">
+    <p class="p" id="xpath-results__result-running-xpath-expression">When you run an XPath expression, <span class="ph">Oxygen XML Editor</span>
+      displays the results of its execution in the <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span>
+        view</a>.</p>
+    <div class="p">This view contains the following columns:<ul class="ul" id="xpath-results__ul_tdc_ql3_1g">
+        <li class="li">
+          <span class="ph uicontrol">Description</span> - The result that<span class="ph">Oxygen XML Editor</span> displays when
+          you run an XPath expression. </li>
+        <li class="li">
+          <span class="ph uicontrol">XPath location</span> - The path to the matched node. </li>
+        <li class="li">
+          <span class="ph uicontrol">Resource</span> - The name of the document that you run the XPath
+          expression on. </li>
+        <li class="li">
+          <span class="ph uicontrol">System ID</span> - The path to the document itself. </li>
+        <li class="li">
+          <span class="ph uicontrol">Location</span> - The location of the result in the document. </li>
+      </ul>To arrange the results depending on a column, click its header. <span class="ph">To group the results by their resource, or by their system
+        ID, right-click the header of any column in the <span class="ph uicontrol">Results</span> view and
+        select <span class="ph uicontrol">Group by "Resource"</span> or <span class="ph uicontrol">Group by "System
+          ID"</span>.</span> If no information regarding location is available, <span class="ph">Oxygen XML Editor</span> displays <span class="ph uicontrol">Not available</span> in the
+        <span class="ph uicontrol">Location</span> column. <span class="ph">Oxygen XML Editor</span> displays the results in a
+      valid XPath expression format.
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">- /node[value]/node[value]/node[value] -</pre></div>
+    <p class="p">The <span class="ph uicontrol">Results</span> view also includes
+      various toolbar and contextual menu actions. For more information, see <a class="xref" href="results-view.html#results-view">Results View</a>.</p>
+    
+    <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong></p>
+    <p class="p">The following snippets are taken from a DocBook book based on the DocBook XML DTD. The book
+      contains a number of chapters. To return all the chapter nodes of the book, enter
+        <code class="ph codeph">//chapter</code> in the XPath expression field and press
+          <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>. This action returns all the
+        <code class="ph codeph">chapter</code> nodes of the DocBook book in the <span class="ph uicontrol">Results
+        View</span>. Click a record in the <span class="ph uicontrol">Results View</span> to locate and
+      highlight its corresponding chapter element and all its children nodes in the document you are
+      editing.</p>
+    <p class="p">To find all <code class="ph codeph">example</code> nodes contained in the <code class="ph codeph">sect2</code> nodes of a
+      DocBook XML document, use the following XPath expression:
+        <code class="ph codeph">//chapter/sect1/sect2/example</code>. <span class="ph">Oxygen XML Editor</span> adds a result in the
+        <span class="ph uicontrol">Results View</span> for each <code class="ph codeph">example</code> node found in any
+        <code class="ph codeph">sect2</code> node.</p>
+    <div class="p">For example, if the result of the above XPath expression
+      is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">- /chapter[1]/sect1[3]/sect2[7]/example[1]</pre></div>
+    <p class="p">it means that in the edited file, the <code class="ph codeph">example</code> node is located in the first
+      chapter, third section level one, seventh section level 2.</p>
+    <div class="p">
+      <figure class="fig fignone" id="xpath-results__figure-XPath-results-highlighted-with-character-precision-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>XPath Results Highlighted in Editor Panel with Character Precision</figcaption>
+        
+        <img class="image" id="xpath-results__image_scd_lk2_wn" src="../img/sa_xpath_results_highlighted_in_editor.png">
+        
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/running-xpath-expressions.html" title="Information about using XPath Expressions in Oxygen XML Editor">Working with XPath Expressions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xpath-builder-view.html">XPath Builder View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xpath-catalogs.html">XPath and XML Catalogs</a></div></div></nav></article></main></body></html>

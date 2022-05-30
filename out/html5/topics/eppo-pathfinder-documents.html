@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps"><meta name="keywords" content="DITA, Maps"><meta name="DC.relation" scheme="URI" content="../topics/author-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/create-new-dita-project.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-maps-manager.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-maps-manager.html"><meta name="DC.relation" scheme="URI" content="../topics/creating-dita-map.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-manage-map.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-chunking.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-validate.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-map-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-open-map-resolved-topics.html"><meta name="DC.relation" scheme="URI" content="author-dita-map-doc-type.html#author-dita-map-doc-type"><meta name="DC.relation" scheme="URI" content="author-dita-map-extensions.html#author-dita-map-extensions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-pathfinder-documents"><title>Working with DITA Maps</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-pathfinder-documents"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with DITA Maps</h1>
+  
+  <div class="body">
+    <p class="p">In the DITA standard architecture you create documents by collecting topics into maps. </p>
+    <section class="section" id="eppo-pathfinder-documents__dita_maps"><h2 class="title sectiontitle">DITA Maps</h2>
+      
+      <p class="p">A <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> organizes a set of topics
+        into a hierarchy. In most output formats, the structure of the map becomes the structure of
+        the table of contents. <span class="ph">Oxygen XML Editor</span> provides support for <a class="xref" href="creating-dita-map.html#creating-dita-map">creating</a> and <a class="xref" href="eppo-manage-map.html">managing <dfn class="term">DITA maps</dfn></a> through
+        the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+            Manager</span></a>. There are also specialized types of <dfn class="term">DITA maps</dfn>,
+        such as a <a class="xref" href="../glossary/bookmap.html"><dfn class="term">bookmap</dfn></a>, which is intended
+        for creating the structure of a book.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-documents__submaps"><h2 class="title sectiontitle">Submaps</h2>
+      
+      <p class="p">You do not have to create an entire publication using a single map. It is generally good
+        practice to break up a large publication into several smaller <a class="xref" href="eppo-submaps.html">submaps</a> that are easier to manage. You can reuse submaps in multiple publications
+        by including them in each of the main maps. The <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+          Manager</span></a> provides support for easily creating and managing submaps.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-documents__opening_a_dita_map"><h2 class="title sectiontitle">Opening a DITA Map</h2>
+      
+      <div class="p">There are several ways to open a <dfn class="term">DITA map</dfn> and you can choose to open it in the
+          <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+            Manager</span></a> or in the XML Editor. Use any of the following methods to
+        open a map:<ul class="ul">
+          <li class="li">To open a submap in its own tab in the <span class="ph uicontrol">DITA Maps Manager</span>,
+            simply double-click it (or right-click it and select <span class="ph uicontrol">Open</span>).</li>
+          <li class="li" id="eppo-pathfinder-documents__open-map-editor-li">To open a map in the XML editor from the <span class="ph uicontrol">DITA Maps
+              Manager</span>, right-click it and select <span class="ph uicontrol">Open Map in
+              Editor</span>.</li>
+          <li class="li">Drag a <dfn class="term">DITA map</dfn> file from your system browser and drop it in the XML
+            editor. This will open the map in the editor.</li>
+          <li class="li">If you open a file with the <span class="ph filepath">.ditamap</span> or
+              <span class="ph filepath">.bookmap</span> extension (from the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> or a system browser), a dialog box is
+            opened that offers you the choice of opening it in the XML editor or in the
+              <span class="ph uicontrol">DITA Maps Manager</span>.<div class="note note note_note"><span class="note__title">Note:</span> If you select the <span class="ph uicontrol">Do not
+                show the dialog again</span> option, it will always be opened in the method
+              that you choose and you will not be asked in the future. However, you can reset this
+              by selecting <span class="ph uicontrol">Always ask</span> for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__when-opening-dlentry"><span class="ph uicontrol">When
+                  opening a map</span> option in the <span class="ph uicontrol">DITA</span> preferences
+                page</a>.</div></li>
+          <li class="li">To open a map in the <span class="ph uicontrol">DITA Maps Manager</span>,
+            you can right-click a map file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and select <span class="ph menucascade"><span class="ph uicontrol">Open with</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA Maps Manager</span></span>.</li>
+          
+          <li class="li">If you have a <dfn class="term">DITA map</dfn> file open in the XML
+            editor, you can open it in the <span class="ph uicontrol">DITA Maps Manager</span> by
+            right-clicking the title tab and selecting <span class="ph uicontrol">Open in DITA Maps Manager
+              View</span>.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="eppo-pathfinder-documents__chunking_dita_maps"><h2 class="title sectiontitle">Chunking DITA Maps</h2>
+      
+      <p class="p">By default, many output types place a single topic on each output page. In some cases you
+        may want to <a class="xref" href="eppo-chunking.html">output multiple topics as a single output page
+          (also known as chunking)</a>. To support this, <span class="ph">Oxygen XML Editor</span> provides an <a class="xref" href="dita-edit-properties.html#dita-edit-properties"><span class="ph uicontrol">Edit
+            Properties</span> dialog box</a> that allows you to easily configure the
+        attributes of a topic to control how your table of contents and topics are rendered in the
+        output.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-documents__validating_a_map"><h2 class="title sectiontitle">Validating a Map</h2>
+      
+      <p class="p">You should <a class="xref" href="dita-map-validate.html">validate your maps</a>
+        to make sure that the individual topics are valid and that the relationships between them
+        are working. <span class="ph">Oxygen XML Editor</span> provides a validation function for <dfn class="term">DITA
+          maps</dfn> that performs a comprehensive validation of a map and its topics.</p>
+    </section>
+    <p class="p">For more information about DITA editing, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/t2cG3Xe1TXY" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dita-maps-manager.html">DITA Maps Manager</a><br></li><li class="link olchildlink"><a href="../topics/creating-dita-map.html">Creating a Map</a><br></li><li class="link olchildlink"><a href="../topics/eppo-manage-map.html">Managing DITA Maps</a><br></li><li class="link olchildlink"><a href="../topics/eppo-chunking.html">Chunking DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/dita-map-validate.html">DITA Map Validation and Completeness Check</a><br></li><li class="link olchildlink"><a href="../topics/author-dita-map-extensions.html">DITA Map Author Mode Actions</a><br></li><li class="link olchildlink"><a href="../topics/dita-open-map-resolved-topics.html">Opening a DITA Map With Topic Content Resolved</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita.html" title="A guide to help content authors who create and publish DITA content">DITA Authoring</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/create-new-dita-project.html">Working with Projects in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-maps-manager.html">DITA Maps Manager</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-dita-map-doc-type.html#author-dita-map-doc-type">DITA Map Document Type (Framework)</a></li><li class="linklist"><a class="link" href="author-dita-map-extensions.html#author-dita-map-extensions">DITA Map Author Mode Actions</a></li></ul></div></nav>
+</article></main></body></html>

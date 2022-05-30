@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Branch Filtering"><meta name="keywords" content="DITA, Reusing content, Branch Filtering"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-reuse.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-keyscopes.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components-view.html"><meta name="DC.relation" scheme="URI" content="dita-keyscopes.html#dita-keyscopes"><meta name="DC.relation" scheme="URI" content="https://blog.oxygenxml.com/branchFilters/branchFilter.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/demo/DITA_13.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-branch-filtering"><title>Working with DITA 1.3 Branch Filtering</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-branch-filtering"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with DITA 1.3 Branch Filtering</h1>
+  
+  <div class="body">
+    <p class="p">DITA 1.3 allows you to use a mechanism called <em class="ph i">Branch Filtering</em> that enables you to set
+      filtering conditions for specific branches of a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+          map</dfn></a>. This makes it possible for multiple conditional profiles to be applied
+      within a single publication, each time with a different filter.</p>
+    <section class="section" id="dita-branch-filtering__branch_filtering_usecase"><h2 class="title sectiontitle">Branch Filtering Use-Case</h2>
+      
+      <p class="p">Suppose that you sell two models of a mobile phone and you need to create a brochure for
+        each model. You want both brochures to have the same structure and most of the content is
+        the same for both brochures. The only differences are in the values for certain details (for
+        example, the model name, size dimensions, battery life, etc.) Therefore, it would be helpful
+        if you could use the same topic and reference it twice in the same map, with each reference
+        using different filtering conditions. In DITA 1.2, this is not possible since you can only
+        apply one DITAVAL filter to a map. However, with the DITA 1.3 <em class="ph i">Branch Filtering</em>
+        mechanism, you can reuse content multiple times within the same map, each time using
+        different filters.</p>
+    </section>
+    <section class="section" id="dita-branch-filtering__how_to_use_branch_filtering"><h2 class="title sectiontitle">How to Use Branch Filtering in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">To use DITA 1.3 branch filtering in <span class="ph">Oxygen XML Editor</span>, follow these steps:<ol class="ol">
+          <li class="li">The support for DITA 1.3 must be enabled in the <a class="xref" href="preferences-dita.html#preferences-dita__ditaOT2x-dlentry">DITA preferences
+              page</a>.</li>
+          <li class="li">Assuming you have already <a class="xref" href="profiling-attributes-management.html#profiling-attributes-management">defined
+              your profiling attributes</a>, <a class="xref" href="dita-ditaval-file.html#dita-ditaval-file__how_to_create_a_ditaval_filter_file">create a DITAVAL filter file</a>.</li>
+          <li class="li">Insert a reference to the DITAVAL filter file in the <dfn class="term">DITA map</dfn>:<ol class="ol" type="a">
+              <li class="li">Right-click the <dfn class="term">DITA map</dfn> reference in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                    Manager</span></a> and select <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITAVAL Reference</span></span>.</li>
+              <li class="li">Select the DITAVAL file.</li>
+              <li class="li">Click <span class="ph uicontrol">Insert and Close</span>.</li>
+            </ol></li>
+          <li class="li">
+            <p class="p">Save the <dfn class="term">DITA map</dfn>.</p>
+            <p class="p"><strong class="ph b">Result:</strong> You can now see the <strong class="ph b">ditaval</strong> files referenced in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a> and when you transform the <dfn class="term">DITA map</dfn>,
+              filtered content will be reflected in the published output. </p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Branch Filtering in DITA Maps Manager</figcaption>
+                
+                <img class="image" src="../img/wa_branch_filtering.png">
+              </figure>
+            </div>
+          </li>
+        </ol></div>
+    </section>
+    <section class="section" id="dita-branch-filtering__resources"><h2 class="title sectiontitle">Resources</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li">You can find a more detailed example and download samples for reuse possibilities
+            based on key scopes in the <a class="xref" href="https://blog.oxygenxml.com/branchFilters/branchFilter.html" target="_blank" rel="external noopener"><em class="ph i">DITA 1.3 Branch Filtering - Next Generation of Reuse</em></a>
+            blog post.</li>
+          <li class="li">You can also watch our <a class="xref" href="https://www.oxygenxml.com/demo/DITA_13.html" target="_blank" rel="external noopener">DITA 1.3 video tutorial</a> to see how branch
+            filtering can be used in <span class="ph">Oxygen XML Editor</span>.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-reuse.html">Reusing DITA Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-keyscopes.html">Working with DITA 1.3 Key Scopes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-reusable-components-view.html">DITA Reusable Components View</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-keyscopes.html#dita-keyscopes">Working with DITA 1.3 Key Scopes</a></li><li class="linklist"><a class="link" href="https://blog.oxygenxml.com/branchFilters/branchFilter.html" target="_blank" rel="external noopener">Oxygen XML Blog: DITA 1.3 Branch Filtering - Next Generation of Reuse</a></li><li class="linklist"><a class="link" href="https://www.oxygenxml.com/demo/DITA_13.html" target="_blank" rel="external noopener">Oxygen Video Tutorial: DITA 1.3 (Key Scopes, Branch Filtering)</a></li></ul></div></nav>
+</article></main></body></html>

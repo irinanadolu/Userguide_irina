@@ -1,0 +1,104 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Tables,XHTML,XML documents,Author Mode editing,XHTML tables in Author Mode"><meta name="keywords" content="Author editing mode, Tables, XHTML, XML documents, Author Mode editing, XHTML tables in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/adding-tables-author.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-table-properties-2.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-xhtml.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-xhtml.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-table-xhtml"><title>Adding Tables in XHTML Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-table-xhtml"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Tables in XHTML Documents</h1>
+  
+  <div class="body">
+    <p class="p">You can use the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert Table</span> action
+      on the toolbar or from the contextual menu to add a table in an XHTML document. This action
+      opens the <span class="ph uicontrol">Insert Table</span> dialog box.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Insert Table Dialog Box in XHTML</figcaption>
+        
+        <img class="image" src="../img/xhtml_insert_table_html.png">
+      </figure>
+    </div>
+    <div class="p">The dialog box allows you to configure the following options:<dl class="dl">
+        
+          <dt class="dt dlterm" id="add-table-xhtml__table-insert-table"><span class="ph uicontrol">Caption</span></dt>
+          <dd class="dd">If this checkbox is selected, you can specify a title (caption) for your table in the
+            adjacent text box.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Table Size</span></dt>
+          <dd class="dd">Allows you to choose the number of <span class="ph uicontrol">Rows</span> and
+              <span class="ph uicontrol">Columns</span> for the table.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table header</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the top of the table to be used as the
+            table header.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table footer</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the bottom of the table to be used as
+            the table footer.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Column widths</span></dt>
+          <dd class="dd">Allows you to specify the type of properties for column widths (<code class="keyword markupname xmlatt">@width</code>
+            attribute). You can choose one of the following properties for the column width:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">proportional</span> - The width is specified in proportional
+                (relative) units of measure. The proportion of the column is specified in a
+                <code class="keyword markupname xmlatt">@width</code> attribute (in a <code class="keyword markupname xmlelement">&lt;col&gt;</code> element) with the
+                values listed as the number of shares followed by an asterisk. The value of the
+                shares is totaled and rendered as a percent. For example, <code class="ph codeph">width="1* 2*
+                  3*"</code> causes widths of 16.7%, 33.3%, and 66.7%. When entering content into
+                a cell in one column, the width proportions of the other columns are maintained. If
+                you change the width by dragging a column in <span class="ph uicontrol">Author</span> mode, the
+                values of the <code class="keyword markupname xmlatt">@width</code> attribute are automatically changed
+                accordingly. By default, when you insert, drag and drop, or copy/paste a column, the
+                value of the <code class="keyword markupname xmlatt">@width</code> attribute is <code class="ph codeph">1*</code>.</li>
+              <li class="li"><span class="ph uicontrol">dynamic</span> - If you choose this option, the columns are
+                created without a specified width. Entering content into a cell changes the rendered
+                width dynamically. If you change the width by dragging a column in
+                  <span class="ph uicontrol">Author</span> mode, a dialog box will be displayed that asks you
+                if you want to switch to proportional or fixed column widths.</li>
+              <li class="li"><span class="ph uicontrol">fixed</span> - The width is specified in fixed units. By default,
+                the <code class="ph codeph">pt</code> unit is inserted, but you can change the units in the
+                section above the table or in <span class="ph uicontrol">Text</span> mode. In addition to the
+                standard pixel, percentage, and relative values, this attribute also allows the
+                special form “0*” (zero asterisk), which means that the width of each column in the
+                group should be the minimum width necessary to hold the contents. </li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. There are a variety of allowed
+            values, as specified in HTML specifications.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Alignment</span></dt>
+          <dd class="dd">Specifies the alignment of the text within the table (<code class="keyword markupname xmlatt">@align</code>
+            attribute). The allowed values are:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">left</span> - Aligns the text to a left position.</li>
+              <li class="li"><span class="ph uicontrol">right</span> - Aligns the text to a right position.</li>
+              <li class="li"><span class="ph uicontrol">center</span> - Aligns the text to a centered position.</li>
+              <li class="li"><span class="ph uicontrol">justify</span> - Stretches the line of text so that it has equal
+                width. Note that this value cannot be rendered in <span class="ph uicontrol">Author</span>
+                mode, so you will only see it in the output.</li>
+              <li class="li"><span class="ph uicontrol">char</span> - Aligns text to the leftmost occurrence of the value
+                specified on the <code class="keyword markupname xmlatt">@char</code> attribute for alignment.</li>
+            </ul></dd>
+        
+      </dl><div class="note note note_note"><span class="note__title">Note:</span> The options in the <span class="ph uicontrol">Insert Table</span> dialog box for XHTML
+        documents are persistent, so changes made in one session will carry over to
+      another.</div></div>
+    <p class="p">When you click <span class="ph uicontrol">Insert</span>, an HTML style of table is inserted into your
+      XHTML document at the current cursor position.</p>
+    <p class="p">When you insert an HTML table, you see a link for setting the <code class="keyword markupname xmlelement">&lt;colspecs&gt;</code>
+      (column specifications) of your table. Click the link to open the controls that allow you to
+      adjust various column properties. Although they appear as part of the <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>, the
+        <em class="ph i">colspecs</em> link and its controls will not appear in your output. They are
+      just there to make it easier to adjust how the columns of your table are formatted.</p>
+    <section class="section" id="add-table-xhtml__editing_an_existing_table"><h2 class="title sectiontitle">Editing an Existing Table</h2>
+      
+      <p class="p">You can edit the structure of an existing table using the table buttons on the toolbar (or
+        in the contextual menu) to add or remove cells, rows, or columns, and to set basic table
+        properties. Additional attributes can be used to fine-tune the formatting of your tables by
+        using the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> (<span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Attributes</span></span>). Also, remember that underneath the visual representation, the table is
+        really just XML. If necessary, you can edit the XML directly by switching to <a class="xref" href="text-mode-editor.html#text-mode-editor"><strong class="ph b">Text</strong> mode</a>.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/author-editing-tables-xhtml.html">XHTML Table Layout</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/adding-tables-author.html">Adding Tables in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-table-properties-2.html">Editing Table Properties in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-editing-tables-xhtml.html">XHTML Table Layout</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content="Error: Startup crash - Fault Module Name nvoglv32.dll"><meta name="keywords" content="Error: Startup crash - Fault Module Name nvoglv32.dll"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/java-graphics-card-driver-compatibility-issue.html"><meta name="DC.relation" scheme="URI" content="../topics/crash-java-runtime.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="crash-at-startup-on-windows-nvoglv32"><title>Crash at Startup on Windows with an Error About the nvoglv32.dll File</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="crash-at-startup-on-windows-nvoglv32"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Crash at Startup on Windows with an Error About the nvoglv32.dll File</h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="crash-at-startup-on-windows-nvoglv32__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">I try to start <span class="ph">Oxygen XML Editor</span> on Windows but it crashed with an error message about
+          <q class="q">Fault Module Name: nvoglv32.dll</q>. What is the problem?</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="crash-at-startup-on-windows-nvoglv32__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">It is most likely an OpenGL driver issue.</p>
+      </section>
+      <section class="section remedy" id="crash-at-startup-on-windows-nvoglv32__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">This can be avoided by creating an empty file called <span class="ph filepath">opengl32.dll</span>
+            in the <span class="ph">Oxygen XML Editor</span> install folder (if you start <span class="ph">Oxygen XML Editor</span> with
+            the shortcut created by the installer on the Start menu or on Desktop) or in the
+            subfolder <span class="ph filepath">bin</span> of the home folder of the Java virtual machine that
+            runs <span class="ph">Oxygen XML Editor</span> (if you start <span class="ph">Oxygen XML Editor</span> with the
+              <span class="ph filepath">oxygen.bat</span> script). The home folder of the Java virtual machine
+            that runs <span class="ph">Oxygen XML Editor</span> is the value of the <code class="ph codeph">java.home</code> property
+            that is available in the <span class="ph uicontrol">System properties</span> tab of the
+              <span class="ph uicontrol">About</span> dialog box (<span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">About</span></span>).</p>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/java-graphics-card-driver-compatibility-issue.html">Compatibility Issue Between Java and Certain Graphics Card Drivers</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/crash-java-runtime.html">Crash in Java Runtime Thread</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-view.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-refresh.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-drag-and-drop.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="working-copy-menu"><title>Working Copy View Contextual Menu Actions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="working-copy-menu"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working Copy View Contextual Menu Actions</h1>
+  <div class="body">
+    <div class="p">The contextual menu in the <span class="ph uicontrol">Working Copy</span> view contains the following
+      actions: <dl class="dl">
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_edit_conflict"><span class="ph uicontrol">Edit conflict <span class="keyword shortcut">(Ctrl + E (Command + E on OS
+              X))</span></span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Compare</span> editor, allowing you to modify the content of
+            the currently conflicting resources. For more information about editing conflicts, see
+              <a class="xref" href="edit-conflict.html">Edit conflicts</a>. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open in Compare Editor <span class="keyword shortcut">(Ctrl + Alt + C (Command + Alt + C on OS
+                X))</span></span></dt>
+          <dd class="dd">Displays changes made in the currently selected file.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open <span class="keyword shortcut">(Ctrl + O (Command + O on OS X))</span></span></dt>
+          <dd class="dd">Opens the selected resource from the working copy. Files are opened with an internal
+            editor or an external application associated with that file type, while folders are
+            opened with the default file system browsing application (Windows Explorer on Windows,
+            Finder on OS X, etc).</dd>
+        
+        
+        
+          <dt class="dt dlterm"><strong class="ph b">Open with...</strong></dt>
+          <dd class="dd">Submenu that allows you to open the selected resource either with <span class="ph">Oxygen XML Editor</span>
+            or with another application. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__show-in-explorer"><span class="ph uicontrol">Show in Explorer</span>/<span class="ph uicontrol">Show in Finder</span></dt>
+          <dd class="dd">Opens the parent directory of the selected working copy file and selects the
+            file.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_expand_all"><span class="ph uicontrol"><img class="image" src="../img/ExpandAll16.png">Expand All
+                <span class="keyword shortcut">(Ctrl + Alt + X (Command + Alt + X on OS X))</span></span></dt>
+          <dd class="dd">Displays all descendants of the selected folder. The same behavior is obtained by
+            double-clicking a collapsed folder.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_ykg_t2w_sr" src="../img/SVNRefresh16.png">Refresh<span class="keyword shortcut">(F5)</span></span></dt>
+          <dd class="dd">Re-scans the selected resources recursively and refreshes their status in the working
+            copy view.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_synchronize"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_enc_2c3_5r" src="../img/SVNSynchronize16.png">Synchronize <span class="keyword shortcut">(Ctrl + Shift + S (Command + Shift + S on OS
+              X))</span></span></dt>
+          <dd class="dd">Connects to the repository and determines the working copy and repository changes made
+            to the selected resources. The application switches to <span class="ph uicontrol">Modified</span>
+            view mode if the <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy"><span class="ph uicontrol">Always switch to 'Modified' mode</span> option</a> is selected. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Update <span class="keyword shortcut">(Ctrl + U (Command + U on OS
+            X))</span></span></dt>
+          <dd class="dd">Updates the selected resources to the <em class="ph i">HEAD</em> revision (latest modifications) from
+            the repository. If the selection contains a directory, it will be updated depending on
+            its depth. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_update_rev_depth"><span class="ph uicontrol">Update to revision/depth</span></dt>
+          <dd class="dd">Allows you to update the selected resources from the working copy to an earlier
+            revision from the repository. You can also select the update <em class="ph i">depth</em> for the
+            current folder. You can find out more about the <em class="ph i">depth</em> term in the <a class="xref" href="sparse-checkouts.html">sparse checkouts</a> section. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_commit"><span class="ph uicontrol">Commit</span></dt>
+          <dd class="dd">Collects the outgoing changes from the selected resources in the working copy and
+            allows you to choose exactly what resources to commit. A directory will always be
+            committed recursively. Unversioned resources will be deselected by default. In the
+              <span class="ph uicontrol">Commit</span> dialog box you can also enter a comment before sending
+            your changes to the repository.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_revert"><span class="ph uicontrol"><img class="image" src="../img/SVNRevert16.png">Revert
+                <span class="keyword shortcut">(Ctrl + Shift + V (Command + Shift + V on OS
+            X))</span></span></dt>
+          <dd class="dd">Undoes all local changes for the selected resources. It does not contact the
+            repository and the files are obtained from the Apache Subversion™
+            pristine copy. It is available only for modified resources. See <a class="xref" href="revert-changes.html">Revert your changes</a> for more information. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_override_update"><span class="ph uicontrol">Override and Update</span></dt>
+          <dd class="dd">Drops any outgoing change and replaces the local resource with the HEAD revision. This
+            action is available on resources with outgoing changes, including conflicting ones. See
+            the <a class="xref" href="revert-changes.html">Revert your changes</a> section. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_override_commit"><span class="ph uicontrol">Override and Commit</span></dt>
+          <dd class="dd">Drops any incoming changes and sends your local version of the resource to the
+            repository. This action is available on conflicting resources. For more information see
+              <a class="xref" href="drop-incoming.html">Drop incoming modifications</a>. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_mark_resolved"><span class="ph uicontrol"><img class="image" src="../img/SVNMarkResolved16.png">Mark
+              Resolved <span class="keyword shortcut">(Ctrl + Shift + R (Command + Shift + R on OS
+              X))</span></span></dt>
+          <dd class="dd">Instructs the Subversion system that you resolved a conflicting resource. For more
+            information, see <a class="xref" href="merge-conflicts.html">Merge conflicts</a>. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_mark_merged"><span class="ph uicontrol"><img class="image" src="../img/SVNMarkAsMerged16.png">Mark as
+              Merged <span class="keyword shortcut">(Ctrl + Shift + M (Command + Shift + M on OS
+              X))</span></span></dt>
+          <dd class="dd">Instructs the Subversion system that you resolved the pseudo-conflict by merging the
+            changes and you want to commit the resource. Read the <a class="xref" href="merge-conflicts.html">Merge conflicts</a> section for more information about how you can solve the
+            pseudo-conflicts.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_create_patch"><span class="ph uicontrol"><img class="image" src="../img/SVNPatch16.png">Create patch
+                <span class="keyword shortcut">(Ctrl + Alt + P (Command + Alt + P on OS X))</span></span></dt>
+          <dd class="dd">Allows you to create a file containing all the differences between two resources,
+            based on the <code class="ph codeph">svn diff</code> command. To read more about creating patches, see
+              <a class="xref" href="create-patch-wc-repository.html" title="This type of patch contains changes between an old revision and the current content from the selected item within the working copy.">the section about
+            patches</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare with</span>:</dt>
+          <dd class="dd"><ul class="ul">
+              <li class="li"><span class="ph uicontrol">Latest from HEAD <span class="keyword shortcut">(Ctrl + Alt + H (Command + Alt + H on OS
+                    X))</span></span> - Performs a 3-way diff operation between the
+                selected file and the <em class="ph i">HEAD</em> revision from the repository and displays the
+                result in the <span class="ph uicontrol">Compare view</span>. The common ancestor of the 3-way
+                diff operation is the <em class="ph i">BASE</em> version of the file from the local working
+                copy.</li>
+              <li class="li"><span class="ph uicontrol">BASE revision <span class="keyword shortcut">(Ctrl + Alt + C (Command + Alt + C on OS
+                    X))</span></span> - Compares the working copy file with the BASE
+                revision file (the so-called <em class="ph i">pristine copy</em>).</li>
+              <li class="li"><span class="ph uicontrol">Revision <span class="keyword shortcut">(Ctrl + Alt + R (Command + Alt + R on OS
+                    X))</span></span> - Displays the <span class="ph uicontrol">History view</span>
+                that contains the log history of that resource.</li>
+              <li class="li"><span class="ph uicontrol">Branch/Tag</span> - Opens the <span class="ph uicontrol">Compare with
+                  Branch/Tag</span> dialog box that allows you to specify <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">another file from the repository</a> (<span class="ph uicontrol">To URL</span> field) to
+                compare with the working copy file. You can specify the revision of the repository
+                file by choosing between <span class="ph uicontrol">HEAD revision</span> or specific
+                  <span class="ph uicontrol">Other revision</span>.<div class="note tip note_tip"><span class="note__title">Tip:</span> To compare with a file that
+                  was deleted, moved, or replaced, you need to specify the original URL (before the
+                  file was removed) and use a <a class="xref" href="using-peg-revisions.html#using-peg-revisions"><dfn class="term">peg</dfn>
+                    revision</a> at the end (for example,
+                <code class="ph codeph">URL@rev1234</code>).</div></li>
+              <li class="li"><span class="ph uicontrol">Each other</span> - Compares two selected files with each
+                other.</li>
+            </ul> These <em class="ph i">compare</em> actions are available only if the selected resource is a
+            file. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace with</span>:</dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><span class="ph uicontrol">Latest from HEAD</span> - Replaces the selected resources with
+                their versions from the <em class="ph i">HEAD</em> revision of the repository.</li>
+              <li class="li"><span class="ph uicontrol">BASE revision</span> - Replace the selected resources with their
+                versions from the pristine copy (the BASE revision).</li>
+            </ul>
+            <div class="note note note_note"><span class="note__title">Note:</span> In some cases it is impossible to replace the currently selected resources with
+              their versions from the <em class="ph i">BASE/HEAD</em> revision:<ul class="ul">
+                <li class="li">For the <span class="ph uicontrol">Replace with BASE revision</span> action, the resources
+                  being unversioned or added have no <em class="ph i">BASE</em> revision, and thus cannot be
+                  replaced. However, they will be deleted if the action is invoked on a parent
+                  folder. The action will never work for missing folders or for obstructing files
+                  (folders being obstructed by a file), since you cannot recover a tree of
+                  folders.</li>
+                <li class="li">For the <span class="ph uicontrol">Replace with latest from HEAD</span> action, you must be
+                  aware that there are cases when resources will be completely deleted or reverted
+                  to the BASE revision and then updated to a HEAD revision to avoid conflicts. These
+                  cases are:<ul class="ul">
+                    <li class="li">The resource is <em class="ph i">unversioned</em>, <em class="ph i">added</em>, <em class="ph i">obstructed</em>, or
+                        <em class="ph i">modified</em>.</li>
+                    <li class="li">The resource is affected by a <code class="ph codeph">svn:ignore</code> or
+                        <code class="ph codeph">svn:externals</code> property that is locally added on the parent
+                      folder and not yet committed to the repository.</li>
+                  </ul></li>
+              </ul></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_dmy_k13_5r" src="../img/SVNDockableFrameHistory16.png">Show History <span class="keyword shortcut">(Ctrl  + H (Command  + H on OS
+            X))</span></span></dt>
+          <dd class="dd">Displays the <span class="ph uicontrol">History view</span> where the log history for the
+            selected resource will be presented. For more details about resource history, see the
+            sections about <a class="xref" href="history-view.html">the resource history view</a> and <a class="xref" href="show-history.html">requesting the history for a resource</a>. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__show-annotation-action-dlentry"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_ufv_db3_5r" src="../img/SVNAnnotationsView16.gif">Show
+              Annotation</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="working-copy-menu__ctrl_shift_a_shortcut">Ctrl + Shift
+                    + A (Command + Shift + A on OS X)</span></span>)</dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Show Annotation</span> dialog box that computes <a class="xref" href="annotations-view.html#annotations-view">the annotations for a file and displays
+              them in the <span class="ph uicontrol">Annotations</span> view</a>, along with the history of
+            the file in the <span class="ph uicontrol">History</span> view. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_pvl_jb3_5r" src="../img/SVNRevisionGraph16.gif">Revision
+              Graph <span class="keyword shortcut">(Ctrl + G (Command + G on OS X))</span></span></dt>
+          <dd class="dd">This action allows you to see the graphical representation history of a resource. For
+            more details about the revision graph of resources, see <a class="xref" href="svn-history-graph.html">Revision Graph</a>. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy URL Location <span class="keyword shortcut">(Ctrl + Alt + U (Command + Alt + U  on OS
+                X))</span></span></dt>
+          <dd class="dd">Copies the encoded URL of the selected resource from the Working Copy to the
+            clipboard.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__mark-as-copied"><span class="ph uicontrol">Mark as copied</span></dt>
+          <dd class="dd">You can use this action to mark an item from the working copy as a copy of another
+            item under <em class="ph i">version control</em>, when the copy operation was performed outside of an
+            SVN client. The <span class="ph uicontrol">Mark as copied</span> action is available when you
+            select two items (both the new item and source item), and it depends on the state of the
+            source item. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__mark-as-moved"><span class="ph uicontrol">Mark as moved</span></dt>
+          <dd class="dd">You can use this action to mark an item from the working copy as being moved from
+            another location of the working copy, when the move operation was performed outside of
+            an SVN client. The <span class="ph uicontrol">Mark as moved</span> action is available when you
+            select two items from different locations (both the new item and the source item that is
+            usually reported as <em class="ph i">missing</em>), and it depends on the state of the source
+            item.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__mark-as-renamed"><span class="ph uicontrol">Mark as renamed</span></dt>
+          <dd class="dd">You can use this action to mark an item from the working copy as being renamed outside
+            of an SVN client. The <span class="ph uicontrol">Mark as renamed</span> action is available when
+            you select two items from the same directory (both the new item and the source item that
+            is usually reported as <em class="ph i">missing</em>), and it depends on the state of the source
+            item.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SVNCopyMove16.png">Copy
+              to</span></dt>
+          <dd class="dd">Copies the currently selected resource to a specified location.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Move to </span> (<span class="ph uicontrol"><span class="keyword shortcut" id="working-copy-menu__ctrl_m_shortcut">Ctrl + M (Command + M on
+                    OS X)</span></span>)</dt>
+          <dd class="dd">Moves the currently selected resource to a specified location.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Rename <span class="keyword shortcut">(F2)</span></span></dt>
+          <dd class="dd">As with the move command, a copy of the original resource will be made with the new
+            name and the original will be marked as deleted. Note that you can only rename one
+            resource at a time. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_i5f_wbp_5r" src="../img/SVNDelete16.gif">Delete
+                <span class="keyword shortcut">(Delete)</span></span></dt>
+          <dd class="dd">Schedules selected items for deletion upon the next commit and removes them from the
+            disk. Depending on the state of each item, you are prompted to confirm the
+            operation.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__working-copy-new-menu-item"><span class="ph uicontrol">New</span>:</dt>
+          <dd class="dd">
+            <div class="p">
+              <ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNNewFile16.png">New
+                    File</span> - Creates a new file inside the selected folder. The newly
+                  created file will be added under version control only if the parent folder is
+                  already versioned.</li>
+                <li class="li"><span class="ph uicontrol">New Folder <span class="keyword shortcut">(Ctrl + Shift + F (Command + Shift + F on OS
+                      X))</span></span> - Creates a child folder inside the selected
+                  folder. The newly created folder will be added under version control only if its
+                  parent is already versioned.</li>
+                <li class="li">
+                  <div class="p"><span class="ph uicontrol">New External Folder <span class="keyword shortcut">(Ctrl + Shift + W (Command + Shift + W
+                        on OS X))</span></span> - This operation allows you to add a new
+                    external definition on the selected folder. An external definition is a mapping
+                    of a local directory to <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">a
+                      URL of a versioned directory</a>, and ideally a particular revision, stored
+                    in the <code class="ph codeph">svn:externals</code> property of the selected folder.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can specify a particular revision of the external item by using
+                      a <a class="xref" href="using-peg-revisions.html#using-peg-revisions"><dfn class="term">peg</dfn> revision</a> at the end of the URL (for example,
+                        <code class="ph codeph">URL@rev1234</code>). You can also use peg revisions to access
+                      external items that were deleted, moved, or replaced. </div></div>
+                  <div class="p">The URL used in the external definition format can be relative. You can specify
+                    the repository URL that the external folder points to by using one of the
+                    following relative formats: <ul class="ul" id="working-copy-menu__ul_bfw_5xv_g4">
+                      <li class="li"><strong class="ph b">../</strong> - Relative to the URL of the directory that the
+                          <code class="ph codeph">svn:externals</code> property is set.</li>
+                      <li class="li"><strong class="ph b">^/</strong> - Relative to the root of the repository where the
+                          <code class="ph codeph">svn:externals</code> property is versioned.</li>
+                      <li class="li"><strong class="ph b">//</strong> - Relative to the scheme of the URL of the directory that the
+                          <code class="ph codeph">svn:externals</code> property is set.</li>
+                      <li class="li"><strong class="ph b">/</strong> - Relative to the root URL of the server that has the
+                          <code class="ph codeph">svn:externals</code> property versioned. </li>
+                    </ul></div>
+                  <div class="p">
+                    <div class="note important note_important"><span class="note__title">Important:</span> To change the target URL of an external definition, or to
+                      delete an external item, do the following:<ol class="ol" id="working-copy-menu__ol_nk2_klr_qq">
+                        <li class="li">Modify or delete the item definition found in the
+                            <code class="ph codeph">svn:externals</code> property that is set on the parent
+                          folder.</li>
+                        <li class="li">For the change to take effect, use the <span class="ph uicontrol">Update</span>
+                          operation on the parent folder of the external item.</li>
+                      </ol></div>
+                    <div class="note note note_note"><span class="note__title">Note:</span> Syncro SVN Client does not support definitions of local
+                      relative external items.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_svn_ignore"><span class="ph uicontrol">Add to "svn:ignore" <span class="keyword shortcut">(Ctrl + Alt + I (Command + Alt + I on OS
+                X))</span></span></dt>
+          <dd class="dd">Allows you to add files that should not participate in the <em class="ph i">version control</em>
+            operations inside your working copy. This action can only be performed on resources not
+            under <em class="ph i">version control</em>. It actually modifies the value of the
+              <code class="ph codeph">svn:ignore</code> property in the parent directory of the resource. Read
+            more about this in the <a class="xref" href="ignore-resources-working-copy.html#ignore-resources-working-copy">Ignore Resources Not Under Version Control</a> section. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_add_version_control"><span class="ph uicontrol"><img class="image" src="../img/SVNAdd16.png">Add to version
+              control <span class="keyword shortcut">(Ctrl + Alt + V (Command + Alt + V on OS
+            X))</span></span></dt>
+          <dd class="dd">Allows you to add resources that are not under <em class="ph i">version control</em>. For
+            further details, see <a class="xref" href="add-resources-working-copy.html#add-resources-working-copy">Add Resources to
+              Version Control </a> section. </dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__remove-from-version-control"><span class="ph uicontrol">Remove from version control</span></dt>
+          <dd class="dd">Schedules the selected items for deletion from the repository upon the next commit.
+            The items are not removed from the file system after committing.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_cleanup"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_m4x_kcp_5r" src="../img/SVNCleanUpWorkingCopy16.png">Clean up <span class="keyword shortcut">(Ctrl + Shift + C (Comman + Shift + Cd on OS
+              X))</span></span></dt>
+          <dd class="dd">Performs a maintenance cleanup operation on the selected resources from the working
+            copy. This operation removes the Subversion maintenance locks that were left behind.
+            This is useful when you already know where the problem originated and want to fix it as
+            quickly as possible. It is only active for resources under <em class="ph i">version
+            control</em>.</dd>
+        
+        
+          <dt class="dt dlterm" id="working-copy-menu__action_locking"><span class="ph uicontrol">Locking</span>:</dt>
+          <dd class="dd">
+            <div class="p">
+              <ul class="ul">
+                <li class="li"><span class="ph uicontrol">Scan for locks <span class="keyword shortcut">(Ctrl + L (Command + L on OS
+                    X))</span></span> - Contacts the repository and recursively obtains the
+                  list of locks for the selected resources. A dialog box containing the locked files
+                  and the lock description will be displayed. This is only active for resources
+                  under <em class="ph i">version control</em>. For more details see <a class="xref" href="scan-locks.html">Scanning for locks</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/Lock16.png">Lock
+                      <span class="keyword shortcut">(Ctrl + K (Command + K on OS X))</span></span> - Allows you
+                  to lock certain files that need exclusive access. You can write a comment
+                  describing the reason for the lock and you can also force (<em class="ph i">steal</em>) the lock.
+                  This action is active only on files under <em class="ph i">version control</em>. For more details
+                  on the use of this action see <a class="xref" href="lock-file.html"> Locking a
+                  file</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/Unlock16.png">Unlock
+                      <span class="keyword shortcut">(Ctrl + Alt + K (Command + Alt + K on OS X))</span></span>
+                  - Releases the exclusive access to a file from the repository. You can also choose
+                  to unlock it by force (<em class="ph i">break the lock</em>). </li>
+              </ul>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SVNProperties16.png">Show SVN
+              Properties</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="working-copy-menu__ctrl_p_shortcut">Ctrl + P (Command + P on
+                    OS X)</span></span>) </dt>
+          <dd class="dd">Brings up the <a class="xref" href="properties-view.html">Properties view</a> and displays
+            the SVN properties for the selected resource. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="working-copy-menu__image_el1_rcp_5r" src="../img/SVNInfo16.png">Show SVN
+              Information</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="working-copy-menu__ctrl_i_shortcut">Ctrl + I (Command + I on
+                    OS X)</span></span>)</dt>
+          <dd class="dd">Provides additional information for the selected resource from the working copy. For
+            more details, go to <a class="xref" href="show-info.html">Obtain information for a
+            resource</a>. </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-copy-view.html">Working Copy View</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/working-copy-refresh.html">Refresh a Working Copy</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/working-copy-drag-and-drop.html">Drag and Drop Operations</a></div></div></nav></article></main></body></html>

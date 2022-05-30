@@ -1,0 +1,128 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XPath Expressions,Toolbar"><meta name="keywords" content="XPath Expressions, Toolbar"><meta name="DC.relation" scheme="URI" content="../topics/running-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/running-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-builder-view.html"><meta name="DC.relation" scheme="URI" content="xpath-results.html#xpath-results"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xpath-toolbar"><title>XPath Toolbar</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xpath-toolbar"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XPath Toolbar</h1>
+  
+  <div class="body">
+    <p class="p">XPath is a query language for selecting nodes from an XML document. To use XPath expressions
+      effectively, you need a good understanding of <a class="xref" href="http://www.w3.org/TR/xpath#corelib" target="_blank" rel="external noopener">the XPath Core Function Library</a>. </p>
+    <section class="section" id="xpath-toolbar__xpath_toolbar"><h2 class="title sectiontitle">XPath Toolbar</h2>
+      
+      <p class="p"><span class="ph"><span class="ph">Oxygen XML Editor</span> provides an XPath toolbar to let you query XML documents fast
+          and easy using XPath expressions.</span></p>
+      <div class="p">
+        <figure class="fig fignone" id="xpath-toolbar__fig_isj_2tc_vn"><figcaption><span class="fig--title-label">Figure 1. </span>XPath Toolbar</figcaption>
+          
+          <img class="image" id="xpath-toolbar__image_zz3_htc_vn" src="../img/sa-xpath-toolbar.png">
+        </figure>
+      </div>
+      <div class="p">The XPath toolbar includes the following features:<dl class="dl">
+          
+            <dt class="dt dlterm">XPath version chooser drop-down menu</dt>
+            <dd class="dd">
+              <p class="p">You can choose the XPath version from the drop-down menu available in the left side
+                of the toolbar. Available options include <span class="ph uicontrol">XPath 1.0</span>,
+                  <span class="ph uicontrol">XPath 2.0</span>, <span class="ph uicontrol">XPath 2.0 SA</span>,
+                  <span class="ph uicontrol">XPath 3.1</span>, <span class="ph uicontrol">XPath 3.1 SA</span>.</p>
+              <div class="p">
+                <div class="note note note_note"><span class="note__title">Note:</span> The <strong class="ph b">XPath 2.0 SA</strong> and <strong class="ph b">XPath 3.1 SA</strong> options have some limitations.
+                  These options only offer information about the beginning part of the matching
+                  result. For example, if you search for an element, it will only highlight the
+                  start tag.</div>
+                <div class="note warning note_warning"><span class="note__title">Warning:</span> <span class="ph">Oxygen XML Editor</span> uses Saxon to execute XPath 3.1
+                  expressions, but implements a part of the 3.1 functions. When using a function
+                  that is not implemented, <span class="ph">Oxygen XML Editor</span> can return a compilation
+                  error.</div>
+              </div>
+            </dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">XPath scope</span> menu</dt>
+          <dd class="dd">
+            <div class="p"><span class="ph"><span class="ph">Oxygen XML Editor</span></span> allows you to define a scope for the XPath operation
+              to be executed. You can choose where the XPath expression will be executed:<ul class="ul" id="xpath-toolbar__ul_rxh_hx1_1jb">
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_sxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeCurrentFile16.png">Current file</span> - Currently selected file
+                  only.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_txh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeProject16.png">Project</span> - All the files in the project.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_vxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeProjectSelection16.png">Selected project resources</span> - The files selected in the
+                  project.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_xxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeOpenedFiles16.png">All opened files</span> - All files that are
+                  opened in the application.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_yxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeDitaMap16.png">Current DITA
+                    Map hierarchy</span> - All resources referenced in the currently selected
+                    <dfn class="term">DITA map</dfn> that is open in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                      Maps Manager</span> view</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_zxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeArchive16.png">Opened archive</span> - Files that are opened in
+                  the <a class="xref" href="archive-browser-view.html#archive-browser-view"><span class="ph uicontrol">Archive Browser</span> view</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_ayh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeWorkingSets16.png">Working sets</span> - The selected <a class="xref" href="../glossary/working-set.html"><dfn class="term">working sets</dfn></a>.</li>
+              </ul></div>
+            <div class="p">At the bottom of the scope menu the following scope configuration actions are available:<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ConfigureSearchScope16.png">Configure XPath
+                    working sets</span> - Allows you to configure and manage collections of
+                  files and folders, encapsulated in logical containers called <a class="xref" href="../glossary/working-set.html"><dfn class="term">working sets</dfn></a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Filters16.png">XPath file filter</span>
+                  - You can filter the files from the selected scope that will have the XPath
+                  expression executed. By default, the XPath expression will be executed only on XML
+                  or JSON files, but you can also define a set of patterns that will filter out
+                  files from the current scope.<span class="ph"> If you select
+                    the <span class="ph uicontrol">Include archive</span> option, the XPath expression will be
+                    also executed on the files in any archive (including EPUB and DocX) found at the
+                    current scope.</span></li>
+              </ul></div>
+          </dd>
+        
+          
+            <dt class="dt dlterm">History drop-down list</dt>
+            <dd class="dd">The XPath combo box keeps a history of the last 15 expressions that were used so
+              that you can easily choose them again.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> menu</dt>
+            <dd class="dd">
+              <p class="p">The following actions are available in this drop-down menu:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/CaretUpdateOff16.png">XPath update on cursor
+                        move</span></dt>
+                    <dd class="dd">When selected and you navigate through a document, the XPath expression
+                      corresponding to the XML node at the current cursor position is displayed. For
+                      JSON documents, it displays the XPath expression for the current
+                      property.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XPathEvaluate16.png">Evaluate XPath as you
+                        type</span></dt>
+                    <dd class="dd">When you select this option, the XPath expression you are composing is
+                      evaluated in real time.<div class="note note note_note"><span class="note__title">Note:</span> This option and the automatic validation are
+                        disabled <span class="ph">when you edit <a class="xref" href="editing-large-documents.html#editing-large-documents">huge
+                            documents</a> or </span>when the scope is other than <span class="ph uicontrol">Current
+                          file</span>.</div></dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Options16.png">XPath
+                      Options</span></dt>
+                    <dd class="dd">Opens the Preferences page of the currently selected processing engine.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/XPath16.gif">Switch to XPath Builder
+              View</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="xpath-builder-view.html">XPath Builder
+            view</a>.</dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <div class="note note note_note"><span class="note__title">Note:</span> During the execution of an XPath expression, the XPath toolbar displays a
+          <span class="ph uicontrol"><img class="image" id="xpath-toolbar__image_yrp_s1p_5r" src="../img/StopExternalTool16.png">Stop</span> button. Use this button to stop the XPath execution.</div>
+    <p class="p">When you type expressions longer than 60 characters, a dialog box opens that offers you the
+      possibility to switch to the <a class="xref" href="xpath-builder-view.html"><span class="ph uicontrol">XPath
+          Builder</span> view</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/running-xpath-expressions.html" title="Information about using XPath Expressions in Oxygen XML Editor">Working with XPath Expressions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/running-xpath-expressions.html" title="Information about using XPath Expressions in Oxygen XML Editor">Working with XPath Expressions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xpath-builder-view.html">XPath Builder View</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xpath-results.html#xpath-results">XPath Expression Results View</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Classic,Use custom CSS"><meta name="keywords" content="WebHelp Classic, Use custom CSS"><meta name="DC.relation" scheme="URI" content="../topics/wh-classic-change-layout-styles.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp_skin_builder.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-add-custom-html-classic.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="webhelp-customization-css"><title>How to Use CSS Styling to Customize WebHelp Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="webhelp-customization-css"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Use CSS Styling to Customize WebHelp Output</h1>
+  
+  <div class="body">
+    <p class="p">The most common way to customize the look and style of your WebHelp output is to use custom
+      CSS styling. This method can be used to make small, simple styling changes or more advanced,
+      precise changes. To implement the styling in your WebHelp output, you simply need to create
+      the custom CSS file and reference it in your transformation scenario or script. This custom
+      file will be the final CSS to be applied so its content will override the styles in the other
+      pre-existing CSS files.</p>
+    <section class="section" id="webhelp-customization-css__using_css_inspector_to_identify_content_for_custo"><h2 class="title sectiontitle">Using the CSS Inspector to Identify Content for Custom CSS File</h2>
+      
+      <p class="p">You can use your browser's CSS inspector to identify the pertinent code in the current CSS
+        files and you can even make changes directly in the CSS inspector to test the results so
+        that you know exactly what content to use in your custom CSS file.</p>
+      <div class="p">In most popular browsers (such as Chrome, Firefox, and Edge), you can access the CSS
+        inspector by using <span class="ph uicontrol"><span class="keyword shortcut">F12</span></span> or by selecting
+          <span class="ph uicontrol">Inspect Element</span> (or simply <span class="ph uicontrol">Inspect</span>) from the
+        contextual menu.<div class="note tip note_tip"><span class="note__title">Tip:</span> When using Safari on Mac OS X, you must first enable the
+          Develop menu by going to the Advanced settings and selecting <span class="ph uicontrol">Show Develop menu
+            in menu bar</span>. Then you can select <span class="ph uicontrol">Show Web Inspector</span>
+          from the Develop menu or click <span class="ph uicontrol"><span class="keyword shortcut">Command + Option +
+            I</span></span>.</div></div>
+    </section>
+    <section class="section" id="webhelp-customization-css__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Referencing the Custom CSS Using Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To use a custom CSS to style WebHelp output and use a transformation scenario from within
+          <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Create your custom CSS file.</li>
+          <li class="li"><span class="ph">Edit the WebHelp transformation
+        scenario and open the <span class="ph uicontrol">Parameters</span> tab.</span> Set the
+              <code class="ph codeph">html.stylesheet</code> parameter to the path of your custom CSS file.</li>
+          <li class="li">Run the WebHelp transformation scenario to generate the output.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="webhelp-customization-css__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Referencing the Custom CSS Using a Script Outside of Oxygen XML Editor/Author</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> Running WebHelp transformations from a script outside of <strong class="ph b">Oxygen XML
+        Editor/Author</strong> requires an additional license and some additional setup:<ul class="ul">
+        <li class="li">You must have a valid license for the <strong class="ph b">Oxygen XML WebHelp Plugin</strong> (<a class="xref" href="https://www.oxygenxml.com/buy_webhelp.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/buy_webhelp.html</a>).</li>
+        <li class="li">The <strong class="ph b">Oxygen XML WebHelp Plugin</strong> must be installed and integrated.</li>
+      </ul></div>
+      <div class="p">To use a custom CSS to style WebHelp output and use a <a class="xref" href="using-the-webhelp-plugin-docbook.html">script outside of <strong class="ph b">Oxygen XML
+            Editor/Author</strong></a>, follow this procedure:<ol class="ol">
+          <li class="li">Create your custom CSS file.</li>
+          <li class="li">Reference your custom CSS file. Use the <code class="ph codeph">html.stylesheet</code> parameter in
+            your transformation script and set its value to the path of your custom CSS file.</li>
+          <li class="li">
+            <p class="p">Execute the transformation script.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/wh-classic-change-layout-styles.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp_skin_builder.html">WebHelp Skin Builder</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wh-add-custom-html-classic.html">How to Add Custom HTML Content in WebHelp Classic Output</a></div></div></nav></article></main></body></html>

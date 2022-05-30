@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="If the built-in form controls are not sufficient for your needs, you can implement custom form controls in Java."><meta name="DC.subject" content="CSS extensions,Custom form controls"><meta name="keywords" content="CSS extensions, Custom form controls"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-video-form-control.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-pis-using-form-controls.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="implementing-custom-form-controls"><title>Implementing Custom Form Controls</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="implementing-custom-form-controls"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Implementing Custom Form Controls</h1>
+  
+  
+  <div class="body"><p class="shortdesc">If the built-in form controls are not sufficient for your needs, you can implement
+    custom form controls in Java.</p>
+    <section class="section" id="implementing-custom-form-controls__custom_form_controls_implementation"><h2 class="title sectiontitle">Custom Form Controls Implementation</h2>
+      
+      <div class="p">You can specify custom form controls using the following properties:<ul class="ul" id="implementing-custom-form-controls__ul_r3b_3wy_js">
+          <li class="li"><span class="ph uicontrol">rendererClassName</span> - The name of the class that draws the edited
+            value. It must be an implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/InplaceRenderer.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.InplaceRenderer</em></a>. The renderer has
+            to be a <strong class="ph b">SWING</strong> implementation and can be used both in the standalone and Eclipse
+            distributions.</li>
+          <li class="li"><span class="ph uicontrol">swingEditorClassName</span> - You can use this property for the
+            standalone (<strong class="ph b">Swing</strong>-based) distribution to specify the name of the class used for
+            editing. It is a <strong class="ph b">Swing</strong> implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/InplaceEditor.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.InplaceEditor</em></a>.</li>
+          <li class="li"><span class="ph uicontrol">swtEditorClassName</span> - You can use this property for the Eclipse
+            plugin distribution to specify the name of the class used for editing. It is a
+              <strong class="ph b">SWT</strong> implementation of the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/InplaceEditor.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.InplaceEditor</em></a>.<div class="note note note_note"><span class="note__title">Note:</span> If the custom
+              form control is intended to work in the <span class="ph">Oxygen XML Editor</span> standalone
+              distribution, the declaration of <span class="ph uicontrol">swtEditorClassName</span> is not
+              required. The <strong class="ph b">renderer</strong> (the class that draws the value) has different
+              properties from the <strong class="ph b">editor</strong> (the class that edits the value) because you can
+              present a value in one way and edit it in another.</div></li>
+          <li class="li" id="implementing-custom-form-controls__classpath"><span class="ph uicontrol">classpath</span> - You can use this property to specify
+            the location of the classes used for a custom form control. The value of the
+              <span class="ph uicontrol">classpath</span> property is an enumeration of URLs separated by
+            comma.</li>
+          <li class="li"><span class="ph uicontrol">edit</span> - If your form control edits the value of an attribute or
+            the text value of an element, you can use the <code class="ph codeph">@attribute_name</code> and
+              <code class="ph codeph">#text</code> predefined values and <span class="ph">Oxygen XML Editor</span> will perform the
+            commit logic by itself. You can use the <code class="ph codeph">custom</code> value to perform the
+            commit logic yourself.</li>
+          <li class="li">
+            <p class="p"><strong class="ph b">saHeavyFormControlClassName</strong> - This type of form control is effectively present
+              at all times at its allocated bounds. This is useful if you need a form control that
+              renders dynamic or interactive SVG documents (for example, if you have an SVG document
+              that displays tooltips when hovering over certain areas). It is also helpful if you
+              want to use JavaFX, since JavaFX-based form controls are not compatible with the
+              classic form control architecture.</p>
+            <p class="p">The value of this property is a class name that must implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/InplaceHeavyEditor.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.InplaceHeavyEditor</em></a> method. The
+                <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> that contains this
+              implementation can either be added in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab in the <span class="ph uicontrol">Document Type
+                  Configuration</span> dialog box</a> for your particular <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> or specified with the
+                <a class="xref" href="implementing-custom-form-controls.html#implementing-custom-form-controls__classpath"><code class="ph codeph">classpath</code> property</a>.</p>
+          </li>
+          
+        </ul></div>
+    </section>
+    <section class="section" id="implementing-custom-form-controls__example_java_code"><h2 class="title sectiontitle">Example: Java Code</h2>
+      
+      <p class="p">The following is a sample Java code for implementing a custom combo box form control that
+        inserts an XML element in the content when the editing stops:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> ComboBoxEditor  <strong class="hl-keyword">extends</strong> AbstractInplaceEditor {
+  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.editor.InplaceEditor#stopEditing()
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+   <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> stopEditing() {
+     Runnable customCommit =  <strong class="hl-keyword">new</strong> Runnable() {
+      <em><span class="hl-annotation">@Override</span></em>
+       <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> run() {
+        AuthorDocumentController documentController = 
+            context.getAuthorAccess().getDocumentController();
+        documentController.insertXMLFragment( <span class="hl-string">"&lt;custom/&gt;"</span>, offset);
+      }
+    };
+    EditingEvent event =  <strong class="hl-keyword">new</strong> EditingEvent(customCommit,  true);
+    fireEditingStopped(event);
+  }</pre>
+      <p class="p">The custom form controls can use any of the predefined properties of the <a class="xref" href="form-controls.html#form-controls">built-in form controls</a>, as well as
+        specified custom properties.</p>
+    </section>
+    <section class="section" id="implementing-custom-form-controls__example_css"><h2 class="title sectiontitle">Example: CSS</h2>
+      
+      <div class="p">The following is an example of how to specify a custom form control in the
+        CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">myElement {
+    <strong class="hl-keyword">content</strong>: oxy_editor(
+        rendererClassName, <span class="hl-string">"com.custom.editors.CustomRenderer"</span>,
+        swingEditorClassName, <span class="hl-string">"com.custom.editors.SwingCustomEditor"</span>,
+        swtEditorClassName, <span class="hl-string">"com.custom.editors.SwtCustomEditor"</span>,
+        edit, <span class="hl-string">"@my_attr"</span>,
+        customProperty1, <span class="hl-string">"customValue1"</span>,
+        customProperty2, <span class="hl-string">"customValue2"</span>
+    )
+}</pre></div>
+    </section>
+    <section class="section" id="implementing-custom-form-controls__how_to_implement_custom_form_controls"><h2 class="title sectiontitle">How to Implement Custom Form Controls</h2>
+      
+      <div class="p">To implement a custom form control, follow these steps:<ol class="ol" id="implementing-custom-form-controls__ol_dkr_1xy_js">
+          <li class="li">Download the <span class="ph">Oxygen XML Editor</span> SDK at: <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/oxygen_sdk.html</a>.</li>
+          <li class="li">Implement the custom form control by extending <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/InplaceEditorRendererAdapter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.InplaceEditorRendererAdapter</em></a>. You
+            could also use <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/editor/AbstractInplaceEditor.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.editor.AbstractInplaceEditor</em></a>, which
+            offers some default implementations and listeners management.</li>
+          <li class="li">Pack the previous implementation in a Java <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> library.</li>
+          <li class="li">Copy the <dfn class="term">JAR</dfn> library to the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/[FRAMEWORK_DIR]</span> directory.</li>
+          <li class="li">In <span class="ph">Oxygen XML Editor</span>, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+              <span class="ph uicontrol">Document Type Association</span>, edit the appropriate
+              <dfn class="term">framework</dfn>, and add the <dfn class="term">JAR</dfn> library in the
+              <span class="ph uicontrol">Classpath</span> tab.</li>
+          <li class="li">Specify the custom form control in your CSS, as described above.</li>
+        </ol></div>
+    </section>
+    <div class="p">
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> <span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></div>
+    </div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/oxy-video-form-control.html" title="The oxy_video built-in form control is used for providing a mechanism to play videos.">Video Player Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editing-pis-using-form-controls.html" title="Oxygen XML Editor allows you to edit processing instructions, comments, and CDATA by using CSS extensions.">Editing Processing Instructions Using a Form Control</a></div></div></nav></article></main></body></html>

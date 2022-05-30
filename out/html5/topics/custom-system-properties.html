@@ -1,0 +1,332 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Java system properties,Custom system properties,System properties"><meta name="keywords" content="Java system properties, Custom system properties, System properties"><meta name="DC.relation" scheme="URI" content="../topics/configure-application.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-editor-variables.html"><meta name="DC.relation" scheme="URI" content="../topics/changing-user-interface-language.html"><meta name="DC.relation" scheme="URI" content="set-parameter-in-startup-script.html#set-parameters-for-application-launchers/setting-a-system-property"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom-system-properties"><title>Custom System Properties</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom-system-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom System Properties</h1>
+  
+  <div class="body">
+    <p class="p">A variety of Java system properties can be set in the application to influence its
+        behavior.<span class="ph"> For information about how to do this, see
+          <a class="xref" href="set-parameter-in-startup-script.html#set-parameters-for-application-launchers__setting-a-system-property">Setting a system property</a>.</span></p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.disable.http.protocol.handlers</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> By default, <span class="ph">Oxygen XML Editor</span> uses the open source Apache
+                HTTP Client software for HTTP(S) connections. If set to <code class="ph codeph">True</code>, the
+                default Java Sun HTTP(S) will be used instead. You will also lose
+                  <span class="ph uicontrol">WebDAV</span> support and possibly other related features.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.present.license.reminders</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">true</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> When set to <code class="ph codeph">false</code>, <span class="ph">Oxygen XML Editor</span> will
+                not display the messages that remind you to renew your Support and Maintenance Pack
+                that covers your current license.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.enable.content.reference.caching</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">true</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Enables content reference caching.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.eclipse.remove.grid.editing.mode</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> When set to <code class="ph codeph">false</code>, <span class="ph">Oxygen XML Editor</span> does
+                not show the Grid editing mode when opening an XML document.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.default.java.accessibility</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> System property that can be set to <code class="ph codeph">true</code> to force
+                the default detection of java accessibility. If
+                  <em class="ph i">com.sun.java.accessibility.AccessBridge</em> cannot be loaded, <span class="ph">Oxygen XML Editor</span> forces the Java accessibility to be disabled.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.floating.license.timeout</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> An integer (minutes)</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">120</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Stores the time interval (in minutes) before floating licenses are
+                released in case of application's inactivity.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.language</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> Language code (for example, <code class="ph codeph">en-us</code>)</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Property that holds the language code set during
+                installation.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.default.options</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A URL-type relative or absolute path.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Provides the path to an XML file containing default application
+                options. For more details, see <a class="xref" href="default-options.html">Customizing Default Options</a>.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.customOptionsDir</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A file system absolute path pointing to a folder.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Sets a folder to be used by the application to load and save
+                preference files. The default location where the options are saved varies according
+                to the operating system. For more details, see <a class="xref" href="import-export-preferences.html">Importing/Exporting/Resetting Global Options</a>.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.ApplicationDataFolder</em></u> (Windows only)</dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A file system absolute path pointing to a folder.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">%APPDATA%</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> When the application runs on Windows, you can set this property to
+                change the location where the application considers that the <em class="ph i">APPDATA</em> folder
+                is located.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.editor.frameworks.url</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A URL-type absolute path.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">OXYGEN_DIR \frameworks</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Changes the folder where the application considers that the main
+                  <dfn class="term">frameworks</dfn> are installed. It has the same effect as changing the
+                custom <dfn class="term">frameworks</dfn> directory value in the <a class="xref" href="framework-location.html"><span class="ph uicontrol">Location</span> preferences
+                  page</a>.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.MultipleInstances</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> If set to <code class="ph codeph">true</code>, multiple instances of the
+                application are allowed to be started.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.xep.location</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A file system absolute path pointing to a folder.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Points to a folder where RenderX XEP is installed. Has the same
+                effect as configuring XEP in the <a class="xref" href="preferences-fo-processors.html"><span class="ph uicontrol">FO Processors</span> preferences page</a>.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.additional.classpath</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A list of <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a>-type resources separated by a classpath separator.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> An additional list of libraries to be used in the application's
+                internal class loader in addition to the libraries specified in the
+                  <span class="ph filepath">lib</span> folder.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.user.home</em></u> (Windows only)</dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> A file system absolute path pointing to a folder.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">USERPROFILE</code> folder</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Overwrites the user home directory that was implicitly detected
+                for the application.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.use.late.delegation.for.author.extensions</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">true</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> All Java extensions in a <dfn class="term">framework</dfn> configuration are
+                instantiated in a separate class loader. When <strong class="ph b">true</strong>, the <dfn class="term">JAR</dfn>
+                libraries used in a certain document type will have priority to resolve classes
+                before delegating to the parent class loader. When <strong class="ph b">false</strong>, the parent class
+                loader will take precedence.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.stack.size.validation.threads</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> The number of bytes used for validation threads.</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">5*1024*1024</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Some parts of the application (validation, content completion)
+                that use the Relax NG parser sometimes require a larger <em class="ph i">Thread</em> stack size to
+                parse complex schemas. The default value should be more than enough.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.jing.skip.validation.xhtml.data.attrs</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">true</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> By default, the Relax NG validation was configured to skip
+                validation for XHTML attributes that start with "data-", which should be skipped
+                from validation according to the XHTML 5 specification.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.report.problems.url</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> User-defined URL</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> The URL where a problem reported through the <span class="ph uicontrol">Report
+                  Problem</span> dialog box is sent. The report is sent in XML format using the
+                  <strong class="ph b">report</strong> parameter with the POST HTTP method.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.parallel.title.computing.threads</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> Integers</li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">4</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> The number of parallel threads that will be used to compute
+                referenced topic titles. Increasing this value reduces the amount of time it takes
+                to compute topic titles in the <span class="ph uicontrol">DITA Maps Manager</span> view.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="custom-system-properties__hidpi-scaling"><u class="ph u"><em class="ph i">com.oxygenxml.hidpi.scaling</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong> Numerical values between 1 and 2 (1, 1.5, and 2 have been
+                tested, and for example, 1.5 is for 150% scaling)</li>
+              <li class="li"><strong class="ph b">Default Value:</strong> N/A</li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Used to override the HiDPI scaling detection to force a specific
+                scaling setting. This is helpful if you encounter scaling detection issues in
+                Windows or Linux.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.prefer.plugin.classloader.context.loader</em></u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">true</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> Used to instruct the application to use the plugin class loader
+                when there is code that loads content (usually Xerces code) using the thread's class
+                loader. For instance, if you have a plugin that specifies a certain Xerces version
+                and you want to load that version instead of the one from <strong class="ph b">Oxygen's</strong>
+                <span class="ph filepath">lib</span> directory.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.classic.file.output.stream.save</em></u></dt>
+          <dd class="dd">
+            <ul class="ul" id="custom-system-properties__ul_yfn_51w_lkb">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> When set to <code class="ph codeph">true</code>, the files are saved using a
+                Java classic file output stream, which destroys the NTFS alternate data streams set
+                on the file. However, this might prevent data loss in the rare occasions when <span class="ph">Oxygen XML Editor</span> saves empty file content over shared network drives.</li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><u class="ph u"><em class="ph i">com.oxygenxml.disable.correct.over.ascii.chars</em></u></dt>
+          <dd class="dd">
+            <ul class="ul" id="custom-system-properties__ul_axp_zqz_nkb">
+              <li class="li"><strong class="ph b">Allowed Values:</strong>
+                <code class="ph codeph">true</code> or <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Default Value:</strong>
+                <code class="ph codeph">false</code></li>
+              <li class="li"><strong class="ph b">Purpose:</strong> By default, <span class="ph">Oxygen XML Editor</span> will escape non-ASCII
+                characters (encode them with their hexadecimal equivalent) within URL paths. If set
+                to <code class="ph codeph">true</code>, non-ASCII characters in URL paths will not be escaped.
+                This is helpful if you are using a non-Latin alphabet (such as Arab, Japanese,
+                Chinese) since the URL paths will remain unchanged and will be more readable.</li>
+            </ul>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/configure-application.html" title="Description of all of the options that allow you to configure Oxygen XML Editor">Configuring Oxygen XML Editor</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/custom-editor-variables.html">Custom Editor Variables</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/changing-user-interface-language.html">Localizing the User Interface</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="set-parameter-in-startup-script.html#set-parameters-for-application-launchers__setting-a-system-property">Setting a system property</a></li></ul></div></nav>
+</article></main></body></html>

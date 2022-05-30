@@ -1,0 +1,101 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps,Define keys"><meta name="keywords" content="DITA, Maps, Define keys"><meta name="DC.relation" scheme="URI" content="../topics/eppo-manage-map.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-insert-topic-group.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-edit-properties.html"><meta name="DC.relation" scheme="URI" content="eppo-variables.html"><meta name="DC.relation" scheme="URI" content="eppo-background-keys.html#eppo-background-keys"><meta name="DC.relation" scheme="URI" content="http://docs.oasis-open.org/dita/dita/v1.3/errata02/os/complete/part3-all-inclusive/archSpec/base/key-based-addressing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="insert-define-keys"><title>Defining Keys in DITA Maps</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="insert-define-keys"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Defining Keys in DITA Maps</h1>
+  
+  <div class="body">
+    <p class="p">DITA uses <a class="xref" href="eppo-background-keys.html#eppo-background-keys">keys</a> to insert
+      content that may have different values in various circumstances. <a class="xref" href="http://docs.oasis-open.org/dita/dita/v1.3/errata02/os/complete/part3-all-inclusive/archSpec/base/key-based-addressing.html" target="_blank" rel="external noopener">Keys provide the means for indirect referencing in
+        DITA</a>. This can make it easier to manage and to reuse content. In DITA, keys are
+      defined in maps and can then be reused and referenced throughout the whole structure of the
+      map. It is considered best practice to create a separate submap that contains all of the key
+      definitions and reference that submap in the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">main
+          (root) map</dfn></a>. This makes it easier to manage since they're all in one
+      location.</p>
+    <div class="p">There are two types of key definitions that can be created in a map.<ul class="ul">
+        <li class="li">Key with a value inside a <em class="ph i">keyword</em>.</li>
+        <li class="li">Key with a target (for example, to target a resource such as an image or external
+          link).</li>
+      </ul></div>
+    <div class="p">The following example is a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> (a
+        <em class="ph i">key definition submap</em>) that contains some key definitions with various values for the
+        <em class="ph i">product</em> key and some targets to external
+      URLs:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd"&gt;</span>
+<strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"keydefs"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!-- product name --&gt;</em>
+  <strong class="hl-tag">&lt;title&gt;</strong>Key Definitions<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"product"</span> <span class="hl-attribute">product</span>=<span class="hl-value">"basic"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;keyword&gt;</strong>Basic Widget<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/keydef&gt;</strong>
+  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"product"</span> <span class="hl-attribute">product</span>=<span class="hl-value">"pro"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;keywords&gt;</strong>
+        <strong class="hl-tag">&lt;keyword&gt;</strong>Professional Widget<strong class="hl-tag">&lt;/keyword&gt;</strong>
+      <strong class="hl-tag">&lt;/keywords&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/keydef&gt;</strong>
+  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"url_eula"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"https://www.example.com/eula.html"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"html"</span>
+     <span class="hl-attribute">scope</span>=<span class="hl-value">"external"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;keydef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"url_eula2"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"https://www.example.com/eula2.html"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"html"</span>
+     <span class="hl-attribute">scope</span>=<span class="hl-value">"external"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/map&gt;</strong></pre></div>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> The profiling of the names is now contained in the map, where it only has to occur once
+        to reuse throughout the whole map structure. </div>
+    </div>
+    <section class="section" id="insert-define-keys__key-def-section"><h2 class="title sectiontitle">Key Definition with a Keyword Value</h2>
+      
+      <div class="p">To define a key with a value inside a <em class="ph i">keyword</em>, follow these steps:<ol class="ol">
+          <li class="li"><strong class="ph b">[Optional but Recommended]</strong>
+            <a class="xref" href="eppo-submaps.html">Create a submap</a> that will contain all of your key
+            definitions and reference the submap in your <dfn class="term">main (root) map</dfn> (if you don't
+            already have one created).</li>
+          <li class="li">Open that map in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span></a>.</li>
+          <li class="li">Right-click the map or an item in the map where you want to add the reference and
+            select <span class="ph uicontrol">Key Definition with Keyword</span> from the <span class="ph uicontrol">Append
+              Child</span>, <span class="ph uicontrol">Insert Before</span>, or <span class="ph uicontrol">Insert
+              After</span> submenu (depending on where you want to insert the <em class="ph i">key
+              definition</em>). This opens an <span class="ph uicontrol">Insert Key Definition</span> dialog
+            box.</li>
+          <li class="li">Enter the name of the key in the <span class="ph uicontrol">Key</span> field.</li>
+          <li class="li">Enter the key's value in the <span class="ph uicontrol">Keyword</span> field.</li>
+          <li class="li">Click <span class="ph uicontrol">Insert and close</span>.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you need to profile
+              the key or add other attributes, you can right-click the key definition in the
+                <span class="ph uicontrol">DITA Maps Manager</span>, select <span class="ph uicontrol"><img class="image" src="../img/DockableFrameProperties16.png">Edit properties</span>, and
+              configure them in the <span class="ph uicontrol">Profiling</span> tab or
+                <span class="ph uicontrol">Attributes</span> tab, respectively.</div></li>
+        </ol></div>
+    </section>
+    <section class="section" id="insert-define-keys__keydef-target-section"><h2 class="title sectiontitle">Key Definition with a Target</h2>
+      
+      <div class="p">To insert a <em class="ph i">targeted key definition</em> (for example, to target a resource such as an
+        image or external link), follow these steps:<ol class="ol">
+          <li class="li"><strong class="ph b">[Optional but Recommended]</strong>
+            <a class="xref" href="eppo-submaps.html">Create a submap</a> that will contain all of your key
+            definitions and reference the submap in your <dfn class="term">main (root) map</dfn> (if you don't
+            already have one created).</li>
+          <li class="li">Open that map in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span></a>.</li>
+          <li class="li">Right-click the map or an item in the map where you want to add the reference and
+            select <span class="ph uicontrol">Key Definition</span> from the <span class="ph uicontrol">Append
+              Child</span>, <span class="ph uicontrol">Insert Before</span>, or <span class="ph uicontrol">Insert
+              After</span> submenu (depending on where you want to insert the <em class="ph i">key
+              definition</em> in the <dfn class="term">DITA map</dfn>). This opens an <span class="ph uicontrol">Insert Key
+              Definition</span> dialog box.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Keys</span> tab and enter the name of the key in the
+              <span class="ph uicontrol">Define keys</span> field.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Target</span> tab and select a target resource (such as an
+            image or external link).<div class="note tip note_tip"><span class="note__title">Tip:</span> You can profile the key by using the
+                <span class="ph uicontrol">Profiling</span> tab and other attributes can also be defined in the
+                <span class="ph uicontrol">Attributes</span> tab.</div></li>
+          <li class="li">Once you are done configuring the <em class="ph i">targeted key definition</em>, click
+              <span class="ph uicontrol">Insert and close</span>.</li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-manage-map.html">Managing DITA Maps</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-insert-topic-group.html">Inserting Topic Groups</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-edit-properties.html">Edit Properties Dialog Box</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-variables.html">Working with Variable Text in DITA</a></li><li class="linklist"><a class="link" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a></li><li class="linklist"><a class="link" href="http://docs.oasis-open.org/dita/dita/v1.3/errata02/os/complete/part3-all-inclusive/archSpec/base/key-based-addressing.html" target="_blank" rel="external noopener">DITA 1.3 Specification: Indirect Key-based Addressing</a></li></ul></div></nav>
+</article></main></body></html>

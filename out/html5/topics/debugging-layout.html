@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Layout,XSLT Debugger perspective,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Layout, XSLT Debugger perspective, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-control-toolbar.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-control-toolbar.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/multiple-output-documents.html"><meta name="DC.relation" scheme="URI" content="steps-in-typical-debug-process.html#steps-in-typical-debug-process"><meta name="DC.relation" scheme="URI" content="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output"><meta name="DC.relation" scheme="URI" content="debugging-supported-processors.html#debugging-supported-processors"><meta name="DC.relation" scheme="URI" content="performance-profiling.html#performance-profiling"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debugging-layout"><title>Debugger Layout</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debugging-layout"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugger Layout</h1>
+  
+  <div class="body">
+    <p class="p">The XML and XSL files are displayed in <a class="xref" href="editing-xml-documents.html#editing-xml-documents"><span class="ph uicontrol">Text</span> mode</a>. <span class="ph">The other
+        modes (<a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>, <a class="xref" href="grid-mode-editor.html#grid-mode-editor"><span class="ph uicontrol">Grid</span> mode</a>) are
+        available only in <a class="xref" href="editor-perspective.html#editor-perspective">the
+            <span class="ph uicontrol">Editor</span>
+          <dfn class="term">perspective</dfn></a>.</span>
+      </p>
+    <p class="p">The <span class="ph uicontrol">XSLT/XQuery Debugger</span>
+      <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> contains the following
+      components:</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">Source Document View (XML)</strong> - Displays and allows the editing of XML files
+        (documents).</li>
+      <li class="li"><strong class="ph b">XSLT/XQuery Document View (XSLT/XQuery)</strong> - Displays and allows the editing of XSL
+        files (stylesheets) or XQuery documents.</li>
+      <li class="li" id="debugging-layout__output-view"><strong class="ph b">Output View</strong> - Displays the output that results from inputting a
+        document (XML) and a stylesheet (XSL) or XQuery document in the transformer. The
+        transformation result is written dynamically while the transformation is processed (using
+        the <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-run"><span class="ph uicontrol"><img class="image" id="debugging-layout__image_s1x_1rf_wr" src="../img/Run16.gif">Run</span>
+          button on the Control toolbar</a>). Several actions are available in the contextual
+        menu for this view, including <span class="ph uicontrol">Find/Replace</span>, <span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Copy</span>, and <span class="ph uicontrol"><img class="image" id="debugging-layout__image_mff_wj1_5r" src="../img/PrettyPrint16.png">Format and Indent</span>.
+          <span class="ph">There are two types of output views: a <span class="ph uicontrol">Text</span> view (with XML syntax highlights) and <span class="ph uicontrol">XHTML</span> view.<span class="ph"> For large outputs, the XHTML view can be disabled (see <a class="xref" href="preferences-debugger.html">Debugger Settings</a>).</span></span></li>
+      <li class="li"><a class="xref" href="debug-control-toolbar.html"><strong class="ph b">Control Toolbar</strong></a> - Contains a variety
+        of actions to help you configure and control the debugging process.</li>
+      <li class="li"><a class="xref" href="debug-info-view.html"><strong class="ph b">Information Views</strong></a> - The information views
+        at the bottom of the editor display various types of information to help you understand the
+        transformation process.</li>
+    </ul>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> The <span class="ph uicontrol">Output</span> view and the various other information views
+      are <a class="xref" href="../glossary/dockable.html">dockable</a> so that you can configure the workspace
+      according to your preferences.</div>
+    <div class="p">
+      <figure class="fig fignone" id="debugging-layout__fig-debugger-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Debugger Interface</figcaption>
+        
+        <img class="image" src="../img/sa_xslt_debugger_layout.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">XML documents and XSL stylesheets or XQuery documents that were opened in the
+        <span class="ph uicontrol">Editor</span>
+      <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> are automatically sorted
+      into the first two panes. When multiple files of each type are opened, the individual
+      documents and stylesheets are separated using the familiar tab management system that you are
+      used to in the <span class="ph uicontrol">Editor</span>
+      <dfn class="term">perspective</dfn>. Selecting a tab brings the document or stylesheet into focus and
+      enables editing without the need to go back to the <span class="ph uicontrol">Editor</span>
+      <dfn class="term">perspective</dfn>.</p>
+    <p class="p">In Debugger mode, the normal editor toolbar is not available.
+      However, functions are still accessible from the <span class="ph uicontrol">Document</span> menu and the
+      contextual menus. </p>
+    <p class="p"><a class="xref" href="text-navigate-document-content.html#text-navigate-document-content__navigating_with_bookmarks"><dfn class="term">Bookmarks</dfn></a> are replaced in the <span class="ph uicontrol">Debugger</span>
+      <dfn class="term">perspective</dfn> by <a class="xref" href="using-breakpoints.html#using-breakpoints">breakpoints</a>.</p>
+    <p class="p">During debugging, the current execution node is highlighted in both document (XML) and
+      XSLT/XQuery views.</p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/debug-control-toolbar.html">Control Toolbar</a><br></li><li class="link olchildlink"><a href="../topics/debug-info-view.html">Debugging Information Views</a><br></li><li class="link olchildlink"><a href="../topics/multiple-output-documents.html">Multiple Output Documents in XSLT 2.0 and XSLT 3.0</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debugging.html" title="The debugging interface that detects problems with XSLT and XQuery transformations">Debugging XSLT Stylesheets and XQuery Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debugging.html" title="The debugging interface that detects problems with XSLT and XQuery transformations">Debugging XSLT Stylesheets and XQuery Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-control-toolbar.html">Control Toolbar</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="steps-in-typical-debug-process.html#steps-in-typical-debug-process">Steps in a Typical Debugging Process</a></li><li class="linklist"><a class="link" href="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output">Identify the XSLT / XQuery Expression that Generated Particular Output</a></li><li class="linklist"><a class="link" href="debugging-supported-processors.html#debugging-supported-processors">Supported Processors for XSLT / XQuery Debugging</a></li><li class="linklist"><a class="link" href="performance-profiling.html#performance-profiling">Performance Profiling of XSLT Stylesheets and XQuery Documents</a></li></ul></div></nav>
+</article></main></body></html>

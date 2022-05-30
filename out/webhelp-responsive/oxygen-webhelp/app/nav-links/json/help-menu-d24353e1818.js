@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Randomize XML Text Content","href":"topics\/randomize-xml-content.html","attributes":{"data-id":"randomize-xml-content"},"menu":{"hasChildren":false},"tocID":"randomize-xml-content-d24353e1837","topics":[]}]});

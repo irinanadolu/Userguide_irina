@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Controlling Which Author Operations Gets Executed Through XPath Expressions","href":"topics\/xpath-activation-expressions.html","attributes":{"data-id":"xpath-activation-expressions"},"menu":{"hasChildren":false},"tocID":"xpath-activation-expressions-d14162e2304","next":"xpath-activation-expressions-d14162e2304"}]});

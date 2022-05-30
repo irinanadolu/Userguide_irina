@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_enable_change_tracking_at_startup.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_auto_modify_content.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorDocumentFragment.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api-faq-insert-element-with-required-content"><title>Insert an Element with all the Required Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api-faq-insert-element-with-required-content"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Insert an Element with all the Required Content</h1>
+  <div class="body">
+    <section class="section" id="api-faq-insert-element-with-required-content__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">I am inserting a DITA <code class="ph codeph">image</code> element using the API that points to a certain
+        resource and has required content. Can the required content be automatically inserted by the
+        application? </p>
+    </section>
+    <section class="section" id="api-faq-insert-element-with-required-content__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <div class="p">The API <code class="ph codeph"><a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorSchemaManager.html" target="_blank" rel="external noopener">ro.sync.ecss.extensions.api.AuthorSchemaManager</a></code> can propose valid
+        elements that can be inserted at the specific offset. Using the method
+          <code class="ph codeph">AuthorSchemaManager.createAuthorDocumentFragment(CIElement)</code>, you can
+        convert the proposed elements to <a class="xref" href="../glossary/document-fragment.html"><dfn class="term">document
+            fragments</dfn></a> (which have all the required content filled in) that can then be
+        inserted in the
+        document.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">    AuthorSchemaManager schemaManager = 
+<strong class="hl-keyword">this</strong>.authorAccess.getDocumentController().getAuthorSchemaManager();
+
+    WhatElementsCanGoHereContext context = 
+schemaManager.createWhatElementsCanGoHereContext
+(<strong class="hl-keyword">this</strong>.authorAccess.getEditorAccess().getCaretOffset());
+
+    List&lt;CIElement&gt; possibleElementsAtCaretPosition = 
+schemaManager.whatElementsCanGoHere(context);
+    loop: <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; possibleElementsAtCaretPosition.size(); i++) {
+      CIElement possibleElement = possibleElementsAtCaretPosition.get(i);
+      List&lt;CIAttribute&gt; attrs = possibleElement.getAttributes();
+      <strong class="hl-keyword">if</strong>(attrs != null) {
+        <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> j = <span class="hl-number">0</span>; j &lt; attrs.size(); j++) {
+          CIAttribute ciAttribute = attrs.get(j);
+          <strong class="hl-keyword">if</strong> (ciAttribute.getName().equals(<span class="hl-string">"class"</span>)) {
+            <strong class="hl-keyword">if</strong> (ciAttribute.getDefaultValue() != null
+                 &amp;&amp; ciAttribute.getDefaultValue().contains(<span class="hl-string">"  topic/image "</span>)) {
+              <em class="hl-comment">//Found a CIElement for image</em>
+   <em class="hl-comment">//Create a fragment that contains all required child elements already built.</em>
+              AuthorDocumentFragment frag = 
+schemaManager.createAuthorDocumentFragment(possibleElement);
+              <em class="hl-comment">//Now set the @href to it.</em>
+              <em class="hl-comment">//Ask the user and obtain a value for the @href</em>
+              <em class="hl-comment">//Then:</em>
+
+          String href = <span class="hl-string">"test.png"</span>;
+          List&lt;AuthorNode&gt; nodes = frag.getContentNodes();
+          <strong class="hl-keyword">if</strong>(!nodes.isEmpty()) {
+            AuthorElement imageEl = (AuthorElement) nodes.get(<span class="hl-number">0</span>);
+            imageEl.setAttribute(<span class="hl-string">"href"</span>, <strong class="hl-keyword">new</strong> AttrValue(href));
+          }
+          <em class="hl-comment">//And insert the fragment.</em>
+          <strong class="hl-keyword">this</strong>.authorAccess.getDocumentController().insertFragment
+(<strong class="hl-keyword">this</strong>.authorAccess.getEditorAccess().getCaretOffset(), frag);
+          <strong class="hl-keyword">break</strong> loop;
+        }
+      }
+    }
+  }
+} </pre></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_enable_change_tracking_at_startup.html">Impose Custom Options for Authors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_auto_modify_content.html">Modify the XML Content on Open</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorDocumentFragment.html" target="_blank" rel="external noopener">AuthorDocumentFragment Class</a></li></ul></div></nav>
+</article></main></body></html>

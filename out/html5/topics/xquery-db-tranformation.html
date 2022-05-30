@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Databases,XQuery,Transformations"><meta name="keywords" content="Databases, XQuery, Transformations"><meta name="DC.relation" scheme="URI" content="../topics/xquery-database-support.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-validation-db.html"><meta name="DC.relation" scheme="URI" content="../topics/xqj-transformers.html"><meta name="DC.relation" scheme="URI" content="xml-transformation-with-xquery.html#xml-transformation-with-xquery"><meta name="DC.relation" scheme="URI" content="xqj-transformers.html#xqj-transformers"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xquery-db-tranformation"><title>XQuery Transformation for Databases</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xquery-db-tranformation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XQuery Transformation for Databases</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">XQuery is designed to retrieve and interpret XML data from any source, whether it is a
+        database or document. Data is stored in relational databases but it is often required that
+        the data be extracted and transformed as XML when interfacing to other components and
+        services. Also, it is an XPath-based querying language supported by most NXD vendors. To
+        perform a query, you need an XQuery transformation scenario.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd"><a class="xref" href="database-support.html#database-support">Configure the data source drivers and the connection</a> for the particular
+          database.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Configure an XQuery transformation scenario.</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol"><img class="image" id="xquery-db-tranformation__image_qtk_gwv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario</span> toolbar
+              button or go to menu <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Transformation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Configure Transformation Scenario</span></span>.</span>
+            <div class="itemgroup stepresult">
+              <p class="p">The <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario</span> dialog box</a> is
+                opened.</p>
+            </div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">New</span> button toward the bottom of the dialog
+              box.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Select <a class="xref" href="xml-transformation-with-xquery.html#xml-transformation-with-xquery" title="This type of transformation specifies the transform parameters and location of an XQuery file that is applied to the edited XML document."><span class="ph uicontrol">XML Transformation with XQUERY</span></a>.</span>
+            <div class="itemgroup stepresult">
+              <p class="p">The <span class="ph uicontrol">New Scenario</span> dialog box for configuring an XQuery
+                scenario is opened.</p>
+              <div class="p">
+                <figure class="fig fignone" id="xquery-db-tranformation__figure-edit-scenario-xquery-db-transform"><figcaption><span class="fig--title-label">Figure 1. </span>New Scenario Dialog Box</figcaption>
+                  
+                  <img class="image" src="../img/sa_edit_scenario_xquery.png">
+                </figure>
+              </div>
+              <p class="p">
+                
+              </p>
+            </div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Insert the scenario name in the dialog box for editing the scenario.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Choose the database connection in the <span class="ph uicontrol">Transformer</span> drop-down
+              list.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Configure any other parameters as needed.</span>
+            <div class="itemgroup info">For an XQuery transformation, the output tab has an option called
+                <span class="ph uicontrol">Sequence</span> that allows you to run an XQuery in lazy mode. The
+              amount of data extracted from the database is controlled from the <a class="xref" href="preferences-xquery.html"><span class="ph uicontrol">Size limit on Sequence
+                  view</span> option</a> in the <span class="ph uicontrol">XQuery</span> preferences
+              page. If you choose <span class="ph uicontrol">Perform FO Processing</span> in the <span class="ph uicontrol">FO
+                Processor</span> tab, the <span class="ph uicontrol">Sequence</span> option is
+              ignored.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">OK</span> button to finish editing the scenario.</span>
+          </li>
+        </ol>
+        <div class="itemgroup info">Once the scenario is associated with the XQuery file, the query can include calls to
+          specific XQuery functions that are implemented by that engine. The available functions
+          depend on the target database engine selected in the scenario. For example, for eXist and
+          Berkeley DB XML, the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content
+              Completion Assistant</dfn></a> lists the functions supported by that database
+          engine. This is useful for only inserting calls to the supported functions (standard
+          XQuery functions or extension ones) into the query .<div class="note note note_note"><span class="note__title">Note:</span> An XQuery transformation is
+            executed against a Berkeley DB XML server as a transaction using the query transaction
+            support of the server.</div></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Run the transformation scenario.</span>
+        <div class="itemgroup info">To view a more complex value returned by the query that cannot be entirely displayed
+          in the XQuery query result table at the bottom of the <span class="ph">Oxygen XML Editor</span> window (for
+          example, an XMLTYPE or CLOB value), do the following:<ul class="ul">
+            <li class="li">Right-click that table cell.</li>
+            <li class="li">Select the <span class="ph uicontrol">Copy cell</span> action from the contextual menu to copy
+              the value into the clipboard.</li>
+            <li class="li">Paste the value wherever you need it (for example, in an open XQuery editor panel
+              of <span class="ph">Oxygen XML Editor</span>).</li>
+          </ul></div>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xquery-database-support.html">XQuery and Databases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-validation-db.html">XQuery Validation When Connected to a Database</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xqj-transformers.html">XQuery XQJ Transformation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xml-transformation-with-xquery.html#xml-transformation-with-xquery" title="This type of transformation specifies the transform parameters and location of an XQuery file that is applied to the edited XML document.">XML Transformation with XQuery</a></li><li class="linklist"><a class="link" href="xqj-transformers.html#xqj-transformers">XQuery XQJ Transformation</a></li></ul></div></nav>
+</article></main></body></html>

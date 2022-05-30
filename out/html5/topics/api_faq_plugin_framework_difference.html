@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_simplified_text_outline.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_disable_contextual_actions.html"><meta name="DC.relation" scheme="URI" content="addCustomActionHowTo.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_plugin_framework_difference"><title>Difference Between a Framework (Document Type) and a Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_plugin_framework_difference"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Difference Between a Framework (Document Type) and a Plugin Extension</h1>
+  <div class="body">
+    <section class="section" id="api_faq_plugin_framework_difference__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">What is the difference between a <a class="xref" href="../glossary/framework.html"><dfn class="term">Framework</dfn></a> and a <a class="xref" href="../glossary/plugin.html"><dfn class="term">Plugin</dfn></a> Extension?</p>
+    </section>
+    <section class="section" id="api_faq_plugin_framework_difference__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">There are two possible ways to customize the application:</p>
+      <ol class="ol" id="api_faq_plugin_framework_difference__ol_wbj_dzk_5h">
+        <li class="li">
+          <p class="p">Implement a <dfn class="term">plugin</dfn>.</p>
+          <p class="p">A <dfn class="term">plugin</dfn> serves a general purpose and influences any type of XML file that
+            you open in <span class="ph">Oxygen XML Editor</span>.</p>
+          <p class="p">For the <span class="ph">Oxygen XML Editor</span> Plugins API, Javadoc, samples, and documentation, go to
+              <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html#Developer_Plugins" target="_blank" rel="external noopener">https://www.oxygenxml.com/oxygen_sdk.html#Developer_Plugins</a>
+          </p>
+        </li>
+        <li class="li">
+          <p class="p"><a class="xref" href="framework-customization-extending.html">Create or modify the document
+              type</a> that is associated to your specific XML vocabulary.</p>
+          <p class="p">This document type can be used, for instance, to provide custom actions for your type
+            of XML files and to mount them on the toolbar, menus, and contextual menus.</p>
+          <p class="p">For example, if the end-users are editing DITA documents, all the toolbar actions that
+            are specific for DITA are provided by the DITA <dfn class="term">framework</dfn>. If you look in
+            the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>
+            there is a <em class="ph i">DITA</em> document type. If you edit that document type you will see that
+            it has an <span class="ph uicontrol">Author</span> tab in the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document Type
+                Configuration</span> dialog box</a>. The subtabs in this tab can be used to
+            define custom DITA actions and add them to the toolbars, main menus, or contextual
+            menus.</p>
+          <p class="p">For information about developing your own document types (<dfn class="term">frameworks</dfn>), see
+            the <a class="xref" href="dg-complex-customization-tutorial.html#dg-complex-customization-tutorial">Advanced Framework Customization</a>
+            section.</p>
+          <p class="p">If you look on disk in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\dita</span>
+            folder, there is a file called <span class="ph filepath">dita.framework</span>. That file gets
+            updated when you edit a document type from the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>. Then
+            you can share that updated file with all users.</p>
+          <p class="p">The same folder contains some <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a>
+            libraries. These libraries contain custom Java operations that are called when the user
+            presses certain toolbar actions.</p>
+          <p class="p">The <em class="ph i">Oxygen SDK</em> contains the Java sources from all the DITA Java
+            customizations:</p>
+          <p class="p"><a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html#XML_Editor_Authoring_SDK" target="_blank" rel="external noopener">https://www.oxygenxml.com/oxygen_sdk.html#XML_Editor_Authoring_SDK</a>
+          </p>
+        </li>
+      </ol>
+    </section>
+    <div class="note important note_important"><span class="note__title">Important:</span> It is possible for a <dfn class="term">plugin</dfn> to share
+      the same classes with a <dfn class="term">framework</dfn>. For further details, go to <a class="xref" href="share-classloader-between-framework-and-plugin.html#share-classloader-between-framework-and-plugin">How to Share the Classloader Between a Framework and a Plugin</a>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_simplified_text_outline.html">Customize the Outline View in Text Mode?</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_disable_contextual_actions.html">Disable Context-Sensitive Menu Items for Custom Author Actions</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="addCustomActionHowTo.html">Adding a Custom Operation to an Existing Framework</a></li></ul></div></nav>
+</article></main></body></html>

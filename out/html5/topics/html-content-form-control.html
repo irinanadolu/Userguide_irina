@@ -1,0 +1,77 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_htmlContent built-in form control is used for rendering HTML content. This HTML content is displayed as a graphical element shaped as a box. The shape of the box is determined by a given width and the height is computed based upon the length of the text."><meta name="DC.subject" content="CSS extensions,Form Controls,HTML content,HTML content"><meta name="keywords" content="CSS extensions, Form Controls, HTML content, HTML content"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/date-picker-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/pop-up-editor.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="html-content-form-control"><title>HTML Content Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="html-content-form-control"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">HTML Content Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_htmlContent</code> built-in form control is used for rendering HTML
+    content. This HTML content is displayed as a graphical element shaped as a box. The shape of the
+    box is determined by a given width and the height is computed based upon the length of the
+    text.</p>
+    <div class="p">The <code class="ph codeph">oxy_htmlContent</code> form control supports the following properties:<ul class="ul" id="html-content-form-control__ul_n1f_5tk_jq">
+        <li class="li"><span class="ph"><strong class="ph b">href</strong> - The absolute or relative location of a
+          resource.</span> The resource needs
+          to be a well-formed HTML file.</li>
+        <li class="li"><span class="ph"><strong class="ph b">id</strong> - The unique identifier of an
+          item.</span> This is a
+          <code class="keyword markupname xmlelement">&lt;div&gt;</code> element that has a unique <code class="keyword markupname xmlatt">@id</code> and is a child of the
+          <code class="keyword markupname xmlelement">&lt;body&gt;</code> element. The <code class="keyword markupname xmlelement">&lt;div&gt;</code> element is the container of the
+          HTML content to be rendered by the form control.</li>
+        <li class="li"><strong class="ph b">content</strong> - An alternative to the <code class="keyword markupname xmlatt">@href</code> and <code class="keyword markupname xmlatt">@id</code>
+          pair of elements. It provides the HTML content that will be displayed in the form
+          control.</li>
+        <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of the
+          content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units. The <code class="ph codeph">width</code> property takes
+          precedence over the <code class="ph codeph">columns</code> property (if the two are used
+        together).</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">hoverPseudoclassName</strong> - Allows
+          you to change the way an element is rendered when you hover over a form control. The value
+          is the name of a CSS pseudo-class. When you hover over the form control, the specified
+          pseudo-class will be set on the element that contains the form control.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p:before {
+  <strong class="hl-keyword">content</strong>: oxy_htmlContent(hoverPseudoclassName, <span class="hl-string">'showBorder'</span>)
+}
+p:showBorder {
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid red;
+}</pre></li>
+      </ul></div>
+    <p class="p">You can customize the style of the content using CSS that is either referenced by the file
+      identified by the <code class="ph codeph">href</code> property or is defined inline. If you change the HTML
+      content or CSS and you want your changes to be reflected in the XML that renders the form
+      control, then you need to refresh the XML file. If the HTML does not have an associated style,
+      then a default text and background color will be applied.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_htmlContent</em> Form Control</u></strong></p>
+    <div class="p">In the following example, the form control collects the content from the
+        <code class="ph codeph">p_description</code>
+      <code class="keyword markupname xmlelement">&lt;div&gt;</code> element found in the <span class="ph filepath">descriptions.html</span> file. The box
+      is 400 pixels wide and is displayed before a paragraph identified by the
+        <code class="keyword markupname xmlatt">@intro_id</code> attribute
+      value.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p#intro_id:before {
+    <strong class="hl-keyword">content</strong>: 
+        oxy_htmlContent(
+            href, <span class="hl-string">"descriptions.html"</span>,
+            id, <span class="hl-string">"p_description"</span>,
+            <strong class="hl-keyword">width</strong>, <span class="hl-number">400</span>px);
+}</pre></div>
+    <div class="p">An alternative example, using the <code class="ph codeph">content</code>
+      property:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p#intro_id:before {
+    <strong class="hl-keyword">content</strong>: 
+        oxy_htmlContent(
+            <strong class="hl-keyword">content</strong>, <span class="hl-string">"&lt;div style='font-weight:bold;'&gt;My content&lt;/div&gt;"</span>,
+            <strong class="hl-keyword">width</strong>, <span class="hl-number">400</span>px);
+}</pre></div>
+    
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_htmlContent</code> form control in a
+      CSS file <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="html-content-form-control__image_z5w_h2h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_htmlContent</code> code template.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/date-picker-editor.html" title="The oxy_datePicker built-in form control is used for offering a text field with a calendar browser that allows the user to choose a certain date in a specified format.">Date Picker Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/pop-up-editor.html" title="The oxy_popup built-in form control is used to offer a contextual menu that provides quick access to various actions. A pop-up form control can display single or multiple selections.">Pop-up Form Control</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li></ul></div></nav>
+</article></main></body></html>

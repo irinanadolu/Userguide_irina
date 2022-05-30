@@ -1,0 +1,59 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="DC.subject" content="Transforming Documents,Transformation Scenarios"><meta name="keywords" content="Transforming Documents, Transformation Scenarios"><meta name="DC.relation" scheme="URI" content="../topics/transforming-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/transforming-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/builtin-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/builtin-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/defining-new-transformation-scenario.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-scenario-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/duplicating-transformations.html"><meta name="DC.relation" scheme="URI" content="../topics/apply-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-transformation-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/apply-batch-transformation.html"><meta name="DC.relation" scheme="URI" content="../topics/transformation-scenarios-sharing.html"><meta name="DC.relation" scheme="URI" content="../topics/scenarios-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="transformation-scenario"><title>Transformation Scenarios</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="transformation-scenario"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Transformation Scenarios</h1>
+  
+  <div class="body conbody">
+    <div class="p">A transformation scenario is a set of complex operations and settings that gives you the
+      possibility to obtain outputs of multiple types (XML, HTML, PDF, EPUB, etc.) from the same
+      source of XML files and stylesheets.<div class="note note note_note"><span class="note__title">Note:</span> You need to use the appropriate stylesheet according
+        to the source definition and the desired output. For example, if you want to transform into
+        an HTML format using a DocBook stylesheet, your source XML document should conform with the
+        DocBook DTD.</div></div>
+    <div class="p">Executing a transformation scenario implies multiple actions, such as:<ul class="ul">
+        <li class="li">Validating the input file.</li>
+        <li class="li">Obtaining intermediate output files (for example, formatting objects for the XML to PDF
+          transformation).</li>
+        <li class="li">Using transformation engines to produce the output.</li>
+      </ul></div>
+    <p class="p">Before transforming an XML document in <span class="ph">Oxygen XML Editor</span>, you need to define a
+      transformation scenario to apply to that document. A scenario is a set of values for various
+      parameters that define a transformation. It is not related to a particular document, but
+      rather to a document type. <span class="ph">Oxygen XML Editor</span> includes <a class="xref" href="builtin-transformation-scenarios.html#builtin-transformation-scenarios">preconfigured
+        built-in transformation scenarios</a>, but you can also <a class="xref" href="defining-new-transformation-scenario.html#defining-new-transformation-scenario">create
+        new transformation scenarios</a>.</p>
+    <p class="p">When creating new transformation scenarios, the types that are available include:</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">Scenarios that Apply to XML Files</strong> - This type of scenario contains the location of
+        an XSLT stylesheet that is applied on the edited XML document, as well as other
+        transformation parameters. For more information, see <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">XML Transformation with XSLT</a> and <a class="xref" href="xml-transformation-with-xquery.html#xml-transformation-with-xquery" title="This type of transformation specifies the transform parameters and location of an XQuery file that is applied to the edited XML document.">XML Transformation with XQuery</a>.</li>
+      <li class="li"><strong class="ph b">Scenarios that Apply to XSLT Files</strong> - This type of scenario contains the location of
+        an XML document that the edited XSLT stylesheet is applied to, as well as other transform
+        parameters. For more information, see <a class="xref" href="xslt-transformation.html#xslt-transformation" title="This type of transformation specifies the parameters and location of an XML document that the edited XSLT stylesheet is applied on. This scenario is useful when you develop an XSLT document and the XML document is in its final form.">XSLT Transformation</a>.</li>
+      <li class="li"><strong class="ph b">Scenarios that Apply to XQuery Files</strong> - This type of scenario contains the location
+        of an XML source, that the edited XQuery file is applied to, as well as other transform
+        parameters. When the XML source is a native XML database, the XML source field of the
+        scenario is empty because the XML data is read with XQuery-specific functions, such as
+          <code class="ph codeph">document()</code>. When the XML source is a local XML file, the URL of the file
+        is specified in the XML input field of the scenario. For more information, see <a class="xref" href="xquery-transformation.html#xquery-transformation" title="This type of transformation specifies the parameters and location of an XML source that the edited XQuery file is applied on.">XQuery Transformation</a>.</li>
+      <li class="li"><strong class="ph b">Scenarios that Apply to SQL Files</strong> - This type of scenario specifies a database
+        connection for the database server that runs the SQL file that is associated with the
+        scenario. The data processed by the SQL script is located in the database.</li>
+      <li class="li"><strong class="ph b">Scenarios that Apply to XProc Files</strong> - This type of scenario contains the location
+        of an XProc script, as well as other transform parameters. For more information, see <a class="xref" href="sql-transformation.html#sql-transformation" title="This type of transformation specifies a database connection for the database server that runs the SQL file associated with the scenario. The data processed by the SQL script is located in the database.">SQL Transformation</a>.</li>
+      <li class="li"><strong class="ph b">DITA-OT Scenarios</strong> - This type of scenario provides the parameters for an Ant
+        transformation that executes a DITA-OT build script. <span class="ph">Oxygen XML Editor</span> includes a
+        built-in version of Ant and a built-in version of DITA-OT, although you can also set other
+        versions in the scenario. For more information, see <a class="xref" href="dita-ot-transformation.html#dita-ot-transformation" title="This type of transformation specifies the parameters for an Ant transformation that executes a DITA-OT build script. Oxygen XML Editor includes a built-in version of Ant and a built-in version of DITA-OT, but other versions can be set in the scenario.">DITA-OT Transformation</a>.</li>
+      <li class="li"><span class="ph uicontrol">ANT Scenarios</span> - This type of scenario contains the location of an
+        Ant build script, as well as other transform parameters. For more information, see <a class="xref" href="ant-transformation.html#ant-transformation" title="This type of transformation allows you to configure the options and parameters of an Ant build script.">Ant Transformation</a>.</li>
+    </ul>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> 
+        <p class="p">Status messages generated during the transformation
+          process are displayed in the <a class="xref" href="view-status-information.html"><span class="ph uicontrol">Information</span> view</a>.</p>
+        
+      </div>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/builtin-transformation-scenarios.html">Built-in Transformation Scenarios</a><br></li><li class="link olchildlink"><a href="../topics/defining-new-transformation-scenario.html">Creating New Transformation Scenarios</a><br></li><li class="link olchildlink"><a href="../topics/edit-scenario-dialog.html">Editing a Transformation Scenario</a><br></li><li class="link olchildlink"><a href="../topics/duplicating-transformations.html">Duplicating a Transformation Scenario</a><br></li><li class="link olchildlink"><a href="../topics/apply-transformation-scenarios.html">Applying Associated Transformation Scenarios</a><br></li><li class="link olchildlink"><a href="../topics/configure-transformation-dialog.html">Configure Transformation Scenario(s) Dialog Box</a><br></li><li class="link olchildlink"><a href="../topics/apply-batch-transformation.html">Batch Transformations</a><br></li><li class="link olchildlink"><a href="../topics/transformation-scenarios-sharing.html">Sharing Transformation Scenarios</a><br></li><li class="link olchildlink"><a href="../topics/scenarios-view.html">Transformation Scenarios View</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/transforming-documents.html" title="Details about transformation scenarios and customizing various types of output">Publishing</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/transforming-documents.html" title="Details about transformation scenarios and customizing various types of output">Publishing</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/builtin-transformation-scenarios.html">Built-in Transformation Scenarios</a></div></div></nav></article></main></body></html>

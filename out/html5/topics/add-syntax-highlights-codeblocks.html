@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Output,Syntax highlights in codeblocks,Syntax highlights in codeblocks"><meta name="keywords" content="DITA, Output, Syntax highlights in codeblocks, Syntax highlights in codeblocks"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-customization.html"><meta name="DC.relation" scheme="URI" content="../topics/add-watermark-xhtml-output.html"><meta name="DC.relation" scheme="URI" content="../topics/publishing_with_a_dita_ot_project_file.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-syntax-highlights-codeblocks"><title>Adding Syntax Highlights for Codeblocks in the Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-syntax-highlights-codeblocks"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Syntax Highlights for Codeblocks in the Output</h1>
+  
+  <div class="body">
+    <p class="p"><dfn class="term">Syntax Highlighting</dfn> makes it easier to read the semantics of the structured
+      content by displaying each type of code (language) in different colors and fonts. <span class="ph">Oxygen XML Editor</span> provides the ability to add syntax highlights in codeblocks for DITA to
+      PDF or HTML-based output through the use of the <code class="keyword markupname xmlatt">@outputclass</code> attribute and a
+      variety of predefined values are available.</p>
+    <div class="p">To provide syntax highlighting in the codeblocks that appear in the output, add the
+        <code class="keyword markupname xmlatt">@outputclass</code> attribute on the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element and
+      set its value to one of the predefined language values. The <span class="ph uicontrol">Content Completion
+        Assistant</span> offers a list of the possible values when adding the
+        <code class="keyword markupname xmlatt">@outputclass</code> attribute in <span class="ph uicontrol">Text</span> mode but there are
+      also two very simple ways to set the value in <span class="ph uicontrol">Author</span> mode:<ul class="ul">
+        <li class="li">Select the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element in the editor and in the
+            <span class="ph uicontrol">Attributes</span> view, click on the <span class="ph uicontrol">Value</span> cell
+          for the <code class="keyword markupname xmlatt">@outputclass</code> attribute and select one of the predefined values
+          (for example, <code class="ph codeph">language-xml</code>).</li>
+        <li class="li">Select the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element in the editor and use the
+            <span class="ph uicontrol"><span class="keyword shortcut" id="add-syntax-highlights-codeblocks__alt_enter_shortcut">Alt +
+                    Enter</span></span> keyboard shortcut to
+          open the in-place attributes editor window. Then select one of the predefined values from
+          the <span class="ph uicontrol">Value</span> drop-down menu.</li>
+      </ul></div>
+    <div class="p">The predefined values that can be selected are:<ul class="ul">
+      <li class="li">language-bourne</li>
+      <li class="li">language-c</li>
+      <li class="li">language-cpp</li>
+      <li class="li">language-csharp</li>
+      <li class="li">language-css</li>
+      <li class="li">language-ini</li>
+      <li class="li">language-java</li>
+      <li class="li">language-javascript</li>
+      <li class="li">language-json</li>
+      <li class="li">language-lua</li>
+      <li class="li">language-perl</li>
+      <li class="li">language-php</li>
+      <li class="li">language-python</li>
+      <li class="li">language-ruby</li>
+      <li class="li">language-sql</li>
+      <li class="li">language-xml</li>
+      <li class="li">language-xquery</li>
+    </ul></div>
+    <div class="note attention note_attention"><span class="note__title">Attention:</span> It is recommended that you do not add inline elements in the codeblocks
+      when using this <code class="keyword markupname xmlatt">@outputclass</code> attribute, as it may lead to improper
+      highlighting.</div>
+    <p class="p"><strong class="ph b">Example:</strong></p>
+    <div class="p">This
+      codeblock:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;codeblock</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"language-xml"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;p&gt;</strong>This code is an example of how to use a coderef.<strong class="hl-tag">&lt;/p&gt;</strong>
+   <strong class="hl-tag">&lt;codeblock&gt;</strong><strong class="hl-tag">&lt;coderef</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"MyExternalCode.xsl"</span><strong class="hl-tag">/&gt;</strong><strong class="hl-tag">&lt;/codeblock&gt;</strong>
+<strong class="hl-tag">&lt;/codeblock&gt;</strong></pre></div>
+    <p class="p">would look like this in the output:</p>
+    <img class="image" src="../img/codeblock-example.png">
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-ot-customization.html">Customizing DITA Transformations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-watermark-xhtml-output.html">Adding a Watermark in DITA Map to XHTML Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/publishing_with_a_dita_ot_project_file.html">Publishing with a DITA-OT Project File</a></div></div></nav></article></main></body></html>

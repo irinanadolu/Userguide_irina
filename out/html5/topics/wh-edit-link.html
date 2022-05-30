@@ -1,0 +1,78 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Edit link to launch Web Author"><meta name="keywords" content="WebHelp Responsive, Edit link to launch Web Author"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-copy-additional-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/flagging-dita-content.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/doc/ug-waCustom/topics/webauthor-integrate-embedded-launch.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh-edit-link"><title>How to Add an Edit Link to Launch Oxygen XML Web Author</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh-edit-link"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Add an Edit Link to Launch Oxygen XML Web Author</h1>
+  
+  <div class="body">
+    <p class="p">You can embed <em class="ph i">Edit</em> links in the DITA WebHelp Responsive output that will automatically
+      launch a particular document in <a class="xref" href="https://www.oxygenxml.com/doc/ug-webauthor/" target="_blank" rel="external noopener"><span class="ph">Oxygen XML Web Author</span></a>. A reviewer can then
+      click the link to open the particular file in <span class="ph">Oxygen XML Web Author</span> where they can make
+      or propose changes.</p>
+    <section class="section" id="wh-edit-link__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Publishing Template</h2>
+      
+      <div class="p">To embed an <em class="ph i">Edit</em> link in the DITA Map WebHelp Responsive output using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing Template</dfn></a>, follow
+        this procedure:<ol class="ol">
+          <li class="li">If you have not already created a Publishing Template, see <a class="xref" href="whr_publishing_templates.html">Working with Publishing Templates</a>.</li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add the
+            following parameters with their values set to the URLs:<ul class="ul">
+              <li class="li"><strong class="ph b">editlink.ditamap.edit.url</strong> - The URL of the DITA map used to publish your
+                content. The easiest way to obtain the URL is to open the map in Web Author and copy
+                the URL from the browser's address bar.</li>
+              <li class="li"><strong class="ph b">editlink.additional.query.parameters</strong> - Optional query parameters to be
+                appended to each generated edit link. Each parameter must start with <em class="ph i">&amp;</em>
+                (e.g. <em class="ph i">&amp;tags-mode=no-tags</em>). </li>
+            </ul><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"editlink.ditamap.edit.url"</span> 
+                       <span class="hl-attribute">value</span>=<span class="hl-value">"webdav-https://dav.box.com/dav/my.ditamap"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> In the WebHelp output, all topics will have an <span class="ph uicontrol">Edit</span>
+        link to the right side of the title and clicking the link will launch that particular
+        document in <span class="ph">Oxygen XML Web Author</span>.</p>
+      <div class="p">For example:<ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Windows:</strong></u></p>
+            <p class="p"><code class="ph codeph">dita.bat -i c:\mySample.ditamap -f webhelp-responsive
+                -Deditlink.ditamap.edit.url=webdav-https://dav.box.com/dav/my.ditamap</code></p>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Mac OS X/ Linux:</strong></u></p>
+            <p class="p"><code class="ph codeph">dita -i /mySample.ditamap -f webhelp-responsive
+                -Deditlink.ditamap.edit.url=webdav-https://dav.box.com/dav/my.ditamap</code></p>
+          </li>
+        </ul></div>
+    </section>
+    <section class="section" id="wh-edit-link__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To embed an <em class="ph i">Edit</em> link in the DITA Map WebHelp Responsive output using a
+        transformation scenario from within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Edit a <span class="ph uicontrol">DITA Map WebHelp Responsive</span> transformation scenario and
+            open the <span class="ph uicontrol">Parameters</span> tab.</li>
+          <li class="li">Set values for the following parameters:<ul class="ul">
+              <li class="li"><strong class="ph b">editlink.ditamap.edit.url</strong> - The URL of the <span class="ph">Oxygen XML Web Author</span>
+                that have opened the DITA map for editing.</li>
+              <li class="li"><strong class="ph b">editlink.additional.query.parameters</strong> - Optional query parameters to be
+                appended to each generated edit link. Must start with <em class="ph i">&amp;</em> (e.g.:
+                  <em class="ph i">&amp;tags-mode=no-tags</em>). </li>
+            </ul></li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> In the WebHelp output, all topics will have an <span class="ph uicontrol">Edit</span>
+        link to the right side of the title and clicking the link will launch that particular
+        document in <span class="ph">Oxygen XML Web Author</span>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-copy-additional-resources.html">How to Copy Additional Resources to Output Directory</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/flagging-dita-content.html">How to Flag DITA Content in WebHelp Output</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-waCustom/topics/webauthor-integrate-embedded-launch.html" target="_blank" rel="external noopener">Web Author Customization Guide: Embedding an Edit Link that will Launch Web
+          Author</a></li></ul></div></nav>
+</article></main></body></html>

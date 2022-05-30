@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="description" content="The examples in this section demonstrate how to use XSLT extension points from a DITA-OT plugin."><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions-pub-template.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_other_sample_usecases.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="pdf-xslt-extensions-plugin"><title>How to Use XSLT Extension Points for PDF Output from a DITA-OT Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="pdf-xslt-extensions-plugin">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Use XSLT Extension Points for PDF Output from a DITA-OT Plugin</h1>
+  <p class="shortdesc">The examples in this section demonstrate how to use XSLT extension points from a <a class="xref" href="http://www.dita-ot.org/dev/topics/custom-plugins.html" target="_blank" rel="external noopener">DITA-OT plugin</a>.</p>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions-pub-template.html" title="The examples in this section demonstrate how to use XSLT extension points from an Oxygen Publishing Template.">How to Use XSLT Extension Points for PDF Output from a Publishing Template</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_other_sample_usecases.html" title="This section includes examples that can be used as a starting point for various customizations using XSLT and CSS.">Sample Use-cases: Using XSLT and CSS for PDF Transformations</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="pdf-xslt-extensions-plugin_use-case_1_styling_codeblocks_with_a_zebra_effect">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Style Codeblocks with a Zebra Effect</h2>
+  <div class="body">
+    <p class="p">Suppose you want your <em class="ph i">codeblocks</em> to have a particular background color for one line,
+      and another color for the next line. One advantage of this coloring technique is that you can
+      clearly see when text from the <em class="ph i">codeblock</em> is wrapped.</p>
+    <p class="p">This effect can be done by altering the HTML5 output, creating a <code class="keyword markupname xmlelement">&lt;div&gt;</code>
+      for each line from the code block, then styling them.</p>
+    <p class="p">To add this functionality using a DITA-OT plugin, follow these steps:</p>
+    <ol class="ol" id="pdf-xslt-extensions-plugin_use-case_1_styling_codeblocks_with_a_zebra_effect__ol_p3y_cxz_njb">
+      <li class="li">In the <span class="ph filepath">
+          <a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>\plugins\</span> folder, create a folder for
+        this plugin (for example, <span class="ph filepath">com.oxygenxml.pdf.custom.codeblocks</span>).</li>
+      <li class="li">Create a <strong class="ph b">plugin.xml</strong> file (in the folder you created in step 1) that specifies the
+        extension point and your customization stylesheet. For
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.custom.codeblocks"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2html5"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"custom_codeblocks.xsl"</span><strong class="hl-tag">/&gt;</strong>    
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></li>
+      <li class="li">Create your customization stylesheet (for example, <strong class="ph b">custom_codeblocks.xsl</strong>) with the
+        following
+        content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+   
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' pr-d/codeblock ')]"</span><strong class="hl-xsl">&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">'zebra'</span><strong class="hl-tag">&gt;</strong>       
+          <strong class="hl-xsl">&lt;xsl:analyze-string</strong> <span class="hl-attribute">regex</span>=<span class="hl-value">"\n"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:matching-substring/&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:non-matching-substring&gt;</strong>
+               <strong class="hl-tag">&lt;div&gt;</strong><strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">/&gt;</strong><strong class="hl-tag">&lt;/div&gt;</strong>
+            <strong class="hl-xsl">&lt;/xsl:non-matching-substring&gt;</strong>
+          <strong class="hl-xsl">&lt;/xsl:analyze-string&gt;</strong>
+       <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+      <li class="li">Use the <a class="xref" href="ditamap-run-dita-ot-integrator-2.html"><span class="ph uicontrol">Run DITA-OT Integrator</span> transformation scenario</a> found in the <span class="ph uicontrol">DITA Map</span> section in the
+          <span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box.</li>
+      <li class="li">Create a custom CSS file with rules that style the <em class="ph i">codeblock</em> structure. For
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">div.zebra {
+  <strong class="hl-keyword">font-family</strong>:courier, fixed, monospace;        
+  <strong class="hl-keyword">white-space</strong>:pre-wrap;
+}
+
+div.zebra &gt; *:nth-of-type(odd){        
+  <strong class="hl-keyword">background-color</strong>: silver;
+}     </pre></li>
+      <li class="li"> Edit a <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation scenario and
+        reference your custom CSS file (using the <code class="ph codeph">args.css</code> parameter).</li>
+      <li class="li">Run the transformation scenario.</li>
+    </ol>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="pdf-xslt-extensions-plugin_use-case_2_removing_the_related_links_section">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Remove the Related Links Section</h2>
+  <div class="body">
+    <p class="p">Suppose you want the <em class="ph i">related links</em> sections to be removed from the PDF output.</p>
+    <div class="p">To add this functionality using a DITA-OT plugin, follow these steps:<ol class="ol" id="pdf-xslt-extensions-plugin_use-case_2_removing_the_related_links_section__ol_r3y_cxz_njb">
+        <li class="li">In the <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>\plugins\</span> folder,
+          create a folder for this plugin (for example,
+            <span class="ph filepath">com.oxygenxml.pdf.custom.codeblocks</span>).</li>
+        <li class="li">Create a <strong class="ph b">plugin.xml</strong> file (in the folder you created in step 1) that specifies the
+          extension point and your customization stylesheet. For
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.custom.related.links"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2merged"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"custom_related_links.xsl"</span><strong class="hl-tag">/&gt;</strong>    
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></li>
+        <li class="li">Create your customization stylesheet (for example, <strong class="ph b">custom_related_links.xsl</strong>) with
+          the following
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+	
+   <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' topic/related-links ')]"</span><strong class="hl-xsl">&gt;</strong>
+      <em class="hl-comment">&lt;!-- Remove. --&gt;</em>
+   <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+        <li class="li">Use the <a class="xref" href="ditamap-run-dita-ot-integrator-2.html"><span class="ph uicontrol">Run DITA-OT Integrator</span> transformation scenario</a> found in the <span class="ph uicontrol">DITA Map</span> section in the
+            <span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box.</li>
+        <li class="li"> Run the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation scenario.</li>
+      </ol>
+    </div>
+  </div>
+</article></article></article></main></body></html>

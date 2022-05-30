@@ -1,0 +1,71 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/crash-at-startup-on-windows-nvoglv32.html"><meta name="DC.relation" scheme="URI" content="../topics/damaged-file-associations-mac.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="crash-java-runtime"><title>Crash in Java Runtime Thread</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="crash-java-runtime"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Crash in Java Runtime Thread</h1>
+  <div class="body troublebody">
+    <section class="section condition" id="crash-java-runtime__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">I encounter consistent crashes in one of the Java runtime threads (for example,
+          <em class="ph i">AWT-EventQueue</em>, <em class="ph i">Java2D Queue Flusher</em>, or <em class="ph i">C2 CompilerThread</em>).</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="crash-java-runtime__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">This is usually caused by unknown errors somewhere in the implementation of the Java
+          Runtime.</p>
+      </section>
+      <section class="section remedy" id="crash-java-runtime__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <div class="p">Although this does not guarantee that it will solve the problem, you could try updating
+            the Java Runtime Environment (JRE) that comes bundled with <span class="ph">Oxygen XML Editor</span> to the
+            latest supported version.<div class="note important note_important"><span class="note__title">Important:</span> You should only use a version of Java
+                <span class="ph">8</span>.</div></div>
+          <div class="p"><u class="ph u"><strong class="ph b">Windows/Linux</strong></u><ol class="ol">
+              <li class="li">Download the latest Java <span class="ph">8</span> JRE from here: <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="external noopener">http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</a>. Download the JRE in the
+                  <span class="ph filepath">tar.gz</span> format with the same architecture as your <span class="ph">Oxygen XML Editor</span> installation (x86=32bit / x64=64bit).</li>
+              <li class="li">Navigate to the <span class="ph">Oxygen XML Editor</span> installation folder and rename the
+                  <span class="ph filepath">jre</span> folder to <strong class="ph b">jre.old</strong> (you will need admin privileges
+                if it is installed in <span class="ph filepath">Program Files</span>).</li>
+              <li class="li">Unpack the <span class="ph filepath">tar.gz</span> and rename the extracted folder to
+                  <strong class="ph b">jre</strong>.</li>
+              <li class="li">Move that folder to the <span class="ph">Oxygen XML Editor</span> installation folder.</li>
+              <li class="li">Verify the paths in the <span class="ph filepath">jre</span> folder. The path of the JRE
+                  <span class="ph filepath">bin</span> folder should be:
+                <span class="ph filepath">oxygen/jre/bin</span>.</li>
+              <li class="li">Start <span class="ph">Oxygen XML Editor</span> and check the Java version in <span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">About</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">System properties</span></span>. The <strong class="ph b">java.runtime.version</strong> should be match the one you
+                unpacked.</li>
+            </ol></div>
+          <div class="p"><u class="ph u"><strong class="ph b">Mac OS X</strong></u><ol class="ol">
+              <li class="li">Download the Mac OS X <span class="ph filepath">tar.gz</span> distribution of Java <span class="ph">8</span> from here: <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="external noopener">http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</a>.</li>
+              <li class="li">Extract the archive contents in a location of your choice (for example,
+                  <span class="ph filepath">Downloads</span>). You will end up with a folder named something
+                like this: <span class="ph filepath">jre1.8.0_181.jre</span> (depending on the version).</li>
+              <li class="li">
+                <p class="p">Move or rename the JRE that was bundled with <span class="ph">Oxygen XML Editor</span>. The bundled
+                  JRE folder (<strong class="ph b">jre.bundle</strong>) is located inside a hidden folder named
+                    <strong class="ph b">.install4j</strong> (in the <span class="ph">Oxygen XML Editor</span> installation folder), so you
+                  cannot see it in the Mac Finder. Thus, you need to move or rename it via the
+                  command line.</p>
+                <div class="p">For example, if you have <span class="ph">Oxygen XML Editor</span> deployed in the
+                    <span class="ph filepath">Applications</span> folder, the command should look similar to
+                  this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">mv <span class="hl-string">"/Applications/Oxygen XML Editor/.install4j/jre.bundle"</span>
+<span class="hl-string">"/Applications/Oxygen XML Editor/.install4j/jre.bundle.old"</span></pre></div>
+              </li>
+              <li class="li">
+                <p class="p">Move the unpacked JRE folder from the location where you extracted it in the
+                  second step to a folder named <span class="ph filepath">.install4j/jre.bundle</span> inside
+                  the <span class="ph">Oxygen XML Editor</span> installation direction.</p>
+                <div class="p">For example, if you have <span class="ph">Oxygen XML Editor</span> deployed in the
+                    <span class="ph filepath">Applications</span> folder, the command should look similar to
+                  this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">mv <span class="hl-string">"~/Downloads/jre1.8.0_181.jre"</span><span class="hl-string">"/Applications/Oxygen XML Editor/.install4j/jre.bundle"</span></pre></div>
+                <p class="p">The default bundled JRE should now be successfully replaced by the newer one.</p>
+              </li>
+              <li class="li">Start <span class="ph">Oxygen XML Editor</span> and check the Java version in <span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">About</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">System properties</span></span>. The <strong class="ph b">java.runtime.version</strong> should be match the one you
+                unpacked.</li>
+            </ol></div>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/crash-at-startup-on-windows-nvoglv32.html">Crash at Startup on Windows with an Error About the nvoglv32.dll File</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/damaged-file-associations-mac.html">Damaged File Associations on OS X</a></div></div></nav></article></main></body></html>

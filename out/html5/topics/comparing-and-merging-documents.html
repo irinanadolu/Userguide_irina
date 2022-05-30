@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Comparing files and directories"><meta name="keywords" content="Comparing files and directories"><meta name="DC.relation" scheme="URI" content="../topics/working-with-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/scratch-buffer.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison.html"><meta name="DC.relation" scheme="URI" content="../topics/directories-comparison.html"><meta name="DC.relation" scheme="URI" content="../topics/compare-directories-3-way.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="comparing-and-merging-documents"><title>Compare Files or Directories</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="comparing-and-merging-documents"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Compare Files or Directories </h1>
+    
+    <div class="body">
+        <p class="p"><span class="ph">Oxygen XML Editor</span> provides a simple means of performing file and folder comparisons.
+      You can see the differences in your files and folders and merge the changes. You can also use
+      the file comparison to compare fragments or files inside zip-based archives.</p>
+        <p class="p">There are two types of comparison tools: <span class="ph uicontrol">Compare Directories</span> or
+        <span class="ph uicontrol">Compare Files</span>. These utilities<span class="ph"> are available from the
+          <span class="ph uicontrol">Tools</span> menu or</span> can be opened as stand-alone applications from
+      the <span class="ph">Oxygen XML Editor</span> installation folder (<span class="ph filepath">diffDirs.exe</span> and
+        <span class="ph filepath">diffFiles.exe</span>).</p>
+    <section class="section" id="comparing-and-merging-documents__starting_the_tools_from_a_command_line"><h2 class="title sectiontitle">Starting the Tools from a Command Line</h2>
+      
+      <p class="p">The comparison tools can also be started by using command-line arguments. In the
+        installation folder there are two executable shells (<span class="ph filepath">diffFiles.bat</span> and
+          <span class="ph filepath">diffDirs.bat</span> on Windows, <span class="ph filepath">diffFiles.sh</span> and
+          <span class="ph filepath">diffDirs.sh</span> on OS X and Linux). To specify files or directories to
+        compare, you can pass command-line arguments to each of these shells. The arguments can
+        point to file or folder paths in directories or archives (supported formats: <em class="ph i">zip</em>,
+          <em class="ph i">docx</em>, and <em class="ph i">xlsx</em>).</p>
+      <div class="sectiondiv"><strong class="ph b">Directory Comparison Example</strong><div class="p">To start a <a class="xref" href="directories-comparison.html#directories-comparison">comparison between the two
+            directories</a>, use the following
+          construct:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffDirs.bat/diffDirs.sh [directory path 1] [directory path 2]</pre>If
+          you pass only one argument, you are prompted to manually choose the second directory or
+          archive.</div><div class="p">For example, to start a comparison between two Windows directories, the
+          command line would look like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffDirs.bat "c:\documents new" "c:\documents old"</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> If there are spaces in the path names, surround the paths with
+          quotes.</div></div></div>
+      <div class="sectiondiv"><strong class="ph b">File Comparison Example</strong><p class="p">To start a <a class="xref" href="file-comparison.html#file-comparison">comparison between 2 or 3 files</a>, use
+          the following construct: <code class="ph codeph">diffFiles.bat/diffFiles.sh [path to left file] [path to
+            right file] [path to base file]</code>.</p></div>
+      <p class="p">If three files are specified, the tool will start in the <a class="xref" href="file-comparison.html#file-comparison__threeway_comparisons">3-way comparison
+          mode</a>. If only two files are specified, the tool will start in the <a class="xref" href="file-comparison.html#file-comparison__twoway_comparisons">2-way comparison
+          mode</a>. The first specified file will be added to the left panel in the comparison
+        tool, the second file to the right panel, and the optional third file will be the base
+        (ancestor) file used for a 3-way comparison. If you pass only one argument, you are prompted
+        to manually choose another file.</p>
+      <div class="p">For example, to do a 3-way comparison on Windows, the command line would look like
+          this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffFiles.bat "c:\docs\file 1" "c:\docs\file 2" c:\docs\basefile</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> If there are spaces in the path names, surround the paths with
+        quotes.</div></div>
+    </section>
+    </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/file-comparison.html">Compare Files Tool</a><br></li><li class="link olchildlink"><a href="../topics/directories-comparison.html">Compare Directories Tool</a><br></li><li class="link olchildlink"><a href="../topics/compare-directories-3-way.html">Compare Directories Against a Base (3-Way) Tool</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-documents.html" title="General information about working with any type of document">Working With Any Type of Document</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/scratch-buffer.html">Scratch Buffer</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/file-comparison.html">Compare Files Tool</a></div></div></nav></article></main></body></html>

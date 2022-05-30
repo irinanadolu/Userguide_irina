@@ -1,0 +1,268 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Review tools,Track Changes,XML documents,Author Mode editing,Review tools,Track Changes,Track Changes feature in Author Mode"><meta name="keywords" content="Author editing mode, Review tools, Track Changes, XML documents, Author Mode editing, Review tools, Track Changes, Track Changes feature in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/author-change-tracking.html"><meta name="DC.relation" scheme="URI" content="../topics/author-change-tracking.html"><meta name="DC.relation" scheme="URI" content="../topics/track-changes-behaviour.html"><meta name="DC.relation" scheme="URI" content="../topics/track-changes-behaviour.html"><meta name="DC.relation" scheme="URI" content="../topics/track-changes-limitations.html"><meta name="DC.relation" scheme="URI" content="../topics/track-changes-format.html"><meta name="DC.relation" scheme="URI" content="author-managing-comments.html#author-managing-comments"><meta name="DC.relation" scheme="URI" content="author-callouts.html#author-callouts"><meta name="DC.relation" scheme="URI" content="review-view.html#review-view"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-managing-changes"><title>Managing Tracked Changes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-managing-changes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Managing Tracked Changes</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Track
+          Changes</dfn> feature</a> that allows you to review changes that you or other authors
+      have made and then accept or reject them. You can also manage the visualization mode of the
+      tracked changes, add comments to changes, and mark them as being done. These actions are
+      easily accessible from contextual menus, the toolbar, or the <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a>.</p>
+    <p class="p">The <dfn class="term">Track Changes</dfn> feature is also able to keep track of changes you make to
+      attributes in a document and the changes are presented in the <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a> and <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span>
+        view</a>.</p>
+    <section class="section" id="author-managing-changes__types_of_tracked_changes"><h2 class="title sectiontitle">Types of Tracked Changes</h2>
+      
+      <div class="p">The types of <dfn class="term">tracked changes</dfn> include:<ul class="ul">
+          <li class="li">Inserting, deleting content (text or elements)</li>
+          <li class="li">Drag and drop content (text or elements)</li>
+          <li class="li">Cutting or pasting content (text or elements)</li>
+          <li class="li">Inserting, deleting, and changing the structure of tables</li>
+          <li class="li">Inserting and editing lists and their content</li>
+          <li class="li">Inserting and deleting entities</li>
+          <li class="li">Inserting and deleting element tags</li>
+          <li class="li">Editing attributes</li>
+          <li class="li">Performing a <strong class="ph b">Split</strong> operation</li>
+          <li class="li">Performing a <span class="ph uicontrol">Surround with</span> operation</li>
+          <li class="li">Changes in referenced content (for example, XInclude fragments or DITA conrefs)</li>
+        </ul></div>
+      <div class="p">
+        <div class="note important note_important"><span class="note__title">Important:</span> If you copy content in <span class="ph uicontrol">Author</span> mode that
+          contains <dfn class="term">tracked changes</dfn>, the changes will automatically be accepted prior to
+          the content being copied to the clipboard. This filtering is performed only if the
+          selection is not entirely inside a tracked change. </div>
+      </div>
+    </section>
+    <section class="section" id="author-managing-changes__using_the_change_tracking_feature"><h2 class="title sectiontitle">Activating the Change Tracking Feature</h2>
+      
+      <div class="p">To activate the <dfn class="term">Track Changes</dfn> feature for the current document, use any of the
+        following methods:<ul class="ul">
+          <li class="li">Click the <span class="ph uicontrol"><img class="image" src="../img/TrackChanges20.png">Track
+              Changes</span> button on the toolbar.</li>
+          <li class="li">Select <span class="ph uicontrol"><img class="image" id="author-managing-changes__image_r5z_gtc_cs" src="../img/TrackChangesDeactivated16.png">Track Changes</span> from the
+              <span class="ph uicontrol">Review</span> submenu of the contextual menu in the main editing area
+            in <span class="ph uicontrol">Author</span> mode.</li>
+          <li class="li">Select <span class="ph uicontrol"><img class="image" src="../img/TrackChangesDeactivated16.png">Track
+              Changes</span> from the <span class="ph menucascade"><span class="ph uicontrol">Edit</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Review</span></span> menu.</li>
+        </ul></div>
+      <p class="p">To activate the <dfn class="term">Track Changes</dfn> feature globally for all documents that you open
+        in <span class="ph">Oxygen XML Editor</span>, change the <a class="xref" href="preferences-track-changes.html#preferences-track-changes__initial-state"><span class="ph uicontrol">Initial State</span> option to <span class="ph uicontrol">Always On</span></a>
+        in the <a class="xref" href="preferences-track-changes.html#preferences-track-changes"><span class="ph uicontrol">Review</span> preferences page</a>.</p>
+    </section>
+    <section class="section" id="author-managing-changes__rendering_tracked_changes_in_author_mode"><h2 class="title sectiontitle">Rendering Tracked Changes in Author Mode</h2>
+      
+      <p class="p">When <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Track Changes</dfn></a> is enabled,
+        your modifications are highlighted using a distinctive color. The colors can be customized
+        from the <a class="xref" href="preferences-track-changes.html"><span class="ph uicontrol">Review</span> preferences
+          page</a>, along with the name of the author and the initial state of the feature when
+        you open a document. Insertions are rendered with an underline while deletions are rendered
+        with a strike through.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Change Tracking in Author Mode</figcaption>
+          
+          <img class="image" src="../img/author_track_changes.png">
+        </figure>
+      </div>
+      <p class="p">When hovering over a change a tooltip displays information about the author and
+        modification time.</p>
+    </section>
+    <section class="section" id="author-managing-changes__change_tracking_contextual_menu_actions"><h2 class="title sectiontitle">Change Tracking Contextual Menu Actions</h2>
+      
+      <p class="p">You can right-click any change in <span class="ph uicontrol">Author</span> mode to access the
+        following contextual menu actions:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AcceptChange16.png">Accept
+              Change(s)</span></dt>
+          <dd class="dd">Accepts the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+            located at the cursor position or all of the changes in a selection. If you select a
+            part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the selected content is
+            accepted. If you select multiple changes, all of them are accepted. For an
+              <em class="ph i">insertion</em> change, it keeps the inserted text and for a <em class="ph i">deletion</em> change,
+            it removes the content from the document.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RejectChange16.png">Reject
+              Change(s)</span></dt>
+          <dd class="dd">Rejects the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+            located at the cursor position or all of the changes in a selection. If you select a
+            part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the selected content is
+            rejected. If you select multiple changes, all of them are rejected. For an
+              <em class="ph i">insertion</em> change, it removes the inserted text and for a <em class="ph i">deletion</em>
+            change, it preserves the original content.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentChange16.png">Comment
+              Change</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a comment to an existing <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>. The comment will
+            appear in a callout and a tooltip when hovering over the change. If the action is
+            selected on an existing commented change, the dialog box will allow you to edit the
+            comment.</dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="author-managing-changes__review_toolbar_actions"><h2 class="title sectiontitle">Change Tracking Toolbar Actions</h2>
+      
+      <p class="p">By default, the toolbar includes the following actions and options for reviewing or <a class="xref" href="../glossary/track-changes.html"><dfn class="term">tracking changes</dfn></a> (similar actions
+        are also available in the <span class="ph menucascade"><span class="ph uicontrol">Edit</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Review</span></span> menu and the <span class="ph uicontrol">Review</span> submenu of the contextual
+        menu):</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_o5r_mnv_5r" src="../img/TrackChanges20.png">Track
+                Changes</span></dt>
+            <dd class="dd">Enables or disables the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Track
+                  Changes</dfn></a> support for the current document.</dd>
+          
+          
+            <dt class="dt dlterm" id="author-managing-changes__accept-changes-dlentry"><span class="ph uicontrol"><img class="image" src="../img/AcceptDrop.png">Accept Change(s)</span> combo
+              box</dt>
+            <dd class="dd">This combo box is both a button and a drop-down menu that includes the following
+              actions (when you select an action from the drop-down menu, that action becomes the
+              default action for the combo box button):<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/AcceptChange16.png">Accept Change(s) and Move to
+                    Next</span> - <span class="ph">Accepts the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+        located at the cursor position or all of the changes in a selection and then moves to the
+        next change. If you select a part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the
+        selected content is accepted.</span></li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/AcceptChange16.png">Accept Change(s)</span>
+                  - Accepts the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked
+                    Change</dfn></a> located at the cursor position or all of the changes in a
+                  selection.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/AcceptAll16.png">Accept All Changes</span>
+                  - <span class="ph">Accepts all <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a> in the current
+        document.</span></li>
+              </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> You can <a class="xref" href="preferences-menu-shortcut-keys.html#preferences-menu-shortcut-keys">assign
+                  shortcut keys</a> for these actions to make it easier to access
+              them.</div></dd>
+          
+          
+            <dt class="dt dlterm" id="author-managing-changes__reject-changes-dlentry"><span class="ph uicontrol"><img class="image" src="../img/RejectDrop.png">Reject Change(s)</span> combo
+              box</dt>
+            <dd class="dd">This combo box is both a button and a drop-down menu that includes the following
+              actions (when you select an action from the drop-down menu, that action becomes the
+              default action for the combo box button):<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/RejectChange16.png">Reject Change(s) and Move to
+                    Next</span> - <span class="ph">Rejects the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+        located at the cursor position or all of the changes in a selection and then moves to the
+        next change. If you select a part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the
+        selected content is rejected.</span></li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/RejectChange16.png">Reject Change(s)</span>
+                  - Rejects the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked
+                    Change</dfn></a> located at the cursor position or all of the changes in a
+                  selection.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/RejectAll16.png">Reject All Changes</span>
+                  - <span class="ph">Rejects all <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a> in the current
+        document.</span></li>
+              </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> You can <a class="xref" href="preferences-menu-shortcut-keys.html#preferences-menu-shortcut-keys">assign
+                  shortcut keys</a> for these actions to make it easier to access
+              them.</div></dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentChange16.png">Comment
+              Change</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a comment to an existing <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>. The comment will
+            appear in a callout and a tooltip when hovering over the change. If the action is
+            selected on an existing commented change, the dialog box will allow you to edit the
+            comment.</dd>
+        
+          
+            <dt class="dt dlterm" id="author-managing-changes__track_changes_view_modes"><span class="ph uicontrol"><img class="image" src="../img/TrackChangesViewDrop.png">Track Changes
+                Visualization Modes</span> Drop-Down Menu</dt>
+            <dd class="dd">This drop-down menu includes specialized actions that allow you to switch between
+              the following visualization modes:<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_why_x4v_5r" src="../img/TrackChangesFinalWithChanges16.gif">View All Changes/Comments</span> - This mode is
+                  active by default. When you use this mode, all tracked changes are represented in
+                  the <span class="ph uicontrol">Author</span> mode.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_gw1_x4v_5r" src="../img/TrackChangesFiltered16.png">View only Changes/Comments by</span> - Only the tracked changes made by
+                  the author you select are presented.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_zvl_y4v_5r" src="../img/TrackChangesFinal16.gif">View Final</span> - This mode offers a preview of the document as if all
+                  tracked changes (both inserted and deleted) were accepted.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_kqc_z4v_5r" src="../img/TrackChangesOriginal16.gif">View Original</span> - This mode offers a preview of the document as if
+                  all tracked changes (both inserted and deleted) were rejected. If you attempt to
+                  edit the document in this mode, the view mode will switch to <span class="ph uicontrol">View All
+                    Changes/Comments</span>.</li>
+              </ul><div class="note note note_note"><span class="note__title">Note:</span> If you use <span class="ph uicontrol"><img class="image" id="author-managing-changes__image_gtw_2pv_5r" src="../img/TrackChangesFinal16.gif">View Final</span> mode and <span class="ph uicontrol"><img class="image" id="author-managing-changes__image_otg_fpv_5r" src="../img/TrackChangesOriginal16.gif">View
+                  Original</span> mode, <a class="xref" href="../glossary/callout.html"><dfn class="term">callouts</dfn></a> are not displayed for comments or changes. To
+                display callouts, use the <span class="ph uicontrol"><img class="image" id="author-managing-changes__image_ffr_fpv_5r" src="../img/TrackChangesFinalWithChanges16.gif">View All
+                  Changes/Comments</span> mode.</div></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_t2b_44v_5r" src="../img/ContentHighlight20.png">Highlight</span></dt>
+            <dd class="dd">Enables or disables the <a class="xref" href="text-highlight.html#text-highlight"><span class="ph uicontrol">Highlight</span> tool</a>. Use the <span class="ph uicontrol"><img class="image" id="author-managing-changes__image_bxt_44v_5r" src="../img/HighlightDrop20.png">Highlight</span>
+              drop-down menu to select a new color.</dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AddComment16.png">Add
+              Comment</span></dt>
+          <dd class="dd">Inserts a comment at the cursor position. The comment appears in a callout box and a
+            tooltip (when hovering over the change).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/EditComment16.png">Show/Edit
+              Comment</span></dt>
+          <dd class="dd">Opens a dialog box that displays the discussion thread and allows the current user to
+            edit comments that do not have replies. If you are not the author who inserted the
+            original comment, the dialog box just displays the comment without the possibility of
+            editing it.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RemoveComment16.png">Remove
+              Comment</span></dt>
+          <dd class="dd">Removes a selected comment. If you remove a comment that contains replies, all of the
+            replies will also be removed.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-managing-changes__image_yyq_btc_cs" src="../img/ManageReviews20.png">Manage
+                Reviews</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span>
+                view</a>.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="author-managing-changes__tracked_change_callouts"><h2 class="title sectiontitle">Tracked Change Callouts</h2>
+      
+      <p class="p">You can also choose to display insertion and deletion changes in <a class="xref" href="../glossary/callout.html"><dfn class="term">callouts</dfn></a> in <span class="ph uicontrol">Author</span>
+        mode. By default, tracked changes are not displayed in callouts, but you can change this
+        behavior by selecting the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__track-changes-deletions"><span class="ph uicontrol">Track Changes Deletions</span></a> and <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page__track-changes-insertions"><span class="ph uicontrol">Track Changes Insertions</span></a> options in the <a class="xref" href="callouts-preferences-page.html#callouts-preferences-page"><span class="ph uicontrol">Callouts</span> preferences page</a>. You can also choose to display
+        the actual content of the deletion or insertion.</p>
+      <p class="p">By displaying the changes in callouts, you then have access to even more actions, such as
+        the ability to reply or mark them as being done. For more information, see <a class="xref" href="author-callouts.html#author-callouts">Author Callouts</a>.</p>
+    </section>
+    <section class="section" id="author-managing-changes__review_view"><h2 class="title sectiontitle">Tracked Changes in the Review View</h2>
+      
+      <p class="p">The <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a> is
+        also useful for managing tracked changes and comments. In this view, the edits are presented
+        in a compact form, in the order they appear in the document and each edit is marked with a
+        type-specific icon. You can use this view to quickly navigate through changes, accept or
+        reject them, or to add and manage comments for the changes. You can also search for specific
+        changes and it includes some filtering options (for example, you can filter it to only show
+        certain types of changes or to only show changes for a particular author).</p>
+      <p class="p">For more information, see <a class="xref" href="review-view.html#review-view">Review View</a>.</p>
+    </section>
+    <section class="section" id="author-managing-changes__tracked_changes_xml_source"><h2 class="title sectiontitle">Tracked Changes XML Source Code</h2>
+      
+      <p class="p">The changes are stored in the document source code as processing instructions and they do
+        not interfere with validation or transformations. For each change, the author name and the
+        modification time are preserved.</p>
+      <p class="p"><strong class="ph b">Example - Insertion Change:</strong> The following processing instruction is an example of
+        how an <em class="ph i">insertion</em> change is stored in a document:</p>
+      <p class="p">
+        <code class="ph codeph">&lt;?oxy_insert_start author="John Doe"
+          timestamp="20090408T164459+0300"?&gt;all&lt;?oxy_insert_end?&gt;</code></p>
+      <p class="p"><strong class="ph b">Example - Deletion Change:</strong> The following processing instruction is an example of how
+        a <em class="ph i">deletion</em> change is stored in a document:</p>
+      <p class="p">
+        <code class="ph codeph">&lt;?oxy_delete author="John Doe" timestamp="20090508T164459+0300"
+          content="belong"?&gt;</code></p>
+    </section>
+    <p class="p">For more information about the <dfn class="term">Track Changes</dfn> support, watch our video
+      demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/L_ESxRMfnek" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/track-changes-behaviour.html">Tracked Changes Behavior</a><br></li><li class="link olchildlink"><a href="../topics/track-changes-limitations.html">Tracked Changes Limitations</a><br></li><li class="link olchildlink"><a href="../topics/track-changes-format.html">Tracked Changes XML Markup</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-change-tracking.html">Reviewing Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-change-tracking.html">Reviewing Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/track-changes-behaviour.html">Tracked Changes Behavior</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-managing-comments.html#author-managing-comments">Managing Comments</a></li><li class="linklist"><a class="link" href="author-callouts.html#author-callouts">Author Callouts</a></li><li class="linklist"><a class="link" href="review-view.html#review-view">Review View</a></li></ul></div></nav>
+</article></main></body></html>

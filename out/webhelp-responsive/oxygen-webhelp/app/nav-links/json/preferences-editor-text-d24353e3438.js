@@ -1,0 +1,1 @@
+define({"topics":[{"title":"<span class=\"ph\">Text <\/span>Diagram Preferences","href":"topics\/preferences-editor-diagram.html","attributes":{"data-id":"preferences-editor-diagram"},"menu":{"hasChildren":false},"tocID":"preferences-editor-diagram-d24353e3457","topics":[]}]});

@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Generate Sample JSON Files tool"><meta name="keywords" content="Generate Sample JSON Files tool"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/convert-XML-to-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/JSON-contexutal-menu-actions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-instance-generator"><title>Generating Sample JSON Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-instance-generator"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Sample JSON Files</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a tool for generating sample JSON files. To generate sample
+      JSON files from a JSON Schema, select <span class="ph uicontrol">Generate Sample JSON Files</span> from
+      the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">JSON Tools</span></span> menu. The action opens a dialog box where you can configure a variety of
+      options for generating the files.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Generate Sample JSON Files Dialog Box</figcaption>
+        
+        <img class="image" src="../img/json_generate_sample.png">
+      </figure>
+    </div>
+    <div class="p">The <span class="ph uicontrol">Generate Sample JSON Files</span> dialog box includes the following
+      fields and options:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Schema URL</span></dt>
+          <dd class="dd">The URL of the Schema location. You can specify the path by using the text field, the
+            history drop-down menu, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../img/BrowseDrop.png">Browse</span> drop-down list.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Associate schema in the document</span></dt>
+          <dd class="dd">If enabled, the specified schema will be associated with the generated files.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Output folder</span></dt>
+          <dd class="dd">Path to the folder where the generated JSON instances will be saved.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">File name</span></dt>
+          <dd class="dd"> The name of the instance(s) that will be generated. By default,
+              <span class="ph filepath">instance.json</span> is used. </dd>
+        
+        
+          <dt class="dt dlterm" id="json-instance-generator__number-instances"><span class="ph uicontrol">Number of instances</span></dt>
+          <dd class="dd">The desired number of JSON instances to be generated. When more than one instance is
+            generated, the index of the instance will be added to its file name.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Property value</span></dt>
+          <dd class="dd">You can specify the way the values of the properties are generated. The following
+            options are available:<ul class="ul" id="json-instance-generator__ul_b2k_wzv_thb">
+              <li class="li"><em class="ph i">None</em> - Assigns empty values for properties (a template file will be
+                generated). This is the default value.</li>
+              <li class="li"><em class="ph i">Default</em> - Assigns the name of the property as the value (for strings) or
+                assigns the specified minimum value (for numbers).</li>
+              <li class="li"><em class="ph i">Random</em> - Assigns random values according to schema restrictions.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate optional properties</span></dt>
+          <dd class="dd">If selected, the JSON instance will be generated with optional properties that are
+            defined in the JSON schema. Otherwise, only the required properties will be
+            generated.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate additional content</span></dt>
+          <dd class="dd">If selected, the JSON instance will be generated with additional properties that are
+            defined in the JSON schema as <code class="ph codeph">additionalProperties</code> and additional items
+            that are defined as <code class="ph codeph">additionalItems</code> (in the case of an Array).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Choice strategy</span></dt>
+          <dd class="dd">You can specify the way an instance will be generated from a schema that contains a
+              <code class="ph codeph">CombinedSchema</code> (with either <em class="ph i">oneOf</em> or <em class="ph i">anyOf</em>). The
+            following options are available:<ul class="ul" id="json-instance-generator__ul_xxv_j1w_thb">
+              <li class="li"><em class="ph i">First</em> - The first defined schema in <em class="ph i">oneOf</em> or <em class="ph i">anyOf</em> will be
+                used.</li>
+              <li class="li"><em class="ph i">Random</em> - A random schema defined in <em class="ph i">oneOf</em> or <em class="ph i">anyOf</em> will be
+                used.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Recursion level</span></dt>
+          <dd class="dd">This option controls the maximum allowed depth (must be a number), in case the
+            selected schema contains recursive calls of <code class="ph codeph">$ref</code> schemas referencing
+            one another. By default, it is set to 1, meaning that the generation for the recursive
+            calls will stop after the first iteration.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open first instance in editor</span></dt>
+          <dd class="dd">If selected, the first generated instance is opened in the editor.</dd>
+        
+      </dl></div>
+    <p class="p">You can click <span class="ph uicontrol">OK</span> at any point to generate the sample JSON files.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-JSON.html">Editing JSON Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/convert-XML-to-JSON.html">XML to JSON Converter</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/JSON-contexutal-menu-actions.html">Contextual Menu Actions in JSON Documents</a></div></div></nav></article></main></body></html>

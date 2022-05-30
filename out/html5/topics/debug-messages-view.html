@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Information views,Messages view,XSLT Debugger perspective,Messages view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Information views, Messages view, XSLT Debugger perspective, Messages view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-xwatch-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-stack-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-messages-view"><title>Messages View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-messages-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Messages View</h1>
+  
+  <div class="body">
+    <p class="p">Using an <strong class="ph b">xsl:message</strong> instruction is one way to signal special situations encountered
+      during transformation as well as a raw way of doing the debugging. The
+        <span class="ph uicontrol">Messages</span> view is available only for XSLT debugging sessions and shows
+      all <code class="ph codeph">xsl:message</code> calls executed by the XSLT processor during transformation.
+        <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-messages-view__the-messages-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Messages View</figcaption>
+        
+        <img class="image" src="../img/sa_messages_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <table class="table frame-all" id="debug-messages-view__table-debug-messages-details"><caption><span class="table--title-label">Table 1. </span><span class="title">Messages columns</span></caption><colgroup><col><col></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="debug-messages-view__table-debug-messages-details__entry__1">Column</th>
+            <th class="entry colsep-1 rowsep-1" id="debug-messages-view__table-debug-messages-details__entry__2">Description</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__1">Message</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__2">Message content.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__1">Terminate</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__2">Signals whether or not the processor terminates the transformation once it
+              encounters the message (yes/no respectively).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__1">Resource</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-messages-view__table-debug-messages-details__entry__2">Resource file where <em class="ph i">xsl:message</em> instruction is defined and the message
+              line number. <span class="ph">The complete path of the resource is
+                available as tooltip.</span>
+            </td>
+          </tr>
+        </tbody></table>
+    <div class="p">The following actions are available in the contextual menu:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Go to</span></dt>
+          <dd class="dd">Highlight the XSL fragment that generated the message.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy</span></dt>
+          <dd class="dd">Copies to clipboard message details (system ID, severity info, description, start
+            location, terminate state).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="debug-messages-view__image_y2s_tw4_5r" src="../img/RemoveAll16.gif">Clear
+              all</span></dt>
+          <dd class="dd">Removes all messages from the view.</dd>
+        
+      </dl></div>
+    <div class="note important note_important"><span class="note__title">Important:</span> 
+      <ul class="ul">
+        <li class="li">Clicking a record from the table highlights the <code class="ph codeph">xsl:message</code> declaration
+          line.</li>
+        <li class="li">Message table values can be sorted by clicking the corresponding column header. Clicking
+          the column header switches the sorting order between: ascending, descending, no sort.</li>
+      </ul>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-xwatch-view.html">XPath Watch (XWatch) View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-stack-view.html">Stack View</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,1 @@
+define({"topics":[{"title":"DITA Map Author Mode Actions","href":"topics\/author-dita-map-extensions-2.html","attributes":{"data-id":"author-dita-map-extensions"},"menu":{"hasChildren":false},"tocID":"author-dita-map-extensions-d14162e11461","topics":[]}]});

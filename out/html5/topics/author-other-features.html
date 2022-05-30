@@ -1,0 +1,18 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,Author Persistent Highlighter"><meta name="keywords" content="Framework customization, Extensions, Author Persistent Highlighter"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/author-image-decorator.html"><meta name="DC.relation" scheme="URI" content="../topics/unique_attributes_recognizer.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-other-features"><title>Adding Custom Persistent Highlights</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-other-features"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Custom Persistent Highlights</h1>
+  
+  <div class="body">
+    <p class="p">The <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/package-summary.html" target="_blank" rel="external noopener"><em class="ph i">Author API</em></a> includes a class that
+      allows you to create or remove custom persistent highlights, set new properties for the
+      highlights, and customize their appearance. An example of a possible use case would be if you
+      want to implement your own way of editing review comments. The custom persistent highlights
+      get serialized in the XML document as processing instructions, with the following format:</p>
+    <p class="p"><code class="ph codeph">&lt;?oxy_custom_start prop1="val1"....?&gt; xml content
+        &lt;?oxy_custom_end?&gt;</code></p>
+    <p class="p">This functionality is available through the  <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/highlights/AuthorPersistentHighlighter.html" target="_blank" rel="external noopener"><em class="ph i">AuthorPersistentHighlighter</em></a> class
+      that is accessible through the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/editor/page/author/WSAuthorEditorPageBase.html#getPersistentHighlighter()" target="_blank" rel="external noopener"><em class="ph i">AuthorEditorAccess#getPersistentHighlighter()</em></a> method.</p>
+    <p class="p">For more information, see the JavaDoc details for this class at <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/highlights/AuthorPersistentHighlighter.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/highlights/AuthorPersistentHighlighter.html</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-image-decorator.html">Adding a Custom Image Decorator for Author Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/unique_attributes_recognizer.html">Configuring the Automatic ID Generation and Unique Attributes Recognizer</a></div></div></nav></article></main></body></html>

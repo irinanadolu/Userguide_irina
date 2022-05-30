@@ -1,0 +1,196 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Framework customization,Extensions,Author Reference Resolver"><meta name="keywords" content="Framework customization, Extensions, Author Reference Resolver"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-dnd-listener.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-extension-state-listener.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-author-references-resolver"><title>Configuring a Reference Resolver</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-author-references-resolver"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring a Reference Resolver</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">This information is helpful if you need to provide a handler for resolving references and
+        obtain the content they reference. For example, suppose the element that has references is
+          <strong class="ph b">ref</strong> and the attribute indicating the referenced resource is <strong class="ph b">location</strong>. You
+        need to implement a Java extension class for obtaining the referenced resources.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Create the class <em class="ph i">simple.documentation.framework.ReferencesResolver</em>. This class
+          must implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorReferenceResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorReferenceResolver</em></a> interface.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorReferenceResolver;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorAccess;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AttrValue;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AuthorElement;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AuthorNode;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> ReferencesResolver 
+      <strong class="hl-keyword">implements</strong> AuthorReferenceResolver {</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The <em class="ph i">hasReferences</em> method verifies if the handler considers the node to have
+          references. It takes <em class="ph i">AuthorNode</em> as an argument that represents the node that will
+          be verified. The method will return <code class="ph codeph">true</code> if the node is considered to
+          have references. In the following example, to be a reference, the node must be an element
+          with the name <em class="ph i">ref</em> and it must have an attribute named <em class="ph i">location</em>.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> hasReferences(AuthorNode node) {
+  <strong class="hl-keyword">boolean</strong> hasReferences = false;
+  <strong class="hl-keyword">if</strong> (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+    AuthorElement element = (AuthorElement) node;
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"ref"</span>.equals(element.getLocalName())) {
+      AttrValue attrValue = element.getAttribute(<span class="hl-string">"location"</span>);
+      hasReferences = attrValue != null;
+    }
+  }
+  <strong class="hl-keyword">return</strong> hasReferences;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">getDisplayName</em> returns the display name of the node that contains the
+          expanded referenced content. It takes <em class="ph i">AuthorNode</em> as an argument that represents the
+          node that needs the display name. The referenced content engine will ask this
+            <em class="ph i">AuthorReferenceResolver</em> implementation for the display name for each node that is
+          considered a reference. In the following example, the display name is the value of the
+            <em class="ph i">location</em> attribute from the <em class="ph i">ref</em> element.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> String getDisplayName(AuthorNode node) {
+  String displayName = <span class="hl-string">"ref-fragment"</span>;
+  <strong class="hl-keyword">if</strong> (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+    AuthorElement element = (AuthorElement) node;
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"ref"</span>.equals(element.getLocalName())) {
+      AttrValue attrValue = element.getAttribute(<span class="hl-string">"location"</span>);
+      <strong class="hl-keyword">if</strong> (attrValue != null) {
+        displayName = attrValue.getValue();
+      }
+    }
+  }
+  <strong class="hl-keyword">return</strong> displayName;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">resolveReference</em> resolves the reference of the node and returns a
+            <em class="ph i">SAXSource</em> with the parser and its input source. It takes <em class="ph i">AuthorNode</em> as an
+          argument that represents the node that needs the reference resolved, the
+            <code class="ph codeph">systemID</code> of the node, the <em class="ph i">AuthorAccess</em> with access methods to
+          the <span class="ph uicontrol">Author</span> mode data model and a SAX <em class="ph i">EntityResolver</em> that
+          resolves resources that are already opened in another editor or resolve resources through
+          the <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a>. In the
+          implementation, you need to resolve the reference relative to the
+            <code class="ph codeph">systemID</code>, and create a parser and an input source over the resolved
+          reference.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> SAXSource resolveReference(
+    AuthorNode node, 
+    String systemID, 
+    AuthorAccess authorAccess,
+    EntityResolver  entityResolver) {
+  SAXSource saxSource = null;
+  
+  <strong class="hl-keyword">if</strong> (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+    AuthorElement element = (AuthorElement) node;
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"ref"</span>.equals(element.getLocalName())) {
+      AttrValue attrValue = element.getAttribute(<span class="hl-string">"location"</span>);
+      <strong class="hl-keyword">if</strong> (attrValue != null) {
+        String attrStringVal = attrValue.getValue();
+        <strong class="hl-keyword">try</strong> {
+          URL absoluteUrl = <strong class="hl-keyword">new</strong> URL(<strong class="hl-keyword">new</strong> URL(systemID), 
+          authorAccess.getUtilAccess().correctURL(attrStringVal));
+          
+          InputSource inputSource = entityResolver.resolveEntity(null, 
+              absoluteUrl.toString());
+          <strong class="hl-keyword">if</strong>(inputSource == null) {
+            inputSource = <strong class="hl-keyword">new</strong> InputSource(absoluteUrl.toString());
+          }
+          
+          XMLReader xmlReader = authorAccess.newNonValidatingXMLReader();
+          xmlReader.setEntityResolver(entityResolver);
+          
+          saxSource = <strong class="hl-keyword">new</strong> SAXSource(xmlReader, inputSource);
+        } <strong class="hl-keyword">catch</strong> (MalformedURLException e) {
+          logger.error(e, e);
+        } <strong class="hl-keyword">catch</strong> (SAXException e) {
+          logger.error(e, e);
+        } <strong class="hl-keyword">catch</strong> (IOException e) {
+          logger.error(e, e);
+        }
+      }
+    }
+  }
+
+  <strong class="hl-keyword">return</strong> saxSource;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">getReferenceUniqueID</em> should return a unique identifier for the node
+          reference. The unique identifier is used to avoid resolving the references recursively.
+          The method takes <em class="ph i">AuthorNode</em> as an argument that represents the node with the
+          reference. In the following example, the unique identifier is the value of the
+            <em class="ph i">location</em> attribute from the <em class="ph i">ref</em> element.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> String getReferenceUniqueID(AuthorNode node) {
+  String id = null;
+  <strong class="hl-keyword">if</strong> (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+    AuthorElement element = (AuthorElement) node;
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"ref"</span>.equals(element.getLocalName())) {
+      AttrValue attrValue = element.getAttribute(<span class="hl-string">"location"</span>);
+      <strong class="hl-keyword">if</strong> (attrValue != null) {
+        id = attrValue.getValue();
+      }
+    }
+  }
+  <strong class="hl-keyword">return</strong> id;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">getReferenceSystemID</em>should return the <code class="ph codeph">systemID</code> of
+          the referenced content. It takes <em class="ph i">AuthorNode</em> as an argument that represents the node
+          with the reference and the <em class="ph i">AuthorAccess</em> with access methods to the
+            <span class="ph uicontrol">Author</span> mode data model. For example, the value of the
+            <em class="ph i">location</em> attribute is used from the <em class="ph i">ref</em> element and resolved relatively to
+          the XML base URL of the node.</span>
+        <div class="itemgroup info">
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> String getReferenceSystemID(AuthorNode node, 
+                                   AuthorAccess authorAccess) {
+  String systemID = null;
+  <strong class="hl-keyword">if</strong> (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+    AuthorElement element = (AuthorElement) node;
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"ref"</span>.equals(element.getLocalName())) {
+      AttrValue attrValue = element.getAttribute(<span class="hl-string">"location"</span>);
+      <strong class="hl-keyword">if</strong> (attrValue != null) {
+        String attrStringVal = attrValue.getValue();
+        <strong class="hl-keyword">try</strong> {
+          URL absoluteUrl = <strong class="hl-keyword">new</strong> URL(node.getXMLBaseURL(), 
+              authorAccess.getUtilAccess().correctURL(attrStringVal));
+          systemID = absoluteUrl.toString();
+        } <strong class="hl-keyword">catch</strong> (MalformedURLException e) {
+          logger.error(e, e);
+        }
+      }
+    }
+  }
+  <strong class="hl-keyword">return</strong> systemID;
+}</pre>
+          </div>
+          <p class="p">In the listing below, the XML document contains the <strong class="ph b">ref</strong> element:</p>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;ref</strong> <span class="hl-attribute">location</span>=<span class="hl-value">"referenced.xml"</span><strong class="hl-tag">&gt;</strong>Reference<strong class="hl-tag">&lt;/ref&gt;</strong></pre>
+        </div>
+      </li></ol></section>
+    <section class="section result">
+      <p class="p">When no reference resolver is specified, the reference has the following layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Reference with no specified reference resolver</figcaption>
+          
+          <img class="image" src="../img/dg_reference_norefres.png">
+        </figure>
+      </div>
+      <p class="p">When the above implementation is configured, the reference has the expected layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Reference with reference resolver</figcaption>
+          
+          <img class="image" src="../img/dg_reference_withrefres.png">
+        </figure>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-author-dnd-listener.html">Configuring a Custom Drag and Drop Listener</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-author-extension-state-listener.html">Configuring a State Listener for Author Mode</a></div></div></nav></article></main></body></html>

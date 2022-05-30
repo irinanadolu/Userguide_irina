@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Moving\/Renaming Schematron Resources","href":"topics\/move-rename-schematron-resources.html","attributes":{"data-id":"move-rename-schematron-resources"},"menu":{"hasChildren":false},"tocID":"move-rename-schematron-resources-d24353e18667","topics":[]}]});

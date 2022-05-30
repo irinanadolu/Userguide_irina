@@ -1,0 +1,150 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Generate documentation for XML Schema,Generate XML Schema Documentation tool"><meta name="keywords" content="XML Schemas, Generate documentation for XML Schema, Generate XML Schema Documentation tool"><meta name="DC.relation" scheme="URI" content="../topics/generate-documentation-tool.html"><meta name="DC.relation" scheme="URI" content="../topics/generate-documentation-tool.html"><meta name="DC.relation" scheme="URI" content="../topics/documentation-XSLT-Stylesheet-x-tools.html"><meta name="DC.relation" scheme="URI" content="customizing-xml-schema-documentation.html#customizing-xml-schema-documentation"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="documentation-XML-Schema"><title>Generating Documentation for an XML Schema</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="documentation-XML-Schema"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating Documentation for an XML Schema</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> can generate detailed documentation for the components of an XML
+      Schema in HTML, PDF, DocBook, or other custom formats. You can select the components and the
+      level of detail. The components are hyperlinked in both HTML and DocBook documents.<div class="note note note_note"><span class="note__title">Note:</span> You
+        can generate documentation for both XML Schema version 1.0 and 1.1. </div></div>
+    <p class="p">To generate documentation for an XML Schema document, select <span class="ph uicontrol">XML Schema
+        Documentation</span> from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Generate Documentation</span></span> menu or from the <span class="ph"><span class="ph uicontrol">Generate
+          Documentation</span> submenu in the contextual menu of the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+          view</a></span>.<span class="ph"> You can also open
+        the tool by using the <span class="ph uicontrol"><img class="image" id="documentation-XML-Schema__image_rqx_msd_qnb" src="../img/GenerateDocumentation16.png">Generate Documentation</span> toolbar button.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="documentation-XML-Schema__figure-schema-doc-dialog-output-panel-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>XML Schema Documentation Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_schema_doc_dialog_output_panel.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">Schema URL</span> field of the dialog box must contain the full path to
+      the XML Schema (XSD) file that will have documentation generated. The schema may be a
+      local or a remote file. You can specify the path to the schema by entering it in the text
+      field, or by using the <span class="ph uicontrol"><img class="image" id="documentation-XML-Schema__image_pyh_flb_gs" src="../img/InsertEditorVariables16.png">Insert Editor Variables</span> button or the options in the
+          <span class="ph uicontrol"><img class="image" id="documentation-XML-Schema__image_pmx_flb_gs" src="../img/BrowseDrop.png">Browse</span>
+      drop-down menu.</p>
+    <section class="section" id="documentation-XML-Schema__output_tab"><h2 class="title sectiontitle">Output Tab</h2>
+      
+      <div class="p">The following options are available in the <span class="ph uicontrol">Output</span> tab:<ul class="ul" id="documentation-XML-Schema__ul_gwz_4lb_gs">
+          <li class="li"><span class="ph uicontrol">Format</span> - Allows you to choose between the following formats:<ul class="ul" id="documentation-XML-Schema__ul_pnl_ztg_gs">
+              <li class="li"><span class="ph uicontrol">HTML</span> - The documentation is generated in <a class="xref" href="output-formats-documentation-XML-Schema.html#output-formats-documentation-XML-Schema__HTML-section">HTML output format</a>.</li>
+              <li class="li"><span class="ph uicontrol">PDF</span> - The documentation is generated in <a class="xref" href="output-formats-documentation-XML-Schema.html#output-formats-documentation-XML-Schema__PDF-section">PDF output format</a>.</li>
+              <li class="li"><span class="ph uicontrol">DocBook</span> - The documentation is generated in <a class="xref" href="output-formats-documentation-XML-Schema.html#output-formats-documentation-XML-Schema__DocBook-section">DocBook output format</a>.</li>
+              <li class="li"><span class="ph uicontrol">DITA</span> - The documentation is generated in <a class="xref" href="output-formats-documentation-XML-Schema.html#output-formats-documentation-XML-Schema__DITA-section">DITA output format</a>.</li>
+              <li class="li"><span class="ph uicontrol">Custom</span> - The documentation is generated in a <a class="xref" href="output-formats-documentation-XML-Schema.html#output-formats-documentation-XML-Schema__Custom-section">custom output format</a>, allowing you to control the output. Click the
+                  <span class="ph uicontrol">Options</span> button to open a <span class="ph uicontrol">Custom format
+                  options</span> dialog box where you can specify a custom stylesheet for
+                creating the output. There is also an option to <span class="ph uicontrol">Copy additional resources
+                  to the output folder</span> and you can select the path to the additional
+                  <span class="ph uicontrol">Resources</span> that you want to copy. You can also choose to
+                keep the intermediate XML files created during the documentation process by
+                deselecting the <span class="ph uicontrol">Delete intermediate XML file</span> option.</li>
+            </ul></li>
+          <li class="li"><span class="ph uicontrol">Output file</span> - You can specify the path of the output file by
+            entering it in the text field, or by using the <span class="ph uicontrol"><img class="image" id="documentation-XML-Schema__image_pdh_bwg_gs" src="../img/InsertEditorVariables16.png">Insert Editor
+              Variables</span> button or the options in the <span class="ph uicontrol"><img class="image" id="documentation-XML-Schema__image_qdh_bwg_gs" src="../img/BrowseDrop.png">Browse</span> drop-down
+            menu.</li>
+          <li class="li" id="documentation-XML-Schema__split-output-muliple-files"><span class="ph uicontrol">Split output into multiple
+              files</span> - Instructs the application to split the output into multiple files.
+            You can choose to split them by namespace, location, or component name.</li>
+          <li class="li"><span class="ph uicontrol">Open in Browser/System Application</span> - Opens the result in the
+            system application associated with the output file type. For DITA and DocBook documents,
+            this option appears as <span class="ph uicontrol">Open in Editor</span> and the result will be
+            opened in <span class="ph">Oxygen XML Editor</span> (in the current editor).<div class="note note note_note"><span class="note__title">Note:</span> To set the browser or
+              system application that will be used, <span class="ph"><span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+                  <span class="ph uicontrol">Global</span>, and set it in the <span class="ph uicontrol">Default Internet
+                  browser</span> field</span>. This will take precedence over the default
+              system application settings.</div></li>
+          <li class="li"><span class="ph uicontrol">Keep only the annotations with xml:lang set to</span> - The generated
+            output will contain only the annotations with the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+            set to the selected language. If you choose a primary language code (for example,
+              <span class="ph uicontrol">en</span> for English), this includes all its possible variations
+              (<span class="ph uicontrol">en-us</span>, <span class="ph uicontrol">en-uk</span>, etc.).</li>
+        </ul></div>
+    </section>
+    <section class="section" id="documentation-XML-Schema__settings_tab"><h2 class="title sectiontitle">Settings Tab</h2>
+      
+      <p class="p">When you generate documentation for an XML schema you can choose what components to include
+        in the output and the details to be included in the documentation.</p>
+      <div class="p">
+        <figure class="fig fignone" id="documentation-XML-Schema__figure-schema-doc-dialog-settings-panel-oxygen"><figcaption><span class="fig--title-label">Figure 2. </span>Settings Tab of the XML Schema Documentation Dialog Box</figcaption>
+          
+          <img class="image" id="documentation-XML-Schema__image_z4x_1pb_gs" src="../img/sa_schema_doc_dialog_settings_panel.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Settings</span> tab allows you to choose whether or not to include the
+        following components: <span class="ph uicontrol">Global elements</span>, <span class="ph uicontrol">Global
+          attributes</span>, <span class="ph uicontrol">Local elements</span>, <span class="ph uicontrol">Local
+          attributes</span>, <span class="ph uicontrol">Simple Types</span>, <span class="ph uicontrol">Complex
+          Types</span>, <span class="ph uicontrol">Groups</span>, <span class="ph uicontrol">Attribute Groups</span>,
+          <span class="ph uicontrol">Redefines</span>, <span class="ph uicontrol">Referenced schemas</span>,
+          <span class="ph uicontrol">Include notations</span>.</p>
+      <p class="p">You can choose whether or not to include the following other details:</p>
+      <ul class="ul" id="documentation-XML-Schema__ul_bpx_1pb_gs">
+        <li class="li"><span class="ph uicontrol">Diagram</span> - Displays the diagram for each component. You can choose
+          the image format (JPEG, PNG, <span class="ph">GIF, </span>SVG) to use for the
+          diagram section. The generated diagrams are dependent on the options from the <a class="xref" href="preferences-editor-schema-properties.html#preferences-editor-schema-properties">Schema Design Properties</a> page.</li>
+        <li class="li"><span class="ph uicontrol">Diagram annotations</span> - This option controls whether or not the
+          annotations of the components presented in the diagram sections are included.</li>
+        <li class="li"><span class="ph uicontrol">Namespace</span> - Displays the namespace for each component.</li>
+        <li class="li"><span class="ph uicontrol">Location</span> - Displays the schema location for each component.</li>
+        <li class="li"><span class="ph uicontrol">Type</span> - Displays the component type if it is not an anonymous
+          one.</li>
+        <li class="li"><span class="ph uicontrol">Type hierarchy</span> - Displays the types hierarchy.</li>
+        <li class="li"><span class="ph uicontrol">Model</span> - Displays the model (sequence, choice, all) presented in
+          BNF form. The separator characters that are used depend upon the information item used:<ul class="ul" id="documentation-XML-Schema__ul_cpx_1pb_gs">
+            <li class="li"><strong class="ph b">xs:all</strong> - Its children will be separated by space characters.</li>
+            <li class="li"><strong class="ph b">xs:sequence</strong> - Its children will be separated by comma
+              characters.</li>
+            <li class="li"><strong class="ph b">xs:choice</strong> - Its children will be separated by <em class="ph i">|</em>
+              characters.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Children</span> - Displays the list of component's children.</li>
+        <li class="li"><span class="ph uicontrol">Instance</span> - Displays an XML instance generated based on each
+          schema element.</li>
+        <li class="li"><span class="ph uicontrol">Used by</span> - Displays the list of all the components that reference
+          the current one. The list is sorted by component type and name.</li>
+        <li class="li"><span class="ph uicontrol">Properties</span> - Displays some of the component's properties.</li>
+        <li class="li"><span class="ph uicontrol">Facets</span> - Displays the facets for each simple type.</li>
+        <li class="li"><span class="ph uicontrol">Identity constraints</span> - Displays the identity constraints for each
+          element. For each constraint there are presented the name, type (unique, key, keyref),
+          reference attribute, selector and field(s).</li>
+        <li class="li"><span class="ph uicontrol">Attributes</span> - Displays the attributes for the component. For each
+          attribute there are presented the name, type, fixed or default value, usage and
+          annotation.</li>
+        <li class="li"><span class="ph uicontrol">Asserts</span> - Displays the <span class="ph uicontrol">assert</span> elements
+          defined in a complex type. The test, XPath default namespace, and annotation are presented
+          for each assert.</li>
+        <li class="li"><span class="ph uicontrol">Annotations</span> - Displays the annotations for the component. If you
+          choose <span class="ph uicontrol">Escape XML Content</span>, the XML tags are present in the
+          annotations.</li>
+        <li class="li"><span class="ph uicontrol">Source</span> - Displays the text schema source for each component.</li>
+        <li class="li"><span class="ph uicontrol">Generate index</span> - Displays an index with the components included
+          in the documentation.<ul class="ul" id="documentation-XML-Schema__ul_ajd_yk3_gs">
+            <li class="li"><span class="ph uicontrol">Include local elements and attributes</span> - If selected, local
+              elements and attributes are included in the documentation index.</li>
+            <li class="li"><span class="ph uicontrol">Include resource hierarchy</span> - Specifies whether or not the
+              resource hierarchy for an XML Schema documentation is generated. It is deselected by
+              default.</li>
+          </ul></li>
+      </ul>
+    </section>
+    <p class="p"><span class="ph uicontrol">Export settings</span> - Save the current settings in a settings file for
+      further use (for example, if you need the exported settings file for <a class="xref" href="https://www.oxygenxml.com/oxygen_scripting.html" target="_blank" rel="external noopener">generating the documentation from the command-line interface</a>).</p>
+    <p class="p"><span class="ph uicontrol">Import settings</span> - Reloads the settings from the exported file.</p>
+    <p class="p"><span class="ph uicontrol">Generate</span> - Use this button to generate the XML Schema
+      documentation.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> This function can be executed from an automated
+      command-line script, for more details, see <a class="xref" href="scripting_oxygen.html">Scripting Oxygen</a>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/generate-documentation-tool.html">Generate Documentation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/generate-documentation-tool.html">Generate Documentation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/documentation-XSLT-Stylesheet-x-tools.html">Generating Documentation for an XSLT Stylesheet</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="customizing-xml-schema-documentation.html#customizing-xml-schema-documentation">Customizing PDF or DocBook Output of Generated XML Schema Documentation</a></li></ul></div></nav>
+</article></main></body></html>

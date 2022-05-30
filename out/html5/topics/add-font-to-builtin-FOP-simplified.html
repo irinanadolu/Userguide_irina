@@ -1,0 +1,72 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Add fonts to built-in FO processor"><meta name="keywords" content="Add fonts to built-in FO processor"><meta name="DC.relation" scheme="URI" content="../topics/xsl-fo-processors.html"><meta name="DC.relation" scheme="URI" content="../topics/xsl-fo-processors.html"><meta name="DC.relation" scheme="URI" content="../topics/add-font-to-builtin-FOP.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-font-to-builtin-FOP-simplified"><title>Add a Font to the Built-in FO Processor - Simple Version</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-font-to-builtin-FOP-simplified"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Add a Font to the Built-in FO Processor - Simple Version</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">If the font that must be set to Apache FOP is one of the fonts that are installed in the
+        operating system you should follow the next steps for creating and setting a FOP
+        configuration file that looks for the font that it needs in the system fonts. It is a
+        simplified version of <a class="xref" href="add-font-to-builtin-FOP.html#add-font-to-builtin-FOP">the procedure for setting a custom font in Apache FOP</a>.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Register the font in FOP configuration. (This is not necessary for DITA PDF
+          transformations, skip to the next step)</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Create a FOP configuration file that specifies that FOP should look for fonts in
+              the installed fonts of the operating system.</span>
+            <div class="itemgroup info">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;fop</strong> <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;renderers&gt;</strong>
+    <strong class="hl-tag">&lt;renderer</strong> <span class="hl-attribute">mime</span>=<span class="hl-value">"application/pdf"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;fonts&gt;</strong>
+        <strong class="hl-tag">&lt;auto-detect/&gt;</strong>
+      <strong class="hl-tag">&lt;/fonts&gt;</strong>
+    <strong class="hl-tag">&lt;/renderer&gt;</strong>
+  <strong class="hl-tag">&lt;/renderers&gt;</strong>
+<strong class="hl-tag">&lt;/fop&gt;</strong>                       </pre>
+            </div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT/FO/XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">FO Processors</span></span>, and enter the path of the FOP configuration file in the
+                <span class="ph uicontrol">Configuration file</span> text field.</span>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the font on the document content.</span>
+        <div class="itemgroup info">This is done usually with XSLT stylesheet parameters and depends on the document type
+          processed by the stylesheet.</div>
+        <ul class="ul choices">
+          <li class="li choice">For DocBook documents you can start with the built-in scenario called <strong class="ph b">DocBook
+              PDF</strong>, <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">edit the XSLT parameters</a> and set the font name (for example,
+              <strong class="ph b">Arial Unicode MS</strong>) to the <code class="ph codeph">body.font.family</code> and
+              <code class="ph codeph">title.font.family</code> parameters.</li>
+          <li class="li choice">For TEI documents you can start with the built-in scenario called <strong class="ph b">TEI PDF</strong>,
+              <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">edit the XSLT parameters</a> and set the font name (for example,
+              <strong class="ph b">Arial Unicode MS</strong>) to the <code class="ph codeph">bodyFont</code> and
+              <code class="ph codeph">sansFont</code> parameters.</li>
+          <li class="li choice">For DITA transformations to PDF using DITA-OT you should modify the following two files:<ul class="ul">
+              <li class="li"><span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/cfg/fo/font-mappings.xml</span> - The
+                  <code class="keyword markupname xmlelement">&lt;font-face&gt;</code> element included in each
+                  <code class="keyword markupname xmlelement">&lt;physical-font&gt;</code> element that has the
+                  <code class="ph codeph">char-set="default"</code> attribute must contain the name of the font
+                (for example, <strong class="ph b">Arial Unicode MS</strong>)</li>
+              <li class="li"><span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2.fop/fop/conf/fop.xconf</span> - An
+                  <code class="keyword markupname xmlelement">&lt;auto-detect&gt;</code> element must be inserted in the
+                <code class="keyword markupname xmlelement">&lt;fonts&gt;</code> element, which is inside the <code class="keyword markupname xmlelement">&lt;renderer&gt;</code>
+                element that has the <code class="ph codeph">mime="application/pdf"</code>
+                attribute:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;renderer</strong> <span class="hl-attribute">mime</span>=<span class="hl-value">"application/pdf"</span><strong class="hl-tag">&gt;</strong>
+  . . .
+   <strong class="hl-tag">&lt;fonts&gt;</strong>
+       <strong class="hl-tag">&lt;auto-detect/&gt;</strong>
+   <strong class="hl-tag">&lt;/fonts&gt;</strong>
+  . . .
+<strong class="hl-tag">&lt;/renderer&gt;</strong></pre></li>
+            </ul></li>
+        </ul>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xsl-fo-processors.html">XSL-FO (Apache FOP) Processor for Generating PDF Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xsl-fo-processors.html">XSL-FO (Apache FOP) Processor for Generating PDF Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-font-to-builtin-FOP.html">Add a Font to the Built-in FO Processor - Advanced Version</a></div></div></nav></article></main></body></html>

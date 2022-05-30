@@ -1,0 +1,83 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function can be used in conjunction with the CSS content property to change the style of generated text."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_label"><meta name="keywords" content="CSS extensions, Custom functions, oxy_label"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-index-of-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-last-index-of-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-oxy-label-function"><title>Label: oxy_label() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-oxy-label-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Label: oxy_label() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function can be used in conjunction with the CSS <code class="ph codeph">content</code> property
+    to change the style of generated text.</p>
+    <div class="p">The arguments of the function are <em class="ph i">property name - property value</em> pairs. The following
+      properties are supported:<ul class="ul">
+        <li class="li"><span class="ph"><strong class="ph b">text</strong> - This property specifies the built-in form control you are
+          using.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of the
+          content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units. The <code class="ph codeph">width</code> property takes
+          precedence over the <code class="ph codeph">columns</code> property (if the two are used
+        together).</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">color</strong> - Specifies the foreground color
+          of the form control. If the value of the <code class="ph codeph">color</code> property is
+            <code class="ph codeph">inherit</code>, the form control has the same color as the element that was used to insert it.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">background-color</strong> - Specifies the background color of the form control. If the
+          value of the <code class="ph codeph">background-color</code> property is <code class="ph codeph">inherit</code>, the
+              form control has the same color as the element that was used to insert it.</span></li>
+        <li class="li">
+          <div class="p"><strong class="ph b">styles</strong> - Specifies styles for the form control. The values of this property are
+            a set of CSS properties:<ul class="ul" id="dg-oxy-label-function__ul_rrh_nyh_sr">
+              <li class="li"><strong class="ph b">font-weight</strong>, <strong class="ph b">font-size</strong>, <strong class="ph b">font-style</strong>, <strong class="ph b">font</strong></li>
+              <li class="li"><strong class="ph b">text-align</strong>, <strong class="ph b">text-decoration</strong></li>
+              <li class="li"><strong class="ph b">width</strong></li>
+              <li class="li"><strong class="ph b">color</strong>, <strong class="ph b">background-color</strong></li>
+              <li class="li"><strong class="ph b">link</strong> - For more information about this property, see the <a class="xref" href="dg-link-elements.html#dg-link-elements" title="Used to specify that a particular element should be considered a link."><em class="ph i">link</em> property
+                section</a>.</li>
+            </ul></div>
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">element{
+    <strong class="hl-keyword">content</strong>: oxy_label(text, <span class="hl-string">"Label Text"</span>, styles,
+      <span class="hl-string">"font-size:2em;color:red;link:attr(href);"</span>);
+}</pre>
+          </div>
+          <div class="p">Instead of using the values of the <code class="ph codeph">styles</code> property individually, you
+            can define them in a CSS file as in the following
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">* {
+    <strong class="hl-keyword">width</strong>: <span class="hl-number">40</span>%;
+    <strong class="hl-keyword">text-align</strong>:center;
+}</pre></div>
+          <div class="p">Then refer that file with an <code class="ph codeph">@import</code> directive, as
+              follows:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">elem {
+  <strong class="hl-keyword">content</strong>: oxy_label(text, <span class="hl-string">'my_label'</span>, styles, <span class="hl-string">"@import 'labels.css';"</span>)
+}</pre><div class="note caution note_caution"><span class="note__title">CAUTION:</span> Extensive use of the <code class="ph codeph">styles</code> property may lead to
+              performance issues.</div></div>
+        </li>
+      </ul>If the text from an <code class="ph codeph">oxy_label()</code> function contains new lines, for example
+        <code class="ph codeph">oxy_label(text, 'LINE1\A LINE2', width, 100px)</code>, the text is split in two.
+      Each of the two new lines has the specified width of 100 pixels.<div class="note note note_note"><span class="note__title">Note:</span> The text is split after
+          <code class="ph codeph">\A</code>, which represents a new line character.</div></div>
+    <p class="p">You can use the <code class="ph codeph">oxy_label()</code> function together with a <a class="xref" href="form-controls.html#form-controls">built-in form control</a> function to create a
+      form control based layouts.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_label</em> Function</u></strong></p>
+    <div class="p">An example of a use case is if you have multiple attributes on a single element and you want
+      use form controls on separate lines and style them differently. Consider the following CSS
+      rule:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">person:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Name:*"</span> oxy_textfield(edit, <span class="hl-string">'@name'</span>, columns, <span class="hl-number">20</span>) 
+    <span class="hl-string">"\A Address:"</span> oxy_textfield(edit, <span class="hl-string">'@address'</span>, columns, <span class="hl-number">20</span>)
+}</pre></div>
+    <div class="p">Suppose you only want the <span class="ph uicontrol">Name</span> label to be set to <strong class="ph b">bold</strong>, while
+      you want both labels aligned to look like a table (the first column with labels and the second
+      with a text field). To achieve this, you can use the <code class="ph codeph">oxy_label()</code> to style
+      each label
+      differently.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">person:before {
+ <strong class="hl-keyword">content</strong>: oxy_label(text, <span class="hl-string">"Name:*"</span>, styles, <span class="hl-string">"font-weight:bold;width:200px"</span>)
+          oxy_textfield(edit, <span class="hl-string">'@name'</span>, columns, <span class="hl-number">20</span>) <span class="hl-string">"\A "</span>
+          oxy_label(text, <span class="hl-string">"Address:"</span>, styles, <span class="hl-string">"width:200px"</span>)
+          oxy_textfield(edit, <span class="hl-string">'@address'</span>, columns, <span class="hl-number">20</span>)
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> A code template is available to make it easy to add the
+        <code class="ph codeph">oxy_label</code> function with the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="dg-oxy-label-function__image_wb2_ghh_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_label</code> code template.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-index-of-function.html" title="This function is used to define searches.">Indexing: oxy_indexof() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-last-index-of-function.html" title="This function is used to define last occurrence searches.">Last Occurrence: oxy_lastindexof() Function</a></div></div></nav></article></main></body></html>

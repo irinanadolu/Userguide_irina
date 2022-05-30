@@ -1,0 +1,72 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-default-author-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-op-InsertFragmentOperation-arguments.html"><meta name="DC.relation" scheme="URI" content="../topics/addCustomActionHowTo.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-author-op-SurroundWithFragmentOperation-arguments"><title>Arguments of SurroundWithFragmentOperation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-author-op-SurroundWithFragmentOperation-arguments"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Arguments of SurroundWithFragmentOperation </h1>
+  <div class="body">
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><em class="ph i">fragment</em></dt>
+          <dd class="dd">
+            <div class="p">The XML fragment that will surround the selection. For example, consider the
+              fragment:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;F&gt;</strong>
+   <strong class="hl-tag">&lt;A&gt;</strong><strong class="hl-tag">&lt;/A&gt;</strong>
+   <strong class="hl-tag">&lt;B&gt;</strong>
+     <strong class="hl-tag">&lt;C&gt;</strong><strong class="hl-tag">&lt;/C&gt;</strong>
+   <strong class="hl-tag">&lt;/B&gt;</strong>
+<strong class="hl-tag">&lt;/F&gt;</strong></pre></div>
+            <div class="p">and the
+              document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;doc&gt;</strong>
+  <strong class="hl-tag">&lt;X&gt;</strong><strong class="hl-tag">&lt;/X&gt;</strong>
+  <strong class="hl-tag">&lt;Y&gt;</strong><strong class="hl-tag">&lt;/Y&gt;</strong>
+  <strong class="hl-tag">&lt;Z&gt;</strong><strong class="hl-tag">&lt;/Z&gt;</strong>
+<strong class="hl-tag">&lt;doc&gt;</strong></pre></div>
+            <div class="p">Considering the selected content to be surrounded is the sequence of elements
+                <code class="ph codeph">X</code> and <code class="ph codeph">Y</code>, then the result
+              is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;doc&gt;</strong>
+   <strong class="hl-tag">&lt;F&gt;</strong>
+      <strong class="hl-tag">&lt;A&gt;</strong>
+         <strong class="hl-tag">&lt;X&gt;</strong><strong class="hl-tag">&lt;/X&gt;</strong>
+         <strong class="hl-tag">&lt;Y&gt;</strong><strong class="hl-tag">&lt;/Y&gt;</strong>
+      <strong class="hl-tag">&lt;/A&gt;</strong>
+      <strong class="hl-tag">&lt;B&gt;</strong>
+        <strong class="hl-tag">&lt;C&gt;</strong><strong class="hl-tag">&lt;/C&gt;</strong>
+      <strong class="hl-tag">&lt;/B&gt;</strong>
+   <strong class="hl-tag">&lt;/F&gt;</strong> 
+  <strong class="hl-tag">&lt;Z&gt;</strong><strong class="hl-tag">&lt;/Z&gt;</strong>
+<strong class="hl-tag">&lt;doc&gt;</strong></pre></div>
+            <p class="p">Since the element <code class="ph codeph">A</code> was the first leaf in the fragment, it received
+              the selected content. The fragment was then inserted in the place of the
+              selection.</p>
+            <div class="note note note_note"><span class="note__title">Note:</span> If the first leaf is not the desired location for the surrounded fragment, you can
+              use <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/commons/operations/InsertOrReplaceFragmentOperation.html" target="_blank" rel="external noopener">ro.sync.ecss.extensions.commons.operations.InsertOrReplaceFragmentOperation</a>
+              and set the following arguments:<div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">fragment</dt>
+                    <dd class="dd">The XML fragment that will surround the selection. Use the
+                        <code class="ph codeph">${selection}</code> editor variable in the location you want to
+                      place the surrounded fragment.</dd>
+                  
+                  
+                    <dt class="dt dlterm">schemaAware</dt>
+                    <dd class="dd">Set it to <em class="ph i">false</em> to avoid moving the fragment if it is not valid at
+                      the given location.</dd>
+                  
+                </dl>
+              </div></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">schemaAware</em></dt>
+          <dd class="dd"><span class="ph">This argument applies only on the surround with element
+        operation and controls whether or not the insertion is valid, based upon the schema. If the
+        insertion is not valid, then wrapping action will be broken up into smaller intervals until
+        the wrapping action is valid. For example, if you try to wrap a <em class="ph i">paragraph</em> element
+        with a <em class="ph i">bold</em> element, it would not be valid, so the operation will wrap the text
+        inside the paragraph instead, since it would be valid at that position.</span></dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-default-author-operations.html">Author Mode Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-author-op-InsertFragmentOperation-arguments.html">Arguments of InsertFragmentOperation Operation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/addCustomActionHowTo.html">Adding a Custom Operation to an Existing Framework</a></div></div></nav></article></main></body></html>

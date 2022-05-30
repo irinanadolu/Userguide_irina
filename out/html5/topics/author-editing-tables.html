@@ -1,0 +1,109 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Tables,Editing features,XML documents,Author Mode editing,Editing features,Table editing features in Author Mode"><meta name="keywords" content="Author editing mode, Tables, Editing features, XML documents, Author Mode editing, Editing features, Table editing features in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/adding-tables-author.html"><meta name="DC.relation" scheme="URI" content="../topics/adding-tables-author.html"><meta name="DC.relation" scheme="URI" content="../topics/add-docbook-table.html"><meta name="DC.relation" scheme="URI" content="add-docbook-table.html#add-docbook-table"><meta name="DC.relation" scheme="URI" content="eppo-tables.html"><meta name="DC.relation" scheme="URI" content="add-table-xhtml.html#add-table-xhtml"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-editing-tables"><title>Editing Tables in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-editing-tables"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Tables in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides support for editing data in a tabular form. A variety of
+      features and operations are available for editing tables in <span class="ph uicontrol">Author</span> mode
+      and they include the following:</p>
+    <section class="section" id="author-editing-tables__adjusting_column_width"><h2 class="title sectiontitle">Adjusting Column Width</h2>
+      
+      <p class="p">To adjust the width of a column or table, drag the border of the column or table. The
+        changes you make to a table are committed into the source document. You can also manage
+        table width and column width specifications from the source document, and some types of
+        tables include a <span class="ph uicontrol">colspecs</span> section that appears above the table in
+          <span class="ph uicontrol">Author</span> mode that allows you to easily configure some column
+        specifications (such as column width). These column width specifications are supported in
+        fixed, dynamic, and proportional dimensions. The built-in DITA, DocBook, and XHTML <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> support this feature. The
+        layout of the tables for these document types takes into account the table width and the
+        column width specifications particular to them.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Resizing a Table Column in Author Mode</figcaption>
+          
+          <img class="image" src="../img/sa_author_resize_column.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="author-editing-tables__selecting_columns_and_rows"><h2 class="title sectiontitle">Selecting Columns and Rows</h2>
+      
+      <p class="p">To select a row or a column of a table, place the mouse cursor above the column or in front
+        of the row you want to select, then click. When hovering the mouse cursor in front of rows
+        or above column headers, the cursor changes to <img class="image" src="../img/RowSelection.png"> for
+        row selection and to <img class="image" src="../img/ColumnSelection.png"> for column selection and
+        that specific row or column is highlighted.</p>
+      <p class="p">You can use the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> and
+            <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> keys to select multiple rows.</p>
+    </section>
+    <section class="section" id="author-editing-tables__selecting_cells"><h2 class="title sectiontitle">Selecting Cells</h2>
+      
+      <p class="p">To select a cell in a table, press and hold the
+          <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> key and click anywhere inside the cell.
+        You can also use the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> and
+            <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> keys to select multiple cells or to
+        deselect cells from a selection. Alternatively, you can click the left corner of a cell
+        (right corner if you are editing an <a class="xref" href="control-text-direction-markup.html#control-text-direction-markup">RTL
+          document</a>) to select it. The cursor changes to <img class="image" id="author-editing-tables__image_yr3_2zr_4n" src="../img/CellLtrUpSelection.png"> when you hover over the
+        corner of the cell.</p>
+      <p class="p">You can also select multiple rectangular blocks of cells by using your mouse to select a
+        cell and drag it to expand the selection.</p>
+    </section>
+    <section class="section" id="author-editing-tables__drag_and_drop"><h2 class="title sectiontitle">Drag and Drop</h2>
+      
+      <p class="p">You can use the drag and drop action to edit the content of a table. You can select a
+        column and drag it to another location in the table you are editing. When you drag a column
+        and hover the cursor over a valid drop position, <span class="ph">Oxygen XML Editor</span> decorates the target
+        location with bold rectangles. The same drag and drop action is also available for entire
+        rows or columns by hovering the mouse cursor in front of rows or above column headers, then
+        selecting the row or column and dragging them to the desired location.</p>
+    </section>
+    <section class="section" id="author-editing-tables__copycut_and_paste"><h2 class="title sectiontitle">Copy/Cut and Paste</h2>
+      
+      <p class="p">In <span class="ph">Oxygen XML Editor</span>, you can copy/cut entire rows or columns of the table you are
+        editing and paste the copied columns or rows inside the same table or inside other tables.
+        You can also use the copy or cut actions for tables located in other documents. If you paste
+        a row or column into non-table content, <span class="ph">Oxygen XML Editor</span> introduces a new table that
+        contains the fragments of the copied row or column content.</p>
+      <p class="p">For copied columns, the fragments are introduced starting with the header of the column.
+        Also, if the copied column is from a <em class="ph i">CALS</em> table, <span class="ph">Oxygen XML Editor</span> preserves
+        column width information. This information is then used when you paste the column into
+        another <em class="ph i">CALS</em> table.</p>
+      <p class="p">For copied cells, when pasting them into another cell without a selection (the cursor is
+        just placed in the new cell), the copied cells are pasted while preserving their initial
+        order and spacing. If pasting them into a selection of cells, first the content of the
+        selected cells is deleted, then the copied cells are pasted with their initial order and
+        spacing preserved and if there are more cells in the selection than in the copied content,
+        the pasting will repeat the copied cells until the end of the selection.</p>
+    </section>
+    <section class="section" id="author-editing-tables__deleting_content"><h2 class="title sectiontitle">Deleting Content</h2>
+      
+      <p class="p">To delete the content of a cell, select the cell and press the
+            <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span> or
+            <span class="ph uicontrol"><span class="keyword shortcut">Backspace</span></span> key on your keyboard. If you press
+            <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span> or
+            <span class="ph uicontrol"><span class="keyword shortcut">Backspace</span></span> again, the selected table
+        structure will also be removed.</p>
+      <p class="p">To delete an entire row or column, place the cursor inside the row or column (or select it)
+        and use the <span class="ph uicontrol"><img class="image" src="../img/DeleteRow16.png">Delete Row(s)</span> or
+            <span class="ph uicontrol"><img class="image" src="../img/DeleteColumn16.gif">Delete Column(s)</span> actions
+        from the toolbar or contextual menu. This will delete both the content and the table
+        structure for the current row or column.</p>
+      <p class="p">To delete a selection of multiple rows or columns, select them and use the
+            <span class="ph uicontrol"><img class="image" src="../img/DeleteRow16.png">Delete Row(s)</span> or
+            <span class="ph uicontrol"><img class="image" src="../img/DeleteColumn16.gif">Delete Column(s)</span> actions
+        from the toolbar or contextual menu. This will delete both the content and the table
+        structure for all rows or columns that exist in the current selection.</p>
+    </section>
+    <section class="section" id="author-editing-tables__navigating_cells"><h2 class="title sectiontitle">Navigating Cells</h2>
+      
+      <p class="p">Along with the normal mouse navigation, you can also navigate between cells by using the
+        arrow keys on your keyboard. By default, when using the arrow keys to navigate between table
+        cells, the cursor jumps from one cell to another. However, if the <a class="xref" href="caret-navigation.html#caret-navigation__enable-navigation-cells"><span class="ph uicontrol">Quick
+            navigation in tables</span> option</a> is not selected in the <span class="ph uicontrol">Cursor
+          Navigation</span> preferences page, using the arrow keys to navigate between table
+        cells will cause the cursor to navigate between XML nodes, rather than jumping from cell to
+        cell.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/adding-tables-author.html">Adding Tables in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/adding-tables-author.html">Adding Tables in Author Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-docbook-table.html">Adding Tables in DocBook</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="add-docbook-table.html#add-docbook-table">Adding Tables in DocBook</a></li><li class="linklist"><a class="link" href="eppo-tables.html">Adding Tables in DITA Topics</a></li><li class="linklist"><a class="link" href="add-table-xhtml.html#add-table-xhtml">Adding Tables in XHTML Documents</a></li></ul></div></nav>
+</article></main></body></html>

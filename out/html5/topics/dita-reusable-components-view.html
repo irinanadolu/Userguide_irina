@@ -1,0 +1,510 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,DITA Reusable Components view"><meta name="keywords" content="DITA, Reusing content, DITA Reusable Components view"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-reuse.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-branch-filtering.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-linking.html"><meta name="DC.relation" scheme="URI" content="dita-reusable-components.html#dita-reusable-components"><meta name="DC.relation" scheme="URI" content="eppo-inline-linking.html#eppo-inline-linking"><meta name="DC.relation" scheme="URI" content="eppo-variables.html"><meta name="DC.relation" scheme="URI" content="eppo-background-keys.html#eppo-background-keys"><meta name="DC.relation" scheme="URI" content="eppo-create-conref.html#eppo-create-conref"><meta name="DC.relation" scheme="URI" content="eppo-create-conkeyref.html#eppo-create-conkeyref"><meta name="DC.relation" scheme="URI" content="working-with-content-references.html#working-with-content-references"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-reusable-components-view"><title>DITA Reusable Components View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-reusable-components-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Reusable Components View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">DITA Reusable Components</span> view is helpful if you use a large amount
+      of keys or reusable components in your DITA project. It collects all of the keys and reusable
+      components that are defined in the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root
+        map</dfn></a> and presents them in a side view where you can easily locate and insert
+      references to them. It re-collects the keys anytime the <a class="xref" href="root-map.html"><dfn class="term">root map</dfn> is changed</a> or you switch the editor focus to a different
+      file.</p>
+    <div class="p">If the view is not displayed, it can be opened by selecting it from <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span>. By default, it will appear in the bottom-right section of the editor.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can also assign a keyboard shortcut to open
+        the view using the <a class="xref" href="preferences-menu-shortcut-keys.html#preferences-menu-shortcut-keys"><span class="ph uicontrol">Menu
+            Shortcut Keys</span> preference page</a>.</div></div>
+    <div class="p">It includes the following tabs:<ul class="ul">
+        <li class="li"><a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view__keys_tab"><strong class="ph b">Keys</strong></a> -
+          Displays all the <em class="ph i">keys</em> that are defined in the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> and provides ways to easily insert references to them as
+          cross reference links, key references, or variables. It includes a search field, some
+          filtering and sorting options to help you find particular keys, and some contextual menu
+          actions. It also supports drag and drop actions and double-clicking a key is the fastest
+          way to insert a reference.</li>
+        <li class="li"><a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view__components_tab"><strong class="ph b">Components</strong></a> - Displays all the <em class="ph i">reusable components</em> found in the
+            <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> and provides ways to
+          easily insert them as content references or content key references. To determine which
+          components to display in this tab, <span class="ph">Oxygen XML Editor</span> looks for any <em class="ph i">topicref</em> in
+          the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> that is marked as
+            <em class="ph i">resource-only</em> and then looks for elements with an assigned <code class="keyword markupname xmlatt">@id</code>
+          attribute value. This tab includes a search field, some filtering options, and some simple
+          links and contextual menu actions to quickly insert references or open their source file.
+          It also supports drag and drop and double-clicking actions.</li>
+        <li class="li"><a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view__media_tab"><strong class="ph b">Media</strong></a> - Displays all images referenced as keys in the root
+          map along with all images found in the user-defined working sets.</li>
+      </ul></div>
+    <section class="section" id="dita-reusable-components-view__keys_tab"><h2 class="title sectiontitle">Keys Tab</h2>
+      
+      <p class="p">The <span class="ph uicontrol">DITA Reusable Components</span> view collects all the <em class="ph i">keys</em> that
+        are defined in the current <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>
+        and displays them in the <span class="ph uicontrol">Keys</span> tab. This tab has two view modes. The
+        default <em class="ph i">tiles</em> style view mode and a <em class="ph i">table</em> style view mode.</p>
+      <p class="p"><strong class="ph b"><u class="ph u">Tiles Mode</u></strong></p>
+      <p class="p">The default <em class="ph i">tiles</em> mode displays the keys as blocks (cards). The advantage of this
+        display mode is that more information about each particular key can be seen even when the
+        view is sized with a small width. Each block (card) displays the name of the key (the value
+        of the <code class="keyword markupname xmlatt">@keys</code> attribute), followed by its description and/or
+          <code class="keyword markupname xmlatt">@href</code> value, followed by the name of the DITA map file where the key is
+        defined.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>DITA Reusable Components View - Keys Tab (Default tiles mode)</figcaption>
+          
+          <img class="image" src="../img/Dita_reusable_components_view.png">
+        </figure>
+      </div>
+      
+      <p class="p"><strong class="ph b"><u class="ph u">Table Mode</u></strong></p>
+      <p class="p">You can switch to a <em class="ph i">table</em> style display mode by selecting the <span class="ph uicontrol">Table
+          mode</span> toggle action from the <span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> menu. The advantage of this display mode is that more keys can be
+        listed at once. In this mode, keys that are defined with a text value in the
+        <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element have that value listed in
+        the <span class="ph uicontrol">Description</span> column, while keys that are defined with a value in
+        an <code class="keyword markupname xmlatt">@href</code> attribute have that href value listed in the
+          <span class="ph uicontrol">Href</span> column.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>DITA Reusable Components View - Keys Tab (Table mode)</figcaption>
+          
+          <img class="image" src="../img/DITA-reusable-component-table-mode.png">
+        </figure>
+      </div>
+      
+      <p class="p">Both display modes in the <span class="ph uicontrol">Keys</span> tab include a variety of features and
+        options:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Search Filter</dt>
+            <dd class="dd">You can enter text in the filter field at the top of this tab to filter the list and
+              search for specific keys. </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">Sorting</span></dt>
+            <dd class="dd">
+              <p class="p"><strong class="ph b">Tiles Mode:</strong> In the default <em class="ph i">tiles</em> display mode, to sort the keys
+                alphabetically in ascending order, select <span class="ph uicontrol">Sort by key name</span>
+                from the <span class="ph uicontrol"><img class="image" id="dita-reusable-components-view__image_ttc_hky_y3b" src="../img/Settings16.png">Settings</span> menu.</p>
+              <div class="p"><strong class="ph b">Table Mode:</strong> In the <em class="ph i">table</em> display mode, the following columns can be
+                sorted by clicking on the heading:<ul class="ul">
+                            <li class="li"><span class="ph uicontrol">Key</span> - The name of the key (the value of the
+                                <code class="keyword markupname xmlatt">@keys</code> attribute).</li>
+                            <li class="li"><span class="ph uicontrol">Description</span> - The description of the key that
+                              is obtained from its definition. Keys that are defined with a text
+                              value in the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or
+                                <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element have that value listed in
+                              this column.</li>
+                            <li class="li"><span class="ph uicontrol">Href</span> - Keys that are defined with a value in
+                              an <code class="keyword markupname xmlatt">@href</code> attribute have that href value listed in this
+                              column.</li>
+                            <li class="li"><span class="ph uicontrol">Definition Location</span> - The name of the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> where the
+                              key is defined.</li>
+                          </ul></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Double-Click Mechanism</dt>
+            <dd class="dd">You can double-click any key listed in this tab to insert a key reference at the
+              current cursor position or surrounding the current selection.<ul class="ul">
+                <li class="li">If the selected key points to an <code class="keyword markupname xmlatt">@href</code> value, it is inserted as
+                  a <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking">cross reference link
+                      (<em class="ph i">xref</em>)</a>.</li>
+                <li class="li">If the selected key is a reference to an image, it is inserted as an
+                  <code class="keyword markupname xmlelement">&lt;image&gt;</code> element.</li>
+                <li class="li">If the selected key does not have an associated <code class="keyword markupname xmlatt">@href</code>, it is
+                  inserted as a <a class="xref" href="eppo-variables.html">variable reference
+                  (<em class="ph i">ph</em>)</a>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Drag and Drop Mechanism</dt>
+            <dd class="dd">You can drag a key from this tab and drop it in the main editor to insert a key
+              reference at the current cursor position.<ul class="ul">
+                <li class="li">If the selected key points to an <code class="keyword markupname xmlatt">@href</code> value, it is inserted as
+                  a <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking">cross reference link
+                      (<em class="ph i">xref</em>)</a>.</li>
+                <li class="li">If the selected key is a reference to an image, it is inserted as an
+                  <code class="keyword markupname xmlelement">&lt;image&gt;</code> element.</li>
+                <li class="li">If the selected key does not have an associated <code class="keyword markupname xmlatt">@href</code>, it is
+                  inserted as a <a class="xref" href="eppo-variables.html">variable reference
+                  (<em class="ph i">ph</em>)</a>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Contextual Menu Actions</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert as Link</span></dt>
+                    <dd class="dd">Inserts a <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking">cross
+                        reference link (<em class="ph i">xref</em>)</a> to the selected key at the current
+                      cursor position or surrounding the current selection.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert as Variable</span></dt>
+          <dd class="dd">Inserts a <a class="xref" href="eppo-variables.html">variable reference (<em class="ph i">ph</em>)</a> to the
+            selected key at the current cursor position or surrounding the current selection.
+            However, if the selected key is a reference to an image, this action inserts the key
+            reference in an <code class="keyword markupname xmlelement">&lt;image&gt;</code> element.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert as Keyref</span></dt>
+          <dd class="dd">Presents a submenu with all the elements that can be inserted at the current cursor
+            position. Selecting an element will insert that element at the current cursor position
+            or surrounding the current selection with a <code class="keyword markupname xmlatt">@keyref</code> attribute and its
+            value set to the selected key.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Rename Key</span></dt>
+                    <dd class="dd">Opens a <a class="xref" href="predefined-refactoring-operations.html">refactoring
+                        wizard</a> where you can easily rename the key and define the scope of
+                      the operation. It also updates all references to it.<div class="note note note_note"><span class="note__title">Notes:</span> 
+                        <ul class="ul">
+                          <li class="li">This action does not work on DITA 1.3 key scopes.</li>
+                          <li class="li">This action is only available if the DITA map opened in the
+                              <span class="ph uicontrol">DITA Maps Manager</span> is also selected as the
+                              <span class="ph uicontrol">Root map</span>.</li>
+                        </ul>
+                      </div></dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Go to Definition</span></dt>
+                    <dd class="dd">Opens the DITA map where the key is defined.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Search References</span></dt>
+                    <dd class="dd">Searches for all references to the selected key in the entire DITA map
+                      structure.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Group by Definition Location</span> (Available in Table mode
+                      only)</dt>
+                    <dd class="dd">A toggle action that can be used to group (and sort) all the keys based upon
+                      the value in the <span class="ph uicontrol">Definition Location</span> column.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> Menu</dt>
+            <dd class="dd">
+              <p class="p">This menu includes the following options:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Filtering Options</dt>
+                    <dd class="dd">
+                      <ul class="ul">
+                        <li class="li"><strong class="ph b">Show all</strong> - Shows all defined keys found in the current <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>.</li>
+                        <li class="li"><strong class="ph b">Show only variables</strong> - Filters the keys to show only those defined
+                          as <a class="xref" href="eppo-variables.html">variable references</a>.</li>
+                        <li class="li"><strong class="ph b">Show only maps and topics</strong> - Filters the keys to show only those
+                          that reference DITA maps or topics.</li>
+                        <li class="li"><strong class="ph b">Show only multimedia resources</strong> - Filters the keys to show only
+                          those that reference multimedia resources (such as images).</li>
+                        <li class="li"><strong class="ph b">Show only external resources</strong> - Filters the keys to show only
+                          those that reference external resources (such as web links).</li>
+                      </ul>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm">Sort by key name (Available in Tiles mode only)</dt>
+                    <dd class="dd">Sorts the keys alphabetically in ascending order.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Table mode</dt>
+                    <dd class="dd">A toggle action that switches between the <em class="ph i">table</em> and <em class="ph i">tiles</em>
+                      display modes.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-reusable-components-view__components_tab"><h2 class="title sectiontitle">Components Tab</h2>
+      
+      <div class="p">The <span class="ph uicontrol">DITA Reusable Components</span> view collects all the topics from the
+        current <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> that are marked as
+          <em class="ph i">resource-only</em>, then collects the reusable components from those topics, and
+        displays them in the <span class="ph uicontrol">Components</span> tab. To set a topic as
+        <em class="ph i">resource-only</em>, the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> in the DITA map file needs to have a
+          <code class="keyword markupname xmlatt">@processing-role</code> attribute set like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/randomize-xml-content.dita"</span> <span class="hl-attribute">processing-role</span>=<span class="hl-value">"resource-only"</span><strong class="hl-tag">/&gt;</strong></pre>The
+          <span class="ph uicontrol">DITA Reusable Components</span> view considers topic references that
+        contain <code class="ph codeph">processing-role="resource-only"</code> to be candidates to contain
+        reusable components. The reusable components inside these topics are collected from all
+        elements that have an <em class="ph i">ID</em> specified. These reusable components are displayed in the
+          <span class="ph uicontrol">Components</span> tab along with the file name and the specific names of
+        the elements that contain an <em class="ph i">ID</em> attribute. </div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>DITA Reusable Components View - Components Tab</figcaption>
+          
+          <img class="image" src="../img/Dita_reusable_components_view_comp_tab.png">
+        </figure>
+      </div>
+      
+      <p class="p">The <span class="ph uicontrol">Components</span> tab includes the following features and options:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Search Filter</dt>
+            <dd class="dd">You can enter text in the filter field at the top of this tab to filter the list and
+              search for specific content inside the list of reusable components. This field
+              supports many of the <a class="xref" href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html" target="_blank" rel="external noopener">Lucene-based search patterns</a>, such as wildcards
+                (<code class="ph codeph">*</code> or <code class="ph codeph">?</code>), boolean operators (<code class="ph codeph">AND</code>,
+                <code class="ph codeph">OR</code>, <code class="ph codeph">NOT</code>), fuzzy searches (<code class="ph codeph">~</code>),
+              boosting searches (<code class="ph codeph">^</code>), and more.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> Menu</dt>
+            <dd class="dd">
+              <p class="p">This menu includes the following options:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Compact Mode</span></dt>
+                    <dd class="dd">You can use this toggle action to switch the display for the
+                        <span class="ph uicontrol">Components</span> tab to a compact visualization mode. When
+                      switched to <span class="ph uicontrol">Compact mode</span>, fewer details are shown for
+                      each component, but more components are displayed in the view. </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reindex</span></dt>
+                    <dd class="dd">You can use this action force a re-indexing of the reusable components.
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Show Elements of Type</span></dt>
+            <dd class="dd">You can use this drop-down list to select specific types of elements to be displayed
+              in the list of components. This can help you narrow down the list of possible source
+              elements that you can select.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Source File(s)</span></dt>
+            <dd class="dd">You can use this combo box to search for specific source files (the topics that
+              contain reusable components) or select a file from its drop-down list. You can also
+              use wildcards (such as <code class="ph codeph">*</code> or <code class="ph codeph">?</code>) in this field.</dd>
+          
+          
+            <dt class="dt dlterm">Double-Click Mechanism</dt>
+            <dd class="dd">You can double-click any reusable component listed in preview window in this tab to
+              insert it as a content reference or content key reference at the current cursor
+              position or replace the current selection.<ul class="ul">
+                <li class="li">If the parent topic of the selected component has a key defined, it is inserted
+                  as a <a class="xref" href="eppo-create-conkeyref.html#eppo-create-conkeyref">content key
+                    reference (<em class="ph i">conkeyref</em>)</a>.</li>
+                <li class="li">If the parent topic of the selected component does not have a key defined, it is
+                  inserted as a <a class="xref" href="eppo-create-conref.html#eppo-create-conref">content
+                    reference (<em class="ph i">conref</em>)</a>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Drag and Drop Mechanism</dt>
+            <dd class="dd">You can drag a reusable component from the preview window in this tab and drop it in
+              the main editor to insert a content reference or content key reference at the current
+              cursor position.<ul class="ul">
+                <li class="li">If the parent topic of the selected component has a key defined, it is inserted
+                  as a <a class="xref" href="eppo-create-conkeyref.html#eppo-create-conkeyref">content key
+                    reference (<em class="ph i">conkeyref</em>)</a>.</li>
+                <li class="li">If the parent topic of the selected component does not have a key defined, it is
+                  inserted as a <a class="xref" href="eppo-create-conref.html#eppo-create-conref">content
+                    reference (<em class="ph i">conref</em>)</a>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Hover and Click Actions</dt>
+            <dd class="dd">
+              <p class="p">If you hover over a component shown in the preview window, you have access to the
+                following link actions:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert</span></dt>
+                    <dd class="dd">Inserts the component as a content reference or content key reference at the
+                      current cursor position or replaces the current selection. If the parent topic
+                      has a key defined, it is inserted as a <a class="xref" href="eppo-create-conkeyref.html#eppo-create-conkeyref">content key
+                        reference (<em class="ph i">conkeyref</em>)</a>. Otherwise, it is inserted as a <a class="xref" href="eppo-create-conref.html#eppo-create-conref">content reference
+                          (<em class="ph i">conref</em>)</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Open</span></dt>
+                    <dd class="dd">Opens the source file that contains the reusable component.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Contextual Menu Actions</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert Content Reference</span></dt>
+                    <dd class="dd">Inserts the component as a <a class="xref" href="eppo-create-conref.html#eppo-create-conref">content reference
+                          (<em class="ph i">conref</em>)</a> at the current cursor position or replaces the
+                      current selection.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert Content Key Reference</span></dt>
+                    <dd class="dd">Inserts the component as a <a class="xref" href="eppo-create-conkeyref.html#eppo-create-conkeyref">content key
+                        reference (<em class="ph i">conkeyref</em>)</a> at the current cursor position or
+                      replaces the current selection. This action is only available if the parent
+                      topic has a key defined.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Go to Definition</span></dt>
+                    <dd class="dd">Opens the source file that contains the reusable component.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Search References</span></dt>
+                    <dd class="dd">Searches for all references to the selected component in the entire <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> structure.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-reusable-components-view__media_tab"><h2 class="title sectiontitle">Media Tab</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Media</span> tab displays all media resources (images, audio, video)
+        referenced as keys in the current root map along with all audio, image, and video resources
+        found in <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view__working-sets-dlentry">user-defined working sets</a>.</p>
+      <div class="p">
+        <figure class="fig fignone" id="dita-reusable-components-view__fig_iq1_dkm_5jb"><figcaption><span class="fig--title-label">Figure 4. </span>DITA Reusable Components View - Media Tab</figcaption>
+          
+          <img class="image" id="dita-reusable-components-view__image_jq1_dkm_5jb" src="../img/DITA-reusable-component-media-mode.png">
+        </figure>
+      </div>
+      <p class="p">The <span class="ph uicontrol">Media</span> tab includes the following features and options:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Search Filter</dt>
+            <dd class="dd">You can enter text in the filter field at the top of this tab to filter the list and
+              search for specific media resource key or file names in the list of available
+              resources. </dd>
+          
+          
+            <dt class="dt dlterm">Resource Type Filter</dt>
+            <dd class="dd">You can quickly show resources of a specific type by clicking one of the type
+              buttons (<span class="ph uicontrol">Images,  Audio, Video, Others</span>).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dita-reusable-components-view__image_mq1_dkm_5jb" src="../img/Settings16.png">Settings</span> Menu</dt>
+            <dd class="dd">
+              <p class="p">This menu includes the following options:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm" id="dita-reusable-components-view__working-sets-dlentry"><span class="ph uicontrol">Configure working sets</span></dt>
+                    <dd class="dd">Use this option to define folders where the media resources will be
+                      gathered. The <span class="ph uicontrol">Media</span> tab will include audio, image, and
+                      video resources collected from the current root map as well as media resources
+                      located in the folders defined as active working sets. The working sets are
+                      defined at project level so that they can be shared with others.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reload</span></dt>
+                    <dd class="dd">Refreshes the list of displayed media resources. This is useful if resources
+                      were recently added in the searched folders. </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Double-Click Mechanism</dt>
+            <dd class="dd">You can double-click any media resource in the list to add a reference to it.</dd>
+          
+          
+            <dt class="dt dlterm">Drag and Drop Mechanism</dt>
+            <dd class="dd">You can drag a media resource from the list and drop it in the main editor to add a
+              reference to it.</dd>
+          
+          
+            <dt class="dt dlterm">Contextual Menu Actions</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert As Image Reference</span></dt>
+                    <dd class="dd">Inserts an image reference. If the resource is referenced using a key in the
+                      DITA map, an indirect reference using the defined key will be used. Otherwise,
+                      the reference will point directly to the resource location.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert As Audio Reference</span></dt>
+                    <dd class="dd">Inserts an audio reference. If the resource is referenced using a key in the
+                      DITA map, an indirect reference using the defined key will be used. Otherwise,
+                      the reference will point directly to the resource location.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert As Video Reference</span></dt>
+                    <dd class="dd">Inserts a video reference. If the resource is referenced using a key in the
+                      DITA map, an indirect reference using the defined key will be used. Otherwise,
+                      the reference will point directly to the resource location.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert As Embedded Reference</span></dt>
+                    <dd class="dd">Inserts as an embedded reference. If the resource is referenced using a key
+                      in the DITA map, an indirect reference using the defined key will be used.
+                      Otherwise, the reference will point directly to the resource location.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert as Link</span></dt>
+                    <dd class="dd">Inserts a link to the resource, either as a DITA
+                        <code class="keyword markupname xmlelement">&lt;xref&gt;</code> or <code class="keyword markupname xmlelement">&lt;link&gt;</code>, depending on
+                      the cursor position.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert as Variable</span></dt>
+          <dd class="dd">Inserts a <a class="xref" href="eppo-variables.html">variable reference (<em class="ph i">ph</em>)</a> to the
+            selected key at the current cursor position or surrounding the current selection.
+            However, if the selected key is a reference to an image, this action inserts the key
+            reference in an <code class="keyword markupname xmlelement">&lt;image&gt;</code> element.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert as Keyref</span></dt>
+          <dd class="dd">Presents a submenu with all the elements that can be inserted at the current cursor
+            position. Selecting an element will insert that element at the current cursor position
+            or surrounding the current selection with a <code class="keyword markupname xmlatt">@keyref</code> attribute and its
+            value set to the selected key.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Preview</span></dt>
+                    <dd class="dd">Shows the selection in an <span class="ph uicontrol">Image Preview</span> side
+                      view.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Open in System Application</span></dt>
+                    <dd class="dd">Opens the default system editor/viewer associated with the resource
+                      type.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Show in Explorer/Finder</span></dt>
+                    <dd class="dd">Opens the default file browser at the specific folder where the resource is
+                      located.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+      <div class="p">Items in the <span class="ph uicontrol">Media</span> tab are presented in the following order:<ul class="ul" id="dita-reusable-components-view__ul_dck_54x_lkb">
+          <li class="li">Key definitions are always presented first, in document order.</li>
+          <li class="li">Resources defined and collected from working sets are sorted alphabetically by name,
+            for each folder separately.</li>
+        </ul></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-reuse.html">Reusing DITA Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-branch-filtering.html">Working with DITA 1.3 Branch Filtering</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-pathfinder-linking.html">Linking in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-reusable-components.html#dita-reusable-components">Working with Reusable Components</a></li><li class="linklist"><a class="link" href="eppo-inline-linking.html#eppo-inline-linking">Linking in DITA Topics</a></li><li class="linklist"><a class="link" href="eppo-variables.html">Working with Variable Text in DITA</a></li><li class="linklist"><a class="link" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a></li><li class="linklist"><a class="link" href="eppo-create-conref.html#eppo-create-conref">Creating a DITA Content Reference</a></li><li class="linklist"><a class="link" href="eppo-create-conkeyref.html#eppo-create-conkeyref">Creating a DITA Content Key Reference</a></li><li class="linklist"><a class="link" href="working-with-content-references.html#working-with-content-references">Working with Content References</a></li></ul></div></nav>
+</article></main></body></html>

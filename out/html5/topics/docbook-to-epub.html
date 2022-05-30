@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DocBook to EPUB,DocBook to EPUB transformation"><meta name="keywords" content="Transformation Scenarios, DocBook to EPUB, DocBook to EPUB transformation"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/docbook-2-pfd-transform.html"><meta name="DC.relation" scheme="URI" content="../topics/docbook-pdf-output-show-comments.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="docbook-to-epub"><title>DocBook to EPUB Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="docbook-to-epub"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DocBook to EPUB Transformation</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> includes a built-in transformation scenario that is designed to
+      convert DocBook content to EPUB. The EPUB specification recommends the use of <em class="ph i">OpenType</em>
+      fonts (recognized by their <span class="ph filepath">.otf</span> file extension) whenever possible. To use
+      a specific font, follow these steps:<ol class="ol">
+        <li class="li">Declare it in your CSS file, as in the following
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@font-face {
+<strong class="hl-keyword">font-family</strong>: <span class="hl-string">"MyFont"</span>;
+<strong class="hl-keyword">font-weight</strong>: bold;
+<strong class="hl-keyword">font-style</strong>: normal;
+src: url(fonts/MyFont.otf);
+}</pre></li>
+        <li class="li">In the CSS, specify where this font is used. To set it as default for
+          <code class="keyword markupname xmlelement">&lt;h1&gt;</code> elements, use the <code class="ph codeph">font-family</code> rule, as in the
+          following example:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">h1 {
+<strong class="hl-keyword">font-size</strong>:<span class="hl-number">20</span>pt;
+<strong class="hl-keyword">margin-bottom</strong>:<span class="hl-number">20</span>px;
+<strong class="hl-keyword">font-weight</strong>: bold;
+<strong class="hl-keyword">font-family</strong>: <span class="hl-string">"MyFont"</span>;
+<strong class="hl-keyword">text-align</strong>: center;
+}</pre></li>
+        <li class="li">Open the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box</a>, select
+          the <span class="ph uicontrol">DocBook EPUB</span> transformation scenario in the <span class="ph uicontrol">DocBook
+            4</span> or <span class="ph uicontrol">DocBook 5</span> section, and click
+            <span class="ph uicontrol">Edit</span>.</li>
+        <li class="li">In the <span class="ph uicontrol">Parameters</span> tab, set the
+            <code class="ph codeph">epub.embedded.fonts</code> parameter to <code class="ph codeph">fonts/MyFont.otf</code>. If
+          you need to provide more files, use commas to separate their file paths.<div class="note note note_note"><span class="note__title">Note:</span> The
+              <code class="ph codeph">html.stylesheet</code> parameter allows you to include a custom CSS in the
+            output EPUB.</div></li>
+        <li class="li">Run the transformation scenario.</li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-docbook5-transformation-scenarios.html">DocBook Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/docbook-2-pfd-transform.html">DocBook to PDF Transformation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/docbook-pdf-output-show-comments.html">DocBook PDF (Show Change Tracking and Comments)</a></div></div></nav></article></main></body></html>

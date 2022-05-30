@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="reusables-preferences-pages">
+  <title>Reusable Components for Preferences Pages</title>
+  <body>
+    <!--Opening the Option>Preferences page -->
+    <p><ph id="preferences"><menucascade product="editor author developer svnClient">
+          <uicontrol>Options</uicontrol>
+          <uicontrol>Preferences</uicontrol>
+        </menucascade><ph product="authorEclipse developerEclipse editorEclipse">in Eclipse
+          preferences choose </ph><uicontrol product="editorEclipse">Oxygen XML
+          Editor</uicontrol><uicontrol product="authorEclipse">Oxygen XML
+          Author</uicontrol><uicontrol product="developerEclipse">Oxygen XML
+        Developer</uicontrol></ph></p>
+    <p><ph id="preferences-standalone" product="author developer editor svnClient"><menucascade>
+          <uicontrol>Options</uicontrol>
+          <uicontrol>Preferences</uicontrol>
+        </menucascade></ph>
+      <ph id="preferences-eclipse" product="editorEclipse developerEclipse authorEclipse">go to
+          <uicontrol>Window</uicontrol> (<uicontrol>Eclipse</uicontrol> on Mac OSX) and choose <menucascade>
+          <uicontrol>Preferences</uicontrol>
+          <uicontrol keyref="product"/>
+        </menucascade></ph>
+      <ph id="preferences-eclipse-not-oxygen" product="editorEclipse developerEclipse authorEclipse"
+        >go to <uicontrol>Window</uicontrol> (<uicontrol>Eclipse</uicontrol> on Mac OSX) and choose
+          <uicontrol>Preferences</uicontrol></ph>
+    </p>
+    <p>
+      <ph id="open-the-preferences-page"><xref keyref="options_preferences">open the
+            <uicontrol>Preferences</uicontrol> dialog box <menucascade
+            product="editor author developer svnClient">
+            <uicontrol>(Options</uicontrol>
+            <uicontrol>Preferences)</uicontrol>
+          </menucascade></xref></ph>
+    </p>
+    <p>
+      <ph id="Open-the-preferences-page"><xref keyref="options_preferences">Open the
+            <uicontrol>Preferences</uicontrol> dialog box <menucascade
+            product="editor author developer svnClient">
+            <uicontrol>(Options</uicontrol>
+            <uicontrol>Preferences)</uicontrol>
+          </menucascade></xref></ph>
+    </p>
+    <!--Document Type Association preferences page-->
+    <p product="author developer editor authorEclipse developerEclipse editorEclipse">
+      <ph id="preferences-document-type-association"><xref
+          keyref="options_document-type-associations"><uicontrol>Document Type
+            Association</uicontrol> preferences page</xref></ph>
+    </p>
+    <!--MSXML preference pages-->
+    <p>
+      <dl>
+        <dlentry id="validate-during-parse">
+          <dt><uicontrol>Validate documents during parse phase</uicontrol></dt>
+          <dd>If selected, and either the source or stylesheet document has a DTD or schema that its
+            content can be checked against, validation is performed.</dd>
+        </dlentry>
+        <dlentry id="do-not-resolve-ext-defs">
+          <dt><uicontrol>Do not resolve external definitions during parse phase</uicontrol></dt>
+          <dd>By default, MSXML instructs the parser to resolve external definitions such as
+            document type definition (DTD), external subsets or external entity references when
+            parsing the source and style sheet documents. If this option is selected, the resolution
+            is disabled.</dd>
+        </dlentry>
+        <dlentry id="strip-whitespace">
+          <dt><uicontrol>Strip non-significant whitespaces</uicontrol></dt>
+          <dd>If selected, strips non-significant white space from the input XML document during the
+            load phase. Selecting this option can lower memory usage and improve transformation
+            performance while, in most cases, creating equivalent output.</dd>
+        </dlentry>
+        <dlentry id="show-time-information">
+          <dt><uicontrol>Show time information</uicontrol></dt>
+          <dd>If selected, the relative speed of various transformation steps can be measured, including:<ul>
+              <li>The time to load, parse, and build the input document.</li>
+              <li>The time to load, parse, and build the stylesheet document.</li>
+              <li>The time to compile the stylesheet in preparation for the transformation.</li>
+              <li>The time to execute the stylesheet.</li>
+            </ul></dd>
+        </dlentry>
+      </dl>
+    </p>
+    <note id="formatting-note" product="author editor authorEclipse editorEclipse">New lines that
+      are added by the user in elements where the <xmlatt>xml:space</xmlatt> attribute is set to
+        <codeph>preserve</codeph> (such as <xmlelement>pre</xmlelement> elements in HTML, or
+        <xmlelement>codeblock</xmlelement> elements in DITA) are still inserted. Also, selecting
+      this option automatically disables the <xref
+        href="../../topics/preferences-author-serialization.dita#preferences-author-serialization/also-apply-format-indent"
+          ><uicontrol>Also apply the format and indent options that are set for Text
+          mode</uicontrol> option</xref>, since the formatting from <uicontrol>Text</uicontrol> mode
+      does not take the CSS styles into account.</note>
+  </body>
+</topic>

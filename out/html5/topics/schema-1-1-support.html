@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,XML Schema 1.1 support"><meta name="keywords" content="XML Schemas, XML Schema 1.1 support"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-schema-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/XML-schema-regexp-builder.html"><meta name="DC.relation" scheme="URI" content="../topics/set-xml-schema-version.html"><meta name="DC.relation" scheme="URI" content="set-xml-schema-version.html#set-xml-schema-version"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="schema-1-1-support"><title>XML Schema 1.1</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="schema-1-1-support"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Schema 1.1</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> offers full support for XML Schema 1.1, including:<ul class="ul">
+        <li class="li">XML Documents <a class="xref" href="validating-XML-documents.html#validating-XML-documents">Validation</a> and <a class="xref" href="streamline-with-content-completion.html#streamline-with-content-completion">Content Completion</a> based on XML Schema 1.1.</li>
+        <li class="li">XML Schema 1.1 <a class="xref" href="xml-schema-validation.html#xml-schema-validation">Validation</a> and <a class="xref" href="xml-schema-content-completion.html#xml-schema-content-completion">Content
+            Completion</a>.</li>
+        <li class="li">Editing XML Schema 1.1 files in the <a class="xref" href="xml-schema-diagram-introduction.html#xml-schema-diagram-introduction">Schema
+              <span class="ph uicontrol">Design</span> mode</a>.</li>
+        <li class="li">The <a class="xref" href="xml-schema-flat.html#xml-schema-flat">Flatten Schema</a> action.</li>
+        <li class="li"><a class="xref" href="xml-schema-hierarchy.html#xml-schema-hierarchy">Resource
+            Hierarchy/Dependencies</a> and <a class="xref" href="xml-schema-search-references.html#xml-schema-search-references">Refactoring
+            Actions</a>.</li>
+        <li class="li"><a class="xref" href="../glossary/master-file.html"><dfn class="term">Master files</dfn></a>.</li>
+      <li class="li"><a class="xref" href="documentation-XML-Schema.html">Generating
+            Documentation for XML Schema 1.1</a>.</li>
+        <li class="li">Support for generating XML instances based on XML Schema.</li>
+        <li class="li">Support for validating XML documents with an NVDL schema that contains an XML Schema 1.1
+          validation step.<div class="note note note_note"><span class="note__title">Note:</span> To enable XML Schema 1.1 validation in NVDL, you need to pass the
+            following option to the validation engine to specify the schema version:
+              <code class="ph codeph">http://www.thaiopensource.com/validate/xsd-version</code> (the possible
+            values are <code class="ph codeph">1.0</code> or <code class="ph codeph">1.1</code>.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> To
+            enable the full XPath expression in assertions and type alternatives, you need to set
+            the <code class="ph codeph">http://www.thaiopensource.com/validate/full-xpath</code>
+          option.</div></li>
+      </ul></div>
+    <p class="p"> XML Schema 1.1 is a superset of XML Schema 1.0, that offers lots of new powerful
+      capabilities.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XML Schema 1.1</figcaption>
+        
+        <img class="image" src="../img/Schema11.png">
+      </figure>
+    </div>
+    <div class="p">The significant new features in XSD 1.1 are:<ul class="ul">
+        <li class="li"><strong class="ph b">Assertions</strong> - Support to define assertions against the document content using
+          XPath 2.0 expressions (an idea borrowed from Schematron).</li>
+        <li class="li"><strong class="ph b">Conditional type assignment</strong> - The ability to select the type of schema an element
+          is validated against, based on the values of the attribute of the element.</li>
+      <li class="li"><strong class="ph b">Open content</strong> - Content models can use the <code class="keyword markupname xmlelement">&lt;openContent&gt;</code> element to
+          specify content models with <em class="ph i">open content</em>. These content models allow elements
+          not explicitly mentioned in the content model to appear in the document instance. It is as
+          if wildcards were automatically inserted at appropriate points within the content model. A
+          default may be set that causes all content models to be open unless specified otherwise. </li>
+      </ul></div>
+    <p class="p">To see the complete list with changes since version 1.0, go to <a class="xref" href="http://www.w3.org/TR/xmlschema11-1/#ch_specs" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema11-1/#ch_specs</a>.</p>
+    <div class="p">XML Schema 1.1 is intended to be mostly compatible with XML Schema 1.0 and to have
+      approximately the same scope. It also addresses bug fixes and brings improvements that are
+      consistent with the constraints on scope and compatibility.<div class="note note note_note"><span class="note__title">Note:</span> An XML document
+        conforming to a 1.0 schema can be validated using a 1.1 validator, but an XML document
+        conforming to a 1.1 schema may not validate using a 1.0 validator.</div>If you are
+      constrained to use XML Schema 1.0 (for example, if you develop schemas for a server that uses
+      an XML Schema 1.0 validator that cannot be updated), change the default XML Schema version to
+      1.0. If you keep the default XML Schema version set to 1.1, the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> presents XML Schema 1.1 elements that you can insert accidentally in
+      an 1.0 XML Schema. So even if you make a document invalid conforming with XML Schema 1.0, the
+      validation process does not signal any issues.</div>
+    <p class="p">To change the default XML Schema version, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Schema</span></span>.</p>
+    <p class="p">For more information about the XML Schema 1.1 support, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/DAkrubQNm0w" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-schema-schemas.html">Editing XML Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/XML-schema-regexp-builder.html">XML Schema Regular Expressions Builder Tool</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/set-xml-schema-version.html">Setting the XML Schema Version</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="set-xml-schema-version.html#set-xml-schema-version">Setting the XML Schema Version</a></li></ul></div></nav>
+</article></main></body></html>

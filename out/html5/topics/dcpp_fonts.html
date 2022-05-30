@@ -1,0 +1,139 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Fonts,Asian languages"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Fonts, Asian languages"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_accessibility.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_localization___transformation_based_on_html5___css.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_fonts"><title>Fonts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_fonts">
+    <h1 class="title topictitle1" id="ariaid-title1">Fonts</h1>
+  
+    <div class="body">
+        <p class="p">Fonts are an important part of the publication. Your font selection should take into
+      consideration both design and the targeted ranges of characters.</p>
+    <p class="p">To use them in the <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <div class="p"><ul class="ul" id="dcpp_fonts__ul_v5s_pcq_fdb">
+        <li class="li">You can place the font files in the same folder as your CSS and use a @font-face
+          definition to reference them.</li>
+        <li class="li">You can use web fonts (for example, Google Fonts), and import the CSS snippet into your
+          CSS.</li>
+        <li class="li">You can use system fonts.</li>
+      </ul>All these techniques are explained in: <a class="xref" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_fonts.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen PDF Chemistry User Manual: Fonts</strong></a>.</div>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_accessibility.html">Accessibility</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_localization___transformation_based_on_html5___css.html">Localization</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_avoid_characters_being_rendered_as">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Avoid Characters Being Rendered as #</h2>
+  <div class="body">
+    <p class="p">When the processor renders text with a font that does not include certain characters, those
+      characters are replaced with the <code class="ph codeph">#</code> symbol.</p>
+    <p class="p">To prevent this, make sure you use the proper font.</p>
+    <p class="p">As an example, suppose the right arrow character is used in a definition list like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;dlentry&gt;</strong>
+  <strong class="hl-tag">&lt;dt&gt;</strong>&amp;#8594;<strong class="hl-tag">&lt;/dt&gt;</strong>
+  <strong class="hl-tag">&lt;dd&gt;</strong><strong class="hl-tag">&lt;ph&gt;</strong>This is the right arrow.<strong class="hl-tag">&lt;/ph&gt;</strong><strong class="hl-tag">&lt;/dd&gt;</strong>
+<strong class="hl-tag">&lt;/dlentry&gt;</strong></pre>
+    <p class="p">If the font does not include this character, the output will look something like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">  #
+    This is the right arrow.</pre>
+    <p class="p">To fix this, use a fallback font. For example, if you use <em class="ph i">Times New Roman</em> for the
+      entire publication, you could add <em class="ph i">Symbol</em> as the fallback font. In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/dlentry"</span>] {
+  <strong class="hl-keyword">font-family</strong>: <span class="hl-string">"Times New Roman"</span>, Symbol;
+}</pre>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> On Windows, one simple way to determine the font needed to display the text is
+      to copy the text fragment that has rendering problems from the DITA source document and paste
+      it into Microsoft WordPad or Word. It will automatically select a font capable of rendering
+      the text. Simply click on the text to see the name of the font from the "Font" ribbon toolbar.
+      Then you can use it as a fallback font in the CSS. Make sure there are no licensing
+      restrictions on that particular font.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_set_fonts_to_titles_and_content">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Set Fonts in Titles and Content</h2>
+  
+  <div class="body">
+    <p class="p">Suppose that in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>,
+      you have defined your font (for example, <em class="ph i">Roboto</em>) using a Google web font:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@import</span> url(<span class="hl-string">'https://fonts.googleapis.com/css?family=Roboto'</span>);</pre>
+    <p class="p">You can force a font on all elements, then style the ones that need to be different. The
+      advantage of this method is that you do not need to trace all elements that have a font family
+      defined in the built-in CSS files, you just reset them all.</p>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add an
+        <code class="ph codeph">!important</code> rule that associates a font to all the elements from the
+      document:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*{
+  <strong class="hl-keyword">font-family</strong>:<span class="hl-string">"Roboto"</span> !important;
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> If you want to use the <code class="ph codeph">:root</code> selector instead of the <code class="ph codeph">*</code>
+      sector, without the <code class="ph codeph">!important</code> qualifier, the elements that have a predefined
+      font specified in the built-in CSS will keep that font. If your content uses non-Latin glyphs,
+      it is possible that the built-in fonts do not render them.</div>
+    <p class="p">Next, identify the selectors for the elements that need to be styled with a different font
+      than the one associated above. For information on how to do this, see: <a class="xref" href="dcpp_debugging_the_css.html">Debugging the CSS</a>.</p>
+    <p class="p">For example, if you want the titles or the pre-formatted text to have a different font from
+      the rest, matched by the above <code class="ph codeph">*</code> selector, you need to use more specific CSS
+      selectors:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"front-page/front-page-title"</span>],
+*[class~=<span class="hl-string">"topic/title"</span>] {
+  <strong class="hl-keyword">font-family</strong>: Arial !important;
+}
+
+*[class~=<span class="hl-string">"pr-d/codeph"</span>],
+*[class~=<span class="hl-string">"topic/pre"</span>] {
+  <strong class="hl-keyword">font-family</strong>: monospace !important;
+}
+</pre>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_headers_and_footers.html#dcpp_how_to_change_the_font_for_the_headers_and_footers">How to Change the Font of the Headers and Footers</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_use_fonts_for_asian_languages">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Use Fonts for Asian Languages</h2>
+  
+  <div class="body">
+    <p class="p">For Asian languages, you must use a font or a sequence of fonts that cover the needed
+      character ranges. If the characters are not found, the <strong class="ph b">#</strong> symbol is used.</p>
+    <p class="p">When you specify a sequence of fonts, if the glyphs are not found in the first font, the next
+      font is selected, and so on until one is found that includes all the glyphs. A common font
+      sequence for Asian languages is as follows:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">  <strong class="hl-keyword">font-family</strong>: Calibri, SimSun, <span class="hl-string">"Malgun Gothic"</span>, <span class="hl-string">"Microsoft JhengHei"</span>;</pre>
+    <p class="p">To apply this font sequence, see: <a class="xref" href="dcpp_fonts.html#dcpp_how_to_set_fonts_to_titles_and_content">How to Set Fonts in Titles and Content</a>.</p>
+    <p class="p">Some of the Asian fonts do not have italic, bold, or bold-italic variants. In this case, you
+      may use the regular font file with multiple font face definitions to simulate (synthesize) the
+      missing variants. You need to use the <code class="ph codeph">-oxy-simulate-style:yes</code> CSS property in
+      the font face definition as explained in: <a class="xref" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_using_simulated__synthetic__styles.html" target="_blank" rel="external noopener">Using Simulated/Synthetic Styles in Oxygen
+      Chemistry</a>.</p>
+    <section class="section" id="dcpp_how_to_use_fonts_for_asian_languages__section_kbs_bjq_hnb"><h3 class="title sectiontitle">How to Use Asian Fonts in Linux</h3>
+      
+      <div class="p">For Asian languages on Linux distributions, <strong class="ph b">PDF Chemistry</strong> automatically uses
+          <code class="ph codeph">DejaVu</code> and <code class="ph codeph">Noto CJK</code> as fallback fonts for Serif,
+        Sans-Serif, and Monospace content.<div class="note warning note_warning"><span class="note__title">Warning:</span> On some distributions, the
+            <code class="ph codeph">Noto CJK</code> fonts are not available. In this case, you need to install
+          them using the system package manager:<ul class="ul" id="dcpp_how_to_use_fonts_for_asian_languages__ul_ekv_byv_gnb">
+            <li class="li"><code class="ph codeph">fonts-noto-cjk</code> on Debian family distributions (e.g. Ubuntu).</li>
+            <li class="li"><code class="ph codeph">google-noto-cjk-fonts</code> on Red Hat family distributions (e.g.
+              CentOS).</li>
+          </ul></div></div>
+    </section>
+    <section class="section" id="dcpp_how_to_use_fonts_for_asian_languages__section_u5m_wkq_hnb"><h3 class="title sectiontitle">How to Add a New Asian Font</h3>
+      
+      <p class="p">If you want to add a specific font for Asian languages, you need to declare it inside your
+          <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>. The following
+        example uses the <a class="xref" href="https://noto-website-2.storage.googleapis.com/pkgs/NotoSansTamil-hinted.zip" target="_blank" rel="external noopener">Noto Sans Tamil</a> font-family:</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><em class="hl-comment">/* Font Declaration */</em>
+@font-face {
+    <strong class="hl-keyword">font-family</strong>: <span class="hl-string">"Noto Sans Tamil"</span>;
+    <strong class="hl-keyword">font-style</strong>: normal;
+    <strong class="hl-keyword">font-weight</strong>: <span class="hl-number">400</span>;
+    src: url(../fonts/ttf/notosanstamil/NotoSansTamil-Regular.ttf);
+}
+
+@font-face {
+    <strong class="hl-keyword">font-family</strong>: <span class="hl-string">"Noto Sans Tamil"</span>;
+    <strong class="hl-keyword">font-style</strong>: normal;
+    <strong class="hl-keyword">font-weight</strong>: <span class="hl-number">700</span>;
+    src: url(../fonts/ttf/notosanstamil/NotoSansTamil-Bold.ttf);
+}
+
+<em class="hl-comment">/* Font Usage */</em>
+* {
+    <strong class="hl-keyword">font-family</strong>: sans-serif, <span class="hl-string">"Noto Sans Tamil"</span>;
+}</pre>
+      </div>
+    </section>
+  </div>
+</article></article></article></main></body></html>

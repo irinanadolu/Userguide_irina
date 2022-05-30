@@ -1,0 +1,1 @@
+define({"topics":[{"title":"JATS Author Mode Actions","href":"topics\/author-jats-actions.html","attributes":{"data-id":"author-jats-actions"},"menu":{"hasChildren":false},"tocID":"author-jats-actions-d14162e11705","topics":[]}]});

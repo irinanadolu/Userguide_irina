@@ -1,0 +1,80 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Custom Engines,Custom XSLT/XQuery transformation engine preferences"><meta name="keywords" content="Preferences, Custom Engines, Custom XSLT/XQuery transformation engine preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xslt-fo-xquery.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xpath.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-pdf-output.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-custom-engines"><title>Custom Engines Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-custom-engines"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Engines Preferences</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> allows you to configure custom processors to be used for running XSLT
+      and XQuery transformations.<div class="note note note_note"><span class="note__title">Note:</span> You can not use these custom
+        engines in <a class="xref" href="debugging.html#debugging">the Debugger
+            <dfn class="term">perspective</dfn></a>. </div></div>
+    <p class="p">To configure the <span class="ph uicontrol">Custom Engines</span> preferences, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT-XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Custom Engines</span></span>.</p>
+    <p class="p">The table in this preferences page displays the custom engines that have been defined. Use
+      the <span class="ph uicontrol">New</span> or <span class="ph uicontrol">Edit</span> button at the bottom of the table to open a dialog box that allows you to
+      add or configure a custom engine.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Parameters of a Custom Engine</figcaption>
+        
+        <img class="image" src="../img/sa_custom_engine_edit_dialog.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">The following parameters can be configured for a custom engine:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Engine type</span></dt>
+          <dd class="dd">Specifies the transformer type. You can choose between XSLT and XQuery engines.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+          <dd class="dd">The name of the transformer displayed in the dialog box for editing transformation
+            scenarios.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Description</span></dt>
+          <dd class="dd">A textual description of the transformer.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Working directory</span></dt>
+          <dd class="dd">The start directory of the executable program for the transformer. The following <a class="xref" href="editor-variables.html#editor-variables">editor variables</a> are available
+            for making the path to the working directory independent of the location of the input files:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">${homeDir}</span> - The user home directory in the operating
+                system.</li>
+              <li class="li"><span class="ph uicontrol">${cfd}</span> - The path to the directory of the current
+                file.</li>
+              <li class="li"><span class="ph uicontrol">${pd}</span> - The path to the directory of the current
+                project.</li>
+              <li class="li"><span class="ph uicontrol">${oxygenInstallDir}</span> - The <span class="ph">Oxygen XML Editor</span> install
+                directory.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Command line</span></dt>
+          <dd class="dd">The command line that must be executed by <span class="ph">Oxygen XML Editor</span> to perform a
+            transformation with the engine. The following <a class="xref" href="editor-variables.html#editor-variables">editor variables</a> are available
+            for making the parameters in the command line (the transformer executable, the input
+            files) independent of the location of the input files:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">${xml}</span> - The XML input document as a file path.</li>
+              <li class="li"><span class="ph uicontrol">${xmlu}</span> - The XML input document as a URL.</li>
+              <li class="li"><span class="ph uicontrol">${xsl}</span> - The XSL / XQuery input document as a file
+                path.</li>
+              <li class="li"><span class="ph uicontrol">${xslu}</span> - The XSL / XQuery input document as a URL.</li>
+              <li class="li"><span class="ph uicontrol">${out}</span> - The output document as a file path.</li>
+              <li class="li"><span class="ph uicontrol">${outu}</span> - The output document as a URL.</li>
+              <li class="li"><span class="ph uicontrol">${ps}</span> - The platform separator that is used between library
+                file names specified in the class path.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Output Encoding</span></dt>
+          <dd class="dd">The encoding of the transformer output stream.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Error Encoding</span></dt>
+          <dd class="dd">The encoding of the transformer error stream.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-xslt-fo-xquery.html">XSLT-XQuery Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-xpath.html">XPath Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-pdf-output.html">PDF Output Preferences</a></div></div></nav></article></main></body></html>

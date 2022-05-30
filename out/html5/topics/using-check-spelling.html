@@ -1,0 +1,93 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Spell checking,Check Spelling"><meta name="keywords" content="Spell checking, Check Spelling"><meta name="DC.relation" scheme="URI" content="../topics/working-with-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/regular-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-checking-dictionaries.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-checking-dictionaries.html"><meta name="DC.relation" scheme="URI" content="../topics/learned-words.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-check-ignore-words.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-check-as-you-type.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-check-in-files.html"><meta name="DC.relation" scheme="URI" content="autocorrect.html#autocorrect"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="using-check-spelling"><title>Spell Checking</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="using-check-spelling"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Spell Checking</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes an <a class="xref" href="spell-check-as-you-type.html#spell-check-as-you-type">automatic (as-you-type) spell
+        checking feature</a>, as well as a manual spell checking action to open a
+        <span class="ph uicontrol">Spelling</span> dialog box that offers a variety of options.</p>
+    <p class="p">To manually check spelling in the current document, use the <span class="ph uicontrol"><img class="image" id="using-check-spelling__image_qfd_3vh_5r" src="../img/CheckSpelling16.png">Check Spelling</span> action
+      on the toolbar<span class="ph"> or from the <span class="ph uicontrol">Edit</span>
+        menu</span>.</p>
+    <div class="p">
+      <figure class="fig fignone" id="using-check-spelling__check-spelling-dialog-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Check Spelling Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_check_spelling.png">
+      </figure>
+    </div>
+    <div class="p">The <span class="ph uicontrol">Spelling</span> dialog box contains the following:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Unrecognized word</span></dt>
+          <dd class="dd">Displays the word that cannot be found in the selected dictionary. The word is also
+            highlighted in the XML document.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace with</span></dt>
+          <dd class="dd">The character string that will replace the misspelled word.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Guess</span></dt>
+          <dd class="dd">Displays a list of suggested words to replace the unknown word. Double-click a word to
+            automatically insert it in the document and resume the spell checking process.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Default language</span></dt>
+          <dd class="dd">Allows you to select the default language dictionary used by the spelling engine.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Paragraph language</span></dt>
+          <dd class="dd">In an XML document, you can mix content written in multiple languages. You can set the
+            language code in the <code class="keyword markupname xmlatt">@lang</code> or <code class="keyword markupname xmlatt">@xml:lang</code> attribute for
+            any particular section and <span class="ph">Oxygen XML Editor</span> will automatically instruct the spell
+            checker engine to apply the appropriate language dictionary for that section. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Begin at cursor position</span></dt>
+          <dd class="dd">Instructs the spell checker to begin checking the document starting from the current
+            cursor position.</dd>
+        
+        
+          <dt class="dt dlterm">Action Buttons</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace</span></dt>
+                  <dd class="dd">Use this button to replace the unrecognized word with the selected word from
+                    the <span class="ph uicontrol">Replace with</span> field.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace All</span></dt>
+                  <dd class="dd">Use this button to replace all occurrences of the unrecognized word with the
+                    selected word from the <span class="ph uicontrol">Replace with</span> field, starting from
+                    the cursor's position to the end of the document.<div class="note note note_note"><span class="note__title">Note:</span> This action is
+                      case-sensitive.</div></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore</span></dt>
+                  <dd class="dd">Ignores the first occurrence of the unrecognized word and allows you to
+                    continue checking the document. <span class="ph">Oxygen XML Editor</span> skips the content of the
+                    XML elements <a class="xref" href="spell-check-ignore-words.html#spell-check-ignore-words">marked to be ignored</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Ignore All</span></dt>
+                  <dd class="dd">Ignores all instances of the unrecognized word in the current document.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Learn</span></dt>
+                  <dd class="dd">Adds the unrecognized word to the list of valid words.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Options</span></dt>
+                  <dd class="dd">Opens the <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check"><span class="ph uicontrol">Spell Check</span> preferences page</a> where you can
+                    configure various options regarding the feature.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/spell-checking-dictionaries.html">Spell Check Dictionaries and Term Lists</a><br></li><li class="link olchildlink"><a href="../topics/learned-words.html">Learned Words</a><br></li><li class="link olchildlink"><a href="../topics/spell-check-ignore-words.html">Ignored Words (Elements)</a><br></li><li class="link olchildlink"><a href="../topics/spell-check-as-you-type.html">Automatic Spell Check</a><br></li><li class="link olchildlink"><a href="../topics/spell-check-in-files.html">Spell Check Multiple Files</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-documents.html" title="General information about working with any type of document">Working With Any Type of Document</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/regular-expressions.html">Regular Expressions Syntax</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/spell-checking-dictionaries.html">Spell Check Dictionaries and Term Lists</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="autocorrect.html#autocorrect">AutoCorrect Misspelled Words</a></li></ul></div></nav>
+</article></main></body></html>

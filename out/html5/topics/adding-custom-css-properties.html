@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="CSS stylesheets,Custom CSS properties"><meta name="keywords" content="CSS stylesheets, Custom CSS properties"><meta name="DC.relation" scheme="URI" content="../topics/validating-css-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/validating-css-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-css-stylesheets.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="adding-custom-css-properties"><title>Specify Custom CSS Properties</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="adding-custom-css-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Specify Custom CSS Properties</h1>
+  
+    <div class="body taskbody">
+        <section class="section context">
+            <p class="p">To specify custom CSS properties, follow these steps:</p>
+        </section>
+        <section><ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Create a file named <span class="ph filepath">CustomProperties.xml</span> that has the
+          following structure:</span>
+        <div class="itemgroup stepresult">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;css_keywords</strong>
+      <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>   
+      <span class="hl-attribute">xsi:schemaLocation</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/css
+ http://www.oxygenxml.com/ns/css/CssProperties.xsd"</span>   
+      <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/css"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;property</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"custom"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;summary&gt;</strong>Description for custom property.<strong class="hl-tag">&lt;/summary&gt;</strong>
+        <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"customValue"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"anotherCustomValue"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/property&gt;</strong>
+<strong class="hl-tag">&lt;/css_keywords&gt;</strong></pre>
+        </div>
+            </li><li class="li step stepexpand">
+        <span class="ph cmd">Go to your desktop and create the <span class="ph filepath">builtin/css-validator/</span> folder
+          structure.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Press and hold <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> and right-click
+          anywhere on your desktop. From the contextual menu, select <span class="ph uicontrol">Open Command Window
+            Here</span>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">In the command line, run the <code class="ph codeph">jar cvf custom_props.jar builtin/</code>
+          command.</span>
+        <div class="itemgroup stepresult">The <span class="ph filepath">custom_props.jar</span> file is created.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Go to <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span>
+          and create the <span class="ph filepath">endorsed</span> folder. Copy the
+            <span class="ph filepath">custom_props.jar</span> file to <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib/endorsed</span>.</span>
+      </li></ol></section>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-css-stylesheets.html">Validating CSS Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validating-css-stylesheets.html">Validating CSS Stylesheets</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/content-completion-css-stylesheets.html">Content Completion in CSS Stylesheets</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Built-in frameworks,DITA Topic,DITA Topic document type"><meta name="keywords" content="Built-in frameworks, DITA Topic, DITA Topic document type"><meta name="DC.relation" scheme="URI" content="../topics/doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook-targetset-doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-extensions-2.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-extensions-2.html"><meta name="DC.relation" scheme="URI" content="author-dita.html#author-dita"><meta name="DC.relation" scheme="URI" content="eppo-first-dita-topic.html#eppo-first-dita-topic"><meta name="DC.relation" scheme="URI" content="editing-xml-documents-author.html#editing-xml-documents-author"><meta name="DC.relation" scheme="URI" content="xml-editor-specific-actions.html#xml-editor-specific-actions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-dita-doc-type"><title>DITA Topics Document Type (Framework)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-dita-doc-type"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Topics Document Type (Framework)</h1>
+  
+  <div class="body">
+    <p class="p">The Darwin Information Typing Architecture (DITA) is an XML-based architecture for authoring,
+      producing, and delivering technical information. It divides content into small, self-contained
+      topics that you can reuse in various deliverables. The extensibility of DITA permits
+      organizations to define specific information structures while still using standard tools to
+      work with them. DITA content is created as topics, each an individual XML file. Typically,
+      each topic has a defined primary objective and structure, and DITA also includes several
+      specialized topic types (<em class="ph i">task</em>, <em class="ph i">concept</em>, <em class="ph i">reference</em>, <em class="ph i">glossary
+      entry</em>).</p>
+    <p class="p">For much more detailed information,
+      resources, and instructions, see the <a class="xref" href="author-dita.html#author-dita">DITA Authoring</a> chapter.</p>
+    <section class="section" id="author-dita-doc-type__file_definition"><h2 class="title sectiontitle">File Definition</h2>
+      
+      <p class="p">A file is considered to be a DITA topic document when one of the following conditions are
+        true:</p>
+      <ul class="ul">
+        <li class="li">The root element name is one of the following: <code class="keyword markupname xmlelement">&lt;concept&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;task&gt;</code>, <code class="keyword markupname xmlelement">&lt;reference&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code>, or <code class="keyword markupname xmlelement">&lt;topic&gt;</code>.</li>
+        <li class="li">The PUBLIC ID of the document is a PUBLIC ID for the elements listed above.</li>
+        <li class="li">The root element of the file has a <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute for the
+            <q class="q">http://dita.oasis-open.org/architecture/2005/</q> namespace. This enhanced case of
+          matching is only applied when the <a class="xref" href="preferences-document-type-association.html#preferences-document-type-association__enable-dtd-schema-processing"><span class="ph uicontrol">Enable DTD/XML Schema processing in document type detection</span>
+            option</a> is selected from the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>.</li>
+      </ul>
+    </section>
+    <section class="section" id="author-dita-doc-type__document_templates"><h2 class="title sectiontitle">Default Document Templates</h2>
+      
+      <p class="p">There are a variety of default <em class="ph i">DITA topic</em> templates available when creating <a class="xref" href="new-dialog-sa.html#new-dialog-sa">new documents
+          from templates</a>
+        and they can be found in various folders inside: <span class="ph menucascade"><span class="ph uicontrol">Framework Templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span></span>.</p>
+      <p class="p">The default templates for DITA topic documents are located in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/templates/topic</span> folder. </p>
+    </section>
+    <section class="section" id="author-dita-doc-type__default_schema"><h2 class="title sectiontitle">Default Schema for Validation and Content Completion</h2>
+      
+      <p class="p">Default schemas that are used if one is not detected in the DITA documents are stored in
+        the various folders inside <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/dtd/</span>
+        or <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/schema/</span>.</p>
+    </section>
+    <section class="section" id="author-dita-doc-type__default_css"><h2 class="title sectiontitle">Default CSS</h2>
+      
+      <p class="p">The default CSS files used for rendering DITA content in <span class="ph uicontrol">Author</span> mode
+        are stored in the various folders inside: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/css/</span>.</p>
+      <p class="p">By default, these default CSS files are merged with any that are specified in the document.
+        For more information, see <a class="xref" href="selecting-combining-multiple-css-styles.html#selecting-combining-multiple-css-styles">Configuring and Managing Multiple CSS Styles for a Framework</a>.</p>
+    </section>
+    <section class="section" id="author-dita-doc-type__default_xml_catalogs"><h2 class="title sectiontitle">Default XML Catalogs</h2>
+      
+      <div class="p">The default <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalogs</dfn></a> for the
+        DITA topic document type are as follows:<ul class="ul" id="author-dita-doc-type__ul_ogy_fqf_fr">
+          <li class="li"><span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/catalog-dita.xml</span></li>
+          <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/catalog.xml</span></li>
+          <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/plugin/catalog.xml</span></li>
+          <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/styleguide/catalog.xml</span></li>
+        </ul></div>
+    </section>
+    <section class="section" id="author-dita-doc-type__transformation_scenarios"><h2 class="title sectiontitle">Transformation Scenarios</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes built-in transformation scenarios for transforming
+        individual DITA Topics to HTML5, XHTML, or PDF output. They can be found in the
+          <span class="ph uicontrol">DITA</span> section in the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box</a>.</p>
+    </section>
+    <section class="section" id="author-dita-doc-type__resources"><h2 class="title sectiontitle">Resources</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li"><a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/" target="_blank" rel="external noopener">DITA Specifications</a></li>
+          <li class="li"><a class="xref" href="https://www.oxygenxml.com/dita/styleguide/webhelp-feedback/index.html" target="_blank" rel="external noopener">DITA Style Guide Best Practices for Authors</a></li>
+          <li class="li"><a class="xref" href="https://www.oxygenxml.com/demo/DITA_Editing.html" target="_blank" rel="external noopener">Oxygen Video Tutorial: DITA
+              Editing</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/author-dita-extensions-2.html">DITA Topic Author Mode Actions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/doc-type.html" title="The XML frameworks that are supported in Oxygen XML Editor">Built-in XML Frameworks (Document Types)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-docbook-targetset-doc-type.html" title="A document type standard used to resolve cross references with the DocBook olink">DocBook Targetset Document Type (Framework)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-dita-extensions-2.html">DITA Topic Author Mode Actions</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-dita.html#author-dita">DITA Authoring</a></li><li class="linklist"><a class="link" href="eppo-first-dita-topic.html#eppo-first-dita-topic">Getting Started with DITA</a></li><li class="linklist"><a class="link" href="editing-xml-documents-author.html#editing-xml-documents-author">Editing XML Documents in Author Mode</a></li><li class="linklist"><a class="link" href="xml-editor-specific-actions.html#xml-editor-specific-actions">Editing XML Documents in Text Mode</a></li></ul></div></nav>
+</article></main></body></html>

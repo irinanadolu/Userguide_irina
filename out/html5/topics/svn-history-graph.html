@@ -1,0 +1,186 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Revision Graph"><meta name="keywords" content="SVN Client, Revision Graph"><meta name="DC.relation" scheme="URI" content="../topics/svn-quick-start.html"><meta name="DC.relation" scheme="URI" content="../topics/help-view.html"><meta name="DC.relation" scheme="URI" content="../topics/svn-preferences.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="svn-history-graph"><title>Revision Graph of an SVN Resource</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="svn-history-graph"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Revision Graph of an SVN Resource</h1>
+  <div class="body">
+    <p class="p">The history of an SVN resource can be watched on a graphical representation of all the
+      revisions of that resource together with the tags in which the resource was included. The
+      graphical representation is identical to a tree structure and very easy to follow.</p>
+    <p class="p">The graphical representation of a resource history is invoked with the <span class="ph uicontrol"><img class="image" id="svn-history-graph__image_kzy_3b3_5r" src="../img/SVNRevisionGraph16.gif">Revision graph</span>
+      action available on the right-click menu of an SVN resource in <a class="xref" href="working-copy-view.html">the <em class="ph i">Working Copy</em> view</a> and <a class="xref" href="repository-view.html">the <em class="ph i">Repository</em> view</a>.</p>
+    <div class="p">
+      <figure class="fig fignone" id="svn-history-graph__figure-svn-history-graph-file"><figcaption><span class="fig--title-label">Figure 1. </span>Revision Graph of a File Resource</figcaption>
+        
+        <img class="image" src="../img/sa_svn_revision_graph_file.png">
+      </figure>
+    </div>
+    <p class="p">In every node of the revision graph an icon and the background color represent the type of
+      operation that created the revision represented in that node. The commit message associated
+      with that revision, the repository path, and the revision number are also contained in the
+      node. The tooltip displayed when the mouse pointer hovers over a node specifies the URL of the
+      resource, the SVN user who created the revision of that node, the revision number, the date of
+      creation, the commit message, the modification type and <a class="xref" href="history-dialog.html">the
+        affected paths</a>. </p>
+    <p class="p">The types of nodes used in the graph are:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Added resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_pyq_n2p_5r" src="../img/SVNRevisionGraphAdded16.gif"> icon for
+            a new resource added to the repository and a green background.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copied resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_ldx_m2p_5r" src="../img/SVNRevisionGraphCopied16.gif"> icon for
+            a resource copied to other location (for example, when an SVN tag is created and a green
+            background).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Modified resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_qnw_42p_5r" src="../img/SVNRevisionGraphModified16.gif"> icon
+            for a modified resource and a blue background.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Deleted resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_atl_l2p_5r" src="../img/SVNRevisionGraphDeleted16.gif"> icon
+            for a resource deleted from the repository and a red background.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replaced resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_d43_k2p_5r" src="../img/SVNRevisionGraphReplaced16.gif"> icon
+            for a resource removed and replaced with another one on the repository and an orange
+            background.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Indirect resource</span></dt>
+          <dd class="dd">The <img class="image" id="svn-history-graph__image_m1f_32p_5r" src="../img/SVNRevisionGraphIndirect16.gif"> icon
+            for a revision from where the resource was copied or an indirectly modified resource,
+            that is a directory where a resource was modified and a gray background. The
+              <em class="ph i">Modification type</em> field of the tooltip specifies how that revision was obtained
+            in the history of the resource.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">A directory resource is represented with two types of graphs:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Simplified graph</span></dt>
+          <dd class="dd">Lists only the changes applied directly to the directory;</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Complete graph</span></dt>
+          <dd class="dd">Lists also the indirect changes of the directory resource, that is the changes applied
+            to the resources contained in the directory.</dd>
+        
+      </dl>
+    </div>
+    <div class="p">
+      <figure class="fig fignone" id="svn-history-graph__figure-svn-history-graph-directory-simplified"><figcaption><span class="fig--title-label">Figure 2. </span>Revision Graph of a Directory (Direct Changes)</figcaption>
+        
+        <img class="image" src="../img/sa_svn_revision_graph_dir_simplified.png">
+      </figure>
+    </div>
+    <div class="p">
+      <figure class="fig fignone" id="svn-history-graph__figure-svn-history-graph-directory-complete"><figcaption><span class="fig--title-label">Figure 3. </span>Revision Graph of a Directory (Including Indirect Changes)</figcaption>
+        
+        <img class="image" src="../img/sa_svn_revision_graph_dir_complete.png">
+      </figure>
+    </div>
+    <p class="p">The <span class="ph uicontrol">Revision graph</span> toolbar contains the following actions:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_rgd_z2p_5r" src="../img/DiffSave16.gif">Save as
+              image</span></dt>
+          <dd class="dd">Saves the graphical representation as image. For a large revision graph you have to
+              <a class="xref" href="set-parameter-in-startup-script.html">set more memory in the startup
+              script</a>. The default memory size is not enough when there are more than 100
+            revisions that are included in the graph.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_wsy_wdp_5r" src="../img/SVNRevisionGraphChangeModelOpen16.gif">/<img class="image" id="svn-history-graph__image_gvy_wdp_5r" src="../img/SVNRevisionGraphChangeModelClosed16.gif">Show/Hide indirect modifications</span></dt>
+          <dd class="dd">Switches between simplified and complete graph.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_vql_rfp_5r" src="../img/SVNRevisionGraphZoomIn16.gif">Zoom In</span></dt>
+          <dd class="dd">Zooms in the graph.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_yct_rfp_5r" src="../img/SVNRevisionGraphZoomOut16.gif">Zoom Out</span></dt>
+          <dd class="dd">Zooms out the graph. When the font reaches its minimum size, the graph nodes will
+            display only the icons, leading to a very compact representation of the graph.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_gwt_g2p_5r" src="../img/SVNRevisionGraphResetZoom16.gif">Reset scale</span></dt>
+          <dd class="dd">Resets the graphical scale to a default setting.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_fdd_rfp_5r" src="../img/SVNRevisionGraphToolbarPrint16.gif">Print</span></dt>
+          <dd class="dd">Prints the graph.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_rq3_5mw_5r" src="../img/SVNRevisionGraphToolbarPrintPreview16.png">Print preview</span></dt>
+          <dd class="dd">Offers a preview of the graph to allow you to check the information to be
+            printed.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">The contextual menu of any of the graph nodes contains the following actions:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open</span></dt>
+          <dd class="dd">Opens the selected revision in the editor panel. Available only for files.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open with</span></dt>
+          <dd class="dd">Opens the selected revision in the editor panel. Available only for files.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Save as</span></dt>
+          <dd class="dd">Saves the file that had the revision graph generated, based on the selected node
+            revision.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy to</span></dt>
+          <dd class="dd">Copies to the repository the item whose revision graph is displayed, using the
+            selected revision. <div class="note note note_note"><span class="note__title">Note:</span> This action can be used to resurrect deleted items
+            also.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare with HEAD</span></dt>
+          <dd class="dd">Compares the selected revision with the HEAD revision and displays the result in the
+            diff panel. Available only for files.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_srr_313_5r" src="../img/SVNDockableFrameHistory16.png">Show History</span></dt>
+          <dd class="dd">Displays the history of the resource in <a class="xref" href="history-view.html">the History
+              view</a>. Available for both files and directories.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-history-graph__image_m3f_bdp_5r" src="../img/SVNCheckOut16.gif">Check out
+            </span></dt>
+          <dd class="dd"><a class="xref" href="check-out-working-copy.html">Checks out</a> the selected
+            revision of the directory. Available only for directories.</dd>
+        
+        
+          <dt class="dt dlterm" id="svn-history-graph__export-dlentry"><span class="ph uicontrol">Export</span></dt>
+          <dd class="dd">Opens <a class="xref" href="export-repos.html#export-repos">the <span class="ph uicontrol">Export</span>
+              dialog box</a> that allows you to configure options for exporting a folder from the
+            repository to the local file system.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">When two nodes are selected in the revision graph of a file the right-click menu of this
+      selection contains only the <span class="ph uicontrol">Compare</span> for comparing the two revisions
+      corresponding to the selected nodes. If the resource that had the revision graph built is
+      a folder then the right-click menu displayed for a two nodes selection also contains the
+        <span class="ph uicontrol">Compare</span> action but it computes the differences between the two
+      selected revisions as a set of directory changes. The result is displayed in the <a class="xref" href="svn-dir-change-set-view.html">Directory Change Set</a> view.</p>
+    <div class="note attention note_attention"><span class="note__title">Attention:</span> Generating the revision graph of a resource with many revisions may be a
+      slow operation. You should enable caching for revision graph actions so that future actions on
+      the same repository will not request the same data again from the SVN server, which will
+      finish the operation much faster.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-quick-start.html">Syncro SVN Client (Deprecated)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/help-view.html">Dynamic Help View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/svn-preferences.html">Oxygen XML Editor SVN Preferences</a></div></div></nav></article></main></body></html>

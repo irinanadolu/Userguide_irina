@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVG files"><meta name="keywords" content="SVG files"><meta name="DC.relation" scheme="URI" content="../topics/editing-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/embed-sqf-in-rng-xsd.html"><meta name="DC.relation" scheme="URI" content="../topics/the-standalone-svg-viewer.html"><meta name="DC.relation" scheme="URI" content="../topics/the-standalone-svg-viewer.html"><meta name="DC.relation" scheme="URI" content="../topics/preview-result-pane.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="SVG-documents"><title>Editing SVG Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="SVG-documents"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing SVG Files</h1>
+  
+  <div class="body">
+    <p class="p"><em class="ph i">SVG</em> (Scalable Vector Graphics) is a platform for two-dimensional graphics. It has two
+      parts: an XML-based file format and a programming API for graphical applications. Some of the
+      key features include support for shapes, text, and embedded raster graphics with many painting
+      styles, scripting through languages such as <em class="ph i">ECMAScript</em>, and support for animation.</p>
+    <p class="p">SVG is a vendor-neutral, open standard that has important industry support. Companies such as
+      Adobe, Apple, and IBM have contributed to its W3C specifications. Many documentation <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> (including DocBook) have
+      support for SVG by defining the graphics directly in the document.</p>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> adds SVG support by using the <a class="xref" href="http://xml.apache.org/batik/" target="_blank" rel="external noopener">Batik distribution</a>
+      package (an open source project developed by the Apache Software Foundation) and the <a class="xref" href="using-XML-Catalogs.html">default <dfn class="term">XML Catalog</dfn></a> resolves the SVG
+        DTD.<div class="note note note_note"><span class="note__title">Note:</span> Batik partially supports SVG 1.1. For a detailed list of supported elements,
+        attributes, and properties, see the <a class="xref" href="http://xmlgraphics.apache.org/batik/status.html" target="_blank" rel="external noopener">Batik Implementation Status</a> page.</div></div>
+    <section class="section" id="SVG-documents__how_to_render_svg_images_that_use_java_scripting"><h2 class="title sectiontitle">How to Render SVG Images that Use Java Scripting</h2>
+      
+      <ol class="ol">
+        <li class="li">Copy the <span class="ph filepath">js.jar</span> library from the <a class="xref" href="http://xml.apache.org/batik/" target="_blank" rel="external noopener">Batik
+            distribution</a> into the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph filepath">lib</span> folder.</li>
+        <li class="li">Restart the application.</li>
+      </ol>
+    </section>
+    <section class="section" id="SVG-documents__svg_12_rendering_issues"><h2 class="title sectiontitle">SVG 1.2 Rendering Issues</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> uses the <em class="ph i">Apache Batik</em> open source library to render SVG
+        images and it only has partial support for SVG 1.2. For more information, see <a class="xref" href="http://xmlgraphics.apache.org/batik/dev/svg12.html" target="_blank" rel="external noopener">http://xmlgraphics.apache.org/batik/dev/svg12.html</a>. </p>
+      <div class="p">This partial support could lead to some rendering issues in <span class="ph">Oxygen XML Editor</span>. For
+        example, if you are using the <dfn class="term">Inkscape</dfn> SVG editor, it is possible for it to
+        save the SVG as 1.1, while using SVG 1.2 elements (such as <code class="keyword markupname xmlelement">&lt;flowRoot&gt;</code>) inside
+        it. This means that the image will not be properly rendered inside the application.<div class="note note note_note"><span class="note__title">Note:</span> SVG images shown in the
+            <span class="ph uicontrol">Author</span> visual editing mode are rendered as static images, without
+          support for animations and JavaScript.</div></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/the-standalone-svg-viewer.html">Standalone SVG Viewer</a><br></li><li class="link olchildlink"><a href="../topics/preview-result-pane.html">Integrated SVG Viewer in the Results Panel</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-documents.html" title="Details about the various types of supported documents and their unique editing features">Editing Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/embed-sqf-in-rng-xsd.html">Embedding Schematron Quick Fixes in Relax NG or XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/the-standalone-svg-viewer.html">Standalone SVG Viewer</a></div></div></nav></article></main></body></html>

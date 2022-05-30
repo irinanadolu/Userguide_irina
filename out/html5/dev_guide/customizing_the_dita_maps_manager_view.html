@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../dev_guide/workspace_access_plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing_the_dita_maps_manager_view"><title>Customizing the DITA Maps Manager View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing_the_dita_maps_manager_view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Customizing the DITA Maps Manager View</h1>
+    <div class="body">
+        <p class="p">You can <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/PluginWorkspace.html#addEditorChangeListener-ro.sync.exml.workspace.api.listeners.WSEditorChangeListener-int-" target="_blank" rel="external noopener">add a listener</a> to be notified when a new DITA map is
+      opened, selected, or closed  in the <strong class="ph b">DITA Maps Manager</strong> view. Once the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/listeners/WSEditorChangeListener.html#editorOpened-java.net.URL-" target="_blank" rel="external noopener">editorOpened()</a> callback is received, you can <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/PluginWorkspace.html#getEditorAccess-java.net.URL-int-" target="_blank" rel="external noopener">obtain the opened WSEditor API</a>, then send its <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/editor/WSEditor.html#getCurrentPage--" target="_blank" rel="external noopener">current page</a> to the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/editor/page/ditamap/WSDITAMapEditorPage.html" target="_blank" rel="external noopener">WSDitaMapEditorPage</a>.</p>
+        <p class="p">The API method <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/editor/page/ditamap/WSDITAMapEditorPage.html" target="_blank" rel="external noopener">WSDitaMapEditorPage</a> allows you to interact with the
+      DITA map that is open in the <strong class="ph b">DITA maps Manager</strong> view: </p>
+        <ul class="ul" id="customizing_the_dita_maps_manager_view__ul_x4g_vpj_rgb">
+            <li class="li">
+                <p class="p">Add a customizer for the icons and text presented in the tree.</p>
+            </li>
+            <li class="li">
+                <p class="p">Enable or disable editing on the tree.</p>
+            </li>
+            <li class="li">
+                <p class="p">Set a popup menu customizer.</p>
+            </li>
+            <li class="li">
+                <p class="p">Get the selected nodes.</p>
+            </li>
+            <li class="li">
+                <p class="p">Get access to the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorDocumentController.html" target="_blank" rel="external noopener">AuthorDocumentController</a> API to make changes to
+          the content.</p>
+            </li>
+        </ul>
+        <p class="p">Sample plugins:
+        </p>
+        <ul class="ul" id="customizing_the_dita_maps_manager_view__ul_o5q_dqj_rgb">
+            <li class="li">
+                <p class="p">JavaScript-based plugin that customizes the icons and text presented for a DITA
+          map that is open in the <strong class="ph b">DITA Maps Manager</strong> view: <a class="xref" href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/dmmCustomizeTopicTitlesAndIcons" target="_blank" rel="external noopener">https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/dmmCustomizeTopicTitlesAndIcons</a>.</p>
+            </li>
+            <li class="li">
+                <p class="p">JavaScript-based plugin that adds a new contextual menu action for a DITA map that is open in the <strong class="ph b">DITA Maps Manager</strong> view: <a class="xref" href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/contributePopupActionDMM" target="_blank" rel="external noopener">https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/contributePopupActionDMM</a>.</p>
+            </li>
+        </ul>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dev_guide/workspace_access_plugin.html">Workspace Access Plugin</a></div></div></nav></article></main></body></html>

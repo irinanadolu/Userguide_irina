@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Databases,Connections,MarkLogic,MarkLogic database connection"><meta name="keywords" content="Databases, Connections, MarkLogic, MarkLogic database connection"><meta name="DC.relation" scheme="URI" content="../topics/database-support.html"><meta name="DC.relation" scheme="URI" content="../topics/eXist-connection-level.html"><meta name="DC.relation" scheme="URI" content="../topics/how-to-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/how-to-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/marklogic-development.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/marklogic-contextual-actions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="marklogic-connection"><title>MarkLogic Database Connections</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="marklogic-connection"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">MarkLogic Database Connections</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> Enterprise edition includes support for MarkLogic database
+      connections. Once you <a class="xref" href="how-to-marklogic.html#how-to-marklogic">configure a
+        MarkLogic connection</a>, you can use the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source
+          Explorer</span> view</a> to display all the application servers that are
+      configured on the MarkLogic server. You can expand each application server and view all of its
+      configured modules, and the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a> allows you to open and edit these
+        modules.<div class="note note note_note"><span class="note__title">Note:</span> To browse modules located in a database, directory properties must be
+        associated with them. These directory properties are generated automatically if the
+          <em class="ph i">directory creation</em> property of the database is set to automatic. If this property
+        is set to <strong class="ph b">manual</strong> or <strong class="ph b">manual-enforced</strong>, add the directory properties of the
+        modules manually, using the XQuery function <code class="ph codeph">xdmp:directory-create()</code>. For
+        example, for two documents with the <code class="ph codeph">/code/modules/main.xqy</code> and
+          <code class="ph codeph">/code/modules/imports/import.xqy</code> IDs, run the following
+          query:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">(xdmp:directory-create('/code/modules/'), xdmp:directory-create('/code/modules/imports/'))</pre><p class="p">For
+          more information about directory properties, go to: <a class="xref" href="http://blakeley.com/blogofile/2012/03/19/directory-assistance/" target="_blank" rel="external noopener">http://blakeley.com/blogofile/2012/03/19/directory-assistance/</a>.</p></div></div>
+    <section class="section" id="marklogic-connection__marklogic_and_xquery"><h2 class="title sectiontitle">MarkLogic and XQuery</h2>
+      
+      <p class="p">MarkLogic connections can be used in conjunction with XQuery scripts to debug and solve
+        problems with XQuery transformations. XQuery modules can also be validated using a MarkLogic
+        server to allow to you to spot possible issues without the need of actually executing the
+        XQuery script.</p>
+      <p class="p">When <a class="xref" href="xquery-debugging-with-marklogic.html#xquery-debugging-with-marklogic">debugging
+          XQuery files with MarkLogic</a>, you can use the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data
+            Source Explorer</span> view</a> to open the files from the application server
+        that is involved in the debugging process. By using the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>, any imported modules are
+        better identified by the MarkLogic server. You can also <a class="xref" href="xquery-debugging-marklogic-import-modules.html#xquery-debugging-marklogic-import-modules">use step actions and breakpoints</a> in the modules to help identify problems.</p>
+    </section>
+    <section class="section" id="marklogic-connection__modules_container"><h2 class="title sectiontitle">Modules Container</h2>
+      
+      <div class="p">For each Application server (for example: <em class="ph i">Bill (HTTP port:8060)</em>), you have access to
+        the XQuery modules that are visible to that server. When editing, executing, or debugging
+        XQuery it is recommended to open the XQuery files from this <span class="ph uicontrol"><img class="image" src="../img/DBModules16.png">Modules</span> container.<div class="note note note_note"><span class="note__title">Note:</span> You can also manage
+          resources for a MarkLogic database through a WebDAV connection, although it is not
+          recommended if you work with XQuery files since imported modules may not be resolved
+          correctly.</div></div>
+    </section>
+    <section class="section" id="marklogic-connection__requests_container"><h2 class="title sectiontitle">Requests Container</h2>
+      
+      <p class="p">Each MarkLogic application server includes a <span class="ph uicontrol"><img class="image" src="../img/DBRequest16.png">Requests</span> container. In this container, <span class="ph">Oxygen XML Editor</span> displays both queries that are stopped for debugging purposes and
+        queries that are still running. To clean up the entire <span class="ph uicontrol">Requests</span>
+        container at the end of your session, right-click it and use the <a class="xref" href="marklogic-contextual-actions.html#marklogic-contextual-actions__cancel-all-requests"><span class="ph uicontrol">Cancel all requests</span> action</a>.</p>
+    </section>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>MarkLogic Connection in Data Source Explorer</figcaption>
+        
+        <img class="image" src="../img/marklogic_connection.png">
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/how-to-marklogic.html">Configuring a MarkLogic Database Connection</a><br></li><li class="link olchildlink"><a href="../topics/marklogic-development.html">MarkLogic Development in Oxygen XML Editor</a><br></li><li class="link olchildlink"><a href="../topics/xquery-debugging-with-marklogic.html">Debugging with MarkLogic</a><br></li><li class="link olchildlink"><a href="../topics/marklogic-contextual-actions.html">MarkLogic Contextual Menu Actions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/database-support.html">Database Connection Support</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eXist-connection-level.html">eXist Contextual Menu Actions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/how-to-marklogic.html">Configuring a MarkLogic Database Connection</a></div></div></nav></article></main></body></html>

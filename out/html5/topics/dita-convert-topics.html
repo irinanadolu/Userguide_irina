@@ -1,0 +1,193 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,Convert topic types"><meta name="keywords" content="DITA, Topics, Convert topic types"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-edit-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-adding-images.html"><meta name="DC.relation" scheme="URI" content="eppo-edit-topics.html#eppo-edit-topics"><meta name="DC.relation" scheme="URI" content="refactoring-xml-documents.html#refactoring-xml-documents"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-convert-topics"><title>Converting DITA Topics to Another Type</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-convert-topics"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Converting DITA Topics to Another Type</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a feature that allows you to convert an existing DITA
+      document to a different topic type. For example, if you want to convert a DITA Task to a DITA
+      Topic, or vice versa. There are several ways to access these refactoring actions and you can
+      choose a scope for the operation and some filtering options.</p>
+    <section class="section" id="dita-convert-topics__refactoring_operations_for_dita"><h2 class="title sectiontitle">DITA Conversion Refactoring Operations for <em class="ph i">DITA</em></h2>
+      
+      <div class="p">The following conversion operations are available:<dl class="dl">
+          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert Nested Topics to New Topics</span><span class="ph"> (Available from the
+                      contextual menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                          Maps Manager</span></a>)</span></dt>
+                  <dd class="dd">Use this operation on topics that contain nested
+                      <code class="keyword markupname xmlelement">&lt;topic&gt;</code> elements to convert each nested topic to a new
+                      topic.<span class="ph"> Also, the new
+                      topics are added in the <span class="ph uicontrol">DITA Maps Manager</span> as the first
+                      child topics of the original topic.</span></dd>
+                
+          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert Sections to New Topics</span><span class="ph"> (Available from the
+                      contextual menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                          Maps Manager</span></a>)</span></dt>
+                  <dd class="dd">Use this operation on topics that contain multiple sections to convert each
+                    section to a new topic.<span class="ph">
+                      Also, the new topics are added in the <span class="ph uicontrol">DITA Maps Manager</span>
+                      as the first child topics of the original topic.</span></dd>
+                
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Concept</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Concept topic
+              type (for example, Topic to Concept).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to General Task</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA General Task
+              topic type (for example, Task to General Task). A DITA <dfn class="term">General Task</dfn> is a
+              less restrictive alternative to the <dfn class="term">Strict Task</dfn> information type.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Reference</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Reference topic
+              type (for example, Topic to Reference).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Task</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Task topic type
+              (for example, Topic to Task).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Topic</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Topic (for
+              example, Task to Topic).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Troubleshooting</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Troubleshooting
+              topic type (for example, Topic to Troubleshooting).</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="dita-convert-topics__methods_for_accessing_the_dita_conversion_refacto"><h2 class="title sectiontitle">Methods for Accessing the DITA Conversion Refactoring Operations</h2>
+      
+      <p class="p">To access the conversion operations, use one of the following methods:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm" id="dita-convert-topics__single-document">Single Document Method</dt>
+            <dd class="dd">With the document opened in the editor, right-click anywhere in the main editing
+              pane (or right-click the topic reference in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a>), go to the <span class="ph uicontrol">Refactoring</span> submenu,
+              and choose whichever operation is appropriate for your needs.</dd>
+          
+          
+            <dt class="dt dlterm" id="dita-convert-topics__multiple-documents">Multiple Documents At Once Method</dt>
+            <dd class="dd">Select <span class="ph uicontrol"><img class="image" id="dita-convert-topics__image_mv4_ptt_kr" src="../img/XMLRefactoring16.png">XML Refactoring</span> from the <span class="ph uicontrol">Tools</span> menu (or from
+              the <span class="ph uicontrol">Refactoring</span> submenu when you right-click one or more
+              documents in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+                view</a>or the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span> view</a>). Then select whichever
+              operation is appropriate for your needs.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-convert-topics__refactoring_wizard_dialog_box"><h2 class="title sectiontitle">XML Refactoring Wizard Dialog Box</h2>
+      
+      <div class="p">When you select any of the operations, <span class="ph">Oxygen XML Editor</span> proceeds to the
+          <span class="ph uicontrol">XML Refactoring Wizard</span>. If you used the <a class="xref" href="dita-convert-topics.html#dita-convert-topics__multiple-documents"><strong class="ph b">Multiple Documents At Once
+            Method</strong></a>, the wizard page allows you to choose a scope for the operation and
+        some filtering options:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">Scope</span> - Select from a variety of options to define the scope
+            that will have resources affected by the operation. For example, you can choose to
+            affect all resources in the <span class="ph uicontrol">Project</span>, <span class="ph uicontrol">All opened
+              files</span>, <span class="ph uicontrol">Current DITA map hierarchy</span>,
+              <span class="ph uicontrol">Selected reference</span>, and others depending on the context.</li>
+          <li class="li"><span class="ph uicontrol">Filters</span> section<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Include files</span> - Specifies files to be excluded from the
+                operation. You can specify multiple files by separating them with commas and the
+                patterns can include wildcards (such as <strong class="ph b">*</strong> or <strong class="ph b">?</strong>).</li>
+              <li class="li"><span class="ph uicontrol">Restrict to known XML file types only</span> - Excludes non-XML
+                file types from the operation.</li>
+              <li class="li"><span class="ph uicontrol">Look inside archives</span> - If
+                this option is selected, the scope of the operation will include files inside
+                archives.</li>
+            </ul></li>
+        </ul></div>
+      <p class="p">If you used the <a class="xref" href="dita-convert-topics.html#dita-convert-topics__single-document"><strong class="ph b">Single
+            Document Method</strong></a>, the scope will be the current file so the scope and
+        filtering options are not displayed. </p>
+      <div class="p">You can then use one of the following buttons to proceed with the operation: <dl class="dl">
+          
+            <dt class="dt dlterm">Preview</dt>
+            <dd class="dd">You can use the <span class="ph uicontrol">Preview</span> button to open a comparison panel
+              where you can review all the changes that will be made by the refactoring operation
+              before applying the changes.<div class="note warning note_warning"><span class="note__title">Warning:</span> It is always recommended to use the
+                  <span class="ph uicontrol">Preview</span> button to make sure the operation is not going to
+                do something unexpected and after you click the <span class="ph uicontrol">Finish</span>
+                button, any <span class="ph uicontrol">Undo</span> action will only revert changes on the
+                current document.</div></dd>
+          
+          
+            <dt class="dt dlterm">Finish</dt>
+            <dd class="dd">When you use the <span class="ph uicontrol">Finish</span> button, behind the scenes <span class="ph">Oxygen XML Editor</span> maps the structure of the previous DITA document type to a
+              structure that fits the new type. In some cases, especially when the previous
+              structure was very complex, the conversion might result in an invalid structure and
+              some manual adjustments might be required.</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="dita-convert-topics__handling_special_characters"><h2 class="title sectiontitle">Handling Special Characters When Generating New File Names</h2>
+      
+      <p class="p">For refactoring operations that generate a new file, if special characters are detected in
+        an element that will be used to generate the new file name, the special characters will
+        automatically be replaced with their ASCII equivalents (for example, <strong class="ph b">Ä</strong> is changed to
+          <strong class="ph b">AE</strong>). If an ASCII equivalent does not exist, it will be replaced with an underline
+        character ( _ ). The purpose of this functionality is to avoid generating invalid file
+        names.</p>
+      <p class="p">It is possible to customize the list of replaceable symbols by editing the following XSLT
+        character map file:</p>
+      <p class="p"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/refactoring/utils/character-map.xsl</span>.</p>
+    </section>
+    <section class="section" id="dita-convert-topics__converting_to_and_from_dita_specialization_docume"><h2 class="title sectiontitle">Converting To and From DITA Specialization Document Types</h2>
+      
+      <p class="p">If you use your own <a class="xref" href="dita-specialization-support.html#dita-specialization-support">DITA specialization
+          document type</a>, you can modify mappings for the predefined conversion operations to
+        work with your specialization.</p>
+      <div class="p">To use the conversion operations with your DITA specialization, follow these steps:<ol class="ol">
+          <li class="li">Locate the conversion stylesheets in the following directory (and its subdirectories):
+                <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/refactoring/</span>.<div class="note note note_note"><span class="note__title">Note:</span> The stylesheets for converting entire
+              files (from one type to another) are located in the
+                <span class="ph filepath">dita-files-conversion-stylesheets</span> folder. Each of these
+              conversion operations has a stylesheet with the word <strong class="ph b">entrypoint</strong> at the end of
+              its name. Edit the appropriate <span class="ph filepath">*-entrypoint.xsl</span> file (for
+              example, to modify the <strong class="ph b">Convert to Task</strong> operation, edit the
+                <span class="ph filepath">convert-resource-to-task-entrypoint.xsl</span> file).</div></li>
+          <li class="li">Depending on whether you use a DTD, XML Schema, or Relax NG-based specialization, you can:<ol class="ol" type="a">
+              <li class="li">Modify the values of the declared <strong class="ph b">root-element</strong>,
+                  <strong class="ph b">public-literal-target</strong>, and <strong class="ph b">system-literal-target</strong> variables to match
+                your specialization's DTD information.</li>
+              <li class="li">Modify the value of the declared <strong class="ph b">schema-location</strong> variable to match the
+                location of your specialization's XML schema.</li>
+              <li class="li">Modify the value of the declared <strong class="ph b">xml-model-location</strong> variable to match your
+                Relax NG specialization.</li>
+            </ol></li>
+          <li class="li">For the <span class="ph uicontrol">Convert Nested Topics to New Topics</span> and
+              <span class="ph uicontrol">Convert Sections to New Topics</span> operations, if your DITA
+            specialization uses your own custom URN or DOCTYPE, you can replace the default mappings
+            in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/refactoring/utils/dita-formats.xsl</span> stylesheet with your
+            own values for the <code class="ph codeph">DOCTYPE</code> or <code class="ph codeph">xml-model</code>.</li>
+          <li class="li">If you want to change the name of the operation that will be displayed in <span class="ph">Oxygen XML Editor</span>, follow these substeps:<ol class="ol" type="a">
+              <li class="li">Locate the resource XML file for the same conversion operation in the following
+                directory: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/refactoring/</span> (for example, for the <strong class="ph b">Convert to
+                  Task</strong> operation, it is <span class="ph filepath">convertResource2Task.xml</span>).</li>
+              <li class="li">Edit that XML file and change the <strong class="ph b">name</strong> attribute to match whatever you want
+                to be displayed for that operation (for example, <code class="ph codeph">name="Convert to My
+                  DocType"</code>).</li>
+            </ol></li>
+          <li class="li">Save your changes to all modified files.</li>
+          <li class="li">Restart <span class="ph">Oxygen XML Editor</span></li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> You should now see your changes when <a class="xref" href="dita-convert-topics.html#dita-convert-topics__methods_for_accessing_the_dita_conversion_refacto">accessing the conversion operations</a>.</p>
+    </section>
+    <div class="p">
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can also create your own customized refactoring operations. For more
+        information, see <a class="xref" href="custom-refactoring-operations.html#custom-refactoring-operations">Custom Refactoring Operations</a>.</div>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-structure.html">Working with DITA Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-edit-topics.html">Editing DITA Topics</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-adding-images.html">Working with Images in DITA Topics</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-edit-topics.html#eppo-edit-topics">Editing DITA Topics</a></li><li class="linklist"><a class="link" href="refactoring-xml-documents.html#refactoring-xml-documents">Refactoring XML Documents</a></li></ul></div></nav>
+</article></main></body></html>

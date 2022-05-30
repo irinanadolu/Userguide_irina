@@ -1,0 +1,190 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Toolbar,XSLT Debugger perspective,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Toolbar, XSLT Debugger perspective, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debugging-layout.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-layout.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="transform-xquery-advanced-saxon-options.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-control-toolbar"><title>Control Toolbar</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-control-toolbar"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Control Toolbar</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Control</span> toolbar contains all the actions that you need to
+      configure and control the debugging process. The following actions are described as they
+      appear in the toolbar from left to right.</p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-control-toolbar__fig-control-toolbar-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Control Toolbar</figcaption>
+        
+        <img class="image" src="../img/sa_control_toolbar.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-xml-selector"><span class="ph uicontrol">XML source selector</span></dt>
+          <dd class="dd">The current selection represents the source document used as input by the
+            transformation engine. The selection list contains all open files (XML files being
+            emphasized). This option allows you to use other file types also as source documents. In
+            an XQuery debugging session this selection field can be set to the default value
+              <code class="ph codeph">NONE</code>, because usually XQuery documents do not require an input
+            source.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-xsl-selector"><span class="ph uicontrol">XSL / XQuery selector</span></dt>
+          <dd class="dd">The current selection represents the stylesheet or XQuery document to be used by the
+            transformation engine. The selection list contains all open files (XSLT / XQuery files
+            being emphasized).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_czh_jft_tr" src="../img/CaretUpdateOff16.png">Link with
+              editor</span></dt>
+          <dd class="dd">When selected, the XML and XSLT/XQuery selectors display the names of the files open
+            in the central editor panels. This button is toggled off by default.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Output selector</span></dt>
+          <dd class="dd">The selection represents the output file specified in the associated transformation
+            scenario. You can specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../img/InsertEditorVariables16.png">Insert Editor
+              Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../img/Open16.png">Browse</span> button.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-parameters"><span class="ph uicontrol"><img class="image" src="../img/ConfigParams16sa.png">Configure parameters</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to configure the XSLT / XQuery parameters to be
+            used by the transformation.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-xslt-extensions"><span class="ph uicontrol"><img class="image" src="../img/ConfigExtensions16.png">Edit
+            extensions</span></dt>
+          <dd class="dd">Allows you to add and remove the Java classes and <a class="xref" href="../glossary/jar.html"><dfn class="term">JARS</dfn></a> used as XSLT extensions.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="debug-control-toolbar__profiling"><img class="image" src="../img/Profiling16.png">/<img class="image" src="../img/ProfilingSelected16.png">Turn on/off profiling</span></dt>
+          <dd class="dd">Enables / Disables current transformation profiling.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="debug-control-toolbar__debug-enable-xhtml-output"><img class="image" src="../img/XhtmlOutputEc16.png">Enable XHTML output</span></dt>
+          <dd class="dd">
+            <p class="p">Enables the rendering of the output in the <a class="xref" href="debugging-layout.html#debugging-layout__output-view"><span class="ph uicontrol">XHTML</span> output view</a>
+              during the transformation process. For performance issues, disable XHTML output when
+              working with very large files. Note that only XHTML conformant documents can be
+              rendered by this view. To view the output result of other formats, such as HTML, save
+              the <span class="ph uicontrol">Text output</span> area to a file and use an external browser for
+              viewing.</p>
+            <p class="p">When starting a debug session from the <span class="ph uicontrol">Editor</span>
+              <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> by using the
+                <span class="ph uicontrol">Debug Scenario</span> action, the state of this toolbar button
+              reflects the state of the <span class="ph uicontrol">Show as XHTML</span> output option from the
+              scenario.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/BackMappingEc16.png">Turn on/off output to source
+              mapping</span></dt>
+          <dd class="dd">
+            <p class="p">Enables or disables the output to source mapping between every line of output and the
+              instruction element / source context that generated it.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/DebuggerOptionsShortcut16.png">Debugger</span> preferences</dt>
+          <dd class="dd">
+            <p class="p">Quick link to <a class="xref" href="preferences-debugger.html#preferences-debugger">Debugger preferences page</a>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-engine-selector"><span class="ph uicontrol">XSLT / XQuery engine selector</span></dt>
+          <dd class="dd">Lists the <a class="xref" href="debugging-supported-processors.html#debugging-supported-processors">processors available for debugging XSLT and XQuery
+              transformations</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_jhw_nnt_tr" src="../img/Options16.png">XSLT / XQuery
+              engine advanced options</span></dt>
+          <dd class="dd">If Saxon HE/PE/EE is selected, you can click this button to open the <a class="xref" href="advanced-saxon-xslt-options.html">Advanced Saxon Transformation Options
+              page</a>.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-step-into"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_tng_j2t_tr" src="../img/StepInto16.gif">Step into
+                </span></dt>
+          <dd class="dd">Starts the debugging process and runs until the next instruction is encountered.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-step-over"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_lgc_p2t_tr" src="../img/StepOver16.gif">Step over
+                </span></dt>
+          <dd class="dd">
+            <p class="p">Run until the current instruction and its sub-instructions are over. Usually this
+              will advance to the next sibling instruction.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Step over</figcaption>
+                
+                <img class="image" src="../img/sa_step_over_detail.png">
+              </figure>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-step-out"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_zry_s2t_tr" src="../img/StepOut16.gif">Step out
+                </span></dt>
+          <dd class="dd">
+            <p class="p">Run until the parent of the current instruction is over. Usually this will advance to
+              the next sibling of the parent instruction.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Step out</figcaption>
+                
+                <img class="image" src="../img/sa_step_out_detail.png">
+              </figure>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-run"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_s1x_1rf_wr" src="../img/Run16.gif">Run <span class="keyword shortcut">Shift +
+                  F5</span></span></dt>
+          <dd class="dd">Starts the debugging process. The execution of the process is paused when a <a class="xref" href="debug-breakpoints-view.html">breakpoint</a> is encountered or the
+            transformation ends.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-run-to-cursor"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_typ_3rf_wr" src="../img/RunToCursor16.gif">Run to cursor
+                </span></dt>
+          <dd class="dd">Starts the debugging process and runs until one of the following conditions occur: the
+            line of cursor is reached, a valid <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoint</dfn></a> is reached or the execution ends.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-run-to-end"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_pcy_3rf_wr" src="../img/RunToEnd16.gif">Run to end
+                </span></dt>
+          <dd class="dd">Runs the transformation until the end, without taking into account enabled <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoints</dfn></a>, if
+            any.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-pause"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_fcq_vsf_wr" src="../img/PauseDebugging16.gif">Pause
+                </span></dt>
+          <dd class="dd">Request to pause the current transformation as soon as possible.</dd>
+        
+        
+          <dt class="dt dlterm" id="debug-control-toolbar__debug-stop"><span class="ph uicontrol"><img class="image" id="debug-control-toolbar__image_mcj_q1p_5r" src="../img/StopExternalTool16.png">Stop
+                </span></dt>
+          <dd class="dd">Request to stop the current transformation without completing its execution.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show current execution nodes</span></dt>
+          <dd class="dd">Reveals the current debugger context showing both the current instruction and the
+            current node in the XML source. Possible displayed states: <ul class="ul">
+              <li class="li">Entering (<img class="image" src="../img/EnteringXml20.png">) or leaving
+                  (<img class="image" src="../img/LeavingXml20.png">) an XML execution
+                node.</li>
+              <li class="li">Entering (<img class="image" src="../img/EnteringXsl20.png">) or leaving
+                  (<img class="image" src="../img/LeavingXsl20.png">) an XSL execution
+                node.</li>
+              <li class="li">Entering (<img class="image" src="../img/EnteringXPath20.png">) or
+                leaving (<img class="image" src="../img/LeavingXPath20.png">) an XPath
+                execution node.<div class="note note note_note"><span class="note__title">Note:</span> When you set a MarkLogic server as a processor, the
+                    <span class="ph uicontrol">Show current execution nodes</span> button is named
+                    <span class="ph uicontrol">Refresh current session context from server</span>. Click this
+                  button to refresh the information in all the views. </div></li>
+            </ul></dd>
+        
+      </dl>
+    </div>
+    <div class="note note note_note"><span class="note__title">Note:</span> For some of the XSLT processors (Saxon-HE/PE/EE) the debugger could be configured to step
+      into the XPath expressions affecting the behavior of the following debugger actions:
+        <span class="ph uicontrol">Step into</span>, <span class="ph uicontrol">Step over</span> or <span class="ph uicontrol">Step
+        Out</span>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debugging-layout.html">Debugger Layout</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debugging-layout.html">Debugger Layout</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="transform-xquery-advanced-saxon-options.html">Advanced Saxon HE/PE/EE XQuery Transformation Options</a></li></ul></div></nav>
+</article></main></body></html>

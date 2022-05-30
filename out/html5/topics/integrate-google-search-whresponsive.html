@@ -1,0 +1,123 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Google Search"><meta name="keywords" content="WebHelp Responsive, Google Search"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-social-media-integration.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-google-analytics.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-responsive-override-xslt-processing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="integrate-google-search-whresponsive"><title>How to Integrate Google Search in WebHelp Responsive Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="integrate-google-search-whresponsive"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Integrate Google Search in WebHelp Responsive Output</h1>
+  
+  
+  <div class="body">
+    <p class="p">It is possible to integrate the <dfn class="term">Google Search Engine</dfn> into your <strong class="ph b">WebHelp
+        Responsive</strong> output and you can specify where you want the results to appear in your
+      WebHelp page.</p>
+    <section class="section" id="integrate-google-search-whresponsive__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Publishing Template</h2>
+      
+      <div class="p">To integrate the <dfn class="term">Google Search Engine</dfn> into your WebHelp Responsive output
+        using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing
+          Template</dfn></a>, follow this procedure:<ol class="ol">
+          <li class="li">Go to the <a class="xref" href="https://cse.google.com/cse/" target="_blank" rel="external noopener">Google Custom Search Engine page</a> using your Google account.</li>
+          <li class="li">Select the <span class="ph uicontrol">Create a custom search engine</span> button.</li>
+          <li class="li">Follow the on-screen instructions to create a search engine component for your
+              site.<div class="note important note_important"><span class="note__title">Important:</span> For the <span class="ph uicontrol">Layout</span>, you must select
+                <span class="ph uicontrol">Results only</span> for the <dfn class="term">Google Search Engine</dfn> to
+              work with <strong class="ph b">Oxygen XML WebHelp Responsive</strong>.</div></li>
+          <li class="li">At the end of this process you should obtain a code snippet that looks like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">&lt;script&gt;   
+ (<strong class="hl-keyword">function</strong>()  {     
+  <strong class="hl-keyword">var</strong> cx =
+    <span class="hl-string">'000888210889775888983:8mn4x_mf-yg'</span>;     
+  <strong class="hl-keyword">var</strong> gcse = document.createElement(<span class="hl-string">'script'</span>); 
+  gcse.type = <span class="hl-string">'text/javascript'</span>; 
+  gcse.async = true;     
+  gcse.src = (document.location.protocol == <span class="hl-string">'https:'</span> ?
+    <span class="hl-string">'https:'</span> : <span class="hl-string">'http:'</span>) +         <span class="hl-string">'//www.google.com/cse/cse.js?cx='</span> + cx;     
+  <strong class="hl-keyword">var</strong> s = document.getElementsByTagName(<span class="hl-string">'script'</span>)[<span class="hl-number">0</span>]; 
+  s.parentNode.insertBefore(gcse, s);   
+ }
+ )(); 
+&lt;/script&gt;</pre></li>
+          <li class="li">Save the script into a well-formed HTML file called
+              <span class="ph filepath">googlecse.html</span>.</li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add the
+              <code class="ph codeph">webhelp.google.search.script</code> parameter in the <dfn class="term">parameters</dfn>
+            section with its value set to reference the <span class="ph filepath">googlecse.html</span> file
+            that you created
+            earlier.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+  ...
+  <strong class="hl-tag">&lt;webhelp&gt;</strong>
+     ...                
+     <strong class="hl-tag">&lt;parameters&gt;</strong>
+         <strong class="hl-tag">&lt;parameter</strong> 
+             <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.google.search.script"</span> 
+             <span class="hl-attribute">value</span>=<span class="hl-value">"resources/googlecse.html"</span>
+             <span class="hl-attribute">type</span>=<span class="hl-value">"filePath"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;/parameters&gt;</strong>
+  <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></li>
+          <li class="li">You can also use the <code class="ph codeph">webhelp.google.search.results</code> parameter to
+            choose where to display the search results.<ol class="ol" type="a">
+              <li class="li">Create an HTML file with the following content: <code class="ph codeph">&lt;div
+                  class="gcse-searchresults-only" data-autoSearchOnLoad="true"
+                  data-queryParameterName="searchQuery"&gt;&lt;/div&gt;</code> (you must use the <a class="xref" href="https://developers.google.com/custom-search/docs/element#html5" target="_blank" rel="external noopener">HTML5 version for the GCSE</a>). For more
+                information about other supported attributes, see <a class="xref" href="https://developers.google.com/custom-search/docs/element#supported_attributes" target="_blank" rel="external noopener">Google Custom Search: Supported
+                Attributes</a>.</li>
+              <li class="li">Set the value of the <code class="ph codeph">webhelp.google.search.results</code> parameter to
+                the file path of the file you just created. If this parameter is not specified, the
+                following code is used: <code class="ph codeph">&lt;div class="gcse-searchresults-only"
+                  data-autoSearchOnLoad="true"
+                  data-queryParameterName="searchQuery"&gt;&lt;/div&gt;</code>.</li>
+            </ol></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="integrate-google-search-whresponsive__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To integrate the <dfn class="term">Google Search Engine</dfn> into your WebHelp Responsive output
+        using a transformation scenario from within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Go to the <a class="xref" href="https://cse.google.com/cse/" target="_blank" rel="external noopener">Google Custom Search Engine page</a> using your Google account.</li>
+          <li class="li">Select the <span class="ph uicontrol">Create a custom search engine</span> button.</li>
+          <li class="li">Follow the on-screen instructions to create a search engine for your site.<div class="note important note_important"><span class="note__title">Important:</span> For the <span class="ph uicontrol">Layout</span>, you must select
+                <span class="ph uicontrol">Results only</span> for the <dfn class="term">Google Search Engine</dfn> to
+              work with <strong class="ph b">Oxygen XML WebHelp Responsive</strong>.</div></li>
+          <li class="li">At the end of this process you should obtain a code snippet that looks like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">&lt;script&gt;   
+ (<strong class="hl-keyword">function</strong>()  {     
+  <strong class="hl-keyword">var</strong> cx =
+    <span class="hl-string">'000888210889775888983:8mn4x_mf-yg'</span>;     
+  <strong class="hl-keyword">var</strong> gcse = document.createElement(<span class="hl-string">'script'</span>); 
+  gcse.type = <span class="hl-string">'text/javascript'</span>; 
+  gcse.async = true;     
+  gcse.src = (document.location.protocol == <span class="hl-string">'https:'</span> ?
+    <span class="hl-string">'https:'</span> : <span class="hl-string">'http:'</span>) +         <span class="hl-string">'//www.google.com/cse/cse.js?cx='</span> + cx;     
+  <strong class="hl-keyword">var</strong> s = document.getElementsByTagName(<span class="hl-string">'script'</span>)[<span class="hl-number">0</span>]; 
+  s.parentNode.insertBefore(gcse, s);   
+ }
+ )(); 
+&lt;/script&gt;</pre></li>
+          <li class="li">Save the script into a well-formed HTML file called
+              <span class="ph filepath">googlecse.html</span>.</li>
+          <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and choose a
+              <em class="ph i">template</em>.</li>
+          <li class="li">Switch to the <span class="ph uicontrol">Parameters</span> tab and edit the
+              <code class="ph codeph">webhelp.google.search.script</code> parameter to reference the
+              <span class="ph filepath">googlecse.html</span> file that you created earlier.</li>
+          <li class="li">You can also use the <code class="ph codeph">webhelp.google.search.results</code> parameter to
+            choose where to display the search results.<ol class="ol" type="a">
+              <li class="li">Create an HTML file with the following content: <code class="ph codeph">&lt;div
+                  class="gcse-searchresults-only" data-autoSearchOnLoad="true"
+                  data-queryParameterName="searchQuery"&gt;&lt;/div&gt;</code> (you must use the <a class="xref" href="https://developers.google.com/custom-search/docs/element#html5" target="_blank" rel="external noopener">HTML5 version for the GCSE</a>). For more
+                information about other supported attributes, see <a class="xref" href="https://developers.google.com/custom-search/docs/element#supported_attributes" target="_blank" rel="external noopener">Google Custom Search: Supported
+                Attributes</a>.</li>
+              <li class="li">Set the value of the <code class="ph codeph">webhelp.google.search.results</code> parameter to
+                the file path of the file you just created. If this parameter is not specified, the
+                following code is used: <code class="ph codeph">&lt;div class="gcse-searchresults-only"
+                  data-autoSearchOnLoad="true"
+                  data-queryParameterName="searchQuery"&gt;&lt;/div&gt;</code>.</li>
+            </ol></li>
+          <li class="li">Click <span class="ph uicontrol">Ok</span> and run the transformation scenario.</li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webhelp-social-media-integration.html">Integrating Social Media and Google Tools in the WebHelp Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-google-analytics.html">How to Integrate Google Analytics in WebHelp Responsive Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-responsive-override-xslt-processing.html">XSLT Extensions for WebHelp Responsive</a></div></div></nav></article></main></body></html>

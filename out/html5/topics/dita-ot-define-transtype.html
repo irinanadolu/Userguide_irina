@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,DITA-OT Plugins,Define transformation type,Define transtype,Define allowed parameters"><meta name="keywords" content="DITA, DITA-OT Plugins, Define transformation type, Define transtype, Define allowed parameters"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-plugins-intro.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-install-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-third-party-plugins.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-ot-define-transtype"><title>Defining the Transformation Type and Allowed Parameters in a DITA-OT Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-ot-define-transtype"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Defining the Transformation Type and Allowed Parameters in a DITA-OT Plugin</h1>
+  
+  <div class="body">
+    <p class="p">Custom <strong class="ph b">DITA-OT</strong>
+      <dfn class="term">plugins</dfn> may contribute new transformation types (transtypes) and each transtype
+      may have a set of allowed configuration parameters. If a DITA-OT plugin declares a
+        <strong class="ph b">transtype</strong>, <span class="ph">Oxygen XML Editor</span> detects that transformation type declaration and
+      presents descriptions in the <a class="xref" href="dita-ot-transformation.html#dita-ot-transformation" title="This type of transformation specifies the parameters for an Ant transformation that executes a DITA-OT build script. Oxygen XML Editor includes a built-in version of Ant and a built-in version of DITA-OT, but other versions can be set in the scenario."><span class="ph uicontrol">DITA Transformation Type</span> dialog box</a> and the contributed
+      parameters in the <a class="xref" href="dita-map-edit-parameters.html#dita-map-edit-parameters">transformation scenario's <span class="ph uicontrol">Parameters</span> tab</a>.</p>
+    <div class="p">To define a transformation type and its contributed parameters in a DITA-OT plugin, follow
+      this procedure:<ol class="ol">
+        <li class="li">If you have not already done so, <a class="xref" href="simple-dita-ot-plugin.html">create a
+            DITA-OT <strong class="ph b">plugin.xml</strong> file</a> (you can easily create this file by using the
+            <span class="ph uicontrol">DITA-OT Plugin</span> new document template in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>).</li>
+        <li class="li">In the <strong class="ph b">plugin.xml</strong> file, define the transformation type details by using the
+            <code class="keyword markupname xmlelement">&lt;transtype&gt;</code> element to specify a name, description, and the
+          transtype it
+          extends.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;transtype</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"xhtml"</span> <span class="hl-attribute">extends</span>=<span class="hl-value">"base-html"</span> <span class="hl-attribute">desc</span>=<span class="hl-value">"HTML"</span><strong class="hl-tag">&gt;</strong></pre></li>
+        <li class="li">Define allowed parameters by using the <code class="keyword markupname xmlelement">&lt;param&gt;</code> element to specify
+          the name, description, and information about the default and allowed set of values. For
+          more information, see: <a class="xref" href="https://www.dita-ot.org/3.1/topics/plugin-configfile.html" target="_blank" rel="external noopener">https://www.dita-ot.org/3.1/topics/plugin-configfile.html</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.indexshow"</span> <span class="hl-attribute">desc</span>=<span class="hl-value">"Specifies whether to show the index"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"enum"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;val&gt;</strong>yes<strong class="hl-tag">&lt;/val&gt;</strong>
+  <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">default</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>no<strong class="hl-tag">&lt;/val&gt;</strong>
+<strong class="hl-tag">&lt;/param&gt;</strong></pre>Depending
+          on the type declared for a parameter, <span class="ph">Oxygen XML Editor</span> will help you pick values for
+          each parameter edited in the <span class="ph uicontrol">Parameters</span> tab of the transformation
+          scenario configuration dialog box. For example, for parameters of type <strong class="ph b">"enum"</strong>, <span class="ph">Oxygen XML Editor</span> will present a combo box for choosing the proper value for the
+          parameter.</li>
+        <li class="li">You can also extend various extension points in your <strong class="ph b">plugin.xml</strong>. For more
+          information, see: <a class="xref" href="https://www.dita-ot.org/3.1/extension-points/plugin-extension-points.html" target="_blank" rel="external noopener">https://www.dita-ot.org/3.1/extension-points/plugin-extension-points.html</a>.<div class="note note note_note"><span class="note__title">Plugin Extension Example - Promote Parameters:</span> 
+            <div class="p">It is possible to promote certain transformation parameters so that they appear above
+              the table of allowed parameters and values in the <span class="ph uicontrol">Parameters</span>
+              tab of the transformation scenario configuration dialog box. To do this, you could
+              create a <span class="ph filepath">pluginExtension.xml</span> file in the root folder of the
+              DITA-OT plugin and use the <code class="keyword markupname xmlelement">&lt;promotedParams&gt;</code> element to define
+              the promoted parameters. Here is an
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;extensionPlugin&gt;</strong>
+    <strong class="hl-tag">&lt;transtype</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"pdf-css-html5"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;promotedParams&gt;</strong>
+            <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.css"</span> <span class="hl-attribute">promotedName</span>=<span class="hl-value">"CSS"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.css.param.numbering"</span> <span class="hl-attribute">promotedName</span>=<span class="hl-value">"Numbering"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.chapter.layout"</span> <span class="hl-attribute">promotedName</span>=<span class="hl-value">"Chapter layout"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/promotedParams&gt;</strong>
+    <strong class="hl-tag">&lt;/transtype&gt;</strong>
+<strong class="hl-tag">&lt;/extensionPlugin&gt;</strong></pre></div>
+            <p class="p">The example above results in the <span class="ph uicontrol">Parameters</span> tab looking like
+              this:</p>
+            <div class="p">
+              <figure class="fig fignone" id="dita-ot-define-transtype__fig_vx1_vw3_jkb"><figcaption><span class="fig--title-label">Figure 1. </span>Promoted Parameters</figcaption>
+                
+                <img class="image" id="dita-ot-define-transtype__image_o3s_5x3_jkb" src="../img/promoted-parameters.png">
+              </figure>
+            </div>
+          </div></li>
+        <li class="li"><a class="xref" href="dita-ot-install-plugin.html">Install the plugin</a>.<div class="note note note_note"><span class="note__title">Note:</span> If the plugin
+            is installed using an external command line, you may need to restart <span class="ph">Oxygen XML Editor</span> to properly re-detect the newly contributed transtypes and
+            parameters.</div></li>
+      </ol></div>
+    <div class="p"><strong class="ph b">Example of a <em class="ph i">plugin.xml</em>
+      File:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.prince"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!-- extensions --&gt;</em>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.conductor.transtype.check"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"pdf-prince"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"txt"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.conductor.target.relative"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"integrator.xml"</span> 
+    <span class="hl-attribute">type</span>=<span class="hl-value">"file"</span><strong class="hl-tag">/&gt;</strong>  
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.transtype.print"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"pdf-prince"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;transtype</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"pdf-prince"</span> <span class="hl-attribute">extends</span>=<span class="hl-value">"commons"</span> <span class="hl-attribute">desc</span>=<span class="hl-value">"PDF (Prince XML)"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"princeExecPath"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"file"</span> <span class="hl-attribute">desc</span>=<span class="hl-value">"Path to the Prince executable"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/transtype&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+    <p class="p">For more information, watch this DITA-OT Day 2015 presentation:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/LcrR0YUFlQ4" allowfullscreen="true"></iframe></div></p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-ot-plugins-intro.html">DITA-OT Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-ot-install-plugin.html">Installing a DITA-OT Plugin</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-third-party-plugins.html">Built-in Third-Party DITA Open Toolkit Plugins</a></div></div></nav></article></main></body></html>

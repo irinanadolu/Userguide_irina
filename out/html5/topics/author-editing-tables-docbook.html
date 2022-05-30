@@ -1,0 +1,86 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/add-docbook-table.html"><meta name="DC.relation" scheme="URI" content="../topics/add-docbook-table.html"><meta name="DC.relation" scheme="URI" content="../topics/docbook-table-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/docbook-table-properties.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-editing-tables-docbook"><title>DocBook Table Layouts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-editing-tables-docbook"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DocBook Table Layouts</h1>
+  <div class="body">
+    <div class="p">The DocBook <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> supports the
+      following two table model layouts:<ul class="ul">
+        <li class="li"><a class="xref" href="author-editing-tables-docbook.html#author-editing-tables-docbook__cals-table-model-docbook"><dfn class="term">CALS</dfn> table model</a></li>
+        <li class="li"><a class="xref" href="author-editing-tables-docbook.html#author-editing-tables-docbook__html-table-model-docbook"><dfn class="term">HTML</dfn> table model</a></li>
+      </ul></div>
+    <section class="section" id="author-editing-tables-docbook__cals-table-model-docbook"><h2 class="title sectiontitle">CALS Table Model Layout</h2>
+      
+      <p class="p">The <strong class="ph b">CALS</strong>
+      table model allows for more flexibility and table customization than other models. When
+      choosing a <strong class="ph b">CALS</strong> table model from the <span class="ph uicontrol">Insert Table</span> dialog box,
+      you have access to more configurable properties. The layout of a <strong class="ph b">CALS</strong> table includes a
+        <span class="ph uicontrol">colspecs</span> section that allows you to easily configure some properties
+      without opening the <span class="ph uicontrol">Table Properties</span> dialog box. For example, you can
+      change the value of column widths (<code class="keyword markupname xmlatt">@colwidth</code> attribute) or the text alignment
+        (<code class="keyword markupname xmlatt">@align</code> attribute). Although they appear as part of the <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span>
+        mode</a>, the <em class="ph i">colspecs</em> link and its controls will not appear in your
+      output. They are just there to make it easier to adjust how the columns of your table are
+      formatted.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>CALS Table in DocBook</figcaption>
+          
+          <img class="image" src="../img/sa_author_table_cals.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="author-editing-tables-docbook__html-table-model-docbook"><h2 class="title sectiontitle">HTML Table Model Layout</h2>
+      
+      <p class="p">Choosing an <strong class="ph b">HTML</strong> table model from the <span class="ph uicontrol">Insert Table</span> dialog box
+        in a DocBook document inserts a formal (captioned) HTML table. The layout of an <em class="ph i">HTML</em>
+        table includes a section above the table that allows you to easily configure some properties
+        without opening the <span class="ph uicontrol">Table Properties</span> dialog box. For example, you can
+        change the value of column widths (<code class="keyword markupname xmlatt">@width</code> attribute) or the text alignment
+          (<code class="keyword markupname xmlatt">@align</code> attribute). Although these properties appear as part of the <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>, they
+        will not appear in your output. They are just there to make it easier to adjust how the
+        columns of your table are formatted.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>HTML Table in DocBook</figcaption>
+          
+          <img class="image" src="../img/docbook_html_table_layout.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="author-editing-tables-docbook__pasting_tables_in_docbook"><h2 class="title sectiontitle">Pasting Tables in DocBook</h2>
+      
+      <div class="p">Tables that are pasted into a DocBook file are automatically converted to the <em class="ph i">CALS</em>
+        model. If you want to overwrite this behavior and instruct <span class="ph">Oxygen XML Editor</span> to convert
+        them to <em class="ph i">HTML</em> tables, set the <code class="ph codeph">docbook.html.table</code> parameter to
+          <code class="ph codeph">1</code>. You can find this parameter in the following stylesheet:<ul class="ul" id="author-editing-tables-docbook__ul_xnw_bfq_c4">
+          <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/docbook/resources/xhtml2db5Driver.xsl</span> for DocBook 5</li>
+          <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/docbook/resources/xhtml2db4Driver.xsl</span> for DocBook 4</li>
+        </ul></div>
+    </section>
+    <section class="section" id="author-editing-tables-docbook__table_validation_in_docbook"><h2 class="title sectiontitle">Table Validation in DocBook</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> reports table layout problems that are detected in manual or
+        automatic validations. The types of errors that may be reported for DocBook table layout
+        problems include:</p>
+      <div class="p"><strong class="ph b">CALS Tables</strong><ul class="ul">
+        <li class="li">A row has fewer cells than the number of columns detected from the table
+            <code class="keyword markupname xmlatt">@cols</code> attribute.</li>
+        <li class="li">A row has more cells than the number of columns detected from the table
+            <code class="keyword markupname xmlatt">@cols</code> attribute.</li>
+        <li class="li">A cell has a vertical span greater than the available rows count.</li>
+      <li class="li">The number of <code class="keyword markupname xmlelement">&lt;colspecs&gt;</code> is different than the number of columns detected
+          from the table <code class="keyword markupname xmlatt">@cols</code> attribute.</li>
+        <li class="li">The number of columns detected from the table <code class="keyword markupname xmlatt">@cols</code> attribute is
+          different than the number of columns detected in the table structure.</li>
+        <li class="li">The value of the <code class="keyword markupname xmlatt">@cols</code>, <code class="keyword markupname xmlatt">@rowsep</code>, or
+            <code class="keyword markupname xmlatt">@colsep</code> attributes are not numeric.</li>
+        <li class="li">The <code class="keyword markupname xmlatt">@namest</code>, <code class="keyword markupname xmlatt">@nameend</code>, or <code class="keyword markupname xmlatt">@colname</code>
+          attributes point to an incorrect column name.</li>
+      </ul></div>
+      <div class="p"><strong class="ph b">HTML Tables</strong><ul class="ul">
+        <li class="li">A row has fewer cells than the number of table columns.</li>
+        <li class="li">The value of the <code class="keyword markupname xmlatt">@colspan</code>, <code class="keyword markupname xmlatt">@rowspan</code>, or
+            <code class="keyword markupname xmlatt">@span</code> attributes are not numeric.</li>
+        <li class="li">A cell has a vertical span greater than the available rows count.</li>
+      </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/docbook-table-properties.html">Editing Table Properties in DocBook</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/add-docbook-table.html">Adding Tables in DocBook</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-docbook-table.html">Adding Tables in DocBook</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/docbook-table-properties.html">Editing Table Properties in DocBook</a></div></div></nav></article></main></body></html>

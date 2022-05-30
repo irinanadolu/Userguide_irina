@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_video built-in form control is used for providing a mechanism to play videos."><meta name="DC.subject" content="CSS extensions,Form Controls,Video player,Video player"><meta name="keywords" content="CSS extensions, Form Controls, Video player, Video player"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/url-chooser-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/implementing-custom-form-controls.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="dg-url-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="oxy-video-form-control"><title>Video Player Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="oxy-video-form-control"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Video Player Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_video</code> built-in form control is used for providing a mechanism
+    to play videos.</p>
+    <p class="p">The <code class="ph codeph">oxy_video</code> form control supports the following properties:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph"><strong class="ph b">href</strong> - The absolute or relative location of a
+          resource.</span> This property is
+        mandatory. Relative values are resolved relative to the CSS. If you have media resources
+        relative to the XML document, you can specify their paths like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy_video(href, oxy_url(oxy_base-uri(), <span class="hl-string">'ex.mp4'</span>)), <strong class="hl-keyword">width</strong>, <span class="hl-number">400</span>px, <strong class="hl-keyword">height</strong>, <span class="hl-number">300</span>px)</pre></li>
+      <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of
+          the content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">height</strong> - Specifies the height of the form control area using relative
+            (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute (<code class="ph codeph">in</code>,
+            <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>, <code class="ph codeph">pc</code>,
+            <code class="ph codeph">px</code>), and percentage (followed by the <code class="ph codeph">%</code> character)
+          length units.</span></li>
+    </ul>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_video</em> Form
+      Control</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">object {
+    <strong class="hl-keyword">content</strong>:
+        oxy_video(
+            href, <span class="hl-string">'resources/video.mp4'</span>,
+            <strong class="hl-keyword">width</strong>, <span class="hl-number">400</span>px,
+            <strong class="hl-keyword">height</strong>, <span class="hl-number">300</span>px),
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_video</code> form control in a CSS file
+        <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="oxy-video-form-control__image_fg1_12h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_video</code> code template.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/url-chooser-editor.html" title="The oxy_urlChooser built-in form control is used for a dialog box that allows you to select the location of local or remote resources. The inserted reference is made relative to the URL of the currently open editor.">URL Chooser Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/implementing-custom-form-controls.html" title="If the built-in form controls are not sufficient for your needs, you can implement custom form controls in Java.">Implementing Custom Form Controls</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li><li class="linklist"><a class="link" href="dg-url-function.html" title="This function extends the standard CSS url() function by allowing you to specify additional relative path components (parameters loc_1 to loc_n).">URL: oxy_url() Function</a></li></ul></div></nav>
+</article></main></body></html>

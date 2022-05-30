@@ -1,0 +1,33 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_review_user_name.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_control_component_indentation.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_change_doctype"><title>Change the DOCTYPE of an Open XML Document</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_change_doctype"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Change the DOCTYPE of an Open XML Document</h1>
+  <div class="body">
+    <section class="section" id="api_faq_change_doctype__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">How to change the DOCTYPE of a document that is open in the <span class="ph uicontrol">Author</span>
+        mode?</p>
+    </section>
+    <section class="section" id="api_faq_change_doctype__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">The following API:</p>
+      <p class="p"><code class="ph codeph">ro.sync.ecss.extensions.api.AuthorDocumentController.getDoctype()</code></p>
+      <p class="p">allows you to get the <code class="ph codeph">DOCTYPE</code> of the current XML file open in the
+          <span class="ph uicontrol">Author</span> mode. </p>
+      <p class="p">There is also an API method available that would allow you to set the
+          <code class="ph codeph">DOCTYPE</code> back to the XML:</p>
+      <p class="p"><code class="ph codeph">ro.sync.ecss.extensions.api.AuthorDocumentController.setDoctype(AuthorDocumentType)</code></p>
+      <div class="p">Here is an example of how this solution would
+        work:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">AuthorDocumentType 
+dt = <strong class="hl-keyword">new</strong> AuthorDocumentType(<span class="hl-string">"article"</span>, <span class="hl-string">"testSystemID"</span>, <span class="hl-string">"testPublicID"</span>,
+     <span class="hl-string">"&lt;!DOCTYPE article PUBLIC \"testPublicID\" \"testSystemID\"&gt;"</span>);
+docController.setDoctype(dt); </pre></div>
+      <p class="p">Basically, you could take the entire content from the existing DOCTYPE,</p>
+      <p class="p"><code class="ph codeph">ro.sync.ecss.extensions.api.AuthorDocumentType.getContent()</code></p>
+      <p class="p">modify it to your needs, and create another <code class="ph codeph">AuthorDocumentType</code> object with
+        the new content and with the same public, system IDs. </p>
+      <p class="p">For example, you could use this API is you want to add unparsed entities in the XML
+          <code class="ph codeph">DOCTYPE</code>.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_review_user_name.html">Change the Default Track Changes (Review) Author Name</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_control_component_indentation.html">Control XML Serialization in the Oxygen XML Author Component</a></div></div></nav></article></main></body></html>

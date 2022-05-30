@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,Fast Create multiple topics"><meta name="keywords" content="DITA, Topics, Fast Create multiple topics"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/create-topic-in-map.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-edit-topics.html"><meta name="DC.relation" scheme="URI" content="eppo-add-topic-to-map.html#eppo-add-topic-to-map"><meta name="DC.relation" scheme="URI" content="dita-convert-topics.html#dita-convert-topics"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="fast-create-topics"><title>Fast Create Multiple DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="fast-create-topics"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Fast Create Multiple DITA Topics</h1>
+  
+  <div class="body">
+    <div class="p">The <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+          Manager</span></a> includes a feature that allows you to quickly create multiple
+      skeleton topics at once and you can specify their hierarchical structure within the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a>. A common use-case for using this
+      feature is when you need to insert a new chapter or section that will include multiple topics
+      and you have the structure and titles planned out in advance.<div class="note note note_note"><span class="note__title">Note:</span> The
+          <span class="ph uicontrol">Fast Create Topics</span> feature works for the following types of local
+        and remote resource protocols: <em class="ph i">file</em>, <em class="ph i">http</em>, <em class="ph i">https</em>, <em class="ph i">ftp</em>,
+          <em class="ph i">ftps</em>.</div></div>
+    <p class="p">To access this feature, right-click a node in the <span class="ph uicontrol">DITA Maps Manager</span>
+      where you want the new topics to be inserted and select <span class="ph uicontrol">Fast Create
+        Topics</span>. This opens the <span class="ph uicontrol">Fast Create Topics</span> dialog box
+      where you can configure the structure for the new topics.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Fast Create Topics Dialog Box</figcaption>
+        
+        <img class="image" src="../img/Fast_create_topics.png">
+      </figure>
+    </div>
+    <p class="p">The <span class="ph uicontrol">Fast Create Topics</span> dialog box includes the following features and
+      options:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Hierarchy Text Pane</dt>
+          <dd class="dd">Use this text area to enter the titles for your new topics, one per line, and specify
+            the hierarchy by using indents (<span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> or
+                <span class="ph uicontrol"><span class="keyword shortcut">Space</span></span>). Topic references will be created
+            in the <dfn class="term">DITA map</dfn> according to the hierarchy you enter in this section. </dd>
+        
+        
+          <dt class="dt dlterm">File name generation rules</dt>
+          <dd class="dd">The titles that you enter in the text pane will not only be used for the topic titles
+            but also to generate their file names and you can click the <a class="xref" href="preferences-dita-new-topics.html#preferences-dita-new-topics__section_ud1_nwz_gmb"><span class="ph uicontrol">File name generation rules</span> link to configure the
+              rules</a> for how those file names will be generated.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you have
+              added a <a class="xref" href="customizing-templates.html#customizing-templates__add_a_prefix_or_suffix_to_file_names_for_a_custom">file name prefix or suffix to the properties file</a> for DITA document
+              templates, the generated file name will include that prefix or suffix.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">File name prefix</span></dt>
+          <dd class="dd">Use this option to add a specified prefix to the file name. If you have added a <a class="xref" href="customizing-templates.html#customizing-templates__add_a_prefix_or_suffix_to_file_names_for_a_custom">file name prefix to the properties file</a> for DITA document templates, the
+            prefix you enter here will override the one from the properties file.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">File name suffix</span></dt>
+          <dd class="dd">Use this option to add a specified suffix to the end of the file name. If you have
+            added a <a class="xref" href="customizing-templates.html#customizing-templates__add_a_prefix_or_suffix_to_file_names_for_a_custom">file name suffix to the properties file</a> for DITA document templates, the
+            suffix you enter here will override the one from the properties file.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Topic type</span></dt>
+          <dd class="dd">All of the topics that will be created will have the same DITA topic type, which is
+            detected from the most recently created topic. You can click the
+              <span class="ph uicontrol">Change</span> button to select a different type from a list of
+            possible DITA templates.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can convert any of these new files to a
+              different DITA topic type at a later time by using another <a class="xref" href="dita-convert-topics.html#dita-convert-topics">feature that allows you to
+                easily convert DITA documents to other types</a>.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Add created topic hierarchy relative to the selection as</span></dt>
+          <dd class="dd">By default, the hierarchy of topics will be added to the <dfn class="term">DITA map</dfn> as the
+              <strong class="ph b">First Child</strong> of the node where the action was invoked. You can change this to
+              <span class="ph uicontrol">Last Child</span>, <strong class="ph b">Preceding Sibling</strong>, or <span class="ph uicontrol">Following
+              Sibling</span> if the selected node allows topics to be inserted as such.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Create</span></dt>
+          <dd class="dd">When you click <span class="ph uicontrol">Create</span>, the specified hierarchy is added as
+            topic references in the <dfn class="term">DITA map</dfn>. The new documents are created as bare
+            skeleton topics with only the topic title and possibly the root ID populated.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can easily <a class="xref" href="change-order-in-maps.html#change-order-in-maps">change the order of the topics in the <dfn class="term">DITA map</dfn></a> at a later
+              time,</div></dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-structure.html">Working with DITA Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/create-topic-in-map.html">Creating a New DITA Topic</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-edit-topics.html">Editing DITA Topics</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-add-topic-to-map.html#eppo-add-topic-to-map">Adding Topics to a DITA Map</a></li><li class="linklist"><a class="link" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a></li></ul></div></nav>
+</article></main></body></html>

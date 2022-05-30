@@ -1,0 +1,30 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This type of plugin allows you to specify one or more directories where the XML Refactoring operation resources are loaded."><meta name="DC.subject" content="Plugin extensions,Refactoring Operations,Refactoring Operations plugin extension"><meta name="keywords" content="Plugin extensions, Refactoring Operations, Refactoring Operations plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/targeted-url-handler-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-transformer-plugin-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="refactoring-plugin-extension"><title>XML Refactoring Operations Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="refactoring-plugin-extension"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Refactoring Operations Plugin Extension</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    specify one or more directories where the XML Refactoring operation resources are
+    loaded.</p>
+    <p class="p">The <code class="ph codeph">RefactoringOperationsProvider</code> extension can be used to specify the
+      location where custom XML Refactoring operation resources (XQuery Update script or XSLT
+      stylesheet and Operation Descriptor files) are stored. <span class="ph">Oxygen XML Editor</span> will scan the
+      specified locations to load the custom operations when the XML Refactoring tool is opened, and
+      allows you to share your custom refactoring operations.</p>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: XML Refactoring Operations Plugin
+      Extension</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE plugin PUBLIC "-//Oxygen Plugin" "../plugin.dtd"&gt;</span>
+
+<strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">id</span>=<span class="hl-value">"refactoring.operations"</span>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Refactoring operations plugin"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Contains operation descriptors and related scripts"</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"RefactoringOperationsProvider"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;folder</strong> <span class="hl-attribute">path</span>=<span class="hl-value">"customDir/"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;folder</strong> <span class="hl-attribute">path</span>=<span class="hl-value">"customDir2"</span><strong class="hl-tag">/&gt;</strong>
+ <strong class="hl-tag">&lt;/extension&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/targeted-url-handler-plugin.html" title="This type of plugin can be used when it is necessary to impose custom URL stream handlers for specific URLs.">Targeted URL Stream Handler Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-transformer-plugin-extension.html" title="This type of plugin allows you to add an external XSLT transformer plugin.">XSLT Transformer Plugin Extension</a></div></div></nav></article></main></body></html>

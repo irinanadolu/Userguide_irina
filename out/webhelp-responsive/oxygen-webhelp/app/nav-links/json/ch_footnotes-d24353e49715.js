@@ -1,0 +1,1 @@
+define({"topics":[{"title":"How to Add a Separator Above the Footnotes","href":"topics\/ch_footnotes.html#ch_how_to_add_a_separator_above_the_footnotes","attributes":{"data-id":"ch_how_to_add_a_separator_above_the_footnotes"},"menu":{"hasChildren":false},"tocID":"ch_how_to_add_a_separator_above_the_footnotes-d24353e49734","topics":[]}]});

@@ -1,0 +1,96 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/validating-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/validating-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-custom-validation.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="create-validation-xslt"><title>Creating a Validation Scenario for XSLT Stylesheets</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="create-validation-xslt"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating a Validation Scenario for XSLT Stylesheets</h1>
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">You can validate an XSLT document using the engine defined in the transformation scenario,
+        or a custom validation scenario. If you choose to validate using the engine from
+        transformation scenario, and a transformation scenario is not associated with the current
+        document or the engine has no validation support, the default engine is used. To set the
+        default engine, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and
+        go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT/FO/XQuery</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT</span></span>.</p>
+      <p class="p">You can also create new validation scenarios or edit existing ones, and you can add <a class="xref" href="../glossary/jar.html"><dfn class="term">JARS</dfn></a> and classes that contain extension
+        functions. To create or edit a validation scenario for an XSLT stylesheet, follow these
+        steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">With the XSLT file open in <span class="ph">Oxygen XML Editor</span>, select the <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_k3g_x5v_sr" src="../img/ValidationConfig16.png">Configure Validation
+            Scenario(s)</span> from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span> menu, or the <span class="ph"><span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_dyn_x5v_sr" src="../img/ValidateDrop.png">Validation</span> toolbar
+            drop-down menu</span>, or from the <span class="ph uicontrol">Validate</span> submenu when invoking the
+          contextual menu on the XSLT file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph"><span class="ph uicontrol">Project</span> view</span></a>.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Configure Validation Scenario(s)</span> dialog box is
+          displayed. It contains the existing scenarios, organized in categories depending on the
+          type of file they apply to. You can use the options in the <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_mg1_pnz_fs" src="../img/Settings16.png">Settings</span> drop-down
+          menu to filter which scenarios are shown.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">To edit an existing scenario, select the scenario and click the
+            <span class="ph uicontrol">Edit</span> button. If you try to edit one of the <em class="ph i">read-only</em>
+          built-in scenarios, <span class="ph">Oxygen XML Editor</span> creates a customizable duplicate (you can
+          also use the <span class="ph uicontrol">Duplicate</span> button).</span>
+      </li><li class="li step stepexpand" id="create-validation-xslt__vs_1">
+        <span class="ph cmd">To add a new scenario, click the <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_b34_k3r_xr" src="../img/Add16.png">New</span> button.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">New scenarios</span> dialog box is displayed. It lists all
+          validation units of the scenario.<div class="p">
+            <figure class="fig fignone" id="create-validation-xslt__figure-edit-validation-scenario-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Add / Edit a Validation Unit</figcaption>
+              
+              <img class="image" id="create-validation-xslt__image_uss_w3r_xr" src="../img/sa_new_xslt_scenario.png">
+            </figure>
+          </div><p class="p">
+            
+          </p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Configure the following information in this dialog box:</span>
+        <ol type="a" class="ol substeps" id="create-validation-xslt__substeps_f1p_bqz_fs">
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Name</span> - The name of the validation scenario.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Storage</span> - You can choose between storing the scenario in the
+                <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project
+                Options</span></a> or <a class="xref" href="../glossary/global-options.html"><span class="ph uicontrol">Global Options</span></a>.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">URL of the file to validate</span> - In most cases, leave this
+              field as the default selection (the URL of the current file). If you want to specify a
+              different URL, <span class="ph">double-</span>click its cell and
+              enter the URL in the text field, select it from the drop-down list, or use the
+                  <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_utc_3tz_fs" src="../img/BrowseDrop.png">Browse</span> drop-down menu or <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_ukf_ktz_fs" src="../img/InsertEditorVariables16.png">Insert Editor
+                  Variable</span></a> button.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">File type</span> - The file type should be <strong class="ph b">XSLT
+              Document</strong>.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Validation engine</span> - Click the cell to select a validation
+              engine. You must select an engine to be able to add or edit extensions.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd"><span class="ph uicontrol">Automatic validation</span> - If this option is selected, the
+              validation operation defined by this row is also used by <a class="xref" href="automatic-validation.html">the automatic validation
+                feature</a>.</span>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand" id="create-validation-xslt__vd_3">
+        <span class="ph cmd">To add or edit extensions, click the <span class="ph uicontrol"><img class="image" src="../img/Options16.png">Edit extensions</span> button. This button is only available if the
+            <span class="ph uicontrol">File type</span> is set as <strong class="ph b">XSLT Document</strong> and a
+            <span class="ph uicontrol">Validation engine</span> is chosen.</span>
+        <div class="itemgroup stepresult">The <span class="ph uicontrol">Libraries</span> dialog box is opened. It is used to specify
+          the <dfn class="term">JARS</dfn> and classes that contain extension functions called from the XSLT
+          file of the current validation scenario. They will be searched, in the specified
+          extensions, in the order displayed in this dialog box. To change the order of the items,
+          select the item and click the <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_e3b_zq1_5r" src="../img/MoveUp16.gif">Move up</span> or <span class="ph uicontrol"><img class="image" id="create-validation-xslt__image_vv1_1r1_5r" src="../img/MoveDown16.gif">Move down</span>
+          buttons.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click <span class="ph uicontrol">OK</span> to close the <span class="ph uicontrol">New scenario</span> dialog
+          box.</span>
+        <div class="itemgroup stepresult">The newly created validation scenario is now included in the list of scenarios
+          in the <span class="ph uicontrol">Configure Validation Scenario(s)</span> dialog box. You can select
+          the scenario in this dialog box to associate it with the current XSLT document and click
+          the <span class="ph uicontrol">Apply associated</span> button to run the validation
+          scenario.</div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-xslt-stylesheets.html">Validating XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validating-xslt-stylesheets.html">Validating XSLT Stylesheets</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-custom-validation.html">Validating XSLT Stylesheets with Custom Engines</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Out of memory,Increase memory,Memory issues,OutOfMemoryError"><meta name="keywords" content="Out of memory, Increase memory, Memory issues, OutOfMemoryError"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_overview.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_technical_details.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_parameters.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="increase-java-memory"><title>Increasing Memory Allocation for Java</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="increase-java-memory"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Increasing Memory Allocation for Java</h1>
+  
+  <div class="body">
+    <p class="p">If you are working with a large project with extensive metadata or key references, you may
+      need to increase the amount of memory that is allocated to the Java process that performs the
+      publishing.</p>
+    <section class="section" id="increase-java-memory__section_l45_3jd_bhb"><h2 class="title sectiontitle">When the Transformation is Started from Oxygen</h2>
+      
+      <div class="p">To alter the memory allocation setting from the transformation scenario, follow these
+          steps:<ol class="ol" id="increase-java-memory__ol_ryn_sjd_bhb">
+          <li class="li">Open the <span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box.</li>
+          <li class="li">Select your transformation scenario, then click <span class="ph uicontrol">Edit</span>.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Advanced</span> tab.</li>
+          <li class="li">Locate the <span class="ph uicontrol">JVM Arguments</span> and increase the default value. For
+            instance, to set 2 gigabytes as the maximum amount of memory, you can use:
+              <code class="ph codeph">-Xmx2g</code>. If you do not specify the <strong class="ph b">-Xmx</strong> value in this field, by
+            default, the application will use a maximum of 512 megabytes when used with a 32-bit
+            Java Virtual Machine and one gigabyte with a 64-bit Java Virtual Machine.</li>
+        </ol><div class="note note note_note"><span class="note__title">Note:</span> This memory setting is used by both the DITA-OT process and the Chemistry CSS
+          processor. </div></div>
+    </section>
+    <section class="section" id="increase-java-memory__section_dgk_kjd_bhb"><h2 class="title sectiontitle">When the Transformation is Started from the Command Line</h2>
+      
+			<p class="p">There can be two situations where an out of memory error can be triggered:</p>
+			<ul class="ul" id="increase-java-memory__ol_v14_wyy_tjb">
+        <li class="li">From the DITA-OT basic processing (the preparation of the merged XML document).</li>
+        <li class="li">From the Chemistry PDF CSS processor (the transformation of the merged XML document to
+          PDF).</li>
+      </ul>
+      <p class="p">To solve both of them, you can change the value of the <code class="ph codeph">ANT_OPTS</code>
+        environment variable from a command line for a specific session.</p>
+      <div class="p"><strong class="ph b">Example:</strong> To increase the JVM memory allocation to 1024 MB for a specific session,
+        issue the following command from a command prompt (depending on your operating system):<ul class="ul" id="increase-java-memory__ul_lpr_ljd_bhb">
+          <li class="li"><strong class="ph b">Windows</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">set ANT_OPTS=%ANT_OPTS% -Xmx1024M</pre></li>
+          <li class="li"><strong class="ph b">Linux/Mac OS
+            X</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">export ANT_OPTS=$ANT_OPTS -Xmx1024M</pre></li>
+        </ul></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> To persistently change the memory allocation, change the value allocated to
+        the <code class="ph codeph">ANT_OPTS</code> environment variable on your system.</div>
+			<div class="p">If the Chemistry PDF CSS processor fails with an <strong class="ph b">Out Of Memory Error</strong>, try adding the
+          <code class="ph codeph">baseJVMArgLine</code> parameter to the DITA-OT command line. For
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">-DbaseJVMArgLine=-Xmx984m</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_overview.html" title="A basic overview, technical details, and additional resources to help you get started">Overview</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_technical_details.html">Technical Details</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_parameters.html">Transformation Parameters</a></div></div></nav></article></main></body></html>

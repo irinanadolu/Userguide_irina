@@ -1,0 +1,165 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_debugging_the_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_page_size.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_default_page_definitions_css"><title>Default Page Definitions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_default_page_definitions_css"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Default Page Definitions</h1>
+  <div class="body">
+    <p class="p">All page definitions are found in:
+        <span class="ph filepath">[PLUGIN_DIR]css/print/p-pages-and-headers.css</span>.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> This is listed solely for illustration
+                    purposes, as the plugin might use something different.</div>
+    <p class="p">There are pages for the default page, chapter page, front matter page, back matter page,
+      blank pages, index page, and large tables page.</p>
+    <section class="section" id="dcpp_default_page_definitions_css__section_c5y_yrr_5cb"><h2 class="title sectiontitle">Default Page</h2>
+      
+      <p class="p">The default page imposes a header that contains the publication title, chapter, and section
+        title. They alternate on the left or right side of the page:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">    <span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+        @top-left {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+            <strong class="hl-keyword">font-size</strong>:<span class="hl-number">8</span>pt;
+        }
+    }
+
+    <span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>{
+        @top-right {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+            <strong class="hl-keyword">font-size</strong>:<span class="hl-number">8</span>pt;
+        }
+    }</pre>
+    </section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To override the default rules defined for named pages (such as chapter or table
+      of contents), you need to use more specific page rules that contain the page
+      name:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">   <span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong>, table-of-contents:<strong class="hl-keyword">left</strong>, chapter:<strong class="hl-keyword">left</strong> {
+        @top-left {
+            <strong class="hl-keyword">content</strong>: <span class="hl-string">"..."</span>;
+        }
+    }
+
+    <span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>, table-of-contents:<strong class="hl-keyword">right</strong>, chapter:<strong class="hl-keyword">right</strong>{
+        @top-right {
+            <strong class="hl-keyword">content</strong>: <span class="hl-string">"..."</span>;
+        }
+    }</pre></div>
+    <section class="section" id="dcpp_default_page_definitions_css__section_dwb_1sr_5cb"><h2 class="title sectiontitle">Chapter Page</h2>
+      
+      <p class="p">This is inherited from the default page. The chapter page is associated to the topics
+        marked as chapters, usually direct children of the map. It clears the header from the first
+        page of each chapter.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">    <span class="hl-directive">@page</span> chapter{
+    	<em class="hl-comment">/* Currently inherit from the default page.*/</em>
+    }
+    
+    <em class="hl-comment">/* No headers on the chapter first page. */</em>
+    <span class="hl-directive">@page</span> chapter:first:<strong class="hl-keyword">left</strong>{
+    	@top-left {
+    		<strong class="hl-keyword">content</strong>: none;
+    	}
+    }
+    <span class="hl-directive">@page</span> chapter:first:<strong class="hl-keyword">right</strong>{
+    	@top-right {
+    		<strong class="hl-keyword">content</strong>: none;
+    	}
+    }</pre>
+    </section>
+    <section class="section" id="dcpp_default_page_definitions_css__section_nz1_dsr_5cb"><h2 class="title sectiontitle">Front Matter and Back Matter page</h2>
+      
+      <p class="p">The bookmap front matter and back matter page. It clears the headers.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">   <span class="hl-directive">@page</span> matter-page {
+        @top-left-corner    {          <strong class="hl-keyword">content</strong>:none }
+        @top-left           {          <strong class="hl-keyword">content</strong>:none }
+        @top-center         {          <strong class="hl-keyword">content</strong>:none }
+        @top-right          {          <strong class="hl-keyword">content</strong>:none }
+        @top-right-corner   {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left-corner {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left        {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-center      {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-right       {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-right-corner{          <strong class="hl-keyword">content</strong>:none }
+    }</pre>
+    </section>
+    <section class="section" id="dcpp_default_page_definitions_css__section_t5x_2sr_5cb"><h2 class="title sectiontitle">Blank Pages</h2>
+      
+      <p class="p">The following example clears the header for the blank pages that may be created by a
+          <code class="ph codeph">page-break-before</code>, <code class="ph codeph">page-break-after</code>, or by using <a class="xref" href="dcpp_double_side_pagination.html">double side pagination</a>:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">    <span class="hl-directive">@page</span> :blank{
+    	@top-left {
+    		<strong class="hl-keyword">content</strong>: none;
+    	}
+    	@top-right {
+    		<strong class="hl-keyword">content</strong>: none;
+    	}
+    }</pre>
+    </section>
+    <section class="section" id="dcpp_default_page_definitions_css__section_j2p_sss_5cb"><h2 class="title sectiontitle">Index Page</h2>
+      
+      <p class="p">The page that contains the index terms (appears only if there are such items in your
+        topics). It uses a lower roman page number in the footer:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"> <span class="hl-directive">@page</span> index {
+        @top-left-corner    {          <strong class="hl-keyword">content</strong>:none }
+        @top-left           {          <strong class="hl-keyword">content</strong>:none }
+        @top-center         {          <strong class="hl-keyword">content</strong>:none }
+        @top-right          {          <strong class="hl-keyword">content</strong>:none }
+        @top-right-corner   {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left-corner {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left        {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-center      {          <strong class="hl-keyword">content</strong>: counter(page, lower-alpha) }
+        @bottom-right       {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-right-corner{          <strong class="hl-keyword">content</strong>:none }
+ }
+ <span class="hl-directive">@media</span> oxygen-chemistry {
+        <span class="hl-directive">@page</span> index {
+            column-count: <span class="hl-number">2</span>;
+            column-fill: auto;
+        }
+  }    </pre>
+      <p class="p">When transformed, the page layout is spread on two columns.</p>
+    </section>
+    <section class="section" id="dcpp_default_page_definitions_css__section_j3l_gsr_5cb"><h2 class="title sectiontitle">Large Tables Page</h2>
+      
+      <div class="p">The big tables are placed on a rotated page, with orientation
+        landscape:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> landscape-page :<strong class="hl-keyword">right</strong> {
+    size: landscape;
+
+    @top-left {
+        <strong class="hl-keyword">content</strong>: none
+    }
+    @top-center {
+        <strong class="hl-keyword">content</strong>: none
+    }
+    @top-right {
+        <strong class="hl-keyword">content</strong>: none
+    }
+
+    @right-bottom {
+        <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+        <strong class="hl-keyword">font-size</strong>: <span class="hl-number">8</span>pt;
+        transform: rotate(<span class="hl-number">90</span>);
+        <strong class="hl-keyword">vertical-align</strong>: middle;
+        <strong class="hl-keyword">text-align</strong>: <strong class="hl-keyword">right</strong>;
+    }
+}
+
+<span class="hl-directive">@page</span> landscape-page :<strong class="hl-keyword">left</strong> {
+    size: landscape;
+
+    @top-left {
+        <strong class="hl-keyword">content</strong>: none
+    }
+    @top-center {
+        <strong class="hl-keyword">content</strong>: none
+    }
+    @top-right {
+        <strong class="hl-keyword">content</strong>: none
+    }
+
+    @right-top {
+        <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+        <strong class="hl-keyword">font-size</strong>: <span class="hl-number">8</span>pt;
+        transform: rotate(<span class="hl-number">90</span>);
+        <strong class="hl-keyword">vertical-align</strong>: middle;
+        <strong class="hl-keyword">text-align</strong>: <strong class="hl-keyword">left</strong>;
+    }
+}</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_debugging_the_css.html">Debugging the CSS</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_page_size.html">Page Size</a></div></div></nav></article></main></body></html>

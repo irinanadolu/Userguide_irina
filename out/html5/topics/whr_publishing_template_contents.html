@@ -1,0 +1,1319 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Publishing template package,Publishing template descriptor file,Publishing template resources,Publishing template transformation parameters,Publishing template XSLT extensions,Publishing template HTML fragment extensions,Publishing template HTML page layout files"><meta name="keywords" content="WebHelp Responsive, Publishing template package, Publishing template descriptor file, Publishing template resources, Publishing template transformation parameters, Publishing template XSLT extensions, Publishing template HTML fragment extensions, Publishing template HTML page layout files"><meta name="DC.relation" scheme="URI" content="../topics/whr-publishing-template-2.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-pt-feature-gallery.html"><meta name="DC.relation" scheme="URI" content="../topics/whr_generate_output.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr_publishing_template_contents"><title>Publishing Template Package Contents for WebHelp Responsive Customizations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr_publishing_template_contents"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Publishing Template Package Contents for WebHelp Responsive Customizations</h1>
+  
+  <div class="body">
+    <p class="p">An <dfn class="term">Oxygen Publishing Template</dfn> package for WebHelp output must contain a template
+      descriptor file and at least one CSS file, and may contain other resources (such as graphics,
+      XHTML files, XSLT files, etc.). All the template resources can be stored in either a ZIP
+      archive or in a folder. It is recommended to use a ZIP archive because it is easier to share
+      with others.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-publishing-template-2.html">Publishing Templates</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-pt-feature-gallery.html">Publishing Templates Gallery</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr_generate_output.html">Generating WebHelp Responsive Output</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="template_descritpor_file">
+    <h2 class="title topictitle2" id="ariaid-title2">Template Descriptor File</h2>
+    
+    <div class="body">
+      <p class="p">Each publishing template includes a descriptor file that defines the meta-data associated
+        with the template. It is an XML file that defines all the resources included in a template
+        (such as CSS files, images, JS files, and transformation parameters).</p>
+      <p class="p">The template descriptor file must have the <span class="ph filepath">.opt</span> file extension and
+        must be located in the template's root folder.</p>
+      <p class="p">A template descriptor might look like this:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Flowers<strong class="hl-tag">&lt;/name&gt;</strong>
+
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>tree<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-tree.png"</span><strong class="hl-tag">/&gt;</strong>
+        
+        <em class="hl-comment">&lt;!-- Resources (CSS, favicon, logo and others) --&gt;</em>
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <em class="hl-comment">&lt;!-- Main CSS file --&gt;</em>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers.css"</span><strong class="hl-tag">/&gt;</strong>
+            
+             <em class="hl-comment">&lt;!-- Resources to copy to the output folder --&gt;</em>
+            <strong class="hl-tag">&lt;fileset&gt;</strong>
+                <strong class="hl-tag">&lt;include</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"resources/**/*"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;exclude</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"resources/**/.svn"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;exclude</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"resources/**/.git"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;/fileset&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.tiles"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"no"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.toc"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.top.menu.depth"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong>
+<strong class="hl-tag">&lt;/publishing-template&gt;</strong></pre>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> It is recommended to edit the template descriptor in <strong class="ph b">Oxygen XML
+          Editor/Author</strong> because it provides content completion and validation support.</div>
+      <section class="section" id="template_descritpor_file__template_name_and_description"><h3 class="title sectiontitle">Template Name and Description</h3>
+        
+        <p class="p">Each template descriptor file requires a <code class="keyword markupname xmlelement">&lt;name&gt;</code> element. This
+          information is displayed as the name of the template in the transformation scenario dialog
+          box. </p>
+        <p class="p">Optionally, you can include a <code class="keyword markupname xmlelement">&lt;description&gt;</code> and it displayed when
+          the user hovers over the template in the transformation scenario dialog box.</p>
+        <div class="p">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Lorem Ipsum<strong class="hl-tag">&lt;/name&gt;</strong>
+    <strong class="hl-tag">&lt;description&gt;</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit<strong class="hl-tag">&lt;/description&gt;</strong>
+    ...</pre>
+        </div>
+      </section>
+      <section class="section" id="template_descritpor_file__template_author"><h3 class="title sectiontitle">Template Author</h3>
+        
+        <p class="p">Optionally, you can include author information in the descriptor file and it displayed
+          when the user hovers over the template in the transformation scenario dialog box. This
+          information might be useful if users run into an issue or have questions about a certain
+          template.</p>
+        <p class="p">If you include the <code class="keyword markupname xmlelement">&lt;author&gt;</code> element, a
+            <code class="keyword markupname xmlelement">&lt;name&gt;</code> is required and optionally you can include
+            <code class="keyword markupname xmlelement">&lt;email&gt;</code>, <code class="keyword markupname xmlelement">&lt;organization&gt;</code>, and
+            <code class="keyword markupname xmlelement">&lt;organizationUrl&gt;</code> information.</p>
+        <div class="p">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;author&gt;</strong>
+      <strong class="hl-tag">&lt;name&gt;</strong>John Doe<strong class="hl-tag">&lt;/name&gt;</strong>
+      <strong class="hl-tag">&lt;email&gt;</strong>jdoe@example.com<strong class="hl-tag">&lt;/email&gt;</strong>
+      <strong class="hl-tag">&lt;organization&gt;</strong>ACME<strong class="hl-tag">&lt;/organization&gt;</strong>
+      <strong class="hl-tag">&lt;organizationUrl&gt;</strong>http://www.example.com/jdoe<strong class="hl-tag">&lt;/organizationUrl&gt;</strong>
+    <strong class="hl-tag">&lt;/author&gt;</strong>
+    ...</pre>
+        </div>
+      </section>
+      <section class="section" id="template_descritpor_file__webhelp_element"><h3 class="title sectiontitle">Webhelp Element</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> element contains various details that define the
+          WebHelp Responsive output. It is a required element if you intend on using a WebHelp
+          Responsive transformation scenario. The elements that are allowed in this
+            <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> section specify the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file__template_tags">template tags</a>, <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file__template_preview_image">template preview
+            image</a>, <a class="xref" href="whr_publishing_template_contents.html#template_resources">resources</a> (such as
+          CSS, JS, fonts, logos), <a class="xref" href="whr_publishing_template_contents.html#transformation_parameters">transformation parameters</a>, <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">HTML fragment extensions</a> (used to add fragments to placeholders),
+            <a class="xref" href="whr_publishing_template_contents.html#xslt_extension_points">XSLT extensions</a>, or <a class="xref" href="whr_publishing_template_contents.html#html_page_templates">HTML page layout files</a>.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"MyPreview.png"</span><strong class="hl-tag">/&gt;</strong>
+
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+
+        <strong class="hl-tag">&lt;html-page-layouts&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/html-page-layouts&gt;</strong>
+
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre>
+      </section>
+      <section class="section" id="template_descritpor_file__template_tags"><h3 class="title sectiontitle">Template Tags</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;tags&gt;</code> section provides meta information about the template
+          (such as layout type or color theme). Each <em class="ph i">tag</em> is displayed at the top of the
+            <span class="ph uicontrol">Templates</span> tab window in the transformation scenario dialog box
+          and they help the user filter and find particular templates.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      <strong class="hl-tag">&lt;tags&gt;</strong>
+        <strong class="hl-tag">&lt;tag&gt;</strong>tree<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;tag&gt;</strong>dark<strong class="hl-tag">&lt;/tag&gt;</strong>
+      <strong class="hl-tag">&lt;/tags&gt;</strong></pre>
+      </section>
+      <section class="section" id="template_descritpor_file__template_preview_image"><h3 class="title sectiontitle">Template Preview Image</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;preview-image&gt;</code> element is used to specify an image that will
+          be displayed in the transformation scenario dialog box. It provides a visual
+          representation of the template to help the user select the right template. The image
+          dimensions should be <code class="ph codeph">200 x 115</code> pixels and the supported image formats
+          are: <code class="ph codeph">JPEG</code>, <code class="ph codeph">PNG</code>, or <code class="ph codeph">GIF</code>.</p>
+        <div class="p">You can also include an <code class="keyword markupname xmlelement">&lt;online-preview-url&gt;</code> element to specify
+          the URL of a published sample of your template. This will display an <span class="ph uicontrol"><img class="image" src="../img/OnlinePreview16.png">Online preview</span> icon in the bottom-right
+          corner the image in the transformation scenario dialog box and if the user clicks that
+          icon, it will open the specified URL in their default
+          browser.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"ashes/ashes-tree.png"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;online-preview-url&gt;</strong>https://www.example.com/samples/tiles/ashes<strong class="hl-tag">&lt;/online-preview-url&gt;</strong></pre></div>
+      </section>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title3" id="template_resources">
+    <h2 class="title topictitle2" id="ariaid-title3">Template Resources</h2>
+    
+    <div class="body">
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;resources&gt;</code> section of the descriptor file specifies a set of
+        resources (CSS, JS, fonts, logos, graphics, etc.) that are used to customize various
+        components in the generated output. These resources will be copied to the output folder
+        during the transformation process. At least one CSS file must be included, while the other
+        types of resources are optional.</p>
+      <div class="p">This section is defined using the <strong class="ph b">resources</strong> element and the types of resources that
+        can be specified include:<ul class="ul">
+          <li class="li"><strong class="ph b">CSS files</strong> - One or more CSS files that will define the styles of all generated
+            HTML pages. They are referenced using the <code class="keyword markupname xmlelement">&lt;css&gt;</code> element.</li>
+          <li class="li"><strong class="ph b">Favicon</strong> - You can specify the path to an image for the <dfn class="term">favicon</dfn>
+            associated with your website. It is referenced using the
+              <code class="keyword markupname xmlelement">&lt;favicon&gt;</code> element.</li>
+          <li class="li"><strong class="ph b">Logo</strong> - You can specify the path to a logo image that will be displayed in the
+            left side of the output header. It is referenced using the <code class="keyword markupname xmlelement">&lt;logo&gt;</code>
+            element. Optionally, you can also specify:<ul class="ul">
+              <li class="li"><code class="keyword markupname xmlelement">&lt;target-url&gt;</code> - will redirect the user to the specified URL
+                if they click the logo in the output.</li>
+              <li class="li"><code class="keyword markupname xmlelement">&lt;alt&gt;</code> - provides an alternate text for the logo image.
+              </li>
+            </ul></li>
+          <li class="li"><strong class="ph b">JavaScript AMD module</strong> - The path to a JavaScript module that uses the <a class="xref" href="http://requirejs.org/docs/whyamd.html#amd" target="_blank" rel="external noopener">AMD
+              (Asynchronous Module Definition) format</a>. This module will be loaded in the
+            output HTML pages using the <dfn class="term">RequireJS</dfn> library. It can be referenced using
+            the <code class="keyword markupname xmlelement">&lt;js-amd-module&gt;</code> element. For more information, see <a class="xref" href="wh-add-js-amd.html">How to Insert JavaScript AMD Modules</a>.</li>
+          <li class="li"><strong class="ph b">Additional Resources (graphics, JS, fonts, folders)</strong> - For other resources (such
+            as images referenced in CSS, JavaScript, fonts, entire folders, etc.) that need to be
+            included in the output, you need to instruct the transformation to include them in the
+            output folder. You can specify one or more sets of additional resources to be copied to
+            the output folder by using the <code class="keyword markupname xmlelement">&lt;fileset&gt;</code> element and you can use
+            one or more <code class="keyword markupname xmlelement">&lt;include&gt;</code> and <code class="keyword markupname xmlelement">&lt;exclude&gt;</code>
+            elements. This semantic is similar to the <a class="xref" href="https://ant.apache.org/manual/Types/fileset.html" target="_blank" rel="external noopener">ANT FileSet</a>.</li>
+        </ul><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...                
+      <strong class="hl-tag">&lt;resources&gt;</strong>            
+          <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"css/custom_styles.css"</span><strong class="hl-tag">/&gt;</strong>
+          <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"css/custom_fonts.css"</span><strong class="hl-tag">/&gt;</strong>
+
+          <strong class="hl-tag">&lt;favicon</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"images/favicon.png"</span><strong class="hl-tag">/&gt;</strong>
+
+          <strong class="hl-tag">&lt;logo</strong> 
+           <span class="hl-attribute">file</span>=<span class="hl-value">"images/logo.png"</span> 
+           <span class="hl-attribute">target-url</span>=<span class="hl-value">"http://www.example.com"</span>
+           <span class="hl-attribute">alt</span>=<span class="hl-value">"Alternate text for the logo image"</span><strong class="hl-tag">/&gt;</strong>
+
+          <strong class="hl-tag">&lt;js-amd-module</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"js/template-main.js"</span><strong class="hl-tag">/&gt;</strong>
+
+          <strong class="hl-tag">&lt;fileset&gt;</strong>
+              <strong class="hl-tag">&lt;include</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"common/**/*"</span><strong class="hl-tag">/&gt;</strong>
+              <strong class="hl-tag">&lt;include</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"JS/**/*"</span><strong class="hl-tag">/&gt;</strong>              
+              <strong class="hl-tag">&lt;exclude</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"**/*.svn"</span><strong class="hl-tag">/&gt;</strong>
+              <strong class="hl-tag">&lt;exclude</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"**/*.git"</span><strong class="hl-tag">/&gt;</strong>
+          <strong class="hl-tag">&lt;/fileset&gt;</strong>
+      <strong class="hl-tag">&lt;/resources&gt;</strong></pre></div>
+      <div class="note note note_note"><span class="note__title">Note:</span> All relative paths specified in the descriptor file are relative to the template root
+        folder.</div>
+      <p class="p">The resources specified in the template descriptor are copied to the following output
+        folder: <span class="ph filepath"><a href="../glossary/glossentry-wh-out-dir.html" title="WebHelp_OUTPUT_DIR refers to the output directory where WebHelp transformation files will be generated. The output directory can be specified using the Output Directory text field in the Output tab of the transformation scenario dialog box. When running the WebHelp transformation from a command line, the output directory can be specified using the -o or --output option."><dfn class="term">[WebHelp_OUTPUT_DIR]</dfn></a>/oxygen-webhelp/template</span>. The following graphic
+        illustrates the mapping between the template resources and the location where they will be
+        copied to the output folder:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Template Resources Mapping</figcaption>
+          
+          <img class="image" src="../img/whr-publishing-Template-resources.png">
+        </figure>
+      </div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title4" id="transformation_parameters">
+    <h2 class="title topictitle2" id="ariaid-title4">Transformation Parameters</h2>
+    
+    <div class="body">
+      <div class="p">You can also set one or more WebHelp transformation parameters in the descriptor
+        file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...    
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;parameters&gt;</strong>
+        <strong class="hl-tag">&lt;parameter</strong> 
+          <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.toc"</span> 
+          <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;parameter</strong> 
+          <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.top.menu.depth"</span> 
+          <span class="hl-attribute">value</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>        
+        <strong class="hl-tag">&lt;parameter</strong> 
+          <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.fragment.welcome"</span> 
+          <span class="hl-attribute">value</span>=<span class="hl-value">"html-fragment/webhelp.fragment.welcome.html"</span> 
+          <span class="hl-attribute">type</span>=<span class="hl-value">"filePath"</span><strong class="hl-tag">/&gt;</strong>        
+      <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></div>
+      <p class="p">The following information can be specified in the <code class="keyword markupname xmlelement">&lt;parameter&gt;</code>
+        element:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Parameter name</dt>
+            <dd class="dd">The name of the parameter. It may be one of the <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters">WebHelp Responsive transformation parameters</a> or a <a class="xref" href="http://www.dita-ot.org/dev/parameters/parameters-base-html.html" target="_blank" rel="external noopener">DITA-OT HTML-based output parameter</a>.<div class="note note note_note"><span class="note__title">Note:</span> It is not recommended to specify an input/output parameter in the
+                descriptor file (such as the input Map, DITAVAL file, or temporary
+                directory).</div><div class="note attention note_attention"><span class="note__title">Attention:</span> JVM arguments like <dfn class="term">-Xmx</dfn> cannot
+                be specified as a transformation parameter.</div></dd>
+          
+          
+            <dt class="dt dlterm">Parameter Value</dt>
+            <dd class="dd">The value of the parameter. It should be a relative path to the template root folder
+              for file paths parameters.</dd>
+          
+          
+            <dt class="dt dlterm">Parameter Type</dt>
+            <dd class="dd">The type of the parameter: <code class="ph codeph">string</code> or <code class="ph codeph">filepath</code>. The
+                <code class="ph codeph">string</code> value is default.</dd>
+          
+        </dl>
+      </div>
+      <p class="p">After <a class="xref" href="whr-create-publishing-template.html#whr-create-publishing-template">creating a publishing template</a> and <a class="xref" href="whr-publishing-template-apply-transformation.html#whr-publishing-template-apply-transformation">adding it to the templates gallery</a>, when you select the template in the
+        transformation scenario dialog box, the <span class="ph uicontrol">Parameters</span> tab will automatically be
+        updated to include the parameters defined in the descriptor file. These parameters are
+        displayed in italics.</p>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title5" id="xslt_extension_points">
+    <h2 class="title topictitle2" id="ariaid-title5">XSLT Extension Points</h2>
+    
+    <div class="body">
+      <div class="p">The publishing templates can include one or more <a class="xref" href="whr-responsive-override-xslt-dita-xslt-import.html">supported XSLT extension
+          points</a>. They are helpful when you want to change the structure of the HTML pages
+        that are primarily generated from XSLT processing. They can be specified using the
+          <code class="keyword markupname xmlelement">&lt;xslt&gt;</code> element in the descriptor file using the following
+        structure:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.webhelp.xsl.dita2webhelp"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xsl/customDita2webhelp.xsl"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong>
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.webhelp.xsl.createMainPage"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xsl/customMainPage.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></div>
+      <div class="p">For a full list of the supported extension points, see: <a class="xref" href="whr-responsive-override-xslt-dita-xslt-import.html">XSLT-Import and XSLT-Parameter Extension
+          Points</a>.<div class="note note note_note"><span class="note__title">Note:</span> You can read the value of a WebHelp transformation parameter from your
+          XSLT extension stylesheets by using the <code class="ph codeph">getParameter(param.name)</code> function
+          from the <code class="ph codeph">http://www.oxygenxml.com/functions</code> namespace.</div></div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title6" id="html_fragment_extension_points">
+    <h2 class="title topictitle2" id="ariaid-title6">HTML Fragment Extension Points</h2>
+    
+    <div class="body">
+      <p class="p">The HTML pages contain component placeholders that can be used to insert custom HTML
+        fragments (either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+          <strong class="ph b">well-formed</strong> XHTML fragment). These fragments and their placeholder location are
+        defined in the descriptor file using a <code class="keyword markupname xmlelement">&lt;fragment&gt;</code> element inside the
+          <code class="keyword markupname xmlelement">&lt;html-fragments&gt;</code> section.</p>
+      <div class="p">You can specify one or more HTML fragment extension points in the descriptor file using the
+        following
+        structure:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...    
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;html-fragments&gt;</strong>
+        <strong class="hl-tag">&lt;fragment</strong> 
+          <span class="hl-attribute">file</span>=<span class="hl-value">"html-fragments/webhelp_fragment_welcome.html"</span> 
+          <span class="hl-attribute">placeholder</span>=<span class="hl-value">"webhelp.fragment.welcome"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;fragment</strong> 
+          <span class="hl-attribute">file</span>=<span class="hl-value">"html-fragments/webhelp_fragment_footer.html"</span> 
+          <span class="hl-attribute">placeholder</span>=<span class="hl-value">"webhelp.fragment.footer"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/html-fragments&gt;</strong></pre></div>
+      <p class="p">Some of these placeholders are left empty in the default output configurations, but you can
+        use them to insert custom content. </p>
+      <p class="p">Each placeholder has an associated parameter value in the transformation. These predefined
+        placeholders are illustrated and described below.</p>
+      <div class="p">
+        <figure class="fig fignone" id="html_fragment_extension_points__fig_fgc_cks_rcb"><figcaption><span class="fig--title-label">Figure 2. </span>Predefined Placeholders Diagram</figcaption>
+          
+          <div class="p">
+            <div class="fig imagemap"><img usemap="#d30578e618" class="image" id="html_fragment_extension_points__image_ggc_cks_rcb" src="../img/webhelp_parameters_list.png"><map name="d30578e618" id="d30578e618"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-head" alt="Header" title="Header" shape="rect" coords="41, 31, 730, 53"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-before-body" alt="Before Body" title="Before Body" shape="rect" coords="41, 82, 730, 103"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-before-logo-title" alt="Before Logo and Title" title="Before Logo and Title" shape="rect" coords="41, 106, 74, 127"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-after-logo-title" alt="After Logo and Title" title="After Logo and Title" shape="rect" coords="181, 107, 215, 126"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-before-top-menu" alt="Before Top Menu" title="Before Top Menu" shape="rect" coords="312, 106, 345, 126"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-after-top-menu" alt="After Top Menu" title="After Top Menu" shape="rect" coords="679, 106, 713, 126"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-before-main-page-search" alt="Before Main Page Search Input" title="Before Main Page Search Input" shape="rect" coords="40, 134, 376, 153"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-welcome" alt="Welcome Message" title="Welcome Message" shape="rect" coords="382, 133, 730, 154"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-after-main-page-search" alt="After Main Page Search Input" title="After Main Page Search Input" shape="rect" coords="40, 180, 730, 203"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-before-toc-tiles" alt="Before Tiles or TOC" title="Before Tiles or TOC" shape="rect" coords="40, 210, 730, 231"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-after-toc-tiles" alt="After Tiles or TOC" title="After Tiles or TOC" shape="rect" coords="39, 314, 731, 335"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-footer" alt="Footer" title="Footer" shape="rect" coords="41, 350, 730, 371"><area href="whr_publishing_template_contents.html#html_fragment_extension_points__webhelp-fragment-after-body" alt="After Body" title="After Body" shape="rect" coords="40, 376, 730, 397"></map></div>
+          </div>
+        </figure>
+      </div>
+      <div class="p">Each of these placeholders can hold either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to
+        a file that contains a <strong class="ph b">well-formed</strong> XHTML fragment:<dl class="dl">
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-head">1- <span class="ph">webhelp.fragment.head</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it inserts a given XHTML
+            fragment in the <code class="keyword markupname xmlelement">&lt;head&gt;</code> element. The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-before-body">2- <span class="ph">webhelp.fragment.before.body</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment before the page body. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-before-logo-title">3- <span class="ph">webhelp.fragment.before.logo_and_title</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment before the logo and title. The value of the parameter
+              can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-after-logo-title">4- <span class="ph">webhelp.fragment.after.logo_and_title</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays
+              a given XHTML fragment after the logo and title. The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-before-top-menu">5- <span class="ph">webhelp.fragment.before.top_menu</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment before the top menu. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-after-top-menu">6- <span class="ph">webhelp.fragment.after.top_menu</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment after the top menu. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-before-main-page-search">7- <span class="ph">webhelp.fragment.before.main.page.search</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment before the search field. The value of the parameter
+              can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-welcome">8- <span class="ph">webhelp.fragment.welcome</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment as a welcome message (or title). The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-after-main-page-search">9- <span class="ph">webhelp.fragment.after.main.page.search</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment after the search field. The value of the parameter can
+              be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-before-toc-tiles">10- <span class="ph">webhelp.fragment.before.toc_or_tiles</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays
+              a given XHTML fragment before the table of contents or tiles in the main page. The
+              value of the parameter can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to
+              a file that contains a <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-after-toc-tiles">11- <span class="ph">webhelp.fragment.after.toc_or_tiles</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment after the table of contents or tiles in the main page. The value
+              of the parameter can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file
+              that contains a <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-footer">12- <span class="ph">webhelp.fragment.footer</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given XHTML
+              fragment as the page footer. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span><div class="note important note_important"><span class="note__title">Important:</span> This parameter should only be used if you are using
+              a valid, purchased license of <span class="ph">Oxygen XML Editor</span> (do not use it with a trial
+              license).</div></dd>
+          
+          
+            <dt class="dt dlterm" id="html_fragment_extension_points__webhelp-fragment-after-body">13- <span class="ph">webhelp.fragment.after.body</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment after the page body. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+        </dl></div>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="wh-add-custom-html.html">How to Insert HTML Content</a></li></ul></div></nav>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title7" id="id_svt_4c1_c2b">
+  <h2 class="title topictitle2" id="ariaid-title7">WebHelp Responsive Macros</h2>
+  <div class="body">
+    <p class="p">You can use the <code class="ph codeph">whc:macro</code> layout component to specify a macro value (a
+      variable that will be expanded when the output files are generated).</p>
+    <div class="p">A macro has the following
+      syntax:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${macro-name}</pre>or<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${macro-name(macro-parameter)}</pre></div>
+    <p class="p">A macro name can accept any alphanumeric characters, as well as the following characters:
+        <code class="ph codeph">-</code> (minus), <code class="ph codeph">_</code> (underscore), <code class="ph codeph">.</code> (dot),
+        <code class="ph codeph">:</code> (colon). The value of a parameter may contain any character except the
+        <code class="ph codeph">}</code> (close curly bracket) character.</p>
+    <section class="section" id="id_svt_4c1_c2b__implementations"><h3 class="title sectiontitle"><strong class="ph b">Implementations</strong></h3>
+      
+      <div class="p" id="id_svt_4c1_c2b__list_macro_implementations">The following <em class="ph i">macros</em> are supported: <dl class="dl">
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_i18n">i18n</dt>
+            <dd class="dd">For localizing a
+              string.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${i18n(string.id)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_param">param</dt>
+            <dd class="dd">Returns the value of a transformation
+              parameter.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${param(webhelp.show.main.page.tiles)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_env">env</dt>
+            <dd class="dd">Returns the value of an environment
+              variable.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${env(JAVA_HOME)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_system-property">system-property</dt>
+            <dd class="dd">Returns the value of a system
+              property.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${system-property(os.name)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_timestamp">timestamp</dt>
+            <dd class="dd">Can be used to format the current date and time. Accepts a string (as a parameter)
+              that determines how the date and time will be formatted (format string or
+                <dfn class="term">picture string</dfn> as it is known in the XSLT specification). The format
+              string must comply with the <a class="xref" href="https://www.w3.org/TR/xslt20/#date-picture-string" target="_blank" rel="external noopener">rules of the XSLT <code class="ph codeph">format-dateTime</code> function
+                specification</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${timestamp([h1]:[m01] [P] [M01]/[D01]/[Y0001])}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_path">path</dt>
+            <dd class="dd"> Returns the path associated with the specified path ID. The following paths IDs are
+              supported: <ul class="ul">
+                <li class="li"><strong class="ph b">oxygen-webhelp-output-dir</strong> - The path to the output directory. The path is
+                  relative to the current HTML file.</li>
+                <li class="li"><strong class="ph b">oxygen-webhelp-assets-dir</strong> - The path to the
+                    <span class="ph filepath">oxygen-webhelp</span> subdirectory from the output directory. The
+                  path is relative to the current HTML file.</li>
+                <li class="li"><strong class="ph b">oxygen-webhelp-template-dir</strong> - The path to the template directory. The
+                  path is relative to the current HTML
+                  file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${path(oxygen-webhelp-template-dir)}  </pre></li>
+              </ul><div class="note note note_note"><span class="note__title">Note:</span> New paths IDs can be added by overriding the
+                  <code class="ph codeph">wh-macro-custom-path</code> template from
+                  <span class="ph filepath">com.oxygenxml.webhelp.responsive\xsl\template\macroExpander.xsl</span>:
+                <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- Extension template for expanding a custom path macro. --&gt;</em>
+<strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"wh-macro-custom-path"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"pathId"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$pathId"</span><strong class="hl-xsl">/&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong>     </pre></div></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_map-xpath">map-xpath</dt>
+            <dd class="dd">Can be used to execute an XPath expression over the DITA map file from the temporary
+              directory. <div class="note tip note_tip"><span class="note__title">Tip:</span> Available in all template layout HTML pages.
+              </div><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${map-xpath(/map/title)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_topic-xpath">topic-xpath</dt>
+            <dd class="dd">Can be used to execute an XPath expression over the current topic. <div class="note tip note_tip"><span class="note__title">Tip:</span> 
+                Available only in the topic HTML page template
+                (<span class="ph filepath">wt_topic.html</span>).</div><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${topic-xpath(string-join(//shortdesc//text(), ' '))}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="id_svt_4c1_c2b__macro_oxygen-webhelp-build-number">oxygen-webhelp-build-number</dt>
+            <dd class="dd"> Returns the current WebHelp distribution ID (build
+              number).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${oxygen-webhelp-build-number} </pre></dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="id_svt_4c1_c2b__extensibility"><h3 class="title sectiontitle">Extensibility</h3>
+      
+      <div class="p">To add new <dfn class="term">macros</dfn>, you can add an XSLT extension to overwrite the
+          <code class="ph codeph">wh-macro-extension</code> template from the
+          <span class="ph filepath">com.oxygenxml.webhelp.responsive\xsl\template\macroExpander.xsl</span>
+        file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- Extension template for expanding custom macro constructs --&gt;</em>
+<strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"wh-macro-extension"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"name"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"params"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"contextNode"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"matchedString"</span><strong class="hl-xsl">/&gt;</strong>
+    
+    <strong class="hl-xsl">&lt;xsl:choose&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:when</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"$contextNode instance of attribute()"</span><strong class="hl-xsl">&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$matchedString"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:when&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:otherwise&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:message&gt;</strong>Cannot expand macro: 
+                [<strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$matchedString"</span><strong class="hl-xsl">/&gt;</strong>]<strong class="hl-xsl">&lt;/xsl:message&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:copy-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$contextNode"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:otherwise&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:choose&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></div>
+      <div class="p">The <code class="ph codeph">wh-macro-extension</code> template has the following parameters:<ul class="ul">
+          <li class="li"><strong class="ph b">name</strong> - The name of the current <dfn class="term">macro</dfn>.</li>
+          <li class="li"><strong class="ph b">params</strong> - List of parameters of the current <dfn class="term">macro</dfn> as a
+              <code class="ph codeph">string</code> sequence. The current <dfn class="term">macros</dfn> parsing mechanism
+            only allows <dfn class="term">macros</dfn> with a maximum of one parameter. Consequently, this list
+            will contain at most one element.</li>
+          <li class="li"><strong class="ph b">contextNode</strong> - The current element or attribute where the <dfn class="term">macro</dfn> was
+            declared.</li>
+          <li class="li"><strong class="ph b">matchedString</strong> - The entire value of the matched <dfn class="term">macro</dfn> as specified
+            in the HTML template page.</li>
+        </ul></div>
+    </section>
+  </div>
+</article>
+  <article class="topic nested1" aria-labelledby="ariaid-title8" id="html_page_templates">
+    <h2 class="title topictitle2" id="ariaid-title8">HTML Page Layout Files</h2>
+    
+    <div class="body">
+      <div class="p">The HTML page layout files define the default layout of the generated pages in the output
+        for the built-in template. There are four types of pages (<em class="ph i">main</em>, <em class="ph i">search</em>,
+          <em class="ph i">topic</em>, <em class="ph i">index</em>) and each type of page is a simple HTML file. Each page type
+        has various components that appear by default and each component has a corresponding element
+        and when that element is included in the HTML file, the corresponding components will appear
+        in the output.<div class="note warning note_warning"><span class="note__title">Warning:</span> It is no longer recommended for you to customize these
+          files because if you upgrade to a newer version of <strong class="ph b">Oxygen</strong>, those files may no
+          longer produce the desired results and if new components have been added, you won't have
+          access to them.</div></div>
+      <div class="p">If you do choose to customize these HTML files, each type of page is defined inside an
+          <code class="keyword markupname xmlelement">&lt;html-page-layout-files&gt;</code> element in the descriptor
+        file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...
+      <em class="hl-comment">&lt;!-- HTML page layout files --&gt;</em>
+      <strong class="hl-tag">&lt;html-page-layout-files&gt;</strong>
+        <strong class="hl-tag">&lt;page-layout-file</strong> <span class="hl-attribute">page</span>=<span class="hl-value">"main"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"page-templates/wt_index.html"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;page-layout-file</strong> <span class="hl-attribute">page</span>=<span class="hl-value">"search"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"page-templates/wt_search.html"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;page-layout-file</strong> <span class="hl-attribute">page</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"page-templates/wt_topic.html"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;page-layout-file</strong> <span class="hl-attribute">page</span>=<span class="hl-value">"index-terms"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"page-templates/wt_terms.html"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/html-page-layout-files&gt;</strong></pre></div>
+      <p class="p">If you do use the <strong class="ph b">html-page-layout-files</strong> element, you must specify all four types of
+        pages (<em class="ph i">main</em>, <em class="ph i">search</em>, <em class="ph i">topic</em>, <em class="ph i">index</em>). When not specified, the
+        files from the <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term abbreviated-form">DITA-OT-DIR</dfn></a>/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/page-templates</span>
+        folder will be used to define the layout of each type of page.</p>
+      <p class="p"><strong class="ph b"><u class="ph u">HTML Page Components</u></strong></p>
+      <p class="p">Each type of page contains various components that control the layout of that page. The
+        rendering of each component depends on the context where it is placed and its content
+        depends on the transformed <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+        map</dfn></a>.</p>
+      <p class="p">Some of the components can be used in all four types of pages, while some are only
+        available for certain pages. For instance, the <em class="ph i">Publication Title</em> component can be
+        used in all pages, but the <em class="ph i">Navigation Breadcrumb</em> component can only be used in the
+          <strong class="ph b">Topic Page</strong>.</p>
+      <p class="p">To include a component in the output of a particular type of page, you have to reference a
+        specific element in that particular HTML file. All the elements associated with a component
+        should belong to the <code class="ph codeph">http://www.oxygenxml.com/webhelp/components</code>
+        namespace.</p>
+      <div class="p">Every component can contain custom content or reference another component. To specify where
+        the component content will be located in the output, you can use the
+          <code class="keyword markupname xmlelement">&lt;whc:component_content&gt;</code> element as a descendant of the component
+        element. It can specify the location as before, after, or it can wrap the component content.
+        The following snippet contains an example of
+        each:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_input</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"navbar-form wh_main_page_search"</span>
+       <span class="hl-attribute">role</span>=<span class="hl-value">"form"</span><strong class="hl-tag"> &gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"custom-content-before"</span><strong class="hl-tag">&gt;</strong>Enter search terms here:<strong class="hl-tag">&lt;/div&gt;</strong> 
+	<strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"custom-wrapper"</span><strong class="hl-tag">&gt;</strong>
+	        <strong class="hl-tag">&lt;whc:component_content/&gt;</strong>
+	<strong class="hl-tag">&lt;/div&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"custom-content-after"</span><strong class="hl-tag">&gt;</strong>Results will be displayed in a new window.<strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/whc:webhelp_search_input&gt;</strong></pre></div>
+      <section class="section" id="html_page_templates__main-page"><h3 class="title sectiontitle">Main Page</h3>
+        
+        <p class="p">The <dfn class="term">Main Page</dfn> is the home page generated in the WebHelp Responsive output.
+          The name of the HTML file that defines this page is <span class="ph filepath">wt_index.html</span> and
+          it is located in the following directory: <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term abbreviated-form">DITA-OT-DIR</dfn></a>/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/page-templates</span>.</p>
+        <p class="p">The main function of the home page is to display top-level information and provide links
+          that help you easily navigate to any of the top-level topics of the publication. These
+          links can be rendered in either a <em class="ph i">Tiles</em> or <em class="ph i">Tree</em> style of layout. The HTML
+          page produced for the home page also consists of various other components, such as a logo,
+          title, menu, search field, or index link.</p>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Examples of Main Page Components for a Tiles Style of Layout</figcaption>
+            
+            <div class="p">
+              <div class="fig imagemap"><img usemap="#d30578e1493" class="image" id="html_page_templates__image_scg_fyy_5cb" src="../img/webhelp_main_page2.png"><map name="d30578e1493" id="d30578e1493"><area href="whr_publishing_template_contents.html#html_page_templates__main-logo" alt="Publication Logo" title="Publication Logo" shape="poly" coords="11, 57, 12, 109, 56, 109, 55, 62, 70, 55, 155, 55, 155, 17, 71,&#xA;                    18"><area href="whr_publishing_template_contents.html#html_page_templates__main-title" alt="Publication Title" title="Publication Title" shape="poly" coords="65, 86, 64, 106, 189, 106, 190, 85, 197, 56, 294, 55, 294, 18, 196, 17,&#xA;                    130, 86"><area href="whr_publishing_template_contents.html#html_page_templates__main-search-input" alt="Search Input" title="Search Input" shape="poly" coords="61, 142, 62, 170, 726, 169, 725, 142, 231, 141, 276, 105, 349, 104, 347,&#xA;                    64, 246, 63, 247, 100, 205, 141"><area href="whr_publishing_template_contents.html#html_page_templates__main-menu" alt="Main Menu" title="Main Menu" shape="poly" coords="360, 86, 360, 104, 720, 104, 720, 86, 585, 85, 503, 16, 402, 15, 403,&#xA;                    53"><area href="whr_publishing_template_contents.html#html_page_templates__main-index-terms-link" alt="Index Terms Link" title="Index Terms Link" shape="poly" coords="727, 85, 725, 104, 753, 106, 753, 86, 686, 14, 582, 14, 583, 52, 685,&#xA;                    52"><area href="whr_publishing_template_contents.html#html_page_templates__main-tiles" alt="Topic Tiles" title="Topic Tiles" shape="poly" coords="36, 213, 37, 323, 273, 323, 273, 420, 376, 418, 375, 383, 410, 322, 752,&#xA;                    322, 751, 213"><area href="whr_publishing_template_contents.html#html_page_templates__main-print" alt="Print Link" title="Print Link" shape="poly" coords="737, 24, 737, 50, 761, 50, 762, 105, 782, 104, 780, 50, 797, 49, 793,&#xA;                    22"></map></div>
+            </div>
+          </figure>
+        </div>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Examples of Main Page Components for a Tree Style of Layout</figcaption>
+            
+            <div class="p">
+              <div class="fig imagemap"><img usemap="#d30578e1602" class="image" id="html_page_templates__image_z21_dd1_vcb" src="../img/webhelp_main_page_tree2.png"><map name="d30578e1602" id="d30578e1602"><area href="whr_publishing_template_contents.html#html_page_templates__main-logo" alt="Publication Logo" title="Publication Logo" shape="poly" coords="9, 51, 9, 115, 64, 116, 63, 61, 71, 54, 155, 55, 154, 16, 72, 17"><area href="whr_publishing_template_contents.html#html_page_templates__main-title" alt="Publication Title" title="Publication Title" shape="poly" coords="68, 84, 68, 107, 194, 105, 194, 85, 201, 53, 293, 51, 293, 18, 200, 17,&#xA;                    135, 84"><area href="whr_publishing_template_contents.html#html_page_templates__main-search-input" alt="Search Input" title="Search Input" shape="poly" coords="68, 149, 69, 167, 715, 164, 714, 146, 225, 148, 266, 100, 345, 99, 345,&#xA;                    61, 246, 61, 246, 100, 196, 149"><area href="whr_publishing_template_contents.html#html_page_templates__main-menu" alt="Main Menu" title="Main Menu" shape="poly" coords="357, 83, 357, 106, 721, 105, 720, 85, 585, 85, 501, 14, 400, 13, 401,&#xA;                    52"><area href="whr_publishing_template_contents.html#html_page_templates__main-index-terms-link" alt="Index Terms Link" title="Index Terms Link" shape="poly" coords="725, 84, 724, 105, 751, 106, 751, 85, 683, 15, 582, 14, 582, 55, 685,&#xA;                    53"><area href="whr_publishing_template_contents.html#html_page_templates__main-main-toc" alt="Table of Contents" title="Table of Contents" shape="poly" coords="82, 223, 83, 397, 556, 398, 585, 396, 588, 433, 705, 429, 705, 393, 557,&#xA;                    356, 555, 226"><area href="whr_publishing_template_contents.html#html_page_templates__main-print" alt="Print Link" title="Print Link" shape="poly" coords="739, 23, 739, 50, 760, 49, 761, 105, 782, 104, 780, 50, 796, 49, 794,&#xA;                    25"></map></div>
+            </div>
+          </figure>
+        </div>
+        <div class="p">The following components can be referenced in the <dfn class="term">Main Page</dfn>
+            (<span class="ph filepath">wt_index.html</span>) file: <dl class="dl">
+            
+          <dt class="dt dlterm" id="html_page_templates__main-title">Publication Title (<code class="ph codeph">webhelp_publication_title</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the publication title in the output. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_publication_title&gt;</code> element must be
+              specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_publication_title</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_publication_title</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-logo">Publication Logo (<code class="ph codeph">webhelp_logo</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a logo image in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_logo&gt;</code> element must be specified in the HTML file
+              as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_logo</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In addition, you must also specify the path of the logo image in the
+                <code class="ph codeph">webhelp.logo.image</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab in the transformation scenario). You can set
+              the <code class="ph codeph">webhelp.logo.image.target.url</code> parameter to generate a link to a
+              URL when you click the logo image.</p>
+            <p class="p">In the output, you will find an element with the class: <code class="ph codeph">wh_logo</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-search-input">Search Input (<code class="ph codeph">webhelp_search_input</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate the input widget associated with search function
+              in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_search_input&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_input</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_search_input</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-print">Print Link (<code class="ph codeph">webhelp_print_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate a print icon that opens the print dialog box for
+              your particular browser. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_print_link&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_print_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_print_link</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-menu">Main Menu (<code class="ph codeph">webhelp_top_menu</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a menu with all the documentation topics. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_top_menu&gt;</code> element must be specified
+              in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_top_menu</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_top_menu</code>.</p>
+            <p class="p">You can control the maximum level of topics that will be included in the menu using
+              the <code class="ph codeph">webhelp.top.menu.depth</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab of the transformation scenario).</p>
+            <p class="p">For information about customizing the menu, see <a class="xref" href="whr-customize-menu.html#whr-customize-menu">How to Customize the Menu</a>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-tiles">Main Page Topic Tiles (<code class="ph codeph">webhelp_tiles</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the tiles section in the main page. This section will
+              contain a tile for each root topic of the published documentation. Each topic tile has
+              three sections that correspond to the topic title, short description, and image. To
+              generate this component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_tiles&gt;</code> element must
+              be specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_tiles</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_tiles</code>.</p>
+            <div class="p">If you want to control the HTML structure that is generated for a WebHelp tile you
+              can also specify the template for a tile by using the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_tile&gt;</code> component, as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_tile</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"col-md-4"</span><strong class="hl-tag">&gt;</strong>                    
+  <em class="hl-comment">&lt;!-- Place holder for tile's image --&gt;</em>
+  <strong class="hl-tag">&lt;whc:webhelp_tile_image/&gt;</strong>                        
+                    
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"wh_tile_text"</span><strong class="hl-tag">&gt;</strong>
+    <em class="hl-comment">&lt;!-- Place holder for tile's title --&gt;</em>
+     <strong class="hl-tag">&lt;whc:webhelp_tile_title/&gt;</strong>
+                       
+     <em class="hl-comment">&lt;!-- Place holder for tile's shordesc --&gt;</em>
+     <strong class="hl-tag">&lt;whc:webhelp_tile_shortdesc/&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/whc:webhelp_tile&gt;</strong></pre></div>
+            <p class="p">For information about customizing the tiles, see <a class="xref" href="whr-configure-tiles.html#whr-configure-tiles">How to Configure the Tiles on the WebHelp Responsive Main Page</a>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-main-toc">Main Page Table of Contents (<code class="ph codeph">webhelp_main_page_toc</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a simplified Table of Contents. It is simplified because it
+              contains only two levels from the documentation hierarchy. To generate this component,
+              the <code class="keyword markupname xmlelement">&lt;whc:webhelp_main_page_toc&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_main_page_toc</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_main_page_toc</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-index-terms-link">Index Terms Link (<code class="ph codeph">webhelp_indexterms_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to generate a link to the index terms page
+                (<code class="ph codeph">indexterms.html</code>). If the published documentation does not contain
+              any index terms, then the link will not be generated. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_indexterms_link&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_indexterms_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_indexterms_link</code>. This element will contain a link to the
+                <code class="ph codeph">indexterms.html</code> page.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__main-resources">Link to Skins Resources (<code class="ph codeph">webhelp_skin_resources</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to add a link to resources for the current WebHelp skin
+              (such as the CSS file). To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_skin_resources&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_skin_resources/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find a link to the skin resources.</p>
+          </dd>
+        
+          </dl>
+        </div>
+      </section>
+      <section class="section" id="html_page_templates__topic-page"><h3 class="title sectiontitle">Topic Page</h3>
+        
+        <p class="p">The <dfn class="term">Topic Page</dfn> is the page generated for each DITA topic in the WebHelp
+          Responsive output. The name of the HTML file that defines this page is
+            <span class="ph filepath">wt_topic.html</span> and it is located in the following directory:
+              <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term abbreviated-form">DITA-OT-DIR</dfn></a>/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/page-templates</span>.</p>
+        <p class="p">The HTML pages produced for each topic consist of the topic content along with various
+          other additional components, such as a title, menu, navigation breadcrumb, print icon, or
+          side table of contents.</p>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Examples of Topic Page Components</figcaption>
+            
+            <div class="p">
+              <div class="fig imagemap"><img usemap="#d30578e2029" class="image" id="html_page_templates__image_s5n_ft1_vcb" src="../img/whr-topic-page-layout.png"><map name="d30578e2029" id="d30578e2029"><area href="whr_publishing_template_contents.html#html_page_templates__topic-logo" alt="Publication Logo" title="Publication Logo" shape="poly" coords="74, 13, 18, 58, 17, 123, 73, 124, 72, 50, 149, 49, 148, 13"><area href="whr_publishing_template_contents.html#html_page_templates__topic-title" alt="Publication Title" title="Publication Title" shape="poly" coords="211, 13, 144, 82, 80, 82, 80, 103, 206, 103, 205, 82, 171, 82, 211, 50,&#xA;                    286, 48, 284, 12"><area href="whr_publishing_template_contents.html#html_page_templates__topic-search-input" alt="Search Input" title="Search Input" shape="poly" coords="232, 73, 232, 110, 184, 157, 144, 157, 144, 188, 654, 186, 654, 158, 210,&#xA;                    156, 256, 109, 331, 108, 331, 72"><area href="whr_publishing_template_contents.html#html_page_templates__topic-menu" alt="Main Menu" title="Main Menu" shape="poly" coords="418, 13, 417, 50, 348, 83, 349, 101, 738, 102, 736, 81, 586, 80, 516,&#xA;                    13"><area href="whr_publishing_template_contents.html#html_page_templates__topic-index-terms-link" alt="Index Terms Link" title="Index Terms Link" shape="poly" coords="601, 11, 601, 50, 701, 50, 748, 81, 741, 85, 742, 101, 771, 101, 772, 82,&#xA;                    702, 13"><area href="whr_publishing_template_contents.html#html_page_templates__topic-expand-collapse" alt="Expand/Collapse All Sections" title="Expand/Collapse All Sections" shape="poly" coords="598, 190, 598, 216, 696, 216, 710, 219, 709, 235, 739, 236, 738, 218, 695,&#xA;                    188"><area href="whr_publishing_template_contents.html#html_page_templates__topic-nav-links" alt="Navigation Links" title="Navigation Links" shape="poly" coords="640, 114, 643, 151, 672, 152, 742, 220, 742, 235, 757, 235, 757, 221, 721,&#xA;                    158, 736, 145, 736, 115"><area href="whr_publishing_template_contents.html#html_page_templates__topic-print" alt="Print Link" title="Print Link" shape="poly" coords="738, 157, 738, 179, 764, 182, 764, 221, 761, 235, 781, 235, 781, 220, 776,&#xA;                    182, 798, 182, 796, 155"><area href="whr_publishing_template_contents.html#html_page_templates__topic-breadcrumb" alt="Breadcrumb" title="Breadcrumb" shape="poly" coords="382, 249, 409, 234, 704, 235, 704, 220, 16, 220, 16, 238, 324, 237, 381,&#xA;                    288, 480, 287, 479, 249"><area href="whr_publishing_template_contents.html#html_page_templates__topic-publication-toc" alt="Publication Table of Contents" title="Publication Table of Contents" shape="poly" coords="34, 480, 34, 518, 150, 518, 149, 479, 95, 479, 96, 429, 171, 428, 171,&#xA;                    261, 18, 262, 20, 427, 84, 430, 85, 480"><area href="whr_publishing_template_contents.html#html_page_templates__topic-content" alt="Topic Content" title="Topic Content" shape="poly" coords="362, 480, 362, 516, 459, 515, 459, 480, 415, 479, 415, 443, 679, 442, 676,&#xA;                    244, 476, 290, 372, 290, 322, 245, 185, 246, 185, 442, 368, 444"><area href="whr_publishing_template_contents.html#html_page_templates__topic-topic-toc" alt="Topic Table of Contents" title="Topic Table of Contents" shape="poly" coords="687, 244, 685, 440, 724, 443, 723, 480, 687, 480, 686, 519, 780, 518, 780,&#xA;                    480, 745, 480, 746, 442, 781, 442, 783, 246"></map></div>
+            </div>
+          </figure>
+        </div>
+        <p class="p">The following components can be referenced in the <dfn class="term">Topic Page</dfn>
+            (<span class="ph filepath">wt_topic.html</span>) file:</p>
+        <div class="p">
+          <dl class="dl">
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-title">Publication Title (<code class="ph codeph">webhelp_publication_title</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the publication title in the output. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_publication_title&gt;</code> element must be
+              specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_publication_title</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_publication_title</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-logo">Publication Logo (<code class="ph codeph">webhelp_logo</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a logo image in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_logo&gt;</code> element must be specified in the HTML file
+              as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_logo</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In addition, you must also specify the path of the logo image in the
+                <code class="ph codeph">webhelp.logo.image</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab in the transformation scenario). You can set
+              the <code class="ph codeph">webhelp.logo.image.target.url</code> parameter to generate a link to a
+              URL when you click the logo image.</p>
+            <p class="p">In the output, you will find an element with the class: <code class="ph codeph">wh_logo</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-search-input">Search Input (<code class="ph codeph">webhelp_search_input</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate the input widget associated with search function
+              in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_search_input&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_input</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_search_input</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-breadcrumb">Topic Breadcrumb (<code class="ph codeph">webhelp_breadcrumb</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a breadcrumb that displays the path of the current topic. To
+              generate this component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_breadcrumb&gt;</code> element
+              must be specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_breadcrumb</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_breadcrumb</code>. This element will contain a list with items that
+              correspond to the topics in the path. The first item in the list has a link to the
+              main page with the <code class="ph codeph">home</code> class. The last item in the list corresponds
+              to the current topic and has the <code class="ph codeph">active</code> class set.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-nav-links">Navigation Links (<code class="ph codeph">webhelp_navigation_links</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates navigation links to the next and previous topics. To
+              generate this component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_navigation_links&gt;</code>
+              element must be specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_navigation_links</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_navigation_links</code>. This element will contain the links to the
+              next and previous topics.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-print">Print Link (<code class="ph codeph">webhelp_print_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate a print icon that opens the print dialog box for
+              your particular browser. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_print_link&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_print_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_print_link</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-content">Topic Content (<code class="ph codeph">webhelp_topic_content</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the content of a topic and it represent the content of the
+              HTML files as they are produced by the DITA-OT processor. To generate this component,
+              the <code class="keyword markupname xmlelement">&lt;whc:webhelp_topic_content&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_topic_content</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_topic_content</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-publication-toc">Publication TOC (<code class="ph codeph">webhelp_publication_toc</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a mini table of contents for the current topic (on the left
+              side). It will contain links to the children of the current topic, its siblings, and
+              all of its ancestors. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_publication_toc&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_publication_toc</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_publication_toc</code>. This element will contain links to the topics
+              that are close to the current topic.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-topic-toc">Topic TOC (<code class="ph codeph">webhelp_topic_toc</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a topic table of contents for the current topic (on the
+              right side) with a heading named <strong class="ph b">On this page</strong>. It contains links to each
+              section within the current topic and the section corresponding to the current scroll
+              position is highlighted. The topic must contain at least two
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code> elements and each <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+              must have an <code class="keyword markupname xmlatt">@id</code> attribute. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_topic_toc&gt;</code> element must be specified in the HTML
+              file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_topic_toc</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_topic_toc</code>. This element will contain links to the topics that are
+              close to the current topic.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-expand-collapse">Expand/Collapse Sections (<code class="ph codeph">webhelp_expand_collapse_sections</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate an icon that expands or collapses sections listed
+              in the side table of contents within a topic. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_expand_collapse_sections&gt;</code> element must be
+              specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_expand_collapse_sections</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">webhelp_expand_collapse_sections</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-feedback">Topic Feedback (<code class="ph codeph">webhelp_feedback</code>)</dt>
+          <dd class="dd">This component generates a placeholder for where the comments section will be
+            presented. To generate this component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_feedback&gt;</code>
+            element must be specified in the HTML file as in the following
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_feedback</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-menu">Main Menu (<code class="ph codeph">webhelp_top_menu</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a menu with all the documentation topics. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_top_menu&gt;</code> element must be specified
+              in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_top_menu</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_top_menu</code>.</p>
+            <p class="p">You can control the maximum level of topics that will be included in the menu using
+              the <code class="ph codeph">webhelp.top.menu.depth</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab of the transformation scenario).</p>
+            <p class="p">For information about customizing the menu, see <a class="xref" href="whr-customize-menu.html#whr-customize-menu">How to Customize the Menu</a>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-index-terms-link">Index Terms Link (<code class="ph codeph">webhelp_indexterms_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to generate a link to the index terms page
+                (<code class="ph codeph">indexterms.html</code>). If the published documentation does not contain
+              any index terms, then the link will not be generated. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_indexterms_link&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_indexterms_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_indexterms_link</code>. This element will contain a link to the
+                <code class="ph codeph">indexterms.html</code> page.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-child-links">Child Links (<code class="ph codeph">webhelp_child_links</code>)</dt>
+          <dd class="dd">For all topics with subtopics (child topics), this component generates a list of links
+            to each child topic. To generate this component, the
+              <code class="keyword markupname xmlelement">&lt;whc:webhelp_child_links&gt;</code> element must be specified in the HTML
+            file as in the following
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_child_links</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-related-links">Related Links (<code class="ph codeph">webhelp_related_links</code>)</dt>
+          <dd class="dd">For all topics that contain related links, this component generates a list of related
+            links that will appear in the output. To generate this component, the
+              <code class="keyword markupname xmlelement">&lt;whc:webhelp_related_links&gt;</code> element must be specified in the
+            HTML file as in the following
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_related_links</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__topic-resources">Link to Skins Resources (<code class="ph codeph">webhelp_skin_resources</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to add a link to resources for the current WebHelp skin
+              (such as the CSS file). To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_skin_resources&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_skin_resources/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find a link to the skin resources.</p>
+          </dd>
+        
+          </dl>
+        </div>
+      </section>
+      <section class="section" id="html_page_templates__search-results-page"><h3 class="title sectiontitle">Search Results Page</h3>
+        
+        <p class="p">The <dfn class="term">Search Results Page</dfn> is the page generated that presents search results
+          in the WebHelp Responsive output. The name of the HTML file that defines this page is
+            <span class="ph filepath">wt_search.html</span> and it is located in the following directory:
+              <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term abbreviated-form">DITA-OT-DIR</dfn></a>/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/page-templates</span>.</p>
+        <p class="p">The HTML page that is produced consists of a search results component along with various
+          other additional components, such as a title, menu, or index link.</p>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Examples of Search Results Page Components</figcaption>
+            
+            <div class="p">
+              <div class="fig imagemap"><img usemap="#d30578e2685" class="image" src="../img/webhelp_search_page2.png"><map name="d30578e2685" id="d30578e2685"><area href="whr_publishing_template_contents.html#html_page_templates__search-logo" alt="Publication Logo" title="Publication Logo" shape="poly" coords="72, 12, 17, 59, 17, 125, 73, 124, 72, 60, 148, 51, 148, 12"><area href="whr_publishing_template_contents.html#html_page_templates__search-title" alt="Publication Title" title="Publication Title" shape="poly" coords="211, 13, 135, 83, 80, 83, 80, 101, 206, 102, 206, 82, 172, 82, 211, 49,&#xA;                    286, 49, 286, 12"><area href="whr_publishing_template_contents.html#html_page_templates__search-search-input" alt="Search Input" title="Search Input" shape="poly" coords="232, 72, 232, 109, 181, 156, 144, 157, 145, 184, 651, 183, 651, 157, 214,&#xA;                    156, 255, 109, 331, 107, 329, 72"><area href="whr_publishing_template_contents.html#html_page_templates__search-menu" alt="Main Menu" title="Main Menu" shape="poly" coords="400, 13, 400, 52, 355, 83, 355, 108, 353, 104, 716, 102, 717, 82, 592, 82,&#xA;                    500, 11"><area href="whr_publishing_template_contents.html#html_page_templates__search-index-terms-link" alt="Index Terms Link" title="Index Terms Link" shape="poly" coords="582, 12, 582, 52, 685, 52, 722, 81, 724, 100, 750, 101, 750, 81, 683,&#xA;                    12"><area href="whr_publishing_template_contents.html#html_page_templates__search-results" alt="Search Results" title="Search Results" shape="poly" coords="16, 223, 17, 483, 92, 483, 92, 536, 189, 533, 246, 482, 777, 481, 776,&#xA;                    223, 642, 221, 642, 299, 162, 299, 163, 223"><area href="whr_publishing_template_contents.html#html_page_templates__search-print" alt="Print Link" title="Print Link" shape="poly" coords="737, 22, 739, 46, 763, 46, 759, 103, 778, 101, 777, 45, 793, 45, 792,&#xA;                    20"></map></div>
+            </div>
+          </figure>
+        </div>
+        <p class="p">The following components can be referenced in the <dfn class="term">Search Results Page</dfn>
+            (<span class="ph filepath">wt_search.html</span>) file:</p>
+        <div class="p">
+          <dl class="dl">
+            
+          <dt class="dt dlterm" id="html_page_templates__search-title">Publication Title (<code class="ph codeph">webhelp_publication_title</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the publication title in the output. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_publication_title&gt;</code> element must be
+              specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_publication_title</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_publication_title</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-logo">Publication Logo (<code class="ph codeph">webhelp_logo</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a logo image in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_logo&gt;</code> element must be specified in the HTML file
+              as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_logo</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In addition, you must also specify the path of the logo image in the
+                <code class="ph codeph">webhelp.logo.image</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab in the transformation scenario). You can set
+              the <code class="ph codeph">webhelp.logo.image.target.url</code> parameter to generate a link to a
+              URL when you click the logo image.</p>
+            <p class="p">In the output, you will find an element with the class: <code class="ph codeph">wh_logo</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-search-input">Search Input (<code class="ph codeph">webhelp_search_input</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate the input widget associated with search function
+              in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_search_input&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_input</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_search_input</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-results">Search Results (<code class="ph codeph">webhelp_search_results</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate a placeholder to signal where the search results
+              will be presented in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_search_results&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_results</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_search_results</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-print">Print Link (<code class="ph codeph">webhelp_print_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate a print icon that opens the print dialog box for
+              your particular browser. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_print_link&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_print_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_print_link</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-menu">Main Menu (<code class="ph codeph">webhelp_top_menu</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a menu with all the documentation topics. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_top_menu&gt;</code> element must be specified
+              in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_top_menu</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_top_menu</code>.</p>
+            <p class="p">You can control the maximum level of topics that will be included in the menu using
+              the <code class="ph codeph">webhelp.top.menu.depth</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab of the transformation scenario).</p>
+            <p class="p">For information about customizing the menu, see <a class="xref" href="whr-customize-menu.html#whr-customize-menu">How to Customize the Menu</a>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-index-terms-link">Index Terms Link (<code class="ph codeph">webhelp_indexterms_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to generate a link to the index terms page
+                (<code class="ph codeph">indexterms.html</code>). If the published documentation does not contain
+              any index terms, then the link will not be generated. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_indexterms_link&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_indexterms_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_indexterms_link</code>. This element will contain a link to the
+                <code class="ph codeph">indexterms.html</code> page.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__search-resources">Link to Skins Resources (<code class="ph codeph">webhelp_skin_resources</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to add a link to resources for the current WebHelp skin
+              (such as the CSS file). To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_skin_resources&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_skin_resources/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find a link to the skin resources.</p>
+          </dd>
+        
+          </dl>
+        </div>
+      </section>
+      <section class="section" id="html_page_templates__index-terms-page"><h3 class="title sectiontitle">Index Terms Page</h3>
+        
+        <p class="p">The <dfn class="term">Index Terms Page</dfn> is the page generated that presents index terms in the
+          WebHelp Responsive output. The name of the HTML file that defines this page is
+            <span class="ph filepath">wt_terms.html</span> and it is located in the following directory:
+              <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term abbreviated-form">DITA-OT-DIR</dfn></a>/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/page-templates</span>.</p>
+        <p class="p">The HTML page that is produced consists of an index terms section along with various
+          other additional components, such as a title, menu, or search field.</p>
+        <p class="p">An alphabet that contains the first letter of the documentation index terms is generated
+          at the top of the index page. Each letter represents a link to a specific indices
+          section.</p>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 7. </span>Example of Index Terms Page Components</figcaption>
+            
+            <div class="p">
+              <div class="fig imagemap"><img usemap="#d30578e3078" class="image" id="html_page_templates__image_kjb_kz1_vcb" src="../img/webhelp_terms_page.PNG"><map name="d30578e3078" id="d30578e3078"><area href="whr_publishing_template_contents.html#html_page_templates__index-logo" alt="Publication Logo" title="Publication Logo" shape="poly" coords="73, 12, 17, 58, 17, 124, 72, 124, 72, 58, 148, 50, 147, 13"><area href="whr_publishing_template_contents.html#html_page_templates__index-title" alt="Publication Title" title="Publication Title" shape="poly" coords="210, 12, 131, 82, 80, 81, 78, 101, 207, 101, 207, 82, 170, 81, 211, 47,&#xA;                    286, 48, 285, 12"><area href="whr_publishing_template_contents.html#html_page_templates__index-search-input" alt="Search Input" title="Search Input" shape="poly" coords="234, 74, 235, 114, 190, 143, 142, 144, 141, 173, 661, 172, 660, 144, 333,&#xA;                    140, 332, 74"><area href="whr_publishing_template_contents.html#html_page_templates__index-menu" alt="Main Menu" title="Main Menu" shape="poly" coords="401, 12, 400, 50, 358, 82, 359, 103, 721, 102, 719, 81, 567, 82, 500,&#xA;                    13"><area href="whr_publishing_template_contents.html#html_page_templates__index-index-terms-link" alt="Index Terms Link (webhelp_indexterms_link)" title="Index Terms Link (webhelp_indexterms_link)" shape="poly" coords="584, 12, 584, 49, 683, 50, 726, 82, 725, 102, 756, 102, 755, 82, 684,&#xA;                    12"><area href="whr_publishing_template_contents.html#html_page_templates__index-print" alt="Print Link" title="Print Link" shape="poly" coords="739, 22, 739, 46, 759, 45, 761, 101, 781, 101, 779, 45, 798, 45, 797,&#xA;                    22"></map></div>
+            </div>
+          </figure>
+        </div>
+        <p class="p">The following components can be referenced in the <dfn class="term">Index Terms Page</dfn>
+            (<span class="ph filepath">wt_terms.html</span>) file:</p>
+        <div class="p">
+          <dl class="dl">
+            
+          <dt class="dt dlterm" id="html_page_templates__index-title">Publication Title (<code class="ph codeph">webhelp_publication_title</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates the publication title in the output. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_publication_title&gt;</code> element must be
+              specified in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_publication_title</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_publication_title</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__index-logo">Publication Logo (<code class="ph codeph">webhelp_logo</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a logo image in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_logo&gt;</code> element must be specified in the HTML file
+              as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_logo</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In addition, you must also specify the path of the logo image in the
+                <code class="ph codeph">webhelp.logo.image</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab in the transformation scenario). You can set
+              the <code class="ph codeph">webhelp.logo.image.target.url</code> parameter to generate a link to a
+              URL when you click the logo image.</p>
+            <p class="p">In the output, you will find an element with the class: <code class="ph codeph">wh_logo</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__index-search-input">Search Input (<code class="ph codeph">webhelp_search_input</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate the input widget associated with search function
+              in the output. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_search_input&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_search_input</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_search_input</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__index-print">Print Link (<code class="ph codeph">webhelp_print_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component is used to generate a print icon that opens the print dialog box for
+              your particular browser. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_print_link&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_print_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_print_link</code>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__index-menu">Main Menu (<code class="ph codeph">webhelp_top_menu</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component generates a menu with all the documentation topics. To generate this
+              component, the <code class="keyword markupname xmlelement">&lt;whc:webhelp_top_menu&gt;</code> element must be specified
+              in the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_top_menu</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+              <code class="ph codeph">wh_top_menu</code>.</p>
+            <p class="p">You can control the maximum level of topics that will be included in the menu using
+              the <code class="ph codeph">webhelp.top.menu.depth</code> transformation parameter (in the
+                <span class="ph uicontrol">Parameters</span> tab of the transformation scenario).</p>
+            <p class="p">For information about customizing the menu, see <a class="xref" href="whr-customize-menu.html#whr-customize-menu">How to Customize the Menu</a>.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm" id="html_page_templates__index-index-terms-link">Index Terms Link (<code class="ph codeph">webhelp_indexterms_link</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to generate a link to the index terms page
+                (<code class="ph codeph">indexterms.html</code>). If the published documentation does not contain
+              any index terms, then the link will not be generated. To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_indexterms_link&gt;</code> element must be specified in
+              the HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_indexterms_link</strong> 
+     <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find an element with the class:
+                <code class="ph codeph">wh_indexterms_link</code>. This element will contain a link to the
+                <code class="ph codeph">indexterms.html</code> page.</p>
+          </dd>
+        
+            
+          <dt class="dt dlterm">Link to Skins Resources (<code class="ph codeph">webhelp_skin_resources</code>)</dt>
+          <dd class="dd">
+            <div class="p">This component can be used to add a link to resources for the current WebHelp skin
+              (such as the CSS file). To generate this component, the
+                <code class="keyword markupname xmlelement">&lt;whc:webhelp_skin_resources&gt;</code> element must be specified in the
+              HTML file as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;whc:webhelp_skin_resources/&gt;</strong></pre></div>
+            <p class="p">In the output, you will find a link to the skin resources.</p>
+          </dd>
+        
+          </dl>
+        </div>
+      </section>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title9" id="combining-pdf-webhelp">
+    <h2 class="title topictitle2" id="ariaid-title9">Combining WebHelp Responsive and PDF Customizations in a Template Package</h2>
+    <div class="body">
+      <div class="p">An <dfn class="term">Oxygen Publishing Template</dfn> package can contain both a WebHelp Responsive
+        and PDF customization in the same template package and you can use that same template in
+        both types of transformations. The template descriptor file can define the customization for
+        both types by including both a <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> element and some of the resources can be reused. Resources
+        referenced in elements in the <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> element will only be used for
+        WebHelp transformations, and resources referenced in the elements in the
+          <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> element will only be used in PDF
+        transformations.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Flowers<strong class="hl-tag">&lt;/name&gt;</strong>
+    <strong class="hl-tag">&lt;description&gt;</strong>Flowers themed light-colored template<strong class="hl-tag">&lt;/description&gt;</strong>
+
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-preview.png"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-wh.css"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-page-styling.css"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.tiles"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"no"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.toc"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong>
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-preview.png"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-pdf.css"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-page-styling.css"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"show.changes.and.comments"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>"/&gt;
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+<strong class="hl-tag">&lt;/publishing-template&gt;</strong></pre></div>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="pdf_publishing_template_contents.html">Publishing Template Package Contents for PDF Customizations</a></li></ul></div></nav>
+  </article>
+</article></main></body></html>

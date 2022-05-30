@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Search and Refactor Operations Scope","href":"topics\/search-refactor-scope.html","attributes":{"data-id":"search-refactor-scope"},"menu":{"hasChildren":false},"tocID":"search-refactor-scope-d24353e13792","topics":[]}]});

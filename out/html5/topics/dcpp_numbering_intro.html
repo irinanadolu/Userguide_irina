@@ -1,0 +1,413 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Numbering,Deep numbering,Remove prefix,Continuous numbering"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Numbering, Deep numbering, Remove prefix, Continuous numbering"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_front_matter_and_back_matter.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_table_of_contents.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_numbering_intro"><title>Numbering</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_numbering_intro">
+  <h1 class="title topictitle1" id="ariaid-title1">Numbering</h1>
+  
+  <div class="body">
+		<p class="p">The topics in this section contain some technical details in case you need to fine-tune the
+			way the numbering works.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_front_matter_and_back_matter.html">Front Matter and Back Matter</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_table_of_contents.html">Table of Contents</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_numbering___built_in_css">
+  <h2 class="title topictitle2" id="ariaid-title2">Numbering - Built-in CSS</h2>
+  <div class="body">
+    <p class="p">The built-in CSS rules are in: </p>
+		<ul class="ul" id="dcpp_numbering___built_in_css__ul_dfl_qj3_rhb">
+			<li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/print/p-numbering-shallow.css</span></li>
+			<li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/print/p-numbering-deep.css</span></li>
+			<li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/print/p-numbering-deep-chapter-scope.css</span></li>
+      <li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/print/p-numbering-deep-chapter-scope-no-page-reset.css</span></li>
+		</ul>
+		<p class="p">The first CSS (shallow) contains rules that add a "Chapter NN" before the first-level topics
+      from the publication, the second one (deep) contains rules that add a deep structure of
+      counters on all topics referenced from the map (at any level), the third one (chapter-scope)
+      creates a chapter scope-oriented numbering (meaning that the numbering for pages, tables,
+      figures, and links to them are reset for each chapter), and the last one is similar to the
+      third except that page numbers do not reset. For more details, see <a class="xref" href="dcpp_numbering_intro.html#dcpp_numbering_types">Numbering Types</a>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_numbering___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title3">Numbering - Input XML Fragments</h2>
+  <div class="body">
+    <p class="p">The numbering affects multiple logical parts of your publication, the table of contents,
+			headers/footers, chapter titles, figures and tables titles:</p>
+    <section class="section" id="dcpp_numbering___input_xml_fragment__section_wlj_qfl_5cb"><h3 class="title sectiontitle">The Table of Contents</h3>
+      
+      <p class="p">The table of contents is a tree of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. </p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span> <span class="hl-attribute">...&gt;</span>
+  <span class="hl-attribute">&lt;oxy:front-page</span> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span> 
+        <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page "</span><strong class="hl-tag">&gt;</strong>
+        ...
+  <strong class="hl-tag">&lt;/oxy:front-page&gt;</strong>
+  <strong class="hl-tag">&lt;opentopic:map</strong> <span class="hl-attribute">xmlns:opentopic</span>=<span class="hl-value">"http://www.idiominc.com/opentopic"</span> <span class="hl-attribute">class</span>=<span class="hl-value">" toc/toc "</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Publication Title<strong class="hl-tag">&lt;/title&gt;</strong>
+
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">is-chapter</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref "</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+      <strong class="hl-tag">&lt;topicmeta</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta "</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+        <strong class="hl-tag">&lt;navtitle</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_1"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/navtitle "</span><strong class="hl-tag">&gt;</strong>Overview<strong class="hl-tag">&lt;/navtitle&gt;</strong>
+            ...
+      <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref "</span> <span class="hl-attribute">...&gt;</span>
+        <span class="hl-attribute">&lt;topicmeta</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta "</span> <span class="hl-attribute">data-topic-id</span>=<span class="hl-value">"dcpp_resources"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;navtitle</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/navtitle "</span><strong class="hl-tag">&gt;</strong>Resources<strong class="hl-tag">&lt;/navtitle&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;/topicref&gt;</strong>
+        ...
+  <strong class="hl-tag">&lt;/opentopic:map&gt;</strong>
+...
+<strong class="hl-tag">&lt;/map&gt;</strong></pre>
+      <div class="note note note_note"><span class="note__title">Note:</span> The <code class="keyword markupname xmlelement">&lt;opentopic:map&gt;</code> element contains the effective table of
+        contents structure.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The TOC items are the elements with the class: <code class="ph codeph">- map/topicref</code>.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The ones identified as chapters have the <code class="keyword markupname xmlatt">@is-chapter</code> attribute
+        set.</div>
+      <div class="div">
+        <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map map"</span> <span class="hl-attribute">...&gt;</span>
+  <span class="hl-attribute">&lt;div</span> 
+        <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>
+        ...
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" toc/toc toc"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title"</span><strong class="hl-tag">&gt;</strong>Publication Title<strong class="hl-tag">&lt;/title&gt;</strong>
+
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">is-chapter</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref topicref"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta topicmeta"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_1"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/navtitle navtitle"</span><strong class="hl-tag">&gt;</strong>Overview<strong class="hl-tag">&lt;/div&gt;</strong>
+            ...
+      <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref "</span> <span class="hl-attribute">...&gt;</span>
+        <span class="hl-attribute">&lt;div</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta "</span> <span class="hl-attribute">data-topic-id</span>=<span class="hl-value">"dcpp_resources"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/navtitle "</span><strong class="hl-tag">&gt;</strong>Resources<strong class="hl-tag">&lt;/div&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;/div&gt;</strong>
+        ...
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+...
+<strong class="hl-tag">&lt;/div&gt;</strong></pre>
+      </div>
+    </section>
+    <section class="section" id="dcpp_numbering___input_xml_fragment__section_ctr_rfl_5cb"><h3 class="title sectiontitle">The Header and Footers</h3>
+      
+      <p class="p">These are based on string sets generated for the titles. The complete set of strings is
+        defined in: <span class="ph filepath">[INSTALLATION_DIR]/css/print/p-pages-and-headers.css</span>.</p>
+      <div class="p">The CSS rules that build the string sets are matching the map title from the front page and
+        the titles from the
+        content.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;oxy:front-page</strong> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;oxy:front-page-title&gt;</strong>
+            <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Publication Title<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;/oxy:front-page-title&gt;</strong>
+<strong class="hl-tag">&lt;/oxy:front-page&gt;</strong></pre></div>
+      <div class="p">
+        <div class="div">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+          transformations:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page-title/front-page-title front-page-title"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title "</span><strong class="hl-tag">&gt;</strong>Publication Title<strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre></div>
+      </div>
+      <div class="p">The main content is organized as
+        follows:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span> <span class="hl-attribute">...&gt;</span>
+    <span class="hl-attribute">...</span>
+    <span class="hl-attribute">&lt;opentopic:map</span> <span class="hl-attribute">xmlns:opentopic</span>=<span class="hl-value">"http://www.idiominc.com/opentopic"</span><strong class="hl-tag">&gt;</strong>
+      ...
+    <strong class="hl-tag">&lt;/opentopic:map&gt;</strong>
+
+    <strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">is-chapter</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_overview"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Overview<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;body</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/body "</span><strong class="hl-tag">&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/body&gt;</strong>
+        <strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic "</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_resources"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Resources<strong class="hl-tag">&lt;/title&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/topic&gt;</strong>
+        <strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic "</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_parameters"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Parameters<strong class="hl-tag">&lt;/title&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/topic&gt;</strong>
+    <strong class="hl-tag">&lt;/topic&gt;</strong></pre></div>
+      <div class="div">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+        transformations:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" map/map map"</span> <span class="hl-attribute">...&gt;</span>
+    <span class="hl-attribute">...</span>
+   <span class="hl-attribute">&lt;div</span> <span class="hl-attribute">class</span>=<span class="hl-value">" toc/toc toc"</span><strong class="hl-tag">&gt;</strong>
+      ...
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">is-chapter</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_overview"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic topic"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title"</span><strong class="hl-tag">&gt;</strong>Overview<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/body body"</span><strong class="hl-tag">&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic topic"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_resources"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title"</span><strong class="hl-tag">&gt;</strong>Resources<strong class="hl-tag">&lt;/div&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic topic"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_parameters"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title"</span><strong class="hl-tag">&gt;</strong>Parameters<strong class="hl-tag">&lt;/div&gt;</strong>
+            ...
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong></pre></div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The topic content comes after the <code class="keyword markupname xmlelement">&lt;opentopic:map&gt;</code> element.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The child topics are the elements that have the class <code class="ph codeph">- topic/topic</code>
+        included in the parents.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The ones identified as chapters have the <code class="keyword markupname xmlatt">@is-chapter</code> attribute
+        set.</div>
+    </section>
+    <section class="section" id="dcpp_numbering___input_xml_fragment__section_v3z_sfl_5cb"><h3 class="title sectiontitle">The Titles of Chapters</h3>
+      
+      <div class="p">The titles from the content are children of the
+        topics:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic "</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_parameters"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title "</span><strong class="hl-tag">&gt;</strong>Parameters<strong class="hl-tag">&lt;/title&gt;</strong>
+            ...
+<strong class="hl-tag">&lt;/topic&gt;</strong></pre></div>
+      <div class="div">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+        transformations:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic topic"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"unique_2"</span> <span class="hl-attribute">oid</span>=<span class="hl-value">"dcpp_parameters"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title "</span><strong class="hl-tag">&gt;</strong>Parameters<strong class="hl-tag">&lt;/div&gt;</strong>
+            ...
+<strong class="hl-tag">&lt;/div&gt;</strong></pre></div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The title elements have the class: <code class="ph codeph">- topic/title</code>. The actual element
+        name can be different.</div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_numbering_types">
+	<h2 class="title topictitle2" id="ariaid-title4">Numbering Types</h2>
+  
+	<div class="body">
+		<p class="p">The type of numbering is controlled by the parameter
+				<code class="ph codeph">args.css.param.numbering</code>. </p>
+		<p class="p">This parameter activates various sets of CSS rules from the built-in CSS. By default, only the
+      first-level topics (the chapters) are numbered (<code class="ph codeph">shallow</code> numbering). The
+      following values are accepted:</p>
+		<div class="p">
+			<table class="table frame-all" id="dcpp_numbering_types__table_pgx_yj3_rhb"><caption><span class="table--title-label">Table 1. </span><span class="title">Types of Numbering</span></caption><colgroup><col style="width:19.801980198019802%"><col style="width:9.900990099009901%"><col style="width:11.782178217821782%"><col style="width:33.663366336633665%"><col style="width:24.85148514851485%"></colgroup><thead class="thead">
+						<tr class="row">
+							<th class="entry" id="dcpp_numbering_types__table_pgx_yj3_rhb__entry__1">Value</th>
+							<th class="entry" id="dcpp_numbering_types__table_pgx_yj3_rhb__entry__2">Chapters</th>
+							<th class="entry" id="dcpp_numbering_types__table_pgx_yj3_rhb__entry__3">Sections/ Nested Topics</th>
+							<th class="entry" id="dcpp_numbering_types__table_pgx_yj3_rhb__entry__4">Figures &amp; Tables</th>
+							<th class="entry" id="dcpp_numbering_types__table_pgx_yj3_rhb__entry__5">Pages</th>
+						</tr>
+					</thead><tbody class="tbody">
+						<tr class="row">
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__1"><code class="ph codeph">shallow</code></td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__2">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__3">no </td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__4">counted from the start of the publication</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__5">from the start of the publication</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__1"><code class="ph codeph">deep</code></td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__2">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__3">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__4">counted from the start of the publication</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__5">from the start of the publication</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__1"><code class="ph codeph">deep-chapter-scope</code></td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__2">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__3">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__4">numbering is restarted at the beginning of each chapter, adds the chapter number in
+                their titles (and in the links to them), and in the list of tables and list of
+                figures sections</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__5">restarted at the beginning of each chapter</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__1"><code class="ph codeph">deep-chapter-scope-no-page-reset</code></td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__2">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__3">numbered</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__4">numbering is restarted at the beginning of each chapter, adds the chapter number in
+                their titles (and in the links to them), and in the list of tables and list of
+                figures sections</td>
+							<td class="entry" headers="dcpp_numbering_types__table_pgx_yj3_rhb__entry__5">from the start of the publication</td>
+						</tr>
+					</tbody></table>
+		</div>
+    <div class="note note note_note"><span class="note__title">Note:</span> When using any of the deep numbering types, no distinction is made between sections and
+      nested topics. For example, if a topic contains two sections, followed by another nested
+      topic, the sections will be numbered with 1 and 2, and the nested topic with 3.</div>
+		<div class="note notice note_notice"><span class="note__title">Notice:</span> The <code class="ph codeph">deep-chapter-scope</code> and
+        <code class="ph codeph">deep-chapter-scope-no-page-reset</code> values are only available for the <strong class="ph b">DITA
+        Map PDF - based on HTML5 &amp; CSS</strong> transformation scenario.</div>
+    <section class="section" id="dcpp_numbering_types__section_atv_pfq_rhb"><h3 class="title sectiontitle">Examples</h3>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Shallow</dt>
+            <dd class="dd">Each chapter (or first-level topic) is numbered, but sections/nested topics are not
+              numbered. Figures, tables, and pages are numbered sequentially from the start of the
+              publication and they do not
+              reset.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. First Chapter
+    Page 1
+      Topic
+        Section
+          Table 1
+          Table 2
+      Topic
+        Section
+    Page 2
+        Table 3
+2. Second Chapter
+    Page 3
+      Topic
+        Table 4
+        Table 5
+      Topic
+    Page 4</pre></dd>
+          
+          
+            <dt class="dt dlterm">Deep</dt>
+            <dd class="dd">All chapters (or first-level topics) and sections/nested topics are numbered (these
+              are also prefixed with the chapter number). Figures, tables, and pages are numbered
+              sequentially from the start of the publication and they do not
+              reset.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. First Chapter
+    Page 1
+      Topic 1.1
+        Table 1
+      Topic 1.2
+        Table 2
+    Page 2
+        Table 3
+2. Second Chapter
+    Page 3
+      Topic 2.1
+        Table 4
+        Table 5
+      Topic 2.2
+    Page 4</pre></dd>
+          
+          
+            <dt class="dt dlterm">Deep Chapter Scope</dt>
+            <dd class="dd">Each chapter (or first-level topic) is independent (so it can be read separately, as
+              a separate part of your publication). The sections/nested topics, pages, figures, and
+              table counters (and links to them) restart at each chapter. The general cross
+              reference links also display the chapter number before the page number to clearly
+              specify the target.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. First Chapter
+    Page 1.1
+      Topic 1.1
+        Table 1.1
+        Link to page 2.2
+      Topic 1.2
+    Page 1.2
+        Table 1.2
+2. Second Chapter
+    Page 2.1
+      Topic 2.1
+        Table 2.1
+        Table 2.2
+        Table 2.3
+      Topic 2.2
+        Table 2.4
+    Page 2.2
+       Link to page 1.1</pre></dd>
+          
+          
+            <dt class="dt dlterm">Deep Chapter Scope No Page Reset</dt>
+            <dd class="dd">Each chapter (or first-level topic) is independent (so it can be read separately, as
+              a separate part of your publication). The sections/nested topics, figures, and table
+              counters (and links to them) restart at each chapter, but the page numbers do not
+              reset. The generic cross reference links contain only the page
+              number.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. First Chapter
+    Page 1
+      Topic 1.1
+        Table 1.1
+        Link to page 4
+      Topic 1.2
+    Page 2
+        Table 1.2
+2. Second Chapter
+    Page 3
+      Topic 2.1
+        Table 2.1
+        Table 2.2
+        Table 2.3
+      Topic 2.2
+        Table 2.4
+    Page 4
+       Link to page 1</pre></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> When using deep numbering, if you want to exclude sections from being numbered,
+      see <a class="xref" href="dcpp_numbering_intro.html#dcpp_how_to_exclude_topic_sections_from_numbering">How to Exclude Topic Sections from Numbering</a>.</div>
+	</div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_remove_prefix_from_toc_and_content">
+    <h2 class="title topictitle2" id="ariaid-title5">How to Remove the 'Chapter NN' Prefix from Table of Contents and Content.</h2>
+  
+    <div class="body">
+        <p class="p">If you are using the shallow numbering CSS (this is the default), and you want to hide
+      the "Chapter" prefix, use the following rules in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+        <p class="p">For the TOC:</p>
+        <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/topicmeta"</span>] &gt; *[class ~= <span class="hl-string">"topic/navtitle"</span>]:before {
+    <strong class="hl-keyword">display</strong>:none !important; 
+}</pre>
+        </div>
+        <p class="p">For the titles in the content, change the content of the title <code class="ph codeph">:before</code>
+      (this example just uses the chapter number):</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter]:not([is-part]) &gt; *[class ~= <span class="hl-string">"topic/title"</span>]:before {
+    <strong class="hl-keyword">content</strong>: counter(chapter) <span class="hl-string">". "</span> !important;
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_activate_continuous_page_numbering">
+    <h2 class="title topictitle2" id="ariaid-title6">How to Activate Continuous Page Numbering</h2>
+  
+    <div class="body">
+        <p class="p">The page numbers are reset to one of two cases:</p>
+		<ul class="ul" id="dcpp_how_to_activate_continuous_page_numbering__ol_u5z_xry_mjb">
+      <li class="li">On the first topic that follows the TOC.</li>
+      <li class="li">On the first topic from the index.</li>
+    </ul>
+		<p class="p">To avoid the page counter from being reset, use the following rules in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"toc/toc"</span>] + *[class ~= <span class="hl-string">"topic/topic"</span>],
+*[class ~= <span class="hl-string">"index/groups"</span>] {
+  <strong class="hl-keyword">counter-reset</strong>: none;
+}</pre>
+		<p class="p">The index page also changes the format of the page numbers to lower alpha characters. To switch
+      to decimal characters, use:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> index {
+  @bottom-center {
+    <strong class="hl-keyword">content</strong>: counter(page, decimal)
+  }
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_use_part_chapter_and_section_numbers_in_links">
+  <h2 class="title topictitle2" id="ariaid-title7">How to Use Part, Chapter, and Subtopics Numbers in Links</h2>
+  <div class="body">
+    <p class="p">This topic is applicable if you have enabled <a class="xref" href="dcpp_numbering_intro.html#dcpp_numbering_types">deep
+        numbering</a>. Suppose you have a link in the third chapter that points to a paragraph in
+      the second subtopic of the first chapter and you need this structural information (1.2)
+      presented to the user, just after the link text. To do this, you can use the
+        <code class="ph codeph">target-counters</code> CSS function to extract the entire context of the counters
+      from the target. The <code class="ph codeph">chapter-and-sections</code> built-in counter is already updated
+      with both the chapter number and the nested topics:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/xref"</span>]:after {
+	<strong class="hl-keyword">content</strong>: target-counters(attr(href), chapter-and-sections, <span class="hl-string">"."</span>) !important;	
+}</pre>
+    <p class="p">This counter does not include the part number, so take care when linking between parts (you
+      may consider adding the target part number explicitly):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/xref"</span>]:after {
+	<strong class="hl-keyword">content</strong>: <span class="hl-string">"["</span> target-counter(attr(href), part, upper-roman) <span class="hl-string">"/"</span> target-counters(attr(href), chapter-and-sections, <span class="hl-string">"."</span>) <span class="hl-string">"]"</span> !important;
+	<strong class="hl-keyword">color</strong>:blue;	
+}</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_numbering_intro.html#dcpp_numbering_types">Numbering Types</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_exclude_topic_sections_from_numbering">
+    <h2 class="title topictitle2" id="ariaid-title8">How to Exclude Topic Sections from Numbering</h2>
+    <div class="body">
+    <div class="p">This topic is applicable if you have enabled <a class="xref" href="dcpp_numbering_intro.html#dcpp_numbering_types">deep
+        numbering</a>. By default, topic sections are included in the numbering in both the
+      content and bookmarks. If you want to prevent topic sections from being numbered in your
+      output, simply add the following to your CSS
+      customization:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>][numbering^=<span class="hl-string">'deep'</span>] *[class ~= <span class="hl-string">"topic/topic"</span>]:not([is-frontmatter]):not([is-backmatter]) *[class $= <span class="hl-string">"topic/section "</span>] &gt; *[class ~= <span class="hl-string">"topic/title"</span>]:before,
+*[class ~= <span class="hl-string">"map/map"</span>][numbering^=<span class="hl-string">'deep'</span>] *[class ~= <span class="hl-string">"topic/topic"</span>]:not([is-frontmatter]):not([is-backmatter]) *[class $= <span class="hl-string">"topic/section section"</span>] &gt; *[class ~= <span class="hl-string">"topic/title"</span>]:before{
+        <strong class="hl-keyword">content</strong>: <span class="hl-string">""</span>;
+}</pre></div>
+    </div>
+</article></article></article></main></body></html>

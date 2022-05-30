@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="colors-and-styles-preferences">
+  <title>Colors and Styles Preferences</title>
+  <body>
+    <p><ph keyref="product"/> lets you set the colors and styles used to display <xref
+        keyref="options_editor_profiling">profiling / conditional text</xref> in the <xref
+        href="author-editor.dita#author-editor"><uicontrol>Author</uicontrol> mode editor</xref>. To
+      set Colors and Styles preferences, <ph
+        conkeyref="reusables-preferences-pages/open-the-preferences-page"/> and go to <menucascade>
+        <uicontrol>Editor</uicontrol>
+        <uicontrol>Edit modes</uicontrol>
+        <uicontrol>Author</uicontrol>
+        <uicontrol>Profiling/Conditional Text</uicontrol>
+        <uicontrol>Colors and Styles</uicontrol>
+      </menucascade>.</p>
+    <p>The preference page includes the following options and sections:<dl>
+        <dlentry>
+          <dt><uicontrol>Import from DITAVAL</uicontrol></dt>
+          <dd>Allows you to import profiling styles from a <filepath>.ditaval</filepath> file. You
+            can merge these new profiling styles with the existing ones, or replace them completely.
+            If the imported styles conflict with the existing ones, <ph keyref="product"/> displays
+            a dialog box containing two tables. The first one previews the imported styles, while
+            the second one previews the already defined styles. You can choose to either keep the
+            existing styles or replace them with the imported ones. This feature works even if you
+            use <xref href="dita-profiling-attribute-groups.dita">profiling attribute groups to
+              organize the attributes into subcategories</xref>.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Profiling Colors and Styles Table</dt>
+          <dd>You can use buttons below this table to set specific colors and styles for the listed
+            profiling attribute values. The table includes two categories:<ul>
+              <li><uicontrol>Defined attributes values</uicontrol> - Contains the styles for
+                profiling attribute values defined in the <xref
+                  href="preferences-profiling-conditions.dita#preferences-profiling-conditions"
+                  format="dita"><uicontrol>Profiling / Conditional Text</uicontrol></xref>
+                preferences page. Each profiling attribute value has an associated style. To ease
+                the process of customizing styles, the <uicontrol>Defined attributes
+                  values</uicontrol> category contains by default the list of empty styles. All you
+                have to do is to adjust the colors and decorations, thus skipping the process of
+                manually defining the association rules (document type, attribute name, and value).
+                This is the reason why a style from this category can only be <xref
+                  href="#colors-and-styles-preferences/reset_style" format="dita">reset</xref>, not
+                deleted.</li>
+              <li><uicontrol>Other</uicontrol> - This category contains styles for attribute values
+                that are not marked as profiling values, in the <xref
+                  href="preferences-profiling-conditions.dita#preferences-profiling-conditions"
+                  format="dita"><uicontrol>Profiling / Conditional Text</uicontrol></xref>
+                preferences page. In this category are listed:<ul>
+                  <li>All the styles that were defined in other projects (with other profiling
+                    attribute value sets).</li>
+                  <li>All the styles set for the profiling attributes defined in a <xref
+                      href="subject-scheme-map.dita#subject-scheme-map"><term>subject scheme
+                        map</term></xref>.</li>
+                </ul></li>
+            </ul></dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Automatic styling</uicontrol> button</dt>
+          <dd>If you click this button, <ph keyref="product"/> will apply automatic styling to the
+            profiling attribute values that do not have a style defined.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>New</uicontrol> button</dt>
+          <dd>Opens the <uicontrol>Add Profiling Style</uicontrol> dialog box that allows you to
+            associate a set of coloring and styling properties to a profiling value. <note>You can
+              define a default style for a specific attribute by setting the <uicontrol>Attribute
+                value</uicontrol> field to <codeph>&lt;ANY&gt;</codeph>. This style is applied for
+              attribute values that do not have a specific style associated with it.</note></dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Edit</uicontrol> button</dt>
+          <dd>Open the <uicontrol>Edit Profiling Style</uicontrol> dialog box that allows you to
+            edit the colors or style for an existing profiling value. You can also double-click the
+            value to open this dialog box.</dd>
+        </dlentry>
+        <dlentry id="reset_style">
+          <dt><uicontrol>Clear style</uicontrol> button</dt>
+          <dd>Resets the style for the selected value to its default setting (no color or
+            decoration).</dd>
+        </dlentry>
+        <dlentry>
+          <dt><uicontrol>Delete</uicontrol> button</dt>
+          <dd>Delete the selected style from the <uicontrol>Other</uicontrol> category.</dd>
+        </dlentry>
+      </dl></p>
+  </body>
+  <related-links>
+    <linklist><title>Related Information:</title><link href="dita-ditaval-file.dita#dita-ditaval-file"/><link href="dita-flag-content-ditaval.dita#dita-flag-content-ditaval"/></linklist>
+    
+  </related-links>
+</topic>

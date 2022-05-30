@@ -1,0 +1,35 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics,LaTeX equations"><meta name="keywords" content="DITA, Topics, LaTeX equations"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-mathml.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-extensions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-embedding-latex-equations"><title>Adding LaTeX Equations in DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-embedding-latex-equations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding LaTeX Equations in DITA Topics</h1>
+  
+  <div class="body">
+    <p class="p">LaTeX is a high-quality typesetting system that includes features designed for the production
+      of technical and scientific documentation. LaTeX can also be used to express mathematical
+      formulas in a textual format. By default, web browsers and PDF readers do not have support to
+      show mathematical equations written in LaTeX, but there are open-source projects that can read
+      LaTeX and convert it to other image types.</p>
+    <div class="p">Adding support for writing LaTeX equations in a DITA topic implies three stages:<ol class="ol" id="dita-embedding-latex-equations__ul_kcm_jw1_chb">
+        <li class="li">Find a way to write the equation in the DITA XML content. You can either create a DITA
+          DTD specialization and add a new element (for example, called
+            <code class="keyword markupname xmlelement">&lt;latex&gt;</code> and it extends the DITA <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+          element). Alternatively, you can directly use the DITA <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+          element with a specific <code class="keyword markupname xmlatt">@outputclass</code> attribute value:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-tag-doctype">&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd"&gt;</span>
+<strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"testEquation"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>Test equation<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;body&gt;</strong>
+    <strong class="hl-tag">&lt;p&gt;</strong><strong class="hl-tag">&lt;foreign</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"embed-latex"</span><strong class="hl-tag">&gt;</strong>L' = {L}{\sqrt{1-\frac{v^2}{c^2}}}<strong class="hl-tag">&lt;/foreign&gt;</strong><strong class="hl-tag">&lt;/p&gt;</strong>
+  <strong class="hl-tag">&lt;/body&gt;</strong>
+<strong class="hl-tag">&lt;/topic&gt;</strong></pre></li>
+        <li class="li"> If you want <span class="ph">Oxygen XML Editor</span> to properly present the LaTeX equation when editing
+          in the <strong class="ph b">Author</strong> visual mode, you need a plugin that converts the equation content to
+          an image. There is a sample plugin that does that here: <a class="xref" href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/latex-images-support" target="_blank" rel="external noopener">https://github.com/oxygenxml/wsaccess-javascript-sample-plugins/tree/master/latex-images-support</a>. You can download and copy the plugin folder
+            <strong class="ph b">latex-images-support</strong> to the <span class="ph">Oxygen XML Editor</span>
+          <strong class="ph b">plugins</strong> folder, then restart <span class="ph">Oxygen XML Editor</span>.</li>
+        <li class="li">The final stage would be to publish the content to HTML-based or PDF output. The
+          following DITA Open Toolkit plugin automatically converts LaTeX images to SVG when
+          publishing: <a class="xref" href="https://github.com/oxygenxml/dita-latex" target="_blank" rel="external noopener">https://github.com/oxygenxml/dita-latex</a>.</li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-structure.html">Working with DITA Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/working-with-mathml.html">Adding MathML Equations in DITA Topics</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-dita-extensions.html">DITA Topic Author Mode Actions</a></div></div></nav></article></main></body></html>

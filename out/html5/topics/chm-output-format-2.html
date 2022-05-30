@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DITA Map to CHM (Compiled Help,DITA Map to CHM (Compiled Help) transformation"><meta name="keywords" content="Transformation Scenarios, DITA Map to CHM (Compiled Help, DITA Map to CHM (Compiled Help) transformation"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-map-transformation-scenarios-2.html"><meta name="DC.relation" scheme="URI" content="../topics/ditamap-ms-word-2.html"><meta name="DC.relation" scheme="URI" content="../topics/kindle-transformation-output-2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="chm-output-format"><title>DITA Map CHM (Compiled HTML Help) Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="chm-output-format"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Map CHM (Compiled HTML Help) Transformation</h1>
+  
+  <div class="body">
+    <div class="p">To perform a <em class="ph i">Compiled HTML Help (CHM)</em> transformation, <span class="ph">Oxygen XML Editor</span> needs
+        <code class="ph codeph">Microsoft HTML Help Workshop</code> to be installed on your computer. <span class="ph">Oxygen XML Editor</span> automatically detects if <code class="ph codeph">HTML Help Workshop</code> is installed
+      and uses it. <div class="note note note_note"><span class="note__title">Note:</span> <code class="ph codeph">HTML Help Workshop</code> might fail if the files used for
+        transformation contain accents in their names, due to different encodings used when writing
+        the <em class="ph i">.hhp</em> and <em class="ph i">.hhc</em> files. If the transformation fails to produce the CHM output
+        but the <em class="ph i">.hhp</em> (HTML Help Project) file is already generated, you can manually try to
+        build the CHM output using <code class="ph codeph">HTML Help Workshop</code>.</div></div>
+    <section class="section" id="chm-output-format__changing_the_output_encoding"><h2 class="title sectiontitle">Changing the Output Encoding</h2>
+      
+    </section>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> uses the <code class="ph codeph">htmlhelp.locale</code> parameter to correctly
+      display specific characters of different languages in the output of the <em class="ph i">Compiled HTML
+        Help (CHM)</em> transformation. By default, the <span class="ph uicontrol">DITA Map CHM</span>
+      transformation scenario that comes bundled with <span class="ph">Oxygen XML Editor</span> has the
+        <code class="ph codeph">htmlhelp.locale</code> parameter set to <code class="ph codeph">en-US</code>. </p>
+    <p class="p">To customize this parameter, follow this procedure:</p>
+    <div class="p">
+      <ol class="ol">
+        <li class="li">Use the <span class="ph uicontrol"><img class="image" id="chm-output-format__image_hcv_gwv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s) (<span class="keyword shortcut">Ctrl + Shift
+                    + C (Command + Shift + C on OS X)</span></span><span class="ph uicontrol">)</span> action from the
+          toolbar or the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Transformation</span></span> menu.</li>
+        <li class="li">Select the <span class="ph uicontrol">DITA Map CHM</span> transformation scenario and click the
+            <span class="ph uicontrol">Edit</span> button.</li>
+        <li class="li"> In the <span class="ph uicontrol">Parameter</span> tab, search for the
+            <code class="ph codeph">htmlhelp.locale</code> parameter and change its value to the desired language
+            tag.<div class="note note note_note"><span class="note__title">Note:</span> The format of the <code class="ph codeph">htmlhelp.locale</code> parameter is
+              <code class="ph codeph">LL-CC</code>, where <code class="ph codeph">LL</code> represents the language code
+              (<code class="ph codeph">en</code>, for example) and <code class="ph codeph">CC</code> represents the country code
+              (<code class="ph codeph">US</code>, for example). The language codes are contained in the
+              <code class="ph codeph">ISO 639-1</code> standard and the country codes are contained in the
+              <code class="ph codeph">ISO 3166-1</code> standard. For further details about language tags, go to
+              <a class="xref" href="http://www.rfc-editor.org/rfc/rfc5646.txt" target="_blank" rel="external noopener">http://www.rfc-editor.org/rfc/rfc5646.txt</a>.</div></li>
+      </ol>
+    </div>
+    <section class="section" id="chm-output-format__section_g5w_mph_43b"><h2 class="title sectiontitle">Customizing the CHM Output</h2>
+      
+      <div class="p">There are several possibilities available for customizing the CHM output:<ul class="ul" id="chm-output-format__ul_k3p_rph_43b">
+          <li class="li">You can use a custom CSS stylesheet to customize how the HTML content is rendered in
+            the output:<ol class="ol" id="chm-output-format__ol_trv_fqh_43b">
+              <li class="li">Create the custom CSS.</li>
+              <li class="li">Select the <span class="ph uicontrol">DITA Map CHM</span> transformation scenario and click
+                the <span class="ph uicontrol">Edit</span> button.</li>
+              <li class="li">In the <span class="ph uicontrol">Parameter</span> tab, set the <code class="ph codeph">args.css</code>
+                parameter to point to the location of your custom CSS and make sure the
+                  <code class="ph codeph">args.copy.css</code> parameter is set to <strong class="ph b">yes</strong> to instruct the
+                transformation to copy the custom CSS to the output folder.</li>
+              <li class="li">Run the transformation.</li>
+            </ol></li>
+          <li class="li">If you are familiar with XSLT, there are two XSLT stylesheets that are used in the
+            transformation to compile various settings and components in the CHM output. They are
+            found in the following directory:
+              <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/DITA-OT3.x/plugins/org.dita.htmlhelp/xsl/map2htmlhelp</span>.
+            The files are as follows:<ul class="ul" id="chm-output-format__ul_wvw_xrh_43b">
+              <li class="li"><strong class="ph b">map2hhcImpl.xsl</strong> - This file is used to compile the table of contents.</li>
+              <li class="li"><strong class="ph b">map2hhpImpl.xsl</strong> - This file contains information for compiling the CHM and
+                various settings that are read by the <dfn class="term">HTML Help Workshop</dfn> when creating
+                the output.</li>
+            </ul></li>
+        </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita-map-transformation-scenarios-2.html">DITA Map Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/ditamap-ms-word-2.html">DITA Map MS Office Word Transformation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/kindle-transformation-output-2.html">DITA Map Kindle Transformation</a></div></div></nav></article></main></body></html>

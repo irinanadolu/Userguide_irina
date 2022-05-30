@@ -1,0 +1,97 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Adding videos,Adding audio objects"><meta name="keywords" content="WebHelp Responsive, Adding videos, Adding audio objects"><meta name="DC.relation" scheme="URI" content="../topics/whr-media-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/add-favicon-webhelp.html"><meta name="DC.relation" scheme="URI" content="../topics/mathjax-webhelp2-x.html"><meta name="DC.relation" scheme="URI" content="dita-adding-media.html#dita-adding-media"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-add-videos"><title>How to Add Video and Audio Objects in DITA WebHelp Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-add-videos"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Add Video and Audio Objects in DITA WebHelp Output</h1>
+  
+  
+  <div class="body">
+    <p class="p">You can insert references to video and audio media resources (such as videos, audio clips, or
+      embedded HTML frames) in your DITA topics and then publish them to WebHelp output. The media
+      objects can be played directly in all HTML5-based outputs, including WebHelp systems.</p>
+    <p class="p">To add media objects in the WebHelp output generated from DITA documents, follow the
+      procedures below.</p>
+    <section class="section" id="whr-add-videos__adding_videos_to_webhelp_generated_from_dita_maps"><h2 class="title sectiontitle">Adding Videos to DITA WebHelp Output</h2>
+      
+      <ol class="ol" id="whr-add-videos__ul_htk_g1y_cr">
+        <li class="li">Edit the DITA topic and insert a
+          reference to the video through one of the following methods:<ul class="ul">
+            <li class="li">Use the <a class="xref" href="dita-adding-media.html#dita-adding-media"><span class="ph uicontrol"><img class="image" src="../img/InsertMedia16.png">Insert Media Object</span> toolbar
+                action</a>.</li>
+            <li class="li">Drag (or copy) the video file from your system explorer or the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and drop
+              (or paste) it into your document.</li>
+            <li class="li">Manually add an <code class="keyword markupname xmlelement">&lt;object&gt;</code> element, as in one of the following
+              examples:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"video"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"video/mp4"</span> <span class="hl-attribute">data</span>=<span class="hl-value">"MyVideo.mp4"</span><strong class="hl-tag">/&gt;</strong></pre>or,
+              instead of the <code class="keyword markupname xmlatt">@data</code> attribute, you can specify the video using a
+              parameter like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"video"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"src"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"videos/MyVideo.mp4"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/object&gt;</strong></pre></li>
+          </ul></li>
+        
+        <li class="li">Apply a <strong class="ph b">DITA to WebHelp</strong> transformation to obtain the output.</li>
+      </ol>
+      <div class="p"><strong class="ph b">Result:</strong> The transformation converts the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element to
+        an HTML5 <code class="keyword markupname xmlelement">&lt;video&gt;</code>
+        element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;video</strong> <span class="hl-attribute">controls</span>=<span class="hl-value">"controls"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;source</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"video/mp4"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"MyVideo.mp4"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/source&gt;</strong>
+<strong class="hl-tag">&lt;/video&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="whr-add-videos__adding_audio_clips_to_webhelp_responsive_output"><h2 class="title sectiontitle">Adding Audio Clips to DITA WebHelp Output</h2>
+      
+      <ol class="ol">
+        <li class="li">Edit the DITA topic and insert a
+          reference to the audio clip through one of the following methods:<ul class="ul">
+            <li class="li">Use the <a class="xref" href="dita-adding-media.html#dita-adding-media"><span class="ph uicontrol"><img class="image" src="../img/InsertMedia16.png">Insert Media Object</span> toolbar
+                action</a>.</li>
+            <li class="li">Drag (or copy) the audio file from your system explorer or the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and drop
+              (or paste) it into your document.</li>
+            <li class="li">Manually add an <code class="keyword markupname xmlelement">&lt;object&gt;</code> element, as in one of the following
+              examples:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"audio"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"audio/mpeg"</span> <span class="hl-attribute">data</span>=<span class="hl-value">"MyClip.mp3"</span><strong class="hl-tag">/&gt;</strong></pre>or,
+              instead of the <code class="keyword markupname xmlatt">@data</code> attribute, you can specify the video using a
+              parameter like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"audio"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"src"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"audio/MyClip.mp3"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/object&gt;</strong></pre></li>
+          </ul></li>
+        
+        <li class="li">Apply a <strong class="ph b">DITA to WebHelp</strong> transformation to obtain the output.</li>
+      </ol>
+      <div class="p"><strong class="ph b">Result:</strong> The transformation converts the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element to
+        an HTML5 <code class="keyword markupname xmlelement">&lt;audio&gt;</code>
+        element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;audio</strong> <span class="hl-attribute">controls</span>=<span class="hl-value">"controls"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;source</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"audio/mpeg"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"MyClip.mp3"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/source&gt;</strong>
+<strong class="hl-tag">&lt;/audio&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="whr-add-videos__adding_embedded_html_frames_such_as_youtube_video"><h2 class="title sectiontitle">Adding Embedded HTML Frames (such as YouTube videos) to DITA WebHelp Output</h2>
+      
+      <ol class="ol">
+        <li class="li">Edit the DITA topic and insert a reference to the embedded object <span class="ph">by using the <a class="xref" href="dita-adding-media.html#dita-adding-media"><span class="ph uicontrol"><img class="image" src="../img/InsertMedia16.png">Insert Media Object</span> toolbar
+              action</a> or </span>by manually adding an <code class="keyword markupname xmlelement">&lt;object&gt;</code> element,
+          as in one of the following
+          examples:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"iframe"</span> <span class="hl-attribute">data</span>=<span class="hl-value">"https://www.youtube.com/embed/m_vv2s5Trn4"</span><strong class="hl-tag">/&gt;</strong></pre>or,
+          instead of the <code class="keyword markupname xmlatt">@data</code> attribute, you can specify the object using a
+          parameter like
+          this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"iframe"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"src"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"http://www.youtube.com/embed/m_vv2s5Trn4"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/object&gt;</strong></pre></li>
+        <li class="li">If you want the video to be allowed to play in full screen mode once the document is
+          converted to XHTML output, also add an <code class="ph codeph">allowfullscreen</code> parameter and set
+          its value to
+            <strong class="ph b">true</strong>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;object</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"iframe"</span> <span class="hl-attribute">data</span>=<span class="hl-value">"https://www.youtube.com/embed/m_vv2s5Trn4"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"allowfullscreen"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"true"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/object&gt;</strong></pre><div class="note tip note_tip"><span class="note__title">Tip:</span> If you copy the embed
+            code from the source and paste it into the <span class="ph uicontrol">Insert Media</span> dialog
+            box (see the specific instructions: <a class="xref" href="dita-adding-media.html#dita-adding-media__copy-embed-code-tip">here</a>), the
+              <code class="ph codeph">allowfullscreen</code> parameter will automatically be added and all you
+            have to do is set the value to <strong class="ph b">true</strong>.</div></li>
+        <li class="li">Apply a <strong class="ph b">DITA to WebHelp</strong> transformation to obtain the output.</li>
+      </ol>
+      <div class="p"><strong class="ph b">Result:</strong> The transformation converts the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element to
+        an HTML5 <code class="keyword markupname xmlelement">&lt;iframe&gt;</code>
+        element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;iframe</strong> <span class="hl-attribute">controls</span>=<span class="hl-value">"controls"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"https://www.youtube.com/embed/m_vv2s5Trn4"</span><strong class="hl-tag">&gt;</strong>
+<strong class="hl-tag">&lt;/iframe&gt;</strong></pre></div>
+    </section>
+    <p class="p">For more information, see the following
+      video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/llX11gS4WaU" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-media-resources.html">Adding Graphics and Media Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-favicon-webhelp.html">How to Add a Favicon in WebHelp Systems</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/mathjax-webhelp2-x.html">How to Add MathML Equations in WebHelp Output</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-adding-media.html#dita-adding-media">Adding Video, Audio, and Embedded HTML Resources in DITA Topics</a></li></ul></div></nav>
+</article></main></body></html>

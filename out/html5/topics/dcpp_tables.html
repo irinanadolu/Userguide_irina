@@ -1,0 +1,219 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Tables,,Wide,Rotate,Text bleeding,Layout,Automatic layout"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Tables, , Wide, Rotate, Text bleeding, Layout, Automatic layout"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_styling_the_contents.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_images.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_code_blocks.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_tables"><title>Tables</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_tables">
+  <h1 class="title topictitle1" id="ariaid-title1">Tables</h1>
+  
+  <div class="body">
+    <p class="p">Tables are widely used in technical documentation. This section contains information about
+      the CSS rules that are used to style them and how to fix some problems.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_styling_the_contents.html">Styling the Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_images.html">Images and Figures</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_code_blocks.html">Code Blocks</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_tables___built_in_css_0">
+    <h2 class="title topictitle2" id="ariaid-title2">Tables - Built-in CSS</h2>
+    <div class="body">
+        <div class="p">There is a combination of CSS files that address tables: <ul class="ul" id="dcpp_tables___built_in_css_0__ul_bqs_yrl_nhb">
+				<li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/core/-table-html-cals.css</span></li>
+				<li class="li"><span class="ph filepath">[PLUGIN_DIR]/css/print/p-tables.css</span></li>
+			</ul></div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_deal_with_wide_tables">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Deal With Wide Tables - Page Rotation</h2>
+  
+  <div class="body">
+    <p class="p">Some of the tables can have a large number of columns. In this case, the table may bleed out
+      of the page. One solution is to use landscape pages for these tables. </p>
+    <p class="p">Setting the attribute <code class="keyword markupname xmlatt">@orient</code> = 'land' on the table element will force the
+      table on a new landscape page. </p>
+    <p class="p">Another solution is to use automatic detection of wide tables (5 or more columns):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'5'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'6'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'7'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'8'</span>] {
+    page: landscape-page;
+    <strong class="hl-keyword">max-width</strong>: <span class="hl-number">100</span>%;
+    <strong class="hl-keyword">page-break-before</strong>: avoid;
+}    </pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">landscape-page</code> page layout is defined in the
+        <span class="ph filepath">[PLUGIN_DIR]css/print/p-pages-and-headers.css</span>. </div>
+    <p class="p">If you want to rotate the entire topic that contains the big table, use:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'5'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'6'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'7'</span>],
+*[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'8'</span>] {
+    <strong class="hl-keyword">max-width</strong>: <span class="hl-number">100</span>%;
+    <strong class="hl-keyword">table-layout</strong>:auto;
+}
+
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'5'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'6'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'7'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'8'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'5'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'6'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'7'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'8'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'5'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'6'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'7'</span>]),
+*[class~=<span class="hl-string">"topic/topic"</span>]:has(*:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *:not([class~=<span class="hl-string">"topic/topic"</span>]) &gt; *[class~=<span class="hl-string">"topic/table"</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>][cols=<span class="hl-string">'8'</span>]){
+      page: landscape-page;
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_fix_text_bleeding_from_table_cells">
+    <h2 class="title topictitle2" id="ariaid-title4">How to Fix Text Bleeding From Table Cells</h2>
+  
+    <div class="body">
+        <p class="p">Slim tables or tables that have many columns make the text from the cells be confined to
+      a small horizontal space. Sometimes this causes long words to bleed outside the cell
+      boundaries. </p>
+		<p class="p">By default, the built-in CSS automatically activates the hyphenation for the text inside tables
+      as long as your topics have the language specified.</p>
+    <div class="p">In case the text is still bleeding outside the boundaries, you can also use the
+        <code class="ph codeph">overflow-wrap</code> property to force the word to
+      break:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/table"</span>] {
+  overflow-wrap: break-word;
+}</pre></div>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_hyphenation.html">Hyphenation</a></li><li class="linklist"><a class="link" href="dcpp_hyphenation.html#dcpp_how_to_enable_hyphenation_for_tables">How to Enable/Disable Hyphenation for Tables</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_avoid_table_exceeding_page">
+    <h2 class="title topictitle2" id="ariaid-title5">How to Avoid a Table Exceeding the Page Width</h2>
+  
+    <div class="body">
+    <div class="p">The DITA specification indicates that tables should have a fixed layout. This can be done in
+      two different ways:<ol class="ol" id="dcpp_how_to_avoid_table_exceeding_page__ol_jxr_nsf_zkb">
+        <li class="li"><strong class="ph b">Using proportional or relative measures</strong> - It includes percent values and shares
+          values (i.e. "3*" or "12*").</li>
+        <li class="li">
+          <p class="p"><strong class="ph b">Using fixed measures</strong> - It includes all the values followed by units (i.e.
+              <em class="ph i">in</em>, <em class="ph i">pt</em>, <em class="ph i">px</em>, and others).</p>
+        </li>
+      </ol><div class="note important note_important"><span class="note__title">Important:</span> Although the specification allows you to combine these values, it
+        is <strong class="ph b">highly recommend</strong> that you only use one method at a time. Combining both methods
+        could lead to a table exceeding the page width and will make the content
+      unreadable.</div></div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_enable_the_automatic_table_layout">
+    <h2 class="title topictitle2" id="ariaid-title6">How to Enable the Automatic Table Layout</h2>
+  
+    <div class="body">
+        <p class="p">It is possible to automatically arrange the table layout directly from the <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a> by simply adding this:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/tgroup"</span>] {
+    <strong class="hl-keyword">table-layout</strong>:auto !important;
+}</pre>
+    <p class="p">This will help you to obtain a more optimal arrangement of the cells inside your table.</p>
+        <div class="p">If you want to control which table will use this layout, you can set the
+        <code class="keyword markupname xmlatt">@outputclass</code> attribute on the <code class="keyword markupname xmlelement">&lt;table&gt;</code>
+      element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">'auto_tbl'</span><strong class="hl-tag">&gt;</strong> ... <strong class="hl-tag">&lt;/table&gt;</strong></pre>Then,
+      in the CSS, use a rule that matches the <code class="keyword markupname xmlatt">@outputclass</code>:</div>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"topic/table"</span>][outputclass=<span class="hl-string">'auto_tbl'</span>] &gt; *[class~=<span class="hl-string">"topic/tgroup"</span>] {
+    <strong class="hl-keyword">table-layout</strong>:auto !important;
+}</pre>
+        <div class="note important note_important"><span class="note__title">Important:</span> Make sure the tables have no column width specified. </div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_rotate_the_contents_from_a_table_cell">
+  <h2 class="title topictitle2" id="ariaid-title7">How to Rotate Content from a Table Cell</h2>
+  <div class="body">
+    <p class="p">There are cases where you want to style the first column as a kind of table header, with
+      vertical text. </p>
+    <p class="p">There is an important thing to remember: you can rotate an element from a table cell, but not
+      the cell itself. So, your DITA table cell should contain a <code class="keyword markupname xmlelement">&lt;div&gt;</code> or a
+        <code class="keyword markupname xmlelement">&lt;p&gt;</code> element that will be rotated. The cell has to be marked somehow
+      so that it can be matched from the CSS. One way is to set an <code class="keyword markupname xmlatt">@outputclass</code>
+      attribute on it, another will be to mark the table and then match the first entries from
+      it.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;row&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;entry</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"rotated"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;p&gt;</strong>Rotated<strong class="hl-tag">&lt;/p&gt;</strong>
+      <strong class="hl-tag">&lt;/entry&gt;</strong>
+      ...
+ <strong class="hl-tag">&lt;/row&gt;</strong></pre>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, use the
+      following rule that matches the child of the entry:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/row"</span>] &gt; *[class ~= <span class="hl-string">"topic/entry"</span>][outputclass ~= <span class="hl-string">"rotated"</span>] {
+  <strong class="hl-keyword">width</strong>: <span class="hl-number">1</span>em; <em class="hl-comment">/* This gives the table column its width. It is the height of the rotated elemnet - assuming it contains just one line. */</em>
+  <strong class="hl-keyword">padding-top</strong>: <span class="hl-number">14</span>em; <em class="hl-comment">/* Increase this until the entire vertical text fits into the cell. */</em>
+}
+   
+*[outputclass ~= <span class="hl-string">"rotated"</span>] &gt; * {
+        transform: rotate(-<span class="hl-number">90</span>deg) !important;
+        <strong class="hl-keyword">width</strong>:<span class="hl-number">1</span>em; <em class="hl-comment">/* This also gives the table column its width. */</em>
+        <strong class="hl-keyword">height</strong>:<span class="hl-number">1</span>em; <em class="hl-comment">/* This is the effective width after rotation. */</em>
+        <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>pt solid red; <em class="hl-comment">/* Just for debug */</em>
+        <strong class="hl-keyword">background-color</strong>:yellow; <em class="hl-comment">/* Just for debug */</em>
+        hyphens:manual; <em class="hl-comment">/* Disable hyphenation, to force the text extend out of the small bounds - the parent rotated entry has enough padding to accomodate it. */</em>
+        <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>;
+        <strong class="hl-keyword">margin</strong>: <span class="hl-number">0</span>;
+}</pre>
+    <p class="p">The padding and margins are set to zero to clear any space that may come from other rules.
+      The width is required - it will become the height of the cell. </p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_add_horizontal_lines_to_a_choice_table">
+  <h2 class="title topictitle2" id="ariaid-title8">How to Add Horizontal Lines to a Choice Table</h2>
+  <div class="body">
+    <p class="p">To add horizontal lines that separate the options within a
+        <code class="keyword markupname xmlelement">&lt;choicetable&gt;</code>, you can use borders set on each of the rows. The
+      following CSS styles the top header and the first column with some background colors. In a
+      choice table, the first column represents the choice labels.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"task/choptionhd"</span>],
+*[class~=<span class="hl-string">"task/choptionhd"</span>],
+*[class~=<span class="hl-string">"task/chdeschd"</span>],
+*[class~=<span class="hl-string">"task/choption"</span>] {
+	<strong class="hl-keyword">background-color</strong>: #EEEEEE;	
+	<strong class="hl-keyword">text-align</strong>: <strong class="hl-keyword">left</strong>;
+}
+
+*[class~=<span class="hl-string">"task/choicetable"</span>] {
+	<strong class="hl-keyword">border</strong>: <span class="hl-number">2</span>pt solid #EEEEEE;
+}
+
+*[class~=<span class="hl-string">"task/choicetable"</span>] *[class~=<span class="hl-string">"task/chrow"</span>],
+*[class~=<span class="hl-string">"task/choicetable"</span>] *[class~=<span class="hl-string">"task/chhead"</span>]{
+	<strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">2</span>pt solid #EEEEEE;
+} 
+
+*[class~=<span class="hl-string">"task/choicetable"</span>] *[class~=<span class="hl-string">"topic/stentry"</span>] {
+	<strong class="hl-keyword">border-bottom</strong>: none;
+	<strong class="hl-keyword">border-right</strong>: none;
+}</pre>
+		<div class="note note note_note"><span class="note__title">Note:</span> Using the frame attribute on the choice table will make these selectors apply partially.
+			Please make sure you are designing your customization CSS taking into account all possible
+			values for the frame attribute.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title9" id="dcpp_how_to_remove_the_table_nn_label">
+    <h2 class="title topictitle2" id="ariaid-title9">How to Remove the Table NN Label</h2>
+    <div class="body">
+        <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation scenario, the label
+      for a table's title is wrapped in a span element with the class:
+        <code class="ph codeph">table--title-label</code>.</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>
+...
+<strong class="hl-tag">&lt;caption</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title title tablecap"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"table--title-label"</span><strong class="hl-tag">&gt;</strong>Table 
+		<strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"table--title-label-number"</span><strong class="hl-tag">&gt;</strong>1. <strong class="hl-tag">&lt;/span&gt;</strong><strong class="hl-tag">&lt;/span&gt;</strong>
+    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"table--title"</span><strong class="hl-tag">&gt;</strong>The title of the table<strong class="hl-tag">&lt;/span&gt;</strong>
+<strong class="hl-tag">&lt;/caption&gt;</strong>
+...</pre>
+		<p class="p">To hide it, set its display to none:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.table--title-label {
+	<strong class="hl-keyword">display</strong>:none;
+}</pre>
+		<p class="p">For the direct transformation, use:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/table"</span>] &gt; *[class ~= <span class="hl-string">"topic/title"</span>]:before {
+  <strong class="hl-keyword">content</strong>: none;
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title10" id="dcpp_how_to_center_tables">
+    <h2 class="title topictitle2" id="ariaid-title10">How to Center Tables</h2>
+    <div class="body">
+        <p class="p">You can center the tables by using margins <code class="ph codeph">auto</code>, while the table caption (title) can be centered using the <code class="ph codeph">text-align</code> property:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/table"</span>] {
+    <strong class="hl-keyword">margin-left</strong>:auto;
+    <strong class="hl-keyword">margin-right</strong>:auto;
+    <strong class="hl-keyword">width</strong>: <span class="hl-number">50</span>%;
+    <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>pt solid blue;
+}
+*[class ~= <span class="hl-string">"topic/table"</span>] *[class ~= <span class="hl-string">"topic/title"</span>]{
+    <strong class="hl-keyword">text-align</strong>:center;
+}</pre>
+    </div>
+</article></article></article></main></body></html>

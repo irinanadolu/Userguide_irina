@@ -1,0 +1,270 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WSDL documents,Outline view"><meta name="keywords" content="WSDL documents, Outline view"><meta name="DC.relation" scheme="URI" content="../topics/editing-wsdl-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/wsdl-resource-hierarchy-dependencies-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wsdl-outline-view"><title>WSDL Outline View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wsdl-outline-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">WSDL Outline View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Outline</span> view for WSDL documents displays the list of all the
+      components (services, bindings, port types and so on) of the currently open WSDL document
+      along with the components of its imports. </p>
+    <p class="p">If you use the <a class="xref" href="defining_master_files.html#defining_master_files"><span class="ph uicontrol">Master Files</span> support</a>, the <span class="ph uicontrol">Outline</span>
+      view collects the components of a WSDL document starting from the <dfn class="term">master files</dfn> of
+      the current document.</p>
+    <p class="p">By default, it is displayed on the left side of the editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>WSDL Outline View</figcaption>
+        
+        <img class="image" src="../img/sa_wsdl_outline_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">Outline</span> view can display both the components of the current
+      document and its XML structure, organized in a tree-like fashion. You can switch between the
+      display modes by using the <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_h51_xgt_tr" src="../img/TagsComponents16.png">Show XML structure</span> and <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_vf4_33t_tr" src="../img/TagsComponents16.png">Show components</span>
+      actions in the <span class="ph"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_t4r_chg_ks" src="../img/Settings16.png">Settings</span> menu on the <span class="ph uicontrol">Outline</span>
+        view toolbar</span>. The following
+      actions are available:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Filter returns exact matches</span></dt>
+          <dd class="dd">The text filter of the <span class="ph uicontrol">Outline</span> view returns only exact
+            matches.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_t51_5ft_tr" src="../img/CaretUpdateOff16.png">Selection
+              update on cursor move</span></dt>
+          <dd class="dd">Controls the synchronization between the <span class="ph uicontrol">Outline</span> view and the
+            current document. The selection in the <span class="ph uicontrol">Outline</span> view can be
+            synchronized with the cursor moves or the changes in the WSDL editor. Selecting one of
+            the components from the <span class="ph uicontrol">Outline</span> view also selects the
+            corresponding item in the current document.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">When the <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_vlg_kfg_ks" src="../img/TagsComponents16.png">Show
+        components</span> option is selected, the following actions are available:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_f23_xgt_tr" src="../img/TagsComponents16.png">Show XML
+              structure</span></dt>
+          <dd class="dd">Displays the XML structure of the current document in a tree-like manner.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_h2x_sy1_5r" src="../img/Sort16.png">Sort</span></dt>
+          <dd class="dd">Sorts the components in the <span class="ph uicontrol">Outline</span> view alphabetically.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show all components</span></dt>
+          <dd class="dd">Displays all the components that were collected starting from current document or from
+            the main document, if it is defined.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show referable components</span></dt>
+          <dd class="dd">Displays all the components that you can reference from the current document.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show only local components</span></dt>
+          <dd class="dd">Displays the components defined in the current file only.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by location</span></dt>
+          <dd class="dd">Groups the WSDL components by their location.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by type</span></dt>
+          <dd class="dd">Groups the WSDL components by their type.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by namespace</span></dt>
+          <dd class="dd">Groups the WSDL components by their namespace. <div class="note note note_note"><span class="note__title">Note:</span> By default, all the three
+              grouping criteria are active.</div></dd>
+        
+      </dl>
+    </div>
+    <div class="p">When the <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_v2n_gfg_ks" src="../img/TagsComponents16.png">Show XML
+        structure</span> option is selected, the following actions are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_xky_jht_tr" src="../img/TagsComponents16.png">Show
+              components</span></dt>
+          <dd class="dd">Switches the <span class="ph uicontrol">Outline</span> view to the components display mode.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Flat16.png">Flat presentation
+              mode of the filtered results</span></dt>
+          <dd class="dd">When active, the application flattens the filtered result elements to a single
+            level.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentsPIsOff16.png">Show
+              comments and processing instructions</span></dt>
+          <dd class="dd">Show/hide comments and processing instructions in the <span class="ph uicontrol">Outline</span>
+            view.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DockableFrameContext16.png">Show
+              element name</span></dt>
+          <dd class="dd">Show/hide element name.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TextsVerboseOff16.png">Show
+              text</span></dt>
+          <dd class="dd">Show/hide additional text content for the displayed elements.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AttributesVerboseOff16.png">Show
+              attributes</span></dt>
+          <dd class="dd">Show/hide attribute values for the displayed elements. The displayed attribute values
+            can be changed from <a class="xref" href="preferences-outline.html">the Outline
+              preferences panel</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Configure displayed
+              attributes</span></dt>
+          <dd class="dd">Displays the <a class="xref" href="preferences-outline.html#preferences-outline"><span class="ph uicontrol">XML Structured Outline</span> preferences
+            page</a>.</dd>
+        
+      </dl></div>
+    <div class="p">The following contextual menu actions are available in the <span class="ph uicontrol">Outline</span>
+      view when the <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_cpg_z3g_ks" src="../img/TagsComponents16.png">Show
+        components</span> option is selected in the <span class="ph"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_ulj_1jg_ks" src="../img/Settings16.png">Settings</span> menu</span>:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Attribute16.gif">Edit Attributes</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to edit the attributes of the currently selected
+            component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_ukv_gz1_5r" src="../img/Cut16.png">Cut</span></dt>
+          <dd class="dd">Cuts the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_a1v_mst_tr" src="../img/Copy16.png">Copy</span></dt>
+          <dd class="dd">Copies the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/RemoveSelected16.gif">Delete</span></dt>
+          <dd class="dd">Deletes the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SearchReferences16.png">Search
+              references</span></dt>
+          <dd class="dd">Searches for the references of the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Search references in</span></dt>
+          <dd class="dd">Searches for the references of the currently selected component in the context of a
+            scope that you define.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Component dependencies</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="wsdl-component-dependencies-view.html#wsdl-component-dependencies-view"><span class="ph uicontrol">Component Dependencies</span> view</a> that displays the
+            dependencies of the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Resource Hierarchy</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="wsdl-resource-hierarchy-dependencies-view.html#wsdl-resource-hierarchy-dependencies-view"><span class="ph uicontrol">Resource Hierarchy/Dependencies</span> view</a> that displays
+            the hierarchy for the currently selected resource.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Resource Dependencies</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="wsdl-resource-hierarchy-dependencies-view.html#wsdl-resource-hierarchy-dependencies-view"><span class="ph uicontrol">Resource Hierarchy/Dependencies</span> view</a> that displays
+            the dependencies of the currently selected resource.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_k3v_lv1_5r" src="../img/RenameXSLResource16.png">Rename
+              Component in</span></dt>
+          <dd class="dd">Renames the currently selected component in the context of a scope that you
+            define.</dd>
+        
+      </dl></div>
+    <p class="p">The following contextual menu actions are available in the <span class="ph uicontrol">Outline</span>
+      view when the <span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_dvn_cjg_ks" src="../img/TagsComponents16.png">Show
+        XML structure</span> option is selected in the <span class="ph"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_evn_cjg_ks" src="../img/Settings16.png">Settings</span> menu</span>:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Append Child</span></dt>
+          <dd class="dd">Displays a list of elements that you can insert as children of the current
+            element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert Before</span></dt>
+          <dd class="dd">Displays a list of elements that you can insert as siblings of the current element,
+            before the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert After</span></dt>
+          <dd class="dd">Displays a list of elements that you can insert as siblings of the current element,
+            after the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Attribute16.gif">Edit Attributes</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to edit the attributes of the currently selected
+            component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_bsr_brd_cs" src="../img/ToggleComment16.png">Toggle
+              Comment</span></dt>
+          <dd class="dd">Comments/uncomments the currently selected element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SearchReferences16.png">Search
+              references</span></dt>
+          <dd class="dd">Searches for the references of the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Search references in</span></dt>
+          <dd class="dd">Searches for the references of the currently selected component in the context of a
+            scope that you define.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_q2l_j3t_tr" src="../img/ComponentDependencies16.png">Component dependencies</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="wsdl-component-dependencies-view.html#wsdl-component-dependencies-view"><span class="ph uicontrol">Component Dependencies</span> view</a> that displays the
+            dependencies of the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_rpj_mv1_5r" src="../img/RenameXSLResource16.png">Rename
+              Component in</span></dt>
+          <dd class="dd">Renames the currently selected component in the context of a scope that you
+            define.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_u1f_hz1_5r" src="../img/Cut16.png">Cut</span></dt>
+          <dd class="dd">Cuts the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_x2z_mst_tr" src="../img/Copy16.png">Copy</span></dt>
+          <dd class="dd">Copies the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/RemoveSelected16.gif">Delete</span></dt>
+          <dd class="dd">Deletes the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_lny_prd_cs" src="../img/ExpandAll16.png">Expand More</span></dt>
+          <dd class="dd">Expands the structure of a component in the <span class="ph uicontrol">Outline</span> view.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="wsdl-outline-view__image_yl1_r3t_tr" src="../img/CollapseAll16.png">Collapse
+              All</span></dt>
+          <dd class="dd">Collapses the structure of all the component in the <span class="ph uicontrol">Outline</span>
+            view.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">To switch from the tree structure to the text filter, use
+        <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> and
+          <span class="ph uicontrol"><span class="keyword shortcut">Shift-Tab</span></span>.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> The search filter is case insensitive. The following wildcards are accepted:<ul class="ul">
+        <li class="li"><strong class="ph b">*</strong> - any string</li>
+        <li class="li"><strong class="ph b">?</strong> - any character</li>
+        <li class="li"><strong class="ph b">,</strong> - patterns separator</li>
+      </ul>If no wildcards are specified, the string to search is used as a partial match.</div>
+    <p class="p">The content of the <span class="ph uicontrol">Outline</span> view and the
+      editing area are synchronized. When you select a component in the
+        <span class="ph uicontrol">Outline</span> view, its definition is highlighted in the editing area.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-wsdl-documents.html">Editing WSDL Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/wsdl-syntax-highlight.html">WSDL Syntax Highlighting</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wsdl-resource-hierarchy-dependencies-view.html">WSDL Resource Hierarchy/Dependencies View in WSDL Documents</a></div></div></nav></article></main></body></html>

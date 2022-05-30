@@ -1,0 +1,72 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Grid editing mode,Copy/Paste,XML documents,Grid Mode editing,Copy/Paste in Grid Mode"><meta name="keywords" content="Grid editing mode, Copy/Paste, XML documents, Grid Mode editing, Copy/Paste in Grid Mode"><meta name="DC.relation" scheme="URI" content="../topics/editing-docs-grid-mode.html"><meta name="DC.relation" scheme="URI" content="../topics/grid-dnd.html"><meta name="DC.relation" scheme="URI" content="../topics/grid-mode-cc.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="grid-copy-paste"><title>Copy and Paste in the Grid Editing Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="grid-copy-paste"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Copy and Paste in the Grid Editing Mode</h1>
+  
+  <div class="body">
+    <p class="p">Selecting content in the <span class="ph uicontrol">Grid</span> mode is similar to working with any
+      table with a little more complexity. Specifically, depending on the type of node, when you
+      select a cell, the selection may automatically include additional cells that are implied by
+      the currently selected node. For example, if you click a node that contains any child nodes,
+      all cells that contain the parent and child nodes will be selected. In this case, the
+      currently selected cell is painted with a color that is different from the rest of the
+      selection.</p>
+    <p class="p">You can also select discontinuous regions of nodes and place them in the clipboard with the
+      copy action. To deselect one of the selected fragments, use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Single-Click (Command +
+                    Single-Click on OS X)</span></span>.</p>
+    <section class="section" id="grid-copy-paste__pasting_content_within_grid_mode"><h2 class="title sectiontitle">Pasting Content Within Grid Mode</h2>
+      
+      <div class="p">You can paste copied nodes relative to the currently selected cell using one of the
+        following actions (available in the contextual menu):<ul class="ul">
+          <li class="li"><span class="ph uicontrol"><img class="image" id="grid-copy-paste__image_cwr_cqt_tr" src="../img/Paste16.png">Paste (<span class="keyword shortcut">Ctrl + V (Command + V on
+                    OS X)</span>)</span> - Pastes
+            copied content, as a sibling, just below (after) the current selection.</li>
+          <li class="li"><span class="ph uicontrol">Paste as Child</span> - Pastes copied content as the last child of the
+            current selection.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="grid-copy-paste__pasting_content_from_grid_mode_to_other_edtiors"><h2 class="title sectiontitle">Pasting Content from Grid Mode to Other Editors</h2>
+      
+      <p class="p">Nodes that are copied from the <span class="ph uicontrol">Grid</span> editor can also be pasted into
+          <span class="ph uicontrol">Text</span> mode or other external applications. When pasting copied
+        content from <span class="ph uicontrol">Grid</span> mode, the inserted string represents the nodes
+        serialization. The nodes from tables can be copied using HTML or RTF in table format. The
+        resulting cells contain only the concatenated values of the text nodes.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Copying from Grid to Other Editors</figcaption>
+          
+          <img class="image" src="../img/grid_copy_to_other_editors.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="grid-copy-paste__pasting_content_from_other_editors_into_grid_mode"><h2 class="title sectiontitle">Pasting Content from Other Editors into Grid Mode</h2>
+      
+      <p class="p">You can also paste well-formed XML content or tab-separated values from other editors into
+        the <span class="ph uicontrol">Grid</span> editor. If you paste XML content, the result will be the
+        insertion of the nodes obtained by parsing this content.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Pasting XML Data into Grid</figcaption>
+          
+          <img class="image" src="../img/copy_xml_to_grid.png">
+        </figure>
+      </div>
+      <p class="p">If the pasted text contains multiple lines of tab-separated values, it can be considered as
+        a matrix of values. By pasting this matrix of values into the <span class="ph uicontrol">Grid</span>
+        editor, the result will be a matrix of cells. If the operation is performed inside existing
+        cells, the existing values will be overwritten and new cells will be created when
+        needed.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Pasting Tab-Separated Values into Grid</figcaption>
+          
+          <img class="image" src="../img/copy_excel_to_grid.png">
+        </figure>
+      </div>
+      <p class="p">If you need to add copied content to your existing content (rather than overwriting
+        existing cells), you need to first insert new cells by using the <span class="ph uicontrol"><img class="image" id="grid-copy-paste__image_xsq_2xz_tr" src="../img/TableRow16.gif">Insert row</span> or
+            <span class="ph uicontrol"><img class="image" id="grid-copy-paste__image_ypw_cxz_tr" src="../img/TableColumn16.gif">Insert
+          column</span> actions from the contextual menu. This is useful, for example, when
+        trying to transfer data from spreadsheet-like editors to the <span class="ph uicontrol">Grid</span>
+        editor.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-docs-grid-mode.html">Editing XML Documents in Grid Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/grid-dnd.html">Drag and Drop in the Grid Editing Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/grid-mode-cc.html">Content Completion Assistant in Grid Mode</a></div></div></nav></article></main></body></html>

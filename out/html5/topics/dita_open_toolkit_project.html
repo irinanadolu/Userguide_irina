@@ -1,0 +1,81 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-support.html"><meta name="DC.relation" scheme="URI" content="../topics/use-new-dita-ot.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-specialization-support.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita_open_toolkit_project"><title>DITA Open Toolkit Project</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita_open_toolkit_project"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">DITA Open Toolkit Project</h1>
+    <div class="body">
+    <p class="p">The <em class="ph i">DITA Open Toolkit</em> project file allows you to define all
+      your DITA map input and filter pairs and to produce the desired output formats by applying the
+      publishing engine over this single project file: <a class="xref" href="https://www.dita-ot.org/dev/topics/using-project-files.html" target="_blank" rel="external noopener">https://www.dita-ot.org/dev/topics/using-project-files.html</a>.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> has special support for creating, editing, validating, and publishing
+      DITA Open Toolkit project files represented in XML format. It can also use such files to
+      detect connections between DITA resources in the entire project and to apply root map and
+      filter pairs when editing.</p>
+    </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-ot-support.html">DITA Open Toolkit Support</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/use-new-dita-ot.html">Using an External DITA Open Toolkit in Oxygen XML Editor</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-specialization-support.html">DITA Specialization Support</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dita_open_toolkit_project_edit">
+    <h2 class="title topictitle2" id="ariaid-title2">Editing DITA Open Toolkit Project Files</h2>
+    <div class="body">
+      <p class="p">The <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New
+            Document</span> wizard</a> includes a template to help you
+        create DITA Open Toolkit project files (with an <span class="ph filepath">.xml</span> file extension).
+        The template is located in the <span class="ph menucascade"><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA-OT</span></span> folder. There is also a sample project file that can be found in the
+        application samples folder:
+          <span class="ph filepath">OXYGEN_INSTALL_DIR/samples/dita/mobile-phone/mobilePhoneProjectFile.xml</span>.</p>
+      <p class="p">Content completion is done according to the associated schema and it is enhanced with
+        proposals for ID references, available transformation types, parameter names, and
+        values.</p>
+      <p class="p">The validation support has enhanced Schematron rules that report invalid references to
+        non-existing contexts.</p>
+      <p class="p">When working with a DITA-OT project file in the <strong class="ph b">Author</strong> visual editing mode, you can
+        see a compact representation of the file by default. You can switch to the
+          <span class="ph uicontrol">Edit</span> style in the <span class="ph uicontrol">Styles</span> toolbar drop-down
+        menu to edit the file using form controls and inline buttons. The additional <span class="ph uicontrol">View
+          as YAML</span> style can be selected to see a visual representation of the same
+        document in YAML.</p>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title3" id="dita_open_toolkit_project_publish">
+    <h2 class="title topictitle2" id="ariaid-title3">Publishing DITA Open Toolkit Project Files</h2>
+    <div class="body">
+      <div class="p">Once a DITA-OT project file is opened in the application, two
+      predefined publishing scenarios become available in the <a class="xref" href="configure-transformation-dialog.html"><span class="ph uicontrol">Configure Transformation
+          Scenario(s)</span> dialog box</a>:<ul class="ul" id="dita_open_toolkit_project_publish__ul_fwd_4x1_mjb">
+        <li class="li"><span class="ph uicontrol">Publish DITA-OT Project (all deliverables)</span> - Runs the publishing
+          engine and produces output for all deliverables defined in the project file.</li>
+        <li class="li"><span class="ph uicontrol">Publish DITA-OT Project (select deliverable)</span> - Runs the
+          publishing engine and produces output for only one deliverable specified by the end-user.</li>
+      </ul></div>
+      <div class="p">Some of the allowed transformation parameters that are relevant to
+      the DITA-OT project file include:<ul class="ul" id="dita_open_toolkit_project_publish__ul_p4v_kgz_jkb">
+        <li class="li"><strong class="ph b">project.file</strong> - Specifies the path to the project file.</li>
+        <li class="li"><strong class="ph b">dita-ot.dir</strong> - Specifies the directory where DITA-OT, used in transformation is
+          installed.</li>
+        <li class="li"><strong class="ph b">additional.args</strong> - Specifies the additional arguments used in transformation.</li>
+        <li class="li"><strong class="ph b">deliverable.id</strong> - Specifies the id of the deliverable. This parameter is only
+          available in the <span class="ph uicontrol">Publish DITA-OT Project (select deliverable)</span>
+          transformation.</li>
+      </ul></div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title4" id="dita_open_toolkit_project_master">
+    <h2 class="title topictitle2" id="ariaid-title4">Master Files Support for DITA Open Toolkit Project Files </h2>
+    <div class="body">
+      <div class="p">If you enable <a class="xref" href="dita-master-files.html">master files support at project
+          level</a>, you can choose to detect all top-level DITA Open Toolkit project files and
+        to add them to the Master Files folder. You could also manually add the top-level files for
+        your DITA-OT project in the Master Files folder. The benefit of this is that whenever you
+        rename or move files in the <span class="ph uicontrol">Project</span> view, the references to those
+        resources will automatically be updated.<div class="note tip note_tip"><span class="note__title">Tip:</span> The <a class="xref" href="dita-resource-hierarchy-view.html">Resource Hierarchy/Dependencies view</a>
+          also works for DITA-OT project files.</div></div>
+      <section class="section" id="dita_open_toolkit_project_master__section_xw2_sjz_jkb"><h3 class="title sectiontitle">Editing Contexts Detected from DITA Open Toolkit Project Files</h3>
+        
+        <p class="p">Once a DITA-OT project file is added to the Master Files folder, the
+            <span class="ph uicontrol">Context</span> drop-down menu on the <span class="ph uicontrol">DITA Maps
+            Manager</span> toolbar will contain context DITA maps defined in the project file
+          and the <span class="ph uicontrol"><img class="image" id="dita_open_toolkit_project_master__image_r4g_tjz_jkb" src="../img/ProfilingDrop.png">Profiling/Conditional Text</span> menu will contain filter pairs gathered from
+          the project file. When you select one of them in the drop-down menu, the application
+          gathers the keys from the context DITA map and applies the filters specified in that
+          context.</p>
+      </section>
+    </div>
+  </article>
+</article></main></body></html>

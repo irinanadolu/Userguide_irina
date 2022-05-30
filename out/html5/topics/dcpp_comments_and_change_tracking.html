@@ -1,0 +1,348 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Comments,Tracked changes,Styling,DITA PDF - based on HTML5 &amp; CSS,Hide footnotes,Troubleshooting,Highlights span off page"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Comments, Tracked changes, Styling, DITA PDF - based on HTML5 &amp; CSS, Hide footnotes, Troubleshooting, Highlights span off page"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_localization___transformation_based_on_html5___css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_draft_watermark.html"><meta name="DC.relation" scheme="URI" content="dcpp_parameters.html"><meta name="DC.relation" scheme="URI" content="dcpp_debugging_the_css.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_comments_and_change_tracking"><title>Comments, Highlights, and Tracked Changes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_comments_and_change_tracking">
+  <h1 class="title topictitle1" id="ariaid-title1">Comments, Highlights, and Tracked Changes</h1>
+  
+  <div class="body">
+    <p class="p">The comments and tracked changes can be made visible in the PDF output by setting the
+        <code class="ph codeph">show.changes.and.comments</code> transformation parameter to <code class="ph codeph">yes</code>. </p>
+    <div class="p">
+      <figure class="fig fignone" id="dcpp_comments_and_change_tracking__fig_alt_msw_1fb"><figcaption><span class="fig--title-label">Figure 1. </span>Chemistry Annotations in Acrobat Reader</figcaption>
+        
+        <img class="image" id="dcpp_comments_and_change_tracking__image_z44_ksw_1fb" src="../img/ch_annotations.png">
+      </figure>
+    </div>
+    <div class="p">By default, they are shown as PDF text annotations (sticky notes). These are graphical
+      markers in the document content and are also listed in the <span class="ph uicontrol">Comments</span>
+      section when opening the output file in Acrobat Reader.<div class="note note note_note"><span class="note__title">Note:</span> Comments with the <strong class="ph b">Mark as
+          Done</strong> flag selected appear with a check mark in the <span class="ph uicontrol">Comments</span>
+        section and with a <span class="ph uicontrol">Completed</span> label (<img class="image" src="../img/Mark_as_done_PDF.png">).</div></div>
+    <p class="p">To avoid rendering the elements as PDF annotations and show them as footnotes instead, you
+      can use the <code class="ph codeph">show.changes.and.comments.as.pdf.sticky.notes</code> transformation
+      parameter set to <code class="ph codeph">no</code>. </p>
+    <p class="p">The comments and changes are included in the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged map
+        file</a> either as XML elements (<code class="keyword markupname xmlelement">&lt;oxy-insert&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;oxy-delete&gt;</code>, <code class="keyword markupname xmlelement">&lt;oxy-comment&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;oxy-attributes&gt;</code>) in the case of the XML merged map, or as HTML
+      elements with similar classes (<code class="ph codeph">oxy-insert</code>, <code class="ph codeph">oxy-delete</code>,
+        <code class="ph codeph">oxy-comment</code>, <code class="ph codeph">oxy-attributes</code>) in the case of the HTML
+      merged map. Sub-elements contain meta-information about each change.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> These elements are automatically recognized and transformed in PDF annotations
+      when using Chemistry as PDF processor. </div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The inserted text, deleted text, and deleted markup are included in the sticky notes, you
+      can change this behavior by using the <a class="xref" href="dcpp_parameters.html#dcpp_parameters__show-changed-text-content"><code class="ph codeph">show.changed.text.in.pdf.sticky.notes.content</code> parameter</a>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_localization___transformation_based_on_html5___css.html">Localization</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_draft_watermark.html">Draft Watermarks</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_parameters.html">Transformation Parameters</a></li><li class="linklist"><a class="link" href="dcpp_debugging_the_css.html">Debugging the CSS</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_comments_and_change_tracking___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Comments and Tracked Changes - XML Fragment</h2>
+  <div class="body">
+    <p class="p">This section contains information about how each type of tracked change is structured in <span class="ph">the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+          map XML file</a></span>.</p>
+    <section class="section" id="dcpp_comments_and_change_tracking___input_xml_fragment__section_rh1_bg2_2db"><h3 class="title sectiontitle">Insertions</h3>
+      
+      <p class="p">For an insertion type of tracked change, the structure that defines the insertion details
+        is inside the <em class="ph i">range</em> (<code class="keyword markupname xmlelement">&lt;oxy-range-start&gt;</code> to
+          <code class="keyword markupname xmlelement">&lt;oxy-range-end&gt;</code>), the inserted text is highlighted by an
+          <code class="keyword markupname xmlelement">&lt;oxy-insert-hl&gt;</code> element, and the details are stored in the
+          <code class="keyword markupname xmlelement">&lt;oxy-insert&gt;</code> element.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;oxy:oxy-range-start</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+
+       <strong class="hl-tag">&lt;oxy:oxy-insert</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:oxy-author&gt;</strong>dan<strong class="hl-tag">&lt;/oxy:oxy-author&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:oxy-content&gt;</strong>insert<strong class="hl-tag">&lt;/oxy:oxy-content&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:oxy-date&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/oxy:oxy-date&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:oxy-hour&gt;</strong>09:38:29<strong class="hl-tag">&lt;/oxy:oxy-hour&gt;</strong>
+           <strong class="hl-tag">&lt;oxy:oxy-tz&gt;</strong>+02:00<strong class="hl-tag">&lt;/oxy:oxy-tz&gt;</strong>
+       <strong class="hl-tag">&lt;/oxy:oxy-insert&gt;</strong>
+
+       <strong class="hl-tag">&lt;oxy:oxy-insert-hl&gt;</strong>This is an insert!!<strong class="hl-tag">&lt;/oxy:oxy-insert-hl&gt;</strong>
+
+    <strong class="hl-tag">&lt;oxy:oxy-range-end</strong> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong></pre>
+    </section>
+    <section class="section" id="dcpp_comments_and_change_tracking___input_xml_fragment__section_pjn_5g2_2db"><h3 class="title sectiontitle">Comments</h3>
+      
+      <p class="p">Similar to insertions, comments are defined in a <em class="ph i">range</em>
+          (<code class="keyword markupname xmlelement">&lt;oxy-range-start&gt;</code> to <code class="keyword markupname xmlelement">&lt;oxy-range-end&gt;</code>), the
+        comment details is in the <code class="keyword markupname xmlelement">&lt;oxy-comment&gt;</code> element, and the highlighted
+        content is wrapped in the <code class="keyword markupname xmlelement">&lt;oxy-comment-hl&gt;</code> element. </p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;oxy:oxy-range-start</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+      
+        <strong class="hl-tag">&lt;oxy:oxy-comment</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">&gt;</strong>
+              <strong class="hl-tag">&lt;oxy:oxy-author&gt;</strong>dan<strong class="hl-tag">&lt;/oxy:oxy-author&gt;</strong>
+              <strong class="hl-tag">&lt;oxy:oxy-comment-text&gt;</strong>This is a comment.<strong class="hl-tag">&lt;/oxy:oxy-comment-text&gt;</strong>
+              <strong class="hl-tag">&lt;oxy:oxy-date&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/oxy:oxy-date&gt;</strong>
+              <strong class="hl-tag">&lt;oxy:oxy-hour&gt;</strong>09:56:59<strong class="hl-tag">&lt;/oxy:oxy-hour&gt;</strong>
+              <strong class="hl-tag">&lt;oxy:oxy-tz&gt;</strong>+02:00<strong class="hl-tag">&lt;/oxy:oxy-tz&gt;</strong>
+        <strong class="hl-tag">&lt;/oxy:oxy-comment&gt;</strong>
+          
+        <strong class="hl-tag">&lt;oxy:oxy-comment-hl&gt;</strong>Context<strong class="hl-tag">&lt;/oxy:oxy-comment-hl&gt;</strong>
+          
+    <strong class="hl-tag">&lt;oxy:oxy-range-end</strong> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>           </pre>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> Comments that are marked as done have a <code class="ph codeph">flag="done"</code>
+        attribute:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;oxy:oxy-comment</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_6"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"6"</span> <span class="hl-attribute">flag</span>=<span class="hl-value">"done"</span><strong class="hl-tag">&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="dcpp_comments_and_change_tracking___input_xml_fragment__section_mr5_qh2_2db"><h3 class="title sectiontitle">Attribute changes</h3>
+      
+      <p class="p">The attribute changes are more complex. The <em class="ph i">range</em> is empty, and is directly above
+        the affected element (the one that has modified attributes). The
+          <code class="keyword markupname xmlelement">&lt;oxy-attributes&gt;</code> element contains details about multiple attribute
+        changes, each stored in the <code class="keyword markupname xmlelement">&lt;oxy-attributed-change&gt;</code> element. </p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;element&gt;</strong>
+
+  <strong class="hl-tag">&lt;oxy:oxy-range-start</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_3"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;oxy:oxy-range-end</strong> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>
+
+  <strong class="hl-tag">&lt;oxy:oxy-attributes</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_3"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>
+
+     <strong class="hl-tag">&lt;oxy:oxy-attribute-change</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"inserted"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"platform"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;oxy:oxy-author&gt;</strong>dan<strong class="hl-tag">&lt;/oxy:oxy-author&gt;</strong>
+          <strong class="hl-tag">&lt;oxy:oxy-current-value&gt;</strong>windows<strong class="hl-tag">&lt;/oxy:oxy-current-value&gt;</strong>
+          <strong class="hl-tag">&lt;oxy:oxy-date&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/oxy:oxy-date&gt;</strong>
+          <strong class="hl-tag">&lt;oxy:oxy-hour&gt;</strong>10:05:04<strong class="hl-tag">&lt;/oxy:oxy-hour&gt;</strong>
+          <strong class="hl-tag">&lt;oxy:oxy-tz&gt;</strong>+02:00<strong class="hl-tag">&lt;/oxy:oxy-tz&gt;</strong>
+     <strong class="hl-tag">&lt;/oxy:oxy-attribute-change&gt;</strong>
+    ....
+     <strong class="hl-tag">&lt;oxy:oxy-attribute-change</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"removed"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"audience"</span><strong class="hl-tag">&gt;</strong>
+        ....    
+     <strong class="hl-tag">&lt;/oxy:oxy-attribute-change&gt;</strong>
+  <strong class="hl-tag">&lt;/oxy:oxy-attributes&gt;</strong>
+...
+<strong class="hl-tag">&lt;/element&gt;</strong></pre>
+      </div>
+    </section>
+    <section class="section" id="dcpp_comments_and_change_tracking___input_xml_fragment__section_jjz_wf2_2db"><h3 class="title sectiontitle">Deletions</h3>
+      
+      <p class="p">For a deletion, there are some elements that define the start and end of the deletion, and
+        the highlighted text is wrapped in the <code class="keyword markupname xmlelement">&lt;oxy-delete-hl&gt;</code> element.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">   <strong class="hl-tag">&lt;oxy:oxy-range-start</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_2"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">/&gt;</strong>
+   <strong class="hl-tag">&lt;oxy:oxy-delete-hl&gt;</strong> This is a deleted text. <strong class="hl-tag">&lt;/oxy:oxy-delete-hl&gt;</strong>
+   <strong class="hl-tag">&lt;oxy:oxy-range-end</strong> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">/&gt;</strong>
+</pre>
+      <p class="p">There is a structure that offers details about the deletion change, using the
+          <code class="keyword markupname xmlelement">&lt;oxy-delete&gt;</code> element. This is linked to the above deletion range by
+        the same ID value:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">   <strong class="hl-tag">&lt;oxy:oxy-delete</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_2"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;oxy:oxy-author&gt;</strong>dan<strong class="hl-tag">&lt;/oxy:oxy-author&gt;</strong>
+       <strong class="hl-tag">&lt;oxy:oxy-content&gt;</strong><strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../img/ex.gif"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/oxy:oxy-content&gt;</strong>
+       <strong class="hl-tag">&lt;oxy:oxy-date&gt;</strong>2018/03/14<strong class="hl-tag">&lt;/oxy:oxy-date&gt;</strong>
+       <strong class="hl-tag">&lt;oxy:oxy-hour&gt;</strong>11:38:06<strong class="hl-tag">&lt;/oxy:oxy-hour&gt;</strong>
+       <strong class="hl-tag">&lt;oxy:oxy-tz&gt;</strong>+02:00<strong class="hl-tag">&lt;/oxy:oxy-tz&gt;</strong>
+   <strong class="hl-tag">&lt;/oxy:oxy-delete&gt;</strong></pre>
+    </section>
+    <section class="section" id="dcpp_comments_and_change_tracking___input_xml_fragment__section_i4q_1qw_1fb"><h3 class="title sectiontitle">Colored Highlights</h3>
+      
+      <div class="p">To show some text as highlighted with a background color:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;oxy:oxy-color-hl</strong> <span class="hl-attribute">color</span>=<span class="hl-value">"rgba(140,255,140,50)"</span><strong class="hl-tag">&gt;</strong>Some colored text.<strong class="hl-tag">&lt;/oxy:oxy-color-hl&gt;</strong></pre></div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_comments_and_tracked_changes___input_html_fragment">
+  <h2 class="title topictitle2" id="ariaid-title3">Comments and Tracked Changes - HTML Fragment</h2>
+  <div class="body">
+    <p class="p">This section contains information about how each type of tracked change is structured in <span class="ph">the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+          map HTML file</a></span>.</p>
+    <section class="section" id="dcpp_comments_and_tracked_changes___input_html_fragment__section_rh1_bg2_2dbh"><h3 class="title sectiontitle">Insertions</h3>
+      
+      <p class="p">For an insertion type of tracked change, the structure that defines the insertion details
+        is inside a <em class="ph i">range</em> (<code class="ph codeph">oxy-range-start</code> to
+        <code class="ph codeph">oxy-range-end</code>), the inserted text is highlighted by a
+          <code class="keyword markupname xmlelement">&lt;span&gt;</code> element with the class <code class="ph codeph">oxy-insert-hl</code>, and
+        the details are stored in a <code class="keyword markupname xmlelement">&lt;span&gt;</code> element with the
+          <code class="ph codeph">oxy-insert</code> class.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-start"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-insert"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">&gt;</strong>
+           <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-author"</span><strong class="hl-tag">&gt;</strong>dan<strong class="hl-tag">&lt;/span&gt;</strong>
+           <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-content"</span><strong class="hl-tag">&gt;</strong>insert<strong class="hl-tag">&lt;/span&gt;</strong>
+           <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-date"</span><strong class="hl-tag">&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/span&gt;</strong>
+           <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-hour"</span><strong class="hl-tag">&gt;</strong>09:38:29<strong class="hl-tag">&lt;/span&gt;</strong>
+           <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-tz"</span><strong class="hl-tag">&gt;</strong>+02:00<strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-insert-hl"</span><strong class="hl-tag">&gt;</strong>This is an insert!!<strong class="hl-tag">&lt;/span&gt;</strong>
+
+    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-end"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong></pre>
+    </section>
+    <section class="section" id="dcpp_comments_and_tracked_changes___input_html_fragment__section_pjn_5g2_2dbh"><h3 class="title sectiontitle">Comments</h3>
+      
+      <p class="p">Similar to insertions, comments are defined in a <em class="ph i">range</em>
+          (<code class="ph codeph">oxy-range-start</code> to <code class="ph codeph">oxy-range-end</code>), the comment details
+        in an element with the class <code class="ph codeph">oxy-comment</code>, and the highlighted content is
+        wrapped in the <code class="ph codeph">oxy-comment-hl</code> element.</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-start"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+      
+        <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-comment"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_1"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">&gt;</strong>
+              <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-author"</span><strong class="hl-tag">&gt;</strong>dan<strong class="hl-tag">&lt;/span&gt;</strong>
+              <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-comment-text"</span><strong class="hl-tag">&gt;</strong>This is a comment.<strong class="hl-tag">&lt;/span&gt;</strong>
+              <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-date"</span><strong class="hl-tag">&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/span&gt;</strong>
+              <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-hour"</span><strong class="hl-tag">&gt;</strong>09:56:59<strong class="hl-tag">&lt;/span&gt;</strong>
+              <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-tz"</span><strong class="hl-tag">&gt;</strong>+02:00<strong class="hl-tag">&lt;/span&gt;</strong>
+        <strong class="hl-tag">&lt;/span&gt;</strong>
+          
+        <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-comment-hl"</span><strong class="hl-tag">&gt;</strong>The commented text.<strong class="hl-tag">&lt;/span&gt;</strong>
+          
+    <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-end"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>           </pre>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> Comments that are marked as done have a <code class="ph codeph">flag="done"</code>
+        attribute:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-comment"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_6"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"6"</span> <span class="hl-attribute">flag</span>=<span class="hl-value">"done"</span><strong class="hl-tag">&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="dcpp_comments_and_tracked_changes___input_html_fragment__section_mr5_qh2_2dbh"><h3 class="title sectiontitle">Attribute changes</h3>
+      
+      <p class="p">The attribute changes are more complex. The range is empty, and is directly above the
+        affected element (the one that has modified attributes). The element with the class
+          <code class="ph codeph">oxy-attributes</code> contains details about multiple attribute changes, each
+        stored in an element with the class <code class="ph codeph">oxy-attribute-change</code>. </p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;element&gt;</strong>
+
+  <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-start"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_3"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-end"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">/&gt;</strong>
+
+  <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-attributes"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_3"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>
+
+     <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-attribute-change"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"inserted"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"platform"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-author"</span><strong class="hl-tag">&gt;</strong>dan<strong class="hl-tag">&lt;/span&gt;</strong>
+          <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-current-value"</span><strong class="hl-tag">&gt;</strong>windows<strong class="hl-tag">&lt;/span&gt;</strong>
+          <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-date"</span><strong class="hl-tag">&gt;</strong>2018/03/15<strong class="hl-tag">&lt;/span&gt;</strong>
+          <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-hour"</span><strong class="hl-tag">&gt;</strong>10:05:04<strong class="hl-tag">&lt;/span&gt;</strong>
+          <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-tz"</span><strong class="hl-tag">&gt;</strong>+02:00<strong class="hl-tag">&lt;/span&gt;</strong>
+     <strong class="hl-tag">&lt;/span&gt;</strong>
+    ....
+     <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-attribute-change"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"removed"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"audience"</span><strong class="hl-tag">&gt;</strong>
+        ....    
+     <strong class="hl-tag">&lt;/span&gt;</strong>
+  <strong class="hl-tag">&lt;/span&gt;</strong>
+...
+<strong class="hl-tag">&lt;/element&gt;</strong></pre>
+      </div>
+    </section>
+    <section class="section" id="dcpp_comments_and_tracked_changes___input_html_fragment__section_jjz_wf2_2dbh"><h3 class="title sectiontitle">Deletions</h3>
+      
+      <p class="p">For a deletion, there are some elements that define the start and end of the deletion, and
+        the highlighted text is wrapped in an element with the class
+        <code class="ph codeph">oxy-delete-hl</code>.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">   <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-start"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"sc_2"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">/&gt;</strong>
+   <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-delete-hl"</span><strong class="hl-tag">&gt;</strong> This is a deleted text. <strong class="hl-tag">&lt;/span&gt;</strong>
+   <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-range-end"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">/&gt;</strong>
+</pre>
+      <p class="p">There is a structure that offers details about the deletion change, using the element with
+        the class <code class="ph codeph">oxy-delete</code>. This is linked to the above deletion range by the
+        same ID value:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">   <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-delete"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#sc_2"</span> <span class="hl-attribute">hr_id</span>=<span class="hl-value">"2"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-author"</span><strong class="hl-tag">&gt;</strong>dan<strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-content"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../img/ex.gif"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-date"</span><strong class="hl-tag">&gt;</strong>2018/03/14<strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-hour"</span><strong class="hl-tag">&gt;</strong>11:38:06<strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-tz"</span><strong class="hl-tag">&gt;</strong>+02:00<strong class="hl-tag">&lt;/span&gt;</strong>
+   <strong class="hl-tag">&lt;/span&gt;</strong></pre>
+    </section>
+    <section class="section" id="dcpp_comments_and_tracked_changes___input_html_fragment__section_kmz_fqw_1fb"><h3 class="title sectiontitle">Colored Highlights</h3>
+      
+      <div class="p">To show some text as highlighted with a background color:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"oxy-color-hl"</span> <span class="hl-attribute">color</span>=<span class="hl-value">"rgba(140,255,140,50)"</span><strong class="hl-tag">&gt;</strong>Some colored text.<strong class="hl-tag">&lt;/span&gt;</strong></pre></div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_comments_and_change_tracking___built_in_css">
+  <h2 class="title topictitle2" id="ariaid-title4">Comments and Tracked Changes - Built-in CSS</h2>
+  <div class="body">
+    <p class="p">The built-in CSS that controls the way tracked changes and comments are displayed is found
+      in: <span class="ph filepath">[PLUGIN_DIR]css/print/p-side-notes.css</span>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_style_changed_or_commented_text">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Style Changed or Commented Text</h2>
+  
+  <div class="body">
+    <div class="p">To style the highlighted text from the document content, use the
+        <code class="keyword markupname xmlelement">&lt;oxy-comment-hl&gt;</code> element (or <code class="keyword markupname xmlelement">&lt;oxy-delete-hl&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;oxy-insert-hl&gt;</code>, respectively, by local name or class
+      name):<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy-comment-hl,
+.oxy-comment-hl {
+  <strong class="hl-keyword">color</strong>:magenta;
+}</pre></div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The class name selector is useful when using the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> or <span class="ph uicontrol">DITA PDF - based on HTML5 &amp; CSS</span> transformation scenarios.</div>
+    <p class="p">If you want to change the small labels that define the affected start and end ranges (they
+      are a number formatted like: "[n] .. [/n]" where n is the number of the change), you can use
+      the following selectors:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy-range-start:before,
+.oxy-range-start:before {
+  <strong class="hl-keyword">display</strong>:inline;
+  <strong class="hl-keyword">content</strong>:<span class="hl-string">'['</span> attr(hr_id) <span class="hl-string">']'</span>;
+  <strong class="hl-keyword">color</strong>:red;
+}
+oxy-range-end:before,
+.oxy-range-end:before {
+  <strong class="hl-keyword">display</strong>:inline;
+  <strong class="hl-keyword">content</strong>:<span class="hl-string">'[/'</span> attr(hr_id) <span class="hl-string">']'</span>;
+  <strong class="hl-keyword">color</strong>:red;
+}</pre>
+    <p class="p">Use <code class="ph codeph">display:none</code> if you want to hide them.</p>
+    <p class="p">If you want to change the background color of the comment footnote (assuming you set the
+        <code class="ph codeph">show.changes.and.comments.as.pdf.sticky.notes</code> transformation to
+        <code class="ph codeph">no</code>), add the following snippet in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy-comment,
+.oxy-comment {
+  <strong class="hl-keyword">background-color</strong>:inherit;
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">2</span>pt solid yellow;
+}</pre>
+    <p class="p">Similarly, you can style the other footnotes for <code class="keyword markupname xmlelement">&lt;oxy-attributes&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;oxy-delete&gt;</code>, and <code class="keyword markupname xmlelement">&lt;oxy-insert&gt;</code> elements.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_hide_change_tracking_footnotes">
+  <h2 class="title topictitle2" id="ariaid-title6">How to Hide Tracked Change Footnotes</h2>
+  
+  <div class="body">
+    <p class="p">This topic is relevant if you have set the
+        <code class="ph codeph">show.changes.and.comments.as.pdf.sticky.notes</code> transformation parameter to
+        <code class="ph codeph">no</code>, and therefore the changes are shown as footnotes instead of PDF
+      annotations.</p>
+    <div class="p">In some cases, when your document contains a lot of tracked changes, you may need to hide the
+      footnotes associated with the insertions, deletions, or attribute changes. Using the following
+      example, the deletions and insertions are hidden, but the comments remain visible. In your
+        <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>,
+      add:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy-attributes,
+oxy-delete,
+oxy-insert{
+  <strong class="hl-keyword">float</strong>:none;
+  <strong class="hl-keyword">display</strong>:none;
+}</pre></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_comments_and_change_tracking_troubleshooting">
+  <h2 class="title topictitle2" id="ariaid-title7">Troubleshooting</h2>
+  <div class="body">
+    <p class="p">This section contains information about fixing various change tracking, highlights and
+      comments publishing problems.</p>
+  </div>
+<article class="topic troubleshooting nested2" aria-labelledby="ariaid-title8" id="dcpp_highlights_are_spanning_too_much">
+    <h3 class="title topictitle3" id="ariaid-title8">Highlights are Spanning Unexpectedly to the End of the Page</h3>
+  
+    <div class="body troublebody">
+    <section class="section condition" id="dcpp_highlights_are_spanning_too_much__d390e30"><h4 class="title sectiontitle">Problem</h4>
+      
+      <p class="p">Tracked changes and highlights span beyond what is expected.</p>
+    </section><div class="bodydiv troubleSolution"><section class="section cause" id="dcpp_highlights_are_spanning_too_much__cause"><h4 class="title sectiontitle">Cause</h4>
+        
+        <p class="p">If the change tracking insertions, comments, or highlights span over an area that is
+          larger than expected, the markup that signals their end is missing.</p>
+      </section>
+      <section class="section remedy" id="dcpp_highlights_are_spanning_too_much__solution"><h4 class="title sectiontitle">Solution</h4>
+        
+        <section class="section steps-informal">
+          <p class="p">To fix this, open the topic where the highlights start and check if the XML processing
+            instructions that define the end of the highlighted interval are correct. The intervals
+            are defined as follows:</p>
+          <p class="p">For highlights:</p>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?oxy_custom_start type="oxy_content_highlight" color="140,255,140"?&gt;</span>
+<span class="hl-directive">&lt;?oxy_custom_end?&gt;</span>           </pre>
+          <p class="p">For comments:</p>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?oxy_comment_start author="dan" timestamp="20201102T092905+0200" comment="Test"?&gt;</span>
+<span class="hl-directive">&lt;?oxy_comment_end?&gt;</span></pre>
+          <p class="p">For inserted text:</p>
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?oxy_insert_start author="dan" timestamp="20201102T093034+0200"?&gt;</span>
+<span class="hl-directive">&lt;?oxy_insert_end?&gt;</span></pre>
+          <p class="p">Make sure all the ending processing instructions are located before the root element
+            end tag.</p>
+        </section>
+      </section></div></div>
+</article></article></article></article></main></body></html>

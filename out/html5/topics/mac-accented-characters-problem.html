@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content="Mac accented characters,Mac text input freeze,Mac restart"><meta name="keywords" content="Mac accented characters, Mac text input freeze, Mac restart"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/mac-touch-bar.html"><meta name="DC.relation" scheme="URI" content="../topics/machine-signature-mismatch-x-common-problems.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="mac-accented-characters-problem"><title>Mac OS X Keyboard no Longer Works After Inserting Accented Characters</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="mac-accented-characters-problem"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Mac OS X Keyboard no Longer Works After Inserting Accented Characters </h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="mac-accented-characters-problem__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">Mac OS X has a method for inserting accented characters that is triggered by holding a key
+        and then selecting the desired character from a contextual menu. When using this method in
+        OS X 10.14 (Mojave) to insert accented characters in <span class="ph">Oxygen XML Editor</span>, the keyboard
+        can no longer be used unless I restart the application.</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="mac-accented-characters-problem__cause"><h2 class="title sectiontitle">Causes</h2>
+        
+        <p class="p">This problem is caused by some sort of incompatibility issue with Java 8 and OS X 10.14
+          (Majave).</p>
+      </section>
+      <section class="section remedy" id="mac-accented-characters-problem__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <div class="p">To prevent this problem, you should use an <span class="ph">Oxygen XML Editor</span> distribution that
+            includes OpenJDK 15:<ol class="ol" id="mac-accented-characters-problem__ol_hg1_d2n_zhb">
+              <li class="li">Uninstall <span class="ph">Oxygen XML Editor</span>:<ol class="ol" type="a" id="mac-accented-characters-problem__ol_nzr_j2n_zhb">
+                  <li class="li">All data stored in the installation directory will be removed, including any
+                    customizations or any other data you have stored within that directory.
+                    Therefore, you should make a backup of any data you want to keep.</li>
+                  <li class="li">Remove the application by manually deleting the installation folder and all
+                    its contents.</li>
+                </ol></li>
+              <li class="li">Reinstall <span class="ph">Oxygen XML Editor</span> using the distribution that includes OpenJDK:<ol class="ol" type="a" id="mac-accented-characters-problem__ol_dpb_t2n_zhb">
+                  <li class="li">Go to the <a class="xref" href="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=MacOSX" target="_blank" rel="external noopener">Oxygen Download page</a>.</li>
+                  <li class="li">In the <span class="ph uicontrol">Mac OS X</span> tab, click on the <span class="ph uicontrol">macOS
+                      10.11 and later (Includes OpenJDK 15)</span> link to download this
+                    particular distribution.</li>
+                  <li class="li">Follow the instructions to install the downloaded installation package.</li>
+                </ol></li>
+            </ol>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/mac-touch-bar.html">Mac Touch Bar Function Keys Do Not Work</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/machine-signature-mismatch-x-common-problems.html">Machine Signature Mismatch Error</a></div></div></nav></article></main></body></html>

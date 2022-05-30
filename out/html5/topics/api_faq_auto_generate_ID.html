@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_highlight_content.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_review_user_name.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_auto_generate_ID"><title>Auto-Generate an ID When a Document is Opened or Created</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_auto_generate_ID"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Auto-Generate an ID When a Document is Opened or Created</h1>
+  <div class="body">
+    <section class="section" id="api_faq_auto_generate_ID__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Is it possible to configure how the application generates IDs? For project compliance, I
+        need IDs that have a certain format for each created topic. </p>
+    </section>
+    <section class="section" id="api_faq_auto_generate_ID__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">This could be done implementing a <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> for <span class="ph">Oxygen XML Editor</span> using the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html#Developer_Plugins" target="_blank" rel="external noopener">Plugins SDK</a>:</p>
+      <p class="p">There is a type of <dfn class="term">plugin</dfn> called "Workspace Access" that can be used to add a
+        listener to be notified when an editor is opened.</p>
+      <p class="p">The implemented <dfn class="term">plugin</dfn> would intercept the open editor and editor page
+        change events (which occur when a new editor is created) and generate a new ID attribute
+        value on the root element.</p>
+      <div class="p">The Java code would look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">pluginWorkspaceAccess.addEditorChangeListener(<strong class="hl-keyword">new</strong> WSEditorChangeListener() {
+<span class="hl-tag-doctype-comment">/**
+* @see WSEditorChangeListener#editorOpened(java.net.URL)
+*/</span>
+<em><span class="hl-annotation">@Override</span></em>
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorOpened(URL editorLocation) {
+    WSEditor ed = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, PluginWorkspace.MAIN_EDITING_AREA);
+        generateID(ed);
+}
+<span class="hl-tag-doctype-comment">/**
+* @see WSEditorChangeListener#editorPageChanged(java.net.URL)
+*/</span>
+<em><span class="hl-annotation">@Override</span></em>
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorPageChanged(URL editorLocation) {
+    WSEditor ed = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, PluginWorkspace.MAIN_EDITING_AREA);
+        generateID(ed);
+}
+      
+<strong class="hl-keyword">private</strong> <strong class="hl-keyword">void</strong> generateID(WSEditor ed) {
+ <strong class="hl-keyword">if</strong>(ed.getCurrentPage() <strong class="hl-keyword">instanceof</strong> WSAuthorEditorPage) {
+  WSAuthorEditorPage authorEditPage = (WSAuthorEditorPage) ed.getCurrentPage();
+  AuthorDocumentController ctrl = authorEditPage.getDocumentController();
+  AuthorElement root = ctrl.getAuthorDocumentNode().getRootElement();
+   <strong class="hl-keyword">if</strong>(root.getAttribute(<span class="hl-string">"id"</span>) == null || 
+!root.getAttribute(<span class="hl-string">"id"</span>).getValue().startsWith(<span class="hl-string">"generated_"</span>)) {
+    ctrl.setAttribute(<span class="hl-string">"id"</span>, <strong class="hl-keyword">new</strong> AttrValue(<span class="hl-string">"generated_"</span> + Math.random()), root);
+          }
+        }
+      }
+      
+    }, PluginWorkspace.MAIN_EDITING_AREA);
+</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_highlight_content.html">Add Custom Highlights to Content</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_review_user_name.html">Change the Default Track Changes (Review) Author Name</a></div></div></nav></article></main></body></html>

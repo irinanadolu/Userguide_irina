@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Integrating external tools,External Tools"><meta name="keywords" content="Integrating external tools, External Tools"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/checksum-mismatch-error.html"><meta name="DC.relation" scheme="URI" content="../topics/problems.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="integrating-external-tools"><title>External Tools</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="integrating-external-tools"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">External Tools</h1>
+  
+  <div class="body">
+    <p class="p">A command-line tool can be started in the <span class="ph">Oxygen XML Editor</span> user interface as if from
+      the command line of the operating system shell. <span class="ph">Oxygen XML Editor</span> offers you the option
+      of integrating such a tool by specifying just the command line for starting the executable
+      file and its working directory. To integrate such a tool, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <a class="xref" href="preferences-external-tools.html"><span class="ph uicontrol">External Tools</span></a> (or select
+        <span class="ph uicontrol">Configure</span> from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu).</p>
+    <p class="p">The <a class="xref" href="preferences-external-tools.html"><span class="ph uicontrol">External Tools</span> preferences
+        page</a> presents a list of the external tools that have been configured. Once <a class="xref" href="preferences-external-tools.html#preferences-external-tools__configure-external-tool">a tool has been configured</a>,
+      you can open it by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu or from the <span class="ph uicontrol"><img class="image" id="integrating-external-tools__image_thp_gpz_vr" src="../img/ExternalTools20.png">External Tools</span> drop-down menu on the toolbar (the
+        <span class="ph uicontrol">Tools</span> toolbar needs to be selected in the <a class="xref" href="configure-toolbars.html#configure-toolbars"><span class="ph uicontrol">Configure Toolbars</span>
+        dialog box</a>). You can also <a class="xref" href="preferences-external-tools.html#preferences-external-tools__shortcut-key">assign a
+        keyboard shortcut</a> to be used to launch the tool.</p>
+    <p class="p">If the external tool is applied on one of the files opened in <span class="ph">Oxygen XML Editor</span>, the
+        <a class="xref" href="preferences-editor-save.html#preferences-editor-save__save-all-files-before-tool"><span class="ph uicontrol">Save all files before calling external tools</span> option</a> (in the
+        <span class="ph uicontrol">Save</span> preference page) should be selected so that all edited files are
+      automatically saved when an external tool is applied.</p>
+    <div class="p">When an external tool is launched, the icon on the toolbar changes to a stop icon (<img class="image" id="integrating-external-tools__image_iv5_m1p_5r" src="../img/StopExternalTool16.png">) and you can use this button to
+      stop the tool. When the tool has finished running (or you close it), the icon changes back to
+      the original icon (<img class="image" src="../img/ExternalTools20.png">).<div class="note note note_note"><span class="note__title">Note:</span> Even though you can stop
+        the external tool by invoking the stop action while it is running, that does not necessarily
+        mean it will also stop the processes spawned by that external tool. For instance, if you
+        stop an external tool that runs a batch file, the batch may be stopped but without actually
+        stopping the processes that the batch was running at that time.</div></div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: Integrating the Ant Tool</u></strong></p>
+    <div class="p">This is an example procedure for integrating <a class="xref" href="http://ant.apache.org/" target="_blank" rel="external noopener">the Ant build tool</a> into <span class="ph">Oxygen XML Editor</span>:<ol class="ol">
+        <li class="li"><a class="xref" href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external noopener">Download</a> and <a class="xref" href="http://ant.apache.org/manual/install.html" target="_blank" rel="external noopener">install</a>
+          <a class="xref" href="../glossary/ant.html"><dfn class="term">Apache Ant</dfn></a> on your computer.</li>
+        <li class="li">Test your <em class="ph i">Ant</em> installation from the command-line interface in the directory where
+          you want to use <em class="ph i">Ant</em> from. For example, run the <code class="ph codeph">clean</code> target of
+          your <span class="ph filepath">build.xml</span> file
+            <span class="ph filepath">C:\projects\XMLproject\build.xml</span>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">ant clean</pre></li>
+        <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+            <span class="ph uicontrol">External Tools</span> (or select <span class="ph uicontrol">Configure</span> from
+          the <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span></span> menu).</li>
+        <li class="li">Click the <span class="ph uicontrol">New</span> button to create a new external tool entry and
+          enter the following information:<ul class="ul">
+            <li class="li"><span class="ph uicontrol">Name</span> - For example, <kbd class="ph userinput">Ant tool</kbd>.</li>
+            <li class="li"><span class="ph uicontrol">Working directory</span> - For example,
+                <kbd class="ph userinput">C:\projects\XMLproject</kbd>.</li>
+            <li class="li"><span class="ph uicontrol">Command line</span> - For example,
+                <kbd class="ph userinput">"C:\projects\XMLproject\ant.bat" clean</kbd>.</li>
+          </ul></li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to add the new tool to the list of external tools.</li>
+        <li class="li">Run the tool from <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">External Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Ant tool</span></span>. You can see the output in the system
+          console:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">
+    Started: "C:\projects\XMLproject\ant.bat" clean
+    Buildfile: build.xml
+    
+    clean:
+    [echo] Delete output files.
+    [delete] Deleting 5 files from C:\projects\XMLproject
+    
+    BUILD SUCCESSFUL
+    Total time: 1 second
+</pre></li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/checksum-mismatch-error.html">Checksum Mismatch Error</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/problems.html" title="A compilation of common problems and their solutions">Troubleshooting</a></div></div></nav></article></main></body></html>

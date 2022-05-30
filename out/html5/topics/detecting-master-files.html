@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Master Files,Detecting,Projects,Master files,Detect Master Files,Detect Master Files from Project"><meta name="keywords" content="Master Files, Detecting, Projects, Master files, Detect Master Files, Detect Master Files from Project"><meta name="DC.relation" scheme="URI" content="../topics/defining_master_files.html"><meta name="DC.relation" scheme="URI" content="../topics/enabling-the-master-files-support.html"><meta name="DC.relation" scheme="URI" content="../topics/adding-removing-a-master-file.html"><meta name="DC.relation" scheme="URI" content="enabling-the-master-files-support.html#enabling-the-master-files-support"><meta name="DC.relation" scheme="URI" content="adding-removing-a-master-file.html#adding-removing-a-master-file"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="detecting-master-files"><title>Detecting Master Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="detecting-master-files"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Detecting Master Files</h1>
+  
+  <div class="body">
+    <p class="p">
+      <span class="ph">Oxygen XML Editor</span> allows you to detect the <dfn class="term">master files</dfn> using the
+          <span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect Master Files</span>
+      option. This action applies to the folders you select in the project.</p>
+    <div class="p">To detect <dfn class="term">master files</dfn> over the entire project, do one of the following:<ul class="ul">
+        <li class="li">Right-click the root of the project and select <span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect
+            Master Files</span>.</li>
+        <li class="li">Use the <span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect Master Files
+            from Project</span> option, available in the contextual menu of the
+            <span class="ph filepath">Master Files</span> folder.</li>
+      </ul>Both of these options display the <span class="ph uicontrol">Detect Master Files</span> wizard. <span class="ph">In the first panel you can select
+        the type of <dfn class="term">master files</dfn> you want <span class="ph">Oxygen XML Editor</span> to detect. In the
+        subsequent panel the detected <dfn class="term">master files</dfn> are presented in a tree-like
+        fashion.</span>The resources are grouped into three categories: <ul class="ul">
+        <li class="li"><strong class="ph b">Possible <dfn class="term">master files</dfn></strong> - The files presented on the first level in
+          this category are not imported or included from other files. These files are most likely
+          to be set as <dfn class="term">master files</dfn>.<div class="note note note_note"><span class="note__title">Note:</span> For DITA projects, only <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA Maps</dfn></a> are reported as possible
+              <dfn class="term">master files</dfn>.</div></li>
+        <li class="li"><strong class="ph b">Cycles</strong> - The files that are presented on the first level have circular
+          dependencies between them. Any file presented on the first level of a cycle is a possible
+            <dfn class="term">master file</dfn>. </li>
+        <li class="li"><strong class="ph b">Standalone</strong> - Files that do not include or import other files and are also not
+          included or imported themselves. It is not necessary to set them as <dfn class="term">master
+            files</dfn>.</li>
+      </ul></div>
+    <p class="p">To set them as <dfn class="term">master files</dfn>, simply select their checkboxes. <span class="ph">Oxygen XML Editor</span> marks all the children of a <dfn class="term">master file</dfn> as modules. Modules
+      are rendered in gray and their tool-tip presents a list of their <dfn class="term">master files</dfn>. A
+      module can be accessed from multiple <dfn class="term">master files</dfn>.</p>
+    <p class="p">The next panel displays a list with the selected <dfn class="term">master files</dfn>. Click the
+        <span class="ph uicontrol">Finish</span> button to add the <dfn class="term">master files</dfn> in the
+        <span class="ph filepath">Master Files</span> folder.</p>
+    <div class="p">You can use the <span class="ph uicontrol">Select Master Files</span> option to automatically mark all
+        <dfn class="term">master files</dfn>. This action sets all the resources from the <span class="ph uicontrol">Possible
+        Master Files</span> category and the first resource of each
+        <span class="ph uicontrol">Cycle</span> as <dfn class="term">master files</dfn>. The <span class="ph uicontrol">Deselect
+        All</span> button simply removes all of your selections.<div class="note tip note_tip"><span class="note__title">Tip:</span> It is
+        recommended that you only add top-level files (files that are at the root of the
+        include/import graph) in the <span class="ph filepath">Master Files</span> directory.</div><div class="note attention note_attention"><span class="note__title">Attention:</span> If the <span class="ph uicontrol">Master Files
+          Support</span> is disabled, the <span class="ph filepath">Master Files</span> directory is
+        rendered only if it contains <dfn class="term">master files</dfn>.</div></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/defining_master_files.html">Master Files Support</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/enabling-the-master-files-support.html">Enabling the Master Files Support</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/adding-removing-a-master-file.html">Adding or Removing Files in the Master Files Directory</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="enabling-the-master-files-support.html#enabling-the-master-files-support">Enabling the Master Files Support</a></li><li class="linklist"><a class="link" href="adding-removing-a-master-file.html#adding-removing-a-master-file">Adding or Removing Files in the Master Files Directory</a></li></ul></div></nav>
+</article></main></body></html>

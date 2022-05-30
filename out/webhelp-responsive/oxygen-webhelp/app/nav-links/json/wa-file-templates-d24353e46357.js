@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Customizing New Document Templates","href":"topics\/wa-customizing-templates.html","attributes":{"data-id":"wa-customizing-templates"},"menu":{"hasChildren":false},"tocID":"wa-customizing-templates-d24353e46376","topics":[]}]});

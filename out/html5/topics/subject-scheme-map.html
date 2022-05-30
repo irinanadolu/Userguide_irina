@@ -1,0 +1,164 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Profiling,Using subject scheme map"><meta name="keywords" content="DITA, Profiling, Using subject scheme map"><meta name="DC.relation" scheme="URI" content="../topics/dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-profiling-attribute-groups.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-ditaval-file.html"><meta name="DC.relation" scheme="URI" content="dita-ditaval-file.html#dita-ditaval-file"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/subject-scheme-maps-and-usage.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="subject-scheme-map"><title>Customizing Profiling Values with a Subject Scheme Map</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="subject-scheme-map"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Profiling Values with a Subject Scheme Map</h1>
+  
+  <div class="body">
+    <section class="section" id="subject-scheme-map__overview"><h2 class="title sectiontitle">Overview</h2>
+      
+      <p class="p">A <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme map</dfn></a>
+        allows you to create and manage custom profiling values in DITA documents without having to
+        write a DITA specialization. Ultimately, this allows you to filter and flag content in
+          <span class="ph uicontrol">Author</span> mode or in transformed output.</p>
+      <p class="p"><dfn class="term">Subject scheme maps</dfn> use key definitions to define a collection of profiling
+        values. You can also use <dfn class="term">subject scheme maps</dfn> to filter out (reject) the values
+        for certain attributes so that you only see the attributes or values that you want to use in
+          <span class="ph uicontrol">Author</span> mode or the transformed output.</p>
+      <div class="p">The highest level of map (<a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">main DITA
+          map</dfn></a>) that uses the set of profiling values must reference the <dfn class="term">subject
+          scheme map</dfn> where the profiling values are defined and the <code class="keyword markupname xmlatt">@type</code>
+        attribute needs to be set to <code class="ph codeph">subjectScheme</code> for the reference, as in the
+        following
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"test.ditamap"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"ditamap"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"subjectScheme"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="subject-scheme-map__advantages_of_using_a_subject_scheme_map"><h2 class="title sectiontitle">Advantages of Using a Subject Scheme Map</h2>
+      
+      <div class="p">The advantages of using a subject scheme to control profiling attribute values include:<ul class="ul">
+          <li class="li">You can create a hierarchy of profiling attribute values and use a DITAVAL file to
+            filter or flag the tree of values.</li>
+          <li class="li">You can share the subject scheme files with others without having to share preferences
+            or the entire project.</li>
+          <li class="li">The subject scheme offers validation support so you are notified if an undefined value
+            is used.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="subject-scheme-map__creating_a_subject_scheme_map"><h2 class="title sectiontitle">Creating a Subject Scheme Map</h2>
+      
+      <div class="p">To create and configure a <dfn class="term">subject scheme map</dfn>, follow this procedure:<ol class="ol">
+          <li class="li">Use the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New Document</span> wizard</a> to create a new <strong class="ph b">Subject Scheme</strong> document (<span class="ph menucascade"><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA Map</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">map</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" src="../img/DitamapIcon16.png">Subject Scheme</span></span>).</li>
+          <li class="li">Use the controls in <span class="ph uicontrol">Author</span> mode to define the hierarchical tree
+            of values for your <dfn class="term">subject scheme</dfn> (<a class="xref" href="subject-scheme-map.html#subject-scheme-map__author-mode-example">see the Author mode
+              example below</a>) or switch to <span class="ph uicontrol">Text</span> mode and define it
+            there if you prefer (<a class="xref" href="subject-scheme-map.html#subject-scheme-map__text-mode-example">see the Text mode example below</a>).<div class="note note note_note"><span class="note__title">Note:</span> The pre-defined subject scheme template
+                includes Navigation Titles (<code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> element). This element is not
+                required, but if you use it, the text that you enter for the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code>
+              will be used (instead of the name of the value) in the various places where <a class="xref" href="subject-scheme-map.html#subject-scheme-map__where_the_profiling_attributes_are_available_in">profiling attributes are presented in <span class="ph">Oxygen XML Editor</span></a>.
+              An example of when this might be helpful is if you want to use abbreviations for the
+              name of a value, but you want to see its full name in <span class="ph">Oxygen XML Editor</span>.</div></li>
+          <li class="li">Bind the particular attribute to the key you define for the tree of values using the
+              <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code> and <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> elements
+            inside the <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element. Notice that in the <a class="xref" href="subject-scheme-map.html#subject-scheme-map__example_subject_scheme_map_that_defines_custom_va">examples below</a>, the <em class="ph i">audience</em> attribute is bound to the
+              <em class="ph i">audienceKey</em> value.<div class="note tip note_tip"><span class="note__title">Tip:</span> By default, attributes can accept multiple
+              values, but you can use <code class="ph codeph">outputclass="single_value"</code> to specify that a
+              certain attribute only accepts a single value at a time and the attribute will be
+              presented in <span class="ph">Oxygen XML Editor</span> with radio buttons instead of checkboxes. For
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;enumerationdef</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"single_value"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;attributedef</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"audience"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"audienceKey"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/enumerationdef&gt;</strong></pre></div></li>
+          <li class="li">If you want to filter out (reject) values for certain attributes, bind the attributes
+            to a blank value (as you see for the <code class="ph codeph">props</code> and
+              <code class="ph codeph">otherprops</code> attributes in the <a class="xref" href="subject-scheme-map.html#subject-scheme-map__example_subject_scheme_map_that_defines_custom_va">examples below</a>). This means that those attributes will not appear
+            in the various places where <a class="xref" href="subject-scheme-map.html#subject-scheme-map__where_the_profiling_attributes_are_available_in">profiling attributes are presented in <span class="ph">Oxygen XML Editor</span></a>.</li>
+          <li class="li">Save your <dfn class="term">subject scheme</dfn> file.</li>
+          <li class="li">Reference your <dfn class="term">subject scheme</dfn> in the highest level of map (<a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">main DITA map</dfn></a>) that will use the set
+            of profiling values and set its type to <code class="ph codeph">subjectScheme</code>. The easiest way
+            to do this is:<ol class="ol" type="a">
+              <li class="li">With your <dfn class="term">subject scheme</dfn> file opened in the editor, go to the
+                  <span class="ph uicontrol">DITA Maps Manager</span> view, right-click the <dfn class="term">main DITA
+                  map</dfn>, and select <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Reference to the currently edited file</span></span>.</li>
+              <li class="li">In the <span class="ph uicontrol">Insert Topic Reference</span> dialog box, go to the
+                  <span class="ph uicontrol">Attributes</span> tab and in the <span class="ph uicontrol">Type</span>
+                field, enter or select <strong class="ph b">subjectScheme</strong>.</li>
+              <li class="li">Click the <span class="ph uicontrol">Insert and Close</span> button and save your main DITA
+                map.</li>
+            </ol></li>
+        </ol></div>
+    </section>
+    <section class="section" id="subject-scheme-map__using_a_subject_scheme_in_conjuction_with_a_ditav"><h2 class="title sectiontitle">Using a Subject Scheme in Conjunction with a DITAVAL File</h2>
+      
+      <div class="p">You can use a subject scheme to customize a hierarchy of profiling attribute values and
+        then use it in conjunction with a <a class="xref" href="dita-ditaval-file.html#dita-ditaval-file">DITAVAL file to filter or flag</a> the entire tree of values. For example, suppose one
+        of the values for the <code class="ph codeph">audience</code> attribute in a hierarchical subject scheme
+        is <code class="ph codeph">surgeon</code> and it has two subordinate values of
+          <code class="ph codeph">neuro-surgeon</code> and <code class="ph codeph">plastic-surgeon</code> (see the <a class="xref" href="subject-scheme-map.html#subject-scheme-map__example_subject_scheme_map_that_defines_custom_va">examples below</a>). You could create a DITAVAL file with the following
+        content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;val&gt;</strong>
+     <strong class="hl-tag">&lt;prop</strong> <span class="hl-attribute">action</span>=<span class="hl-value">"exclude"</span> <span class="hl-attribute">att</span>=<span class="hl-value">"audience"</span> <span class="hl-attribute">val</span>=<span class="hl-value">"surgeon"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/val&gt;</strong></pre></div>
+      <p class="p">That DITAVAL file could then be used for a <a class="xref" href="dita-condition-sets-management.html#dita-condition-sets-management">condition
+          set</a> to filter content in <span class="ph uicontrol">Author</span> mode or during the
+        transformation stage to <a class="xref" href="publish-profiled-text.html#publish-profiled-text">filter
+          content in the output</a> and the <code class="ph codeph">neuro-surgeon</code> and
+          <code class="ph codeph">plastic-surgeon</code> values would be excluded by the filter since the subject
+        scheme defines them as subordinate values of the <code class="ph codeph">surgeon</code> value.</p>
+    </section>
+    <section class="section" id="subject-scheme-map__example_subject_scheme_map_that_defines_custom_va"><h2 class="title sectiontitle">Example: Subject Scheme Map that Defines Custom Values for the Audience
+        Attribute</h2>
+      
+      <p class="p">This example uses typical audience values for medical personnel
+        (<code class="ph codeph">therapist</code>, <code class="ph codeph">oncologist</code>, <code class="ph codeph">physicist</code>,
+          <code class="ph codeph">radiologist</code>, <code class="ph codeph">surgeon</code>, and so on). The
+          <code class="ph codeph">audience</code> attribute is bound to the <code class="ph codeph">audienceKey</code> value
+        (which defines the tree of values). You can also see that it filters out all possible values
+        for other attributes (<code class="ph codeph">props</code> and <code class="ph codeph">otherprops</code>) so that they
+        won't be available in the various places where <a class="xref" href="subject-scheme-map.html#subject-scheme-map__where_the_profiling_attributes_are_available_in">profiling attributes are presented in <span class="ph">Oxygen XML Editor</span></a>.</p>
+      <p class="p" id="subject-scheme-map__author-mode-example"><u class="ph u"><strong class="ph b">Example using Author mode controls:</strong></u></p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Subject Scheme Author Mode Controls</figcaption>
+          
+          <img class="image" src="../img/Subject-Scheme-Author-mode.png">
+        </figure>
+      </div>
+      <div class="p" id="subject-scheme-map__text-mode-example"><u class="ph u"><strong class="ph b">Example code in Text
+        mode:</strong></u><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;subjectScheme&gt;</strong>
+  <em class="hl-comment">&lt;!-- A scheme that defines audience user values --&gt;</em>
+  <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"audienceKey"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"therapist"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"oncologist"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"physicist"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"radiologist"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"surgeon"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"neuro-surgeon"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keys</span>=<span class="hl-value">"plastic-surgeon"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/subjectdef&gt;</strong>
+  <strong class="hl-tag">&lt;/subjectdef&gt;</strong>
+  <em class="hl-comment">&lt;!-- Binding the audience attribute to the values defined in the key --&gt;</em>
+  <strong class="hl-tag">&lt;enumerationdef&gt;</strong>
+    <strong class="hl-tag">&lt;attributedef</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"audience"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"audienceKey"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/enumerationdef&gt;</strong>
+
+  <em class="hl-comment">&lt;!--Reject all possible values for other profiling attributes--&gt;</em>
+  <strong class="hl-tag">&lt;enumerationdef&gt;</strong>
+    <strong class="hl-tag">&lt;attributedef</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"props"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef/&gt;</strong>
+  <strong class="hl-tag">&lt;/enumerationdef&gt;</strong>
+  <strong class="hl-tag">&lt;enumerationdef&gt;</strong>
+    <strong class="hl-tag">&lt;attributedef</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"otherprops"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;subjectdef/&gt;</strong>
+  <strong class="hl-tag">&lt;/enumerationdef&gt;</strong>
+<strong class="hl-tag">&lt;/subjectScheme&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="subject-scheme-map__where_the_profiling_attributes_are_available_in"><h2 class="title sectiontitle">Where the Profiling Attributes are Available in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">When you edit a DITA topic in the <span class="ph uicontrol">Text</span> or
+          <span class="ph uicontrol">Author</span> mode, <span class="ph">Oxygen XML Editor</span> collects all the profiling
+        values from the <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme
+          map</dfn></a> that is referenced in the map that is currently opened in the <a class="xref" href="dita-maps-manager.html"><span class="ph uicontrol">DITA Maps Manager</span></a> (or set as
+        the <a class="xref" href="root-map.html"><dfn class="term">root map</dfn></a>). The values of profiling
+        attributes defined in a <dfn class="term">Subject Scheme Map</dfn> are available in the following
+        places in <span class="ph">Oxygen XML Editor</span> (regardless of their mapping in the <a class="xref" href="preferences-profiling-conditions.html#preferences-profiling-conditions"><span class="ph uicontrol">Profiling/Conditional Text</span> preferences page</a>):<ul class="ul">
+          <li class="li">The <a class="xref" href="dita-edit-properties.html#dita-edit-properties__profiling_tab"><span class="ph uicontrol">Profiling</span> tab of the <span class="ph uicontrol">Edit Properties</span>
+              dialog box</a>.</li>
+          <li class="li">The <a class="xref" href="dita-apply-profiling-attributes.html#dita-apply-profiling-attributes__edit-profiling-image"><span class="ph uicontrol">Edit Profiling Attribute</span> dialog box</a>.</li>
+          <li class="li">The <a class="xref" href="profiling-conditional-text-markers.html#profiling-conditional-text-markers__anchor1">inline profiling controls in <span class="ph uicontrol">Author</span> mode</a>.</li>
+          <li class="li">The proposals for the attribute values in the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                Assistant</dfn></a>.</li>
+        </ul></div>
+    </section>
+    <p class="p">For more information about using a DITA subject scheme map, watch our video
+      demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/RgkVRg6k6zo" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-profiling-attribute-groups.html">Conditional Profiling Attribute Groups</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-ditaval-file.html">Filtering Profiling Values with a DITAVAL File</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-ditaval-file.html#dita-ditaval-file">Filtering Profiling Values with a DITAVAL File</a></li><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/subject-scheme-maps-and-usage.html" target="_blank" rel="external noopener">DITA 1.3 Specifications: Subject Scheme Maps</a></li></ul></div></nav>
+</article></main></body></html>

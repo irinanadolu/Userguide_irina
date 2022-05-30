@@ -1,0 +1,144 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Edit Content References"><meta name="keywords" content="DITA, Reusing content, Edit Content References"><meta name="DC.relation" scheme="URI" content="../topics/working-with-content-references.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-create-conkeyref.html"><meta name="DC.relation" scheme="URI" content="../topics/insert-dita-content-reference.html"><meta name="DC.relation" scheme="URI" content="eppo-create-conref.html#eppo-create-conref"><meta name="DC.relation" scheme="URI" content="eppo-create-conkeyref.html#eppo-create-conkeyref"><meta name="DC.relation" scheme="URI" content="insert-define-keys.html#insert-define-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="edit-dita-content-reference"><title>Editing DITA Content References</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="edit-dita-content-reference"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing DITA Content References</h1>
+  
+    <div class="body">
+    <div class="p">When you reference reusable content using a <code class="keyword markupname xmlatt">@conref</code> or
+        <code class="keyword markupname xmlatt">@conkeyref</code> attribute, by default, the content is grayed out in the document
+      and can only be edited from the source document. To edit the source of the referenced content,
+      click the <img class="image" id="edit-dita-content-reference__image_p2t_wwm_wr" src="../img/editContent.png"> icon at the beginning
+      of the inserted content. This will open the source document where you can edit the referenced
+        content.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to be able to edit the referenced content without
+        having to open the source document, go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit Modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span></span> and select the <a class="xref" href="preferences-author.html#preferences-author__allow-referenced-content"><span class="ph uicontrol">Allow referenced content to be edited (Experimental)</span>
+          option</a>.</div></div>
+      <div class="p"><span class="ph">Oxygen XML Editor</span> also includes some actions that allow you to quickly edit existing
+      content references. When the element that contains a content reference
+        (<code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code>) is selected, the following actions
+      are available in the <span class="ph uicontrol">DITA</span> menu and the <span class="ph uicontrol">Reuse</span>
+      submenu of the contextual menu:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit Content Reference</span></dt>
+          <dd class="dd">This action is available for elements with a <code class="keyword markupname xmlatt">@conref</code> or
+              <code class="keyword markupname xmlatt">@conkeyref</code> attribute. It opens the <span class="ph uicontrol">Edit Content
+              Reference</span> dialog box that allows you to edit the source location (or key)
+            and source element of a content reference (or content key reference), and the reference
+            details (<code class="keyword markupname xmlatt">@conref</code>/<code class="keyword markupname xmlatt">@conkeyref</code> and
+              <code class="keyword markupname xmlatt">@conrefend</code> attributes). For more information, see <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference">Reuse Content Dialog Box</a>.</dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace Reference with Content</span></dt>
+          <dd class="dd">Replaces the referenced fragment (<code class="keyword markupname xmlatt">@conref</code> or
+              <code class="keyword markupname xmlatt">@conkeyref</code>) at the cursor position with its content from it source.
+            This action is useful if you want to make changes to the content in the currently edited
+            document without changing the referenced fragment in its source location. If the source
+            content includes references to other topics/resources (<em class="ph i">hrefs</em>), the operation also
+            resolves those references relative to the new location. Attributes are preserved
+            according to the following priority:<ol class="ol">
+              <li class="li">Attributes from the elements in the current document that reference other content
+                are preserved except for attributes with a <code class="ph codeph">-dita-use-conref-target</code>
+                value.</li>
+              <li class="li">Attributes from the referenced content are brought into the replaced elements in
+                the current document except for <code class="keyword markupname xmlatt">@id</code> attributes.</li>
+            </ol></dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace All References with Content</span></dt>
+          <dd class="dd">
+            <div class="p">Replaces all referenced fragments (<code class="keyword markupname xmlatt">@keyref</code>, <code class="keyword markupname xmlatt">@conref</code>,
+              or <code class="keyword markupname xmlatt">@conkeyref</code>) in the current document with the content. Attributes
+              are preserved according to the following priority:<ol class="ol" id="edit-dita-content-reference__ol_vbd_fmq_y3b">
+                <li class="li">Attributes from the elements in the current document that reference other
+                  content are preserved except for attributes with a
+                    <code class="ph codeph">-dita-use-conref-target</code> value.</li>
+                <li class="li">Attributes from the referenced content are brought into the replaced elements in
+                  the current document except for <code class="keyword markupname xmlatt">@id</code> attributes.</li>
+              </ol></div>
+            <p class="p">For <em class="ph i">keyrefs</em> inside <code class="keyword markupname xmlelement">&lt;xref&gt;</code> or
+                <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, the <code class="keyword markupname xmlatt">@keyref</code> attribute is
+              changed to an <code class="keyword markupname xmlatt">@href</code> attribute, while the rest of the content for the
+                <em class="ph i">keyref</em> is replaced with its source content.</p>
+            <p class="p">If the source content includes references to other topics/resources (<em class="ph i">hrefs</em>),
+              the operation also resolves those references relative to the new location.</p>
+          </dd>
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Remove Content Reference</span></dt>
+          <dd class="dd">Removes the content reference (<code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code>)
+            inside the element at the cursor position.</dd>
+        
+      </dl></div>
+    <section class="section" id="edit-dita-content-reference__converting_conrefs_to_conkeyrefs"><h2 class="title sectiontitle">Converting Conrefs to Conkeyrefs</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes a DITA refactoring operation called <span class="ph uicontrol">Convert
+          conrefs to conkeyrefs</span> that will find all <dfn class="term">content references</dfn> (that
+        reference content outside the current document) and convert them to <dfn class="term">content key
+          references</dfn>. You can also use it to quickly convert all <dfn class="term">content
+          references</dfn> in the current document or multiple documents at once.</p>
+      <p class="p">To access the <span class="ph uicontrol">Convert conrefs to conkeyrefs</span> operation, use one of
+        the following methods:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm" id="edit-dita-content-reference__single-documents">Single Document Method</dt>
+            <dd class="dd">With the document opened in the editor, right-click anywhere in the main editing
+              pane (or right-click the topic reference in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a>), go to the <span class="ph uicontrol">Refactoring</span> submenu,
+              and choose <span class="ph uicontrol">Convert conrefs to conkeyrefs</span>.</dd>
+          
+          
+            <dt class="dt dlterm" id="edit-dita-content-reference__multiple-documents">Multiple Documents At Once Method</dt>
+            <dd class="dd">Select <span class="ph uicontrol"><img class="image" id="edit-dita-content-reference__image_mv4_ptt_kr" src="../img/XMLRefactoring16.png">XML Refactoring</span> from the <span class="ph uicontrol">Tools</span> menu (or from
+              the <span class="ph uicontrol">Refactoring</span> submenu when you right-click a document in the
+                <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+                view</a>or the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span> view</a>). Then select
+                <span class="ph uicontrol">Convert conrefs to conkeyrefs</span> from the
+                <span class="ph uicontrol">DITA</span> section and click <span class="ph uicontrol">Next</span>.</dd>
+          
+        </dl>
+      </div>
+      <div class="p">Either method will proceed to the <span class="ph uicontrol">XML Refactoring Wizard</span>. If you
+        used the <a class="xref" href="edit-dita-content-reference.html#edit-dita-content-reference__multiple-documents"><strong class="ph b">Multiple Documents At Once Method</strong></a>, the wizard page allows you to choose a
+        scope for the operation and some filtering options:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">Scope</span> - Select from a variety of options to define the scope
+            that will have resources affected by the operation. For example, you can choose to
+            affect all resources in the <span class="ph uicontrol">Project</span>, <span class="ph uicontrol">All opened
+              files</span>, <span class="ph uicontrol">Current DITA map hierarchy</span>, or just the
+              <span class="ph uicontrol">Current file</span>.</li>
+          <li class="li"><span class="ph uicontrol">Filters</span> section<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Include files</span> - Specifies files to be excluded from the
+                operation. You can specify multiple files by separating them with commas and the
+                patterns can include wildcards (such as <strong class="ph b">*</strong> or <strong class="ph b">?</strong>).</li>
+              <li class="li"><span class="ph uicontrol">Restrict to known XML file types only</span> - Excludes non-XML
+                file types from the operation.</li>
+              <li class="li"><span class="ph uicontrol">Look inside archives</span> - If
+                this option is selected, the scope of the operation will include files inside
+                archives.</li>
+            </ul></li>
+        </ul></div>
+      <p class="p">If you used the <a class="xref" href="edit-dita-content-reference.html#edit-dita-content-reference__single-documents"><strong class="ph b">Single Document Method</strong></a>, the scope will be the current file so the scope
+        and filtering options are not displayed. </p>
+      <div class="p">You can then use one of the following buttons to proceed with the operation: <dl class="dl">
+          
+            <dt class="dt dlterm">Preview</dt>
+            <dd class="dd">You can use the <span class="ph uicontrol">Preview</span> button to open a comparison panel
+              where you can review all the changes that will be made by the refactoring operation
+              before applying the changes.<div class="note warning note_warning"><span class="note__title">Warning:</span> It is always recommended to use the
+                  <span class="ph uicontrol">Preview</span> button to make sure the operation is not going to
+                do something unexpected and after you click the <span class="ph uicontrol">Finish</span>
+                button, any <span class="ph uicontrol">Undo</span> action will only revert changes on the
+                current document.</div></dd>
+          
+          
+            <dt class="dt dlterm">Finish</dt>
+            <dd class="dd">When you use the <span class="ph uicontrol">Finish</span> button, the operation will be
+              processed and all <dfn class="term">content references</dfn> will be converted to <dfn class="term">content
+                key references</dfn> (either all <dfn class="term">content references</dfn> in the current
+              document or all <dfn class="term">content references</dfn> in all of the documents specified in
+              the scope). The file name for each converted document is used as the value for its new
+              key. However, the operation does NOT automatically add the key to the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA Map</dfn></a>, so you still need to
+              manually <a class="xref" href="insert-define-keys.html#insert-define-keys">define each key in
+                your <dfn class="term">DITA map</dfn></a>. </dd>
+          
+        </dl></div>
+    </section>
+    </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-content-references.html">Working with Content References</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-create-conkeyref.html">Creating a DITA Content Key Reference</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/insert-dita-content-reference.html">Reuse Content Dialog Box</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-create-conref.html#eppo-create-conref">Creating a DITA Content Reference</a></li><li class="linklist"><a class="link" href="eppo-create-conkeyref.html#eppo-create-conkeyref">Creating a DITA Content Key Reference</a></li><li class="linklist"><a class="link" href="insert-define-keys.html#insert-define-keys">Defining Keys in DITA Maps</a></li></ul></div></nav>
+</article></main></body></html>

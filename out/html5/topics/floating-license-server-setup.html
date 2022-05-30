@@ -1,0 +1,62 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Installing Oxygen,TCP floating license server,Windows 32-bit"><meta name="keywords" content="Installing Oxygen, TCP floating license server, Windows 32-bit"><meta name="DC.relation" scheme="URI" content="../topics/installation-setting-up-license-server.html"><meta name="DC.relation" scheme="URI" content="../topics/server-replace-license-key.html"><meta name="DC.relation" scheme="URI" content="../topics/server-replace-floating-license.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="floating-license-server-setup"><title>Setting up TCP Floating License Server (Deprecated) in 32-bit Windows</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="floating-license-server-setup"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Setting up TCP Floating License Server (Deprecated) in 32-bit Windows</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">This section contains information about setting up the TCP floating license server as a
+        Windows process.</p>
+      <div class="p">
+        <figure class="fig fignone" id="floating-license-server-setup__fig_ryp_rkz_x4"><figcaption><span class="fig--title-label">Figure 1. </span>TCP Floating License Server (Process in Windows)</figcaption>
+          
+          <img class="image" id="floating-license-server-setup__image_xzp_rkz_x4" src="../img/diag_TCPIPLicense.png">
+        </figure>
+      </div>
+      <p class="p"><strong class="ph b">Installation Steps</strong></p>
+    </section>
+    <section id="floating-license-server-setup__steps_xff_gp3_5q"><ol class="ol steps" id="floating-license-server-setup__steps_xff_gp3_5q"><li class="li step stepexpand">
+        <span class="ph cmd">Download the license server installation kit for Windows from the <a class="xref" href="https://www.oxygenxml.com/license_server.html" target="_blank" rel="external noopener"><span class="ph">Oxygen XML Editor</span> website</a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Run the downloaded installer and follow the on-screen instructions.</span>
+        <div class="itemgroup info" id="floating-license-server-setup__windows_service_scripts">
+          <div class="p">By default, the installer installs the license server as a Windows service. Optionally,
+            you have the ability to start the Windows service automatically at Windows startup or
+            create shortcuts on the <span class="ph uicontrol">Start</span> menu for starting and stopping the
+            Windows service manually.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to manually install, start, stop, or uninstall the server as a Windows service,
+      run the following scripts from a command line as an Administrator:<ul class="ul" id="floating-license-server-setup__ul_j3f_gp3_5q">
+        <li class="li"><span class="ph filepath">installWindowsService.bat [serviceName]</span> - Installs the server as a
+          Windows service with the name <em class="ph i">serviceName</em>. The parameters for the license key
+          folder and the server port can be set in the
+            <span class="ph filepath">oXygenLicenseServer.vmoptions</span> file. </li>
+        <li class="li"><span class="ph filepath">startWindowsService.bat [serviceName]</span> - Starts the Windows
+          service.</li>
+        <li class="li"><span class="ph filepath">stopWindowsService.bat [serviceName]</span> - Stops the Windows
+          service.</li>
+        <li class="li"><span class="ph filepath">uninstallWindowsService.bat [serviceName]</span> - Uninstalls the Windows
+          service.</li>
+      </ul><p class="p">If you do not provide the <code class="ph codeph">serviceName</code> argument, the default name
+          <em class="ph i">oXygenLicenseServer</em> is used.</p><div class="p">If the license server is installed as a Windows
+        service, the output and error messages are automatically redirected to the following log
+        files that are created in the install folder:<ul class="ul" id="floating-license-server-setup__ul_rfs_pjn_5q">
+          <li class="li"><span class="ph filepath">outLicenseServer.log</span> - Standard output stream of the server.</li>
+          <li class="li"><span class="ph filepath">errLicenseServer.log</span> - Standard error stream of the server.</li>
+        </ul></div></div></div>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Manually add the <span class="ph">oXygenLicenseServer.exe</span> file in the Windows Firewall list of
+          exceptions. Go to <span class="ph menucascade"><span class="ph uicontrol">Control Panel</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">System and Security</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Windows Firewall</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Allow a program or feature through Windows Firewall</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Allow another program</span></span> and browse for <span class="ph">oXygenLicenseServer.exe</span> from the <span class="ph">Oxygen XML Editor</span> License Server installation folder.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Floating licenses require activation prior to use. More details are available either
+          on-screen (if the license server is started in a command-line interface) or in the
+            <span class="ph filepath">outLicenseServer.log</span> log file.</span>
+        <div class="itemgroup info">
+          <div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">A license server can only manage one license key. If you
+        have multiple license keys for the same <span class="ph">Oxygen XML Editor</span> version and you want to have
+        all of them managed by the same server, or if you have a multiple-user floating license and
+        you want to split it between two or more license servers, <a class="xref" href="https://www.oxygenxml.com/contact.html" target="_blank" rel="external noopener">contact the
+          Oxygen support team</a> and ask for a new license key.</span></div>
+        </div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/server-replace-license-key.html">Replacing Floating License Key in TCP Floating License Server (Deprecated)</a><br></li><li class="link olchildlink"><a href="../topics/server-replace-floating-license.html">Upgrading Your TCP Floating License Server (Deprecated)</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/installation-setting-up-license-server.html">License Servers</a></div></div></nav></article></main></body></html>

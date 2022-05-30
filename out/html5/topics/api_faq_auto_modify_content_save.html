@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_auto_modify_content.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_multiple_rendering_same_document.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_auto_modify_content_save"><title>Modify the XML Content on Save</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_auto_modify_content_save"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Modify the XML Content on Save</h1>
+  <div class="body">
+    <section class="section" id="api_faq_auto_modify_content_save__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Is it possible to get <span class="ph">Oxygen XML Editor</span> to update the revised date on a DITA document
+        when it is saved?</p>
+    </section>
+    <section class="section" id="api_faq_auto_modify_content_save__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">The <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html#Developer_Plugins" target="_blank" rel="external noopener">Plugins SDK</a> contains a sample plugin type called
+          <strong class="ph b">WorkspaceAccess</strong>.Such a plugin is notified when the application starts.</p>
+      <div class="p">You can add a listener that notifies you before the user saves an XML document. Then if the
+        XML document is opened in the <span class="ph uicontrol">Author</span> visual editing mode you can use
+        the <em class="ph i">Author API</em> to change attributes before the save takes
+        place:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">      <em><span class="hl-annotation">@Override</span></em>
+      <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> applicationStarted
+(<strong class="hl-keyword">final</strong> StandalonePluginWorkspace pluginWorkspaceAccess) {
+       pluginWorkspaceAccess.addEditorChangeListener
+(<strong class="hl-keyword">new</strong> WSEditorChangeListener(){
+         <em class="hl-comment">//An editor was opened</em>
+        <em><span class="hl-annotation">@Override</span></em>
+        <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorOpened(URL editorLocation) {
+          <strong class="hl-keyword">final</strong> WSEditor editorAccess = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, PluginWorkspace.MAIN_EDITING_AREA);
+          <strong class="hl-keyword">if</strong>(editorAccess != null){
+            editorAccess.addEditorListener
+(<strong class="hl-keyword">new</strong> ro.sync.exml.workspace.api.listeners.WSEditorListener(){
+              <em class="hl-comment">//Editor is about to be saved</em>
+              <em><span class="hl-annotation">@Override</span></em>
+              <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> editorAboutToBeSavedVeto(<strong class="hl-keyword">int</strong> operationType) {
+                <strong class="hl-keyword">if</strong>(EditorPageConstants.PAGE_AUTHOR.equals
+(editorAccess.getCurrentPageID())){
+                  WSAuthorEditorPage authorPage = 
+(WSAuthorEditorPage) editorAccess.getCurrentPage();
+                  AuthorDocumentController controller = 
+authorPage.getDocumentController();
+                  <strong class="hl-keyword">try</strong> {
+                    <em class="hl-comment">//Find the revised element</em>
+                    AuthorNode[] nodes = controller.findNodesByXPath
+(<span class="hl-string">"//revised"</span>, true, true, true);
+                    <strong class="hl-keyword">if</strong>(nodes != null &amp;&amp; nodes.length &gt; <span class="hl-number">0</span>){
+                      AuthorElement revised = (AuthorElement) nodes[<span class="hl-number">0</span>];
+                      <em class="hl-comment">//Set the modified attribute to it...</em>
+                      controller.setAttribute(<span class="hl-string">"modified"</span>, 
+<strong class="hl-keyword">new</strong> AttrValue(<strong class="hl-keyword">new</strong> Date().toString()), revised);
+                    }
+                  } <strong class="hl-keyword">catch</strong> (AuthorOperationException e) {
+                    e.printStackTrace();
+                  }
+                }
+                <em class="hl-comment">//And let the save continue.. </em>
+                <strong class="hl-keyword">return</strong> true;
+              }
+            });
+          }
+        }
+       }, PluginWorkspace.MAIN_EDITING_AREA); 
+      }</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_auto_modify_content.html">Modify the XML Content on Open</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_multiple_rendering_same_document.html">Multiple Rendering Modes for the Same Document in Author Mode</a></div></div></nav></article></main></body></html>

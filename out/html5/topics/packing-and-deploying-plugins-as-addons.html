@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen SDK,Deploying plugins as add-ons,Plugins"><meta name="keywords" content="Oxygen SDK, Deploying plugins as add-ons, Plugins"><meta name="DC.relation" scheme="URI" content="../topics/extend-oxygen-with-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/share-classloader-between-framework-and-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/testing-plugins-extensions.html"><meta name="DC.relation" scheme="URI" content="packing-and-deploying-addons.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/oxygen_sdk/community.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="packing-and-deploying-plugins-as-addons"><title>Packing and Deploying Plugins as Add-ons</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="packing-and-deploying-plugins-as-addons"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Packing and Deploying Plugins as Add-ons</h1>
+  
+  <div class="body">
+    <p class="p">In <span class="ph">Oxygen XML Editor</span>, a <dfn class="term">plugin</dfn> can be packed and deployed as an
+        <dfn class="term">add-on</dfn> to provide additional functionality to the application.</p>
+    <section class="section" id="packing-and-deploying-plugins-as-addons__packing_a_plugin_or_framework_as_an_addon"><h2 class="title sectiontitle">Packing a Plugin as an Add-on</h2>
+      
+      <div class="p">This procedure is suitable for developers who want a better control over the <a class="xref" href="../glossary/plugin.html"><dfn class="term">add-on</dfn></a> package or those who want to
+        automate some of the steps:<ol class="ol">
+          <li class="li">Pack the <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> as a ZIP file or
+            a <a class="xref" href="../glossary/jar.html"><dfn class="term">Java Archive</dfn></a>. Note that you should
+            pack the entire root directory not just its contents.</li>
+          <li class="li"><strong class="ph b">[Optional]</strong> If you created a <dfn class="term">Java Archive</dfn> at the previous
+        step, digitally sign the package. You will need a certificate signed by a trusted authority.
+        To sign the <dfn class="term">JAR</dfn>, you can either use the <em class="ph i">jarsigner</em> command-line tool
+        inside Oracle's Java Development Kit (<span class="ph filepath">[JDK_DIR]/bin/jarsigner.exe</span>) or
+        if you are working with <a class="xref" href="../glossary/ant.html"><dfn class="term">Apache Ant</dfn></a>, you
+        can use the <em class="ph i">signjar</em> task (a front for the <em class="ph i">jarsigner</em> command-line tool). The
+        benefit of having a signed add-on is that you can verify the integrity of the add-on issuer.
+        If you do not have such a certificate, you can generate one yourself using the
+          <em class="ph i">keytool</em> command-line utility.<div class="note note note_note"><span class="note__title">Note:</span> This approach is recommended for tests since
+          anyone can create a self-signed certificate.</div></li>
+          <li class="li">Create a descriptor file. You can use a template that <span class="ph">Oxygen XML Editor</span>
+        provides by going to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span></span> and selecting the <span class="ph uicontrol">Oxygen add-ons update site</span> template.
+        Once deployed, this descriptor file is referenced as <em class="ph i">update site</em>.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="packing-and-deploying-plugins-as-addons__section_uyw_qps_lnb"><h2 class="title sectiontitle">Alternate Packing Method: Add-ons Packager</h2>
+      
+      <div class="p">Alternatively, you can use the <span class="ph uicontrol">Add-ons
+        Packager</span> plugin by following this procedure:<ol class="ol">
+        <li class="li">Install the <span class="ph uicontrol">Add-ons Packager</span> plugin following the procedure
+          described in <a class="xref" href="installing-and-updating-add-ons.html">Installing Add-ons</a>.</li>
+        <li class="li">Restart <span class="ph">Oxygen XML Editor</span>. If the add-on is correctly installed, the
+            <span class="ph uicontrol">Add-ons packager</span> toolbar action is available.</li>
+        <li class="li">Invoke the <span class="ph uicontrol">Add-ons packager</span> toolbar action and input the required
+          information in the displayed dialog box.</li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to complete the packaging process.</li>
+      </ol></div>
+    </section>
+    <section class="section" id="packing-and-deploying-plugins-as-addons__d1045e62"><h2 class="title sectiontitle">Deploying an Add-on</h2>
+      
+      <p class="p">To deploy an add-on, copy the <code class="ph codeph">ZIP</code> or <a class="xref" href="../glossary/jar.html"><dfn class="term">Java Archive</dfn></a> file and the descriptor file to an HTTP server. The
+        URL to this location serves as the <em class="ph i">Update Site URL</em>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/extend-oxygen-with-plugins.html">Extending Oxygen XML Editor with Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/share-classloader-between-framework-and-plugin.html">How to Share a Class Loader Between a Framework and Plugin</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/testing-plugins-extensions.html">Testing Plugins and Java Extensions</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="packing-and-deploying-addons.html">Packing and Deploying Frameworks as Add-ons</a></li><li class="linklist"><a class="link" href="https://www.oxygenxml.com/oxygen_sdk/community.html" target="_blank" rel="external noopener">Oxygen XML Add-on Repositories</a></li></ul></div></nav>
+</article></main></body></html>

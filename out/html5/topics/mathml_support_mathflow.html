@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/mathml_support.html"><meta name="DC.relation" scheme="URI" content="../topics/mathml_support_jeuclid.html"><meta name="DC.relation" scheme="URI" content="../topics/insert-reference-from-webdav-repository.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="mathml_support_mathflow"><title>Adding MathML Support Using MathFlow</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="mathml_support_mathflow"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding MathML Support Using MathFlow</h1>
+  <div class="body">
+    <p class="p">In the <span class="ph filepath">pom.xml</span> file, add dependencies to the following additional
+      libraries used by the MathFlow library to parse MathML equations:</p>
+    <div class="p">
+      <ol class="ol" id="mathml_support_mathflow__ol_ogj_zdq_c4">
+        <li class="li"><span class="ph filepath">MFComposer.jar</span></li>
+        <li class="li"><span class="ph filepath">MFExtraSymFonts.jar</span></li>
+        <li class="li"><span class="ph filepath">MFSimpleEditor.jar</span></li>
+        <li class="li"><span class="ph filepath">MFStructureEditor.jar</span></li>
+        <li class="li"><span class="ph filepath">MFStyleEditor.jar</span><div class="note note note_note"><span class="note__title">Note:</span> For MathFlow 2.1, all of these <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> files are packaged into one file
+            called <span class="ph filepath">MathFlow.jar</span>.</div></li>
+      </ol>
+    </div>
+    <p class="p">You can reference these additional libraries from the MathFlow SDK as in the example
+      below:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;dependency&gt;</strong>
+    <strong class="hl-tag">&lt;groupId&gt;</strong>com.dessci<strong class="hl-tag">&lt;/groupId&gt;</strong>
+    <strong class="hl-tag">&lt;artifactId&gt;</strong>MFComposer<strong class="hl-tag">&lt;/artifactId&gt;</strong>
+    <strong class="hl-tag">&lt;version&gt;</strong>1.0.0<strong class="hl-tag">&lt;/version&gt;</strong>
+    <strong class="hl-tag">&lt;scope&gt;</strong>system<strong class="hl-tag">&lt;/scope&gt;</strong>
+    <strong class="hl-tag">&lt;systemPath&gt;</strong>${MathFlowSDKDir}/lib/MFComposer.jar<strong class="hl-tag">&lt;/systemPath&gt;</strong>
+<strong class="hl-tag">&lt;/dependency&gt;</strong> </pre>
+    </div>
+    <p class="p">In addition, you must obtain fixed MathFlow license keys for editing and composing
+        <em class="ph i">MathML</em> equations and register them using these API methods:
+        <em class="ph i">AuthorComponentFactory.setMathFlowFixedLicenseKeyForEditor</em> and
+        <em class="ph i">AuthorComponentFactory.setMathFlowFixedLicenseKeyForComposer</em>.</p>
+    <p class="p">To edit specialized DITA Composite with <em class="ph i">MathML</em> content, include the entire
+          <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/mathml2</span> Mathml2 <dfn class="term">framework</dfn> directory in the <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> bundled with the component in
+      the <span class="ph filepath">bundle-frameworks</span> module. This directory is used to solve references
+      to <em class="ph i">MathML</em> DTDs.</p>
+    <p class="p">More documentation is available on the <a class="xref" href="http://www.wiris.com/mathflow" target="_blank" rel="external noopener">Wiris
+          <dfn class="term">MathFlow</dfn></a> website.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/mathml_support.html">Adding MathML support in the Oxygen XML Author Component</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/mathml_support_jeuclid.html">Adding MathML Support Using JEuclid</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/insert-reference-from-webdav-repository.html">Adding Support to Insert References from a WebDAV Connection</a></div></div></nav></article></main></body></html>

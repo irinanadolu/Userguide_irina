@@ -1,0 +1,205 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Framework customization,Configuring validation scenarios"><meta name="keywords" content="Framework customization, Configuring validation scenarios"><meta name="DC.relation" scheme="URI" content="../topics/dg-complex-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-customize-default-CSS.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-validation-scenarios"><title>Configuring Validation Scenarios for a Framework</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-validation-scenarios"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring Validation Scenarios for a Framework</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <div class="p">You can distribute a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> with
+        a series of already configured validation scenarios. Also, this provides enhanced validation
+        support that allows you to use multiple grammars to check the document. For example, you can
+        use Schematron rules to impose guidelines that are otherwise impossible to enforce using
+        conventional validation.<div class="note note note_note"><span class="note__title">Note:</span> If a <dfn class="term">master file</dfn> is associated with the current file,
+      the validation scenarios defined in the <dfn class="term">master file</dfn>, along with any Schematron
+      schema defined in the default scenarios for that particular <dfn class="term">framework</dfn>, are used
+      for the validation. These take precedence over other types of validation units defined in the
+      default scenarios for the particular <dfn class="term">framework</dfn>. For more information on
+        <dfn class="term">master files</dfn>, see <a class="xref" href="defining_master_files.html#defining_master_files">Master Files Support</a> or <a class="xref" href="xml-contextual-editing.html#xml-contextual-editing">Working with Modular XML Files in the Master Files Context</a>.</div></div>
+      <p class="p">To associate a validation scenario with a specific <dfn class="term">framework</dfn>, follow these
+        steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+            <span class="ph uicontrol">Document Type Association</span>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the document type and click the <span class="ph uicontrol">Edit</span> button to open the
+            <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+              Type Configuration</span> dialog box</a>, then choose the
+            <span class="ph uicontrol">Validation</span> tab. This tab displays a list of document types. To
+          set one or more of the validation scenarios listed in this tab to be used as the default
+          validation scenario (when another one is not specified in the validation process) for a
+          specific document type, check the <span class="ph uicontrol">Default</span> box for that specific
+          document type.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">To edit an existing scenario, select the scenario and click the <span class="ph uicontrol"><img class="image" id="dg-validation-scenarios__image_v44_qyd_rlb" src="../img/Wrench16.png">Edit</span> button. To add a
+          new scenario, click the <span class="ph uicontrol"><img class="image" id="dg-validation-scenarios__image_b34_k3r_xr" src="../img/Add16.png">New</span> button.</span>
+        <div class="itemgroup stepresult">In either case, a scenario configuration dialog box is displayed. It lists all
+          the validation units for the scenario.<div class="p">
+            <figure class="fig fignone" id="dg-validation-scenarios__figure-edit-validation-scenario-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Validation Scenario Configuration Dialog Box</figcaption>
+              
+              <img class="image" id="dg-validation-scenarios__image_uss_w3r_xr" src="../img/sa_edit_validation_scenario_dialog.png">
+            </figure>
+          </div><div class="p" id="dg-validation-scenarios__new-scenario-dialog-box">This scenario configuration dialog box allows you to
+            configure the following information and options:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+                <dd class="dd">The name of the validation scenario.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">URL of the file to validate</span></dt>
+                <dd class="dd">The URL of the main module that includes the current module. It is also the
+                  entry module of the validation process when the current one is validated. To edit
+                  the URL, <span class="ph">double-</span>click its cell and
+                  specify the URL of the main module by doing one of the following:<ul class="ul">
+                    <li class="li">Enter the URL in the text field or select it from the drop-down list.</li>
+                    <li class="li">Use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down button to browse for a local, remote, or
+                      archived file.</li>
+                    <li class="li">
+                      <p class="p">Use the <span class="ph uicontrol"><img class="image" id="dg-validation-scenarios__image_sbt_rs2_w3b" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor Variable</span> button to
+                        insert an <a class="xref" href="editor-variables.html">editor
+                          variable</a> or a <a class="xref" href="custom-editor-variables.html">custom editor
+                          variable</a>.</p>
+                      <div class="p">
+                        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Insert an Editor Variable</figcaption>
+                          
+                          <img class="image" src="../reusables/topics/../../img/sa_editor_variables_menu.png">
+                        </figure>
+                      </div>
+                      <p class="p">
+                        
+                      </p>
+                    </li>
+                  </ul></dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">File type</span></dt>
+                <dd class="dd">The type of the document that is validated in the current validation unit. <span class="ph">Oxygen XML Editor</span> automatically selects the file type depending on the value of
+                  the <span class="ph uicontrol">URL of the file to validate</span> field.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Validation engine</span></dt>
+                <dd class="dd">
+                  <p class="p">You can select one of the engines available in <span class="ph">Oxygen XML Editor</span> for
+                    validation of the particular document type.</p>
+                  <p class="p"><span class="ph uicontrol">Default engine</span> means that the default engine is used to
+                    run the validation for the current document type, as specified in the
+                    preferences page for that type of document (for example, <a class="xref" href="preferences-xslt.html#preferences-xslt">XSLT preferences
+                      page</a>, <span class="ph"><a class="xref" href="preferences-xquery.html#preferences-xquery">XQuery
+                        preferences page</a>, </span><a class="xref" href="xml-schema-preferences-page.html#xml-schema-preferences-page">XML Schema preferences page</a>).</p>
+                  <p class="p">The <span class="ph uicontrol">DITA Validation</span> engine performs DITA-specific checks
+                    in the context of the specifications<span class="ph"> (it is similar to the
+                      checks done with the <span class="ph uicontrol">DITA Maps Manager</span>
+                      <a class="xref" href="dita-map-validate.html"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ValidateAndCheck16.png">Validate and Check for
+                          Completeness</span> action</a>, but for a local file rather than
+                      an entire <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+                    map</dfn></a>)</span>.</p>
+                  <p class="p">The <span class="ph uicontrol">Table Layout Validation</span> engine looks for table
+                    layout problems<span class="ph"> (for
+                      more information, see <a class="xref" href="dita-map-validate.html#dita-map-validate__report-table-problems">Report table layout problems</a>)</span>.</p>
+                </dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Automatic validation</span></dt>
+                <dd class="dd">If this option is selected, the validation operation defined by this row is also
+                  applied by <a class="xref" href="automatic-validation.html">the automatic
+                    validation feature</a>. If the <span class="ph uicontrol">Automatic validation</span>
+                  feature is disabled in the <a class="xref" href="preferences-editor-document-checking.html">Document Checking
+                    preferences page</a>, then this option is ignored, as the preference setting
+                  has a higher priority.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Schema</span></dt>
+                <dd class="dd">This option becomes active when you set the <span class="ph uicontrol">File type</span> to
+                    <span class="ph uicontrol">XML Document</span> and allows you to specify the schema used
+                  for the validation unit.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Specify
+                  Schema</span></dt>
+                <dd class="dd">
+                  <p class="p">Opens the <span class="ph uicontrol">Specify Schema</span> dialog box that allows you to
+                    set a schema to be used for validating XML documents.</p>
+                  <div class="p">
+                    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Specify Schema Dialog Box</figcaption>
+                      
+                      <img class="image" src="../reusables/topics/../../img/specify_schema_dialog.png">
+                    </figure>
+                  </div>
+                  <p class="p">The <span class="ph uicontrol">Specify Schema</span> dialog box contains the following
+                    options:</p>
+                  <div class="p">
+                    <dl class="dl">
+                      
+                        <dt class="dt dlterm"><span class="ph uicontrol">Use detected schema</span></dt>
+                        <dd class="dd">Uses the <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document__detecting_a_default_schema">schema detected for the particular document</a>.</dd>
+                      
+                      
+                        <dt class="dt dlterm"><span class="ph uicontrol">Use custom schema</span></dt>
+                        <dd class="dd">Allows you to specify the schema using the following options:<ul class="ul" id="dg-validation-scenarios__specify-schema-ul">
+                            <li class="li">
+                              <span class="ph uicontrol">URL</span> - Allows you to specify or select a URL for
+                              the schema. It also keeps a history of the last used schemas. The URL
+                              must point to the schema file that can be loaded from the local disk
+                              or from a remote server through HTTP(S), FTP(S)<span class="ph"> or a <a class="xref" href="howto-custom-protocol-plugin.html#howto-custom-protocol-plugin">custom protocol</a></span>. You can specify the URL
+                              by using the text field, the history drop-down, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor Variables</span></a> button, or the
+                              browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down
+                              list.</li>
+                            <li class="li">
+                              <span class="ph uicontrol">Schema type</span> - Select a possible schema type
+                              from this combo box that is populated based on the extension of the
+                              schema file that was entered in the <span class="ph uicontrol">URL</span> field.
+                              The possible schema types are: XML Schema, DTD, Relax NG, Relax NG
+                              Compact, Schematron, or NVDL.</li>
+                            <li class="li"><span class="ph uicontrol">Embedded Schematron rules</span> - If you have
+                              selected XML Schema or Relax NG schemas with embedded Schematron rules
+                              and you want to use those embedded rules, select this option.</li>
+                            <li class="li"><span class="ph uicontrol">Extensions</span>- Opens a dialog box that allows
+                              you to specify <a class="xref" href="../glossary/jar.html"><dfn class="term">Java extension
+                                  JARs</dfn></a> to be used during the validation.</li>
+                            <li class="li">
+                              <span class="ph uicontrol">Public ID</span> - Allows you to specify a public ID
+                              if you have selected a DTD.</li>
+                            <li class="li"><span class="ph uicontrol">Schematron phase</span> - If you select a Schematron
+                              schema, this drop-down list allows you to select a Schematron phase
+                              that you want to use for validation. The listed phases are defined in
+                              the Schematron document.</li>
+                          </ul></dd>
+                      
+                    </dl>
+                  </div>
+                </dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dg-validation-scenarios__image_jhv_vr1_5r" src="../reusables/topics/../../img/MoveUpEntry16.gif">Move
+                    Up</span></dt>
+                <dd class="dd">Moves the selected validation unit up one spot in the list.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="dg-validation-scenarios__image_q44_vr1_5r" src="../reusables/topics/../../img/MoveDownEntry16.gif">Move Down</span></dt>
+                <dd class="dd">Moves the selected validation unit down one spot in the list.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Add</span></dt>
+                <dd class="dd">Adds a new validation unit to the list.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Remove</span></dt>
+                <dd class="dd">Removes an existing validation unit from the list.</dd>
+              
+            </dl></div></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Configure any of the existing validation units according to the information above, and
+          you can use the buttons at the bottom of the table to add, remove, or move validation
+          units. Note that if you add a Schematron validation unit, you can also select the
+            <span class="ph uicontrol">validation phase</span>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click <span class="ph uicontrol">Ok</span>.</span>
+        <div class="itemgroup stepresult">The newly created validation scenario is now included in the list of scenarios
+          in the <a class="xref" href="document-type-validation-tab.html#document-type-validation-tab"><span class="ph uicontrol">Validation</span> tab</a>. You can use the
+            <span class="ph uicontrol">Default</span> checkbox to specify that the new scenario be used as the
+          default validation scenario when another specific scenario is not specified in the
+          validation process.</div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-complex-customization-tutorial.html">Advanced Framework Customization</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-transformation-scenarios.html">Configuring Transformation Scenarios for a Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-customize-default-CSS.html">Customizing Author Mode Using CSS Files Associated with a Framework</a></div></div></nav></article></main></body></html>

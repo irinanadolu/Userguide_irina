@@ -1,0 +1,174 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/getting-started-intro.html"><meta name="DC.relation" scheme="URI" content="../topics/common-shortcut-keys.html"><meta name="DC.relation" scheme="URI" content="../topics/vpat.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="accessibility"><title>Accessibility Support in Oxygen</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="accessibility"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Accessibility Support in Oxygen</h1>
+  <div class="body">
+    <p class="p">The <strong class="ph b">Oxygen</strong> team is dedicated to developing software products that are usable for
+      everyone, including those with physical challenges and disabilities. <span class="ph">Oxygen XML Editor</span> is
+      designed to adhere to the U.S. Government Section 508 accessibility standards: <a class="xref" href="https://www.oxygenxml.com/xml_editor/section508.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/xml_editor/section508.html</a>.</p>
+    <section class="section" id="accessibility__adjusting_fonts_and_colors"><h2 class="title sectiontitle">Adjusting Fonts and Colors</h2>
+      
+      <p class="p">If you have low vision, go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Appearance</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Fonts</span></span> where you can adjust the font styles and sizes used in the entire
+        application, both for the editing areas and UI labels. If you have color blindness, you can
+        also adjust most of the colors used in <span class="ph">Oxygen XML Editor</span> by going to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Appearance</span></span> and changing the current color theme. You can also search for other
+        color-related settings in the <strong class="ph b">Preferences</strong> dialog box.</p>
+    </section>
+    <section class="section" id="accessibility__section_rfj_4pf_l3b"><h2 class="title sectiontitle">Installing <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">Installation kits for Windows and Linux are made using the Install4j product. If you have
+        problems navigating the Install4j installation wizard, you can run the installation from a
+          <a class="xref" href="eppo-installation-windows.html#eppo-installation-windows__c-parameter">command-prompt application using the <strong class="ph b">-c</strong> flag</a> like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">C:\Users\your_user_name\Downloads\oxygenAuthor-64bit.exe -c</pre></div>
+    </section>
+    <section class="section" id="accessibility__section_ntq_yxn_j3b"><h2 class="title sectiontitle">Screen Reader Software</h2>
+      
+      <p class="p">If you are using a text to speech narrator, <span class="ph">Oxygen XML Editor</span> supports this since it
+        is a Java application and it is periodically tested on Windows using both the NVDA and JAWS
+        screen readers.</p>
+    </section>
+    <section class="section" id="accessibility__text_to_speech_narrators_jaws"><h2 class="title sectiontitle">Using the JAWS (Job Access With Speech) Screen Reader with <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <p class="p">The JAWS screen reader can be downloaded from: <a class="xref" href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank" rel="external noopener">http://www.freedomscientific.com/Products/Blindness/JAWS</a>.</p>
+      <p class="p">For JAWS to work, you need to enable the Java access bridge in <span class="ph">Oxygen XML Editor</span>:
+          <a class="xref" href="http://docs.oracle.com/javase/7/docs/technotes/guides/access/enable_and_test.html" target="_blank" rel="external noopener">http://docs.oracle.com/javase/7/docs/technotes/guides/access/enable_and_test.html</a>.</p>
+      <div class="p">To enable the Java access bridge:<ol class="ol" id="accessibility__ol_s4m_xh5_g3b">
+          <li class="li">Since <span class="ph">Oxygen XML Editor</span> comes bundled with its own Java VM, you need to open a
+            command-prompt application and use the <span class="ph uicontrol">cd</span> command to go to the
+              <span class="ph">Oxygen XML Editor</span> installation directory (for example, in Windows, it would be
+            something like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">cd C:\Program Files\Oxygen XML Editor 21.1</pre></li>
+          <li class="li">Then run the following
+            command:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">jre\bin\jabswitch -enable</pre></li>
+          <li class="li">Press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> and you should receive a
+            notification that the access bridge has been enabled.</li>
+        </ol></div>
+      <p class="p">Once the Java access bridge is enabled and as long as the JAWS narrator is active, when <span class="ph">Oxygen XML Editor</span> starts, the narrator will start reading content from <span class="ph">Oxygen XML Editor</span> and you can interact with the application and read menus, content from
+        open XML documents, and UI components from dialog boxes and side views.</p>
+    </section>
+    <section class="section" id="accessibility__section_r3c_fzn_j3b"><h2 class="title sectiontitle">Using the NVDA Screen Reader with <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <p class="p">The NVDA screen reader can be downloaded for free from: <a class="xref" href="https://www.nvaccess.org/" target="_blank" rel="external noopener">https://www.nvaccess.org/</a>.</p>
+      <p class="p">For NVDA to work, you need to enable the Java access bridge in <span class="ph">Oxygen XML Editor</span>:
+          <a class="xref" href="http://docs.oracle.com/javase/7/docs/technotes/guides/access/enable_and_test.html" target="_blank" rel="external noopener">http://docs.oracle.com/javase/7/docs/technotes/guides/access/enable_and_test.html</a>.</p>
+      <div class="p">To enable the Java access bridge:<ol class="ol" id="accessibility__ol_s3c_fzn_j3b">
+          <li class="li">Since <span class="ph">Oxygen XML Editor</span> comes bundled with its own Java VM, you need to open a
+            command-prompt application and use the <span class="ph uicontrol">cd</span> command to go to the
+              <span class="ph">Oxygen XML Editor</span> installation directory (for example, in Windows, it would be
+            something like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">cd C:\Program Files\Oxygen XML Editor 21.1</pre></li>
+          <li class="li">Then run the following
+            command:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">jre\bin\jabswitch -enable</pre></li>
+          <li class="li">Press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> and you should receive a
+            notification that the access bridge has been enabled.</li>
+        </ol></div>
+      <div class="p">Once the Java access bridge is enabled and as long as the NVDA narrator is started, when
+          <span class="ph">Oxygen XML Editor</span> starts, the narrator will start reading content from <span class="ph">Oxygen XML Editor</span> and you can interact with the application and read menus, content from
+        open XML documents, and UI components from dialog boxes and side views.<div class="note important note_important"><span class="note__title">Important:</span> If after these steps the narrator still does not read anything from a
+          started <span class="ph">Oxygen XML Editor</span> application, please go to the folder
+            <code class="ph codeph">C:\Windows\SysWOW64\</code> and make sure the library
+            <code class="ph codeph">WindowsAccessBridge-32.dll</code> is present there. If it is not present, try
+          to search online, download the library file and copy it to the folder. Then restart <span class="ph">Oxygen XML Editor</span>.</div></div>
+      <div class="p">Besides the main editing area, <span class="ph">Oxygen XML Editor</span> also has side views (for example, the
+          <span class="ph uicontrol">Attributes</span>, <span class="ph uicontrol">Outline</span>,
+          <span class="ph uicontrol">Elements</span> views) that help with editing the XML content. NVDA
+        versions <strong class="ph b">2020.1</strong> and older have a <a class="xref" href="https://github.com/nvaccess/nvda/issues/5989" target="_blank" rel="external noopener">registered bug</a> that makes the narrator read content from the side views when
+        editing in the main editing area. Because of this problem, when using NVDA versions
+          <strong class="ph b">2020.1</strong> or older, the following workflow is suggested:<ol class="ol" id="accessibility__ul_qd1_r14_j3b">
+          <li class="li">Start <span class="ph">Oxygen XML Editor</span>.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Window</span> menu and select <span class="ph uicontrol">Maximize Editing
+              Area</span> (or <span class="ph uicontrol"><span class="keyword shortcut">hold Alt, then W, then
+              M</span></span>). This action will hide all side views and allow you to
+            properly edit in the main editing area.</li>
+          <li class="li">Whenever you want to open a side view, go to <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> (or <span class="ph uicontrol"><span class="keyword shortcut">hold Alt, then W, then S</span></span>)
+            and choose the view you want to open. For example, to show the
+              <span class="ph uicontrol">Elements</span> view, you can <span class="ph uicontrol"><span class="keyword shortcut">hold Alt, then W,
+                then S, then E</span></span>.</li>
+          <li class="li">When you are done using the side view, go to the <span class="ph uicontrol">Window</span> menu
+            and select <span class="ph uicontrol">Hide current view</span> (or <span class="ph uicontrol"><span class="keyword shortcut">hold Alt,
+                then W, then H</span></span>) to hide the side view and return the focus to
+            the main editing area.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="accessibility__hints_for_the_visually_impaired"><h2 class="title sectiontitle">Hints for the Visually Impaired</h2>
+      
+      <div class="p">Here are a few hints for using <span class="ph">Oxygen XML Editor</span> if you are visually impaired:<ul class="ul" id="accessibility__ul_owd_cv5_xcb">
+          <li class="li">The top main menu contains actions to open, save, and close documents, switch between
+            open documents, or switch between the various editing modes for XML documents that are
+            already open. All actions in the main menu bar should have mnemonics making it possible
+            to memorize various shortcuts. For example, using the <span class="ph uicontrol">alt-w-s-e</span>
+            shortcut should open the <span class="ph uicontrol">Window</span> menu, open the <span class="ph uicontrol">Show
+              view</span> submenu from it and show the <span class="ph uicontrol">Elements</span> view,<ul class="ul" id="accessibility__ul_hyq_hv5_xcb">
+              <li class="li">The <span class="ph uicontrol">File</span> menu contains actions to open, save, or close the
+                currently edited XML document.</li>
+              <li class="li">The <span class="ph uicontrol">Edit</span> menu contains actions to undo/redo or
+                cut/copy/paste content. They also have the usual shortcuts that can be used instead
+                of directly invoking the actions from the menu.</li>
+              <li class="li">The <span class="ph uicontrol">Find</span> menu contains an action to show the
+                  <span class="ph uicontrol">Find/Replace</span> dialog box. Sometimes the <strong class="ph b">JAWS</strong> narrator
+                overloads the <span class="ph uicontrol"><span class="keyword shortcut">CTRL+F</span></span> shortcut and
+                presents its own find/replace window but the <span class="ph">Oxygen XML Editor</span>
+                <span class="ph uicontrol">Find/Replace</span> dialog box provides the ability to perform
+                complex find/replace operations in the open file.</li>
+              <li class="li">In the <span class="ph uicontrol">Options</span> menu, you have access to the
+                  <span class="ph uicontrol">Preferences</span> dialog box that contains global application
+                settings and access to the <strong class="ph b">Menu Shortcut Keys</strong> table where you can configure
+                shortcuts for the most commonly used actions.</li>
+              <li class="li">The <span class="ph uicontrol">Window</span> menu includes actions to switch between open XML
+                documents. Also, you can use the <span class="ph uicontrol">Show view</span> submenu to open a
+                particular side view and move the focus to that view.</li>
+            </ul></li>
+          <li class="li">An open XML document can be edited with accessibility support either in the
+              <span class="ph uicontrol">Text</span> editing mode (where the XML tags are accessible in the
+            edited content) or in the visual <span class="ph uicontrol">Author</span> editing mode (where the
+            XML tags are hidden and only the text content is shown). You can switch between these
+            editing modes by using the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit Mode</span></span> menu.<ul class="ul" id="accessibility__ul_jgk_nk1_ycb">
+              <li class="li">
+                <p class="p"><span class="ph uicontrol">Text</span> mode provides access to the entire source document
+                  with all of its <strong class="ph b">XML</strong> content, just like you have in any text editing
+                  application. </p>
+                <div class="p">Pressing the <span class="ph uicontrol"><span class="keyword shortcut">&lt;</span></span> key will present a
+                  list of <a class="xref" href="../glossary/content-completion-assistant.html">available XML
+                    elements</a>. If you do not want to choose from the list whenever you want to
+                  insert an XML element, you have two choices:<ul class="ul" id="accessibility__ul_bdq_sj4_llb">
+                    <li class="li">After the list of available XML elements is shown, you can press the
+                          <span class="ph uicontrol"><span class="keyword shortcut">ESC</span></span> key to close it and
+                      continue to manually insert the XML tag.</li>
+                    <li class="li">You can disable the content completion list from the <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Editor / Content Completion</span></span> page by deselecting <span class="ph uicontrol">Enable Content
+                        Completion</span>. After the content completion is disabled, you can
+                      force it to be displayed by using the
+                          <span class="ph uicontrol"><span class="keyword shortcut">Ctrl+Space</span></span> keyboard
+                      shortcut.</li>
+                  </ul></div>
+                <p class="p">In addition, using the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show view</span></span> submenu, you can change focus to the
+                    <span class="ph uicontrol">Attributes</span>, <span class="ph uicontrol">Elements</span>, or
+                    <span class="ph uicontrol">Outline</span> view. The <span class="ph uicontrol">Attributes</span> view
+                  presents the existing and possible attributes that can be inserted in an XML tag.
+                  The <span class="ph uicontrol">Elements</span> view shows you the list of XML elements that
+                  can be inserted at the cursor position (also, pressing
+                      <span class="ph uicontrol"><span class="keyword shortcut">F2</span></span> on a selected element presents
+                  its annotation). The <span class="ph uicontrol">Outline</span> view shows the current path in
+                  the XML structure.</p>
+              </li>
+              <li class="li">
+                <p class="p"><span class="ph uicontrol">Author</span> mode is useful for reviewing written XML content
+                  because it has support for change tracking and for adding comments. Editing in the
+                    <span class="ph uicontrol">Author</span> visual editing mode, you have access to only the
+                  text content in the XML document.</p>
+                <p class="p">Pressing <span class="ph uicontrol"><span class="keyword shortcut">Shift+F2</span></span> will read the
+                  current element context where the cursor is located. Pressing
+                      <span class="ph uicontrol"><span class="keyword shortcut">Ctrl+Shift+F3</span></span> will read the
+                  current element context and the entire path in the XML structure where the cursor
+                  is located. You can also use the <span class="ph uicontrol">Outline</span> view to better
+                  understand the XML structure. </p>
+                <p class="p">In the <span class="ph uicontrol">Author</span> editing mode, you can also use the
+                    <span class="ph uicontrol">Attributes</span> and <span class="ph uicontrol">Elements</span> views
+                  similar to using them in the <span class="ph uicontrol">Text</span> editing mode. Pressing
+                      <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> in the
+                    <span class="ph uicontrol">Author</span> visual editing mode can also be used to present a
+                  list of allowed elements at the current position.</p>
+              </li>
+            </ul></li>
+        </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/getting-started-intro.html" title="Information and resources to help you get started using Oxygen XML Editor as quickly as possible">Getting Started</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/common-shortcut-keys.html">Frequently Used Shortcut Keys</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/vpat.html">Oxygen XML Editor VPAT Accessibility Conformance Report</a></div></div></nav></article></main></body></html>

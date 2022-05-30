@@ -1,0 +1,170 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content="Author editing mode,Tables,Sorting a table,XML documents,Author Mode editing,Sorting a table,Sorting a table in Author Mode,Sorting selected table rows,Sorting selected table rows,Sorting selected table rows in Author Mode,Sorting tables with merged cells,Sorting tables with merged cells,Sorting tables with merged cells in Author Mode,Sorting list items,Sorting list items,Sorting list items in Author Mode"><meta name="keywords" content="Author editing mode, Tables, Sorting a table, XML documents, Author Mode editing, Sorting a table, Sorting a table in Author Mode, Sorting selected table rows, Sorting selected table rows, Sorting selected table rows in Author Mode, Sorting tables with merged cells, Sorting tables with merged cells, Sorting tables with merged cells in Author Mode, Sorting list items, Sorting list items, Sorting list items in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents-author.html"><meta name="DC.relation" scheme="URI" content="../topics/add-table-jats.html"><meta name="DC.relation" scheme="URI" content="../topics/author_adding_images.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sorting-support"><title>Sorting Content in Tables and List Items</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="sorting-support">
+  <h1 class="title topictitle1" id="ariaid-title1">Sorting Content in Tables and List Items</h1>
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> offers support for sorting the content of tables and list items of
+      ordered and unordered lists.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents-author.html">Editing XML Documents in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-table-jats.html">Adding Tables in JATS Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author_adding_images.html">Inserting Images</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="sort-entire-table">
+  <h2 class="title topictitle2" id="ariaid-title2">Sorting a Table</h2>
+  
+  <div class="body">
+    <p class="p">To sort rows in a table, select the entire table (or specific rows) and use the
+          <span class="ph uicontrol"><img class="image" src="../img/Sort16.png">Sort</span> action from the main toolbar
+      or the contextual menu. This opens the <span class="ph uicontrol">Sort</span> dialog box.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Sort Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sort-entire-dialog.png">
+      </figure>
+    </div>
+    <p class="p">This dialog box sets the range that is sorted and the sorting
+      criteria. The range is automatically selected depending on whether you sort an entire table or
+      only a selection of its rows.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> When you invoke the sorting operation over an entire table, the <span class="ph uicontrol">Selected
+        rows</span> option is disabled.</div>
+    <div class="p">The <span class="ph uicontrol">Criteria</span> section specifies the
+      sorting criteria (a maximum of three sorting criteria are available), defined by the following:<ul class="ul">
+        <li class="li">A name, which is collected from the column heading.</li>
+        <li class="li" id="sort-entire-table__type-of-info-li">The type of the information that is sorted. You can choose between
+          the following:<ul class="ul">
+            <li class="li"><span class="ph uicontrol">Text</span> - Alphanumeric characters.</li>
+            <li class="li"><span class="ph uicontrol">Numeric</span> - Regular integer or floating point numbers are
+              accepted.</li>
+            <li class="li"><span class="ph uicontrol">Date</span> - Default date and time formats from the local OS are
+              accepted (such as <em class="ph i">short</em>, <em class="ph i">medium</em>, <em class="ph i">long</em>, <em class="ph i">full</em>,
+                <em class="ph i">xs:date</em>, and <em class="ph i">xs:dateTime</em>).</li>
+          </ul></li>
+        <li class="li" id="sort-entire-table__sort-direction-li">The sorting direction (either <em class="ph i">ascending</em> or
+            <em class="ph i">descending</em>).</li>
+      </ul></div>
+    <p class="p">The sort criteria is automatically set to the column where the
+      cursor is located at the time when the sorting operation is invoked. </p>
+    <div class="p">After you finish configuring the options in the
+        <span class="ph uicontrol">Sort</span> dialog box, click <span class="ph uicontrol">OK</span> to complete the
+      sorting operation. If you want to revert to the initial order of your content, press
+        <span class="ph uicontrol"><span class="keyword shortcut" id="sort-entire-table__ctrl_z_shortcut">Ctrl + Z (Command + Z on
+                    OS X)</span></span> on your keyboard.<div class="note note note_note" id="sort-entire-table__xml-lang-attribute"><span class="note__title">Note:</span> The sorting support takes the value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+        attribute into account and sorts the content in a natural order.</div></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="sort-row-selection">
+  <h2 class="title topictitle2" id="ariaid-title3">Sorting a Selection of Rows</h2>
+  
+  <div class="body">
+    <p class="p">To sort a selection of rows in a table, select the rows that you want to sort and either
+      right-click the selection and choose <span class="ph uicontrol"><img class="image" src="../img/Sort16.png">Sort</span>, or click <span class="ph uicontrol"><img class="image" src="../img/Sort16.png">Sort</span> on
+      the main toolbar. This opens the <span class="ph uicontrol">Sort</span> dialog box.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Sort Selected Rows</figcaption>
+        
+        <img class="image" src="../img/sort-selected-rows.png">
+      </figure>
+    </div>
+    <p class="p">This dialog box sets the range that is sorted and the sorting
+      criteria. The range is automatically selected depending on whether you sort an entire table or
+      only a selection of its rows.</p>
+    <p class="p">The <span class="ph uicontrol">Sort</span> dialog box also allows you to apply the sorting operation to
+      the entire table, using the <span class="ph uicontrol">All rows</span> option.</p>
+    <div class="p">The <span class="ph uicontrol">Criteria</span> section specifies the
+      sorting criteria (a maximum of three sorting criteria are available), defined by the following:<ul class="ul">
+        <li class="li">A name, which is collected from the column heading.</li>
+        <li class="li" id="sort-row-selection__type-of-info-li">The type of the information that is sorted. You can choose between
+          the following:<ul class="ul">
+            <li class="li"><span class="ph uicontrol">Text</span> - Alphanumeric characters.</li>
+            <li class="li"><span class="ph uicontrol">Numeric</span> - Regular integer or floating point numbers are
+              accepted.</li>
+            <li class="li"><span class="ph uicontrol">Date</span> - Default date and time formats from the local OS are
+              accepted (such as <em class="ph i">short</em>, <em class="ph i">medium</em>, <em class="ph i">long</em>, <em class="ph i">full</em>,
+                <em class="ph i">xs:date</em>, and <em class="ph i">xs:dateTime</em>).</li>
+          </ul></li>
+        <li class="li" id="sort-row-selection__sort-direction-li">The sorting direction (either <em class="ph i">ascending</em> or
+            <em class="ph i">descending</em>).</li>
+      </ul></div>
+    <p class="p">The sort criteria is automatically set to the column where the
+      cursor is located at the time when the sorting operation is invoked. </p>
+    <div class="p">After you finish configuring the options in the
+        <span class="ph uicontrol">Sort</span> dialog box, click <span class="ph uicontrol">OK</span> to complete the
+      sorting operation. If you want to revert to the initial order of your content, press
+        <span class="ph uicontrol"><span class="keyword shortcut" id="sort-row-selection__ctrl_z_shortcut">Ctrl + Z (Command + Z on
+                    OS X)</span></span> on your keyboard.<div class="note note note_note" id="sort-row-selection__xml-lang-attribute"><span class="note__title">Note:</span> The sorting support takes the value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+        attribute into account and sorts the content in a natural order.</div></div>
+    <section class="section" id="sort-row-selection__sort_using_multiple_criteria"><h3 class="title sectiontitle">Sort Using Multiple Criteria</h3>
+      
+      <p class="p">You can also sort an entire table or a selection of its rows based on multiple sorting
+        criteria. To do so, select the rest of boxes in the <span class="ph uicontrol">Criteria</span> section
+        of the <span class="ph uicontrol">Sort</span> dialog box, configure the applicable items, and click
+          <span class="ph uicontrol">OK</span> to complete the sorting operation.</p>
+      <div class="p">
+        <figure class="fig fignone" id="sort-row-selection__fig_grx_c32_ms"><figcaption><span class="fig--title-label">Figure 3. </span>Sorting Based on Multiple Criteria</figcaption>
+          
+          <img class="image" id="sort-row-selection__image_hrx_c32_ms" src="../img/sort-multiple-criteria.png">
+        </figure>
+      </div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="sort-merged-cells-table">
+  <h2 class="title topictitle2" id="ariaid-title4">Sorting a Table that Contains Merged Cells</h2>
+  
+  <div class="body">
+    <div class="p">If a table contains cells that span over multiple rows, you can not perform the sorting
+      operation over the entire table. Still, the sorting mechanism works over a selection of rows
+      that do not contain <em class="ph i">rowspans</em>.<div class="note note note_note"><span class="note__title">Note:</span> For this type of table, the
+          <span class="ph uicontrol">Sort</span> dialog box keeps the <span class="ph uicontrol">All rows</span> option
+        disabled even if you perform the sorting operation over a selection of rows.</div></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="sort-list-items">
+  <h2 class="title topictitle2" id="ariaid-title5">Sorting List Items</h2>
+  
+  <div class="body">
+    <div class="p">A sorting operation can be performed on various types of lists and list items. The types of
+      lists that can be sorted in <span class="ph">Oxygen XML Editor</span> depend on the framework (document type),
+      but examples of the types that can be sorted include:<ul class="ul" id="sort-list-items__ul_jhk_rz2_mr">
+        <li class="li">Ordered list (DITA, DocBook, XHTML, TEI)</li>
+        <li class="li">Unordered list (DITA, DocBook, XHTML, TEI)</li>
+        <li class="li">Definition list (DITA)</li>
+        <li class="li">Variable list (DocBook)</li>
+        <li class="li">Parameter list (DITA)</li>
+        <li class="li">Simple list (DITA)</li>
+        <li class="li">Required conditions (DITA Machinery Task)</li>
+        <li class="li">Supplies list (DITA Machinery Task)</li>
+        <li class="li">Spare parts list (DITA Machinery Task)</li>
+        <li class="li">Safety conditions (DITA Machinery Task)</li>
+      </ul></div>
+    <p class="p">The sorting mechanism works on an entire list or on a selection of list items. To sort items
+      in a list, select the items or list and use the <span class="ph uicontrol"><img class="image" src="../img/Sort16.png">Sort</span> action from the main toolbar or the contextual menu.
+      This opens the <span class="ph uicontrol">Sort</span> dialog box.</p>
+    <div class="p">
+      <figure class="fig fignone" id="sort-list-items__fig_o42_5y2_mr"><figcaption><span class="fig--title-label">Figure 4. </span>Sorting List Items</figcaption>
+        
+        <img class="image" id="sort-list-items__image_ep2_5y2_mr" src="../img/sort-list-items.png">
+      </figure>
+    </div>
+    <p class="p" id="sort-list-items__p1">This dialog box sets the range that is sorted and the sorting criteria. The range is
+      automatically selected depending on whether you sort an entire list or only a selection of its
+      items.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> When you invoke the sorting operation over an entire list, the <span class="ph uicontrol">Selected
+        rows</span> option is disabled.</div>
+    <div class="p">The <span class="ph uicontrol">Criteria</span> section specifies the sorting criteria, defined by the
+        following:<ul class="ul" id="sort-list-items__ul_x4p_dz2_mr">
+        <li class="li">The name of the type of item being sorted.</li>
+        <li class="li">The type of the information that is sorted. You can choose between
+          the following:<ul class="ul">
+            <li class="li"><span class="ph uicontrol">Text</span> - Alphanumeric characters.</li>
+            <li class="li"><span class="ph uicontrol">Numeric</span> - Regular integer or floating point numbers are
+              accepted.</li>
+            <li class="li"><span class="ph uicontrol">Date</span> - Default date and time formats from the local OS are
+              accepted (such as <em class="ph i">short</em>, <em class="ph i">medium</em>, <em class="ph i">long</em>, <em class="ph i">full</em>,
+                <em class="ph i">xs:date</em>, and <em class="ph i">xs:dateTime</em>).</li>
+          </ul></li>
+        <li class="li">The sorting direction (either <em class="ph i">ascending</em> or
+            <em class="ph i">descending</em>).</li>
+      </ul></div>
+    <div class="p">After you finish configuring the options in the
+        <span class="ph uicontrol">Sort</span> dialog box, click <span class="ph uicontrol">OK</span> to complete the
+      sorting operation. If you want to revert to the initial order of your content, press
+        <span class="ph uicontrol"><span class="keyword shortcut" id="sort-list-items__ctrl_z_shortcut">Ctrl + Z (Command + Z on
+                    OS X)</span></span> on your keyboard.<div class="note note note_note" id="sort-list-items__xml-lang-attribute"><span class="note__title">Note:</span> The sorting support takes the value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+        attribute into account and sorts the content in a natural order.</div></div>
+  </div>
+</article></article></article></main></body></html>

@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Moving\/Renaming XML Schema Resources","href":"topics\/move-rename-resource-xsd-hierarchy-view.html","attributes":{"data-id":"move-rename-resource-xsd-hierarchy-view"},"menu":{"hasChildren":false},"tocID":"move-rename-resource-xsd-hierarchy-view-d24353e15887","topics":[]}]});

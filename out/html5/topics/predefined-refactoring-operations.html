@@ -1,0 +1,780 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Refactoring,Built-in operations,XML Refactoring tool,Built-in operations,Built-in XML refactoring operations"><meta name="keywords" content="XML documents, Refactoring, Built-in operations, XML Refactoring tool, Built-in operations, Built-in XML refactoring operations"><meta name="DC.relation" scheme="URI" content="../topics/refactoring-xml-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/refactoring-xml-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="predefined-refactoring-operations"><title>Built-in Refactoring Operations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="predefined-refactoring-operations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Built-in Refactoring Operations</h1>
+  
+  <div class="body">
+    <div class="p">The XML Refactoring tool includes a variety of built-in operations that can be used for
+      common refactoring tasks. They are grouped by category in the <span class="ph uicontrol">Refactoring
+        operations</span> wizard page. You can also access the operations from the
+        <span class="ph uicontrol">Refactoring</span> submenu in the contextual menu of <span class="ph"><span class="ph uicontrol">Author</span> or
+        </span><span class="ph uicontrol">Text</span> mode. The operations are also grouped by category in this
+      submenu. When selecting the operations from the contextual menu, <span class="ph">Oxygen XML Editor</span>
+      considers the editing context to get the names and namespaces of the current element or
+      attribute, and uses this information to preconfigure some of the parameter values for the
+      selected refactoring operation.<div class="note tip note_tip"><span class="note__title">Tip:</span> <span class="ph">Each operation includes a link in the
+          lower part of the wizard that opens the <span class="ph uicontrol">XML / XSLT-FO-XQuery /
+            XPath</span> preferences page where you can configure XPath options and declare
+          namespace prefixes.</span></div></div>
+    <p class="p">The following built-in operations are available:</p>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for_attributes"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">Attributes</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add/Change attribute</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to change the value of an attribute or insert a new one. This
+                operation allows you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_hxk_gpb_jr">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Parent element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Element</dt>
+                            <dd class="dd">The parent element of the attribute to be changed, in the form of a
+                              local name from any namespace, a local name with a namespace prefix,
+                              or an XPath expression.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Attribute</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd"> The local name of the affected attribute.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the affected attribute.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Value</dt>
+                            <dd class="dd">The value for the affected attribute.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Options</span> section</dt>
+                    <dd class="dd">
+                      <p class="p">You can choose between one of the following options for the
+                          <span class="ph uicontrol">Operation mode</span>:</p>
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Add the attribute in the parent elements where it is missing</dt>
+                            <dd class="dd">Adds the attribute to all instances of the specified parent
+                              element.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Change the value in the parent elements where the attribute already
+                              exists</dt>
+                            <dd class="dd">Replaces the value of the already existing attribute in all instance
+                              of the specified parent element.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Both</dt>
+                            <dd class="dd">Adds the attributes to the instances where it is missing and
+                              replaces the value in instances where the attribute already
+                              exists.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert attribute to element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to convert a specified attribute to an element. This operation
+                allows you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Parent element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Element</dt>
+                            <dd class="dd">The parent element of the attribute to be converted, in the form of
+                              a local name from any namespace, a local name with a namespace prefix,
+                              or an XPath expression.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Attribute</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd">The local name of the affected attribute.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the affected attribute.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">New element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd">The local name of the new element.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the new element.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Delete attribute</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to remove one or more attributes. This operation requires you to
+                specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_bxx_pqb_jr">
+                  
+                    <dt class="dt dlterm">Element</dt>
+                    <dd class="dd">The parent element of the attribute to be deleted, in the form of a local
+                      name from any namespace, a local name with a namespace prefix, or an XPath
+                      expression.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Attribute</dt>
+                    <dd class="dd">The name of the attribute to be deleted.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Rename attribute</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to rename an attribute. This operation requires you to specify
+                the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_egw_4rb_jr">
+                  
+                    <dt class="dt dlterm">Element</dt>
+                    <dd class="dd">The parent element of the attribute to be renamed, in the form of a local
+                      name from any namespace, a local name with a namespace prefix, or an XPath
+                      expression.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Attribute</dt>
+                    <dd class="dd">The name of the attribute to be renamed.</dd>
+                  
+                  
+                    <dt class="dt dlterm">New local name</dt>
+                    <dd class="dd">The new local name of the attribute.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Replace in attribute value</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to search for a text fragment inside an attribute value and
+                change the fragment to a new value. This operation allows you to specify the
+                following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_yx4_dfc_jr">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Target attribute</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Element</dt>
+                            <dd class="dd">The parent element of the attribute to be modified, in the form of a
+                              local name from any namespace, a local name with a namespace prefix,
+                              or an XPath expression.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Attribute</dt>
+                            <dd class="dd">The name of the attribute to be modified.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Find / Replace</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Find</dt>
+                            <dd class="dd">The text fragments to find. You can use Perl-like regular
+                              expressions.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Replace with</dt>
+                            <dd class="dd">The text fragment to replace the target with. This parameter can
+                              bind regular expression capturing groups (<samp class="ph systemoutput sysout">$1,
+                                $2</samp>, etc.) from the find pattern.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__other_refactoring_actions"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">Comments</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Delete comments</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to delete comments from one or more elements. This operation
+                requires you specify the following parameter:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Element</dt>
+                    <dd class="dd">The target element (or elements) that will have comments deleted, in the
+                      form of a local name from any namespace, a local name with a namespace prefix,
+                      or an XPath expression.</dd>
+                  
+                </dl>
+              </div>
+              <div class="p">
+                <div class="note note note_note"><span class="note__title">Note:</span> Comments that are outside the root element will not be deleted because the
+                    <em class="ph i">serializer</em> preserves the content before and after the root.</div>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for_dita"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">DITA</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Change topic ID to file name</span></dt>
+            <dd class="dd">Use this operation to change the ID of a topic to be the same as its file name.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert CALS tables to simple tables</span></dt>
+            <dd class="dd">Use this operation to convert DITA CALS tables to simple tables.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert conrefs to conkeyrefs</span></dt>
+            <dd class="dd">Use this operation to convert <code class="keyword markupname xmlatt">@conref</code> attributes to
+                <code class="keyword markupname xmlatt">@conkeyref</code> attributes.<span class="ph"> For more information and
+                instructions for using this operation, see <a class="xref" href="edit-dita-content-reference.html#edit-dita-content-reference__converting_conrefs_to_conkeyrefs">Converting Conrefs to Conkeyrefs</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert simple tables to CALS tables</span></dt>
+            <dd class="dd">Use this operation to convert DITA simple tables to CALS tables.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert Nested Topics to New Topics</span><span class="ph"> (Available from the contextual
+                menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                    Manager</span></a>)</span></dt>
+            <dd class="dd">Use this operation on topics that contain nested <code class="keyword markupname xmlelement">&lt;topic&gt;</code>
+              elements to convert each nested topic to a new topic.<span class="ph"> Also, the new topics are added
+                in the <span class="ph uicontrol">DITA Maps Manager</span> as the first child topics of the
+                original topic.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert Sections to New Topics</span><span class="ph"> (Available from the contextual
+                menu of editable maps/nodes in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                    Manager</span></a>)</span></dt>
+            <dd class="dd">Use this operation on topics that contain multiple sections to convert each section
+              to a new topic.<span class="ph"> Also, the new
+                topics are added in the <span class="ph uicontrol">DITA Maps Manager</span> as the first child
+                topics of the original topic.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Concept</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Concept topic
+              type (for example, Topic to Concept).<span class="ph"> For more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to General Task</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA General Task
+              topic type (for example, Task to General Task).<span class="ph"> For more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Reference</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Reference topic
+              type (for example, Topic to Reference).<span class="ph"> For more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Task</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Task topic type
+              (for example, Topic to Task).<span class="ph">
+                For more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Topic</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Topic (for
+              example, Task to Topic).<span class="ph"> For
+                more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Convert to Troubleshooting</span></dt>
+            <dd class="dd">Use this operation to convert a DITA topic (of any type) to a DITA Troubleshooting
+              topic type (for example, Topic to Troubleshooting).<span class="ph"> For more information, see <a class="xref" href="dita-convert-topics.html#dita-convert-topics">Converting DITA Topics to Another Type</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Rename Key</span></dt>
+            <dd class="dd">Use this operation to rename a key. It also updates all references to it. Note that
+              it does not work on DITA 1.3 key scopes.</dd>
+          
+        </dl>
+      </div>
+      <div class="p">All of these DITA refactoring actions allow you to choose a scope for the operation and
+        some filters:<dl class="dl">
+          
+            <dt class="dt dlterm">Scope</dt>
+            <dd class="dd">Select from a variety of options to define the scope that will have resources affected by the operation. For example, you can choose to affect all resources in the
+                <span class="ph uicontrol">Project</span>, <span class="ph uicontrol">All opened files</span>,
+                <span class="ph uicontrol">Current DITA map hierarchy</span>, or just the <span class="ph uicontrol">Current
+                file</span>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Filters</span> section</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Include files</dt>
+                    <dd class="dd">Specifies files to be excluded from the operation. You can specify multiple
+                      files by separating them with commas and the patterns can include wildcards
+                      (such as <strong class="ph b">*</strong> or <strong class="ph b">?</strong>).</dd>
+                  
+                  
+                    <dt class="dt dlterm">Restrict to known XML file types only</dt>
+                    <dd class="dd">Excludes non-XML file types from the operation.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Look inside archives</dt>
+                    <dd class="dd">If this option is selected, the scope of the operation will include files
+                      inside archives.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for_elements"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">Elements</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Delete element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to delete elements. This operation requires you to specify the
+                following parameter:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_jdc_dgc_jr">
+                  
+                    <dt class="dt dlterm">Element</dt>
+                    <dd class="dd">The target element to be deleted, in the form of a local name from any
+                      namespace, a local name with a namespace prefix, or an XPath expression.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Delete element content</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to delete the content of elements. This operation requires you
+                to specify the following parameter:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_zly_m3c_jr">
+                  
+                    <dt class="dt dlterm">Element</dt>
+                    <dd class="dd">The target element whose content is to be deleted, in the form of a local
+                      name from any namespace, a local name with a namespace prefix, or an XPath
+                      expression.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to insert new elements. This operation allows you to specify the
+                following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_kht_v3c_jr">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd">The local name of the element to be inserted.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the element to be inserted.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Location</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">XPath</dt>
+                            <dd class="dd">An XPath expression that identifies an existing element to which the
+                              new element is relative, in the form of a local name from any
+                              namespace, a local name with a namespace prefix, or other XPath
+                              expressions.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Position</dt>
+                            <dd class="dd">The position where the new element will be inserted, in relation to
+                              the specified existing element. The possible selections in the
+                              drop-down menu are: <span class="ph uicontrol">After</span>,
+                                <span class="ph uicontrol">Before</span>, <span class="ph uicontrol">First child</span>,
+                              or <span class="ph uicontrol">Last child</span>.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Rename element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to rename elements. This operation requires you to specify the
+                following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_vsk_3kc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements to be renamed, in the form of a local name from any
+                      namespace, a local name with a namespace prefix, or other XPath
+                      expressions.</dd>
+                  
+                  
+                    <dt class="dt dlterm">New local name</dt>
+                    <dd class="dd">The new local name of the element.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Unwrap element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to remove the surrounding tags of elements, while keeping the
+                content unchanged. This operation requires you to specify the following
+                parameter:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_env_nkc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements whose surrounding tags will be removed, in the form of a
+                      local name from any namespace, a local name with a namespace prefix, or other
+                      XPath expressions.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Wrap element</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to surround elements with element tags. This operation allows
+                you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_dx2_zkc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements to be surrounded with tags, in the form of a local name
+                      from any namespace, a local name with a namespace prefix, or other XPath
+                      expressions.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Wrapper element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd">The local name of the <em class="ph i">Wrapper element</em>.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the <em class="ph i">Wrapper element</em>.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Wrap element content</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to surround the content of elements with element tags. This
+                operation allows you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_pvy_klc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements whose content will be surrounded with tags, in the form
+                      of a local name from any namespace, a local name with a namespace prefix, or
+                      other XPath expressions.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Wrapper element</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">Local name</dt>
+                            <dd class="dd">The local name of the <em class="ph i">Wrapper element</em> that will surround the
+                              content of the target.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Namespace</dt>
+                            <dd class="dd">The namespace of the <em class="ph i">Wrapper element</em> that will surround the
+                              content of the target.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">Fragments</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert XML fragment</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to insert an XML fragment. This operation allows you to specify
+                the following:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_wft_5lc_jr">
+                  
+                    <dt class="dt dlterm">XML Fragment</dt>
+                    <dd class="dd">The XML fragment to be inserted.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Location</span> section</dt>
+                    <dd class="dd">
+                      <div class="p">
+                        <dl class="dl">
+                          
+                            <dt class="dt dlterm">XPath</dt>
+                            <dd class="dd">An XPath expression that identifies an existing element to which the
+                              inserted fragment is relative, in the form of a local name from any
+                              namespace, a local name with a namespace prefix, or other XPath
+                              expressions.</dd>
+                          
+                          
+                            <dt class="dt dlterm">Position</dt>
+                            <dd class="dd">The position where the fragment will be inserted, in relation to the
+                              specified existing element. The possible selections in the drop-down
+                              menu are: <span class="ph uicontrol">After</span>, <span class="ph uicontrol">Before</span>,
+                                <span class="ph uicontrol">First child</span>, or <span class="ph uicontrol">Last
+                                child</span>.</dd>
+                          
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Replace element content with XML fragment</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to replace the content of elements with an XML fragment. This
+                operation allows you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_syw_dmc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements whose content will be replaced, in the form of a local
+                      name from any namespace, a local name with a namespace prefix, or other XPath
+                      expressions.</dd>
+                  
+                  
+                    <dt class="dt dlterm">XML Fragment</dt>
+                    <dd class="dd">The XML fragment with which to replace the content of the target
+                      element.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Replace element with XML fragment</span></dt>
+            <dd class="dd">
+              <p class="p">Use this operation to replace elements with an XML fragment. This operation allows
+                you to specify the following parameters:</p>
+              <div class="p">
+                <dl class="dl" id="predefined-refactoring-operations__ul_lqk_4mc_jr">
+                  
+                    <dt class="dt dlterm">Target elements (XPath)</dt>
+                    <dd class="dd">The target elements to be replaced, in the form of a local name from any
+                      namespace, a local name with a namespace prefix, or other XPath
+                      expressions.</dd>
+                  
+                  
+                    <dt class="dt dlterm">XML Fragment</dt>
+                    <dd class="dd">The XML fragment with which to replace the target element.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for_jatskit"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">JATSKit</em></h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add BITS DOCTYPE - NLM/NCBI Book Interchange 2.0</span></dt>
+            <dd class="dd">Use this operation to add an NLM 'BITS' 2.0 DOCTYPE declaration.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add Blue DOCTYPE - NISO JATS Publishing 1.1</span></dt>
+            <dd class="dd">Use this operation to add a JATS 'Blue' 1.1 DOCTYPE declaration.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Normalize IDs</span></dt>
+            <dd class="dd">Use this operation to normalize assigned IDs and assigned IDs to elements that are
+              missing them.</dd>
+          
+        </dl>
+      </div>
+      <div class="p">All of these JATSKit refactoring actions allow you to choose a scope for the operation and
+        some filters:<dl class="dl">
+        
+          <dt class="dt dlterm">Scope</dt>
+          <dd class="dd">Select from a variety of options to define the scope for the resources that will be
+            affected by the operation. For example, you can choose to affect all resources in the
+              <span class="ph uicontrol">Project</span>, <span class="ph uicontrol">All opened files</span>, or just the
+              <span class="ph uicontrol">Current file</span>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Filters</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">Include files</dt>
+                  <dd class="dd">Specifies files to be excluded from the operation. You can specify multiple
+                    files by separating them with commas and the patterns can include wildcards
+                    (such as <strong class="ph b">*</strong> or <strong class="ph b">?</strong>).</dd>
+                
+                
+                  <dt class="dt dlterm">Restrict to known XML file types only</dt>
+                  <dd class="dd">Excludes non-XML file types from the operation.</dd>
+                
+                
+                  <dt class="dt dlterm">Look inside archives</dt>
+                  <dd class="dd">If this option is selected, the scope of the operation will include files
+                    inside archives.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__refactoring_operations_for_publishing_template"><h2 class="title sectiontitle">Refactoring Operations for <em class="ph i">Publishing Template</em></h2>
+      
+      <p class="p">These operations are for those who use <dfn class="term">Oxygen Publishing Templates</dfn> for WebHelp
+        Responsive output customization.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Migrate HTML Page Layout Files to v21</span></dt>
+            <dd class="dd">Use this operation to convert custom <a class="xref" href="whr_publishing_template_contents.html#html_page_templates">HTML page layout
+                files</a> that are included in a custom Publishing Template that was created in
+                <span class="ph">Oxygen XML Editor</span> version 20.0 or 20.1 so that they will be compatible with <span class="ph">Oxygen XML Editor</span> version 21.0.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Update HTML Pages</span></dt>
+            <dd class="dd">
+              <div class="note attention note_attention"><span class="note__title">Attention:</span> This operation is only used by <span class="ph">Oxygen XML Editor</span> and
+                should not be used manually.</div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="predefined-refactoring-operations__additional_notes"><h2 class="title sectiontitle">Additional Notes</h2>
+      
+      <div class="note note note_note"><span class="note__title">Note:</span> There are some operations that allow <code class="ph codeph">&lt;ANY&gt;</code> for the <strong class="ph b">local name</strong>
+        and <strong class="ph b">namespace</strong> parameters. This value can be used to select an element or attribute
+        regardless of its local name or namespace. Also, the <code class="ph codeph">&lt;NO_NAMESPACE&gt;</code>
+        value can be used to select nodes that do not belong to a namespace. </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> Some operations have parameters that accept XPath expressions to match elements or
+        attributes. In these XPath expressions you can only use the prefixes declared in the <a class="xref" href="preferences-xpath.html"><span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT-FO-XQUERY</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XPath</span></span></a> page. This preferences page can be easily opened by clicking the
+        link in the note (<span class="ph uicontrol">Each prefix used in an XPath expression must be declared in the
+          Default prefix-namespace mappings section</span>) at the bottom of the <strong class="ph b">Configure
+          Operation Parameters</strong> wizard page.</div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/refactoring-xml-documents.html">Refactoring XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/refactoring-xml-documents.html">Refactoring XML Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/custom-refactoring-operations.html">Custom Refactoring Operations</a></div></div></nav></article></main></body></html>

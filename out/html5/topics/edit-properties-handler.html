@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,Author Edit Properties Handler"><meta name="keywords" content="Framework customization, Extensions, Author Edit Properties Handler"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-drop-paste-handler.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-java-api.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="edit-properties-handler"><title>Presenting an Edit Properties Dialog Box for Actions in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="edit-properties-handler"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Presenting an Edit Properties Dialog Box for Actions in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">The <em class="ph i">EditPropertiesHandler</em> extension point allows you to present a specialized dialog
+      box when the action of double-clicking an element tag is intercepted in
+        <span class="ph uicontrol">Author</span> mode. For example, you could use it to present a dialog box
+      that allows the user to editing the properties of an image.</p>
+    <section class="section" id="edit-properties-handler__implement_an_editpropertieshandler"><h2 class="title sectiontitle">How to Implement an <em class="ph i">EditPropertiesHandler</em></h2>
+      
+      <div class="p">To implement your own <em class="ph i">EditPropertiesHandler</em>, follow this procedure:<ol class="ol">
+          <li class="li">Implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/EditPropertiesHandler.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.EditPropertiesHandler</em></a> interface.</li>
+          <li class="li">To instruct <span class="ph">Oxygen XML Editor</span> to use this newly created implementation, use
+            either of the following methods:<ol class="ol" type="a">
+              <li class="li">If you have <a class="xref" href="dg-extensions-bundle.html#dg-extensions-bundle">configured
+                  an extensions bundle</a>, you can return the <em class="ph i">EditPropertiesHandler</em>
+                implementation using the
+                  <em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle.createEditPropertiesHandler()</em>
+                method.</li>
+              <li class="li">Specify the <em class="ph i">EditPropertiesHandler</em> in the <span class="ph uicontrol">Author edit properties
+                  handler</span> individual extension in the <a class="xref" href="document-type-extensions-tab.html#document-type-extensions-tab"><span class="ph uicontrol">Extensions</span> tab</a> of the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                    Type</span> configuration dialog box</a> for your particular document
+                type.</li>
+            </ol></li>
+        </ol></div>
+    </section>
+    <section class="section" id="edit-properties-handler__example"><h2 class="title sectiontitle">Example</h2>
+      
+      <p class="p">The following example illustrates an implementation for presenting a simple properties
+        editing dialog box when a user double-clicks an <code class="keyword markupname xmlelement">&lt;image&gt;</code> tag in
+          <span class="ph uicontrol">Author</span> mode (with tags displayed from the <span class="ph uicontrol"><img class="image" id="edit-properties-handler__image_pmr_mhm_1s" src="../img/TagsDrop.png">Tags display mode</span>
+        drop-down menu):</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> CustomEditPropertiesHandler <strong class="hl-keyword">implements</strong> EditPropertiesHandler {
+
+  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.Extension#getDescription()
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> String getDescription() {
+    <strong class="hl-keyword">return</strong> <span class="hl-string">"Sample implementation that handles properties for a table element."</span>;
+  }
+
+  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.EditPropertiesHandler#canEditProperties
+(ro.sync.ecss.extensions.api.node.AuthorNode)
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> canEditProperties(AuthorNode authorNode) {
+    <em class="hl-comment">// If this node is an image element we can edit its properties.</em>
+    <strong class="hl-keyword">return</strong> <span class="hl-string">"image"</span>.equals(authorNode.getDisplayName());
+  }
+  
+  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.EditPropertiesHandler#editProperties
+(ro.sync.ecss.extensions.api.node.AuthorNode,
+ ro.sync.ecss.extensions.api.AuthorAccess)
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editProperties(AuthorNode authorNode, AuthorAccess authorAccess) {
+    <em class="hl-comment">// If we receive this call then it surely an image.</em>
+    AuthorElement imageElement = (AuthorElement) authorNode;
+    String currentValue = <span class="hl-string">""</span>;
+    AttrValue altValue = imageElement.getAttribute(<span class="hl-string">"alt"</span>);
+    <strong class="hl-keyword">if</strong> (altValue != null) {
+      currentValue = altValue.getValue();
+    }
+    String newValue = JOptionPane.showInputDialog(
+        (Component) authorAccess.getWorkspaceAccess().getParentFrame(), 
+        <span class="hl-string">"Alternate text"</span>, 
+        currentValue);
+    
+    <strong class="hl-keyword">if</strong> (newValue != null) {
+      authorAccess.getDocumentController().setAttribute
+(<span class="hl-string">"alt"</span>, <strong class="hl-keyword">new</strong> AttrValue(newValue), imageElement);
+    }
+  }
+}</pre>
+      <p class="p"><strong class="ph b">Example result:</strong> If a user were to double-click an <code class="keyword markupname xmlelement">&lt;image&gt;</code> tag icon
+          (<img class="image" src="../img/image_tag.png">) in <span class="ph uicontrol">Author</span> mode, the
+        following dialog box would be displayed that allows the user to edit the <em class="ph i">alternate
+          text</em> property for the image:</p>
+      <div class="p">
+        <br><img class="image" src="../img/edit_handler_example.png"><br>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-drop-paste-handler.html">Handling When URLs or XHTML Fragments are Dropped or Pasted in Author Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-java-api.html">Extending Author Functionality Through the Java API</a></div></div></nav></article></main></body></html>

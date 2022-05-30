@@ -1,0 +1,152 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Oxygen SDK,CMS integration,Plugins"><meta name="keywords" content="Oxygen SDK, CMS integration, Plugins"><meta name="DC.relation" scheme="URI" content="../topics/extend-oxygen-with-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/document-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/class-loading-issues.html"><meta name="DC.relation" scheme="URI" content="../topics/class-loading-issues.html"><meta name="DC.relation" scheme="URI" content="https://github.com/oxygenxml/oxygen-cmis-plugin"><meta name="DC.relation" scheme="URI" content="https://github.com/axxepta/project-argon"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="howto-cms-plugin"><title>How to Write a CMS Integration Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="howto-cms-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Write a CMS Integration Plugin</h1>
+  
+  <div class="body">
+    <div class="p">To have a complete integration between <span class="ph">Oxygen XML Editor</span> and a CMS, you usually have to
+      write a <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> that combines the
+      following two available <dfn class="term">plugin</dfn> extensions:<ul class="ul" id="howto-cms-plugin__ol_gnu_jbt_z">
+        <li class="li"><a class="xref" href="workspace-access-plugin.html#workspace-access-plugin" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access</a></li>
+        <li class="li"><a class="xref" href="howto-custom-protocol-plugin.html#howto-custom-protocol-plugin">Custom protocol</a></li>
+      </ul>The usual set of requirements for an integration between <span class="ph">Oxygen XML Editor</span> and the
+      CMS are as follows:</div>
+    <ol class="ol" id="howto-cms-plugin__procedure-custom-protocol">
+      <li class="li">Contribute to the <span class="ph">Oxygen XML Editor</span> toolbars and main menu with your custom <strong class="ph b">Check
+          Out</strong> and <strong class="ph b">Check In</strong> actions:<ul class="ul">
+          <li class="li"><strong class="ph b">Check Out</strong> triggers your custom dialog boxes that allow you to browse the remote
+            CMS and choose the resources you want to open.</li>
+          <li class="li">
+            <p class="p"><strong class="ph b">Check In</strong> allows you to send the modified content back to the server.</p>
+            <p class="p">You can use the <strong class="ph b">Workspace Access</strong>
+              <dfn class="term">plugin extension</dfn> (and provided sample Java code) for all these
+              operations.</p>
+          </li>
+        </ul></li>
+      <li class="li">
+        <div class="p">When <strong class="ph b">Check Out</strong> is called, use the <span class="ph">Oxygen XML Editor</span> API to open your custom
+          URLs (URLs created using your custom protocol). It is important to implement and use a
+            <strong class="ph b">Custom Protocol</strong> extension to be notified when the files are opened and saved and
+          to be able to provide the content for the relative references the files may contain to <span class="ph">Oxygen XML Editor</span>. Your custom <em class="ph i">java.net.URLStreamHandler</em> implementation checks
+          out the resource content from the server, stores it locally and provides its content.
+          Sample <strong class="ph b">Check Out</strong>
+          implementation:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">  <span class="hl-tag-doctype-comment">/**
+   * Sample implementation for the "Check Out" method.
+   *
+   * @param pluginWorkspaceAccess (Workspace Access plugin).
+   * @throws MalformedURLException 
+   */</span>
+    <strong class="hl-keyword">private</strong> <strong class="hl-keyword">void</strong> checkOut(StandalonePluginWorkspace pluginWorkspaceAccess) 
+<strong class="hl-keyword">throws</strong> MalformedURLException {
+    <em class="hl-comment">//TODO Show the user a custom dialog box for browsing the CMS</em>
+    <em class="hl-comment">//TODO after user selected the resource create a URL with a custom protocol </em>
+    <em class="hl-comment">//which will uniquely map to the resource on the CMS using the URLHandler</em>
+    <em class="hl-comment">//something like:</em>
+    URL customURL = <strong class="hl-keyword">new</strong> URL(<span class="hl-string">"mycms://host/path/to/file.xml"</span>);
+    <em class="hl-comment">//Ask Oxygen to open the URL</em>
+    pluginWorkspaceAccess.open(customURL);
+    <em class="hl-comment">//Oxygen will then your custom protocol handler to provide the contents for </em>
+    <em class="hl-comment">//the resource "mycms://host/path/to/file.xml"</em>
+    <em class="hl-comment">//Your custom protocol handler will check out the file in a temporary</em>
+    <em class="hl-comment">//directory, for example, and provide the content from it.</em>
+    <em class="hl-comment">//Oxygen will also pass through your URLHandler if you have any relative </em>
+    <em class="hl-comment">//references which need to be opened/obtained.</em>
+  } </pre></div>
+        <div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Check Out Process Diagram</figcaption>
+            
+            <img class="image" id="howto-cms-plugin__image_yvg_bmg_ab" src="../img/cmscheckout.png">
+          </figure>
+        </div>
+        <div class="p">The phases are:<ul class="ul" id="howto-cms-plugin__ol_svs_qxm_hb">
+            <li class="li">1 - Browse CMS repository</li>
+            <li class="li">2 - User chooses a resource</li>
+            <li class="li">3 - Use API to open custom URL: <span class="ph filepath">mycms://path/to/file.xml</span></li>
+            <li class="li">4 - Get content of URL: <span class="ph filepath">mycms://path/to/file.xml</span></li>
+            <li class="li">5 - Get content of resource</li>
+            <li class="li">6 - Store on disk for faster access</li>
+            <li class="li">7 - Retrieve content from disk if already checked out</li>
+            <li class="li">8 - Retrieved content</li>
+          </ul></div>
+      </li>
+      <li class="li">
+        <div class="p">Contribute a special <strong class="ph b">Browse CMS</strong> action to every dialog box in <span class="ph">Oxygen XML Editor</span> where a URL can be chosen to perform a special action (such as the <strong class="ph b">Reuse Content</strong>
+          or <strong class="ph b">Insert Image</strong> action). Sample
+          code:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">      <em class="hl-comment">//Add an additional browse action to all dialog boxes/places </em>
+      <em class="hl-comment">//where Oxygen allows selecting a URL.</em>
+      pluginWorkspaceAccess.addInputURLChooserCustomizer
+(<strong class="hl-keyword">new</strong> InputURLChooserCustomizer() {
+        <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> customizeBrowseActions
+(List&lt;Action&gt; existingBrowseActions, <strong class="hl-keyword">final</strong> InputURLChooser chooser) {
+          <em class="hl-comment">//IMPORTANT, you also need to set a custom icon on the action </em>
+          <em class="hl-comment">//for situations when its text is not used for display.</em>
+          Action browseCMS = <strong class="hl-keyword">new</strong> AbstractAction(<span class="hl-string">"CMS"</span>) {
+            <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> actionPerformed(ActionEvent e) {
+              URL chosenResource = browseCMSAndChooseResource();
+              <strong class="hl-keyword">if</strong> (chosenResource != null) {
+                <strong class="hl-keyword">try</strong> {
+                  <em class="hl-comment">//Set the chosen resource in the combo box chooser.</em>
+                  chooser.urlChosen(chosenResource);
+                } <strong class="hl-keyword">catch</strong> (MalformedURLException e1) {
+                  <em class="hl-comment">//</em>
+                }
+              }
+            }
+          };
+          existingBrowseActions.add(browseCMS);
+        }
+      });
+...</pre></div>
+        <div class="p">When inserting references to other resources using the actions already implemented in <span class="ph">Oxygen XML Editor</span>, the reference to the resource is made by default relative to the
+          absolute location of the edited XML file. You can gain control over the way that the
+          reference is made relative for a specific protocol like
+          this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">      <em class="hl-comment">//Add a custom relative reference resolver for your custom protocol.</em>
+      <em class="hl-comment">//Usually when inserting references from one URL to another Oxygen </em>
+      <em class="hl-comment">//makes the inserted path relative.</em>
+      <em class="hl-comment">//If your custom protocol needs special relativization techniques then </em>
+      <em class="hl-comment">//it should set up a custom relative</em>
+      <em class="hl-comment">//references resolver to be notified when resolving needs to be done.</em>
+      pluginWorkspaceAccess.addRelativeReferencesResolver(
+          <em class="hl-comment">//Your custom URL protocol that you already have a </em>
+          <em class="hl-comment">//custom URLStreamHandlerPluginExtension set up.</em>
+          <span class="hl-string">"mycms"</span>, 
+          <em class="hl-comment">//The relative references resolver</em>
+          <strong class="hl-keyword">new</strong> RelativeReferenceResolver() {
+        <strong class="hl-keyword">public</strong> String makeRelative(URL baseURL, URL childURL) {
+          <em class="hl-comment">//Return the referenced path as absolute for example.</em>
+          <em class="hl-comment">//return childURL.toString();</em>
+          <em class="hl-comment">//Or return null for the default behavior.</em>
+          <strong class="hl-keyword">return</strong> null;
+        }
+      });
+...</pre></div>
+      </li>
+      <li class="li">Write the <span class="ph filepath">plugin.xml</span> descriptor file. Your <dfn class="term">plugin</dfn>
+        combines the two extensions using a single set of libraries. The descriptor would look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-tag-doctype">&lt;!DOCTYPE plugin SYSTEM "../plugin.dtd"&gt;</span>
+<strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"CustomCMSAccess"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Test"</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0.0"</span>
+ <span class="hl-attribute">vendor</span>=<span class="hl-value">"ACME"</span>
+ <span class="hl-attribute">class</span>=<span class="hl-value">"custom.cms.CMSAccessPlugin"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;runtime&gt;</strong>
+  <strong class="hl-tag">&lt;library</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"lib/cmsaccess.jar"</span><strong class="hl-tag">/&gt;</strong>
+ <strong class="hl-tag">&lt;/runtime&gt;</strong>
+ <em class="hl-comment">&lt;!--Access to add actions to the main menu and toolbars or to add custom views.--&gt;</em>
+ <em class="hl-comment">&lt;!--See the "CustomWorkspaceAccessPluginExtension" Java sample for more details--&gt;</em>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"WorkspaceAccess"</span> 
+  <span class="hl-attribute">class</span>=<span class="hl-value">"custom.cms.CustomWorkspaceAccessPluginExtension"</span><strong class="hl-tag">/&gt;</strong>
+ <em class="hl-comment">&lt;!--The custom URL handler that will communicate with the CMS implementation--&gt;</em>
+ <em class="hl-comment">&lt;!--See the "CustomProtocolURLHandlerExtension" Java sample for more details--&gt;</em>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"URLHandler"</span> 
+  <span class="hl-attribute">class</span>=<span class="hl-value">"custom.cms.CustomProtocolURLHandlerExtension"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></li>
+      <li class="li">Create a <span class="ph filepath">cmsaccess.jar</span>
+        <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> archive containing your implementation
+        classes.</li>
+      <li class="li">Copy your new <dfn class="term">plugin</dfn> directory in the <span class="ph filepath">plugins</span> subfolder of the <span class="ph">Oxygen XML Editor</span> install folder (for example, <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/plugins/myPlugin</span>) and start <span class="ph">Oxygen XML Editor</span>.</li>
+    </ol>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/class-loading-issues.html">Class Loading Issues</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/extend-oxygen-with-plugins.html">Extending Oxygen XML Editor with Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/document-plugin.html" title="This type of plugin allows you to manage the current document.">Document Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/class-loading-issues.html">Class Loading Issues</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://github.com/oxygenxml/oxygen-cmis-plugin" target="_blank" rel="external noopener">https://github.com/oxygenxml/oxygen-cmis-plugin</a></li><li class="linklist"><a class="link" href="https://github.com/axxepta/project-argon" target="_blank" rel="external noopener">https://github.com/axxepta/project-argon</a></li></ul></div></nav>
+</article></main></body></html>

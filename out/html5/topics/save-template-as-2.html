@@ -1,0 +1,85 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Save template as button,WebHelp Responsive Templates tab,Save template as button"><meta name="keywords" content="Save template as button, WebHelp Responsive Templates tab, Save template as button"><meta name="DC.relation" scheme="URI" content="../topics/templates-tab-whr-x-publishing.html"><meta name="DC.relation" scheme="URI" content="../topics/templates-tab-whr-x-publishing.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-pdf-select-processor-x-publishing.html"><meta name="DC.relation" scheme="URI" content="whr-publishing-template-2.html"><meta name="DC.relation" scheme="URI" content="pdf_publishing_template_contents.html"><meta name="DC.relation" scheme="URI" content="whr_publishing_template_contents.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="save-template-as"><title>Template Package Configuration Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="save-template-as"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Template Package Configuration Dialog Box</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Save template as</span> button (at the bottom-left of the transformation
+      dialog box for <strong class="ph b">WebHelp Responsive</strong> or <span class="ph uicontrol">PDF - based on HTML5 &amp;
+        CSS</span> transformations) can be used to export the currently selected template into
+      a new template package that can be used as a starting point to <a class="xref" href="whr-create-publishing-template.html#whr-create-publishing-template">create your own
+        custom template</a>. The result will be a ZIP archive that contains a template descriptor
+      file and other resources (such as CSS files) that were attached to the selected template.</p>
+    <div class="p">Clicking the <span class="ph uicontrol">Save template as</span> button opens a template package
+      configuration dialog box contains the following options and components:<dl class="dl">
+        
+          <dt class="dt dlterm">Name</dt>
+          <dd class="dd">Required field used to specify the name for the new template. This will become the
+            text value of the <code class="keyword markupname xmlelement">&lt;name&gt;</code> element in the template descriptor file. This
+            information is displayed as the name of the template in the transformation scenario
+            dialog box. </dd>
+        
+        
+          <dt class="dt dlterm">Description</dt>
+          <dd class="dd">Optional field used to specify a template description. This will become the text value
+            of the <code class="keyword markupname xmlelement">&lt;description&gt;</code> element in the template descriptor file. This
+            information is displayed when the user hovers over the template in the transformation
+            scenario dialog box.</dd>
+        
+        
+          <dt class="dt dlterm">Parameter Table</dt>
+          <dd class="dd">This table displays the parameters that will be exported. Only certain relevant
+            parameters are exported. The parameters and their values will be inserted in the
+              <code class="keyword markupname xmlelement">&lt;parameters&gt;</code> section of the template descriptor file. If any of
+            the parameter values point to a file path that references a template resource (such as
+            CSS files, custom HTML fragments, images), those resources will automatically be copied
+            to the new template package and their references will be changed
+              accordingly.<div class="note note note_note"><span class="note__title">Note:</span> Additional resources that are referenced in CSS files or other
+              resources will not be copied to the new template package, so you will need to copy
+              them manually and update their references in the template descriptor file.</div></dd>
+        
+        
+          <dt class="dt dlterm">Include WebHelp Customization</dt>
+          <dd class="dd">
+            <p class="p">The same publishing template package can contain both a WebHelp Responsive and PDF
+              customization and you can use the same template in both types of transformations
+                (<a class="xref" href="wh-responsive-output-2.html"><span class="ph uicontrol">DITA Map WebHelp
+                  Responsive</span></a> or <a class="xref" href="ditamap-pdf-css-html5-2.html"><strong class="ph b">DITA Map
+                  to PDF - based on HTML5 &amp; CSS</strong></a>). This option specifies that the
+              custom template will include a WebHelp Responsive customization.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">Include HTML Page Layout Files</dt>
+                  <dd class="dd">For <strong class="ph b">WebHelp Responsive</strong> customizations, select this option if you want
+                    to copy the default <a class="xref" href="whr_publishing_template_contents.html#html_page_templates"><em class="ph i">HTML Page
+                        Layout Files</em></a> into your template package. They are helpful if you
+                    want to change the structure of the generated HTML pages.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Include PDF Customization</dt>
+          <dd class="dd">The same publishing template package can contain both a WebHelp Responsive and PDF
+            customization and you can use the same template in both types of transformations (<a class="xref" href="wh-responsive-output-2.html"><span class="ph uicontrol">DITA Map WebHelp
+              Responsive</span></a> or <a class="xref" href="ditamap-pdf-css-html5-2.html"><strong class="ph b">DITA Map to
+                PDF - based on HTML5 &amp; CSS</strong></a>). This option specifies that the custom
+            template will include a PDF customization.</dd>
+        
+        
+          <dt class="dt dlterm">Save as</dt>
+          <dd class="dd">Use this field to specify the name and path of the ZIP file where the template will be
+            saved.</dd>
+        
+      </dl></div>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Template Package Configuration Dialog Box</figcaption>
+        
+        <img class="image" src="../img/Save_template_as_dialog.png">
+      </figure>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/templates-tab-whr-x-publishing.html">Templates Tab (DITA-OT Transformations)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/templates-tab-whr-x-publishing.html">Templates Tab (DITA-OT Transformations)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-pdf-select-processor-x-publishing.html">FO Processor Tab (DITA-OT Transformations)</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="whr-publishing-template-2.html">Publishing Templates</a></li><li class="linklist"><a class="link" href="pdf_publishing_template_contents.html">Publishing Template Package Contents for PDF Customizations</a></li><li class="linklist"><a class="link" href="whr_publishing_template_contents.html">Publishing Template Package Contents for WebHelp Responsive Customizations</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/grey-window-on-linux-with-compiz.html"><meta name="DC.relation" scheme="URI" content="../topics/hunspell-unusable.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="handshake-failure"><title>Handshake Failure Error When Accessing an HTTPS (SSL) Resource</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="handshake-failure"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Handshake Failure Error When Accessing an HTTPS (SSL) Resource</h1>
+  <div class="body troublebody">
+    <section class="section condition" id="handshake-failure__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">When attempting to access an HTTPS (SSL) resource, I receive a <strong class="ph b">handshake_failure</strong>
+        error.</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="handshake-failure__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">The issue is most likely due to the limitation of Java cryptography capabilities.</p>
+      </section>
+      <section class="section remedy" id="handshake-failure__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <div class="p">A solution might be to download and deploy <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="external noopener"><em class="ph i">Java Cryptography Extension (JCE) Unlimited Strength
+                Jurisdiction Policy Files 8 (for Java <span class="ph">8</span>)</em></a>.<div class="note warning note_warning"><span class="note__title">Warning:</span> It is possible that this may not be legal in your
+              country. Be advised that you bare legal responsibility for activating unlimited
+              strength Java cryptography capabilities, so you must have the legal right to use such
+              cryptography (consult your export/import control counsel or attorney to determine the
+              exact requirements for your jurisdiction).</div></div>
+          <div class="p">To deploy it in <span class="ph">Oxygen XML Editor</span>, unpack the downloaded zip archive and move the
+            two jar files (<strong class="ph b">local_policy.jar</strong> and <strong class="ph b">US_export_policy.jar</strong>) from
+              <strong class="ph b">UnlimitedJCEPolicyJDK8</strong> to the following directory, overwriting existing files:<ul class="ul">
+              <li class="li"><strong class="ph b">Windows</strong> - <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/jre/lib/security</span></li>
+              <li class="li"><strong class="ph b">Linux</strong> - <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/jre/lib/security</span></li>
+              <li class="li"><strong class="ph b">Mac OS X</strong> - <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/jre.bundle/Contents/Home/jre/lib/security</span></li>
+            </ul></div>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/grey-window-on-linux-with-compiz.html">Gray Window on Linux With the Compiz / Beryl Window Manager</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/hunspell-unusable.html">Hunspell Spell Checker is Unusable on Your Platform Error</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Files Comparison,File comparison preferences"><meta name="keywords" content="Preferences, Files Comparison, File comparison preferences"><meta name="DC.relation" scheme="URI" content="../topics/diff-preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/diff-preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-diff-appearance.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-diff-appearance.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-diff-files"><title>Files Comparison Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-diff-files"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Files Comparison Preferences</h1>
+    
+    <div class="body">
+        <p class="p">To configure the <span class="ph uicontrol">Files Comparison</span> options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Diff</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Files Comparison</span></span>.</p>
+    <div class="p">This preferences page allows you to configure the following options:<dl class="dl">
+        
+          <dt class="dt dlterm" id="preferences-diff-files__enable-author-mode"><span class="ph uicontrol">Enable file comparison in Author mode</span></dt>
+          <dd class="dd">If selected, a visual <span class="ph uicontrol">Author</span> mode is available in the file
+            comparison tool. It displays the files in a visual mode similar to the
+              <span class="ph uicontrol">Author</span> editing mode in <dfn class="term">Oxygen XML Editor/Author</dfn>.
+            This visual mode is available when both compared files are detected as being XML and
+            from a recognized document type.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Ignore Whitespaces</span><span class="ph"> (Not applicable
+              for the visual Author comparison mode)</span></dt>
+          <dd class="dd">If selected, before performing the comparison, the application normalizes the content
+            (collapses any sequence of whitespace characters into a single space) and trims its
+            leading and trailing whitespaces.<div class="note note note_note"><span class="note__title">Note:</span> If the <span class="ph uicontrol">Ignore Whitespaces</span>
+              checkbox is selected, comparing the <code class="ph codeph">a b</code> sequence with <code class="ph codeph">a
+                b</code>, <span class="ph">Oxygen XML Editor</span> finds no differences, because after
+              normalization, all whitespaces from the first sequence are collapsed into a single
+              space character. However, when comparing <code class="ph codeph">a b</code> with <code class="ph codeph">ab</code>
+              (no whitespace between <code class="ph codeph">a</code> and <code class="ph codeph">b</code>), <span class="ph">Oxygen XML Editor</span> signals a difference.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Two-Way Diff</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__diff-algorithm"><span class="ph uicontrol">Default algorithm</span></dt>
+                  <dd class="dd">The default algorithm used for comparing two files. The following options are
+                      available:<ul class="ul">
+      <li class="li" id="preferences-diff-files__auto">
+        <span class="ph uicontrol">Auto</span> - Selects the most appropriate algorithm, based on the compared
+        content and its size (selected by default).</li>
+      <li class="li" id="preferences-diff-files__characters">
+        <span class="ph uicontrol">Characters</span> - Computes the differences at character level, meaning
+        that it compares two files or fragments looking for identical characters.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+      <li class="li" id="preferences-diff-files__words">
+        <span class="ph uicontrol">Words</span> - Computes the differences at word level, meaning that it
+        compares two files or fragments looking for identical words.<span class="ph">
+          This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+      <li class="li" id="preferences-diff-files__lines">
+        <span class="ph uicontrol">Lines</span> - Computes the differences at line level, meaning that it
+        compares two files or fragments looking for identical lines of text.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+      <li class="li" id="preferences-diff-files__syntax-aware">
+        <span class="ph uicontrol">Syntax Aware</span> - Computes differences for the file types or fragments
+        known by <span class="ph">Oxygen XML Editor</span>, taking the syntax (the specific types of tokens) into
+          consideration.<span class="ph"> This algorithm is not available when the file
+          comparison is in <span class="ph uicontrol">Author</span> mode.</span></li>
+      <li class="li" id="preferences-diff-files__xml-fast">
+        <span class="ph uicontrol">XML Fast</span> - Comparison that works well on large files or fragments,
+        but it is less precise than <span class="ph uicontrol">XML Accurate</span>.</li>
+      <li class="li" id="preferences-diff-files__xml-accurate">
+        <span class="ph uicontrol">XML Accurate</span> - Comparison that is more precise than <span class="ph uicontrol">XML
+          Fast</span>, at the expense of speed. It compares two XML files or fragments looking
+        for identical XML nodes. </li>
+    </ul></dd>
+                
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Algorithm strength</span></dt>
+          <dd class="dd">Controls the amount of resources allocated to the application to perform the
+            comparison. The algorithm stops searching more differences when reaches the maximum
+            allowed resources. A dialog box is displayed when this limit is reached and partial
+            results are displayed. Four settings are available: <span class="ph uicontrol">Low</span>,
+              <span class="ph uicontrol">Medium</span> (default), <span class="ph uicontrol">High</span> and
+              <span class="ph uicontrol">Very High</span>.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Three-Way Diff</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Default algorithm</span></dt>
+                  <dd class="dd">The default algorithm used for performing a three-way comparison. The
+                    following options are available:<ul class="ul">
+                      <li class="li">
+        <span class="ph uicontrol">Auto</span> - Selects the most appropriate algorithm, based on the compared
+        content and its size (selected by default).</li>
+                      <li class="li">
+        <span class="ph uicontrol">Lines</span> - Computes the differences at line level, meaning that it
+        compares two files or fragments looking for identical lines of text.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+                      <li class="li">
+        <span class="ph uicontrol">XML Fast</span> - Comparison that works well on large files or fragments,
+        but it is less precise than <span class="ph uicontrol">XML Accurate</span>.</li>
+                      <li class="li">
+        <span class="ph uicontrol">XML Accurate</span> - Comparison that is more precise than <span class="ph uicontrol">XML
+          Fast</span>, at the expense of speed. It compares two XML files or fragments looking
+        for identical XML nodes. </li>
+                    </ul></dd>
+                
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Algorithm strength</span></dt>
+          <dd class="dd">Controls the amount of resources allocated to the application to perform the
+            comparison. The algorithm stops searching more differences when reaches the maximum
+            allowed resources. A dialog box is displayed when this limit is reached and partial
+            results are displayed. Four settings are available: <span class="ph uicontrol">Low</span>,
+              <span class="ph uicontrol">Medium</span> (default), <span class="ph uicontrol">High</span> and
+              <span class="ph uicontrol">Very High</span>.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol">Show pseudo conflicts</span></dt>
+          <dd class="dd">Specifies whether or not the file comparison displays pseudo-conflicts. A
+            pseudo-conflict occurs when two users make the same change (for example, when they both
+            add or remove the same line of code).</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-diff-files__xml-diff-section"><span class="ph uicontrol">XML Diff</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__ignore"><span class="ph uicontrol">Ignore</span><span class="ph"> (Some of these
+                      options are not applicable for the visual Author comparison mode)</span></dt>
+                  <dd class="dd">Allows you to specify the types of XML nodes that will be ignored in the file
+                    comparison for the <span class="ph uicontrol">XML Fast</span> and <span class="ph uicontrol">XML
+                      Accurate</span> algorithms.</dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__ignore-nodes-by-xpath"><span class="ph uicontrol">Ignore nodes by XPath</span><span class="ph"> (Not
+                      applicable for the visual Author comparison mode)</span></dt>
+                  <dd class="dd">If selected, you can enter an <a class="xref" href="running-xpath-expressions.html#running-xpath-expressions">XPath expression</a> to ignore certain nodes from the
+                    comparison. It will be processed as XPath version 2.0. The XPath expression
+                    specified in this option is used as the default ignore instructions <strong class="ph b">only</strong>
+                    when the application is started. If you enter an XPath expression in the similar
+                    option on the <span class="ph uicontrol">Diff Files</span> toolbar, that expression will be
+                    used instead.</dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__merge-adjacent"><span class="ph uicontrol">Merge adjacent differences</span><span class="ph">
+                      (Not applicable for the visual Author comparison mode)</span></dt>
+                  <dd class="dd">If selected, the application considers two adjacent differences as one when
+                    the differences are painted in the side-by-side editors. If not selected, every
+                    difference is represented separately.</dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__merge-end-tags"><span class="ph uicontrol">Mark end tags as different for modified elements</span><span class="ph"> (Not applicable for the visual Author comparison
+                      mode)</span></dt>
+                  <dd class="dd">If selected, end tags of modified elements are also presented as differences.
+                    Otherwise, only the start tags are presented as differences.</dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-diff-files__ignore-expansion"><span class="ph uicontrol">Ignore expansion state for empty elements</span><span class="ph"> (Not applicable for the visual Author comparison
+                      mode)</span></dt>
+                  <dd class="dd">If selected, empty elements in both expansion states are considered matched
+                    (that is <code class="ph codeph">&lt;element/&gt;</code> and
+                      <code class="ph codeph">&lt;element&gt;&lt;/element&gt;</code> are considered equal).</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+    </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/preferences-diff-appearance.html">Appearance Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/diff-preferences.html">Diff Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/diff-preferences.html">Diff Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-diff-appearance.html">Appearance Preferences</a></div></div></nav></article></main></body></html>

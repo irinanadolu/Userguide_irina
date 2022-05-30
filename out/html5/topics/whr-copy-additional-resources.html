@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Copy resources to output directory"><meta name="keywords" content="WebHelp Responsive, Copy resources to output directory"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-edit-link.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-copy-additional-resources"><title>How to Copy Additional Resources to Output Directory</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-copy-additional-resources"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Copy Additional Resources to Output Directory</h1>
+  
+  <div class="body">
+    <p class="p">You can copy additional resources (such as graphics, JavaScript, CSS, entire folders, or
+      other resources) to the output directory either by using an <a class="xref" href="glossentry-wh-publishing-template.html"><dfn class="term">Oxygen Publishing Template</dfn></a> or
+      the <code class="ph codeph">webhelp.custom.resources</code> parameter.</p>
+    <section class="section" id="whr-copy-additional-resources__copying_additional_resources_template"><h2 class="title sectiontitle">Copying Additional Resources to the Output Directory using a Publishing
+        Template</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">If you haven't already created a Publishing Template, see <a class="xref" href="whr_publishing_templates.html">Working with Publishing Templates</a>.</li>
+          <li class="li">Add a new <code class="keyword markupname xmlelement">&lt;fileset&gt;</code> element in the <a class="xref" href="whr_publishing_template_contents.html#template_resources">resources section of
+              the template descriptor
+              file</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+        <strong class="hl-tag">&lt;resources&gt;</strong>            
+            <strong class="hl-tag">&lt;fileset&gt;</strong>
+                <strong class="hl-tag">&lt;include</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"custom-resources/**/*"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;exclude</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"**/*.git"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;/fileset&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> Relative paths in the descriptor file are
+              relative to the template root folder.</div></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol>
+      </div>
+      <p class="p"><strong class="ph b">Results:</strong> All files from the custom resources directory will be copied to the
+            <span class="ph filepath"><a href="../glossary/glossentry-wh-out-dir.html" title="WebHelp_OUTPUT_DIR refers to the output directory where WebHelp transformation files will be generated. The output directory can be specified using the Output Directory text field in the Output tab of the transformation scenario dialog box. When running the WebHelp transformation from a command line, the output directory can be specified using the -o or --output option."><dfn class="term abbreviated-form">WebHelp Output Directory</dfn></a>/oxygen-webhelp/template</span> folder.</p>
+    </section>
+    <section class="section" id="whr-copy-additional-resources__copying_additional_resources_parameter"><h2 class="title sectiontitle">Copying Additional Resources to the Output Directory using a Transformation
+        Parameter</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">Place all your resources in the same directory.</li>
+          <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and open the
+              <span class="ph uicontrol">Parameters</span> tab.</li>
+          <li class="li">Edit the value of the <code class="ph codeph">webhelp.custom.resources</code> parameter and set it
+            to the absolute path of the directory in step 1.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol>
+      </div>
+      <p class="p"><strong class="ph b">Results:</strong> All files from the new directory will be copied to the root of the WebHelp
+        output directory.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wh-edit-link.html">How to Add an Edit Link to Launch Oxygen XML Web Author</a></div></div></nav></article></main></body></html>

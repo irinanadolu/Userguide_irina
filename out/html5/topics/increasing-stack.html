@@ -1,0 +1,22 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="StackOverflowException error,Validation engine 'StackOverflowException' error"><meta name="keywords" content="StackOverflowException error, Validation engine 'StackOverflowException' error"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-custom-validation.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-custom-validation.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-spell-check.html"><meta name="DC.relation" scheme="URI" content="set-parameter-in-startup-script.html#set-parameter-in-startup-script"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="increasing-stack"><title>Increasing the Stack Size for Validation Engines</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="increasing-stack"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Increasing the Stack Size for Validation Engines</h1>
+  
+  <div class="body">
+    <div class="p">To prevent the appearance of a <strong class="ph b">StackOverflowException</strong> error, use one of the
+      following methods:<ul class="ul">
+        <li class="li">Use the <span class="ph uicontrol">com.oxygenxml.stack.size.validation.threads</span> property to
+          increase the size of the stack for validation engines. The value of this property is
+          specified in bytes. For example, to set a value of one megabyte specify
+            1x1024x1024=1048576.<span class="ph"> For information about how to
+            setup the system property on the JVM, see <a class="xref" href="set-parameter-in-startup-script.html">Setting a Java Virtual Machine Parameter when Launching Oxygen XML Editor</a>.</span></li>
+        <li class="li"><span class="ph">Increase the value of the
+              <span class="ph uicontrol">-Xss</span> parameter.</span><div class="note note note_note"><span class="note__title">Note:</span> Increasing the value of the
+              <span class="ph uicontrol">-Xss</span> parameter affects all the threads of the application.
+          </div></li>
+      </ul>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor-custom-validation.html">Custom Validation Engines Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-custom-validation.html">Custom Validation Engines Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor-spell-check.html">Spell Check Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="set-parameter-in-startup-script.html#set-parameter-in-startup-script">Setting a Java Virtual Machine Parameter when Launching Oxygen XML Editor</a></li></ul></div></nav>
+</article></main></body></html>

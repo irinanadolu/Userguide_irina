@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dcpp-dita-ot-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp-dita-ot-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="pdf-xslt-extensions-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp-contribute-css-from-plugin"><title>How to Contribute a Custom CSS to the Transformation from a DITA-OT Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp-contribute-css-from-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Contribute a Custom CSS to the Transformation from a DITA-OT Plugin</h1>
+  <div class="body">
+    <p class="p">This topic is intended for publishing architects/developers that need to deploy a customized
+      DITA-OT.</p>
+    <p class="p">Usually, the CSS styles can be passed to the transformation by referencing the CSS files
+      using the <code class="ph codeph">args.css</code> parameter. However, there are cases where you want to add
+      some sort of "built-in" CSS that is applied in conjunction with the publishing template or CSS
+      files referenced in the transformation.</p>
+    <div class="p">For this, you need to use the <strong class="ph b">com.oxygenxml.pdf.css.init</strong> extension point and set the
+      value of the <strong class="ph b">extension.css</strong> ANT property to the path of the custom CSS file:<ol class="ol" id="dcpp-contribute-css-from-plugin__ol_nvw_mvm_cfb">
+        <li class="li">In your <strong class="ph b">plugin.xml</strong> file,
+          add:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"com.oxygenxml.pdf.css.init"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"init.xml"</span><strong class="hl-tag">/&gt;</strong></pre></li>
+        <li class="li">Create a file named <strong class="ph b">init.xml</strong> with the following ANT
+            content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;root&gt;</strong>
+  <strong class="hl-tag">&lt;property</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"extension.css"</span> 
+            <span class="hl-attribute">value</span>=<span class="hl-value">"${dita.plugin.[com.my.plugin.id].dir}/css/my-custom.css"</span><strong class="hl-tag">/&gt;</strong>
+  <em class="hl-comment">&lt;!-- add here more init stuff if needed --&gt;</em>
+<strong class="hl-tag">&lt;/root&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> The
+            name of the root element does not matter. The content of this element will be copied in
+            an initialization template.</div><div class="note important note_important"><span class="note__title">Important:</span> Make sure all file references
+            begin with the ANT variable that is expanded to the base directory of your
+            plugin.</div></li>
+      </ol></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp-dita-ot-extensions.html" title="Information about expanding the functionality through DITA-OT Extensions">DITA-OT Extension Points</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp-dita-ot-extensions.html" title="Information about expanding the functionality through DITA-OT Extensions">DITA-OT Extension Points</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="pdf-xslt-extensions-plugin.html" title="The examples in this section demonstrate how to use XSLT extension points from a DITA-OT plugin.">How to Use XSLT Extension Points for PDF Output from a DITA-OT Plugin</a></li></ul></div></nav>
+</article></main></body></html>

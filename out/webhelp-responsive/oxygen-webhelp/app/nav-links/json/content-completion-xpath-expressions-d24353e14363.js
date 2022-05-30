@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Tooltip Helper for the XPath Functions Arguments","href":"topics\/xpath-tooltip-helper.html","attributes":{"data-id":"xpath-tooltip-helper"},"menu":{"hasChildren":false},"tocID":"xpath-tooltip-helper-d24353e14382","topics":[]}]});

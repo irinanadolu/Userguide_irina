@@ -1,0 +1,24 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Class Loader"><meta name="keywords" content="Class Loader"><meta name="DC.relation" scheme="URI" content="../topics/extend-oxygen-with-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/howto-custom-protocol-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/packing-and-deploying-plugins-as-addons.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="share-classloader-between-framework-and-plugin"><title>How to Share a Class Loader Between a Framework and Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="share-classloader-between-framework-and-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Share a Class Loader Between a Framework and Plugin</h1>
+  
+  <div class="body">
+    <p class="p">In some cases you may need to extend the functionality of <span class="ph">Oxygen XML Editor</span> both through
+      a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> and through a <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a>. Normally, a <dfn class="term">framework</dfn>
+      and a <dfn class="term">plugin</dfn> both run in their own private classloader. If the
+        <dfn class="term">framework</dfn> and the <dfn class="term">plugin</dfn> use the same JAVA extensions/classes, it
+      is recommended that they share the same classloader. This way, the common classes are loaded
+      by only one <em class="ph i">Class Loader</em> and they will both use the same static objects and have
+      the ability to cast objects between one another.</p>
+    <p class="p">To do this, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+        <span class="ph uicontrol">Document Type Association</span>, select the document type, go to the
+        <span class="ph uicontrol">Classpath</span> tab, and in the <span class="ph uicontrol">Use parent classloader from
+        plugin with ID</span> fields introduce the ID of the <dfn class="term">plugin</dfn>. This ID is
+      declared in the <a class="xref" href="oxygen-plugin.html#oxygen-plugin__plugin-id">configuration file of the <dfn class="term">plugin</dfn></a>.</p>
+    <div class="note important note_important"><span class="note__title">Important:</span> The shared classes must be specified only in the configuration files of
+      the <dfn class="term">plugin</dfn>, and not in the configuration file and the document type class path at
+      the same time.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/extend-oxygen-with-plugins.html">Extending Oxygen XML Editor with Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/howto-custom-protocol-plugin.html">How to Write A Custom Protocol Plugin</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/packing-and-deploying-plugins-as-addons.html">Packing and Deploying Plugins as Add-ons</a></div></div></nav></article></main></body></html>

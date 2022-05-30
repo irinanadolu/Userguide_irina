@@ -1,0 +1,120 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="JSON documents,Outline view"><meta name="keywords" content="JSON documents, Outline view"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/folding-in-JSON.html"><meta name="DC.relation" scheme="URI" content="../topics/xsd-to-json-schema-converter.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-outline-view"><title>JSON Outline View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-outline-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">JSON Outline View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Outline</span> view for JSON documents displays the list of all the
+      components of the JSON document you are editing. By default, it is displayed on the left side
+      of the editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>JSON Outline View</figcaption>
+        
+        <img class="image" src="../img/sa_json_outline_view.png">
+      </figure>
+    </div>
+    
+    <section class="section" id="json-outline-view__outline_view_features"><h2 class="title sectiontitle">Outline View Features</h2>
+      
+      <div class="p">The <span class="ph uicontrol">Outline</span> view allows you to:<ul class="ul">
+          <li class="li">Quickly navigate through the document by selecting nodes in the
+              <span class="ph uicontrol">Outline</span> tree.</li>
+          <li class="li">Move elements by dragging them to a new position in the tree structure.</li>
+          <li class="li">Highlight elements in the editor area. It is synchronized with the editor area, so
+            when you make a selection in the editor area, the corresponding nodes are highlighted in
+            the <span class="ph uicontrol">Outline</span> view, and vice versa.</li>
+          <li class="li">View document errors, as they are highlighted in the <span class="ph uicontrol">Outline</span>
+            view. A tooltip also provides more information about the nature of the error when you
+            hover over the faulted element.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="json-outline-view__outline_view_interface"><h2 class="title sectiontitle">Outline View Interface</h2>
+      
+      <p class="p">By default, it is displayed on the left side of the editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+      <p class="p">The upper part of the <span class="ph uicontrol">Outline</span> view contains a
+      filter box that allows you to focus on the relevant components. Type a text fragment in the
+      filter box and only the components that match it are presented. For advanced usage you can use
+      wildcard characters (such as <code class="ph codeph">*</code> or <code class="ph codeph">?</code>) and separate multiple
+      patterns with commas.</p>
+      <p class="p">It also includes a <span class="ph"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> menu</span> in the top-right corner that presents the following options to help
+        you filter the view even further.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm" id="json-outline-view__filter-returns-exact-dlentry"><span class="ph uicontrol">Filter returns exact matches</span></dt>
+            <dd class="dd">The text filter of the <span class="ph uicontrol">Outline</span> view returns only exact
+              matches.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_km1_vft_tr" src="../img/CaretUpdateOff16.png">Selection update on cursor move</span></dt>
+            <dd class="dd">Controls the synchronization between <span class="ph uicontrol">Outline</span> view and source
+              document. The selection in the <span class="ph uicontrol">Outline</span> view can be synchronized
+              with the cursor moves or the changes in the editor. Selecting one of the components
+              from the <span class="ph uicontrol">Outline</span> view also selects the corresponding item in
+              the source document.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Flat16.png">Flat presentation
+                mode of the filtered results</span></dt>
+            <dd class="dd">When active, the application flattens the filtered result elements to a single
+              level.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="json-outline-view__drop_and_drop_actions_in_the_outline_view"><h2 class="title sectiontitle">Drag and Drop Actions in the Outline View</h2>
+      
+      <p class="p">Entire JSON properties, objects, and arrays can be moved or copied in the edited document
+        using only the mouse in the <span class="ph uicontrol">Outline</span> view with drag-and-drop
+        operations. Several drag and drop actions are possible:</p>
+      <ul class="ul">
+        <li class="li">If you drag a JSON node in the <span class="ph uicontrol">Outline</span> view and drop it on
+          another node, then the dragged node will be moved after the drop target.</li>
+        <li class="li">If you hold the mouse pointer over the drop target for a short time before the drop then
+          the drop target node will be expanded first and the dragged node will be moved inside the
+          drop target.</li>
+        <li class="li">You can also drop a node before or after another node if you hold the mouse pointer
+          towards the upper or lower part of the target. A marker will indicate whether the drop
+          will be performed before or after the target node.</li>
+        <li class="li">If you hold down the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl (Command on OS X)</span></span>
+          key after dragging, a copy operation will be performed instead of a move.</li>
+      </ul>
+    </section>
+    <section class="section" id="json-outline-view__contextual_menu_actions"><h2 class="title sectiontitle">Contextual Menu Actions</h2>
+      
+      <p class="p">The following actions are available in the contextual menu of the JSON
+          <span class="ph uicontrol">Outline</span> view:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_u1f_hz1_5r" src="../img/Cut16.png">Cut</span></dt>
+            <dd class="dd">Cuts the currently selected component.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_x2z_mst_tr" src="../img/Copy16.png">Copy</span></dt>
+            <dd class="dd">Copies the currently selected component.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_ms5_gqt_tr" src="../img/Paste16.png">Paste</span></dt>
+            <dd class="dd">Pastes the copied component.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_b41_5jg_ks" src="../img/RemoveSelected16.gif">Delete</span></dt>
+            <dd class="dd">Deletes the currently selected component.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_lny_prd_cs" src="../img/ExpandAll16.png">Expand More</span></dt>
+            <dd class="dd">Expands the structure of a component in the <span class="ph uicontrol">Outline</span>
+              view.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-outline-view__image_yl1_r3t_tr" src="../img/CollapseAll16.png">Collapse
+                All</span></dt>
+            <dd class="dd">Collapses the structure of all the component in the <span class="ph uicontrol">Outline</span>
+              view.</dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-JSON.html">Editing JSON Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/folding-in-JSON.html">Folding in JSON</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xsd-to-json-schema-converter.html">XSD to JSON Schema Converter</a></div></div></nav></article></main></body></html>

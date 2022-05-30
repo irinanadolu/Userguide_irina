@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="CSS @media rule"><meta name="keywords" content="CSS @media rule"><meta name="DC.relation" scheme="URI" content="../topics/dg-standard-css-at-rules.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-font-face-media.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-standard-css-support.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-media-type.html#dg-oxygen-media-type"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-media-at-rule"><title>@media Rule</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-media-at-rule"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">@media Rule</h1>
+  
+  <div class="body">
+    <p class="p">The @media rule allows you to set different style rules for multiple types of media in the
+      same stylesheet. For example, you can set the font size to be different on the screen than on
+      paper. <span class="ph">Oxygen XML Editor</span> supports several media types, allowing you to set the style
+      rules for presenting a document on various media (on screen, paper, etc.)</p>
+    <section class="section" id="dg-media-at-rule__d2e25"><h2 class="title sectiontitle">Supported Media Types</h2>
+      
+    </section>
+    <div class="p">
+      <ul class="ul" id="dg-media-at-rule__ul_u4n_slb_zq">
+        <li class="li"><strong class="ph b">screen</strong> - The styles marked with this media type are used only for
+          rendering a document on screen.</li>
+        <li class="li"><strong class="ph b">print</strong> - The styles marked with this media type are used only for
+          printing a document.</li>
+        <li class="li"><strong class="ph b">all</strong> - The styles marked with this media type are used for rendering a
+          document in all supported types of media.</li>
+        <li class="li"><strong class="ph b">oxygen</strong> - The styles marked with this media type are used only for
+          rendering a document in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph uicontrol">Author</span> mode. For more information, see <a class="xref" href="dg-oxygen-media-type.html">Specifying Media Types in the CSS</a>.</li>
+        <li class="li"><strong class="ph b">oxygen-dark-theme</strong> - The styles marked with this media type are used only
+          for rendering a document in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph uicontrol">Author</span> mode when a dark theme is used (for example,
+          <em class="ph i">Graphite</em>).</li>
+        <li class="li"><strong class="ph b">oxygen-high-contrast-black</strong> - The styles marked with this media type are
+          used only for rendering a document in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph uicontrol">Author</span> mode on a Windows High Contrast Theme with a black
+          background.</li>
+        <li class="li"><strong class="ph b">oxygen-high-contrast-white</strong> - The styles marked with this media type are
+          used only for rendering a document in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph uicontrol">Author</span> mode on a Windows High Contrast Theme with a white
+          background.</li>
+      </ul>
+    </div>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">@media</em>
+      Rule</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@media</span> oxygen{
+ b{
+  <strong class="hl-keyword">text-decoration</strong>:underline;
+ }
+}
+<span class="hl-directive">@media</span> oxygen-high-contrast-white{
+ b{
+  <strong class="hl-keyword">font-weight</strong>:bold;
+ }
+}</pre></div>
+    <section class="section" id="dg-media-at-rule__d2e102"><h2 class="title sectiontitle">Supported Properties</h2>
+      
+    </section>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> also supports a few properties to set specific style rules that depend
+      upon the size of the visible area in <span class="ph uicontrol">Author</span> mode. These supported
+      properties are as follows:<ul class="ul" id="dg-media-at-rule__ul_hkl_5kb_zq">
+        <li class="li"><strong class="ph b">min-width</strong> - The styles selected in this property are applied if the
+          visible area in <span class="ph uicontrol">Author</span> mode is equal to or greater than the
+          specified value.</li>
+        <li class="li"><strong class="ph b">max-width</strong> - The styles selected in this property are applied if the
+          visible area in <span class="ph uicontrol">Author</span> mode is less than or equal to the specified
+          value.</li>
+      </ul></div>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">min-width</em> and <em class="ph i">max-width</em>
+      Properties</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@media</span> (<strong class="hl-keyword">min-width</strong>:<span class="hl-number">500</span>px){
+ p{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">'XXX'</span>;
+ }
+}
+<span class="hl-directive">@media</span> (<strong class="hl-keyword">max-width</strong>:<span class="hl-number">700</span>px){
+ p:after{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">'yyy'</span>;
+ }
+}</pre></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-standard-css-at-rules.html">CSS At-Rules</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-font-face-media.html">@font-face At-Rule</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-standard-css-support.html">Standard W3C CSS Supported Features</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-media-type.html#dg-oxygen-media-type">Specifying Media Types in the CSS</a></li></ul></div></nav>
+</article></main></body></html>

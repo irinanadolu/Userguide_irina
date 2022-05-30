@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Configure Calabash with XEP,PDF output using Calabash XProc processor"><meta name="keywords" content="Configure Calabash with XEP, PDF output using Calabash XProc processor"><meta name="DC.relation" scheme="URI" content="../topics/xproc-transformation-scenario.html"><meta name="DC.relation" scheme="URI" content="../topics/xproc-transformation-options-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/xproc-API-external-engine.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="configuring_calabash_with_xep"><title>Calabash XProc Processor for Generating PDF Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="configuring_calabash_with_xep"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Calabash XProc Processor for Generating PDF Output</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">To generate PDF output from your XProc pipeline (when using the Calabash XProc processor),
+        follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Open the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib/xproc/calabash/engine.xml</span> file.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Uncomment the <code class="ph codeph">&lt;system-property name="com.xmlcalabash.fo-processor"
+            value="com.xmlcalabash.util.FoXEP"/&gt;</code> system property.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Uncomment the <code class="ph codeph">&lt;system-property name="com.renderx.xep.CONFIG"
+            file="../../../tools/xep/xep.xml"/&gt;</code> system property. Edit the
+            <code class="keyword markupname xmlatt">@file</code> attribute to point to the configuration file that is usually
+          located in the XEP installation folder.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Uncomment the references to the XEP libraries. Edit them to point to the matching
+          library names from the XEP installation directory. </span>
+      </li><li class="li step">
+        <span class="ph cmd">Restart <span class="ph">Oxygen XML Editor</span>.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xproc-transformation-scenario.html" title="This type of transformation specifies the parameters and location of an XProc script.">XProc Transformation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xproc-transformation-options-tab.html">Options Tab (XProc Transformations)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xproc-API-external-engine.html">Integrating an External XProc Engine</a></div></div></nav></article></main></body></html>

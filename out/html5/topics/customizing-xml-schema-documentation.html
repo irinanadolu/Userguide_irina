@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Generate documentation for XML Schema,Customize PDF output for DocBook,Generate XML Schema Documentation tool,Customize PDF output for DocBook"><meta name="keywords" content="XML Schemas, Generate documentation for XML Schema, Customize PDF output for DocBook, Generate XML Schema Documentation tool, Customize PDF output for DocBook"><meta name="DC.relation" scheme="URI" content="../topics/output-formats-documentation-XML-Schema.html"><meta name="DC.relation" scheme="URI" content="../topics/output-formats-documentation-XML-Schema.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing-xml-schema-documentation-dita.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing-xml-schema-documentation"><title>Customizing PDF or DocBook Output of Generated XML Schema Documentation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing-xml-schema-documentation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing PDF or DocBook Output of Generated XML Schema Documentation</h1>
+  
+  <div class="body">
+    <div class="p">To customize the PDF or DocBook output of the generated XML Schema documentation, use the
+      following procedure:<ol class="ol">
+        <li class="li">Customize the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/schema_documentation/xsl/xsdDocDocbook.xsl</span> stylesheet to
+          include the content that you want to add in the PDF or DocBook output. Add the content in
+          the XSLT template with the <code class="ph codeph">match="schemaDoc"</code> attribute between the
+            <code class="keyword markupname xmlelement">&lt;info&gt;</code> and <code class="keyword markupname xmlelement">&lt;xsl:apply-templates&gt;</code> elements,
+          as commented in the following
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;info&gt;</strong>
+    <strong class="hl-tag">&lt;pubdate&gt;</strong><strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"format-date(current-date(),
+         '[Mn] [D], [Y]', 'en', (), ())"</span><strong class="hl-xsl">/&gt;</strong><strong class="hl-tag">&lt;/pubdate&gt;</strong>
+<strong class="hl-tag">&lt;/info&gt;</strong>
+   <em class="hl-comment">&lt;!-- Add the XSLT template content with match="schemaDoc" attribute here --&gt;</em>
+
+<strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"schemaHierarchy"</span><strong class="hl-xsl">/&gt;</strong></pre></li>
+        <li class="li">Create an intermediary file that holds the content of your XML Schema documentation by
+          following these steps:<ol class="ol" type="a">
+            <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Generate Documentation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Schema Documentation</span></span>.</li>
+            <li class="li">Select <span class="ph uicontrol">Custom</span> for the output format and click the
+                <span class="ph uicontrol">Options</span> button.</li>
+            <li class="li">In the <span class="ph uicontrol">Custom format options</span> dialog box, do the following:<ol class="ol" type="i" id="customizing-xml-schema-documentation__ol_g24_nfh_gs">
+                <li class="li">Enter the customized stylesheet in the <span class="ph uicontrol">Custom XSL</span> field
+                      (<span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/schema_documentation/xsl/xsdDocDocbook.xsl</span>).</li>
+                <li class="li">Select the <span class="ph uicontrol">Copy additional resources to the output folder</span>
+                  option and leave the default selection in the <span class="ph uicontrol">Resources</span>
+                  field.</li>
+                <li class="li">Click <span class="ph uicontrol">OK</span>.</li>
+              </ol></li>
+            <li class="li">When you return to the <span class="ph uicontrol">XML Schema Documentation</span> dialog box,
+              just click the <span class="ph uicontrol">Generate</span> button to generate a DocBook XML file
+              with an intermediary form of the Schema documentation.</li>
+          </ol></li>
+        <li class="li">If you want the DocBook file to be transformed into a PDF document, follow these steps:<ol class="ol" type="a">
+            <li class="li">Use the <span class="ph uicontrol"><img class="image" id="customizing-xml-schema-documentation__image_hcv_gwv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s)</span> action from the toolbar or the
+                <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Transformation</span></span>
+              menu, click <span class="ph uicontrol">New</span>, and select <span class="ph uicontrol">XML transformation with
+                XSLT</span>.</li>
+            <li class="li">In the <span class="ph uicontrol">New Scenario</span> dialog box, go to the <span class="ph uicontrol">XSL
+                URL</span> field and choose the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/docbook/oxygen/xsdDocDocbookCustomizationFO.xsl</span> file.</li>
+            <li class="li">Go to the <span class="ph uicontrol">FO Processor</span> tab and select the <span class="ph uicontrol">Perform
+                FO Processing</span> and <span class="ph uicontrol">XSLT result as input</span>
+              options.</li>
+            <li class="li">Go to the <span class="ph uicontrol">Output</span> tab and select the directory where you want
+              to store the XML Schema documentation output and click <span class="ph uicontrol">OK</span>.</li>
+            <li class="li">Click <span class="ph uicontrol">Apply Associated</span>.</li>
+          </ol></li>
+      </ol></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> If you want your modifications to be permanent so
+      that you can simply select the PDF output format in the <span class="ph uicontrol">XML Schema
+        Documentation</span> dialog box, rather than configuring a custom format each time you
+      generate this documentation, follow this procedure:<ol class="ol" id="customizing-xml-schema-documentation__ol_dwf_nmh_gs">
+        <li class="li">Create a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> or ZIP file that includes
+          the modified stylesheet (customized in step 1 above), placed in the following directory
+          structure:
+            <span class="ph filepath">builtin/documentation/schema_documentation/xsdDocDocbook.xsl</span>.</li>
+        <li class="li">Create a new directory named <strong class="ph b">endorsed</strong> inside the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span> directory and place
+          the created <dfn class="term">JAR</dfn> or ZIP file inside it.</li>
+        <li class="li">Restart <span class="ph">Oxygen XML Editor</span> and the PDF output format will now use your customized
+          stylesheet.</li>
+      </ol></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/output-formats-documentation-XML-Schema.html">Output Formats for Generating XML Schema Documentation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/output-formats-documentation-XML-Schema.html">Output Formats for Generating XML Schema Documentation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/customizing-xml-schema-documentation-dita.html">Customizing DITA Output of Generated XML Schema</a></div></div></nav></article></main></body></html>

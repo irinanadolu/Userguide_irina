@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Debugging XSLT,Debugging Java extensions,XSLT Debugger perspective,Debugging Java extensions,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Debugging Java extensions, XSLT Debugger perspective, Debugging Java extensions, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-xslt-with-java.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-xslt-with-java.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-supported-processors.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debugging-java-extensions"><title>Debugging Java Extensions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debugging-java-extensions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugging Java Extensions</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">The XSLT/XQuery debugger does not step into Java classes that are configured as XSLT/XQuery
+        extensions of the transformation. To step into Java classes, inspect variable values, and
+        set <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoints</dfn></a> in Java methods, you can set up a Java debug
+        configuration in an IDE (such as the Eclipse SDK) as described in the following steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Create a debug configuration.</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set at least 256 MB as heap memory for the Java virtual machine (recommended 1024
+              MB) by setting the <code class="ph codeph">-Xmx</code> parameter in the debug configuration (for
+              example, <q class="q">-Xmx1024m</q>).</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Make sure the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib/oxygen.jar</span> file and your Java extension classes are on the Java
+              classpath.</span>
+            <div class="itemgroup info">The Java extension classes should be the same classes that were <a class="xref" href="debug-control-toolbar.html#debug-control-toolbar__debug-xslt-extensions">set as an extension</a> of the XSLT/XQuery transformation in the
+              debugging <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the class <em class="ph i">ro.sync.exml.Oxygen</em> as the main Java class of the
+              configuration.</span>
+            <div class="itemgroup info">The main Java class <em class="ph i">ro.sync.exml.Oxygen</em> is located in the
+                <span class="ph filepath">oxygen.jar</span> file.</div>
+          </li>
+        </ol>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Start the debug configuration.</span>
+        <div class="itemgroup info">Now you can set <dfn class="term">breakpoints</dfn> and inspect Java variables as in any Java
+          debugging process executed in the selected IDE (Eclipse SDK, and so on.).</div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-xslt-with-java.html">Debugging XSLT that Call Java Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-xslt-with-java.html">Debugging XSLT that Call Java Extensions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debugging-supported-processors.html">Supported Processors for XSLT / XQuery Debugging</a></div></div></nav></article></main></body></html>

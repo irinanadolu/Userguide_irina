@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Configuring a MySQL Database Connection","href":"topics\/how-to-mysql.html","attributes":{"data-id":"how-to-mysql"},"menu":{"hasChildren":false},"tocID":"how-to-mysql-d24353e30156","next":"how-to-mysql-d24353e30156"}]});

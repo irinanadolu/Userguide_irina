@@ -1,0 +1,35 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/faq.html"><meta name="DC.relation" scheme="URI" content="../topics/using-peg-revisions.html"><meta name="DC.relation" scheme="URI" content="../topics/integrating-external-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="checksum-mismatch-error"><title>Checksum Mismatch Error</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="checksum-mismatch-error"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Checksum Mismatch Error</h1>
+  <div class="body">
+    <p class="p">A <em class="ph i">Checksum Mismatch</em> error could happen if an operation that sends or retrieves
+      information from the repository to the working copy is interrupted. This means that there is a
+      problem with the synchronization between a local item and its corresponding remote item.</p>
+    <div class="p">If you encounter this error, try the following:<ol class="ol" id="checksum-mismatch-error__ol_rlq_w4c_lr">
+        <li class="li">Identify the parent directory of the file that caused the error (the file name should be
+          displayed in the error message).<div class="note note note_note"><span class="note__title">Note:</span> If the parent directory is the root of the working
+            copy or if it contains a large amount of items it is recommended that you check out the
+            working copy again, rather than continuing with the rest of this procedure.</div></li>
+        <li class="li">Identify the <a class="xref" href="working-copy-view.html#working-copy-view__svn-depth-li">current
+            depth</a> of that directory.</li>
+        <li class="li">Update the parent directory using the <span class="ph uicontrol">Update to revision/depth</span>
+          action that is available from the contextual menu or the <span class="ph uicontrol">Working
+            copy</span> menu. For the <span class="ph uicontrol">Depth</span> option, select
+            <span class="ph uicontrol">This folder only (empty)</span>.<div class="note warning note_warning"><span class="note__title">Warning:</span> If you have files
+            with changes in this directory, those changes could be lost. You should commit your
+            changes or move the files to another directory outside the working copy prior to
+            proceeding with this operation. </div></li>
+        <li class="li">After clicking <span class="ph uicontrol">OK</span> the contents of the directory will be erased
+          and the directory is be marked as having <a class="xref" href="working-copy-view.html#working-copy-view__svn-depth-li">an <dfn class="term">empty</dfn>
+            depth</a>.</li>
+        <li class="li">Once again, update the same directory using the <span class="ph uicontrol">Update to
+            revision/depth</span> action. This time, for the <span class="ph uicontrol">Depth</span>
+          option, select the depth that was previously identified in step 2.</li>
+        <li class="li">If you moved modified files to another directory outside the working copy, move them
+          back to the original location inside the working copy. </li>
+      </ol></div>
+    <p class="p">If this procedure does not solve the error, you need to check out the working copy again and
+      move possible changes from the old working copy to the new one.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/faq.html">Technical Issues</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/using-peg-revisions.html">Accessing Old Items from a Repository</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/integrating-external-tools.html">External Tools</a></div></div></nav></article></main></body></html>

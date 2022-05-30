@@ -1,0 +1,124 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Open URL dialog box"><meta name="keywords" content="Open URL dialog box"><meta name="DC.relation" scheme="URI" content="../topics/opening-saving-ftp-webdav.html"><meta name="DC.relation" scheme="URI" content="../topics/opening-saving-ftp-webdav.html"><meta name="DC.relation" scheme="URI" content="../topics/change-file-permissions-ftp-server.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sa-open-url-dialog"><title>Open URL</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sa-open-url-dialog"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Open URL</h1>
+  
+  <div class="body">
+    <p class="p">To open this dialog box, go to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="sa-open-url-dialog__image_mkn_scw_sr" src="../img/OpenURL16.png">Open URL</span></span> (or click the <span class="ph uicontrol"><img class="image" id="sa-open-url-dialog__image_orw_qcw_sr" src="../img/OpenURL16.png">Open URL</span> toolbar button), then choose the
+          <span class="ph uicontrol"><img class="image" id="sa-open-url-dialog__image_rw4_rcw_sr" src="../img/OpenURL16.png">Browse for remote
+        file</span> option from the drop-down action list.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Open URL Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_ftp_webdav.png">
+      </figure>
+    </div>
+    <div class="p">The displayed dialog box is composed of the following: <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Server URL</span></dt>
+          <dd class="dd">Specifies the protocol (HTTP, HTTPS or FTP) and the host name or IP of the
+              server.<div class="note tip note_tip"><span class="note__title">Tip:</span> When specifying a URL, follow these rules:<ul class="ul">
+                <li class="li">To access an FTP server, write the protocol, host, and port (if using a
+                  non-standard one). For example, <code class="ph codeph">ftp://server.com</code> or
+                    <code class="ph codeph">ftp://server.com:7800/</code>.</li>
+                <li class="li">To access a WebDAV server, write the path to the directory of the WebDAV
+                  repository along with the protocol and the host name. For example,
+                    <code class="ph codeph">https://www.some-webdav-server.com:443/webdav-repository/</code>.</li>
+              </ul><div class="p">
+                <div class="note important note_important"><span class="note__title">Important:</span> Make sure that the repository directory ends in a slash "/".
+                  For example,
+                    <code class="ph codeph">https://www.some-webdav-server.com:443/webdav-repository/</code></div>
+              </div></div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Autoconnect</span></dt>
+          <dd class="dd">If selected, the browse action is performed every time when you open the dialog
+            box.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">User</span> and <span class="ph uicontrol">Password</span></dt>
+          <dd class="dd">To browse for a file on a server, you have to specify the user and password for the
+            server. This information is bound to the selected URL displayed in the <span class="ph uicontrol">File
+              URL</span> combo box, and used further in opening/saving the file. If the
+              <span class="ph uicontrol">Save</span> option is selected, then the user and password are saved
+            between editing sessions. The password is kept encrypted in the options file.<div class="note note note_note"><span class="note__title">Note:</span> Your
+              password is well protected. If the options file is used on another machine by a user
+              with a different username, the password will become unreadable since the encryption is
+              dependent on the username. This is also true if you add URLs that contain a username
+              and password to your project.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Connect</span></dt>
+          <dd class="dd">When you click this button, the directory listing will be shown in the main section of
+            the dialog box. If the selected URL points to a SharePoint server, a dedicated
+            SharePoint browsing component is presented.</dd>
+        
+        
+          <dt class="dt dlterm">Browser view</dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li">If you are browsing a WebDAV or FTP repository, the items are presented in a
+                tree-like fashion. You can browse the directories, and make multiple selections.
+                Additionally, you may use the <span class="ph uicontrol">Rename</span>,
+                  <span class="ph uicontrol">Delete</span>, and <span class="ph uicontrol">New Folder</span> actions to
+                manage the file repository.<div class="note note note_note"><span class="note__title">Note:</span> The file names are sorted in a case-insensitive
+                  way.</div></li>
+              <li class="li">
+                <p class="p">When you browse a SharePoint repository, a specialized component renders the
+                  SharePoint site content.</p>
+                <div class="p">
+                  <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Browsing a SharePoint Repository</figcaption>
+                    
+                    <img class="image" src="../img/sharepoint-filter-big.png">
+                  </figure>
+                </div>
+                <p class="p">The left side navigation area presents the SharePoint site structure in a
+                  tree-like fashion with various node types (such as <em class="ph i">sites</em>, <em class="ph i">libraries</em>,
+                  and <em class="ph i">folders</em>). </p>
+                <div class="p">Depending on the type of node, a contextual menu offers
+      customized actions that can be performed on that node. The contextual menu of a folder allows
+      you to create new folders and documents, import folders and files, and to rename and delete
+      the folder.<div class="note note note_note"><span class="note__title">Note:</span> The rename and delete actions are not available for library root folders
+        (folders located at first level in a SharePoint library).</div></div>
+                <p class="p">Each library node displays a drop-down menu next to its name
+      where you can select what you want to display for the current library node. This functionality
+      is also available on the contextual menu of the node.</p>
+                <div class="p">
+                  <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Drop-Down Menu to Select Which Items to Display</figcaption>
+                    
+                    <img class="image" src="../img/sharepoint-library-views.png">
+                  </figure>
+                </div>
+                <p class="p">The content of a folder is displayed in a tabular form, where
+      each row represents the properties of a folder or document. The list of columns and the way
+      the documents and folders are organized depends on the currently selected view of the parent
+      library.</p>
+                <div class="p">You can filter and sort the displayed items. To display the
+      available filters of a column, click the filter widget located on the column header. You can
+      apply multiple filters at the same time.<div class="note note note_note"><span class="note__title">Note:</span> A column can be filtered or sorted only if it
+        was configured this way on the server side.</div></div>
+                <div class="p">
+                  <figure class="fig fignone" id="sa-open-url-dialog__fig_m3c_g1b_zs"><figcaption><span class="fig--title-label">Figure 4. </span>Column Filter</figcaption>
+                    
+                    <img class="image" src="../img/sharepoint-column-filters.png">
+                  </figure>
+                </div>
+              </li>
+            </ul>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">File URL</span></dt>
+          <dd class="dd">
+            <p class="p">You can use this combo box to directly specify the URL to be opened or saved. You can
+              type a URL such as <span class="ph filepath">http://some.site/test.xml</span> (if the file is
+              accessible through normal HTTP protocol), or
+                <span class="ph filepath">ftp://anonymous@some.site/home/test.xml</span> (if the file is
+              accessible through anonymous FTP).</p>
+            <p class="p">This combo box also displays the current selection when the user changes selection by
+              browsing the tree of folders and files on the server.</p>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/opening-saving-ftp-webdav.html">Working with Remote Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/opening-saving-ftp-webdav.html">Working with Remote Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/change-file-permissions-ftp-server.html">Changing File Permissions on a Remote FTP Server</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Classic,Add custom HTML content"><meta name="keywords" content="WebHelp Classic, Add custom HTML content"><meta name="DC.relation" scheme="URI" content="../topics/wh-classic-change-layout-styles.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customization-css.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customization-ol-numbering-classic.html"><meta name="DC.relation" scheme="URI" content="copy_resources.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh-add-custom-html-classic"><title>How to Add Custom HTML Content in WebHelp Classic Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh-add-custom-html-classic"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Add Custom HTML Content in WebHelp Classic Output</h1>
+  
+  <div class="body">
+    <p class="p">You can add custom HTML content in the WebHelp Classic output by inserting it in a
+      well-formed XML file that will be referenced in the transformation. This content may include
+      references to additional JavaScript, CSS, and other types of resources, or such resources can
+      be inserted inline within the HTML content that is inserted in the XML file.</p>
+    <section class="section" id="wh-add-custom-html-classic__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To include custom HTML content in the WebHelp Classic output using a transformation
+        scenario from within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Insert the HTML content in a well-formed XML file considering the following notes:<ul class="ul">
+              <li class="li">
+          <p class="p"><strong class="ph b">Well-Formedness</strong> - If the file is not a <a class="xref" href="checking-xml-well-formedness.html#checking-xml-well-formedness"><em class="ph i">Well-formed XML</em> document</a> (or fragments are not well-formed), the
+            transformation will fail.</p>
+          <p class="p">A common use case is if you want to include several <code class="keyword markupname xmlelement">&lt;script&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements. In this case, the XML fragment has multiple
+            root elements and to make it well-formed, you can wrap it in an
+              <code class="keyword markupname xmlelement">&lt;html&gt;</code> element. This element tag will be filtered out and only
+            its children will be copied to the output documents. Similarly, you can wrap your
+            content in <code class="keyword markupname xmlelement">&lt;head&gt;</code>, <code class="keyword markupname xmlelement">&lt;body&gt;</code>,
+              <code class="keyword markupname xmlelement">&lt;html/head&gt;</code>, or <code class="keyword markupname xmlelement">&lt;html/body&gt;</code>
+            elements.</p>
+        </li>
+              <li class="li">
+          <div class="p"><strong class="ph b">Referencing Resources in the XML File</strong> - You can include references to local
+            resources (such as JavaScript or CSS files) by using the built-in
+              <code class="ph codeph">${oxygen-webhelp-output-dir}</code> macro to specify their paths relative to
+            the output
+            directory:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;html&gt;</strong>
+  <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/js/test.js"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">rel</span>=<span class="hl-value">"stylesheet"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"text/css"</span> 
+        <span class="hl-attribute">href</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/css/test.css"</span><strong class="hl-tag"> /&gt;</strong>
+<strong class="hl-tag">&lt;/html&gt;</strong></pre></div>
+          <p class="p">To copy the referenced resources to the output directory, follow the procedure in:
+              <a class="xref" href="copy_resources.html">How to Copy Additional Resources to Output Directory</a>.</p>
+        </li>
+              <li class="li">
+          <p class="p"><strong class="ph b">Inline JavaScript or CSS Content</strong>:</p>
+          <div class="p">JavaScript:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+<strong class="hl-tag">&lt;/script&gt;</strong> </pre></div>
+          <div class="p">CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;style&gt;</strong>
+    /* Include CSS style rules here. */
+
+    *{
+      color:red
+    } 
+<strong class="hl-tag">&lt;/style&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> 
+              <p class="p">If you have special characters (for example, <code class="ph codeph">&amp;</code>,
+                  <code class="ph codeph">&lt;</code>) that break the well-formedness of the XML fragment, it is
+                important to place the content inside an XML comment.</p>
+              <p class="p"><strong class="ph b">[Important]</strong> The XML comment tags (both the start and end tags) must be on
+                lines by themselves. If they are on the same line as any of the script's content, it
+                will likely result in a JavaScript error.</p>
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!--
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+  --/&gt;
+&lt;/script&gt; </em></pre>
+            </div></div>
+        </li>
+            </ul></li>
+          <li class="li">Edit the WebHelp Classic transformation scenario.</li>
+          <li class="li">Go to the <span class="ph uicontrol">Parameters</span> tab.</li>
+          <li class="li">Edit the value of the <code class="ph codeph">webhelp.head.script</code> parameter and set it to
+            reference the URL of the XML file created in step 1. Your additional content will be
+            included at the end of the <code class="ph codeph">head</code> element of your output
+              document.<div class="note note note_note"><span class="note__title">Note:</span> If you want to include the content in the <code class="ph codeph">body</code>
+              element, use the <code class="ph codeph">webhelp.body.script</code> parameter instead.</div></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes and run the transformation
+            scenario.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="wh-add-custom-html-classic__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Script Outside of Oxygen XML Editor/Author</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> Running WebHelp transformations from a script outside of <strong class="ph b">Oxygen XML
+        Editor/Author</strong> requires an additional license and some additional setup:<ul class="ul">
+        <li class="li">You must have a valid license for the <strong class="ph b">Oxygen XML WebHelp Plugin</strong> (<a class="xref" href="https://www.oxygenxml.com/buy_webhelp.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/buy_webhelp.html</a>).</li>
+        <li class="li">The <strong class="ph b">Oxygen XML WebHelp Plugin</strong> must be installed and integrated.</li>
+      </ul></div>
+      <div class="p">To include custom HTML content in the WebHelp Classic output using a <a class="xref" href="using-the-webhelp-plugin-docbook.html">script outside of <strong class="ph b">Oxygen XML
+            Editor/Author</strong></a>, follow this procedure:<ol class="ol">
+          <li class="li">Insert the HTML content in a well-formed XML file considering the following notes:<ul class="ul">
+              <li class="li">
+          <p class="p"><strong class="ph b">Well-Formedness</strong> - If the file is not a <a class="xref" href="checking-xml-well-formedness.html#checking-xml-well-formedness"><em class="ph i">Well-formed XML</em> document</a> (or fragments are not well-formed), the
+            transformation will fail.</p>
+          <p class="p">A common use case is if you want to include several <code class="keyword markupname xmlelement">&lt;script&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements. In this case, the XML fragment has multiple
+            root elements and to make it well-formed, you can wrap it in an
+              <code class="keyword markupname xmlelement">&lt;html&gt;</code> element. This element tag will be filtered out and only
+            its children will be copied to the output documents. Similarly, you can wrap your
+            content in <code class="keyword markupname xmlelement">&lt;head&gt;</code>, <code class="keyword markupname xmlelement">&lt;body&gt;</code>,
+              <code class="keyword markupname xmlelement">&lt;html/head&gt;</code>, or <code class="keyword markupname xmlelement">&lt;html/body&gt;</code>
+            elements.</p>
+        </li>
+              <li class="li">
+          <div class="p"><strong class="ph b">Referencing Resources in the XML File</strong> - You can include references to local
+            resources (such as JavaScript or CSS files) by using the built-in
+              <code class="ph codeph">${oxygen-webhelp-output-dir}</code> macro to specify their paths relative to
+            the output
+            directory:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;html&gt;</strong>
+  <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/js/test.js"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">rel</span>=<span class="hl-value">"stylesheet"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"text/css"</span> 
+        <span class="hl-attribute">href</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/css/test.css"</span><strong class="hl-tag"> /&gt;</strong>
+<strong class="hl-tag">&lt;/html&gt;</strong></pre></div>
+          <p class="p">To copy the referenced resources to the output directory, follow the procedure in:
+              <a class="xref" href="copy_resources.html">How to Copy Additional Resources to Output Directory</a>.</p>
+        </li>
+              <li class="li">
+          <p class="p"><strong class="ph b">Inline JavaScript or CSS Content</strong>:</p>
+          <div class="p">JavaScript:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+<strong class="hl-tag">&lt;/script&gt;</strong> </pre></div>
+          <div class="p">CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;style&gt;</strong>
+    /* Include CSS style rules here. */
+
+    *{
+      color:red
+    } 
+<strong class="hl-tag">&lt;/style&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> 
+              <p class="p">If you have special characters (for example, <code class="ph codeph">&amp;</code>,
+                  <code class="ph codeph">&lt;</code>) that break the well-formedness of the XML fragment, it is
+                important to place the content inside an XML comment.</p>
+              <p class="p"><strong class="ph b">[Important]</strong> The XML comment tags (both the start and end tags) must be on
+                lines by themselves. If they are on the same line as any of the script's content, it
+                will likely result in a JavaScript error.</p>
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!--
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+  --/&gt;
+&lt;/script&gt; </em></pre>
+            </div></div>
+        </li>
+            </ul></li>
+          <li class="li">Use the <code class="ph codeph">webhelp.head.script</code> parameter in your transformation script
+            and set its value to reference the URL of the XML file created in step 1. Your
+            additional content will be included at the end of the <code class="ph codeph">head</code> element of
+            your output document.<div class="note note note_note"><span class="note__title">Note:</span> If you want to include the content in the
+                <code class="ph codeph">body</code> element, use the <code class="ph codeph">webhelp.body.script</code>
+              parameter instead.</div></li>
+          <li class="li">
+            <p class="p">Execute the transformation script.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/wh-classic-change-layout-styles.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp-customization-css.html">How to Use CSS Styling to Customize WebHelp Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/webhelp-customization-ol-numbering-classic.html">How to Change Number Styles for Ordered Lists</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="copy_resources.html">How to Copy Additional Resources to Output Directory</a></li></ul></div></nav>
+</article></main></body></html>

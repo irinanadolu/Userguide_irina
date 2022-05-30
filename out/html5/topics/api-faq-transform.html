@@ -1,0 +1,30 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/sdk-open-custom-protocal.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_save_untitled.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api-faq-transform"><title>Run XSLT or XQuery Transformations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api-faq-transform"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Run XSLT or XQuery Transformations</h1>
+  <div class="body">
+    <section class="section" id="api-faq-transform__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Can I run XSL 2.0 / 3.0 transformation with Saxon EE using the <em class="ph i">Oxygen SDK</em>?</p>
+    </section>
+    <section class="section" id="api-faq-transform__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <div class="p">The API class <em class="ph i">ro.sync.exml.workspace.api.util.XMLUtilAccess</em> allows you
+        to create an XSLT Transformer that implements the JAXP interface
+          <em class="ph i">javax.xml.transform.Transformer</em>. Then this type of transformer can be
+        used to transform XML. Here's just an example of transforming when you have an
+          <em class="ph i">AuthorAccess</em> API available:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">     InputSource is = <strong class="hl-keyword">new</strong> org.xml.sax.InputSource
+(URLUtil.correct(<strong class="hl-keyword">new</strong> File(<span class="hl-string">"test/personal.xsl"</span>)).toString());
+     xslSrc = <strong class="hl-keyword">new</strong> SAXSource(is);
+     javax.xml.transform.Transformer transformer = 
+authorAccess.getXMLUtilAccess().createXSLTTransformer
+(xslSrc, null, AuthorXMLUtilAccess.TRANSFORMER_SAXON_ENTERPRISE_EDITION);
+     transformer.transform(<strong class="hl-keyword">new</strong> StreamSource(<strong class="hl-keyword">new</strong> File(<span class="hl-string">"test/personal.xml"</span>)), 
+<strong class="hl-keyword">new</strong> StreamResult(<strong class="hl-keyword">new</strong> File(<span class="hl-string">"test/personal.html"</span>)));</pre>If
+        you want to create the transformer from the <dfn class="term">plugin</dfn> side, you can use this
+        method instead:
+          <em class="ph i">ro.sync.exml.workspace.api.PluginWorkspace.getXMLUtilAccess()</em>. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/sdk-open-custom-protocal.html">Open a Document in Oxygen from Another Application</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_save_untitled.html">Save a New Document with a Predefined File Name Pattern</a></div></div></nav></article></main></body></html>

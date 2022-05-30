@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Markdown documents,Validation"><meta name="keywords" content="Markdown documents, Validation"><meta name="DC.relation" scheme="URI" content="../topics/editing-markdown.html"><meta name="DC.relation" scheme="URI" content="../topics/markdown-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/markdown-dita-2.html"><meta name="DC.relation" scheme="URI" content="markdown-editor.html#markdown-editor"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="markdown-validation"><title>Automatic Validation in Markdown Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="markdown-validation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Automatic Validation in Markdown Documents</h1>
+  
+  <div class="body">
+    <p class="p">Markdown documents are validated automatically as you type. The conversion engine constantly
+      tries to parse your changes to display the results in the <em class="ph i">Preview</em> pane. If a change
+      results in an error that prevents the parser from converting the syntax, an error message will
+      be displayed in the <span class="ph uicontrol">DITA</span> tab or in the <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span> view</a> at the
+      bottom of the editor.</p>
+    <p class="p">Examples of the type of errors that will be reported include headers being in the wrong order
+      or the syntax of a document begins with something other than a 1st level header.</p>
+    <section class="section" id="markdown-validation__section_kgq_mqk_nkb"><h2 class="title sectiontitle">Validating Markdown Documents with Schematron</h2>
+      
+      <div class="p">It is possible to validate Markdown documents with Schematron rules. There are two ways to
+        create an association between Markdown documents and Schematron files:<ul class="ul" id="markdown-validation__ul_edl_vqk_nkb">
+          <li class="li">You can configure an association using the <a class="xref" href="preferences-markdown.html"><span class="ph uicontrol">Markdown</span> preferences page</a>. You can specify a
+            Schematron file to validate converted HTML content, as well as one to validate converted
+            DITA content.</li>
+          <li class="li">You can create a Schematron association for Markdown documents by adding a <a class="xref" href="using-XML-Catalogs.html">catalog mapping</a> for one of the following
+              URIs:<ul class="ul" id="markdown-validation__ul_xh5_tnk_nkb">
+              <li class="li"><strong class="ph b">http://www.oxygenxml.com/schematron/validation/markdown-as-html</strong> - The
+                obtained Schematron will be applied over HTML conversions.</li>
+              <li class="li"><strong class="ph b">http://www.oxygenxml.com/schematron/validation/markdown-as-dita</strong> - The
+                obtained Schematron will be applied over DITA conversions.</li>
+            </ul><div class="p">The catalog mapping is a fallback in case the Schematron validation is disabled
+              in the <a class="xref" href="preferences-markdown.html"><span class="ph uicontrol">Markdown</span>
+                preferences page</a> or the path to the Schematron file is empty.<div class="note warning note_warning"><span class="note__title">Warning:</span> If you are using a <a class="xref" href="preferences-dita.html#preferences-dita__DITA-OT-section">custom version of
+                  DITA-OT</a>, the mapping information might not be generated properly, causing
+                issues with the Schematron validation. For example, error locations may not be
+                accurate or synchronization may fail.</div></div></li>
+        </ul></div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> Inside the samples folder, there is a
+          <span class="ph filepath">schematron-validation</span> folder with some files you can use to see how
+        Schematron validation can be done with Markdown files. The path of the folder is:
+          <span class="ph filepath">[OXYGEN_INSTALL_DIR]/samples/markdown/schematron-validation/</span>.</div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-markdown.html">Editing Markdown Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/markdown-syntax-highlight.html">Syntax Highlighting in the Markdown Editor</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/markdown-dita-2.html">Working with Markdown Documents in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="markdown-editor.html#markdown-editor">Markdown Editor</a></li></ul></div></nav>
+</article></main></body></html>

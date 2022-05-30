@@ -1,0 +1,47 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_use_typograhic_quotation_marks.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_enable_change_tracking_at_startup.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_extend_bundle"><title>Extend the Java Functionality of an Existing Framework (Document Type)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_extend_bundle"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Extend the Java Functionality of an Existing Framework (Document Type)</h1>
+  <div class="body">
+    <section class="section" id="api_faq_extend_bundle__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">How can I change the way a DocBook 4 <code class="keyword markupname xmlelement">&lt;xref&gt;</code> displays in
+          <span class="ph uicontrol">Author</span> mode based on what element is at the
+          <code class="keyword markupname xmlatt">@linkend</code>?</p>
+    </section>
+    <section class="section" id="api_faq_extend_bundle__solution"><h2 class="title sectiontitle">Answer</h2>
+      
+      <div class="p">Follow these steps:<ol class="ol" id="api_faq_extend_bundle__ol_6114a4af-a0ed-46f8-bb76-aaccadecc310">
+          <li class="li">
+            <div class="p">Create a Maven Java project and add a dependency on the <span class="ph">Oxygen XML Editor</span>
+              classes:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;dependency&gt;</strong>
+    <strong class="hl-tag">&lt;groupId&gt;</strong>com.oxygenxml<strong class="hl-tag">&lt;/groupId&gt;</strong>
+    <strong class="hl-tag">&lt;artifactId&gt;</strong>oxygen-sdk<strong class="hl-tag">&lt;/artifactId&gt;</strong>
+    <strong class="hl-tag">&lt;version&gt;</strong>${oxygen.version}<strong class="hl-tag">&lt;/version&gt;</strong>
+<strong class="hl-tag">&lt;/dependency&gt;</strong></pre></div>
+            <p class="p">where <code class="ph codeph">${oxygen.version}</code> is the version of <span class="ph">Oxygen XML Editor</span>.</p>
+            <p class="p">Alternatively, if the project does not use Maven, all the transitive dependencies of
+              the above Maven artifact need to be added to the classpath of the project.</p>
+          </li>
+          <li class="li">Also add the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\docbook\docbook.jar</span> to the class path of the project.</li>
+          <li class="li">Create a class that extends <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/docbook/DocBook4ExtensionsBundle.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.docbook.DocBook4ExtensionsBundle</em></a> and
+            overwrites the method: <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html#createLinkTextResolver()" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle#createLinkTextResolver()</em></a>.</li>
+          <li class="li">For your custom resolver implementation you can start from the Java sources of the
+              <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/docbook/link/DocbookLinkTextResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.docbook.link.DocbookLinkTextResolver</em></a> (the
+            Java code for the entire DocBook customization is present in a subfolder in the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html#XML_Editor_Authoring_SDK" target="_blank" rel="external noopener">Oxygen SDK</a>).</li>
+          <li class="li">Pack your extension classes in a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a>
+            file. Copy the <dfn class="term">JAR</dfn> to: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\docbook\custom.jar</span>.</li>
+          <li class="li">Start <span class="ph">Oxygen XML Editor</span>.</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <span class="ph uicontrol">Document Type Association</span>. Edit the DocBook 4 document type. In
+            the <strong class="ph b">Classpath</strong> list add the path to the new <dfn class="term">JAR</dfn>. In the extensions
+            list select your custom extension instead of the regular DocBook one.</li>
+          <li class="li">You can rename the document type and the <span class="ph filepath">docbook</span>
+            <dfn class="term">framework</dfn> folder to something else (such as
+              <span class="ph filepath">custom_docbook</span>) and share it with others. <span class="ph">A document type can also be installed using the <a class="xref" href="packing-and-deploying-addons.html#packing-and-deploying-addons">add-on
+                support</a>.</span></li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_use_typograhic_quotation_marks.html">Dynamically Modify the Content Inserted by the Author</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_enable_change_tracking_at_startup.html">Impose Custom Options for Authors</a></div></div></nav></article></main></body></html>

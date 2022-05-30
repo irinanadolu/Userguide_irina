@@ -1,0 +1,70 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron,Integrating in a framework,Sharing,Integrate Schematron rules in a framework,Sharing Schematron rules"><meta name="keywords" content="Schematron, Integrating in a framework, Sharing, Integrate Schematron rules in a framework, Sharing Schematron rules"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron.html"><meta name="DC.relation" scheme="URI" content="../topics/validate-xml-with-sch.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-validation.html"><meta name="DC.relation" scheme="URI" content="customizing-sqf.html#customizing-sqf"><meta name="DC.relation" scheme="URI" content="associate-schema-framework-validation.html#associate-schema-framework-validation"><meta name="DC.relation" scheme="URI" content="author-document-type-extension-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="schematron-integrating-framework"><title>Integrating Schematron Rules in a Framework and Sharing Them</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="schematron-integrating-framework"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Integrating Schematron Rules in a Framework and Sharing Them</h1>
+  
+  <div class="body">
+    <p class="p">Custom <strong class="ph b">Schematron</strong> rules are a great way to ensure consistency for XML authoring,
+      especially when there is a large team working on the same set of documents. You can use
+        <strong class="ph b">Schematron</strong> for numerous use cases. For example, to restrict certain elements from
+      being used, to impose restrictions on the amount of text for an element, or to impose
+      restrictions on certain elements based on various attribute values or text content set in
+      other elements. Furthermore, you can <a class="xref" href="customizing-sqf.html">define quick fixes for
+        each <strong class="ph b">Schematron</strong> rule</a> to offer technical writers proposed solutions for
+      reported problems.</p>
+    <p class="p">Once you define the <strong class="ph b">Schematron</strong> rules, they can be shared with the other members of
+      your team by integrating them in a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type) configuration.</p>
+    <section class="section" id="schematron-integrating-framework__how_to_integrate_sqf_in_a_framework"><h2 class="title sectiontitle">How to Integrate Schematron Rules in a Framework</h2>
+      
+      <div class="p">To integrate a Schematron rule in an existing framework bundled with the application,
+        follow these steps:<ol class="ol">
+          <li class="li">Create a folder structure for an extended framework and save it somewhere on
+        disk where you have full write access (for example,
+          <span class="ph filepath">custom_frameworks/dita-extension</span>).</li>
+          <li class="li">In that new folder structure, create another folder that will contain all of
+        your custom Schematron files (for example,
+          <span class="ph filepath">custom_frameworks/dita-extension/rules</span>).</li>
+          <li class="li">Define the Schematron rules in an existing or new Schematron file and save it in the
+            folder you created in step 2. There are numerous online resources out there to help you
+            get started with writing Schematron rules. Here are just a few that might help you:<ul class="ul">
+              <li class="li"><a class="xref" href="http://dh.newtfire.org/explainSchematron.html" target="_blank" rel="external noopener">Guide to Schema Writing with Schematron</a></li>
+              <li class="li"><a class="xref" href="https://www.oxygenxml.com/events/2014/oXygen-user-meetup-Prague.html#Schematron_development_with_oXygen" target="_blank" rel="external noopener">Presentation: Schematron Development with
+                  Oxygen</a></li>
+            </ul></li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go
+        to <a class="xref" href="framework-location.html#framework-location"><span class="ph menucascade"><span class="ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Locations</span></span></a>. In this preferences page, add the path to your
+          <span class="ph filepath">custom_frameworks</span> folder in the <span class="ph uicontrol">Additional frameworks
+          directories</span> list, then click <span class="ph uicontrol">OK</span> or
+          <span class="ph uicontrol">Apply</span> to save your changes.</li>
+          <li class="li">Go to the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span> and select
+        a <dfn class="term">framework</dfn> configuration (for example, <strong class="ph b">DITA</strong>) and use the
+          <span class="ph uicontrol">Extend</span> button to create an extension for it.</li>
+          <li class="li">Give the extension an appropriate name (for example, <em class="ph i">DITA - Custom</em>),
+        select <span class="ph uicontrol">External</span> for the <span class="ph uicontrol">Storage</span> option, and
+        specify an appropriate path to your framework configuration file (for example,
+          <span class="ph filepath">path/to/.../custom_frameworks/dita-extension/dita-extension.framework</span>).</li>
+          <li class="li" id="schematron-integrating-framework__step8">Make whatever changes you desire to the extension, then go to the
+              <strong class="ph b">Validation</strong> tab, edit the default validation scenario (select the scenario and
+            click the <span class="ph uicontrol"><img class="image" src="../img/Wrench16.png">Edit</span> button), and
+            add an extra validation unit to it (one that uses your custom Schematron file).<span class="ph"> For more details about editing
+              validation scenarios, see <a class="xref" href="dg-validation-scenarios.html">Configuring Validation Scenarios for a Framework</a>.</span></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to close the dialog box and then
+          <span class="ph uicontrol">OK</span> or <span class="ph uicontrol">Apply</span> to save the changes to the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>.</li>
+          <li class="li">Open an XML document that matches your framework configuration and test the new
+            rule.</li>
+          <li class="li">You can continue to refine the Schematron and develop additional rules as
+        needed.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="schematron-integrating-framework__sharing_schematron_quick_fixes"><h2 class="title sectiontitle">Sharing Schematron Rules</h2>
+      
+      <p class="p">To share Schematron rules with other members of your team, you simply need to share the
+        framework where you integrated the Schematron rules.<span class="ph">
+          There are several methods for sharing frameworks and you can find details here: <a class="xref" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a>.</span></p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron.html">Editing Schematron Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validate-xml-with-sch.html">Presenting Schematron Validation Issues</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/schematron-validation.html">Validating Schematron Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="customizing-sqf.html#customizing-sqf">Defining Schematron Quick Fixes</a></li><li class="linklist"><a class="link" href="associate-schema-framework-validation.html#associate-schema-framework-validation">Associating a Schema in Validation Scenarios Defined in the Document Type</a></li><li class="linklist"><a class="link" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a></li></ul></div></nav>
+</article></main></body></html>

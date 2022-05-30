@@ -1,0 +1,23 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen.html"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen.html"><meta name="DC.relation" scheme="URI" content="../topics/scripting_oxygen_transform.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scripting_oxygen_dita_validate_and_check_for_completeness"><title>DITA Validate and Check For Completeness</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scripting_oxygen_dita_validate_and_check_for_completeness"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Validate and Check For Completeness</h1>
+  <div class="body">
+    <div class="note attention note_attention"><span class="note__title">Attention:</span> To run this script, you are required to
+        purchase a special <a class="xref" href="https://www.oxygenxml.com/oxygen_scripting.html" target="_blank" rel="external noopener">scripting commercial license</a>.</div>
+    <p class="p">The <span class="ph uicontrol">Validate and Check For Completeness</span> action that is available on
+      the toolbar of the <span class="ph uicontrol">DITA Maps Manager</span> view provides the ability to
+      validate a DITA map or a DITA Open Toolkit project file with a large array of settings. The
+      settings dialog box has an <span class="ph uicontrol">Export settings</span> option that can be used to
+      export the settings to an XML configuration file. Once the settings are exported, you can use
+      the <span class="ph filepath">scripts/validateCheckDITA.sh</span> script to run a validation on a DITA map
+      or DITA Open Toolkit project file and report the results in a separate XML document.</p>
+    <div class="example"><h2 class="title sectiontitle">Sample Command Line for the Validate and Check for Completeness Script:</h2>
+      
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">sh scripts/validateCheckDITA.sh -i inputFile [-c contextId] [ [-s settingsFile] | [-r reportFile]]</pre>
+    </div>
+    <p class="p">A public example of using such a script as a GitHub action for reporting errors in pull
+      requests on DITA project can be found here: <a class="xref" href="https://github.com/oxygenxml/blog/blob/master/.github/workflows/workflow.yml" target="_blank" rel="external noopener">https://github.com/oxygenxml/blog/blob/master/.github/workflows/workflow.yml</a>. The GitHub action calls a Gradle script target named
+        <code class="ph codeph">runValidation</code>: <a class="xref" href="https://github.com/oxygenxml/blog/blob/master/build/build.gradle" target="_blank" rel="external noopener">https://github.com/oxygenxml/blog/blob/master/build/build.gradle</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/scripting_oxygen.html" title="Details about the scripting possibilities that are available with Oxygen XML Editor">Scripting Oxygen</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/scripting_oxygen.html" title="Details about the scripting possibilities that are available with Oxygen XML Editor">Scripting Oxygen</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/scripting_oxygen_transform.html">Transform</a></div></div></nav></article></main></body></html>

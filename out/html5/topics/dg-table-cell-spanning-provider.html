@@ -1,0 +1,144 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Framework customization,Extensions,Author Table Cell Span Provider"><meta name="keywords" content="Framework customization, Extensions, Author Table Cell Span Provider"><meta name="DC.relation" scheme="URI" content="../topics/dg-styling-table-element.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-column-width-provider.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-table-rowsep-colsep-provider.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-table-cell-spanning-provider"><title>Configuring a Table Cell Span Provider</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-table-cell-spanning-provider"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring a Table Cell Span Provider</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">In a custom <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>, the
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> element can have cells that span over multiple columns and
+        rows. As explained in <a class="xref" href="dg-styling-table-element.html#dg-styling-table-element">Configuring Tables</a>,
+        you need to indicate <span class="ph">Oxygen XML Editor</span> a method to determine the cell spanning. If you
+        use the <code class="keyword markupname xmlatt">@rowspan</code> and <code class="keyword markupname xmlatt">@colspan</code> attributes, <span class="ph">Oxygen XML Editor</span> can determine the cell spanning automatically. In the following
+        example, the <code class="keyword markupname xmlelement">&lt;td&gt;</code> element uses the <code class="keyword markupname xmlatt">@row_span</code> and
+          <code class="keyword markupname xmlatt">@column_span</code> attributes that are not recognized by default. You will need
+        to implement a Java extension class for defining the cell spanning.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Create the class <em class="ph i">simple.documentation.framework.TableCellSpanProvider</em>. This
+          class must implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorTableCellSpanProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorTableCellSpanProvider</em></a>
+          interface.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.AuthorTableCellSpanProvider;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AttrValue;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AuthorElement;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> TableCellSpanProvider 
+      <strong class="hl-keyword">implements</strong> AuthorTableCellSpanProvider {</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The <em class="ph i">init</em> method takes <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorElement.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.node.AuthorElement</em></a> that represents the XML
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> element as its argument. In this example, the cell span is
+          specified for each of the cells so you leave this method empty. However, there are cases
+          (such as the CALS table model) when the cell spanning is specified in the
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> element. In such cases, you must collect the span information by
+          analyzing the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> init(AuthorElement table) {
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The <em class="ph i">getColSpan</em> method is taking as argument the table cell. The table layout
+          engine will ask this <em class="ph i">AuthorTableSpanSupport</em> implementation what is the column span
+          and the row span for each XML element from the table that was marked as cell in the CSS
+          using the property <code class="ph codeph">display:table-cell</code>. The implementation is simple and
+          just parses the value of <strong class="ph b">column_span</strong> attribute. The method must return
+            <code class="ph codeph">null</code> for all the cells that do not change the span specification.</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> Integer getColSpan(AuthorElement cell) {
+  Integer colSpan = null;
+
+  AttrValue attrValue = cell.getAttribute(<span class="hl-string">"column_span"</span>);
+  <strong class="hl-keyword">if</strong>(attrValue != null) {
+    <em class="hl-comment">// The attribute was found.</em>
+    String cs = attrValue.getValue();
+    <strong class="hl-keyword">if</strong>(cs != null) {        
+      <strong class="hl-keyword">try</strong> {
+        colSpan = <strong class="hl-keyword">new</strong> Integer(cs);
+      } <strong class="hl-keyword">catch</strong> (NumberFormatException ex) {
+        <em class="hl-comment">// The attribute value was not a number.</em>
+      }     
+    }   
+  }
+  <strong class="hl-keyword">return</strong> colSpan;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The row span is determined in a similar manner:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> Integer getRowSpan(AuthorElement cell) {
+  Integer rowSpan = null;
+
+  AttrValue attrValue = cell.getAttribute(<span class="hl-string">"row_span"</span>);
+  <strong class="hl-keyword">if</strong>(attrValue != null) {
+    <em class="hl-comment">// The attribute was found.</em>
+    String rs = attrValue.getValue();
+    <strong class="hl-keyword">if</strong>(rs != null) {        
+      <strong class="hl-keyword">try</strong> {
+        rowSpan = <strong class="hl-keyword">new</strong> Integer(rs);
+      } <strong class="hl-keyword">catch</strong> (NumberFormatException ex) {
+        <em class="hl-comment">// The attribute value was not a number.</em>
+      }     
+    }   
+  }
+  <strong class="hl-keyword">return</strong> rowSpan;
+}</pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The method <em class="ph i">hasColumnSpecifications</em> always returns <code class="ph codeph">true</code>
+          considering column specifications always available.</span>
+        <div class="itemgroup info">
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> hasColumnSpecifications(AuthorElement tableElement) {
+  <strong class="hl-keyword">return</strong> true;
+}</pre>
+          </div>
+          <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">In the listing below, the XML document contains the table element:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table&gt;</strong>
+    <strong class="hl-tag">&lt;header&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C2<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C3<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>C4<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/header&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">column_span</span>=<span class="hl-value">"2"</span> <span class="hl-attribute">row_span</span>=<span class="hl-value">"2"</span><strong class="hl-tag">&gt;</strong>cs=2, rs=2<strong class="hl-tag">&lt;/td&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">row_span</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>cs=1, rs=3<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td&gt;</strong>cs=1, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-tag">&lt;td</strong> <span class="hl-attribute">column_span</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>cs=3, rs=1<strong class="hl-tag">&lt;/td&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+<strong class="hl-tag">&lt;/table&gt;</strong></pre>
+        </div>
+      </li></ol></section>
+    <section class="section result">
+      <p class="p">When no table cell span provider is specified, the table has the following layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Table layout when no cell span provider is specified</figcaption>
+          
+          <img class="image" src="../img/dg_table_no_span_provider.png">
+        </figure>
+      </div>
+      <p class="p">When the above implementation is configured, the table has the correct layout:</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Cells spanning multiple rows and columns.</figcaption>
+          
+          <img class="image" src="../img/dg_cells_spanning_multiple_rows_and_cols.png">
+        </figure>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-styling-table-element.html">Configuring Tables</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-table-column-width-provider.html">Configuring a Table Column Width Provider</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-table-rowsep-colsep-provider.html">Configuring a Table Cell Row and Column Separator Provider</a></div></div></nav></article></main></body></html>

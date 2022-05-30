@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-basic-association.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-associate-css.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-support-in-author.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-test-doc-type-association"><title>Step 7: Testing the Framework Customization</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-test-doc-type-association"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Step 7: Testing the Framework Customization</h1>
+  <div class="body">
+    <p class="p">To test the new <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>
+      customization, create an XML instance that conforms with the association rules that you
+      specified in your <dfn class="term">framework</dfn> customization. You will not specify an XML Schema
+      location directly in the document, using an <code class="ph codeph">xsi:schemaLocation</code> attribute.
+      Instead, <span class="ph">Oxygen XML Editor</span> will detect its associated document type and use the specified
+      schema.</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;book</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.oxygenxml.com/sample/documentation"</span> 
+      <span class="hl-attribute">xmlns:abs</span>=<span class="hl-value">"http://www.oxygenxml.com/sample/documentation/abstracts"</span><strong class="hl-tag">&gt;</strong>
+
+    <strong class="hl-tag">&lt;title&gt;</strong>My Technical Book<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;section&gt;</strong>
+        <strong class="hl-tag">&lt;title&gt;</strong>XML<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;abs:def&gt;</strong>Extensible Markup Language<strong class="hl-tag">&lt;/abs:def&gt;</strong>
+        <strong class="hl-tag">&lt;para&gt;</strong>In this section of the book I will 
+           explain different XML applications.<strong class="hl-tag">&lt;/para&gt;</strong>
+    <strong class="hl-tag">&lt;/section&gt;</strong>
+<strong class="hl-tag">&lt;/book&gt;</strong></pre>
+    </div>
+    <p class="p">When trying to validate the document there should be no errors. Now modify the
+        <code class="ph codeph">title</code> to <code class="ph codeph">title2</code>. Validate again. This time there should be
+      as error.</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">  Invalid content was found starting with element 
+  'title2'. One of '{"http://www.oxygenxml.com/sample/documentation":title}' 
+  is expected.</pre>
+    </div>
+    <p class="p">Undo the tag name change, go to <span class="ph uicontrol">Author</span> mode, and <span class="ph">Oxygen XML Editor</span> should load the CSS from the <a class="xref" href="../glossary/document-type-association.html"><dfn class="term">document type association</dfn></a> and create a layout similar to this:</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Example: Testing a Framework Customization</figcaption>
+        
+        <img class="image" src="../img/dg_testing_document_type_association.png">
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-basic-association.html">Basic Tutorial: Creating and Configuring a Custom Framework</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-associate-css.html">Step 6: Associate the Custom CSS to the Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-css-support-in-author.html">Customizing Author Mode Through CSS</a></div></div></nav></article></main></body></html>

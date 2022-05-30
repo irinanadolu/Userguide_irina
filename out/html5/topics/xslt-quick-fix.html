@@ -1,0 +1,119 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Quick fix support"><meta name="keywords" content="XSLT, Quick fix support"><meta name="DC.relation" scheme="URI" content="../topics/editing-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/validate-xslt-with-java-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xslt-stylesheets.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xslt-quick-fix"><title>XSLT Quick Fix Support</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xslt-quick-fix"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT Quick Fix Support </h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph">Oxygen XML Editor</span>
+      <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fix</dfn> support</a> helps you resolve
+      various errors that appear in a stylesheet by proposing <dfn class="term">Quick Fixes</dfn> to problems
+      such as missing templates, misspelled template names, missing functions, or references to an
+      undeclared variable or parameter.</p>
+    <div class="p">To activate this feature, hover over or place the cursor in the highlighted area of text
+      where a validation error or warning occurs. If a <dfn class="term">Quick Fix</dfn> is available for that
+      particular error or warning, you can access the <dfn class="term">Quick Fix</dfn> proposals with any of
+      the following methods:<ul class="ul" id="xslt-quick-fix__ul_p4y_jl3_ss">
+        <li class="li">When hovering over the error or warning, the proposals are presented in a tooltip pop-up
+          window.</li>
+        <li class="li">If you place the cursor in the highlighted area where a validation error or warning
+          occurs, a <dfn class="term">Quick Fix</dfn> icon (<img class="image" id="xslt-quick-fix__image_zts_v2y_xn" src="../img/QuickFix16.png">)
+          is displayed in the stripe on the left side of the editor. If you click this icon, <span class="ph">Oxygen XML Editor</span> displays the list of available fixes.</li>
+        <li class="li">With the cursor placed in the highlighted area of the error or warning, you can also
+          invoke the <dfn class="term">Quick Fix</dfn> menu by pressing <span class="ph"><span class="ph uicontrol"><span class="keyword shortcut" id="xslt-quick-fix__alt_1_shortcut">Alt + 1 (Command + Alt + 1
+                    on OS X)</span></span></span> on your keyboard.</li>
+      </ul></div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The <dfn class="term">Quick Fixes</dfn> are available only when validating an XSLT file with Saxon
+      HE/PE/EE.</div>
+    <div class="p">
+      <figure class="fig fignone" id="xslt-quick-fix__fig_kx2_lnx_xn"><figcaption><span class="fig--title-label">Figure 1. </span>Example of an Undefined XSLT Functions Quick Fix</figcaption>
+        
+        <p class="p"><img class="image" id="xslt-quick-fix__image_zcj_tnx_xn" src="../img/quickFixes.png"></p>
+      </figure>
+    </div>
+    <div class="p">
+      <figure class="fig fignone" id="xslt-quick-fix__fig_axz_34x_xn"><figcaption><span class="fig--title-label">Figure 2. </span>Example of an Undeclared XSLT Variables/Parameters Quick Fix</figcaption>
+        
+        <img class="image" id="xslt-quick-fix__image_scv_j4x_xn" src="../img/quickFixesVar.png">
+      </figure>
+    </div>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> provides XSLT <dfn class="term">Quick Fixes</dfn> for the following types of
+        instances:<ul class="ul" id="xslt-quick-fix__ul_ugd_p4x_xn">
+        <li class="li"><strong class="ph b">Template does not exist</strong>, when the template name referenced in a
+          <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element does not exist. The following fixes are
+            available:<ul class="ul" id="xslt-quick-fix__ul_p1w_t4x_xn">
+            <li class="li"><span class="ph uicontrol">Create template "templateName"</span> - creates a template and
+              generates its corresponding parameters. The template name and parameter names and
+              types are collected from the <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element.</li>
+            <li class="li"><span class="ph uicontrol">Change reference to "newTemplateName"</span> - changes the name of
+              the missing template referenced in the <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element. The
+              proposed new names are the existing templates with names similar with the missing
+              one.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Variable/Parameter not declared</span>, when a parameter or variable
+          reference cannot be found. The following fixes are available:<ul class="ul" id="xslt-quick-fix__ul_rft_jsx_xn">
+            <li class="li"><span class="ph uicontrol">Create global variable "varName"</span> - creates a global variable
+              with the specified name in the current stylesheet. The new variable is added at the
+              beginning of the stylesheet after the last global variable or parameter
+              declaration.</li>
+            <li class="li"><span class="ph uicontrol">Create global parameter "paramName"</span> - creates a global
+              parameter with the specified name in the current stylesheet. The new parameter is
+              added at the beginning of the stylesheet after the last global parameter or variable
+              declaration.</li>
+            <li class="li"><span class="ph uicontrol">Create local variable "varName"</span> - creates a local variable
+              with the specified name before the current element.</li>
+            <li class="li"><span class="ph uicontrol">Create template parameter "paramName"</span> - creates a new
+              parameter with the specified name in the current template. This fix is available if
+              the error is located inside a template.</li>
+            <li class="li"><span class="ph uicontrol">Create function parameter "paramName"</span> - creates a new
+              parameter with the specified name in the current function. This fix is available if
+              the error is located inside a function.</li>
+            <li class="li"><span class="ph uicontrol">Change reference to "varName"</span> - changes the name of the
+              referenced variable/parameter to an existing local or global variable/parameter, that
+              has a similar name with the current one.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Parameter from a called template is not declared</span>, when a
+          parameter referenced from a <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element is not declared. The
+          following fixes are available:<ul class="ul" id="xslt-quick-fix__ul_obr_4yx_xn">
+            <li class="li"><span class="ph uicontrol">Create parameter "paramName" in the template "templateName"</span> -
+              creates a new parameter with the specified name in the referenced template.</li>
+            <li class="li"><span class="ph uicontrol">Change "paramName" parameter reference to "newParamName"</span> -
+              changes the parameter reference from the <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element to a
+              parameter that is declared in the called template.</li>
+            <li class="li"><span class="ph uicontrol">Remove parameter "paramName" from call-template</span> - removes the
+              parameter with the specified name from the <code class="keyword markupname xmlelement">&lt;call-template&gt;</code>
+              element.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">No value supplied for required parameter</span>, when a required
+          parameter from a template is not referenced in a <code class="keyword markupname xmlelement">&lt;call-template&gt;</code> element.
+          The <span class="ph uicontrol">Add parameter "paramName" in call-template</span> quick-fix is
+          available. It creates a new parameter with the specified name in call-template
+          element.</li>
+        <li class="li"><span class="ph uicontrol">Function "prefix:functionName()" has not been defined</span>, when a
+          function declaration is not found. The following <dfn class="term">Quick Fixes</dfn> are
+            available:<ul class="ul" id="xslt-quick-fix__ul_i4j_hzx_xn">
+            <li class="li"><span class="ph uicontrol">Create function "prefix:functionName(param1, param2)"</span> -
+              creates a new function with the specified signature, after the current top-level
+              element from stylesheet.</li>
+            <li class="li"><span class="ph uicontrol">Change function to "newFunctionName(..)"</span> - changes the
+              referenced function name to an already defined function. The proposed names are
+              collected from functions with similar names and the same number of parameters.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Attribute-set "attrSetName" does not exist</span>, when the referenced
+          attribute set does not exist. The following <dfn class="term">Quick Fixes</dfn> are available:<ul class="ul" id="xslt-quick-fix__ul_at4_v1y_xn">
+            <li class="li"><span class="ph uicontrol">Create attribute-set "attrSetName"</span> - creates a new attribute
+              set with the specified name, after the current top-level element from stylesheet.</li>
+            <li class="li"><span class="ph uicontrol">Change reference to "attrSetName"</span> - changes the referenced
+              attribute set to an already defined one.</li>
+          </ul></li>
+        <li class="li"><span class="ph uicontrol">Character-map "chacterMap" has not been defined</span>, when the
+          referenced character map declaration is not found. The following <dfn class="term">Quick Fixes</dfn>
+          are available:<ul class="ul" id="xslt-quick-fix__ul_vwq_vby_xn">
+            <li class="li"><span class="ph uicontrol">Create character-map "characterMapName"</span> - creates a new
+              character map with the specified name, after the current top-level element from
+              stylesheet.</li>
+            <li class="li"><span class="ph uicontrol">Change reference to "characterMapName"</span> - changes the
+              referenced character map to an already defined one.</li>
+          </ul></li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xslt-stylesheets.html">Editing XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validate-xslt-with-java-extensions.html">Validating XSLT Stylesheets that Call Java Extensions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/content-completion-xslt-stylesheets.html">Content Completion in XSLT Stylesheets</a></div></div></nav></article></main></body></html>

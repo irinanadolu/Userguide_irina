@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/xqj-transformers.html"><meta name="DC.relation" scheme="URI" content="../topics/xqj-transformers.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-xqj-connection-x-databases2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="configure-xqj-datasource"><title>How to Configure an XQJ Data Source</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="configure-xqj-datasource"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Configure an XQJ Data Source</h1>
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">Any transformer that offers an XQJ API implementation can be used when validating XQuery or
+        transforming XML documents. An example of an XQuery engine that implements the XQJ API is
+          <a class="xref" href="http://www.zorba.io/home" target="_blank" rel="external noopener">Zorba</a>.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">If your XQJ Implementation is native, make sure the directory containing the native
+          libraries of the engine is added to your system environment variables: to <strong class="ph b">PATH</strong> - on
+          Windows, to <strong class="ph b">LD_LIBRARY_PATH</strong> - on Linux, or to <strong class="ph b">DYLD_LIBRARY_PATH</strong> - on OS X.
+          Restart <span class="ph">Oxygen XML Editor</span> after configuring the environment variables.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and
+        go to <span class="ph uicontrol">Data Sources</span>.</span></span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph">Click the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Add16.png">New</span>
+        button in the <span class="ph uicontrol">Data Sources</span> panel.</span></span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph">Enter a unique name for the data source.</span></span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select <span class="ph uicontrol">XQuery API for Java (XQJ)</span> in the
+            <span class="ph uicontrol">Type</span> combo box.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click the <span class="ph uicontrol">Add</span> button to add XQJ API-specific files.</span>
+        <div class="itemgroup info">You can manage the driver files using the <span class="ph uicontrol">Add</span>,
+            <span class="ph uicontrol">Remove</span>, <span class="ph uicontrol">Detect</span>, and
+            <span class="ph uicontrol">Stop</span> buttons.</div>
+        <div class="itemgroup stepresult"><span class="ph">Oxygen XML Editor</span>
+          detects any implementation of <em class="ph i">javax.xml.xquery.XQDataSource</em> and
+          presents it in <span class="ph uicontrol">Driver class</span> field.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Select the most suited driver in the <span class="ph uicontrol">Driver class</span> combo
+          box.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd"><span class="ph">Click the <span class="ph uicontrol">OK</span> button to finish the data source
+        configuration.</span></span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Continue on to <a class="xref" href="configure-xqj-connection.html#configure-xqj-connection">configure the XQJ connection</a>.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xqj-transformers.html">XQuery XQJ Transformation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xqj-transformers.html">XQuery XQJ Transformation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/configure-xqj-connection-x-databases2.html">How to Configure an XQJ Connection</a></div></div></nav></article></main></body></html>

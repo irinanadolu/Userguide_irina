@@ -1,0 +1,84 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Document Type Association,Document type association preferences"><meta name="keywords" content="Preferences, Document Type Association, Document type association preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-project-level-settings.html"><meta name="DC.relation" scheme="URI" content="../topics/framework-location.html"><meta name="DC.relation" scheme="URI" content="../topics/framework-location.html"><meta name="DC.relation" scheme="URI" content="../topics/the-document-type-dialog.html"><meta name="DC.relation" scheme="URI" content="author-document-type-extension-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-document-type-association"><title>Document Type Association Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-document-type-association"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Document Type Association Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> uses <a class="xref" href="../glossary/document-type-association.html"><dfn class="term">document type associations</dfn></a> to associate a <a class="xref" href="doc-type.html">document type</a> with a set of functionality provided by a
+        <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>. To configure the
+        <span class="ph uicontrol">Document Type Association</span> options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">Document Type Association</span>.</p>
+    <div class="p">The following actions are available in this preferences page:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Discover more frameworks by using add-ons update sites</span></dt>
+          <dd class="dd">Click on this link to specify URLs for <dfn class="term">framework</dfn> add-on update
+            sites.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Document Type</span> Table</dt>
+          <dd class="dd">This table presents the currently defined <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> (<a class="xref" href="../glossary/document-type-association.html"><dfn class="term">document type associations</dfn></a>), sorted by priority and
+            alphabetically. Each edited document type has a <a class="xref" href="document-type-association-rules-tab.html">set of association rules</a> (used
+            by the application to detect the proper document type association to use for an open
+            XML document).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">New</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a> that allows
+            you to add a new <dfn class="term">framework</dfn>.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-document-type-association__edit"><span class="ph uicontrol">Edit</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a> that allows
+            you to edit an existing <dfn class="term">framework</dfn>.<div class="note note note_note"><span class="note__title">Note:</span> If you try to edit an existing
+                <dfn class="term">framework</dfn> when you do not have write permissions to its storage
+              location, a dialog box will be shown asking if you want to extend it.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-document-type-association__duplicate"><span class="ph uicontrol">Duplicate</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a> that allows
+            you to duplicate the configuration of an existing <dfn class="term">framework</dfn>. This will
+            create a snapshot of the <dfn class="term">framework</dfn> in its current form. It is merely a copy
+            of the document type and will not <em class="ph i">evolve</em> along with the base document type as the
+              <span class="ph uicontrol">Extend</span> action does.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-document-type-association__extend"><span class="ph uicontrol">Extend</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a> that allows
+            you to extend an existing <dfn class="term">framework</dfn>. You can add or remove functionality
+            starting from a base document type. All of these changes will be saved as a patch. When
+            the base document type is modified and evolves (for example, from one application
+            version to another) the extension will evolve along with the base document type,
+            allowing it to use the new actions added in the base document type.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Delete</span></dt>
+          <dd class="dd">Deletes the selected <dfn class="term">framework</dfn> (document type).</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-document-type-association__enable-dtd-schema-processing"><span class="ph uicontrol">Enable DTD/XML Schema processing in document type
+            detection</span></dt>
+          <dd class="dd">When this option is selected (default value), the matching process also examines the
+            DTD/XML Schema associated with the document. For example, the fixed attributes declared
+            in the DTD for the root element are also analyzed, if this is specified in the
+            association rules. This is especially useful if you are writing DITA customizations.
+            DITA topics and maps are also matched by looking for the
+              <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute of the root element. This attribute is
+            specified as <code class="ph codeph">default</code> in the DTD and it is detected in the root element,
+            helping <span class="ph">Oxygen XML Editor</span> to correctly match the DITA customization.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Only for local DTDs/XML Schemas</span></dt>
+          <dd class="dd">When this option is selected (default value), only the local DTDs / XML Schemas will
+            be processed.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable DTD/XML Schema caching</span></dt>
+          <dd class="dd">When this option is selected (default value), the associated DTDs or XML Schema are
+            cached when parsed for the first time, improving performance when opening new documents
+            with similar schema associations.</dd>
+        
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/framework-location.html">Locations Preferences</a><br></li><li class="link olchildlink"><a href="../topics/the-document-type-dialog.html">Document Type Configuration Dialog Box</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences.html">Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-project-level-settings.html">Project Level Settings Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/framework-location.html">Locations Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="This type of plugin allows you to contribute new translation languages to the Oxygen XML Editor UI."><meta name="DC.subject" content="Plugin extensions,Contribute additional languages,Additional languages plugin extension"><meta name="keywords" content="Plugin extensions, Contribute additional languages, Additional languages plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/components-validation-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/contribute-external-dita-ot-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="contribute-new-languages-extension"><title>Contribute Additional Languages Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="contribute-new-languages-extension"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Contribute Additional Languages Plugin Extension </h1>
+  
+  
+  <div class="body"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    contribute new translation languages to the <span class="ph">Oxygen XML Editor</span> UI.</p>
+    <p class="p">The <strong class="ph b"><em class="ph i">AdditionalUITranslation</em></strong>
+      <dfn class="term">plugin</dfn> extension provides the ability to contribute new translation languages to
+      the interface in <span class="ph">Oxygen XML Editor</span>.</p>
+    <div class="p">A sample <span class="ph filepath">plugin.xml</span> file looks like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">id</span>=<span class="hl-value">"romanian.i18n.provider"</span>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Add Romanian as an user interface language"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Add Romanian as an user interface language"</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span>
+ <span class="hl-attribute">vendor</span>=<span class="hl-value">"Syncro Soft"</span>
+ <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.exml.plugin.Plugin"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"AdditionalUITranslation"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"translation.xml"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+    <div class="p">where the <span class="ph filepath">translation.xml</span> has a structure like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;translation&gt;</strong>
+    <strong class="hl-tag">&lt;languageList&gt;</strong>
+        <strong class="hl-tag">&lt;language</strong> <span class="hl-attribute">description</span>=<span class="hl-value">"Romanian"</span> <span class="hl-attribute">lang</span>=<span class="hl-value">"ro_RO"</span> <span class="hl-attribute">localeDescription</span>=<span class="hl-value">"Romana"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/languageList&gt;</strong>
+    <strong class="hl-tag">&lt;key</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"Error"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;val</strong> <span class="hl-attribute">lang</span>=<span class="hl-value">"ro_RO"</span><strong class="hl-tag">&gt;</strong>Eroare<strong class="hl-tag">&lt;/val&gt;</strong>
+    <strong class="hl-tag">&lt;/key&gt;</strong>
+...........................
+<strong class="hl-tag">&lt;/translation&gt;</strong></pre></div>
+    <p class="p">If all error keys are not translated in the custom <span class="ph filepath">translation.xml</span>
+      contributed by the plugin, the fallback is the default English translation. Once this plugin
+      is installed, the <a class="xref" href="preferences-global.html#preferences-global__language"><span class="ph uicontrol">Languages</span> drop-down menu in the <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Global</span></span></a> will be updated to include the newly added languages. The end-user
+      will still need to select that language in the drop-down menu to use it.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/components-validation-plugin.html" title="This type of plugin allows you to customize the menus, toolbars, and other components by enabling or filtering them from the user interface.">Components Validation Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/contribute-external-dita-ot-extension.html" title="This type of plugin allows you to contribute an external DITA-OT distribution to Oxygen XML Editor.">Contribute External DITA-OT Distribution Plugin Extension</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA-OT transformation scenario,Advanced tab"><meta name="keywords" content="DITA-OT transformation scenario, Advanced tab"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-transformation.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-edit-filters-x-publishing.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-edit-output-x-publishing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-map-edit-advanced"><title>Advanced Tab (DITA-OT Transformations)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-map-edit-advanced"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Advanced Tab (DITA-OT Transformations)</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">When you
+          <a class="xref" href="defining-new-transformation-scenario.html#defining-new-transformation-scenario">create a new transformation scenario</a> or <a class="xref" href="edit-scenario-dialog.html#edit-scenario-dialog">edit an existing
+          one</a>, a configuration dialog box is displayed that allows you to customize the
+        transformation with various options in several tabs.</span></p> 
+    <p class="p">The <span class="ph uicontrol">Advanced</span> tab allows you to specify advanced options for the
+      transformation scenario.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Advanced Settings Tab</figcaption>
+        
+        <img class="image" src="../img/sa_advanced_tab_dita_scenario.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">You can specify the following parameters:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Custom build file</span></dt>
+          <dd class="dd">If you use a custom DITA-OT build file, you can specify the path to the customized
+            build file. If empty, the <span class="ph filepath">build.xml</span> file from the
+              <code class="ph codeph">dita.dir</code> parameter that is configured in the <a class="xref" href="dita-map-edit-parameters.html#dita-map-edit-parameters"><span class="ph uicontrol">Parameters</span> tab</a> is used. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Build target</span></dt>
+          <dd class="dd">Optionally, you can specify a build target for the build file. If no target is
+            specified, the default <code class="ph codeph">init</code> target is used.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Additional arguments</span></dt>
+          <dd class="dd">You can specify additional command-line arguments to be passed to the transformation
+            (such as <code class="ph codeph">-verbose</code>).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Ant Home</span></dt>
+          <dd class="dd">You can choose between the default or custom Ant installation to run the
+            transformation. <span class="ph">The default path can be configured
+              in the <a class="xref" href="ant-preferences.html">Ant preferences page</a>.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Java Home</span></dt>
+          <dd class="dd">You can choose between the default or custom Java installation to run the
+            transformation. The default path is the Java installation that is used by <span class="ph">Oxygen XML Editor</span>.<div class="note note note_note"><span class="note__title">Note:</span> It may be possible that the used Java version is incompatible
+              with the DITA Open Toolkit engine. For example, DITA-OT 2.0 and newer requires Java
+              1.7 or newer. Thus, if you encounter related errors running the transformation,
+              consider installing a Java VM that is supported by the DITA-OT publishing engine and
+              using it in the <span class="ph uicontrol">Java Home</span> text field.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="dita-map-edit-advanced__jvm-arguments"><span class="ph uicontrol">JVM Arguments</span></dt>
+          <dd class="dd">This parameter allows you to set specific parameters for the Java Virtual Machine used by Ant. When performing a large transformation, you may want to increase the memory allocated to the Java Virtual Machine. This will help avoid <em class="ph i">Out of Memory</em> error messages (<span class="ph uicontrol">OutOfMemoryError</span>). For example, if it is set to <strong class="ph b">-Xmx2g</strong>, the transformation process is allowed to use a maximum 2 gigabytes of memory. If you do not specify an <strong class="ph b">-Xmx</strong> value in this field, by default the application will use a maximum of 512 megabytes when used with the 32-bit Java Virtual Machine and one gigabyte with the 64-bit Java Virtual Machine.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Libraries</span></dt>
+          <dd class="dd">By default, <span class="ph">Oxygen XML Editor</span> adds libraries (as high priority) that are not
+            transformation-dependent and also patches for certain DITA Open Toolkit bugs. You can
+            use this button to specify additional libraries (<a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> files or additional class paths) to be used by the
+              transformer.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can specify the path to the additional libraries
+              using wildcards (for example, <code class="ph codeph">${oxygenHome}/lib/*.jar</code>).</div></dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-ot-transformation.html" title="This type of transformation specifies the parameters for an Ant transformation that executes a DITA-OT build script. Oxygen XML Editor includes a built-in version of Ant and a built-in version of DITA-OT, but other versions can be set in the scenario.">DITA-OT Transformation</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-map-edit-filters-x-publishing.html">Filters Tab (DITA Transformations)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-map-edit-output-x-publishing.html">Output Tab (DITA-OT Transformations)</a></div></div></nav></article></main></body></html>

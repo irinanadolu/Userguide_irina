@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Schema annotations,XML documents,Author Mode editing,Schema annotations,Schema annotations in Author Mode"><meta name="keywords" content="Author editing mode, Schema annotations, XML documents, Author Mode editing, Schema annotations, Schema annotations in Author Mode"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-author-mode.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-set-schema-author.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-helper-panels-author.html"><meta name="DC.relation" scheme="URI" content="rendering-elements-cc-author.html#rendering-elements-cc-author"><meta name="DC.relation" scheme="URI" content="author-styleguide-annotations.html#author-styleguide-annotations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="content-completion-schema-annotations-author"><title>Schema Annotations in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="content-completion-schema-annotations-author"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Schema Annotations in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">A <em class="ph i">schema annotation</em> is a documentation snippet associated with the definition of an
+      element or attribute in a schema. If such a schema is associated with an XML document, the
+      annotations are displayed in the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion Assistant</dfn></a>.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Schema Annotation in the Content Completion Assistant</figcaption>
+        
+        <img class="image" src="../img/cca_annotation_author.png">
+      </figure>
+    </div>
+    <div class="p">The schema annotations support is available if the schema type is one of
+      the following:<ul class="ul">
+        <li class="li">XML Schema</li>
+        <li class="li">Relax NG</li>
+        <li class="li">NVDL schema</li>
+        <li class="li">DTD</li>
+      </ul> This feature is enabled by default, but you can disable it by deselecting the <a class="xref" href="preferences-content-completion-annotations.html#preferences-content-completion-annotations__show_annotations_in_cc"><span class="ph uicontrol">Show annotations in Content Completion Assistant</span></a> option in
+      the <span class="ph uicontrol">Annotations</span> preferences page.</div>
+    <section class="section" id="content-completion-schema-annotations-author__d2e41"><h2 class="title sectiontitle">Styling Annotations with HTML</h2>
+      
+      <p class="p">You can use HTML format in the annotations you add in an XML Schema or Relax NG schema.
+        This improves the visual appearance and readability of the documentation window displayed
+        when editing XML documents validated against such a schema. An annotation is recognized and
+        displayed as HTML if it contains at least one HTML element (such as <code class="keyword markupname xmlelement">&lt;div&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;body&gt;</code>, <code class="keyword markupname xmlelement">&lt;p&gt;</code>, <code class="keyword markupname xmlelement">&lt;br&gt;</code>, <code class="keyword markupname xmlelement">&lt;table&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;ul&gt;</code>, or <code class="keyword markupname xmlelement">&lt;ol&gt;</code>). </p>
+      <p class="p">The HTML rendering is controlled by the <a class="xref" href="preferences-content-completion-annotations.html#preferences-content-completion-annotations__show-annotations-html-dlentry"><span class="ph uicontrol">Show annotations using HTML format, if possible</span></a> option in
+        the <span class="ph uicontrol">Annotations</span> preferences page. When this option is deselected, the
+        annotations are converted and displayed as plain text and if the annotation contains one or
+        more HTML tags (<code class="keyword markupname xmlelement">&lt;p&gt;</code>, <code class="keyword markupname xmlelement">&lt;br&gt;</code>, <code class="keyword markupname xmlelement">&lt;ul&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;li&gt;</code>), they are rendered as an HTML document loaded in a web browser. For
+        example, <code class="keyword markupname xmlelement">&lt;p&gt;</code> begins a new paragraph, <code class="keyword markupname xmlelement">&lt;br&gt;</code> breaks the current
+        line, <code class="keyword markupname xmlelement">&lt;ul&gt;</code> encloses a list of items, and <code class="keyword markupname xmlelement">&lt;li&gt;</code> encloses an item
+        of the list.</p>
+    </section>
+    <section class="section" id="content-completion-schema-annotations-author__d2e43"><h2 class="title sectiontitle">Collecting Annotations from XML Schemas</h2>
+      
+      <div class="p">In an XML Schema, the annotations are specified in an <code class="keyword markupname xmlelement">&lt;xs:annotation&gt;</code>
+        element like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;xs:annotation&gt;</strong>
+  <strong class="hl-tag">&lt;xs:documentation&gt;</strong>
+            Description of the element.
+  <strong class="hl-tag">&lt;/xs:documentation&gt;</strong>
+<strong class="hl-tag">&lt;/xs:annotation&gt;</strong></pre></div>
+      <p class="p">If an element or attribute does not have a specific annotation, then <span class="ph">Oxygen XML Editor</span>
+        looks for an annotation in the type definition of that element or attribute.</p>
+    </section>
+    <section class="section" id="content-completion-schema-annotations-author__d2e46"><h2 class="title sectiontitle">Collecting Annotations from Relax NG Schemas</h2>
+      
+      <div class="p">For Relax NG schema, element and attribute annotations are made using the
+        <code class="keyword markupname xmlelement">&lt;documentation&gt;</code> element from the
+          <code class="ph codeph">http://relaxng.org/ns/compatibility/annotations/1.0</code> namespace like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;define</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"person"</span><strong class="hl-tag"> &gt;</strong>
+  <strong class="hl-tag">&lt;element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"person"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;a:documentation</strong> <span class="hl-attribute">xmlns:a</span>=<span class="hl-value">"http://relaxng.org/ns/compatibility/annotations/1.0"</span><strong class="hl-tag">&gt;</strong>
+            Information about a person. <strong class="hl-tag">&lt;/a:documentation&gt;</strong>
+      <strong class="hl-tag">&lt;ref</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"name"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;zeroOrMore&gt;</strong>
+      <strong class="hl-tag">&lt;ref</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"email"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/zeroOrMore&gt;</strong>
+  <strong class="hl-tag">&lt;/element&gt;</strong>
+<strong class="hl-tag">&lt;/define&gt;</strong> </pre>However,
+        any element outside the Relax NG namespace
+          (<code class="ph codeph">http://relaxng.org/ns/structure/1.0</code>) is handled as annotation and the
+        text content is displayed in the annotation window. To activate this behavior, select the
+          <a class="xref" href="preferences-content-completion-annotations.html#preferences-content-completion-annotations__use_relax_ng_annotations"><span class="ph uicontrol">Use all Relax NG annotations as documentation</span></a> option in
+        the <span class="ph uicontrol">Annotations</span> preferences page.</div>
+    </section>
+    <section class="section" id="content-completion-schema-annotations-author__d1022e62"><h2 class="title sectiontitle">Collecting Annotations from Relax NG Compact Syntax Schemas</h2>
+      
+      <div class="p">For Relax NG Compact Syntax schema, annotations are made using comments like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">##  Information about a person.
+element person { name, email*}</pre></div>
+    </section>
+    <section class="section" id="content-completion-schema-annotations-author__d2e48"><h2 class="title sectiontitle">Collecting Annotation from DTDs</h2>
+      
+      <div class="p">For DTD, <span class="ph">Oxygen XML Editor</span> defines a custom mechanism for annotations using comments
+        enabled by the <a class="xref" href="preferences-content-completion-annotations.html"><span class="ph uicontrol">Prefer DTD comments that start with "doc:" as annotations</span></a>
+        option in the <span class="ph uicontrol">Annotations</span> preferences page. The following is an
+        example of a DTD
+        annotation:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!--doc:Description of the element. --&gt;</em></pre></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/content-completion-author-mode.html">Content Completion Assistant in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/content-completion-set-schema-author.html">Set the Schema to be Used for Content Completion</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/content-completion-helper-panels-author.html">Content Completion Helper Views (Author Mode)</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="rendering-elements-cc-author.html#rendering-elements-cc-author">Customizing the Rendering of Elements</a></li><li class="linklist"><a class="link" href="author-styleguide-annotations.html#author-styleguide-annotations">Customizing Annotations in the Content Completion Assistant</a></li></ul></div></nav>
+</article></main></body></html>

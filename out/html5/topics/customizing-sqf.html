@@ -1,0 +1,103 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Defining,Customizing,SQF,Add Schematron Quick Fix,Create Schematron Quick Fix"><meta name="keywords" content="Schematron Quick Fixes, Defining, Customizing, SQF, Add Schematron Quick Fix, Create Schematron Quick Fix"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron-quick-fixes.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-quick-fixes-x-editing2.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/user-entry-sqf-operation.html"><meta name="DC.relation" scheme="URI" content="../topics/use-when-sqf-condition.html"><meta name="DC.relation" scheme="URI" content="../topics/format-indent-sqf-content.html"><meta name="DC.relation" scheme="URI" content="../topics/executing-sqf-in-other-docs.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-dynamic-fixes.html"><meta name="DC.relation" scheme="URI" content="../topics/localizing-sqf-messages.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing-sqf"><title>Defining Schematron Quick Fixes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing-sqf"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Defining Schematron Quick Fixes</h1>
+  
+    <div class="body">
+    <p class="p">You can define and customize Schematron <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick
+          Fixes</dfn></a> directly in the current Schematron file or in a separate Schematron
+      file. The Schematron <dfn class="term">Quick Fixes</dfn> are an extension of the Schematron language and
+      they allow you to define fixes for Schematron error messages. You can reference the
+        <dfn class="term">Quick Fixes</dfn> using the <code class="keyword markupname xmlatt">@sqf:fix</code> attribute inside the
+        <code class="keyword markupname xmlelement">&lt;assert&gt;</code> or <code class="keyword markupname xmlelement">&lt;report&gt;</code> elements (for example:
+        <code class="ph codeph">&lt;assert test="title" sqf:fix="removeComments"&gt;Remove
+        comments&lt;/assert&gt;</code>).</p>
+      <section class="section" id="customizing-sqf__defining_a_schematron_quick_fix"><h2 class="title sectiontitle">Defining a Schematron Quick Fix</h2>
+      
+      <div class="p">The basics of a Schematron <dfn class="term">Quick Fix</dfn> is defined by an ID, name, description,
+        and the operations to be executed.<ul class="ul" id="customizing-sqf__ul_ydb_tlz_hr">
+          <li class="li"><strong class="ph b">ID</strong> - Defined by the <code class="keyword markupname xmlatt">@id</code> attribute from the
+              <code class="keyword markupname xmlelement">&lt;sqf:fix&gt;</code> element and must be unique in the current context. It
+            is used to refer the <dfn class="term">Quick Fix</dfn> from a <code class="keyword markupname xmlelement">&lt;report&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;assert&gt;</code> element.</li>
+          <li class="li"><strong class="ph b">Name</strong> - The name of the <dfn class="term">Quick Fix</dfn> is defined by the
+              <code class="keyword markupname xmlelement">&lt;sqf:title&gt;</code> element.</li>
+          <li class="li"><strong class="ph b">Description</strong> - Defined by the text in the paragraphs
+              (<code class="keyword markupname xmlelement">&lt;sqf:p&gt;</code>) of the <code class="keyword markupname xmlelement">&lt;sqf:description&gt;</code>
+            element.</li>
+          <li class="li"><strong class="ph b">Operations</strong> - The following basic types of <a class="xref" href="sqf-operations.html#sqf-operations">operations (elements)</a> are
+              supported:<ul class="ul" id="customizing-sqf__ul_q2q_fc1_3r">
+              <li class="li"><code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> Element - To add a new node or fragment in the
+                document.</li>
+              <li class="li"><code class="keyword markupname xmlelement">&lt;sqf:delete&gt;</code> Element - To remove a node from the
+                document.</li>
+              <li class="li"><code class="keyword markupname xmlelement">&lt;sqf:replace&gt;</code> Element - To replace a node with another node
+                or fragment.</li>
+              <li class="li"><code class="keyword markupname xmlelement">&lt;sqf:stringReplace&gt;</code> Element - To replace text content with
+                other text or a fragment.</li>
+            </ul></li>
+        </ul></div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Schematron Quick Fix Components</figcaption>
+          
+          <img class="image" id="customizing-sqf__image_wns_klz_hr" src="../img/sqf_Lang.png">
+        </figure>
+      </div>
+      <p class="p">The assertion message that generates the <dfn class="term">Quick Fix</dfn> is added as the
+          <code class="keyword markupname xmlelement">&lt;sqf:description&gt;</code> of the problem to be fixed. The
+          <code class="keyword markupname xmlelement">&lt;sqf:title&gt;</code> is presented as the name of the <dfn class="term">Quick Fix</dfn>.
+        The content of the paragraphs (<code class="keyword markupname xmlelement">&lt;sqf:p&gt;</code>) within the
+          <code class="keyword markupname xmlelement">&lt;sqf:description&gt;</code> element are presented in the tooltip message when
+        the <dfn class="term">Quick Fix</dfn> is selected. </p>
+    </section>
+      <section class="section" id="customizing-sqf__additional_elements_supported_in_the_schematron_q"><h2 class="title sectiontitle">Additional Elements Supported in the Schematron Quick Fixes</h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:user-entry&gt;</strong></dt>
+            <dd class="dd">This element defines a value that must be set manually by the user. For more
+              information, see <a class="xref" href="user-entry-sqf-operation.html#user-entry-sqf-operation">User Entry SQF Operation</a>.</dd>
+          
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:call-fix&gt;</strong></dt>
+            <dd class="dd">This element calls another <dfn class="term">Quick Fix</dfn> within a <dfn class="term">Quick Fix</dfn>.
+              The called <dfn class="term">Quick Fix</dfn> must be defined globally or in the same Schematron
+              rule as the calling <dfn class="term">Quick Fix</dfn>. A calling <dfn class="term">Quick Fix</dfn> adopts
+              the activity elements of the called <dfn class="term">Quick Fix</dfn> and should not include
+              other activity elements. You can also specify which parameters are sent by using the
+                <code class="keyword markupname xmlelement">&lt;sqf:with-param&gt;</code> child element.</dd>
+          
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:group&gt;</strong></dt>
+            <dd class="dd">Allows you to group multiple <dfn class="term">Quick Fixes</dfn> and refer them from an
+              <code class="keyword markupname xmlelement">&lt;assert&gt;</code> or <code class="keyword markupname xmlelement">&lt;report&gt;</code> element.</dd>
+          
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:fixes&gt;</strong></dt>
+            <dd class="dd">Is defined globally and contains global fixes and groups of fixes.</dd>
+          
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:copy-of&gt;</strong></dt>
+            <dd class="dd">Used to copy the selected nodes that are specified by the <code class="keyword markupname xmlatt">@select</code>
+              attribute. The element with its attribute is treated as an
+                <code class="ph codeph">xsl:copy-of</code> with a <code class="keyword markupname xmlatt">@select</code> attribute, as defined in
+              the XSLT specification.</dd>
+          
+          
+            <dt class="dt dlterm"><strong class="ph b">&lt;sqf:param&gt;</strong></dt>
+            <dd class="dd">Defines a parameter for a <dfn class="term">Quick Fix</dfn>. If the parameter is defined as
+                <code class="ph codeph">abstract</code> then the <code class="ph codeph">type</code> and default value should
+              not be specified and the fix can be called from an abstract pattern that defines this
+              parameter.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="customizing-sqf__other_sqf_notes"><h2 class="title sectiontitle">Other SQF Notes</h2>
+      
+      <div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">sqf:default-fix</code> attribute is ignored in <span class="ph">Oxygen XML Editor</span>.</div>
+    </section>
+      <p class="p">For more details on editing Schematron <dfn class="term">Quick Fixes</dfn>, go to: <a class="xref" href="http://schematron-quickfix.github.io/sqf/publishing-snapshots/April2015Draft/spec/SQFSpec.html" target="_blank" rel="external noopener">Schematron Quick Fix Specifications</a></p>
+    </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/sqf-operations.html">Basic Schematron Quick Fix Operations</a><br></li><li class="link olchildlink"><a href="../topics/user-entry-sqf-operation.html">User Entry SQF Operation</a><br></li><li class="link olchildlink"><a href="../topics/use-when-sqf-condition.html">Restricting Quick Fix Operations</a><br></li><li class="link olchildlink"><a href="../topics/format-indent-sqf-content.html">Formatting/Indenting Content Inserted by SQF Operations</a><br></li><li class="link olchildlink"><a href="../topics/executing-sqf-in-other-docs.html">Executing Schematron Quick Fixes in Other Documents</a><br></li><li class="link olchildlink"><a href="../topics/sqf-dynamic-fixes.html">Generate Multiple Similar Quick Fixes</a><br></li><li class="link olchildlink"><a href="../topics/localizing-sqf-messages.html">Localizing SQF Messages</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron-quick-fixes.html">Editing Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/schematron-quick-fixes-x-editing2.html">Schematron Quick Fixes (SQF)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sqf-operations.html">Basic Schematron Quick Fix Operations</a></div></div></nav></article></main></body></html>

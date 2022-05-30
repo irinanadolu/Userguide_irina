@@ -1,0 +1,226 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Framework customization,Configuring an extensions bundle"><meta name="keywords" content="Framework customization, Configuring an extensions bundle"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/author-image-decorator.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-extensions-bundle"><title>Configuring an Extensions Bundle</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-extensions-bundle"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring
+    an Extensions Bundle</h1>
+  
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <div class="p">All <a class="xref" href="../glossary/plugin.html"><dfn class="term">extensions</dfn></a> that are provided by
+          <span class="ph">Oxygen XML Editor</span> are includes in a single bundle.<div class="note note note_note"><span class="note__title">Note:</span> The individual extensions can
+          still be set (<span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go
+          to <span class="ph uicontrol">Document Type Association</span>, double-click a document type, and go
+          to the extension tab), and if present, they take precedence over the single provider.
+          However, this practice is discouraged and the single provider should be used
+          instead.</div></div>
+      <p class="p">The extensions bundle is represented by the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle</em></a>
+        class. The provided implementation of the <code class="ph codeph">ExtensionsBundle</code> is instantiated
+        when the <a class="xref" href="../glossary/document-type-association.html"><dfn class="term">Document Type
+            Association</dfn></a> rules defined for the custom <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> matches a document opened in
+        the editor. Therefore, references to objects that need to be persistent throughout the
+        application running session must not be kept in the bundle because the next detection event
+        can result in creating another <em class="ph i">ExtensionsBundle</em> instance.</p>
+      <p class="p">To configure an extensions bundle, follow this procedure:</p>
+    </section>
+    <section id="dg-extensions-bundle__procedure-dg-extensions-bundle"><ol class="ol steps" id="dg-extensions-bundle__procedure-dg-extensions-bundle"><li class="li step stepexpand">
+        <span class="ph cmd">Create a new Java project in your IDE. Create a <span class="ph filepath">lib</span> folder in the
+          Java project folder and copy in it the <span class="ph filepath">oxygen.jar</span> file from the
+              <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span>
+          folder.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Create the class (for example,
+            <em class="ph i">simple.documentation.framework.SDFExtensionsBundle</em>) to extend the abstract class
+            <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle</em></a>.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> SDFExtensionsBundle <strong class="hl-keyword">extends</strong> ExtensionsBundle {</pre>
+          </div></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">A <code class="ph codeph">Document Type ID</code> and a short description should be defined first by
+          implementing the methods <em class="ph i">getDocumentTypeID</em> and <em class="ph i">getDescription</em>. The
+            <code class="ph codeph">Document Type ID</code> is used to uniquely identify the current
+            <dfn class="term">framework</dfn>. Such an ID must be provided especially if options related to the
+            <dfn class="term">framework</dfn> need to be persistently stored and retrieved between
+          sessions.</span>
+        <div class="itemgroup info">For
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> String getDocumentTypeID() {
+    		<strong class="hl-keyword">return</strong> <span class="hl-string">"Simple.Document.Framework.document.type"</span>;
+	}
+
+	<strong class="hl-keyword">public</strong> String getDescription() {
+    		<strong class="hl-keyword">return</strong> <span class="hl-string">"A custom extensions bundle used for the Simple Document"</span> + 
+                    <span class="hl-string">"Framework document type"</span>;
+	}</pre></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">To be notified about the activation of the custom <em class="ph i">Author Extension</em> in relation
+          with an open document, <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorExtensionStateListener.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorExtensionStateListener</em></a> should be
+          implemented. The <strong class="ph b">activation</strong> and <strong class="ph b">deactivation</strong> events received by this
+          listener should be used to perform custom initializations and to register or remove
+          listeners such as <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorListener.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorListener</em></a>,
+            <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorMouseListener.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorMouseListener</em></a>, or <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorCaretListener.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorCaretListener</em></a>. The custom <em class="ph i">Author
+            Extension</em> state listener should be provided by implementing the
+            <em class="ph i">createAuthorExtensionStateListener</em> method.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> AuthorExtensionStateListener createAuthorExtensionStateListener() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SDFAuthorExtensionStateListener();
+	}</pre>
+          </div><p class="p">The <code class="ph codeph">AuthorExtensionStateListener</code> is instantiated and notified
+            about the activation of the <dfn class="term">framework</dfn> when the rules of the <dfn class="term">Document
+              Type Association</dfn> match a document opened in the <span class="ph uicontrol">Author</span>
+            editing mode. The listener is notified about the deactivation when another
+              <dfn class="term">framework</dfn> is activated for the same document, the user switches to
+            another mode or the editor is closed. A complete description and implementation of
+              <em class="ph i">ro.sync.ecss.extensions.api.AuthorExtensionStateListener</em> can be found in <a class="xref" href="dg-author-extension-state-listener.html">Implementing an Author Extension State
+              Listener</a>.</p><p class="p">If <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware">Schema-Aware mode</a>
+            is active in <span class="ph">Oxygen XML Editor</span>, all actions that can generate invalid content will
+            be redirected toward the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorSchemaAwareEditingHandlerAdapter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorSchemaAwareEditingHandler</em></a>. The
+            handler can resolve a specific case, let the default implementation take place, or
+            reject the edit entirely by throwing an <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/InvalidEditException.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.InvalidEditException</em></a>. The actions that are
+            forwarded to this handler include typing, delete, or paste.</p><p class="p">See <a class="xref" href="dg-author-schema-aware-editing-handler.html">Handling Schema-Aware Editing Events</a> for more details about this
+            handler.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Customizations of the content completion proposals are permitted by creating a schema
+          manager filter extension. The interface that declares the methods used for content
+          completion proposals filtering is <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/contentcompletion/xml/SchemaManagerFilter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.contentcompletion.xml.SchemaManagerFilter</em></a>. The filter can be
+          applied on elements, attributes, or on their values. The <em class="ph i">createSchemaManagerFilter</em>
+          method is responsible for creating the content completion filter. A new
+            <code class="ph codeph">SchemaManagerFilter</code> will be created each time a document matches the
+          rules defined by the <dfn class="term">Document Type Association</dfn> that contains the filter
+          declaration.</span>
+        <div class="itemgroup info">For
+            example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> SchemaManagerFilter createSchemaManagerFilter() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SDFSchemaManagerFilter();
+	}</pre><p class="p">A
+            detailed presentation of the schema manager filter can be found in the <a class="xref" href="dg-author-content-completion-handler.html">Configuring a Content Completion
+              Handler</a> section.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The <span class="ph uicontrol">Author</span> mode supports link-based navigation between documents
+          and document sections. Therefore, if the document contains elements defined as links to
+          other elements (for example, links based on the <code class="keyword markupname xmlatt">@id</code> attributes), the
+          extension should provide the means to find the referenced content. To do this, an
+          implementation of the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/link/ElementLocatorProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.link.ElementLocatorProvider</em></a> interface
+          should be returned by the <em class="ph i">createElementLocatorProvider</em> method. Each time an element
+          pointed by a link needs to be located, the method is invoked.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> ElementLocatorProvider createElementLocatorProvider() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> DefaultElementLocatorProvider();
+	}</pre>
+          </div><p class="p">For more information on how to implement an element locator provider, see the <a class="xref" href="dg-author-link-target-reference-finder.html">Configuring a Link Target Element
+              Finder</a> section.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">The drag and drop functionality can be extended by implementing the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/editor/xmleditor/pageauthor/AuthorDnDListener.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.editor.xmleditor.pageauthor.AuthorDnDListener</em></a> interface.
+          Relevant methods from the listener are invoked when the mouse is dragged, moved over, or
+          exits the <span class="ph uicontrol">Author</span> editing mode, when the drop action changes, and
+          when the drop occurs. Each method receives the <code class="ph codeph">DropTargetEvent</code> containing
+          information about the drag and drop operation. The drag and drop extensions are available
+          in <span class="ph uicontrol">Author</span> mode for both <span class="ph">Oxygen XML Editor</span> Eclipse plugin and
+          standalone application. The <span class="ph uicontrol">Text</span> mode corresponding listener is
+          available only for <span class="ph">Oxygen XML Editor</span> Eclipse plugin. The methods corresponding to
+          each implementation are: <em class="ph i">createAuthorAWTDndListener</em>,
+            <em class="ph i">createTextSWTDndListener</em>, and <em class="ph i">createAuthorSWTDndListener</em>.</span>
+        <div class="itemgroup info">
+          <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> AuthorDnDListener createAuthorAWTDndListener() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SDFAuthorDndListener();
+	}</pre>
+          </div>
+          <p class="p">For more details about the <span class="ph uicontrol">Author</span> mode drag and drop listeners,
+            see the <a class="xref" href="dg-author-dnd-listener.html">Configuring a custom Drag and Drop
+              Listener</a> section.</p>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Another extension that can be included in the bundle is the reference resolver. For
+          example, the references represented by the <strong class="ph b">ref</strong> element and the attribute indicating
+          the referenced resource is <strong class="ph b">location</strong>. To be able to obtain the content of the
+          referenced resources you will have to implement a Java extension class that implements
+            <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorReferenceResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorReferenceResolver</em></a>. The method
+          responsible for creating the custom references resolver is
+            <em class="ph i">createAuthorReferenceResolver</em>. The method is called each time a document opened
+          in an <span class="ph uicontrol">Author</span> editing mode matches the <dfn class="term">Document Type
+            Association</dfn> where the extensions bundle is defined. The instantiated references
+          resolver object is kept and used until another extensions bundle corresponding to another
+          document type is activated as result of the detection process.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> AuthorReferenceResolver createAuthorReferenceResolver() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> ReferencesResolver();
+	}</pre>
+          </div><p class="p">A more detailed description of the references resolver can be found in the <a class="xref" href="dg-author-references-resolver.html">Configuring a References Resolver</a>
+            section.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">To be able to dynamically customize the default CSS styles for a certain <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorNode.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.node.AuthorNode</em></a>, an implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/StylesFilter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.StylesFilter</em></a>
+          can be provided. The extensions bundle method responsible for creating the
+            <code class="ph codeph">StylesFilter</code> is <em class="ph i">createAuthorStylesFilter</em>. The method is called
+          each time a document opened in an <span class="ph uicontrol">Author</span> editing mode matches the
+            <dfn class="term">Document Type Association</dfn> where the extensions bundle is defined. The
+          instantiated filter object is kept and used until another extensions bundle corresponding
+          to another document type is activated as a result of the detection process.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> StylesFilter createAuthorStylesFilter() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> SDFStylesFilter();
+	}</pre>
+          </div><p class="p">See the <a class="xref" href="dg-author-css-styles-filter.html">Configuring CSS Styles
+              Filter</a> section for more details about the styles filter extension.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">To edit data in custom tabular format, implementations of the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorTableCellSpanProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorTableCellSpanProvider</em></a> and the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorTableColumnWidthProvider.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorTableColumnWidthProvider</em></a> interfaces
+          should be provided. The two methods from the <code class="ph codeph">ExtensionsBundle</code> specifying
+          these two extension points are <em class="ph i">createAuthorTableCellSpanProvider</em> and
+            <em class="ph i">createAuthorTableColumnWidthProvider</em>.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">	<strong class="hl-keyword">public</strong> AuthorTableCellSpanProvider createAuthorTableCellSpanProvider() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> TableCellSpanProvider();
+	}
+	
+	<strong class="hl-keyword">public</strong> AuthorTableColumnWidthProvider 
+          createAuthorTableColumnWidthProvider() {
+    		<strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> TableColumnWidthProvider();
+	}</pre>
+          </div><p class="p">The two table information providers are not reused for different tables. The
+            methods are called for each table in the document so new instances should be provided
+            every time. Read more about the cell span and column width information providers in
+              <a class="xref" href="dg-table-cell-spanning-provider.html">Configuring a Table Cell Span
+              Provider</a> and <a class="xref" href="dg-table-column-width-provider.html">Configuring a
+              Table Column Width Provider</a> sections.</p><p class="p">If the functionality related to one
+            of the previous extension points does not need to be modified, then the developed <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle</em></a> should not override the
+            corresponding method and leave the default base implementation to return
+            <strong class="ph b">null</strong>.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">An XML vocabulary can contain links to various areas of a document. If the document
+          contains elements defined as links, you can choose to present a more relevant text
+          description for each link. To do this, an implementation of the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/link/LinkTextResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.link.LinkTextResolver</em></a> interface should be
+          returned by the <em class="ph i">createLinkTextResolver</em> method. This implementation is used each
+          time the <a class="xref" href="dg-oxy-link-text.html#dg-oxy-link-text" title="You can use this function on the CSS content property to obtain a text description from the source of a reference."><em class="ph i">oxy_link-text()
+              function</em></a> is encountered in the CSS styles associated with an element.</span>
+        <div class="itemgroup info">For example:<div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> LinkTextResolver createLinkTextResolver() {
+  <strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> DitaLinkTextResolver();
+}</pre>
+          </div><p class="p"><span class="ph">Oxygen XML Editor</span> offers built-in implementations for DITA and DocBook: <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/dita/link/DitaLinkTextResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.dita.link.DitaLinkTextResolver</em></a> and <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/docbook/link/DocbookLinkTextResolver.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.docbook.link.DocbookLinkTextResolver</em></a>
+            respectively.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Pack the compiled class into a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a>
+          file.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Copy the <dfn class="term">JAR</dfn> file into your custom <dfn class="term">framework</dfn> directory (for
+          example, <span class="ph filepath">frameworks/sdf</span>).</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Add the <dfn class="term">JAR</dfn> file to the class path. To do this, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+            <span class="ph uicontrol">Document Type Association</span>, select the document type (for example,
+            <em class="ph i">SDF</em>), click the <span class="ph uicontrol">Edit</span> button, select the
+            <span class="ph uicontrol">Classpath</span> tab, and click the <span class="ph uicontrol"><img class="image" id="dg-extensions-bundle__image_en2_lt4_5r" src="../img/Add16.png">Add</span> button. In the
+          displayed dialog box, enter the location of the <dfn class="term">JAR</dfn> file relative to the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph filepath">frameworks</span> folder.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Register the Java class by going to the <span class="ph uicontrol">Extensions</span> tab. Click
+          the <span class="ph uicontrol">Choose</span> button and select the name of the class (for example,
+            <em class="ph i">SDFExtensionsBundle</em>).</span>
+        <div class="itemgroup info">
+          <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+        </div>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-image-decorator.html">Adding a Custom Image Decorator for Author Mode</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html</a></li></ul></div></nav>
+</article></main></body></html>

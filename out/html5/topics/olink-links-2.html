@@ -1,0 +1,155 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="DocBook olink,Olink element"><meta name="keywords" content="DocBook olink, Olink element"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook4-doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook4-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-doc-type.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="olink-links"><title>Inserting an Olink in DocBook Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="olink-links"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Inserting an Olink in DocBook Documents</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;olink&gt;</code> element is used for linking to resources outside the current
+        DocBook document. The <code class="keyword markupname xmlatt">@targetdoc</code> attribute is used for the document ID that
+        contains the target element and the <code class="keyword markupname xmlatt">@targetptr</code> attribute for the ID of the
+        target element (the value of an <code class="keyword markupname xmlatt">@id</code> or <code class="keyword markupname xmlatt">@xml:id</code> attribute).
+        The combination of those two attributes provides a unique identifier to locate cross
+        references.</p>
+      <p class="p">For example, a <em class="ph i">Mail Administrator Guide</em> with the document ID
+          <code class="ph codeph">MailAdminGuide</code> might contain a chapter about user accounts, like
+        this:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"user_accounts"</span><strong class="hl-tag">&gt;</strong>
+<strong class="hl-tag">&lt;title&gt;</strong>Administering User Accounts<strong class="hl-tag">&lt;/title&gt;</strong>
+<strong class="hl-tag">&lt;para&gt;</strong>blah blah<strong class="hl-tag">&lt;/para&gt;</strong></pre>
+      <p class="p">You can form a cross reference to that chapter by adding an <code class="keyword markupname xmlelement">&lt;olink&gt;</code>, as in
+        the following example:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">You may need to update your
+<strong class="hl-tag">&lt;olink</strong> <span class="hl-attribute">targetdoc</span>=<span class="hl-value">"MailAdminGuide"</span> <span class="hl-attribute">targetptr</span>=<span class="hl-value">"user_accounts"</span><strong class="hl-tag">&gt;</strong>user accounts
+<strong class="hl-tag">&lt;/olink&gt;</strong>
+when you get a new machine.</pre>
+      <p class="p">To use an <code class="keyword markupname xmlelement">&lt;olink&gt;</code> to create links between documents, follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Decide which documents are to be included in the domain for cross referencing.</span>
+        <div class="itemgroup info">A unique ID must be assigned to each document that will be referenced with an
+          <code class="keyword markupname xmlelement">&lt;olink&gt;</code>. It is usually added as an <code class="keyword markupname xmlatt">@id</code> (or
+            <code class="keyword markupname xmlatt">@xml:id</code> for DocBook5) attribute to the root element of the document.
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Decide on your output hierarchy.</span>
+        <div class="itemgroup info">For creating links between documents, the relative locations of the output documents
+          must be known. Before going further you must decide the names and locations of the output
+          directories for all the documents from the domain. Each directory will be represented by
+          an element: <code class="keyword markupname xmlelement">&lt;dir name="directory_name"&gt;</code>, in the target database
+          document. </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Create the target database document.</span>
+        <div class="itemgroup info">Each collection of documents has a master target database document that is used to
+          resolve all <em class="ph i">olinks</em> from that collection. The target database document is
+          an XML file that is created once. It provides a means for pulling in the target data for
+          each document. The database document is static and all the document data is pulled in
+            dynamically.<div class="note tip note_tip"><span class="note__title">Tip:</span> <span class="ph">Oxygen XML Editor</span> includes a built-in new document
+            template called <strong class="ph b">DocBook Targetset Map</strong> available in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a> that will help you get
+                started.</div><div class="p"><strong class="ph b"><u class="ph u">Example:</u></strong> The following is an example of a target
+                  database document. It structures a collection of documents in a <code class="keyword markupname xmlelement">&lt;sitemap&gt;</code>
+            element that provides the relative locations of the outputs (HTML in this example). Then
+            it pulls in the individual target data using system entity references to target data
+            files that will be created in the next
+            step.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE targetset [
+&lt;!ENTITY ugtargets SYSTEM "file:///doc/userguide/target.db"&gt; 
+&lt;!ENTITY agtargets SYSTEM "file:///doc/adminguide/target.db"&gt;
+&lt;!ENTITY reftargets SYSTEM "file:///doc/man/target.db"&gt;
+]&gt;</span>
+<strong class="hl-tag">&lt;targetset&gt;</strong> 
+  <strong class="hl-tag">&lt;targetsetinfo&gt;</strong> 
+    Description of this target database document,
+    which is for the examples in olink doc.
+  <strong class="hl-tag">&lt;/targetsetinfo&gt;</strong>
+
+  <em class="hl-comment">&lt;!-- Site map for generating relative paths between documents --&gt;</em>
+  <strong class="hl-tag">&lt;sitemap&gt;</strong> 
+    <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"documentation"</span><strong class="hl-tag">&gt;</strong> 
+      <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"guides"</span><strong class="hl-tag">&gt;</strong> 
+        <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"mailuser"</span><strong class="hl-tag">&gt;</strong> 
+          <strong class="hl-tag">&lt;document</strong> <span class="hl-attribute">targetdoc</span>=<span class="hl-value">"MailUserGuide"</span> 
+                    <span class="hl-attribute">baseuri</span>=<span class="hl-value">"userguide.html"</span><strong class="hl-tag">&gt;</strong> 
+            &amp;ugtargets;
+          <strong class="hl-tag">&lt;/document&gt;</strong>
+        <strong class="hl-tag">&lt;/dir&gt;</strong>
+        <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"mailadmin"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;document</strong> <span class="hl-attribute">targetdoc</span>=<span class="hl-value">"MailAdminGuide"</span><strong class="hl-tag">&gt;</strong>
+            &amp;agtargets;
+          <strong class="hl-tag">&lt;/document&gt;</strong>
+        <strong class="hl-tag">&lt;/dir&gt;</strong>
+      <strong class="hl-tag">&lt;/dir&gt;</strong>
+      <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"reference"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;dir</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"mailref"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;document</strong> <span class="hl-attribute">targetdoc</span>=<span class="hl-value">"MailReference"</span><strong class="hl-tag">&gt;</strong>
+            &amp;reftargets;
+          <strong class="hl-tag">&lt;/document&gt;</strong>
+        <strong class="hl-tag">&lt;/dir&gt;</strong>
+      <strong class="hl-tag">&lt;/dir&gt;</strong>
+    <strong class="hl-tag">&lt;/dir&gt;</strong>
+  <strong class="hl-tag">&lt;/sitemap&gt;</strong>
+<strong class="hl-tag">&lt;/targetset&gt;</strong></pre></div></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Generate the target data files by executing a DocBook transformation scenario.</span>
+        <div class="itemgroup info">Before applying the transformation, you need to edit the transformation scenario, go
+          to the <span class="ph uicontrol">Parameters</span> tab, and make sure the value of the
+            <code class="ph codeph">collect.xref.targets</code> parameter is set to <code class="ph codeph">yes</code>. The
+          default name of a target data file is <span class="ph filepath">target.db</span>, but it can be
+          changed by setting an absolute file path in the <code class="ph codeph">targets.filename</code>
+                parameter.<div class="p"><strong class="ph b"><u class="ph u">Example:</u></strong> An example of a <span class="ph filepath">target.db</span>
+            file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"book"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#MailAdminGuide"</span> <span class="hl-attribute">number</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">targetptr</span>=<span class="hl-value">"user_accounts"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;ttl&gt;</strong>Administering User Accounts<strong class="hl-tag">&lt;/ttl&gt;</strong>
+ <strong class="hl-tag">&lt;xreftext&gt;</strong>How to administer user accounts<strong class="hl-tag">&lt;/xreftext&gt;</strong>
+ <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"part"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#d5e4"</span> <span class="hl-attribute">number</span>=<span class="hl-value">"I"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;ttl&gt;</strong>First Part<strong class="hl-tag">&lt;/ttl&gt;</strong>
+  <strong class="hl-tag">&lt;xreftext&gt;</strong>Part I, “First Part”<strong class="hl-tag">&lt;/xreftext&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"chapter"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#d5e6"</span> <span class="hl-attribute">number</span>=<span class="hl-value">"1"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;ttl&gt;</strong>Chapter Title<strong class="hl-tag">&lt;/ttl&gt;</strong>
+    <strong class="hl-tag">&lt;xreftext&gt;</strong>Chapter 1, Chapter Title<strong class="hl-tag">&lt;/xreftext&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"sect1"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#src_chapter"</span> <span class="hl-attribute">number</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">targetptr</span>=<span class="hl-value">"src_chapter"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;ttl&gt;</strong>Section1 Title<strong class="hl-tag">&lt;/ttl&gt;</strong>
+      <strong class="hl-tag">&lt;xreftext&gt;</strong>xreflabel_here<strong class="hl-tag">&lt;/xreftext&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+ <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre></div></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Insert <code class="keyword markupname xmlelement">&lt;olink&gt;</code> elements in the DocBook documents.</span>
+        <div class="itemgroup info">When editing a DocBook XML document in <span class="ph uicontrol">Author</span> mode, the
+            <span class="ph uicontrol">Insert OLink</span> action is available in the <span class="ph uicontrol"><img class="image" id="olink-links__image_uq1_hkx_sr" src="../img/LinkDrop.png">Link</span> drop-down menu from
+          the toolbar. This action opens the <span class="ph uicontrol">Insert OLink</span> dialog box that
+          allows you to select the target of an <code class="keyword markupname xmlelement">&lt;olink&gt;</code> from the list of all possible
+          targets from a specified target database document (specified in the <span class="ph uicontrol">Targetset
+            URL</span> field). Once a <span class="ph uicontrol">Targetset URL</span> is selected, the
+          structure of the target documents is presented. For each target document
+            (<code class="keyword markupname xmlatt">@targetdoc</code>), its content is displayed, allowing you to easily identify
+          the appropriate <code class="keyword markupname xmlatt">@targetptr</code>. You can also use the search fields to quickly
+          identify a target. If you already know the values for the <code class="keyword markupname xmlatt">@targetdoc</code> and
+            <code class="keyword markupname xmlatt">@targetptr</code> attributes, you can insert them directly in the corresponding
+                fields.<p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong> In the following image, the target database
+            document is called <span class="ph filepath">target.xml</span>, <em class="ph i">dbadmin</em> is selected for the
+            target document (<code class="keyword markupname xmlatt">@targetdoc</code>), and <em class="ph i">bldinit</em> is selected as the
+            value for the <code class="keyword markupname xmlatt">@targetptr</code> attribute. Notice that you can also add XREF
+                  text into the <code class="keyword markupname xmlelement">&lt;olink&gt;</code> by using the <span class="ph uicontrol">xreftext</span> field.</p><div class="p">
+            <figure class="fig fignone" id="olink-links__fig_vvd_kfr_2s"><figcaption><span class="fig--title-label">Figure 1. </span>Insert OLink Dialog Box</figcaption>
+              
+              <img class="image" id="olink-links__image_wvd_kfr_2s" src="../img/sa_insert_olink.png">
+            </figure>
+          </div><p class="p">
+            
+          </p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Process a DocBook transformation for each document to generate the output.</span>
+        <ol type="a" class="ol substeps" id="olink-links__substeps_c21_yhr_2s">
+          <li class="li substep">
+            <span class="ph cmd">Edit the transformation scenario and set the value of the
+                <code class="ph codeph">target.database.document</code> parameter to be the URL of the target
+              database document.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd">Apply the transformation scenario.</span>
+          </li>
+        </ol>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-docbook4-doc-type.html" title="A document type standard for books, articles, and other prose documents (particularly technical documentation)">DocBook 4 Document Type (Framework)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-docbook4-extensions.html">DocBook 4 Author Mode Actions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-docbook5-doc-type.html" title="An enhanced (version 5) document type standard designed for a variety of documents (particularly technical documentation)">DocBook 5 Document Type (Framework)</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="DC.subject" content="Oxygen SDK,Configuration,Plugins"><meta name="keywords" content="Oxygen SDK, Configuration, Plugins"><meta name="DC.relation" scheme="URI" content="../topics/extend-oxygen-with-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/extend-oxygen-with-plugins.html"><meta name="DC.relation" scheme="URI" content="../topics/howto-install-plugins.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="oxygen-plugin"><title>General Configuration of an Oxygen XML Editor Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="oxygen-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">General Configuration of an <span class="ph">Oxygen XML Editor</span> Plugin</h1>
+  
+  <div class="body conbody">
+    <p class="p">The <span class="ph">Oxygen XML Editor</span> functionality can be extended with <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugins</dfn></a> that implement a clearly specified
+      API. On the <span class="ph">Oxygen XML Editor</span> website, there is an <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">SDK</a>
+      with sample <dfn class="term">plugins</dfn> (source and compiled Java code) and the Javadoc API necessary
+      for developing custom <dfn class="term">plugins</dfn>.</p>
+    <p class="p">The minimal implementation of a <dfn class="term">plugin</dfn> must provide:</p>
+    <ul class="ul">
+      <li class="li">A Java class that extends the <em class="ph i">ro.sync.exml.plugin.Plugin</em> class.</li>
+      <li class="li">A Java class that implements the <em class="ph i">ro.sync.exml.plugin.PluginExtension</em>
+        interface.</li>
+      <li class="li">A <dfn class="term">plugin</dfn> descriptor file called <span class="ph filepath">plugin.xml</span>.</li>
+    </ul>
+    <p class="p">A <em class="ph i">ro.sync.exml.plugin.PluginDescriptor</em> object is passed to the constructor
+      of the subclass of the <em class="ph i">ro.sync.exml.plugin.Plugin</em> class. It contains the
+      following data items about the <dfn class="term">plugin</dfn>:</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">basedir</strong> (<em class="ph i">File</em> object) - The base directory of the <dfn class="term">plugin</dfn>.</li>
+      <li class="li"><strong class="ph b">description</strong> (<em class="ph i">String</em> object) - The description of the
+        <dfn class="term">plugin</dfn>.</li>
+      <li class="li"><strong class="ph b">name</strong> (<em class="ph i">String</em> object) - The name of the <dfn class="term">plugin</dfn>.</li>
+      <li class="li"><strong class="ph b">vendor</strong> (<em class="ph i">String</em> object) - The vendor name of the <dfn class="term">plugin</dfn>.</li>
+      <li class="li"><strong class="ph b">version</strong> (<em class="ph i">String</em> object) - The <dfn class="term">plugin</dfn> version.</li>
+      <li class="li"><span class="ph" id="oxygen-plugin__plugin-id"><strong class="ph b">id</strong> (<em class="ph i">String</em> object) - A unique identifier.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">classLoaderType</strong> - You can choose between <code class="ph codeph">preferOxygenResources</code>
+          (default value) and <code class="ph codeph">preferReferencedResources</code>. When choosing
+            <code class="ph codeph">preferOxygenResources</code>, the libraries that are referenced in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph filepath">lib</span> directory will have precedence over those referenced in the
+            <span class="ph filepath">plugin.xml</span> configuration file, if they have the same package names.
+          When choosing <code class="ph codeph">preferReferencedResources</code>, the libraries that are
+          referenced in the <span class="ph filepath">plugin.xml</span> configuration file will have precedence
+          over those found in the <span class="ph">Oxygen XML Editor</span>
+          <span class="ph filepath">lib</span> directory, if they have the same package names.</span></li>
+    </ul>
+    <p class="p">The <dfn class="term">plugin</dfn> descriptor is an XML file that defines how the <dfn class="term">plugin</dfn> is
+      integrated in <span class="ph">Oxygen XML Editor</span> and what libraries are loaded. The structure of the
+        <dfn class="term">plugin</dfn> descriptor file is fully described in a DTD grammar located in
+          <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/plugins/plugin.dtd</span>. Here is a sample <dfn class="term">plugin</dfn> descriptor used by
+      the <em class="ph i">Capitalize Lines</em> sample <dfn class="term">plugin</dfn>: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE plugin SYSTEM "../plugin.dtd"&gt;</span>
+<strong class="hl-tag">&lt;plugin</strong>
+    <span class="hl-attribute">name</span>=<span class="hl-value">"Capitalize Lines"</span>
+    <span class="hl-attribute">description</span>=<span class="hl-value">"Capitalize the first character on each line"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"1.0.0"</span>
+    <span class="hl-attribute">vendor</span>=<span class="hl-value">"SyncRO"</span>
+    <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.sample.plugin.caplines.CapLinesPlugin"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;runtime&gt;</strong>
+        <strong class="hl-tag">&lt;library</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"lib/caplines.jar"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/runtime&gt;</strong>
+    <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"selectionProcessor"</span> 
+    <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.sample.plugin.caplines.CapLinesPluginExtension"</span> 
+           <span class="hl-attribute">keyboardShortcut</span>=<span class="hl-value">"ctrl shift EQUALS"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre>
+    <p class="p">If your <dfn class="term">plugin</dfn> is of the <strong class="ph b">Selection</strong>, <strong class="ph b">Document</strong> or <strong class="ph b">General</strong>
+      types, and thus contributes an action either to the contextual menu or to the main menu of the
+        <span class="ph uicontrol">Text</span> editing mode, then you can assign a keyboard shortcut for it.
+      You can use the <code class="keyword markupname xmlatt">@keyboardShortcut</code> attribute for each
+        <code class="keyword markupname xmlelement">&lt;extension&gt;</code> element to specify the desired shortcut.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To compose string representations of the desired shortcut keys you can go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Menu Shortcut Keys</span></span>, select an action, and click <span class="ph uicontrol">Edit</span>. Then choose the
+      desired key sequence and use the representation that appears in the resulting dialog
+      box.</div>
+    <section class="section" id="oxygen-plugin__referencing_libraries"><h2 class="title sectiontitle">Referencing Libraries</h2>
+      
+      <div class="p">To reference libraries, use either of the following elements:<ul class="ul">
+          <li class="li"><code class="keyword markupname xmlelement">&lt;library name="path/libraryName" scope="global"&gt;</code> - To point to
+            specific libraries. Notice that the value of <code class="ph codeph">library name</code> includes the
+            path (relative or absolute) to the library.<div class="note note note_note"><span class="note__title">Note:</span> You can use the <a class="xref" href="editor-variables.html#editor-variables__edVar-oxygenInstallDir"><em class="ph i">${oxygenInstallDir}</em> editor variable</a> as part of the value of the
+                <code class="keyword markupname xmlatt">@name</code> attribute. You can also use a system variable
+                (<code class="ph codeph">${system(var.name)}</code>) or environment variable
+                (<code class="ph codeph">${env(VAR_NAME)}</code>).</div></li>
+          <li class="li"><code class="keyword markupname xmlelement">&lt;librariesFolder name="path/libraryFolderPath" scope="global"&gt;</code>
+            - To point to multiple libraries located in the specified folder. Notice that the value
+            of <code class="ph codeph">libraryFolder name</code> includes the path (relative or absolute) to the
+            library folder.</li>
+        </ul></div>
+      <div class="p">Both elements support the <code class="keyword markupname xmlatt">@scope</code> attribute that defines the loading
+        priority. It can have one of the following two values:<ul class="ul" id="oxygen-plugin__ul_cw1_gd3_c4">
+          <li class="li"><strong class="ph b">local</strong> - The library is loaded in the <dfn class="term">plugin's</dfn> own class loader.
+            This is the default behavior.</li>
+          <li class="li"><strong class="ph b">global</strong> - The library is loaded in the main application class loader as the last
+            library in the list (as if it would be present in the application
+              <span class="ph filepath">lib</span> directory).</li>
+        </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/extend-oxygen-with-plugins.html">Extending Oxygen XML Editor with Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/extend-oxygen-with-plugins.html">Extending Oxygen XML Editor with Plugins</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/howto-install-plugins.html">Installing an Oxygen XML Editor Plugin</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Information views,Trace view,XSLT Debugger perspective,Trace view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Information views, Trace view, XSLT Debugger perspective, Trace view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-output-mapping-stack-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-templates-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-trace-view"><title>Trace View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-trace-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Trace View</h1>
+  
+  <div class="body">
+    <p class="p">Usually, the XSLT/XQuery processors signal the following events during transformation:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol"><img class="image" id="debug-trace-view__image_nmc_hym_wr" src="../img/EnteringXml12.png"></span> -
+        Entering a source (XML) node.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="debug-trace-view__image_wz2_jbn_wr" src="../img/LeavingXml12.png"></span> -
+        Leaving a source (XML) node.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="debug-trace-view__image_qnq_hym_wr" src="../img/EnteringXsl12.png"></span> -
+        Entering an XSLT/XQuery node.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="debug-trace-view__image_vyn_jbn_wr" src="../img/LeavingXsl12.png"></span> -
+        Leaving an XSLT/XQuery node.</li>
+    </ul>
+    <p class="p">The <span class="ph uicontrol">Trace</span> view catches all of these events, so you can see how the
+      process evolved. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <p class="p">The red icon lines denote source nodes while the green icon lines denote XSLT/XQuery nodes.
+      It is possible to save the element trace in a structured XML document (using the
+        <span class="ph uicontrol">Export to XML</span> action in the contextual menu). Thus, you have the
+      possibility of comparing the trace results from multiple debug sessions.</p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-trace-view__the-trace-history-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Trace History View</figcaption>
+        
+        <img class="image" src="../img/sa_trace_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">The contextual menu contains the following actions: <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Go to</span></dt>
+          <dd class="dd">Moves the selection in the editor panel to the line containing the XSLT element or XML
+            element that is displayed on the selected line from the view;</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Export to XML</span></dt>
+          <dd class="dd">Saves the entire trace list in XML format.</dd>
+        
+      </dl></div>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Trace History Columns</span></caption><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="debug-trace-view__entry__1">Column</th>
+            <th class="entry colsep-1 rowsep-1" id="debug-trace-view__entry__2">Description</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__1">Depth</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__2">Shows you how deep the node is nested in the XML or stylesheet structure. The
+              bigger the number, the more nested the node is. A depth 0 node is the document
+              root.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__1">XML/XSLT/XQuery Node</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__2">Represents the node from the processed source or stylesheet document. One
+              particular node is the document root, noted as <em class="ph i">#document</em>. Every node is
+              preceded by an arrow that represents what action was performed on it (entering or
+              leaving the node).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__1">Attributes</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__2">Attributes of the node (a list of <em class="ph i">id="value"</em> pairs).</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__1">Resource</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-trace-view__entry__2">Resource file where the node is located. <span class="ph">The
+                complete path of the resource file is provided as tooltip.</span></td>
+          </tr>
+        </tbody></table>
+    <div class="note important note_important"><span class="note__title">Important:</span> Remarks:<ul class="ul">
+        <li class="li">Clicking a record highlights that node's location inside the resource.</li>
+        <li class="li">Only the Saxon processor shows the element attributes.</li>
+        <li class="li">The Xalan processor shows also the built-in rules.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-output-mapping-stack-view.html">Output Mapping Stack View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-templates-view.html">Templates View</a></div></div></nav></article></main></body></html>

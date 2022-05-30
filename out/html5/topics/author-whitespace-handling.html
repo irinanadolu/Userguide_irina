@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Handling whitespaces,Whitespace handling in Author mode"><meta name="keywords" content="Author editing mode, Handling whitespaces, Whitespace handling in Author mode"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents-author.html"><meta name="DC.relation" scheme="URI" content="../topics/author-position-information.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-content-author.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-whitespace-handling"><title>Whitespace Handling in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-whitespace-handling"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Whitespace Handling in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">When you edit a document in <span class="ph uicontrol">Author</span> mode, <span class="ph">Oxygen XML Editor</span> must
+      serialize the resulting document as XML. <span class="ph">Oxygen XML Editor</span> serializes the document when
+      you save it or switch to another editing mode. When the document is serialized, <span class="ph">Oxygen XML Editor</span>
+      <a class="xref" href="format-and-indent-xml.html#format-and-indent-xml">formats and indents
+        the XML document</a> according to the current <a class="xref" href="preferences-editor-format.html">format
+        and indent settings</a>.</p>
+    <section class="section" id="author-whitespace-handling__minimizing_whitespace_differences_between_version"><h2 class="title sectiontitle">Minimizing Whitespace Differences Between Versions</h2>
+      
+      <p class="p">When serializing a document to XML, <span class="ph uicontrol">Author</span> mode will only format and
+        indent those elements of the document that have been edited. Any element that has not been
+        edited will be serialized exactly as it was loaded from disk. This is useful when your
+        content is managed in a version control systems, as it avoids introducing insignificant
+        whitespace differences between version, which in turn makes diff output easier to read. </p>
+    </section>
+    <section class="section" id="author-whitespace-handling__entering_whitespace_in_author_mode"><h2 class="title sectiontitle">Entering Whitespace in Author Mode</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> controls the entry of whitespace characters in
+          <span class="ph uicontrol">Author</span> mode according the <a class="xref" href="format-and-indent-xml.html#format-and-indent-xml">XML whitespace
+          rules</a>, which means it will not let you insert insignificant whitespace. This means
+        that it will not let you insert extra line-breaks or spaces inside a typical paragraph
+        element, for instance. (Any such whitespace would be normalized away when the document was
+        serialized to XML, so <span class="ph">Oxygen XML Editor</span> is saving you from any surprises when this
+        happens.)</p>
+      <p class="p">Of course, you will legitimately want to enter additional spaces and returns in some cases,
+        such as code samples. <span class="ph">Oxygen XML Editor</span> will allow this in elements that are configured
+        as preserve space elements according to the XML whitespace rules. For all of its <a class="xref" href="doc-type.html">built-in document types</a>, <span class="ph">Oxygen XML Editor</span> is <a class="xref" href="preferences-editor-format-xml.html">correctly configured to recognize preserve space
+          elements</a> and to allow you to enter additional spaces in them. </p>
+      <p class="p">If you are using a built-in document type and you are unable to enter additional
+        whitespace, make sure that you are using an element from that document type that is intended
+        to be a preserve-space element.</p>
+      <p class="p">If you are using a custom document type, make sure that it is <a class="xref" href="author-devel-guide-intro.html">configured correctly</a> so that <span class="ph">Oxygen XML Editor</span> recognizes that the current element is a preserve-space element.</p>
+    </section>
+    <section class="section" id="author-whitespace-handling__serialization_options_author"><h2 class="title sectiontitle">Serialization Options for Author Mode</h2>
+      
+      <p class="p">The <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Serialization</span></span> page contains some options that control how the formatting and indenting is
+        applied when a document is saved in <span class="ph uicontrol">Author</span> mode or when switching
+        from <span class="ph uicontrol">Author</span> to <span class="ph uicontrol">Text</span> mode. It also includes a
+          <a class="xref" href="preferences-author-serialization.html#preferences-author-serialization__compatibility_with_other_tools"><span class="ph uicontrol">Compatibility with other tools</span> option</a> that controls how
+        line breaks are handled when a document is serialized to help obtain better compatibility
+        with other applications.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents-author.html">Editing XML Documents in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-position-information.html">Visual Hints for the Cursor Position</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editing-content-author.html">Editing Content in Author Mode</a></div></div></nav></article></main></body></html>

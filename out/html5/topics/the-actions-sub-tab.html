@@ -1,0 +1,75 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Document type configuration dialog box,Author tab,Actions subtab,Export actions"><meta name="keywords" content="Document type configuration dialog box, Author tab, Actions subtab, Export actions"><meta name="DC.relation" scheme="URI" content="../topics/document-type-author-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/the-css-sub-tab.html"><meta name="DC.relation" scheme="URI" content="../topics/the-action-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/the-action-dialog.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="the-actions-sub-tab"><title>Actions Subtab</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="the-actions-sub-tab"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Actions Subtab</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Actions</span> subtab of the <span class="ph uicontrol">Document Type
+        Configuration</span> dialog box contains a sortable table with all the
+        <span class="ph uicontrol">Author</span> mode actions that are configured for the specific <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>. Each action has a unique ID, a
+      name, a description, and a shortcut key.</p>
+    <p class="p">To open the <span class="ph uicontrol">Actions</span> subtab, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+        <span class="ph uicontrol">Document Type Association</span>, select your framework, use the
+        <span class="ph uicontrol">Duplicate</span> or <span class="ph uicontrol">Extend</span> button to create an
+      extension of the framework (or the <span class="ph uicontrol">Edit</span> button for an already extended
+      framework), click on the <span class="ph uicontrol">Author</span> tab, and then the
+        <span class="ph uicontrol">Actions</span> subtab.</p>
+    <div class="p">The following features are available in this subtab:<dl class="dl">
+        
+          <dt class="dt dlterm">Export existing actions (<img class="image" id="the-actions-sub-tab__image_fpt_nfh_mlb" src="../img/Export16.png">)</dt>
+          <dd class="dd">
+            <p class="p">It is possible to export existing actions to use them in other frameworks. Each
+              exported action is extracted from the framework configuration file and exported as an
+              individual XML file.</p>
+            <p class="p">To export actions, the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog__storage-definition"><span class="ph uicontrol">Storage</span> option</a> in the top part of the
+                <span class="ph uicontrol">Document Type Configuration</span> dialog box must be set to
+                <span class="ph uicontrol">External</span> and the external location must be a subdirectory of
+              your current framework directory.</p>
+            <p class="p">The <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_n1k_nfh_mlb" src="../img/Export16.png">Export</span> action is found by right-clicking an action or a selection of
+              multiple actions (the <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_pd5_mfh_mlb" src="../img/Export16.png">Export</span> button is also located below the table
+              of actions). If you choose to export a single action, a resulting dialog box will
+              allow you to select the destination path for the new XML file that contains the
+              configuration details of the action. If you export multiple actions, they will
+              automatically be saved as individual XML files inside a newly created folder (it will
+              have <strong class="ph b"><em class="ph i">_externalAuthorActions</em></strong> at the end of the folder name) inside your
+              current framework directory.</p>
+            <div class="p"><strong class="ph b">Result:</strong> Exported actions will display the <img class="image" id="the-actions-sub-tab__image_gbp_4gh_mlb" src="../img/Export16.png"> icon in the first column in the table.<div class="note important note_important"><span class="note__title">Important:</span> The newly created files for the exported actions will not appear on
+                disk until you click <span class="ph uicontrol">OK</span> several times to confirm your changes
+                and exit the <span class="ph uicontrol">Preferences</span> dialog box.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to create a new XML file for an action, there is a document template
+                called <span class="ph uicontrol">Author Actions</span> in the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a> to help you get started.</div><div class="note note note_note"><span class="note__title">Note:</span> You can
+                add or edit the action files outside of <span class="ph">Oxygen XML Editor</span>, but you will need to
+                restart the application each time to reload the changes.</div></div>
+            <p class="p">For more information, see <a class="xref" href="dg-create-custom-actions.html#dg-create-custom-actions__section_2">Creating or Editing Actions Using an Individual XML File for Each Action</a>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Open in editor (<img class="image" id="the-actions-sub-tab__image_cfj_mgh_mlb" src="../img/OpenInEditor16.png">)</dt>
+          <dd class="dd">For exported actions, there is a <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_yzf_tgh_mlb" src="../img/OpenInEditor16.png">Open in editor</span> action in the contextual menu
+            that will open the XML file for that action in the main editor.</dd>
+        
+        
+          <dt class="dt dlterm">Create a new action (<img class="image" id="the-actions-sub-tab__image_lxn_52h_mlb" src="../img/Add16.png">)</dt>
+          <dd class="dd">Use the <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_as1_5mg_hlb" src="../img/Add16.png">New</span> button (located underneath the table of
+            actions) to open the <a class="xref" href="the-action-dialog.html#the-action-dialog"><span class="ph uicontrol">Action</span> dialog box</a> where you can configure a new
+            action.</dd>
+        
+        
+          <dt class="dt dlterm">Duplicate an existing action (<img class="image" id="the-actions-sub-tab__image_unb_v2h_mlb" src="../img/Copy16.png">)</dt>
+          <dd class="dd">Use the <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_a21_vmg_hlb" src="../img/Copy16.png">Duplicate</span> action (found in the contextual menu and underneath the table
+            of actions) to duplicate the selected action.</dd>
+        
+        
+          <dt class="dt dlterm">Edit an existing action (<img class="image" id="the-actions-sub-tab__image_xgk_1fh_mlb" src="../img/Wrench16.png">)</dt>
+          <dd class="dd">Use the <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_o1g_wmg_hlb" src="../img/Wrench16.png">Edit</span> button (found in the contextual menu and underneath the table of
+            actions) to open the <a class="xref" href="the-action-dialog.html#the-action-dialog"><span class="ph uicontrol">Action</span> dialog box</a> where you can edit the selected
+            action.</dd>
+        
+        
+          <dt class="dt dlterm">Delete an existing action (<img class="image" id="the-actions-sub-tab__image_tyw_1fh_mlb" src="../img/RemoveSelected16.gif">)</dt>
+          <dd class="dd">Use the <span class="ph uicontrol"><img class="image" id="the-actions-sub-tab__image_b2b_xmg_hlb" src="../img/RemoveSelected16.gif">Delete</span> button (found in the contextual menu and
+            underneath the table of actions) to delete the selected action.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/the-action-dialog.html">Author Action Dialog Box</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/document-type-author-tab.html">Author Tab</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/the-css-sub-tab.html">CSS Subtab</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/the-action-dialog.html">Author Action Dialog Box</a></div></div></nav></article></main></body></html>

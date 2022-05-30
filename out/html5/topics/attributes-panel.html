@@ -1,0 +1,124 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Text editing mode,Attributes view,XML documents,Text Mode editing,Attributes view,Attributes view in Text mode"><meta name="keywords" content="Text editing mode, Attributes view, XML documents, Text Mode editing, Attributes view, Attributes view in Text mode"><meta name="DC.relation" scheme="URI" content="../topics/text-mode-views.html"><meta name="DC.relation" scheme="URI" content="../topics/outliner-view.html"><meta name="DC.relation" scheme="URI" content="../topics/model-panel.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="attributes-panel"><title>Attributes View in Text Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="attributes-panel"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Attributes View in Text Mode</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Attributes</span> view presents all the
+      attributes of the current element determined by the schema of the document. By default, it is
+      located on the right side of the editor. If the view is not displayed, it can be opened from
+      the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</p>
+    <p class="p">You can use the <span class="ph uicontrol">Attributes</span> view to insert attributes, edit their
+      values, or add values to existing attributes.</p>
+    <div class="p">The attributes are rendered differently depending on their state:<ul class="ul">
+        <li class="li">The names of the attributes are rendered with a bold font, and their values with a plain
+          font.</li>
+        <li class="li">Default values are rendered with a plain font, painted gray.</li>
+        <li class="li">Empty values display the text "[empty]", painted gray.</li>
+        <li class="li">Invalid attributes and values are painted red.</li>
+      </ul>To edit the value of the corresponding attribute, double-click a cell in the
+        <span class="ph uicontrol">Value</span> column. If the possible values of the attribute are specified
+      as <code class="ph codeph">list</code> in the schema of the edited document, the
+        <span class="ph uicontrol">Value</span> column acts as a combo box that allows you to either select the
+      value from a list or manually enter it. </div>
+    <div class="p">You can sort the attributes table by clicking the
+        <span class="ph uicontrol">Attribute</span> column header. The table contents can be sorted as follows: <ul class="ul">
+        <li class="li">By attribute name in ascending order.</li>
+        <li class="li">By attribute name in descending order.</li>
+        <li class="li">Custom order, where the used attributes are displayed at the beginning of the table
+          sorted in ascending order, followed by the rest of the allowed elements sorted in
+          ascending order.</li>
+      </ul></div>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Attributes View</figcaption>
+        
+        <img class="image" src="../img/sa_author_attributes_panel.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <section class="section" id="attributes-panel__d2e59"><h2 class="title sectiontitle">Expand/Collapse Button</h2>
+      
+      <p class="p">There is an <span class="ph uicontrol">Expand/Collapse</span> (<img class="image" src="../reusables/topics/../../img/Collapsed16.png">/<img class="image" src="../reusables/topics/../../img/Expanded16.png">) button at the top-right of the view. When
+        expanded, this presents the following additional combo boxes:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Name</span> Combo Box</dt>
+            <dd class="dd">Use this combo box to select an attribute. The drop-down list displays the list of
+              possible attributes allowed by the schema of the document, as in the
+                <span class="ph uicontrol">Attributes</span> view. You can use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Remove16.png">Remove</span> button to delete an attribute
+              and its value from the selected element.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Value</span> Combo Box</dt>
+            <dd class="dd">Use this combo box to add, edit, or select the value of an attribute. If the
+              selected attribute has predefined values in the schema, the drop-down list displays
+              those possible values. You can use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button to select a URL for the value of an attribute. You can
+              also press <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space</span></span> to open a content
+              completion window that offers a list of possible choices and allows you to select
+              multiple values. After you have entered or selected a value, use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AcceptValue16.png">Update</span> button (or press
+                  <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>) to add the value to the
+                attribute.<div class="note note note_note"><span class="note__title">Note:</span> For built-in frameworks, if the selected attribute in the
+                  <span class="ph uicontrol">Name</span> field is an <code class="keyword markupname xmlatt">@id</code> attribute, the
+                    <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button is
+                replaced by a <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/GenerateAttributeValue16.png">Generate Unique ID Value</span> button. Clicking this button will
+                automatically generate a unique ID for the selected element.</div></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="attributes-panel__contextual_menu_actions_in_the_attributes_view"><h2 class="title sectiontitle">Contextual Menu Actions in the Attributes View</h2>
+      
+      <p class="p">The following actions are available in the contextual menu of the
+          <span class="ph uicontrol">Attributes</span> view when editing in <span class="ph uicontrol">Text</span>
+        mode:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add</span></dt>
+            <dd class="dd">Allows you to insert a new attribute. <span class="ph">Adding an attribute that is not
+                in the list of all defined attributes is not possible when the <a class="xref" href="preferences-schema-aware.html">Allow only insertion of
+                  valid elements and attributes</a> schema-aware option is selected.</span></dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Set empty value</span></dt>
+          <dd class="dd">Specifies the current attribute value as empty.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Remove</span></dt>
+          <dd class="dd">Removes the attribute (action available only if the attribute is specified). You can
+            invoke this action by pressing the <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span>
+            or <span class="ph uicontrol"><span class="keyword shortcut">Backspace</span></span> keys.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy</span></dt>
+          <dd class="dd">Copies the <code class="ph codeph">attrName="attrValue"</code> pair to the clipboard. The
+              <code class="ph codeph">attrValue</code> can be: <ul class="ul">
+              <li class="li">The value of the attribute.</li>
+              <li class="li">The value of the default attribute, if the attribute does not appear in the edited
+                document.</li>
+              <li class="li">Empty, if the attribute does not appear in the edited document and has no default
+                value set.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Paste</span></dt>
+          <dd class="dd">Depending on the content of the clipboard, the following cases are possible: <ul class="ul">
+              <li class="li">If the clipboard contains an attribute and its value, both of them are introduced
+                in the <span class="ph uicontrol">Attributes</span> view. The attribute is selected and its
+                value is changed if they exist in the <span class="ph uicontrol">Attributes</span> view.</li>
+              <li class="li">If the clipboard contains an attribute name with an empty value, the attribute is
+                introduced in the <span class="ph uicontrol">Attributes</span> view and you can start editing
+                it. The attribute is selected and you can start editing it if it exists in the
+                  <span class="ph uicontrol">Attributes</span> view.</li>
+              <li class="li">If the clipboard only contains text, the value of the selected attribute is
+                modified. </li>
+            </ul></dd>
+        
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/text-mode-views.html">Text Mode Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/outliner-view.html">Outline View for XML Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/model-panel.html">Model View</a></div></div></nav></article></main></body></html>

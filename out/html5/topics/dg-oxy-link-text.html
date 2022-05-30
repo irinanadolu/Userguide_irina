@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="You can use this function on the CSS content property to obtain a text description from the source of a reference."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_link-text"><meta name="keywords" content="CSS extensions, Custom functions, oxy_link-text"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-last-index-of-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-local-name-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-oxy-link-text"><title>Link Text: oxy_link-text() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-oxy-link-text"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Link Text: oxy_link-text() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">You can use this function on the CSS <code class="ph codeph">content</code> property to obtain a text
+    description from the source of a reference.</p>
+    <p class="p">By default, the <code class="ph codeph">oxy_link-text()</code> function resolves DITA and DocBook
+      references. For further details about how you can also extend this functionality to other
+        <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a>, go to <a class="xref" href="dg-extensions-bundle.html">Configuring an Extensions Bundle</a>.</p>
+    <section class="section" id="dg-oxy-link-text__dita_support"><h2 class="title sectiontitle">DITA Support</h2>
+      
+      <p class="p">For DITA, the <code class="ph codeph">oxy_link-text()</code> function resolves the <code class="keyword markupname xmlelement">&lt;xref&gt;</code>
+        element and the elements that have a <code class="keyword markupname xmlatt">@keyref</code> attribute. The text description
+        is the same as the one presented in the final output for those elements. If you use this
+        function for a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that has the <code class="keyword markupname xmlatt">@navtitle</code> and
+          <code class="keyword markupname xmlatt">@locktitle</code> attributes set, the function returns the value of the
+          <code class="keyword markupname xmlatt">@navtitle</code> attribute.</p>
+    </section>
+    <section class="section" id="dg-oxy-link-text__docbook_support"><h2 class="title sectiontitle">DocBook Support</h2>
+      
+      <p class="p">For DocBook, the <code class="ph codeph">oxy_link-text()</code> function resolves the
+        <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element that defines a link in the same document. The text
+        description is the same as the one presented in the final output for those elements.</p>
+      <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_link-text</em> Function</u></strong></p>
+      <div class="p">For the following XML and associated CSS fragments the <code class="ph codeph">oxy_link-text()</code>
+        function is resolved to the value of the <code class="keyword markupname xmlatt">@xreflabel</code>
+        attribute.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;para&gt;</strong><strong class="hl-tag">&lt;code</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"para.id"</span> <span class="hl-attribute">xreflabel</span>=<span class="hl-value">"The reference label"</span><strong class="hl-tag">&gt;</strong>my code<strong class="hl-tag">&lt;/code&gt;</strong>
+      <strong class="hl-tag">&lt;/para&gt;</strong>
+<strong class="hl-tag">&lt;para&gt;</strong><strong class="hl-tag">&lt;xref</strong> <span class="hl-attribute">linkend</span>=<span class="hl-value">"para.id"</span><strong class="hl-tag">/&gt;</strong><strong class="hl-tag">&lt;/para&gt;</strong></pre><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">xref {
+    <strong class="hl-keyword">content</strong>: oxy_link-text();
+}</pre></div>
+      <div class="p">If the text from the target cannot be extracted (for instance, if the <code class="keyword markupname xmlatt">@href</code>
+        is not valid), you can use an optional argument to display fallback
+        text.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"map/topicref"</span>]:before{
+    <strong class="hl-keyword">content</strong>: oxy_link-text(<span class="hl-string">"Cannot find the topic reference"</span>);
+    link:attr(href);
+}</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-last-index-of-function.html" title="This function is used to define last occurrence searches.">Last Occurrence: oxy_lastindexof() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-local-name-function.html" title="This function evaluates the local name of the current node.">Local Name: oxy_local-name() Function</a></div></div></nav></article></main></body></html>

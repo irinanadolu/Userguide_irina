@@ -1,0 +1,74 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Refactoring,Custom operations,XML Refactoring tool,Custom operations,Custom XML refactoring operations"><meta name="keywords" content="XML documents, Refactoring, Custom operations, XML Refactoring tool, Custom operations, Custom XML refactoring operations"><meta name="DC.relation" scheme="URI" content="../topics/refactoring-xml-documents-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/predefined-refactoring-operations-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-xquery-script-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-xquery-script-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-refactoring-operation-descriptor-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom_operation_sample-x-tools.html"><meta name="DC.relation" scheme="URI" content="sharing-custom-refactoring-operations.html#sharing-custom-refactoring-operations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom-refactoring-operations"><title>Custom Refactoring Operations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom-refactoring-operations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Refactoring Operations</h1>
+  
+  <div class="body">
+    <p class="p">While <span class="ph">Oxygen XML Editor</span> includes a variety of built-in XML refactoring operations to
+      help you accomplish particular tasks, you can also create custom operations according to your
+      specific needs. For example, you could create a custom refactoring operation to convert an
+      attribute to an element and insert the element as the first child of the parent element.</p>
+    <div class="p">An XML Refactoring operation is defined as a pair of resources:<ul class="ul" id="custom-refactoring-operations__ul_gwv_s4c_jr">
+        <li class="li">An <em class="ph i">XQuery Update script</em> or <em class="ph i">XSLT stylesheet</em> that <span class="ph">Oxygen XML Editor</span>
+          will run to refactor the XML files.</li>
+        <li class="li">An <em class="ph i">XML Operation Descriptor</em> file that contains information about the operation
+          (such as the name, description, and parameters).</li>
+      </ul></div>
+    <div class="p">
+      <figure class="fig fignone" id="custom-refactoring-operations__fig_dgt_f4c_jr"><figcaption><span class="fig--title-label">Figure 1. </span>Diagram of an XML Refactoring Operation</figcaption>
+        
+        <img class="image" id="custom-refactoring-operations__image_ktw_k4c_jr" src="../img/xml_refactoring_diagram.png">
+      </figure>
+    </div>
+    <p class="p">All the defined custom operations are loaded by the <strong class="ph b">XML Refactoring Tool</strong> and presented
+      in <a class="xref" href="refactoring-xml-documents.html#refactoring-xml-documents__refactoring_operations_dlentry">the <span class="ph uicontrol">Refactoring Operations</span> wizard page</a>, along with the
+      built-in operations. </p>
+    <div class="p">After the user chooses an operation and specifies its parameters, <span class="ph">Oxygen XML Editor</span>
+      processes an XQuery Update or XSLT transformation over the input file. This transformation is
+      executed in a <strong class="ph b">safe mode</strong>, which implies the following:<ul class="ul" id="custom-refactoring-operations__ul_psd_jpm_kr">
+        <li class="li">When loading the document:<ul class="ul" id="custom-refactoring-operations__ul_jgd_kpm_kr">
+            <li class="li">The <strong class="ph b">XInclude</strong> mechanism is disabled. This means that the resources included by
+              using XInclude will not be visible in the transformation.</li>
+            <li class="li">The DTD entities will be processed without being expanded.</li>
+            <li class="li">The associated DTD will be not loaded, so the default attributes declared in the DTD
+              will not be visible in the transformation.</li>
+          </ul></li>
+        <li class="li">When saving the updated XML document:<ul class="ul" id="custom-refactoring-operations__ul_bcl_ppm_kr">
+            <li class="li">The <code class="ph codeph">DOCTYPE</code> will be preserved.<div class="note note note_note"><span class="note__title">Note:</span> This can be changed using <a class="xref" href="custom_operation_sample.html#custom_operation_sample__using_saxon_extension_functions_to_allow_custom_r">Saxon extension functions in XSLT</a>.</div></li>
+            <li class="li">The DTD entities will be preserved as they are in the original document when the
+              document is saved.</li>
+            <li class="li">The attribute values will be kept in their original form without being
+              normalized.</li>
+            <li class="li">The spaces between attributes are preserved. Basically, the spaces are lost by a
+              regular XML serialization since they are not considered important.</li>
+          </ul></li>
+      </ul></div>
+    <div class="p">The result of this transformation overrides the initial input file.<div class="note note note_note"><span class="note__title">Note:</span> To achieve some of
+        the previous goals, the XML Refactoring mechanism adds several attributes that are
+        interpreted internally. The attributes belong to the
+          <span class="ph filepath">http://www.oxygenxml.com/ns/xmlRefactoring/additional_attributes</span>
+        namespace. These attributes should not be taken into account when processing the input XML
+        document since they are discarded when the transformed document is serialized.</div><div class="note restriction note_restriction"><span class="note__title">Restriction:</span> <em class="ph i">Comments</em> or <em class="ph i">processing instructions</em> that are in any node
+        before or after the root element cannot be modified by an XML Refactoring operation. In
+        other words, XML Refactoring operations can only be applied on the root element and the
+        nodes inside it. However, as a work around to this limitation, you can use <a class="xref" href="custom_operation_sample.html#custom_operation_sample__using_saxon_extension_functions_to_allow_custom_r">Saxon extension functions and the XSLT stylesheet method</a> to implement the new
+        custom XML refactoring operation.</div></div>
+    <section class="section" id="custom-refactoring-operations__creating_a_custom_refactoring_operation"><h2 class="title sectiontitle">Creating a Custom Refactoring Operation</h2>
+      
+      <div class="p">To create a custom refactoring operation, follow these steps:<ol class="ol" id="custom-refactoring-operations__ol_swm_crc_jr">
+          <li class="li">Create an <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery
+              Update script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample">XSLT stylesheet
+              file</a>.</li>
+          <li class="li">Create an <strong class="ph b">XML Refactoring Operation Descriptor</strong> file contains the path to the
+              <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery__descriptor-example-section">XQuery Update script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample__descriptor-example-section">XSLT stylesheet</a>.</li>
+          <li class="li">
+            <p class="p">Store both files in <a class="xref" href="sharing-custom-refactoring-operations.html#sharing-custom-refactoring-operations">one of the locations that <span class="ph">Oxygen XML Editor</span></a> scans when loading the
+              custom operations.</p>
+            <p class="p"><strong class="ph b">Result:</strong> Once you run the <span class="ph uicontrol">XML Refactoring</span> tool again,
+              the custom operation appears in <a class="xref" href="refactoring-xml-documents.html#refactoring-xml-documents__refactoring_operations_dlentry">the <span class="ph uicontrol">Refactoring Operations</span> wizard page</a>.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/custom-refactoring-xquery-script-x-tools.html">Custom Refactoring Script</a><br></li><li class="link olchildlink"><a href="../topics/xml-refactoring-operation-descriptor-x-tools.html">Custom Refactoring Operation Descriptor File</a><br></li><li class="link olchildlink"><a href="../topics/custom_operation_sample-x-tools.html">XSLT Stylesheet for Creating a Custom Operation</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/refactoring-xml-documents-x-tools.html">Refactoring XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/predefined-refactoring-operations-x-tools.html">Built-in Refactoring Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/custom-refactoring-xquery-script-x-tools.html">Custom Refactoring Script</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="sharing-custom-refactoring-operations.html#sharing-custom-refactoring-operations">Storing and Sharing Refactoring Operations</a></li></ul></div></nav>
+</article></main></body></html>

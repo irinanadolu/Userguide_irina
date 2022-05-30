@@ -1,0 +1,1 @@
+define({"topics":[{"title":"DocBook Table Layouts","href":"topics\/author-editing-tables-docbook.html","attributes":{"data-id":"author-editing-tables-docbook"},"menu":{"hasChildren":false},"tocID":"author-editing-tables-docbook-d24353e12425","next":"author-editing-tables-docbook-d24353e12425"}]});

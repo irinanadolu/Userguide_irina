@@ -1,0 +1,53 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_change_doctype.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_use_custom_icons.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/options/APIAccessibleOptionTags.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_control_component_indentation"><title>Control XML Serialization in the Oxygen XML Author Component</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_control_component_indentation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Control XML Serialization in the <span class="ph">Oxygen XML Author Component</span></h1>
+  <div class="body">
+    <section class="section" id="api_faq_control_component_indentation__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">How can I force the <span class="ph">Oxygen XML Author Component</span> to save the XML with zero indent size
+        and not to break the line inside <a class="xref" href="../glossary/block-element.html"><dfn class="term">block
+            elements</dfn></a>?</p>
+    </section>
+    <section class="section" id="api_faq_control_component_indentation__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">Usually, in a standalone version of <span class="ph">Oxygen XML Editor</span>, the <span class="ph menucascade"><span class="ph uicontrol">Editor </span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span></span> and <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span></span> preferences pages allow you to control the way the XML is saved on the disk
+        after you edit it in the <span class="ph uicontrol">Author</span> mode.</p>
+      <p class="p">Also, the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/options/APIAccessibleOptionTags.html" target="_blank" rel="external noopener">APIAccessibleOptionTags interface</a> contains a list of
+        all accessible keys that can be read or set from the options.</p>
+      <div class="p">In the <span class="ph">Oxygen XML Editor</span> application, you can either bundle a <a class="xref" href="default-options.html">default set of options</a> or use the
+          <code class="ph codeph">PluginWorkspace.setGlobalObjectProperty(String, Object)</code>
+        API:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><em class="hl-comment">//For not breaking the line</em>
+<em class="hl-comment">//Long line</em>
+pluginWorkspace.setObjectProperty
+  (APIAccessibleOptionTags.EDITOR_LINE_WIDTH, <strong class="hl-keyword">new</strong> Integer(<span class="hl-number">100000</span>));
+<em class="hl-comment">//Do not break before inline elements</em>
+pluginWorkspace.setObjectProperty
+  (APIAccessibleOptionTags.EDITOR_FORMAT_INDENT_INLINE_ELEMENTS, false);
+<em class="hl-comment">//For forcing zero indent</em>
+<em class="hl-comment">//Force indent settings to be controlled by us</em>
+pluginWorkspace.setObjectProperty
+  (APIAccessibleOptionTags.EDITOR_DETECT_INDENT_ON_OPEN, false);
+<em class="hl-comment">//Zero indent size</em>
+pluginWorkspace.setObjectProperty
+  (APIAccessibleOptionTags.EDITOR_INDENT_SIZE, <span class="hl-number">0</span>);</pre></div>
+      <div class="p">In the <span class="ph">Oxygen XML Author Component</span>, you can either bundle a <a class="xref" href="api_faq_enable_change_tracking_at_startup.html">fixed set of options</a>, or use
+        the <em class="ph i">Java API</em> to set properties that overwrite the default
+        options.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">    <em class="hl-comment">//For not breaking the line</em>
+    <em class="hl-comment">//Long line</em>
+    AuthorComponentFactory.getInstance().setObjectProperty
+(APIAccessibleOptionTags.EDITOR_LINE_WIDTH, <strong class="hl-keyword">new</strong> Integer(<span class="hl-number">100000</span>));
+    <em class="hl-comment">//Do not break before inline elements</em>
+    AuthorComponentFactory.getInstance().setObjectProperty
+(APIAccessibleOptionTags.EDITOR_FORMAT_INDENT_INLINE_ELEMENTS, false);
+    <em class="hl-comment">//For forcing zero indent</em>
+    <em class="hl-comment">//Force indent settings to be controlled by us</em>
+    AuthorComponentFactory.getInstance().setObjectProperty
+(APIAccessibleOptionTags.EDITOR_DETECT_INDENT_ON_OPEN, false);
+    <em class="hl-comment">//Zero indent size</em>
+    AuthorComponentFactory.getInstance().setObjectProperty
+(APIAccessibleOptionTags.EDITOR_INDENT_SIZE, <span class="hl-number">0</span>);</pre></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_change_doctype.html">Change the DOCTYPE of an Open XML Document</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_use_custom_icons.html">Customize the Default Icons for Toolbars/Menus</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/options/APIAccessibleOptionTags.html" target="_blank" rel="external noopener">API Interface Documentation: APIAccessibleOptionTags</a></li></ul></div></nav>
+</article></main></body></html>

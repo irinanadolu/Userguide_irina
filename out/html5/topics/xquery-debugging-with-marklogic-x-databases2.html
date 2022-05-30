@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Databases,Connections,MarkLogic,Debugging,XQuery,MarkLogic debugging"><meta name="keywords" content="Databases, Connections, MarkLogic, Debugging, XQuery, MarkLogic debugging"><meta name="DC.relation" scheme="URI" content="../topics/xquery-database-debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-database-debugging.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-marklogic-debugger-limitations-x-databases2.html"><meta name="DC.relation" scheme="URI" content="marklogic-development.html#marklogic-development"><meta name="DC.relation" scheme="URI" content="how-to-marklogic.html#how-to-marklogic"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xquery-debugging-with-marklogic"><title>Debugging with MarkLogic</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xquery-debugging-with-marklogic"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugging with MarkLogic</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes support for debugging XQuery transformations that are
+      executed against a MarkLogic database.</p>
+    <div class="p">To use a debugging session against the MarkLogic engine, follow these steps:<ol class="ol">
+        <li class="li">Configure a <a class="xref" href="configure-marklogic-datasource.html">MarkLogic data
+            source</a> and a <a class="xref" href="configure-marklogic-connection.html">MarkLogic
+            connection</a>.</li>
+        <li class="li">Make sure that the debugging support is enabled in the MarkLogic server that <span class="ph">Oxygen XML Editor</span> accesses. On the server side, debugging must be activated in the XDBC
+          server and in the <em class="ph i">Task Server</em> section of the server control console (the switch
+            <em class="ph i">debug allow</em>). If the debugging is not activated, the MarkLogic server reports a
+            <strong class="ph b">DBG-TASKDEBUGALLOW</strong> error.<div class="note note note_note"><span class="note__title">Note:</span> An XDBC application server must be running to
+            connect to the MarkLogic server and this XDBC server will be used to process XQuery
+            expressions against the server. You can change the XDBC application server that <span class="ph">Oxygen XML Editor</span> uses to process XQuery expressions by selecting the <a class="xref" href="marklogic-contextual-actions.html#marklogic-contextual-actions__use-it-to-execute-xquery"><span class="ph uicontrol">Use it to execute queries</span> action</a> from the contextual
+            menu in the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>.</div></li>
+        <li class="li">Open the XQuery file and start the debugging process.<ul class="ul">
+            <li class="li">If you want to debug an XQuery file stored on the MarkLogic server, it is
+              recommended to use the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a> and open the file from
+              the application server that is involved in the debugging process. This improves the
+              resolving of any imported modules.</li>
+            <li class="li">The MarkLogic XQuery debugger integrates seamlessly into the <a class="xref" href="xquery-debugger-perspective.html">XQuery Debugger
+                <dfn class="term">perspective</dfn></a>. If you have a MarkLogic validation scenario
+              configured for the XQuery file, you can choose to <a class="xref" href="steps-in-typical-debug-process.html">debug the scenario</a> directly.</li>
+            <li class="li">
+              <p class="p">Otherwise, switch to the <span class="ph uicontrol">XQuery Debugger</span>
+                <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>, open the
+                XQuery file in the editor, and select the MarkLogic connection in the XQuery engine
+                selector from the <a class="xref" href="debug-control-toolbar.html">debug control
+                  toolbar</a>.</p>
+              <p class="p">For general information about how a debugging session is started and controlled,
+                see the <a class="xref" href="steps-in-typical-debug-process.html">Working with the
+                  Debugger</a> section.</p>
+            </li>
+          </ul></li>
+      </ol></div>
+    <p class="p">In a MarkLogic debugging session, you can use step actions and <a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">breakpoints</dfn></a> to help
+      identify problems. When you <a class="xref" href="using-breakpoints.html#using-breakpoints__inserting_breakpoints">add a
+          <dfn class="term">breakpoint</dfn></a> on a line where the debugger never stops, <span class="ph">Oxygen XML Editor</span> displays a warning message. These warnings are displayed for
+        <dfn class="term">breakpoints</dfn> you add either in the main XQuery (which you can open locally or
+      from the server) or for <dfn class="term">breakpoints</dfn> you add in any XQuery that is opened from the
+      connection that participates in the debugging session. For more information, see <a class="xref" href="xquery-debugging-marklogic-import-modules.html#xquery-debugging-marklogic-import-modules">Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</a>.</p>
+    <section class="section" id="xquery-debugging-with-marklogic__remote_debugging_with_marklogic"><h2 class="title sectiontitle">Remote Debugging with MarkLogic</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to debug remote applications that use XQuery (for
+        example, web applications that trigger XQuery executions). <span class="ph">Oxygen XML Editor</span> connects
+        to a MarkLogic server, shows you the running XQuery scripts and allows you to debug them.
+        You can even pause the scripts so that you can start the debugging queries in the exact
+        context of the application. You can also switch a server to debug mode to intercept all
+        XQuery scripts.</p>
+      <p class="p"><span class="ph">Oxygen XML Editor</span> also supports collaborative debugging. This feature allows multiple
+        users to participate in the same debugging session. You can start a debugging session and at
+        a certain point, another user can continue it.</p>
+      <div class="note important note_important"><span class="note__title">Important:</span> When using the remote debugging feature, the HTTP and the XDBC servers
+        involved in the debugging session must have the same module configuration.</div>
+    </section>
+    <p class="p">For more information about the XQuery debugger for MarkLogic, watch our video
+      demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/eQ4ThDZq1bk" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html">Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</a><br></li><li class="link olchildlink"><a href="../topics/xquery-marklogic-debugger-limitations-x-databases2.html">Peculiarities and Limitations of the MarkLogic Debugger</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xquery-database-debugging.html">XQuery Database Debugging</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-database-debugging.html">XQuery Database Debugging</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-debugging-marklogic-import-modules-x-databases2.html">Using Breakpoints for Debugging Queries that Import Modules with MarkLogic</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="marklogic-development.html#marklogic-development">MarkLogic Development in Oxygen XML Editor</a></li><li class="linklist"><a class="link" href="how-to-marklogic.html#how-to-marklogic">Configuring a MarkLogic Database Connection</a></li></ul></div></nav>
+</article></main></body></html>

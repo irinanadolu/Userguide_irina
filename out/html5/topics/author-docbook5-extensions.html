@@ -1,0 +1,1084 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DocBook 5 document type,Author mode actions,DocBook 5 toolbar actions,DocBook 5 menu actions"><meta name="keywords" content="DocBook 5 document type, Author mode actions, DocBook 5 toolbar actions, DocBook 5 menu actions"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/olink-links.html"><meta name="DC.relation" scheme="URI" content="dg-configuring-actions-menus-toolbar.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-docbook5-extensions"><title>DocBook 5 Author Mode Actions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-docbook5-extensions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DocBook 5 Author Mode Actions</h1>
+  
+  <div class="body">
+    <p class="p">A variety of actions are available for DocBook 5 documents in the
+        <span class="ph uicontrol">DocBook5</span> menu, toolbar, contextual menu, and the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a>.</p>
+    <section class="section" id="author-docbook5-extensions__5-toolbar-actions-section"><h2 class="title sectiontitle">DocBook 5 Toolbar Actions</h2>
+      
+      <p class="p">The following default actions are available on the DocBook toolbar when editing in
+          <span class="ph uicontrol">Author</span> mode (by default, most of them are also available in the
+          <span class="ph uicontrol">DocBook5</span> menu and in various submenus of the contextual menu):</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Bold16.gif">Bold</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with a <dfn class="term">bold</dfn> tag. You can
+            use this action on multiple non-contiguous selections.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Italic16.png">Italic</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with an <dfn class="term">italic</dfn> tag. You
+            can use this action on multiple non-contiguous selections.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Underline16.gif">Underline</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with an <dfn class="term">underline</dfn> tag. You
+            can use this action on multiple non-contiguous selections.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/LinkDrop.png">Link</span> Actions Drop-Down
+            Menu</dt>
+          <dd class="dd">
+            <div class="p">The following link actions are available from this menu:<dl class="dl" id="author-docbook5-extensions__link-dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Cross reference (link)</span></dt>
+                  <dd class="dd">Opens a dialog box that allows you to select a target to insert as a hypertext
+                    link.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Cross reference (xref)</span></dt>
+                  <dd class="dd">Inserts a cross reference to other parts of the document.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Web Link (ulink)</span></dt>
+                  <dd class="dd">Inserts a link that addresses its target with a URL (Universal Resource
+                    Locator).</dd>
+                
+                
+                  <dt class="dt dlterm" id="author-docbook5-extensions__insert-olink-dt"><span class="ph uicontrol">Insert OLink</span></dt>
+                  <dd class="dd">
+                    <p class="p">Opens an <span class="ph uicontrol">OLink</span> dialog box that allows you to insert a
+                      link that addresses its target indirectly, using the values of the
+                        <code class="keyword markupname xmlatt">@targetdoc</code> and <code class="keyword markupname xmlatt">@targetptr</code> attributes that
+                      are present in a <a class="xref" href="author-docbook-targetset-doc-type.html"><span class="ph uicontrol">Targetset</span></a> file.</p>
+                    <div class="p">
+                      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Insert OLink Dialog Box</figcaption>
+                        
+                        <img class="image" src="../reusables/topics/../../img/sa_insert_olink.png">
+                      </figure>
+                    </div>
+                    <p class="p">
+                      
+                    </p>
+                    <p class="p">After you choose the <span class="ph uicontrol">Targetset URL</span>, the structure of
+                      the target documents is presented. For each target document
+                        (<code class="keyword markupname xmlatt">@targetdoc</code>), its content is displayed allowing you to
+                      easily identify the <code class="keyword markupname xmlatt">@targetptr</code> for the
+                        <code class="keyword markupname xmlelement">&lt;olink&gt;</code> element that will be inserted. You can also
+                      use the search fields to quickly identify a target. If you already know the
+                      values for <span class="ph uicontrol">targetdoc</span> and
+                        <span class="ph uicontrol">targetptr</span>, you can insert them directly in the
+                      corresponding fields. You can also edit an <code class="keyword markupname xmlelement">&lt;olink&gt;</code>
+                      using the <span class="ph uicontrol">Edit OLink</span> action that is available on the
+                      contextual menu. The last used <span class="ph uicontrol">Targetset</span> URL will be
+                      used to identify the edited target.</p>
+                    <p class="p">To insert XREF text into the <code class="keyword markupname xmlelement">&lt;olink&gt;</code>, enter the text
+                      in the <span class="ph uicontrol">xreftext</span> field and make sure the
+                        <span class="ph uicontrol">Insert xreftext in the OLink</span> option is selected.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert URI</span></dt>
+                  <dd class="dd">Inserts a URI element. The URI identifies a Uniform Resource Identifier (URI)
+                    in content.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Edit OLink</span></dt>
+                  <dd class="dd">Opens a dialog box that allows you edit an existing <em class="ph i">OLink</em>. See the
+                      <span class="ph uicontrol">Insert OLink</span> action for more information.</dd>
+                
+              </dl></div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Image16.gif">Insert Image</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to select the path of an <a class="xref" href="author_adding_images.html#author_adding_images">image
+              to insert at the cursor position</a>. Depending on the current location, an
+            image-type element is inserted. If the action is invoked between two block elements
+            (such as paragraphs), the dialog box also allows you to provide a title.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertMedia16.png">Insert Media
+              Resource</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="author-adding-media.html#author-adding-media"><span class="ph uicontrol">Choose Media</span> dialog box</a> that allows you to select the
+            URL of a media object to be inserted into a document at the cursor position. The result
+            will be that a reference to the specified video, audio, or embedded HTML frame is
+            inserted and rendered in <span class="ph uicontrol">Author</span> mode so that it can be played
+            directly from there.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/XInclude16.png">Insert XInclude</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to browse and select content to be included and
+            automatically generates the corresponding XInclude instruction.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertSectionDrop.png">Section</span>
+            Drop-Down Menu</dt>
+          <dd class="dd">
+            <p class="p">The following actions are available from this menu:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="author-docbook5-extensions__insert-section"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Section16.gif">Insert
+                    Section</span></dt>
+                  <dd class="dd">Inserts a new section or subsection in the document, depending on the current
+                    context. For example, if the current context is <code class="keyword markupname xmlelement">&lt;sect1&gt;</code>,
+                    then a <code class="keyword markupname xmlelement">&lt;sect2&gt;</code> is inserted. By default, this action also
+                    inserts a <code class="keyword markupname xmlelement">&lt;para&gt;</code> element as a child node. The
+                      <code class="keyword markupname xmlelement">&lt;para&gt;</code> element can be deleted if it is not needed.</dd>
+                
+                
+                  <dt class="dt dlterm" id="author-docbook5-extensions__promote-section"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Promote16.png">Promote Section (<span class="keyword shortcut">Ctrl + Alt
+                    + LeftArrow (Command + Alt + LeftArrow on OS X)</span>)</span></dt>
+                  <dd class="dd">Promotes the current node as a sibling of the parent node.</dd>
+                
+                
+                  <dt class="dt dlterm" id="author-docbook5-extensions__demote-section"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Demote16.png">Demote Section (<span class="keyword shortcut">Ctrl +
+                    Alt + RightArrow (Command + Alt + RightArrow on OS
+                X)</span>)</span></dt>
+                  <dd class="dd">Demotes the current node a child of the previous node.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Paragraph16.png">Insert Paragraph</span></dt>
+          <dd class="dd">Insert a new paragraph element at current cursor position.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Equation16.gif">Insert Equation</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">XML Fragment Editor</span> that allows you to insert and
+              <a class="xref" href="author-editing-mathml.html">edit MathML
+            notations</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ListItem16.gif">Insert List Item</span></dt>
+          <dd class="dd">Inserts a list item in the current list type.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/OrderedList16.png">Insert Ordered
+            List</span></dt>
+          <dd class="dd">Inserts an ordered list at the cursor position. A child list item is also
+            automatically inserted by default. You can also use this action to convert selected
+            paragraphs or other types of lists to an ordered list.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/UnorderedList16.png">Insert Itemized
+              List</span></dt>
+          <dd class="dd">Inserts an itemized list at the cursor position. A child list item is also
+            automatically inserted by default. You can also use this action to convert selected
+            paragraphs or other types of lists to an itemized list.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/VariableList16.gif">Insert Variable
+              List</span></dt>
+          <dd class="dd">Inserts a DocBook variable list. A child list item is also inserted automatically by
+            default. You can also use this action to convert selected paragraphs or other types of
+            lists to a variable list.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ProcedureList16.gif">Insert Procedure
+              List</span></dt>
+          <dd class="dd">Inserts a DocBook <code class="keyword markupname xmlelement">&lt;procedure&gt;</code> element. A
+              <code class="keyword markupname xmlelement">&lt;step&gt;</code> child element is also inserted automatically. You can
+            also use this action to convert selected paragraphs or other types of lists to a
+            procedure list.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Sort16.png">Sort</span></dt>
+          <dd class="dd">Sorts cells or list items in a table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Table16.png">Insert Table</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to configure and insert a table. You can generate a
+            header and footer, set the number of rows and columns of the table and decide how the
+            table is framed. You can also use this action to convert selected paragraphs, lists, and
+            inline content (mixed content, text plus markup, that is rendered inside a <a class="xref" href="../glossary/block-element.html"><dfn class="term">block element</dfn></a>) into a table,
+            with the selected content inserted in the first column, starting from the first row
+            after the header (if a header is inserted).<div class="note note note_note"><span class="note__title">Note:</span> If the selection contains a mixture of
+              elements that cannot be converted, you will receive an error message saying that
+                <strong class="ph b">Only lists, paragraphs, or inline content can be converted to
+            tables</strong>.</div></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableRow16.gif">Insert Row</span></dt>
+          <dd class="dd">Inserts a new table row with empty cells below the current row. This action is
+            available when the cursor is positioned inside a table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteRow16.png">Delete Row(s)</span></dt>
+          <dd class="dd">Deletes the table row located at the cursor position or multiple rows in a
+            selection.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableColumn16.gif">Insert Column</span></dt>
+          <dd class="dd">Inserts a new table column with empty cells after the current column. This action is
+            available when the cursor is positioned inside a table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteColumn16.gif">Delete
+            Column(s)</span></dt>
+          <dd class="dd">Deletes the table column located at the cursor position or multiple columns in a
+            selection.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableProperties16.png">Table
+            Properties</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Table properties</span> dialog box that allows you to
+            configure properties of a table (such as frame borders).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableJoin16.png">Join Cells</span></dt>
+          <dd class="dd">Joins the content of the selected cells (both horizontally and vertically).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableSplitCell16.png">Split Cell</span></dt>
+          <dd class="dd">Splits the cell at the cursor location. If <span class="ph">Oxygen XML Editor</span> detects more than
+            one option to split the cell, a dialog box will be displayed that allows you to select
+            the number of rows or columns to split the cell into.</dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="author-docbook5-extensions__docbook5_menu_actions"><h2 class="title sectiontitle">DocBook5 Contextual Menu Actions</h2>
+      
+      <p class="p">The following actions are available in the contextual menu when editing in
+          <span class="ph uicontrol">Author</span> mode (most of them are also available in the
+          <span class="ph uicontrol">DocBook5</span> menu at the top of the interface):</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ShowFusion18.png">Add File to Review
+              Task</span></dt>
+          <dd class="dd">This action can be used to add the current document to a task in the
+              <span class="ph uicontrol">Content Fusion Tasks Manager</span> view. <strong class="ph b">Oxygen Content Fusion</strong>
+            is a flexible, intuitive collaboration platform designed to adapt to any type of
+            documentation review workflow. This functionality is available through a pre-installed
+              <a class="xref" href="content-fusion-addon.html">connector add-on</a>. To fully
+            take advantage of all of the benefits and features of <strong class="ph b">Content Fusion</strong>, your
+            organization will need an <strong class="ph b">Oxygen Content Fusion Enterprise Server</strong>. For more
+            information, see the <a class="xref" href="https://www.oxygenxml.com/content_fusion/get_started.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Content Fusion</strong> website</a>.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_cm5_sdt_yjb" src="../img/Attribute16.gif">Edit
+                Attributes</span></dt>
+            <dd class="dd">Displays an <a class="xref" href="author-attributes-view.html#author-attributes-view__in-place-attr-editor">in-place attributes editor</a> that allows you to manage the attributes of an
+              element.</dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit Profiling Attributes</span></dt>
+          <dd class="dd">Allows you to change the <a class="xref" href="profiling-conditional-text.html#profiling-conditional-text">profiling attributes</a> defined on all selected elements.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Cut16.png">Cut (<span class="keyword shortcut">Ctrl + X (Command + X on
+                    OS X)</span>)</span></dt>
+            <dd class="dd">Removes the currently selected content from the document and places it in the
+              clipboard.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Copy16.png">Copy (<span class="keyword shortcut">Ctrl + C (Command + C on
+                    OS X)</span>)</span></dt>
+            <dd class="dd">Places a copy of the currently selected content in the clipboard.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Paste16.png">Paste (<span class="keyword shortcut">Ctrl + V (Command + V on
+                    OS X)</span>)</span></dt>
+            <dd class="dd">Inserts the current clipboard content into the document at the cursor position.</dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/PasteSpecialDITA16.png">Paste special</span>
+            submenu</dt>
+          <dd class="dd">
+            <p class="p">This submenu includes the following special paste actions:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Paste As XInclude</span></dt>
+                  <dd class="dd">Allows you to create an <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> element that
+                    references a DocBook element copied from <span class="ph uicontrol">Author</span> mode. The
+                    operation fails if the copied element does not have a declared ID. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Paste as link</span></dt>
+                  <dd class="dd">Allows you to create a <code class="keyword markupname xmlelement">&lt;link&gt;</code> element that references a
+                    DocBook element copied from <span class="ph uicontrol">Author</span> mode. The operation
+                    fails if the copied element does not have a declared ID.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Paste as xref</span></dt>
+                  <dd class="dd">Allows you to create an <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element that references
+                    a DocBook element copied from <span class="ph uicontrol">Author</span> mode. The operation
+                    fails if the copied element does not have a declared ID.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Image Map Editor</span></dt>
+          <dd class="dd">This action is available in the contextual menu when it is invoked on an image. This
+            action applies an <em class="ph i">image map</em> to the current image (if one does not already exist)
+            and opens the <span class="ph uicontrol">Image Map Editor</span> dialog box. This feature allows
+            you to create hyperlinks in specific areas of an image that will link to various
+            destinations.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">This submenu includes the following insert actions that are specific to the DocBook
+                  <dfn class="term">framework</dfn>:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Table16.png">Insert Table</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to configure and insert a table. You can generate a
+            header and footer, set the number of rows and columns of the table and decide how the
+            table is framed. You can also use this action to convert selected paragraphs, lists, and
+            inline content (mixed content, text plus markup, that is rendered inside a <a class="xref" href="../glossary/block-element.html"><dfn class="term">block element</dfn></a>) into a table,
+            with the selected content inserted in the first column, starting from the first row
+            after the header (if a header is inserted).<div class="note note note_note"><span class="note__title">Note:</span> If the selection contains a mixture of
+              elements that cannot be converted, you will receive an error message saying that
+                <strong class="ph b">Only lists, paragraphs, or inline content can be converted to
+            tables</strong>.</div></dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Image16.gif">Insert Image</span></dt>
+          <dd class="dd"><a class="xref" href="author_adding_images.html#author_adding_images">Inserts an image reference</a> at the cursor position. Depending on the current
+            location, an image-type element is inserted.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertMedia16.png">Insert Media
+              Resource</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="author-adding-media.html#author-adding-media"><span class="ph uicontrol">Choose Media</span> dialog box</a> that allows you to select the
+            URL of a media object to be inserted into a document at the cursor position. The result
+            will be that a reference to the specified video, audio, or embedded HTML frame is
+            inserted and rendered in <span class="ph uicontrol">Author</span> mode so that it can be played
+            directly from there.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_f2g_bdt_yjb" src="../img/Equation16.gif">Insert Equation</span></dt>
+                    <dd class="dd">Opens the <span class="ph uicontrol">XML Fragment Editor</span> that allows you to
+                      insert and <a class="xref" href="author-editing-mathml.html">edit MathML
+                        notations</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_g2g_bdt_yjb" src="../img/Paragraph16.png">Insert Paragraph</span></dt>
+                    <dd class="dd">Inserts a new <dfn class="term">paragraph</dfn> element at current cursor
+                      position.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_h2g_bdt_yjb" src="../img/Section16.gif">Insert
+                        Section</span></dt>
+                    <dd class="dd">Inserts a new <dfn class="term">section</dfn> element in the document, depending on the
+                      current context.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/XInclude16.png">Insert XInclude</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to browse and select content to be included and
+            automatically generates the corresponding XInclude instruction.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Insert Entity</span></dt>
+                    <dd class="dd">Allows you to insert a predefined entity or character entity. Surrogate
+                      character entities (range #x10000 to #x10FFFF) are also accepted. Character
+                      entities can be entered in one of the following forms: <ul class="ul" id="author-docbook5-extensions__ul_t3w_twm_ps">
+                        <li class="li">#<em class="ph i">&lt;decimal value&gt;</em> - e.g. #65</li>
+                        <li class="li">&amp;#<em class="ph i">&lt;decimal value&gt;</em> - e.g. &amp;#65</li>
+                        <li class="li">#x<em class="ph i">&lt;hexadecimal value&gt;</em> - e.g. #x41</li>
+                        <li class="li">&amp;#x<em class="ph i">&lt;hexadecimal value&gt;</em> - e.g. &amp;#x41</li>
+                      </ul></dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Style submenu</dt>
+            <dd class="dd">This submenu includes the following text styling actions:<div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Bold16.gif">Bold</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with a <dfn class="term">bold</dfn> tag. You can
+            use this action on multiple non-contiguous selections.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Italic16.png">Italic</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with an <dfn class="term">italic</dfn> tag. You
+            can use this action on multiple non-contiguous selections.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Underline16.gif">Underline</span></dt>
+          <dd class="dd">Emphasizes the selected text by surrounding it with an <dfn class="term">underline</dfn> tag. You
+            can use this action on multiple non-contiguous selections.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Subscript16.png">Subscript</span></dt>
+          <dd class="dd">Surrounds the selected text with a <dfn class="term">subscript</dfn> tag, used for inserting a
+            character (number, letter, or symbol) that will appear slightly below the baseline and
+            slightly smaller than the rest of the text.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Superscript16.png">Superscript</span></dt>
+          <dd class="dd">Surrounds the selected text with a <dfn class="term">superscript</dfn> tag, used for inserting a
+            character (number, letter, or symbol) that will appear slightly above the baseline and
+            slightly smaller than the rest of the text.</dd>
+        
+                </dl>
+              </div></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_u1y_cgt_yjb" src="../img/Section16.gif">Section</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">The following actions are available in this submenu:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Promote16.png">Promote Section (<span class="keyword shortcut">Ctrl + Alt
+                    + LeftArrow (Command + Alt + LeftArrow on OS X)</span>)</span></dt>
+                  <dd class="dd">Promotes the current node as a sibling of the parent node.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Demote16.png">Demote Section (<span class="keyword shortcut">Ctrl +
+                    Alt + RightArrow (Command + Alt + RightArrow on OS
+                X)</span>)</span></dt>
+                  <dd class="dd">Demotes the current node a child of the previous node.</dd>
+                
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_om5_fgt_yjb" src="../img/link.png">Link</span>
+              submenu</dt>
+            <dd class="dd">
+              <p class="p">The following actions are available in this submenu:</p>
+              <div class="p">
+                <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Cross reference (link)</span></dt>
+                  <dd class="dd">Opens a dialog box that allows you to select a target to insert as a hypertext
+                    link.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Cross reference (xref)</span></dt>
+                  <dd class="dd">Inserts a cross reference to other parts of the document.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Web Link (ulink)</span></dt>
+                  <dd class="dd">Inserts a link that addresses its target with a URL (Universal Resource
+                    Locator).</dd>
+                
+                
+                  <dt class="dt dlterm" id="author-docbook5-extensions__d1806e296"><span class="ph uicontrol">Insert OLink</span></dt>
+                  <dd class="dd">
+                    <p class="p">Opens an <span class="ph uicontrol">OLink</span> dialog box that allows you to insert a
+                      link that addresses its target indirectly, using the values of the
+                        <code class="keyword markupname xmlatt">@targetdoc</code> and <code class="keyword markupname xmlatt">@targetptr</code> attributes that
+                      are present in a <a class="xref" href="author-docbook-targetset-doc-type.html"><span class="ph uicontrol">Targetset</span></a> file.</p>
+                    <div class="p">
+                      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Insert OLink Dialog Box</figcaption>
+                        
+                        <img class="image" src="../reusables/topics/../../img/sa_insert_olink.png">
+                      </figure>
+                    </div>
+                    <p class="p">
+                      
+                    </p>
+                    <p class="p">After you choose the <span class="ph uicontrol">Targetset URL</span>, the structure of
+                      the target documents is presented. For each target document
+                        (<code class="keyword markupname xmlatt">@targetdoc</code>), its content is displayed allowing you to
+                      easily identify the <code class="keyword markupname xmlatt">@targetptr</code> for the
+                        <code class="keyword markupname xmlelement">&lt;olink&gt;</code> element that will be inserted. You can also
+                      use the search fields to quickly identify a target. If you already know the
+                      values for <span class="ph uicontrol">targetdoc</span> and
+                        <span class="ph uicontrol">targetptr</span>, you can insert them directly in the
+                      corresponding fields. You can also edit an <code class="keyword markupname xmlelement">&lt;olink&gt;</code>
+                      using the <span class="ph uicontrol">Edit OLink</span> action that is available on the
+                      contextual menu. The last used <span class="ph uicontrol">Targetset</span> URL will be
+                      used to identify the edited target.</p>
+                    <p class="p">To insert XREF text into the <code class="keyword markupname xmlelement">&lt;olink&gt;</code>, enter the text
+                      in the <span class="ph uicontrol">xreftext</span> field and make sure the
+                        <span class="ph uicontrol">Insert xreftext in the OLink</span> option is selected.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert URI</span></dt>
+                  <dd class="dd">Inserts a URI element. The URI identifies a Uniform Resource Identifier (URI)
+                    in content.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Edit OLink</span></dt>
+                  <dd class="dd">Opens a dialog box that allows you edit an existing <em class="ph i">OLink</em>. See the
+                      <span class="ph uicontrol">Insert OLink</span> action for more information.</dd>
+                
+              </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Table</span> actions</dt>
+            <dd class="dd">
+              <p class="p">The following table editing actions are available in the contextual menu when it is
+                invoked on a table:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert Rows</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to insert any number of rows and specify the
+            position where they will be inserted (<span class="ph uicontrol">Above</span> or
+              <span class="ph uicontrol">Below</span> the current row).</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteRow16.png">Delete Row(s)</span></dt>
+          <dd class="dd">Deletes the table row located at the cursor position or multiple rows in a
+            selection.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert Columns</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to insert any number of columns and specify the
+            position where they will be inserted (<span class="ph uicontrol">Above</span> or
+              <span class="ph uicontrol">Below</span> the current column).</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteColumn16.gif">Delete
+            Column(s)</span></dt>
+          <dd class="dd">Deletes the table column located at the cursor position or multiple columns in a
+            selection.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableJoin16.png">Join Cells</span></dt>
+          <dd class="dd">Joins the content of the selected cells (both horizontally and vertically).</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableSplitCell16.png">Split Cell</span></dt>
+          <dd class="dd">Splits the cell at the cursor location. If <span class="ph">Oxygen XML Editor</span> detects more than
+            one option to split the cell, a dialog box will be displayed that allows you to select
+            the number of rows or columns to split the cell into.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Sort16.png">Sort</span></dt>
+          <dd class="dd">Sorts cells or list items in a table.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TableProperties16.png">Table
+            Properties</span></dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Table properties</span> dialog box that allows you to
+            configure properties of a table (such as frame borders).</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Other Actions</span> submenu</dt>
+                    <dd class="dd">This submenu give you access to all the usual contextual menu actions.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate IDs</span></dt>
+          <dd class="dd">
+            <div class="p"><span class="ph">Oxygen XML Editor</span> generates unique IDs for the current element (or elements),
+              depending on how the action is invoked:<ul class="ul">
+                <li class="li">When invoked on a single selection, an ID is generated for the selected element
+                  at the cursor position.</li>
+                <li class="li">When invoked on a block of selected content, IDs are generated for all top-level
+                  elements and elements listed in the <span class="ph uicontrol">ID Options</span> dialog box
+                  that are found in the current selection.</li>
+              </ul><div class="note note note_note" id="author-docbook5-extensions__generate-id-note"><span class="note__title">Note:</span> The <span class="ph uicontrol">Generate IDs</span> action does
+                not overwrite existing ID values. It only affects elements that do not already have
+                an <code class="keyword markupname xmlatt">@id</code> attribute.</div></div>
+          </dd>
+        
+          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Select</span> submenu</dt>
+                  <dd class="dd">
+                    <p class="p">This submenu allows you to select the following:</p>
+                    <div class="p">
+                      <dl class="dl">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Element</span></dt>
+                          <dd class="dd">Selects the entire element at the current cursor position.</dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Content</span></dt>
+                          <dd class="dd">Selects the entire content of the element at the current cursor
+                            position, excluding the start and end tag. Performing this action
+                            repeatedly will result in the selection of the content of the ancestor
+                            of the currently selected element content.</dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Parent</span></dt>
+                          <dd class="dd">Selects the entire parent element at the current cursor position.</dd>
+                        
+                      </dl>
+                    </div>
+                  </dd>
+                
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Text</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">This submenu contains the following actions:</p>
+              <div class="p">
+                <dl class="dl" id="author-docbook5-extensions__ul_ckk_ftc_gd">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">To Lower Case</span></dt>
+                    <dd class="dd">Converts the selected content to lower case characters.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">To Upper Case</span></dt>
+                    <dd class="dd">Converts the selected content to upper case characters.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Capitalize Sentences</span></dt>
+                    <dd class="dd">Converts to upper case the first character of every selected sentence.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Capitalize Words</span></dt>
+                    <dd class="dd">Converts to upper case the first character of every selected word.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Count Words</span></dt>
+                    <dd class="dd">Counts the number of words and characters (no spaces) in the entire document
+                      or in the selection for regular content and read-only content. <div class="note note note_note"><span class="note__title">Note:</span> The
+                        content marked as deleted with <a class="xref" href="../glossary/track-changes.html"><dfn class="term">change tracking</dfn></a> is ignored when counting
+                        words.</div></dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Convert Hexadecimal Sequence to Character (<span class="keyword shortcut">Ctrl + Shift
+                    + X (Command + Shift + X on OS X)</span>)</span></dt>
+          <dd class="dd">
+            <div class="p">Converts a sequence of hexadecimal characters to the corresponding <a class="xref" href="working-with-unicode.html">Unicode character</a>. The action
+              can be invoked if there is a selection containing a valid hexadecimal sequence or if
+              the cursor is placed at the right side of a valid hexadecimal sequence. A valid
+              hexadecimal sequence can be composed of 2 to 4 hexadecimal characters and may or may
+              not be preceded by the <code class="ph codeph">0x</code> or <code class="ph codeph">0X</code> prefix. Examples of
+              valid sequences and the characters they will be converted to:<ul class="ul">
+                <li class="li"><code class="ph codeph">0x0045</code> will be converted to <code class="ph codeph">E</code></li>
+                <li class="li"><code class="ph codeph">0X0125</code> to <code class="ph codeph">ĥ</code></li>
+                <li class="li"><code class="ph codeph">265</code> to <code class="ph codeph">ɥ</code></li>
+                <li class="li"><code class="ph codeph">2190</code> to <code class="ph codeph">←</code><div class="note note note_note"><span class="note__title">Note:</span> For more information about
+                    finding the hexadecimal value of a character, see <a class="xref" href="unicode-toolbar.html#unicode-toolbar__finding_the_decimal_hexidecimal_or_unicode_equiva">Finding the Decimal, Hexadecimal, or Character Entity Equivalent</a>.</div></li>
+              </ul></div>
+          </dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Refactoring</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">Contains a series of actions designed to alter the XML structure of the
+                document:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_n1f_tyj_cs" src="../reusables/topics/../../img/ToggleComment16.png">Toggle
+              Comment</span></dt>
+          <dd class="dd">Encloses the currently selected text in an XML comment, or removes the comment if it
+            is commented.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Move Up (<span class="keyword shortcut">Alt +
+                  UpArrow</span>)</span></dt>
+          <dd class="dd">Moves the current node or selected nodes in front of the previous node.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Move Down (<span class="keyword shortcut">Alt +
+                    DownArrow</span>)</span></dt>
+          <dd class="dd">Moves the current node or selected nodes after the subsequent node.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_gs2_5yj_cs" src="../reusables/topics/../../img/SplitElement16.png">Split
+              Element</span>
+            <span class="ph uicontrol">(<span class="keyword shortcut">Alt + Shift + D
+                    (Ctrl + Alt + D on OS X)</span>)</span></dt>
+          <dd class="dd">Splits the content of the closest element that contains the position of the cursor.
+            Thus, if the cursor is positioned at the beginning or at the end of the element, the
+            newly created sibling will be empty.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_mg3_yyj_cs" src="../reusables/topics/../../img/JoinElements16.png">Join
+              Elements</span></dt>
+          <dd class="dd">Joins two adjacent <a class="xref" href="../glossary/block-element.html"><dfn class="term">block
+              elements</dfn></a> that have the same name. The action is available only when the
+            cursor position is between the two adjacent <dfn class="term">block elements</dfn>. Also, joining
+            two <dfn class="term">block elements</dfn> can be done by pressing the
+                <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span> or
+                <span class="ph uicontrol"><span class="keyword shortcut">Backspace</span></span> keys and the cursor is
+            positioned between the boundaries of these two elements.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SurroundWithTag16.png">Surround with Tags
+                (<span class="keyword shortcut">Ctrl + E (Command + E on
+                    OS X)</span>)</span></dt>
+          <dd class="dd">Allows you to choose a tag to enclose a selected portion of content. If there is no
+            selection, the start and end tags are inserted at the cursor position.<ul class="ul">
+              <li class="li">If the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__position-cursor-between-tags"><span class="ph uicontrol">Position cursor between tags</span> option</a> is selected
+                in the <span class="ph uicontrol">Content Completion</span> preferences page, the cursor is
+                placed between the start and end tag. </li>
+              <li class="li">If the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__position-cursor-between-tags"><span class="ph uicontrol">Position cursor between tags</span> option</a> is not
+                selected in the <span class="ph uicontrol">Content Completion</span> preferences page, the
+                cursor is placed at the end of the start tag, in an insert-attribute position.</li>
+            </ul></dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SurroundWithTag16.png">Surround with '[tag]'
+                (<span class="keyword shortcut">Ctrl +
+                    ForwardSlash (Command + ForwardSlash on OS X)</span>)</span></dt>
+          <dd class="dd">Surround the selected content with the last tag used.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_z52_xxz_tr" src="../reusables/topics/../../img/RenameElement16.png">Rename
+              Element</span></dt>
+          <dd class="dd">The element from the cursor position, and any elements with the same name, can be
+            renamed according with the options from the <span class="ph uicontrol">Rename</span> dialog
+            box.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_j1z_bzj_cs" src="../reusables/topics/../../img/DeleteElementTags16.png">Delete Element Tags</span></dt>
+          <dd class="dd">Deletes the tags of the closest element that contains the position of the cursor. This
+            operation is also executed if the start or end tags of an element are deleted by
+            pressing the <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span> or
+                <span class="ph uicontrol"><span class="keyword shortcut">Backspace</span></span> keys.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_wyw_fzj_cs" src="../reusables/topics/../../img/RemoveMarkup16.gif">Remove
+              All Markup</span></dt>
+          <dd class="dd">Removes all the XML markup inside the selected block of content and keeps only the
+            text content. </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_fjc_gzj_cs" src="../reusables/topics/../../img/RemoveText16.gif">Remove
+              Text</span></dt>
+          <dd class="dd">Removes the text content of the selected block of content and keeps the markup intact
+            with empty elements.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Attributes</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to attributes with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Add/Change attribute</span></dt>
+                  <dd class="dd">Allows you to change the value of an attribute or insert a new one.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert attribute to element</span></dt>
+                  <dd class="dd">Allows you to change an attribute into an element.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete attribute</span></dt>
+                  <dd class="dd">Allows you to remove one or more attributes.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename attribute</span></dt>
+                  <dd class="dd">Allows you to rename an attribute.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace in attribute value</span></dt>
+                  <dd class="dd">Allows you to search for a text fragment inside an attribute value and change
+                    the fragment to a new value.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Comments</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to comments with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete comments</span></dt>
+                  <dd class="dd">Allows you to delete comments found inside one or more elements.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Elements</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to elements with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete element</span></dt>
+                  <dd class="dd">Allows you to delete elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete element content</span></dt>
+                  <dd class="dd">Allows you to delete the content of elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert element</span></dt>
+                  <dd class="dd">Allows you to insert new elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename element</span></dt>
+                  <dd class="dd">Allows you to rename elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Unwrap element</span></dt>
+                  <dd class="dd">Allows you to remove the surrounding tags of elements, while keeping the
+                    content unchanged.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Wrap element</span></dt>
+                  <dd class="dd">Allows you to surround elements with element tags.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Wrap element content</span></dt>
+                  <dd class="dd">Allows you to surround the content of elements with element tags.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Fragments</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to XML fragments with some
+              of the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert XML fragment</span></dt>
+                  <dd class="dd">Allows you to insert an XML fragment.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace element content with XML fragment</span></dt>
+                  <dd class="dd">Allows you to replace the content of elements with an XML fragment.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace element with XML fragment</span></dt>
+                  <dd class="dd">Allows you to replace elements with an XML fragment.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Review</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">This submenu includes the following actions:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_c31_qfk_cs" src="../img/TrackChangesDeactivated16.png">Track Changes</span></dt>
+                    <dd class="dd">Enables or disables the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Track
+                          Changes</dfn></a> support for the current document.</dd>
+                  
+                  
+                    <dt class="dt dlterm" id="author-docbook5-extensions__accept-changes-dlentry"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_hkc_4lt_yjb" src="../img/AcceptChange16.png">Accept Change(s) and Move to Next</span></dt>
+                    <dd class="dd"><span class="ph">Accepts the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+        located at the cursor position or all of the changes in a selection and then moves to the
+        next change. If you select a part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the
+        selected content is accepted.</span></dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_ikc_4lt_yjb" src="../img/AcceptAll16.png">Accept All Changes</span></dt>
+                    <dd class="dd"><span class="ph">Accepts all <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a> in the current
+        document.</span></dd>
+                  
+                  
+                    <dt class="dt dlterm" id="author-docbook5-extensions__reject-changes-dlentry"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_jkc_4lt_yjb" src="../img/RejectChange16.png">Reject Change(s) and Move to Next</span></dt>
+                    <dd class="dd"><span class="ph">Rejects the <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>
+        located at the cursor position or all of the changes in a selection and then moves to the
+        next change. If you select a part of a <em class="ph i">deletion</em> or <em class="ph i">insertion</em> change, only the
+        selected content is rejected.</span></dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_kkc_4lt_yjb" src="../img/RejectAll16.png">Reject All Changes</span></dt>
+                    <dd class="dd"><span class="ph">Rejects all <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Changes</dfn></a> in the current
+        document.</span></dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentChange16.png">Comment
+              Change</span></dt>
+          <dd class="dd">Opens a dialog box that allows you to add a comment to an existing <a class="xref" href="../glossary/track-changes.html"><dfn class="term">Tracked Change</dfn></a>. The comment will
+            appear in a callout and a tooltip when hovering over the change. If the action is
+            selected on an existing commented change, the dialog box will allow you to edit the
+            comment.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_mjd_phk_cs" src="../img/HighlightAll16.png">Highlight</span></dt>
+                    <dd class="dd">Enables the highlighting tool that allows you to mark text in your
+                      document.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Colors</span></dt>
+                    <dd class="dd">Allows you to select the color for highlighting text.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Stop highlighting</span></dt>
+                    <dd class="dd">Use this action to deactivate the highlighting tool. </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Remove highlight(s)</span></dt>
+                    <dd class="dd">Use this action to remove highlighting from the document.</dd>
+                  
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AddComment16.png">Add
+              Comment</span></dt>
+          <dd class="dd">Inserts a comment at the cursor position. The comment appears in a callout box and a
+            tooltip (when hovering over the change).</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/EditComment16.png">Show/Edit
+              Comment</span></dt>
+          <dd class="dd">Opens a dialog box that displays the discussion thread and allows the current user to
+            edit comments that do not have replies. If you are not the author who inserted the
+            original comment, the dialog box just displays the comment without the possibility of
+            editing it.</dd>
+        
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/RemoveComment16.png">Remove
+              Comment</span></dt>
+          <dd class="dd">Removes a selected comment. If you remove a comment that contains replies, all of the
+            replies will also be removed.</dd>
+        
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_rvf_4hk_cs" src="../img/ManageReviews16.png">Manage Reviews</span></dt>
+                    <dd class="dd">Opens the <a class="xref" href="review-view.html#review-view"><span class="ph uicontrol">Review</span> view</a>.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Folding</span> submenu</dt>
+            <dd class="dd">
+              <p class="p">This submenu includes the following actions:</p>
+              <div class="p">
+                <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ToggleFold16.png">Toggle Fold</span></dt>
+          <dd class="dd">Toggles the state of the current fold.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CloseOtherFolds16.png">Collapse Other
+              Folds</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="author-docbook5-extensions__ctrl_numpad_slash_shortcut">Ctrl + NumPad/ (Command + NumPad/ on OS X)</span></span>)</dt>
+          <dd class="dd">Folds all the elements except the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CollapseChildFolds16.png">Collapse Child
+              Folds</span>
+            <span class="ph">(<span class="ph uicontrol"><span class="keyword shortcut" id="author-docbook5-extensions__ctrl_numpad_._shortcut">Ctrl +
+                    NumPad. (Command + NumPad. on OS X)</span></span>)</span></dt>
+          <dd class="dd">Folds the elements indented with one level inside the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ExpandChildFolds16.png">Expand Child
+              Folds</span>
+            </dt>
+          <dd class="dd">Unfolds all child elements of the currently selected element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ExpandAll16.png">Expand
+              All</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="author-docbook5-extensions__ctrl_numpad_asterisk_shortcut">Ctrl + NumPad* (Command + NumPad* on OS
+                    X)</span></span>)</dt>
+          <dd class="dd">Unfolds all elements in the current document.</dd>
+        
+      </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">About Element</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_nl4_tlt_yjb" src="../img/ShowDefinition16.png">Go to
+                  Definition</span></span></dt>
+            <dd class="dd">
+              <p class="p">Moves the cursor to the definition of the current element.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Inspect Styles</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="author-css-inspector-view.html"><span class="ph uicontrol">CSS
+                  Inspector</span> view</a> that allows you to examine the CSS rules that
+              match the currently selected element. </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Options</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="preferences-author.html">Author mode preferences
+                page</a> where you can configure various options with regard to the
+                <span class="ph uicontrol">Author</span> editing mode.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="author-docbook5-extensions__section_ycw_nhy_smb"><h2 class="title sectiontitle">Floating Contextual Toolbar for DocBook</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes a dynamic feature where certain editing contexts will
+        trigger a floating toolbar with common actions that are available in the current editing
+        context.</p>
+      <div class="p">
+        <figure class="fig fignone" id="author-docbook5-extensions__fig_tlx_mwx_smb2"><figcaption><span class="fig--title-label">Figure 3. </span>DocBook Floating Contextual Toolbar</figcaption>
+          
+          <img class="image" id="author-docbook5-extensions__image_s3s_4wx_smb" src="../reusables/topics/../../img/Docbook-floating-toolbar.png">
+        </figure>
+      </div>
+      <div class="p">The <dfn class="term">floating contextual toolbar</dfn> is automatically displayed when editing
+        DocBook documents in the following situations:<ul class="ul" id="author-docbook5-extensions__ul_oq2_twx_smb">
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;para&gt;</code> or <code class="keyword markupname xmlelement">&lt;listitem&gt;</code> element has
+            a selection inside, the floating toolbar includes actions such as <span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_ss1_fxx_smb" src="../reusables/topics/../../img/Bold16.gif">Bold</span>, <span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_zq2_lxx_smb" src="../reusables/topics/../../img/Italic16.png">Italic</span>,
+                <span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_dtv_lxx_smb" src="../reusables/topics/../../img/Underline16.gif">Underline</span>, <span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_u3y_sfy_smb" src="../reusables/topics/../../img/Subscript16.png">Subscript</span>, and <span class="ph uicontrol"><img class="image" id="author-docbook5-extensions__image_kfr_tfy_smb" src="../reusables/topics/../../img/Superscript16.png">Superscript</span>.</li>
+          <li class="li">When an <code class="keyword markupname xmlelement">&lt;imagedata&gt;</code> or <code class="keyword markupname xmlelement">&lt;videodata&gt;</code>
+            element is selected, the floating toolbar includes a URL chooser where you can select
+            the appropriate target.</li>
+          <li class="li">When an <code class="keyword markupname xmlelement">&lt;olink&gt;</code> element is selected, the floating toolbar
+            includes an <span class="ph uicontrol">Edit OLink</span> action.</li>
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;link&gt;</code> or <code class="keyword markupname xmlelement">&lt;include&gt;</code> element is
+            selected, the floating toolbar includes a URL chooser where you can select the
+            appropriate target.</li>
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;programlisting&gt;</code> element is selected, the floating
+            toolbar includes a drop-down control where you can select the value of the
+              <code class="keyword markupname xmlatt">@language</code> attribute.</li>
+          <li class="li">When an <code class="keyword markupname xmlelement">&lt;itemizedlist&gt;</code>, <code class="keyword markupname xmlelement">&lt;orderdlist&gt;</code>,
+              <code class="keyword markupname xmlelement">&lt;variablelist&gt;</code>, or <code class="keyword markupname xmlelement">&lt;procedure&gt;</code> element
+            is selected, the floating toolbar includes actions for converting it to a different type
+            of list or sorting the list.</li>
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;listitem&gt;</code>, <code class="keyword markupname xmlelement">&lt;varlistentry&gt;</code>, or
+              <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is selected, the floating toolbar includes
+            actions for moving the item up or down in the list/procedure.</li>
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;row&gt;</code> or <code class="keyword markupname xmlelement">&lt;tr&gt;</code> element is selected
+            in a table, the floating toolbar includes various table-related actions (such as actions
+            for editing table properties, inserting rows, or deleting rows).</li>
+          <li class="li">When an <code class="keyword markupname xmlelement">&lt;entry&gt;</code> or <code class="keyword markupname xmlelement">&lt;td&gt;</code> element is
+            selected in a table, the floating toolbar includes various table-related actions (such
+            as actions for editing table properties, inserting/deleting rows, or inserting/deleting
+            columns).</li>
+          <li class="li">When a <code class="keyword markupname xmlelement">&lt;table&gt;</code> element is selected, the floating toolbar
+            includes actions for editing table properties or sorting the table.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="author-docbook5-extensions__docbook_5_dragdrop_actions"><h2 class="title sectiontitle">DocBook 5 Drag/Drop (or Copy/Paste) Actions</h2>
+      
+      <p class="p" id="author-docbook5-extensions__drag-and-drop-from-project-to-author-docbook4">Dragging a file from the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and dropping it
+        into a DocBook 5 document that is edited in <span class="ph uicontrol">Author</span> mode, creates a
+        link to the dragged file (the <code class="keyword markupname xmlelement">&lt;link&gt;</code> DocBook element) at the drop
+        location. Copy and paste actions work the same.</p>
+      <p class="p">You can also drag images or media files from your system explorer or the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and drop them
+        into a DocBook 5 document (or copy and paste). This will insert the appropriate element at
+        the drop or paste location (for example, dropping/pasting an image will insert the
+          <code class="keyword markupname xmlelement">&lt;imageobject&gt;</code> DocBook element with an <code class="keyword markupname xmlelement">&lt;imagedata&gt;</code> child
+        element and a <code class="keyword markupname xmlatt">@fileref</code> attribute).</p>
+    </section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> For information about customizing
+        <span class="ph uicontrol">Author</span> mode actions for a particular <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type), see the <a class="xref" href="dg-configuring-actions-menus-toolbar.html">Customizing the Editing Experience for a Framework</a> section.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-docbook5-doc-type.html" title="An enhanced (version 5) document type standard designed for a variety of documents (particularly technical documentation)">DocBook 5 Document Type (Framework)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-docbook5-doc-type.html" title="An enhanced (version 5) document type standard designed for a variety of documents (particularly technical documentation)">DocBook 5 Document Type (Framework)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/olink-links.html">Inserting an Olink in DocBook Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-configuring-actions-menus-toolbar.html">Customizing the Editing Experience for a Framework</a></li></ul></div></nav>
+</article></main></body></html>

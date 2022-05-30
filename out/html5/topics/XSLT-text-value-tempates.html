@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Text Value Templates"><meta name="keywords" content="XSLT, Text Value Templates"><meta name="DC.relation" scheme="URI" content="../topics/editing-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/XSLT-Stylesheet-documentation-support.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-refactoring-actions.html"><meta name="DC.relation" scheme="URI" content="content-completion-xpath-expressions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="XSLT-text-value-tempates"><title>XSLT 3.0 Text Value Templates</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="XSLT-text-value-tempates"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT 3.0 Text Value Templates</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> offers built-in support for <a class="xref" href="https://www.w3.org/TR/xslt-30/#text-value-templates" target="_blank" rel="external noopener">XSLT 3.0 <dfn class="term">Text Value Templates</dfn></a>, including content completion to present
+      the variables, functions, and parameters from the current context and syntax highlighting.</p>
+    <div class="p">A text node in the stylesheet is treated as a <dfn class="term">text value template</dfn> if the
+      following things are true:<ul class="ul">
+        <li class="li">It is part of a <a class="xref" href="https://www.w3.org/TR/xslt-30/#dt-sequence-constructor" target="_blank" rel="external noopener">sequence constructor</a> or a child of an <a class="xref" href="https://www.w3.org/TR/xslt-30/#element-text" target="_blank" rel="external noopener"><code class="keyword markupname xmlelement">&lt;xsl:text&gt;</code> instruction</a>.</li>
+        <li class="li">There is an ancestor element with an <code class="keyword markupname xmlatt">@[xsl:]expand-text</code> attribute and on
+          the innermost ancestor element that has such an attribute, the value of the attribute is
+            <code class="ph codeph">yes</code>.</li>
+      </ul></div>
+    <div class="p"><u class="ph u"><strong class="ph b">Example:</strong></u><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+<span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+<span class="hl-attribute">expand-text</span>=<span class="hl-value">"yes"</span>
+<span class="hl-attribute">version</span>=<span class="hl-value">"3.0"</span><strong class="hl-xsl">&gt;</strong>
+
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"seq"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string*"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"'c', 'a', 'b', 'z'"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"main"</span><strong class="hl-xsl">&gt;</strong>
+    {sort($seq)}
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></div>
+    <p class="p">For more information, see: <a class="xref" href="https://www.w3.org/TR/xslt-30/#text-value-templates" target="_blank" rel="external noopener">W3C XSLT Specifications: Text Value Templates</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xslt-stylesheets.html">Editing XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/XSLT-Stylesheet-documentation-support.html">XSLT Stylesheet Component Documentation Support</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-refactoring-actions.html">XSLT Refactoring Actions</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="content-completion-xpath-expressions.html">Content Completion in XPath Expressions</a></li></ul></div></nav>
+</article></main></body></html>

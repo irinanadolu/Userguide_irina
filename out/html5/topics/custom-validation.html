@@ -1,0 +1,71 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Validation,Custom validators,Validating XML Documents,Custom validators"><meta name="keywords" content="XML documents, Validation, Custom validators, Validating XML Documents, Custom validators"><meta name="DC.relation" scheme="URI" content="../topics/validating-XML-documents-against-schema.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing-assert-error-messages.html"><meta name="DC.relation" scheme="URI" content="../topics/linked-output-messages-of-external-engine.html"><meta name="DC.relation" scheme="URI" content="../topics/linked-output-messages-of-external-engine.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon_extension_functions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom-validation"><title>Custom Validators</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom-validation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Validators</h1>
+  
+  <div class="body">
+    <p class="p">If you need to validate the edited document with a validation engine that is different from
+      the built-in engine, you can configure external validators in the <a class="xref" href="preferences-editor-custom-validation.html#preferences-editor-custom-validation">Custom
+        Validation Engines preferences page</a>. After a custom validation engine is <a class="xref" href="preferences-editor-custom-validation.html">properly configured</a>, it can be
+      applied on the current document by selecting it from the list of custom validation engines in
+      the <span class="ph uicontrol"><img class="image" id="custom-validation__image_bwv_p1w_sr" src="../img/ValidateDrop.png">Validation</span> toolbar drop-down menu. The document is validated against the
+      schema declared in the document. </p>
+    <p class="p">Some validators are configured by default but there are third-party processors that do not
+      support the <a class="xref" href="linked-output-messages-of-external-engine.html#linked-output-messages-of-external-engine">output message format</a> of <span class="ph">Oxygen XML Editor</span> for linked
+      messages:</p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">Saxon-EE</strong> - Included in <span class="ph">Oxygen XML Editor</span>. It is associated to XML Editor and
+        XSD Editor. It is able to validate XML Schema schemas and XML documents against XML Schema
+        schemas. The validation is done according to the W3C XML Schema 1.0 or 1.1. This can be
+          <a class="xref" href="xml-schema-preferences-page.html">configured in Preferences</a>.</li>
+      <li class="li"><strong class="ph b">MSXML 4.0 (Deprecated)</strong> - Included in <span class="ph">Oxygen XML Editor</span> (Windows edition only).
+        It is associated to XML Editor, XSD Editor and XSL Editor. It is able to validate the edited
+        document against XML Schema, internal DTD (included in the XML document), external DTD or a
+        custom schema type.</li>
+      <li class="li"><strong class="ph b">MSXML.NET (Deprecated)</strong> - Included in <span class="ph">Oxygen XML Editor</span> (Windows edition only).
+        It is associated to XML Editor, XSD Editor and XSL Editor. It is able to validate the edited
+        document against XML Schema, internal DTD (included in the XML document), external DTD or a
+        custom schema type.</li>
+      <li class="li">
+        <p class="p"><strong class="ph b">LIBXML</strong> - Not included in <span class="ph">Oxygen XML Editor</span> and, depending on your operating
+          system, the libraries need to be downloaded and installed separately from <a class="xref" href="http://xmlsoft.org/downloads.html" target="_blank" rel="external noopener">http://xmlsoft.org/downloads.html</a>. Afterward,
+          the <code class="ph codeph">PATH</code> environment variable needs to be updated to contain the parent
+          folder of the <span class="ph filepath">xmllint</span> executable. Alternatively, you can go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Custom Validation Engines</span></span>, edit the <strong class="ph b">LIBXML</strong> validation engine and set a custom path to the
+            <span class="ph filepath">xmllint</span> executable.</p>
+        <p class="p">The LIBXML validator is associated with the XML Editor. It is able to validate the edited
+          document against XML Schema, Relax NG schema full syntax, internal DTD (included in the
+          XML document) or a custom schema type. Support for <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalogs</dfn></a> (the <code class="ph codeph">--catalogs</code> parameter) and
+          XInclude processing (<code class="ph codeph">--xinclude</code>) are enabled by default in the
+          preconfigured LIBXML validator. The <code class="ph codeph">--postvalid</code> parameter is also set by
+          default and it allows LIBXML to validate correctly the main document even if the XInclude
+          fragments contain IDREFS to ID's located in other fragments.</p>
+        <div class="p">For validation against an external DTD specified by URI in the XML document, add the
+            <code class="ph codeph">--dtdvalid ${ds}</code> parameter manually to the DTD validation command line.
+            <code class="ph codeph">${ds}</code> represents the detected DTD declaration in the XML document.<div class="note caution note_caution"><span class="note__title">CAUTION:</span> File paths containing spaces are not handled correctly in the LIBXML
+            processor. For example, the built-in <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML
+                Catalog</dfn></a> files of the built-in document types (DocBook, TEI, DITA,
+            etc.) are not handled by LIBXML if <span class="ph">Oxygen XML Editor</span> is installed in the default
+            location on Windows (<span class="ph filepath">C:\Program Files</span>) because the built-in
+              <dfn class="term">XML catalog</dfn> files are stored in the <span class="ph filepath">frameworks</span>
+            subfolder of the installation folder and in this case, the file path contains at least
+            one space character.</div><div class="note attention note_attention"><span class="note__title">Attention:</span> On OS X, if the full path to the
+            LIBXML executable file is not specified in the <span class="ph uicontrol">Executable path</span>
+            text field, some errors may occur during validation against a W3C XML Schema, such
+              as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Unimplemented block at ... xmlschema.c</pre><p class="p">To
+              avoid these errors, specify the full path to the LIBXML executable
+          file.</p></div></div>
+      </li>
+      <li class="li"><strong class="ph b">XSV (Deprecated)</strong> - Not included in <span class="ph">Oxygen XML Editor</span>. Windows and Linux
+        distributions of XSV can be downloaded from <a class="xref" href="http://www.cogsci.ed.ac.uk/%7Eht/xsv-status.html" target="_blank" rel="external noopener">http://www.cogsci.ed.ac.uk/~ht/xsv-status.html</a>. The executable path is <a class="xref" href="preferences-editor-custom-validation.html">already configured in <span class="ph">Oxygen XML Editor</span></a> for the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/xsv</span> installation folder.
+        If it is installed in a different folder, the predefined executable path must be <a class="xref" href="preferences-editor-custom-validation.html">corrected in Preferences.</a> It is
+        associated to XML Editor and XSD Editor. It is able to validate the edited document against
+        XML Schema or a custom schema type.</li>
+      <li class="li"><strong class="ph b">SQC (Schema Quality Checker from IBM) - Deprecated</strong> - Not included in <span class="ph">Oxygen XML Editor</span>. It can be downloaded <a class="xref" href="http://www.alphaworks.ibm.com/tech/xmlsqc/download" target="_blank" rel="external noopener">from here</a> (it comes as a .zip file, at the time of this writing SQC2.2.1.zip is
+        about 3 megabytes). The executable path and working directory are already configured for the
+        SQC installation directory <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/sqc</span>. If it is installed in a different folder, the predefined executable
+        path and working directory must be <a class="xref" href="preferences-editor-custom-validation.html">corrected in the Preferences page.</a> It is associated to XSD Editor.</li>
+    </ul>
+    <p class="p">A custom validator cannot be applied on files loaded
+      through an <a class="xref" href="custom-protocol-plugin.html#custom-protocol-plugin" title="This type of plugin allows you to work with a custom designed protocol for retrieving and storing files."><span class="ph">Oxygen XML Editor</span> custom protocol plugin</a> developed independently and added to <span class="ph">Oxygen XML Editor</span> after installation.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/linked-output-messages-of-external-engine.html">Linked Output Messages of an External Engine</a><br></li><li class="link olchildlink"><a href="../topics/saxon_extension_functions.html">Using Saxon Integrated Extension Functions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validating-XML-documents-against-schema.html">Validating XML Documents Against a Schema</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/customizing-assert-error-messages.html">Customizing Assert Error Messages</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/linked-output-messages-of-external-engine.html">Linked Output Messages of an External Engine</a></div></div></nav></article></main></body></html>

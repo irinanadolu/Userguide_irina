@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Content Completion annotations,Annotation preferences"><meta name="keywords" content="Preferences, Content Completion annotations, Annotation preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-json.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-code-templates.html"><meta name="DC.relation" scheme="URI" content="content-completion-schema-annotations.html#content-completion-schema-annotations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-content-completion-annotations"><title>Annotations Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-content-completion-annotations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Annotations Preferences</h1>
+  
+  <div class="body">
+    <p class="p">Certain types of schemas (XML Schema, DTDs, Relax NG) can include annotations that document
+      the various elements and attributes that they define. <span class="ph">Oxygen XML Editor</span> can display these
+      annotations when offering content completion suggestions. To configure the
+        <span class="ph uicontrol">Annotations</span> preferences, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Content Completion</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Annotations</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="preferences-content-completion-annotations__show_annotations_in_cc">Show annotations in Content Completion
+              Assistant</span></dt>
+          <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> displays the schema annotations of an element,
+            attribute, or attribute value currently selected in the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                Assistant</dfn></a> proposals list.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show annotations in tooltip</span></dt>
+          <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> displays the annotation of elements and attributes
+            as a tooltip when you hover over them with the cursor in the editing area or in the
+              <a class="xref" href="text-elements-view.html#text-elements-view"><span class="ph uicontrol">Elements</span> view</a>. If not selected, tooltips are disabled
+            in all modes.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="preferences-content-completion-annotations__show-annotations-html-dlentry">Show annotation in HTML format, if
+              possible</span></dt>
+          <dd class="dd">This option allows you to view the annotations associated with an element or attribute
+            in HTML format. It is available when editing XML documents that have associated an XML
+            Schema or Relax NG schema. If this option is not selected, the annotations are converted
+            and displayed as plain text.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="preferences-content-completion-annotations__prefer-dtd-comments-dlentry">Prefer DTD comments that start with "doc:"
+              as annotations</span></dt>
+          <dd class="dd">
+            <p class="p">To address the lack of dedicated annotation support in DTD documents, <span class="ph">Oxygen XML Editor</span> recommends prefixing with the <code class="ph codeph">doc:</code> particle all
+              comments intended to be shown to the developer who writes an XML validated against a
+              DTD schema.</p>
+            <div class="p">If this option is selected, <span class="ph">Oxygen XML Editor</span> uses the following mechanism to
+              collect annotations:<ul class="ul" id="preferences-content-completion-annotations__ul_bvd_wjc_ss">
+                <li class="li">If at least one <code class="ph codeph">doc:</code> comment is found in the entire DTD, only
+                  comments of this type are displayed as annotations.</li>
+                <li class="li">If no <code class="ph codeph">doc:</code> comment is found in the entire DTD, all comments are
+                  considered annotations and displayed as such.</li>
+              </ul></div>
+            <p class="p">If not selected, all comments, regardless of their type, are considered annotations
+              and displayed as such.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol" id="preferences-content-completion-annotations__use_relax_ng_annotations">Use all Relax NG annotations as
+              documentation</span></dt>
+          <dd class="dd">If selected, any element outside the Relax NG namespace, that is
+              <code class="ph codeph">http://relaxng.org/ns/structure/1.0</code>, is considered annotation and is
+            displayed in the annotation window next to the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                Assistant</dfn></a> window and in the <a class="xref" href="model-panel.html#model-panel"><span class="ph uicontrol">Model</span> view</a>. When this option is not selected, only
+            elements from the Relax NG annotations namespace, that is
+              <code class="ph codeph">http://relaxng.org/ns/compatibility/annotations/1.0</code> are considered
+            annotations.</dd>
+        
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-content-completion.html">Content Completion Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-content-completion-json.html">JSON Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor-code-templates.html">Code Templates Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="content-completion-schema-annotations.html#content-completion-schema-annotations">Schema Annotations in Text Mode</a></li></ul></div></nav>
+</article></main></body></html>

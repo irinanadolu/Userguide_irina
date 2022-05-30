@@ -1,0 +1,264 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="description" content="The examples in this section demonstrate how to use XSLT extension points from an Oxygen Publishing Template."><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="pdf-xslt-extensions-pub-template"><title>How to Use XSLT Extension Points for PDF Output from a Publishing Template</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="pdf-xslt-extensions-pub-template">
+	<h1 class="title topictitle1" id="ariaid-title1">How to Use XSLT Extension Points for PDF Output from a Publishing Template</h1>
+	<p class="shortdesc">The examples in this section demonstrate how to use XSLT extension points from an
+      <dfn class="term">Oxygen Publishing Template</dfn>.</p>
+	
+	
+	
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions-plugin.html" title="The examples in this section demonstrate how to use XSLT extension points from a DITA-OT plugin.">How to Use XSLT Extension Points for PDF Output from a DITA-OT Plugin</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="pdf-xslt-extensions-pub-template_use_case_1_styling_codeblocks_with_a_zebra_effect">
+	<h2 class="title topictitle2" id="ariaid-title2">How to Style Codeblocks with a Zebra Effect</h2>
+	<div class="body">
+		<p class="p">Suppose you want your <em class="ph i">codeblocks</em> to have a particular background color for one line,
+			and another color for the next line. One advantage of this coloring technique is that you can
+			clearly see when text from the <em class="ph i">codeblock</em> is wrapped.</p>
+		<p class="p">This effect can be done by altering the HTML5 output, creating a <code class="ph codeph">div</code> for
+			each line from the code block, then styling them.</p>
+		<p class="p">To add this functionality using an <em class="ph i">Oxygen Publishing Template</em>, follow these steps:</p>
+		<ol class="ol">
+      <li class="li">
+        <p class="p">If you have not already created a Publishing Template, you need to create one. For
+          details, see <a class="xref" href="whr-create-publishing-template.html">How to Create a Publishing Template</a>.</p>
+      </li>
+      <li class="li">Link the folder associated with the publishing template to your current
+        project in the <span class="ph uicontrol">Project</span> view.</li>
+      <li class="li">Using the <span class="ph uicontrol">Project</span> view, create an <span class="ph filepath">xslt</span> folder inside the project
+        root folder.</li>
+			<li class="li">In this folder, create an XSL file (for example, named
+          <span class="ph filepath">merged2html5Extension.xsl</span>) with the following
+        content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+   
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' pr-d/codeblock ')]"</span><strong class="hl-xsl">&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">'zebra'</span><strong class="hl-tag">&gt;</strong>       
+          <strong class="hl-xsl">&lt;xsl:analyze-string</strong> <span class="hl-attribute">regex</span>=<span class="hl-value">"\n"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:matching-substring/&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:non-matching-substring&gt;</strong>
+               <strong class="hl-tag">&lt;div&gt;</strong><strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">/&gt;</strong><strong class="hl-tag">&lt;/div&gt;</strong>
+            <strong class="hl-xsl">&lt;/xsl:non-matching-substring&gt;</strong>
+          <strong class="hl-xsl">&lt;/xsl:analyze-string&gt;</strong>
+       <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+			<li class="li">Open the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf"><em class="ph i">template descriptor file</em></a> associated with your <em class="ph i">publishing template</em>
+        (the <span class="ph filepath">.opt</span> file) and set the XSLT stylesheet created in the previous
+        step with the <code class="ph codeph">com.oxygenxml.pdf.css.xsl.merged2html5</code> XSLT extension
+        point:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2html5"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2html5Extension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></li>
+			<li class="li">Create a <span class="ph filepath">css</span> folder in the publishing template directory. In this
+        directory, save a custom CSS file with rules that style the <em class="ph i">codeblock</em> structure. For
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">div.zebra {
+  <strong class="hl-keyword">font-family</strong>:courier, fixed, monospace;        
+  <strong class="hl-keyword">white-space</strong>:pre-wrap;
+}
+
+div.zebra &gt; *:nth-of-type(odd){        
+  <strong class="hl-keyword">background-color</strong>: silver;
+}     </pre></li>
+			<li class="li">Open the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf"><em class="ph i">template descriptor file</em></a> associated with your <em class="ph i">publishing template</em>
+        (the <span class="ph filepath">.opt</span> file) and reference your custom CSS file in the
+          <code class="ph codeph">resources</code>
+        element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+      ...                
+      <strong class="hl-tag">&lt;resources&gt;</strong>            
+          <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"css/custom.css"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/resources&gt;</strong> </pre></li>
+      <li class="li">Edit the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation
+        scenario. </li>
+      <li class="li">In the <span class="ph uicontrol">Templates</span> tab, click the <span class="ph uicontrol">Choose
+          Custom Publishing Template</span> link and select your template. </li>
+      <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes and run the transformation
+        scenario. </li>
+		</ol>
+	</div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="pdf-xslt-extensions-pub-template_use_case_2_removing_the_related_links_section">
+	<h2 class="title topictitle2" id="ariaid-title3">How to Remove the Related Links Section</h2>
+	<div class="body">
+		<p class="p">Suppose that you want the <em class="ph i">related links</em> sections to be removed from the PDF output.</p>
+		<div class="p">To add this functionality using an <em class="ph i">Oxygen Publishing Template</em>, follow these steps:<ol class="ol">
+        <li class="li">
+        <p class="p">If you have not already created a Publishing Template, you need to create one. For
+          details, see <a class="xref" href="whr-create-publishing-template.html">How to Create a Publishing Template</a>.</p>
+      </li>
+        <li class="li">Link the folder associated with the publishing template to your current
+        project in the <span class="ph uicontrol">Project</span> view.</li>
+        <li class="li">Using the <span class="ph uicontrol">Project</span> view, create an <span class="ph filepath">xslt</span> folder inside the project
+        root folder.</li>
+        <li class="li">In this folder, create an XSL file (for example, named
+            <span class="ph filepath">merged2mergedExtension.xsl</span>) with the following
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+	
+   <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' topic/related-links ')]"</span><strong class="hl-xsl">&gt;</strong>
+      <em class="hl-comment">&lt;!-- Remove. --&gt;</em>
+   <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+        <li class="li">Open the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf"><em class="ph i">template descriptor file</em></a> associated with your <em class="ph i">publishing
+            template</em> (the <em class="ph i">.opt</em> file) and set the XSLT stylesheet created in the previous
+          step with the <code class="ph codeph">com.oxygenxml.pdf.css.xsl.merged2merged</code> XSLT extension
+          point:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2merged"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2mergedExtension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></li>
+        <li class="li">Edit the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation
+        scenario. </li>
+        <li class="li">In the <span class="ph uicontrol">Templates</span> tab, click the <span class="ph uicontrol">Choose
+          Custom Publishing Template</span> link and select your template. </li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes and run the transformation
+        scenario. </li>
+      </ol></div>
+	</div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="pdf-xslt-extensions-pub-template_usecase_3_wrap_a_word_in_markup">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Wrap Words in Markup</h2>
+  <div class="body">
+    <p class="p">Suppose you want compound words that contain hyphens (or any other criteria) to be wrapped
+      with inline elements (such as the HTML <code class="keyword markupname xmlelement">&lt;code&gt;</code> element).</p>
+    <div class="p">To add this functionality using an <em class="ph i">Oxygen Publishing Template</em>, follow these steps:<ol class="ol" id="pdf-xslt-extensions-pub-template_usecase_3_wrap_a_word_in_markup__ol_gjr_kq5_njb">
+        <li class="li">
+        <p class="p">If you have not already created a Publishing Template, you need to create one. For
+          details, see <a class="xref" href="whr-create-publishing-template.html">How to Create a Publishing Template</a>.</p>
+      </li>
+        <li class="li">Link the folder associated with the publishing template to your current
+        project in the <span class="ph uicontrol">Project</span> view.</li>
+        <li class="li">Using the <span class="ph uicontrol">Project</span> view, create an <span class="ph filepath">xslt</span> folder inside the project
+        root folder.</li>
+        <li class="li">In this folder, create an XSL file (for example, named
+            <span class="ph filepath">merged2htmlExtension.xsl</span>) with the following
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"text()"</span><strong class="hl-xsl">&gt;</strong>
+
+    <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"txt"</span><strong class="hl-xsl">&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:next-match /&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:variable&gt;</strong>
+
+    <strong class="hl-xsl">&lt;xsl:analyze-string</strong> <span class="hl-attribute">regex</span>=<span class="hl-value">"(\w|\-)+"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"$txt"</span><strong class="hl-xsl">&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:matching-substring&gt;</strong>
+        <em class="hl-comment">&lt;!-- A word --&gt;</em>
+        <strong class="hl-xsl">&lt;xsl:choose&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:when</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"contains(.,'-')"</span><strong class="hl-xsl">&gt;</strong>          
+            <em class="hl-comment">&lt;!-- A compound word --&gt;</em>
+            <strong class="hl-tag">&lt;code</strong> <span class="hl-attribute">class</span>=<span class="hl-value">'compound-word'</span><strong class="hl-tag">&gt;</strong><strong class="hl-xsl">&lt;xsl:value-of</strong>  <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl">/&gt;</strong><strong class="hl-tag">&lt;/code&gt;</strong>
+          <strong class="hl-xsl">&lt;/xsl:when&gt;</strong>
+          <strong class="hl-xsl">&lt;xsl:otherwise&gt;</strong>
+            <em class="hl-comment">&lt;!-- A simple word --&gt;</em>
+            <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl"> /&gt;</strong>
+          <strong class="hl-xsl">&lt;/xsl:otherwise&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:choose&gt;</strong>
+      <strong class="hl-xsl">&lt;/xsl:matching-substring&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:non-matching-substring&gt;</strong>
+        <em class="hl-comment">&lt;!-- Not a word --&gt;</em>      
+        <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-xsl"> /&gt;</strong>
+      <strong class="hl-xsl">&lt;/xsl:non-matching-substring&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:analyze-string&gt;</strong>
+
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></li>
+        <li class="li">Open the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf"><em class="ph i">template descriptor file</em></a> associated with your <em class="ph i">publishing
+            template</em> (the <em class="ph i">.opt</em> file) and set the XSLT stylesheet created in the previous
+          step with the <code class="ph codeph">com.oxygenxml.pdf.css.xsl.merged2merged</code> XSLT extension
+          point:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2merged"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2mergedExtension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></li>
+        <li class="li">Edit the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation
+        scenario. </li>
+        <li class="li">In the <span class="ph uicontrol">Templates</span> tab, click the <span class="ph uicontrol">Choose
+          Custom Publishing Template</span> link and select your template. </li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes and run the transformation
+        scenario. </li>
+      </ol></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="pdf-xslt-extensions-pub-template_usecase_4_convert_dl_to_table">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Convert Definition Lists into Tables</h2>
+  <div class="body">
+    <p class="p">Suppose you want your definitions lists (<code class="keyword markupname xmlelement">&lt;dl&gt;</code>) to be displayed as
+      tables in your PDF output.</p>
+    <div class="p">To add this functionality using an <em class="ph i">Oxygen Publishing Template</em>, follow these steps:<ol class="ol" id="pdf-xslt-extensions-pub-template_usecase_4_convert_dl_to_table__ol_gjr_kq5_njb">
+        <li class="li">
+        <p class="p">If you have not already created a Publishing Template, you need to create one. For
+          details, see <a class="xref" href="whr-create-publishing-template.html">How to Create a Publishing Template</a>.</p>
+      </li>
+        <li class="li">Link the folder associated with the publishing template to your current
+        project in the <span class="ph uicontrol">Project</span> view.</li>
+        <li class="li">Using the <span class="ph uicontrol">Project</span> view, create an <span class="ph filepath">xslt</span> folder inside the project
+        root folder.</li>
+        <li class="li">In this folder, create an XSL file (for example, named
+            <span class="ph filepath">merged2html5Extension.xsl</span>) with the following
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' topic/dl ')]"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"setaname"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"*[contains(@class, 
+      ' ditaot-d/ditaval-startprop ')]"</span> <span class="hl-attribute">mode</span>=<span class="hl-value">"out-of-line"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-tag">&lt;table&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"commonattributes"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"setid"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:apply-templates/&gt;</strong>
+    <strong class="hl-tag">&lt;/table&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"*[contains(@class, 
+      ' ditaot-d/ditaval-endprop ')]"</span> <span class="hl-attribute">mode</span>=<span class="hl-value">"out-of-line"</span><strong class="hl-xsl">/&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+
+<strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' topic/dlentry ')]"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-tag">&lt;tr&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:apply-templates/&gt;</strong>
+    <strong class="hl-tag">&lt;/tr&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+
+<strong class="hl-xsl">&lt;xsl:template</strong>
+  <span class="hl-attribute">match</span>=<span class="hl-value">"
+  *[contains(@class, ' topic/dd ')] |
+  *[contains(@class, ' topic/dt ')]"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-tag">&lt;td&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"commonattributes"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"setidaname"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"../*[contains(@class, 
+          ' ditaot-d/ditaval-startprop ')]"</span> <span class="hl-attribute">mode</span>=<span class="hl-value">"out-of-line"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:apply-templates/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"../*[contains(@class, 
+          ' ditaot-d/ditaval-endprop ')]"</span> <span class="hl-attribute">mode</span>=<span class="hl-value">"out-of-line"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-tag">&lt;/td&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></li>
+        <li class="li">Open the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf"><em class="ph i">template descriptor file</em></a> associated with your <em class="ph i">publishing
+            template</em> (the <em class="ph i">.opt</em> file) and set the XSLT stylesheet created in the previous
+          step with the <code class="ph codeph">com.oxygenxml.pdf.css.xsl.merged2html5</code> XSLT extension
+          point:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2html5"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2html5Extension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></li>
+        <li class="li">Edit the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation
+        scenario. </li>
+        <li class="li">In the <span class="ph uicontrol">Templates</span> tab, click the <span class="ph uicontrol">Choose
+          Custom Publishing Template</span> link and select your template. </li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes and run the transformation
+        scenario. </li>
+      </ol></div>
+  </div>
+</article></article></article></main></body></html>

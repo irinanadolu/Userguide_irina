@@ -1,0 +1,27 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Digital Signature,Certificates"><meta name="keywords" content="Digital Signature, Certificates"><meta name="DC.relation" scheme="URI" content="../topics/digital-signature.html"><meta name="DC.relation" scheme="URI" content="../topics/digital-signature-overview.html"><meta name="DC.relation" scheme="URI" content="../topics/canonicalizing-files.html"><meta name="DC.relation" scheme="URI" content="digital-signature-overview.html#digital-signature-overview"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="certificates"><title>Certificates</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="certificates"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Certificates</h1>
+  
+  <div class="body">
+    <p class="p">A certificate is a digitally signed statement from the issuer (an individual, an
+      organization, a website or a firm), saying that the public key (and some other information) of
+      some other entity has a particular value. When data is digitally signed, the signature can be
+      verified to check the data integrity and authenticity. Integrity means that the data has not
+      been modified. Authenticity means the data comes indeed from the entity that claims to have
+      created and signed it. Certificates are kept in special repositories called <a class="xref" href="../glossary/keystore.html"><dfn class="term">keystores</dfn></a>.</p>
+    <p class="p">All <dfn class="term">keystore</dfn> entries (key and trusted certificate entries) are accessed via
+      unique aliases. An alias must be assigned for every new entry of either a key or certificate
+      as a reference for that entity. No <dfn class="term">keystore</dfn> can store an entity if its alias
+      already exists in that <dfn class="term">keystore</dfn> and cannot store trusted certificates generated
+      with keys in its <dfn class="term">keystore</dfn>.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides two types of <dfn class="term">keystores</dfn>: Java Key Store (JKS) and
+      Public-Key Cryptography Standards version 12 (PKCS-12). A <dfn class="term">keystore</dfn> file is
+      protected by a password. In a PKCS 12 <dfn class="term">keystore</dfn> you should not store a certificate
+      without alias together with other certificates, with or without alias, as in such a case the
+      certificate without alias cannot be extracted from the <dfn class="term">keystore</dfn>.</p>
+    <p class="p">To configure the options for a certificate or to validate it, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Signing Certificates</span></span>. This opens <a class="xref" href="preferences-certificates.html#preferences-certificates">the certificates preferences page</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/digital-signature.html">XML Digital Signatures</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/digital-signature-overview.html">Digital Signatures Overview</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/canonicalizing-files.html">Canonicalizing Files</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="digital-signature-overview.html#digital-signature-overview">Digital Signatures Overview</a></li></ul></div></nav>
+</article></main></body></html>

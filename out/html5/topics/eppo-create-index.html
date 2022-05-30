@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="DITA,Index creation"><meta name="keywords" content="DITA, Index creation"><meta name="DC.relation" scheme="URI" content="../topics/eppo-manage-map.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-create-toc.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-resolve-references-through-catalog.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-create-index"><title>Creating an Index in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-create-index"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating an Index in DITA</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <div class="p">In DITA, indexes are created from <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. You can
+        insert index term elements in the following:<ul class="ul" id="eppo-create-index__ul_tf2_tr1_bq">
+          <li class="li"><strong class="ph b">The header of a topic:</strong> In paginated media, such as a printed book or a PDF,
+            this results in an index entry that points to the page where the topic starts, even if
+            it is not the page in which the indexed term occurs. </li>
+          <li class="li"><strong class="ph b">In the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in a map that references the
+              topic:</strong> This applies those index terms to that topic only when used in that map,
+            allowing you to index topics differently in various publications. In paginated media,
+            index entries point to the page where the topic starts.</li>
+          <li class="li"><strong class="ph b">In the body of a topic:</strong> In paginated media, this results in an index entry that
+            points to the page where the <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element occurs, even if
+            that is not the page where the topic starts.</li>
+        </ul></div>
+      <p class="p">To add index terms to the text of a topic of the topic header, <a class="xref" href="eppo-edit-topics.html">create the elements as you normally would in <span class="ph">Oxygen XML Editor</span></a>. To add index terms to a map, open the map in the editor and
+        add the elements, as you normally would, in a topic.</p>
+      <p class="p">In some media, indexes will be generated automatically when index entries are found in the
+        source. For other media, such as books, you may need to tell DITA where to place the index.
+        For instance, to add an index to a <a class="xref" href="../glossary/bookmap.html"><dfn class="term">bookmap</dfn></a>, you need to add an <code class="keyword markupname xmlelement">&lt;indexlist&gt;</code> element to the
+        <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code> of the book.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Open your <a class="xref" href="eppo-create-book-map.html"><dfn class="term">bookmap</dfn></a> in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+            Manager</span></a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Right-click the <dfn class="term">bookmap</dfn> and select <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Backmatter</span></span>.</span>
+        <div class="itemgroup stepresult">The <a class="xref" href="dita-insert-topic-ref.html#dita-insert-topic-ref"><span class="ph uicontrol">Insert Reference</span> dialog box</a> appears.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click <span class="ph uicontrol">Insert and Close</span> to insert the <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code>
+          element.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Right-click the <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code> element and create a
+          <code class="keyword markupname xmlelement">&lt;booklists&gt;</code> element using <span class="ph menucascade"><span class="ph uicontrol">Append Child</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Book Lists</span></span>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Use the same steps to create an <code class="keyword markupname xmlelement">&lt;indexlist&gt;</code> element. </span>
+      </li></ol></section>
+    <section class="section result">
+      <div class="note caution note_caution"><span class="note__title">CAUTION:</span> Adding <em class="ph i">index</em> entries and an <code class="keyword markupname xmlelement">&lt;indexlist&gt;</code>
+        to your project creates an instruction to the DITA publishing routines to create an index.
+        There is no guarantee that all DITA output types or third-party customizations obey that
+        instruction or create the index the way you want it. Modifying the output may be necessary
+        to get the result you want. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-manage-map.html">Managing DITA Maps</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-create-toc.html">Generating a Table of Contents in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-map-resolve-references-through-catalog.html">Resolving Topic References Through an XML Catalog</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_use_custom_icons.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_plugin_framework_difference.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_simplified_text_outline"><title>Customize the Outline View in Text Mode?</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_simplified_text_outline"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customize the Outline View in Text Mode?</h1>
+  <div class="body">
+    <section class="section" id="api_faq_simplified_text_outline__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">How do I customize the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span> view</a> in <span class="ph uicontrol">Text</span> mode?</p>
+    </section>
+    <section class="section" id="api_faq_simplified_text_outline__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <div class="p">Suppose that you have the following XML document:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;doc</strong> <span class="hl-attribute">startnumber</span>=<span class="hl-value">"15"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;sec</strong> <span class="hl-attribute">counter</span>=<span class="hl-value">"no"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;info/&gt;</strong>
+        <strong class="hl-tag">&lt;title&gt;</strong>Introduction<strong class="hl-tag">&lt;/title&gt;</strong>   
+      <strong class="hl-tag">&lt;/sec&gt;</strong>
+    <strong class="hl-tag">&lt;sec&gt;</strong>
+        <strong class="hl-tag">&lt;title&gt;</strong>Section title<strong class="hl-tag">&lt;/title&gt;</strong>       
+      <strong class="hl-tag">&lt;para&gt;</strong>Content<strong class="hl-tag">&lt;/para&gt;</strong>
+        <strong class="hl-tag">&lt;sec&gt;</strong>
+            <strong class="hl-tag">&lt;title&gt;</strong>Section title<strong class="hl-tag">&lt;/title&gt;</strong> 
+                <strong class="hl-tag">&lt;para&gt;</strong>Content<strong class="hl-tag">&lt;/para&gt;</strong>
+        <strong class="hl-tag">&lt;/sec&gt;</strong>
+    <strong class="hl-tag">&lt;/sec&gt;</strong>
+    <strong class="hl-tag">&lt;sec&gt;</strong> 
+            <strong class="hl-tag">&lt;title&gt;</strong>Section title<strong class="hl-tag">&lt;/title&gt;</strong>
+        <strong class="hl-tag">&lt;para&gt;</strong>Content<strong class="hl-tag">&lt;/para&gt;</strong>   
+      <strong class="hl-tag">&lt;/sec&gt;</strong>
+<strong class="hl-tag">&lt;/doc&gt;</strong></pre>and
+        you want to display the XML content in a simplified Outline view like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">doc "15"
+sec Introduction
+sec 15 Section title
+sec 15.1 Section title
+sec 16 Section title</pre></div>
+      <div class="p">Usually, an Outline view should have the following characteristics:<ol class="ol" id="api_faq_simplified_text_outline__ol_w2p_kq4_qk">
+          <li class="li">Double-clicking a node in the Outline view would select the corresponding XML content
+            in the editor.</li>
+          <li class="li">When the cursor moves in the open XML document, the Outline view would select the
+            proper entry.</li>
+          <li class="li">When modifications occur in the document, the Outline view would refresh.</li>
+        </ol></div>
+      <div class="p">A simple implementation using a Workspace Access plugin type could be something like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><span class="hl-tag-doctype-comment">/**
+ * Simple Outline for Text mode based on executing XPaths over the text content.
+ */</span>
+ <strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> CustomWorkspaceAccessPluginExtension <strong class="hl-keyword">implements</strong> 
+WorkspaceAccessPluginExtension {
+  <span class="hl-tag-doctype-comment">/**
+   * The custom outline list.
+   */</span>
+  <strong class="hl-keyword">private</strong> JList customOutlineList;
+  
+  <span class="hl-tag-doctype-comment">/**
+   * Maps outline nodes to ranges in document
+   */</span>
+  <strong class="hl-keyword">private</strong> WSXMLTextNodeRange[] currentOutlineRanges; 
+  
+  <span class="hl-tag-doctype-comment">/**
+   * The current text page
+   */</span>
+  <strong class="hl-keyword">private</strong> WSXMLTextEditorPage currentTextPage;
+  
+  <span class="hl-tag-doctype-comment">/**
+   * Disable CaretListener when we select from the CaretListener.
+   */</span>
+  <strong class="hl-keyword">private</strong> <strong class="hl-keyword">boolean</strong> enableCaretListener = true;
+  
+  <span class="hl-tag-doctype-comment">/**
+   * @see WorkspaceAccessPluginExtension#applicationStarted
+(ro.sync.exml.workspace.api.standalone.StandalonePluginWorkspace)
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> applicationStarted
+(<strong class="hl-keyword">final</strong> StandalonePluginWorkspace pluginWorkspaceAccess) {
+    pluginWorkspaceAccess.addViewComponentCustomizer
+(<strong class="hl-keyword">new</strong> ViewComponentCustomizer() {
+      <span class="hl-tag-doctype-comment">/**
+       * @see ViewComponentCustomizer#customizeView
+(ro.sync.exml.workspace.api.standalone.ViewInfo)
+       */</span>
+      <em><span class="hl-annotation">@Override</span></em>
+      <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> customizeView(ViewInfo viewInfo) {
+        <strong class="hl-keyword">if</strong>(
+            <em class="hl-comment">//The view ID defined in the "plugin.xml"</em>
+            <span class="hl-string">"SampleWorkspaceAccessID"</span>.equals(viewInfo.getViewID())) {
+          customOutlineList = <strong class="hl-keyword">new</strong> JList();
+          <em class="hl-comment">//Render the content in the Outline.</em>
+          customOutlineList.setCellRenderer(<strong class="hl-keyword">new</strong> DefaultListCellRenderer() {
+       <span class="hl-tag-doctype-comment">/**
+        * @see javax.swing.DefaultListCellRenderer#getListCellRendererComponent
+(javax.swing.JList, java.lang.Object, int, boolean, boolean)
+        */</span>
+      <em><span class="hl-annotation">@Override</span></em>
+      <strong class="hl-keyword">public</strong> Component getListCellRendererComponent
+(JList&lt;?&gt; list, Object value, <strong class="hl-keyword">int</strong> index,
+          <strong class="hl-keyword">boolean</strong> isSelected, <strong class="hl-keyword">boolean</strong> cellHasFocus) {
+        JLabel label = (JLabel) <strong class="hl-keyword">super</strong>.getListCellRendererComponent
+(list, value, index, isSelected, cellHasFocus);
+        String val = null;
+        <strong class="hl-keyword">if</strong>(value <strong class="hl-keyword">instanceof</strong> Element) {
+          Element element = ((Element)value);
+          val = element.getNodeName();
+          <strong class="hl-keyword">if</strong>(!<span class="hl-string">""</span>.equals(element.getAttribute(<span class="hl-string">"startnumber"</span>))) {
+            val += <span class="hl-string">" "</span> + <span class="hl-string">"'"</span> + element.getAttribute(<span class="hl-string">"startnumber"</span>) + <span class="hl-string">"'"</span>;
+          }
+          NodeList titles = element.getElementsByTagName(<span class="hl-string">"title"</span>);
+          <strong class="hl-keyword">if</strong>(titles.getLength() &gt; <span class="hl-number">0</span>) {
+            val += <span class="hl-string">" \""</span> + titles.item(<span class="hl-number">0</span>).getTextContent() + <span class="hl-string">"\""</span>;
+         }
+       }
+        label.setText(val);
+        <strong class="hl-keyword">return</strong> label;
+      }
+    });
+    <em class="hl-comment">//When we click a node, select it in the text page.</em>
+    customOutlineList.addMouseListener(<strong class="hl-keyword">new</strong> MouseAdapter() {
+     <em><span class="hl-annotation">@Override</span></em>
+     <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> mouseClicked(MouseEvent e) {
+       <strong class="hl-keyword">if</strong>(SwingUtilities.isLeftMouseButton(e) &amp;&amp; e.getClickCount() == <span class="hl-number">2</span>) {
+          <strong class="hl-keyword">int</strong> sel = customOutlineList.getSelectedIndex();
+          enableCaretListener = false;
+         <strong class="hl-keyword">try</strong> {
+          currentTextPage.select(currentTextPage.getOffsetOfLineStart
+(currentOutlineRanges[sel].getStartLine()) + 
+currentOutlineRanges[sel].getStartColumn() - <span class="hl-number">1</span>, 
+            currentTextPage.getOffsetOfLineStart
+(currentOutlineRanges[sel].getEndLine()) + 
+currentOutlineRanges[sel].getEndColumn());
+          } <strong class="hl-keyword">catch</strong> (BadLocationException e1) {
+           e1.printStackTrace();
+         }
+          enableCaretListener = true;
+        }
+      }
+    });
+     viewInfo.setComponent(<strong class="hl-keyword">new</strong> JScrollPane(customOutlineList));
+     viewInfo.setTitle(<span class="hl-string">"Custom Outline"</span>);
+  } 
+ }
+}); 
+    
+pluginWorkspaceAccess.addEditorChangeListener(<strong class="hl-keyword">new</strong> WSEditorChangeListener() {
+  <span class="hl-tag-doctype-comment">/**
+  * @see WSEditorChangeListener#editorOpened(java.net.URL)
+  */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorOpened(URL editorLocation) {
+   <em class="hl-comment">//An editor was opened</em>
+   WSEditor editorAccess = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, StandalonePluginWorkspace.MAIN_EDITING_AREA);
+        <strong class="hl-keyword">if</strong>(editorAccess != null) {
+          WSEditorPage currentPage = editorAccess.getCurrentPage();
+          <strong class="hl-keyword">if</strong>(currentPage <strong class="hl-keyword">instanceof</strong> WSXMLTextEditorPage) {
+            <em class="hl-comment">//User editing in Text mode an open XML document.</em>
+            <strong class="hl-keyword">final</strong> WSXMLTextEditorPage xmlTP = (WSXMLTextEditorPage) currentPage;
+            <em class="hl-comment">//Reconfigure outline on each change.</em>
+            xmlTP.getDocument().addDocumentListener(<strong class="hl-keyword">new</strong> DocumentListener() {
+              <em><span class="hl-annotation">@Override</span></em>
+              <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> removeUpdate(DocumentEvent e) {
+                reconfigureOutline(xmlTP);
+              }
+              <em><span class="hl-annotation">@Override</span></em>
+              <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> insertUpdate(DocumentEvent e) {
+                reconfigureOutline(xmlTP);
+              }
+              <em><span class="hl-annotation">@Override</span></em>
+              <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> changedUpdate(DocumentEvent e) {
+                reconfigureOutline(xmlTP);
+              }
+            });
+            JTextArea textComponent = (JTextArea) xmlTP.getTextComponent();
+            textComponent.addCaretListener(<strong class="hl-keyword">new</strong> CaretListener() {
+              <em><span class="hl-annotation">@Override</span></em>
+              <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> caretUpdate(CaretEvent e) {
+              <strong class="hl-keyword">if</strong>(currentOutlineRanges != null &amp;&amp; currentTextPage != null &amp;&amp; 
+enableCaretListener) {
+                  enableCaretListener = false;
+                  <em class="hl-comment">//Find the node to select in the outline.</em>
+                  <strong class="hl-keyword">try</strong> {
+                    <strong class="hl-keyword">int</strong> line = xmlTP.getLineOfOffset(e.getDot());
+                    <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = currentOutlineRanges.length - <span class="hl-number">1</span>; i &gt;= <span class="hl-number">0</span>; i--) {
+              <strong class="hl-keyword">if</strong>(line &gt; currentOutlineRanges[i].getStartLine() &amp;&amp; 
+line &lt; currentOutlineRanges[i].getEndLine()) {
+                        customOutlineList.setSelectedIndex(i);
+                        <strong class="hl-keyword">break</strong>;
+                      }
+                    }
+                  } <strong class="hl-keyword">catch</strong> (BadLocationException e1) {
+                    e1.printStackTrace();
+                  }
+                  enableCaretListener = true;
+                }
+              }
+            });
+          }
+        }
+      }
+      <span class="hl-tag-doctype-comment">/**
+       * @see WSEditorChangeListener#editorActivated(java.net.URL)
+       */</span>
+      <em><span class="hl-annotation">@Override</span></em>
+      <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> editorActivated(URL editorLocation) {
+        <em class="hl-comment">//An editor was selected, reconfigure the common outline</em>
+        WSEditor editorAccess = pluginWorkspaceAccess.getEditorAccess
+(editorLocation, StandalonePluginWorkspace.MAIN_EDITING_AREA);
+        <strong class="hl-keyword">if</strong>(editorAccess != null) {
+          WSEditorPage currentPage = editorAccess.getCurrentPage();
+          <strong class="hl-keyword">if</strong>(currentPage <strong class="hl-keyword">instanceof</strong> WSXMLTextEditorPage) {
+            <em class="hl-comment">//User editing in Text mode an open XML document.</em>
+            WSXMLTextEditorPage xmlTP = (WSXMLTextEditorPage) currentPage;
+            reconfigureOutline(xmlTP);
+          }
+        }
+      }
+    }, StandalonePluginWorkspace.MAIN_EDITING_AREA);
+  }
+  
+  <span class="hl-tag-doctype-comment">/**
+   * Reconfigure the outline
+   * 
+   * @param xmlTP The XML Text page.
+   */</span>
+  <strong class="hl-keyword">protected</strong> <strong class="hl-keyword">void</strong> reconfigureOutline(<strong class="hl-keyword">final</strong> WSXMLTextEditorPage xmlTP) {
+    <strong class="hl-keyword">try</strong> {
+      <em class="hl-comment">//These are DOM nodes.</em>
+      Object[] evaluateXPath = xmlTP.evaluateXPath(<span class="hl-string">"//doc | //sec"</span>);
+      <em class="hl-comment">//These are the ranges each node takes in the document.</em>
+      currentOutlineRanges = xmlTP.findElementsByXPath(<span class="hl-string">"//doc | //sec"</span>);
+      currentTextPage = xmlTP;
+      DefaultListModel listModel = <strong class="hl-keyword">new</strong> DefaultListModel();
+      <strong class="hl-keyword">if</strong>(evaluateXPath != null) {
+        <strong class="hl-keyword">for</strong> (<strong class="hl-keyword">int</strong> i = <span class="hl-number">0</span>; i &lt; evaluateXPath.length; i++) { 
+          listModel.addElement(evaluateXPath[i]);
+        }
+      }
+      customOutlineList.setModel(listModel);
+    } <strong class="hl-keyword">catch</strong>(XPathException ex) {
+      ex.printStackTrace();
+    }
+  }
+
+  <span class="hl-tag-doctype-comment">/**
+   * @see WorkspaceAccessPluginExtension#applicationClosing()
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">boolean</strong> applicationClosing() {
+    <strong class="hl-keyword">return</strong> true;
+  }
+}</pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_use_custom_icons.html">Customize the Default Icons for Toolbars/Menus</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_plugin_framework_difference.html">Difference Between a Framework (Document Type) and a Plugin Extension</a></div></div></nav></article></main></body></html>

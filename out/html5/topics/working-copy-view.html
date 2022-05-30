@@ -1,0 +1,287 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Views,Working Copy view"><meta name="keywords" content="SVN Client, Views, Working Copy view"><meta name="DC.relation" scheme="URI" content="../topics/svn-views.html"><meta name="DC.relation" scheme="URI" content="../topics/repository-drag-and-drop.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-settings.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-settings.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-format.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-refresh.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-menu.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-drag-and-drop.html"><meta name="DC.relation" scheme="URI" content="../topics/working-copy-view-start-panels.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="working-copy-view"><title>Working Copy View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="working-copy-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Working Copy View</h1>
+  
+    <div class="body">
+        <p class="p">The <span class="ph uicontrol">Working Copy</span> view allows you to manage the content of an SVN
+      working copy. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+        <div class="p">The toolbar contains the following:<ul class="ul" id="working-copy-view__ul_p11_cng_hf">
+        <li class="li">The list of defined working copies.</li>
+        <li class="li">A set of view modes that allow you to filter the content of the working copy based on
+          the resource status (such as incoming or outgoing changes).</li>
+        <li class="li"><span class="ph uicontrol">Settings</span> menu.</li>
+      </ul></div>
+        <div class="p">If you click any of the view modes (<span class="ph uicontrol">All Files</span>,
+        <span class="ph uicontrol">Modified</span>, <span class="ph uicontrol">Incoming</span>,
+        <span class="ph uicontrol">Outgoing</span>, <span class="ph uicontrol">Conflicts</span>), the information
+      displayed changes as follows:<ul class="ul">
+        <li class="li" id="working-copy-view__working-copy-view-all-files-mode">
+          <p class="p"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_elg_db1_v3b" src="../img/SVNAllFilesMode16.png">All
+              Files</span> - Resources (files and folders) are presented in a hierarchical
+            structure with the root of the tree representing the location of the working copy on the
+            file system. Each resource has an icon representation that describes the type of
+            resource and also depicts the state of that resource with a small overlay icon.</p>
+          <div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Working Copy View - All Files View Mode</figcaption>
+              
+              <img class="image" src="../img/svn_working_copy_view_all_files.png">
+            </figure>
+          </div>
+        </li>
+        <li class="li" id="working-copy-view__working-copy-view-modified-mode"><span class="ph uicontrol"><img class="image" src="../img/SVNInOutMode16.png">Modified</span> - The resource tree presents resources modified locally
+          (including those with conflicting content) and remotely. Decorator icons are used to
+          differentiate between various resource states:<ul class="ul">
+            <li class="li">Incoming modification from repository:<ul class="ul">
+                <li class="li"><img class="image" id="working-copy-view__image_asb_3lp_5r" src="../img/SVNIncomingFile20.png"> - File
+                  content or properties modified remotely.</li>
+                <li class="li"><img class="image" id="working-copy-view__image_zvq_3lp_5r" src="../img/SVNIncomingAddedFile20.png"> - New
+                  file added remotely.</li>
+                <li class="li"><img class="image" id="working-copy-view__image_zty_3lp_5r" src="../img/SVNIncomingDeletedFile20.png"> - File
+                  deleted remotely.</li>
+              </ul></li>
+            <li class="li">Outgoing modification to repository:<ul class="ul">
+                <li class="li"><img class="image" id="working-copy-view__image_az3_jlp_5r" src="../img/SVNOutgoingFile20.png"> - File
+                  content or properties modified locally.</li>
+                <li class="li"><img class="image" id="working-copy-view__image_g4r_jlp_5r" src="../img/SVNOutgoingAddedFile20.png"> - New
+                  file added locally.</li>
+                <li class="li"><img class="image" id="working-copy-view__image_qd1_klp_5r" src="../img/SVNOutgoingDeteledFile20.png"> - File
+                  deleted locally.</li>
+              </ul></li>
+            <li class="li">
+              <img class="image" src="../img/SVNSynchronizePseudoConflict9.png"><strong class="ph b">Pseudo-conflict state</strong> -
+              A resource being locally and remotely modified at the same time, or a parent directory
+              of such a resource.</li>
+            <li class="li">
+              <img class="image" src="../img/SynchronizeRealConflict.png"><strong class="ph b">Real conflict state</strong> - A
+              resource that had both incoming and outgoing changes and not all the differences could
+              be merged automatically through the update operation (manually editing the local file
+              is necessary for resolving the conflict).</li>
+          </ul></li>
+      </ul></div>
+        <div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Working Copy View - Modified View Mode</figcaption>
+                
+                <img class="image" src="../img/svn_working_copy_view.png">
+            </figure>
+        </div>
+        <div class="p">
+            <ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNIncomingMode16.png">Incoming</span> -
+          The resource tree presents only incoming changes.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNOutgoingMode16.png">Outgoing</span> -
+          The resource tree presents only outgoing changes.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNConflictsMode16.png">Conflicts</span> -
+          The resource tree presents only conflicting changes (real conflicts and
+          pseudo-conflicts).</li>
+            </ul>
+        </div>
+        <div class="p">The following columns provide information about the resources:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">Name</span> - Resource name. Resource icons can have the
+                    following decorator icons:<ul class="ul">
+                        <li class="li">Additional status information: <ul class="ul">
+                                <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_c4x_zlp_5r" src="../img/SVNModified16.png">Propagated modification marker</span> - A folder
+                  marked with this icon indicates that the folder itself presents some changes (such
+                  as modified properties) or a child resource has been modified.</li>
+                                <li class="li" id="working-copy-view__wc_external"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_l5j_fmp_5r" src="../img/SVNExternal16.png">External</span> -
+                  This indicates a mapping of a local directory to the URL of a versioned resource.
+                  It is declared with a <code class="ph codeph">svn:externals</code> property in the parent folder
+                  and it indicates a working copy not directly related with the parent working copy
+                  that defines it.</li>
+                                <li class="li" id="working-copy-view__switched-li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_tvp_3mp_5r" src="../img/SVNSwitched16.png">Switched</span> -
+                  This indicates a resource that has been switched from the initial repository
+                  location to a new location within the same repository. The resource goes to this
+                  state as a result of <a class="xref" href="switch-repository-location.html">the Switch
+                    action</a> executed from the contextual menu of the Working Copy view.</li>
+                                <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_bck_lmp_5r" src="../img/SVNGrayed16.png">Grayed</span> - A resource with a grayed-out icon,
+                  but no overlaid icon, is an ignored resource. It is obtained with the
+                    <span class="ph uicontrol">Add to svn:ignore</span> action.</li>
+                            </ul></li>
+                        <li class="li" id="working-copy-view__svn-depth-li">Current SVN depth of a folder:<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_irn_pmp_5r" src="../img/SVNDepthImmediates16.png">Immediate children (immediates)</span> (a variant of <a class="xref" href="sparse-checkouts.html">sparse checkout</a>) - The directory contains
+                  only direct file and folder children. Child folders ignore their content.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_abz_rmp_5r" src="../img/SVNDepthFiles16.png">File
+                    children only (files)</span> (a variant of <a class="xref" href="sparse-checkouts.html">sparse checkout</a>) - The directory contains
+                  only direct file children, disregarding any child folders.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_tlr_5mp_5r" src="../img/SVNDepthEmpty16.png">This
+                    folder only (empty)</span> (a variant of <a class="xref" href="sparse-checkouts.html">sparse checkout</a>) - The directory discards any child resource.</li>
+              </ul><div class="note note note_note"><span class="note__title">Note:</span> 
+                <ul class="ul">
+                  <li class="li">Any folder not marked with one of the depth icons, has recursive depth
+                      (<em class="ph i">infinity</em>) set by default (presents all levels of child
+                    resources).</li>
+                  <li class="li">Although folders not under version control can have no depth set, <span class="ph">Oxygen XML Editor</span> presents <em class="ph i">unversioned</em> and <em class="ph i">ignored</em> folders with
+                      <em class="ph i">empty</em> depth when <span class="ph uicontrol">Show unversioned directories
+                      content</span> or <span class="ph uicontrol">Show ignored directories content</span>
+                    options are not selected. </li>
+                </ul>
+              </div></li>
+                    </ul></li>
+                <li class="li" id="working-copy-view__wc_local_file_status"><span class="ph uicontrol"><img class="image" src="../img/SVNLocalContentStatusColumnHeader.png">Local file status</span> -
+          Shows the changes of working copy resources that were not committed to the repository yet.
+          The following icons are used to mark resource status:<ul class="ul">
+            <li class="li"><img class="image" id="working-copy-view__image_pd3_fnp_5r" src="../img/SVNWCUnversioned10.png"> - Resource is
+                <em class="ph i">not under version control</em> (<em class="ph i">unversioned</em>).</li>
+            <li class="li"><img class="image" src="../img/SVNWCIgnored10.png"> - Resource is being <em class="ph i">ignored</em> because
+              it is not under version control and its name matches a file name pattern defined in
+              one of the following places:<ul class="ul">
+                <li class="li"><em class="ph i">global-ignores</em> section in the SVN client-side <a class="xref" href="svn-main-menu.html#svn-main-menu__svn-clients-config-file"><em class="ph i">config</em> file</a>.<div class="note attention note_attention"><span class="note__title">Attention:</span> If you do not explicitly set
+                    the <code class="ph codeph">global-ignores</code> runtime configuration option (either to your
+                    preferred set of patterns or to an empty string), Subversion uses the default
+                    value.</div></li>
+                <li class="li"><a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy__svn-options-app-global-ignores"><span class="ph uicontrol">Application global ignores</span> option</a> of
+                    <span class="ph">Oxygen XML Editor</span>.</li>
+                <li class="li">The value of a <a class="xref" href="ignore-resources-working-copy.html#ignore-resources-working-copy"><em class="ph i">svn:ignore</em> property</a> set on the parent folder of the
+                  resource being ignored.</li>
+              </ul></li>
+            <li class="li"><img class="image" id="working-copy-view__image_ivq_wjp_5r" src="../img/SVNWCAdded10.png"> - Marks a newly
+              created resource, <em class="ph i">scheduled for addition</em> to the version control system.</li>
+            <li class="li"><img class="image" src="../img/SVNWCAddedWithHistory10.png"> - Marks a resource <em class="ph i">scheduled
+                for addition</em>, created by copying a resource already under version control and
+              inheriting all its SVN history.</li>
+            <li class="li"><img class="image" id="working-copy-view__image_cdc_hnp_5r" src="../img/SVNWCModified10.png"> - The content of
+              the resource has been <em class="ph i">modified</em>.</li>
+            <li class="li"><img class="image" src="../img/SVNWCReplaced10.png"> - Resource has been <em class="ph i">replaced</em> in
+              your working copy (the file was scheduled for deletion, and then a new file with the
+              same name was scheduled for addition in its place).</li>
+            <li class="li"><img class="image" id="working-copy-view__image_pw5_hnp_5r" src="../img/SVNWCRemoved10.png"> - Resource is
+                <em class="ph i">deleted</em> (scheduled for deletion from <span class="ph uicontrol">Repository</span> upon
+              the next commit). </li>
+            <li class="li"><img class="image" src="../img/SVNWCIncomplete10.png"> - The resource is <em class="ph i">incomplete</em> (as
+              a result of an interrupted <em class="ph i">check out</em> or <em class="ph i">update</em> operation).</li>
+            <li class="li"><img class="image" src="../img/SVNWCMissing10.png"> - The resource is <em class="ph i">missing</em> because
+              it was moved or deleted without using an SVN-aware application.</li>
+            <li class="li"><img class="image" src="../img/SVNWCConflicted10.png"> - The contents of the resource is in
+                <a class="xref" href="real-pseudo-conflicts.html#real-pseudo-conflicts">real
+                  <dfn class="term">conflict</dfn> state</a>.</li>
+            <li class="li"><img class="image" id="working-copy-view__image_vch_jrv_5r" src="../img/SVNWCNameConflicted10.png"> - Resource is
+              in a <em class="ph i">name conflict</em> state.</li>
+            <li class="li"><img class="image" src="../img/SVNWCTreeConflicted10.png"> - Resource is in <em class="ph i">tree
+                conflict</em> state after an update operation because:<ul class="ul">
+                <li class="li">Resource was locally modified and incoming deleted from repository.</li>
+                <li class="li">Resource was locally scheduled for deletion and incoming modified.</li>
+              </ul></li>
+            <li class="li"><img class="image" src="../img/SVNWCObstructed10.png"> - Resource is <em class="ph i">obstructed</em>
+              (versioned as one kind of object: file, directory, or symbolic link, but has been
+              replaced outside <span class="ph">Syncro SVN Client</span> by a different kind of object).</li>
+          </ul></li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNLocalPropertiesStatusColumnHeader.png"> Local
+                        properties status</span> - Marks the resources that have SVN
+                    properties, with the following possible states:<ul class="ul">
+                        <li class="li"><img class="image" id="working-copy-view__image_sql_jnp_5r" src="../img/SVNWCPropNormal10.png"> - The
+              resource has SVN properties set.</li>
+                        <li class="li"><img class="image" id="working-copy-view__image_qdx_jnp_5r" src="../img/SVNWCPropModified10.png"> -
+              The resource properties have been modified.</li>
+                        <li class="li"><img class="image" src="../img/SVNWCPropConflicted10.png"> - Properties for this
+                            resource are in <a class="xref" href="real-pseudo-conflicts.html#real-pseudo-conflicts">real conflict</a> with property updates received
+                            from the repository.</li>
+                    </ul></li>
+                <li class="li"><span class="ph uicontrol">Revision</span> - The current revision number of the
+                    resource.</li>
+                <li class="li"><span class="ph uicontrol">Date</span> - Date when the resource was last time modified on
+                    the disk.</li>
+                <li class="li"><span class="ph uicontrol">BASE Revision</span> - The revision number of the pristine
+                    version of the resource.</li>
+                <li class="li"><span class="ph uicontrol">BASE Date</span> - Date when the pristine version of the
+                    resource was last time committed in the repository.</li>
+                <li class="li"><span class="ph uicontrol">Author</span> - Name of the person who made the last
+                    modification on the pristine version of the resource.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNRemoteContentStatusColumnHeader.png">Remote
+            file status</span> - Shows changes of resources recently modified in the
+          repository. The following icons are used to mark incoming resource status:<ul class="ul">
+            <li class="li"><img class="image" src="../img/SVNWCRemotelyAdded10.png"> - Resource is newly added in
+              repository.</li>
+            <li class="li"><img class="image" src="../img/SVNWCRemotelyModified10.png"> - The content of the resource has
+              been modified in repository.</li>
+            <li class="li"><img class="image" src="../img/SVNWCRemotelyReplaced10.png"> - Resource was replaced in
+              repository.</li>
+            <li class="li"><img class="image" src="../img/SVNWCRemotelyRemoved10.png"> - Resource was deleted from
+              repository.</li>
+          </ul></li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../img/SVNRemotePropertiesStatusColumnHeader.png">
+            Remote properties status</span> - Resources marked with the <img class="image" id="working-copy-view__image_mwj_3z5_5r" src="../img/SVNWCModified10.png"> icon have incoming modified
+          properties from the repository.</li>
+                <li class="li"><span class="ph uicontrol">Remote revision</span> - Revision number of the resource latest
+          committed modification.</li>
+                <li class="li"><span class="ph uicontrol">Remote date</span> - Date of the resource latest modification
+                    committed on the repository.</li>
+                <li class="li"><span class="ph uicontrol">Remote author</span> - Name of the author who committed the
+                    latest modification on the repository.</li>
+                <li class="li" id="working-copy-view__wc_locks">
+          <p class="p"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_pkh_4r1_tc" src="../img/SVNLockColumnHeader.gif">Lock
+              information</span> - Shows the lock state of a resource. The lock mechanism is a
+            convention intended to help you signal other users that you are working with a
+            particular set of files. It minimizes the time and effort wasted in solving possible
+            conflicts generated by clashing commits. A lock gives you exclusive rights over a file,
+            only if other users follow this convention and they do not try to bypass the lock state
+            of a file.</p>
+          <div class="p">A folder can be locked only by the SVN client application, completely transparent to
+            the user, if an operation in progress was interrupted unexpectedly. As a result, folders
+            affected by the operation are marked with the <img class="image" id="working-copy-view__image_1vk_ks1_tc" src="../img/SVNLockInternal10.png"> symbol. To clear the locked state of a folder, use the
+              <span class="ph uicontrol">Clean up</span> action.<div class="note note note_note"><span class="note__title">Note:</span> Users can lock only files. </div></div>
+          <div class="p">The following lock states are displayed:<ul class="ul" id="working-copy-view__ul_vzd_ms1_tc">
+              <li class="li"><em class="ph i">no lock</em> - the file is not locked. This is the default state of a file in
+                the SVN repository.</li>
+              <li class="li">
+                <div class="p"><em class="ph i">remotely locked</em> ( <img class="image" id="working-copy-view__image_nwz_251_tc" src="../img/SVNLockRemote10.png"> ) - shown when: <ul class="ul" id="working-copy-view__ul_pp3_n11_v3b">
+                    <li class="li">Another user has locked the file in the repository.</li>
+                    <li class="li">The file was locked by the same user from another working copy.</li>
+                    <li class="li">The file was locked from the <span class="ph uicontrol">Repositories</span> view.</li>
+                  </ul></div>
+                <div class="p">If you try to commit a new revision of the file to the repository, the server
+                  does not allow you to bypass the file lock.<div class="note note note_note"><span class="note__title">Note:</span> To commit a new revision, you
+                    need to wait for the file to be unlocked. Ultimately, you might try to
+                      <em class="ph i">break</em> or <em class="ph i">steal</em> the lock, but this is not what other users
+                    expect. Use these actions carefully, especially when you are not the file lock
+                    owner.</div></div>
+              </li>
+              <li class="li"><em class="ph i">locked</em> ( <img class="image" id="working-copy-view__image_lnj_vv1_tc" src="../img/SVNLockLocal10.png"> )
+                - displayed after you have locked a file from the current working copy. Now you have
+                exclusive rights over the corresponding file, being the only one who can commit
+                changes to the file in the repository.<div class="note note note_note"><span class="note__title">Note:</span> Working copies keep track of their
+                  locked files, so the locks are presented between different sessions of the
+                  application. Synchronize your working copy with the repository to make sure that
+                  the locks are still valid (not <em class="ph i">stolen</em> or <em class="ph i">broken</em>).</div></li>
+              <li class="li"><em class="ph i">stolen</em> ( <img class="image" id="working-copy-view__image_j11_dw1_tc" src="../img/SVNLockStolen10.png"> )
+                - a file already locked from your working copy is being locked by another user. Now
+                the owner of the file lock is the user who stole the lock from you.</li>
+              <li class="li"><em class="ph i">broken</em> ( <img class="image" id="working-copy-view__image_tpm_3w1_tc" src="../img/SVNLockBroken10.png"> )
+                - a file already locked from your working copy is no longer locked in the repository
+                (it was unlocked by another user).<div class="note note note_note"><span class="note__title">Note:</span> To remove the <em class="ph i">stolen</em> or <em class="ph i">broken</em>
+                  states from your working copy files, you have to <span class="ph uicontrol">Update</span>
+                  them.</div></li>
+            </ul></div>
+          <div class="p">If one of your working copy files is locked, hover the mouse pointer over the lock icon
+            to see more information:<ul class="ul" id="working-copy-view__ul_swn_ht1_tc">
+              <li class="li">Lock type - current file lock state</li>
+              <li class="li">Owner - the name of the user who created the lock</li>
+              <li class="li">Date - the date when the user locked the file</li>
+              <li class="li">Expires on - date when the lock expires. Lock expiry policy is set in the
+                repository options, on the server side</li>
+              <li class="li">Comment - the message attached when the file was locked</li>
+            </ul></div>
+        </li>
+                <li class="li"><span class="ph uicontrol">Size</span> - Resource size on disk</li>
+                <li class="li"><span class="ph uicontrol">Type</span> - Contains the resource type or file extension</li>
+            </ul></div>
+        <div class="p">
+            <div class="note note note_note"><span class="note__title">Note:</span> The working copy table allows you to show or hide any of its columns and also to
+                sort its contents by any of the displayed columns. The table header provides a
+                contextual menu that allows you to customize the displayed information.</div>
+        </div>
+        <p class="p">The toolbar contains the following options for switching to a different working copy:</p>
+        <ul class="ul">
+            <li class="li"><span class="ph uicontrol">List of Defined Working Copies</span> - A drop-down menu that
+        contains all the working copies <span class="ph">Oxygen XML Editor</span> is aware of. When you select a
+        different working copy from the list, the newly selected working copy content is scanned and
+        displayed in the <span class="ph uicontrol">Working Copy</span> view.</li>
+            <li class="li"><span class="ph uicontrol"><img class="image" id="working-copy-view__image_hyg_l1h_hf" src="../img/SvnWCManagerWin16.png">Working
+          Copies Manager (<img class="image" id="working-copy-view__image_g44_rmg_hf" src="../img/SvnWCManagerMac16.png"> on Mac
+          OS X)</span> - Opens a dialog box that displays the working copies <span class="ph">Oxygen XML Editor</span> is aware of. In this dialog box, you can add existing working copies or
+        remove those you no longer need. If you try to add a folder that is not a valid Subversion
+        working copy, <span class="ph">Oxygen XML Editor</span> warns you that the selected directory is not under
+        version control. <div class="note note note_note"><span class="note__title">Note:</span> Removing a working copy from this dialog box does NOT remove it from
+          your file system; you will have to do that manually.</div></li>
+        </ul>
+    </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/working-copy-settings.html">Working Copy Settings</a><br></li><li class="link olchildlink"><a href="../topics/working-copy-format.html">Working Copy Format</a><br></li><li class="link olchildlink"><a href="../topics/working-copy-refresh.html">Refresh a Working Copy</a><br></li><li class="link olchildlink"><a href="../topics/working-copy-menu.html">Working Copy View Contextual Menu Actions</a><br></li><li class="link olchildlink"><a href="../topics/working-copy-drag-and-drop.html">Drag and Drop Operations</a><br></li><li class="link olchildlink"><a href="../topics/working-copy-view-start-panels.html">Assistant Actions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-views.html">Syncro SVN Client Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/repository-drag-and-drop.html">Drag and Drop Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/working-copy-settings.html">Working Copy Settings</a></div></div></nav></article></main></body></html>

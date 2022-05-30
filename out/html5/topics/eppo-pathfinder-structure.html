@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Topics"><meta name="keywords" content="DITA, Topics"><meta name="DC.relation" scheme="URI" content="../topics/author-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-open-map-resolved-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/create-topic-in-map.html"><meta name="DC.relation" scheme="URI" content="../topics/create-topic-in-map.html"><meta name="DC.relation" scheme="URI" content="../topics/fast-create-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-edit-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-convert-topics.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-adding-images.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-adding-media.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-tables.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-mathml.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-embedding-latex-equations.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-extensions.html"><meta name="DC.relation" scheme="URI" content="eppo-first-dita-topic.html#eppo-first-dita-topic"><meta name="DC.relation" scheme="URI" content="author-dita-doc-type.html#author-dita-doc-type"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-pathfinder-structure"><title>Working with DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-pathfinder-structure"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with DITA Topics</h1>
+  
+  <div class="body">
+    <p class="p">DITA is a structured writing format. Structure can have several meanings, all of which are
+      relevant to DITA. This section includes information about working with DITA topics and the
+      structure.</p>
+    <section class="section" id="eppo-pathfinder-structure__information_types"><h2 class="title sectiontitle">Information Types</h2>
+      
+      <p class="p">The structure of a piece of content refers to how the words and images are selected and
+        organized to convey information. One approach to structured writing is to divide content
+        into discrete blocks that contain various types of information, and then to combine those
+        blocks to form publications. DITA is based on this approach, and encourages the author to
+        write in discrete blocks called topics. DITA provides three base topic types (concept, task,
+        and reference), a number of extended topic types, and the capability to create new topic
+        types through specialization.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__text_structure"><h2 class="title sectiontitle">Text Structure</h2>
+      
+      <p class="p">Every piece of text is made up of certain text structures, such as paragraphs, lists, and
+        tables. DITA supports text structures through XML elements such as <code class="keyword markupname xmlelement">&lt;p&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;ol&gt;</code>, and <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code>. <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/" target="_blank" rel="external noopener">The DITA
+          markup</a> specifies the text structures, but not how they will be published in various
+        types of media. The formatting of text structures is determined by the output
+        transformations and may be customized to meet the needs of various organizations and type of
+        media. </p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__semantic_structure"><h2 class="title sectiontitle">Semantic Structure</h2>
+      
+      <div class="p">Semantic structure is structure that shows the meaning of things. For example:<ul class="ul" id="eppo-pathfinder-structure__ul_jnh_kk5_1q">
+        <li class="li">A <code class="keyword markupname xmlelement">&lt;task&gt;</code> element specifies that a block of content contains the
+            description of a task.</li>
+        <li class="li">A <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element specifies that a block of text consists of
+            programming code.</li>
+        <li class="li">A <code class="keyword markupname xmlelement">&lt;uicontrol&gt;</code> element specifies that a word is the name of a control in
+            a computer GUI.</li>
+          <li class="li">The <code class="keyword markupname xmlatt">@platform</code> profiling attribute specifies that a particular piece of
+            content applies only to certain computing platforms.</li>
+        </ul></div>
+      <p class="p">Semantic structure is important in a structured writing system because it allows both
+        authors and readers to find content, and it allows processing scripts to process various
+        pieces of content differently, based on their role or meaning. This can be used to do things
+        such as filtering content related to a specific product so that you can produce
+        documentation on many products from the same source.</p>
+      <p class="p">There can be many forms of semantics captured in a document set. DITA captures some of
+        these in topics and some of them in maps. If you are using a CMS, it may capture additional
+        semantics.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__document_semantics"><h2 class="title sectiontitle">Document Semantics</h2>
+      
+      <p class="p">Documents consist of elements that may be made up of the same basic text structures as the
+        rest of the text, but have a special function within the structure of the document. For
+        instance, both tables of contents and indexes are lists, but they play a special role in the
+        document. Chapters and sections are just sequences of paragraphs and other text structures,
+        yet they are meaningful in the structure of the document. In some cases, such as indexes and
+        tables of contents, these structures can be generated from semantic information embedded in
+        the source. For instance, a table of contents can be built by reading the titles of chapters
+        and sections. DITA provides elements to describe common document semantics. </p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__subject_matter_semantics"><h2 class="title sectiontitle">Subject Matter Semantics</h2>
+      
+      <p class="p">In some cases, the semantics of the content relate directly to the subject matter that the
+        content describes. For instance, DITA supports tags that allow you to mark a piece of text
+        as the name of a window in a software application (<code class="keyword markupname xmlelement">&lt;wintitle&gt;</code>), or to
+        mark a piece of text as applying only to a particular product.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__audience_semantics"><h2 class="title sectiontitle">Audience Semantics</h2>
+      
+      <p class="p">In some cases, the semantics of the content relate to the audience that it is addressed to.
+        For instance, a topic might be addressed to a particular role, or to a person with a
+        particular level of experience. DITA provides an <code class="keyword markupname xmlelement">&lt;audience&gt;</code> element
+        to capture audience metadata.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-structure__creating_topic_structures"><h2 class="title sectiontitle">Creating Topic Structures</h2>
+      
+      <div class="p"><span class="ph">Oxygen XML Editor</span> provides a number of tools to help you create topic structures:<ul class="ul" id="eppo-pathfinder-structure__ul_j4r_yl5_1q">
+          <li class="li"><a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                Assistant</dfn></a> - Shows you which elements can be created at the current
+            position.</li>
+          <li class="li"><a class="xref" href="model-panel.html#model-panel"><span class="ph uicontrol">Model</span> view</a> -
+            Shows you the complete structure supported by the current element.</li>
+          <li class="li"><a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span> view</a> - Shows you the current structure of
+            your document.</li>
+          <li class="li"><span class="ph uicontrol">DITA</span> toolbar - Helps you to easily insert many common
+            structures.</li>
+        </ul></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/create-topic-in-map.html">Creating a New DITA Topic</a><br></li><li class="link olchildlink"><a href="../topics/fast-create-topics.html">Fast Create Multiple DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/eppo-edit-topics.html">Editing DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/dita-convert-topics.html">Converting DITA Topics to Another Type</a><br></li><li class="link olchildlink"><a href="../topics/eppo-adding-images.html">Working with Images in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/dita-adding-media.html">Adding Video, Audio, and Embedded HTML Resources in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/image-map-dita.html">Image Maps in DITA</a><br></li><li class="link olchildlink"><a href="../topics/eppo-tables.html">Adding Tables in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/working-with-mathml.html">Adding MathML Equations in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/dita-embedding-latex-equations.html">Adding LaTeX Equations in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/author-dita-extensions.html">DITA Topic Author Mode Actions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita.html" title="A guide to help content authors who create and publish DITA content">DITA Authoring</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-open-map-resolved-topics.html">Opening a DITA Map With Topic Content Resolved</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/create-topic-in-map.html">Creating a New DITA Topic</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-first-dita-topic.html#eppo-first-dita-topic">Getting Started with DITA</a></li><li class="linklist"><a class="link" href="author-dita-doc-type.html#author-dita-doc-type">DITA Topics Document Type (Framework)</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../dev_guide/workspace_access_plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="user_interraction"><title>Interaction with the End-User</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="user_interraction"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Interaction with the End-User</h1>
+    <div class="body">
+        <p class="p">If you need your plugin to frequently interact with the end user, some possibilities
+      include: </p>
+        <ul class="ul" id="user_interraction__ul_dwq_hzj_rgb">
+            <li class="li">
+                <p class="p">Your plugin can create Java Swing-based components (dialog boxes, frames) that
+          are displayed when <a class="xref" href="adding_actions_via_a_plugin.html">custom toolbar or menu
+            actions</a> added by the plugin are called. You can also extend the
+          <strong class="ph b">Oxygen</strong>-specific API base class <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/ui/OKCancelDialog.html" target="_blank" rel="external noopener"><em class="ph i">OKCancelDialog</em></a> to create a dialog box that
+          already includes <strong class="ph b">OK</strong> and <strong class="ph b">Cancel</strong> buttons. This specific base also
+          automatically resizes its internal components depending on the currently used fonts or DPI
+          settings and also properly positions the <strong class="ph b">OK</strong> and <strong class="ph b">Cancel</strong> buttons depending on
+          the operating system (on Mac OS X, the <strong class="ph b">OK</strong> button is on the right part of the dialog
+          box, while on Windows and Linux, it is placed on the left part of the dialog box). There
+          is an entire <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/ui/package-summary.html" target="_blank" rel="external noopener">API package</a> that contains base implementations of
+          Swing components and such implementations are recommended to be used for the
+          plugin-contributed components to look like the ones contributed by <span class="ph">Oxygen XML Editor</span>.</p>
+            </li>
+            <li class="li">
+                <p class="p">Your plugin can <a class="xref" href="adding_or_customizing_an_existing_view.html">add a
+                        specific side view</a>.</p>
+            </li>
+            <li class="li">
+                <p class="p">The <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/WorkspaceUtilities.html" target="_blank" rel="external noopener"><em class="ph i">WorkspaceUtilities</em></a> API allows you to:</p>
+        <ul class="ul" id="user_interraction__ul_zj2_21k_rgb">
+          <li class="li">
+            <p class="p">Show file and folder choosers.</p>
+          </li>
+          <li class="li">
+            <p class="p">Show confirmation dialog boxes.</p>
+          </li>
+          <li class="li">
+            <p class="p">Show information, warning, or error dialog boxes.</p>
+          </li>
+          <li class="li">
+            <p class="p">Show a custom status message in the application.</p>
+          </li>
+        </ul>
+            </li>
+            <li class="li">
+                <p class="p">The <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/PluginWorkspace.html#getResultsManager--" target="_blank" rel="external noopener"><em class="ph i">ResultsManager</em></a> API allows you to add
+          results in the <strong class="ph b">Results</strong> view. These results can point to a specific document at a
+          specific line/column location.</p>
+            </li>
+            <li class="li">
+                <p class="p">The title of the main application frame can be modified using this API: <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/Workspace.html#setParentFrameTitle-java.lang.String-" target="_blank" rel="external noopener">https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/Workspace.html#setParentFrameTitle-java.lang.String-</a>.</p>
+            </li>
+        </ul>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dev_guide/workspace_access_plugin.html">Workspace Access Plugin</a></div></div></nav></article></main></body></html>

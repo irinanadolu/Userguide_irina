@@ -1,0 +1,184 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_browser built-in form control is used for providing a mechanism to integrate HTML frames or interact with SVG documents directly in the Author mode editor. It can also be used to load HTML that executes JavaScript and from that JavaScript you can access the Oxygen XML Editor workspace."><meta name="DC.subject" content="CSS extensions,Form Controls,Browser,Form Controls,Form Controls,Render HTML frames,Render SVG"><meta name="keywords" content="CSS extensions, Form Controls, Browser, Form Controls, Form Controls, Render HTML frames, Render SVG"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-audio-form-control.html"><meta name="DC.relation" scheme="URI" content="../topics/button-editor.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="dg-url-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="oxy-browser-form-control"><title>Browser Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="oxy-browser-form-control"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Browser Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_browser</code> built-in form control is used for providing a
+    mechanism to integrate HTML frames or interact with SVG documents directly in the
+      <span class="ph uicontrol">Author</span> mode editor. It can also be used to load HTML that executes
+    JavaScript and from that JavaScript you can access the <span class="ph">Oxygen XML Editor</span>
+    workspace.</p>
+    <p class="p">The <code class="ph codeph">oxy_browser</code> form control supports the following properties:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph"><strong class="ph b">href</strong> - The absolute or relative location of a
+          resource.</span> This property is
+        mandatory. Relative values are resolved relative to the CSS. If you have media resources
+        relative to the XML document, you can specify their paths like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy_browser(href, oxy_url(oxy_base-uri(), <span class="hl-string">'ex.svg'</span>)), <strong class="hl-keyword">width</strong>, <span class="hl-number">50</span>%, <strong class="hl-keyword">height</strong>, <span class="hl-number">50</span>%)</pre></li>
+      <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of
+          the content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">height</strong> - Specifies the height of the form control area using relative
+            (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute (<code class="ph codeph">in</code>,
+            <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>, <code class="ph codeph">pc</code>,
+            <code class="ph codeph">px</code>), and percentage (followed by the <code class="ph codeph">%</code> character)
+          length units.</span></li>
+    </ul>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_browser</em> Form
+      Control</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">object {
+  <strong class="hl-keyword">content</strong>:
+    oxy_browser(
+      href, <span class="hl-string">'http://example.page'</span>,
+      <strong class="hl-keyword">width</strong>, <span class="hl-number">600</span>px,
+      <strong class="hl-keyword">height</strong>, <span class="hl-number">400</span>px),
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_browser</code> form control in a CSS
+      file <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="oxy-browser-form-control__image_fg1_12h_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_browser</code> code template.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <section class="section" id="oxy-browser-form-control__interacting_with_the_workspace"><h2 class="title sectiontitle">Interacting with the <span class="ph">Oxygen XML Editor</span> Workspace</h2>
+      
+      <div class="p">The <code class="ph codeph">oxy_browser</code> form control also provides the possibility of creating
+        custom form control without having to use the Java-based API. You can use the
+          <code class="ph codeph">oxy_browser</code> form control to load HTML that executes JavaScript. In the
+        JavaScript, you can use some predefined global variables that provide a gateway between the
+        JavaScript and the <span class="ph">Oxygen XML Editor</span> Java API. This allows you to perform changes in
+        the document, open resources, and more, solely from the JavaScript.<div class="note important note_important"><span class="note__title">Important:</span> This will only work if the loaded HTML is located inside a <a class="xref" href="framework-location.html#framework-location">framework or plugin directory</a>,
+          such as: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/</span> or <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/plugins/</span>.</div></div>
+      <div class="p">The following global variables can be used:<ul class="ul">
+          <li class="li"><strong class="ph b">authorAccess</strong> - This object is an instance of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorAccess.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorAccess</em></a>.</li>
+          <li class="li"><strong class="ph b">contextElement</strong> - An instance of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorNode.html" target="_blank" rel="external noopener">ro.sync.ecss.extensions.api.node.AuthorNode</a>. The
+            form control is added over this node.</li>
+          <li class="li"><strong class="ph b">pluginWorkspace</strong> - An instance of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/StandalonePluginWorkspace.html" target="_blank" rel="external noopener">ro.sync.exml.workspace.api.standalone.StandalonePluginWorkspace</a>.</li>
+          <li class="li"><strong class="ph b">fcArguments</strong> - A <code class="ph codeph">java.util.Map</code> implementation with the
+            properties (name and value pairs) passed on the form control function.</li>
+          <li class="li">
+            <div class="p"><strong class="ph b">apiHelper</strong> - A helper object for creating Java objects. It allows you to create
+              Java objects from within the JavaScript code. These objects can then be passed to the
+              Java methods as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><strong class="hl-keyword">var</strong> newAttrValue = apiHelper.newInstance(
+           <span class="hl-string">"ro.sync.ecss.extensions.api.node.AttrValue"</span>,
+           [<span class="hl-string">"normalizedValue"</span>, <span class="hl-string">"rawValue"</span>, true]);
+authorAccess.getDocumentController().setAttribute(
+        <span class="hl-string">"counter"</span>, newAttrValue, contextElement);
+...</pre></div>
+            <div class="p">You can also specify the constructor
+              signature:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><strong class="hl-keyword">var</strong> newAttrValue = apiHelper.newInstance(
+        <span class="hl-string">"ro.sync.ecss.extensions.api.node.AttrValue
+</span>        (java.lang.<strong class="hl-keyword">String</strong>, java.lang.<strong class="hl-keyword">String</strong>, <strong class="hl-keyword">boolean</strong>)<span class="hl-string">",
+</span>        [<span class="hl-string">"normalizedValue"</span>, <span class="hl-string">"rawValue"</span>, true]);
+authorAccess.getDocumentController().setAttribute(
+        <span class="hl-string">"counter"</span>, newAttrValue, contextElement);
+...</pre></div>
+          </li>
+        </ul></div>
+      <p class="p">For more information, open the <span class="ph filepath">form-controls.xml</span> file in the
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong> directory and go to section <strong class="ph b">11.1 -
+          Interacting with the Oxygen Workspace</strong>.</p>
+      <div class="p">
+        <div class="note warning note_warning"><span class="note__title">Warning:</span> On Mac OS X, you need to use asynchronous calls to the API, due to the
+          following JDK bug: <a class="xref" href="https://bugs.openjdk.java.net/browse/JDK-8087465" target="_blank" rel="external noopener">https://bugs.openjdk.java.net/browse/JDK-8087465</a>. By default, the API is called synchronously, but you
+          can change this behavior for each API object by calling two methods:
+              <strong class="ph b"><code class="ph codeph">sync()</code></strong> and
+          <strong class="ph b"><code class="ph codeph">async()</code></strong>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><em class="hl-comment">// By default, the methods are invoke synchronously. </em>
+<strong class="hl-keyword">var</strong> ctrl = authorAccess.getDocumentController();
+<strong class="hl-keyword">try</strong> {
+  <em class="hl-comment">// On Mac, methods that change the document must be executed asynchronously.</em>
+  ctrl.async();
+  ctrl.setAttribute(<span class="hl-string">"counter"</span>, newAttrValue, contextElement);        	
+} <strong class="hl-keyword">finally</strong> {
+  ctrl.sync();
+}</pre></div>
+      </div>
+    </section>
+    <section class="section" id="oxy-browser-form-control__listening_for_changes_in_the_document"><h2 class="title sectiontitle">Listening for Changes in the Document</h2>
+      
+      <div class="p">If the form control presents some information from the document (for example, the value of
+        an attribute), then it needs to be notified on changes in the document so that it can update
+        that information. To do this, follow these steps:<ol class="ol">
+          <li class="li">In the JavaScript, the <strong class="ph b"><code class="ph codeph">bridgeReady()</code></strong> method is invoked as soon
+            as the form control is loaded and the API bridge is installed. This is where you can add
+            a
+            listener:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><strong class="hl-keyword">function</strong> bridgeReady () {
+  <em class="hl-comment">// We declare a member function for each method of the </em>
+  <em class="hl-comment">// ro.sync.ecss.extensions.api.AuthorListener interface (same function signature)</em>
+  <strong class="hl-keyword">var</strong> handler = {
+    attributeChanged : <strong class="hl-keyword">function</strong>(event) {
+      <strong class="hl-keyword">var</strong> node = event.getOwnerAuthorNode();
+      <strong class="hl-keyword">var</strong> attrName = event.getAttributeName();
+            
+      <strong class="hl-keyword">if</strong> (node.equals(contextElement) &amp;&amp; attrName === <span class="hl-string">"counter"</span>) {
+        init();
+      }
+    },
+    contentDeleted : <strong class="hl-keyword">function</strong>(event) {},
+    contentInserted : <strong class="hl-keyword">function</strong>(event) {}
+  };
+     
+  <em class="hl-comment">// We create a proxy over an ro.sync.ecss.extensions.api.AuthorListener that will </em>
+  <em class="hl-comment">// delegate its methods to the JS object's functions.</em>
+  <em class="hl-comment">// We assign the listener to a global variable so that we can remove it later on, </em>
+  <em class="hl-comment">// on the dispose() method.</em>
+  authorDocumentListener = apiHelper.createProxyListener(
+      <span class="hl-string">"ro.sync.ecss.extensions.api.AuthorListener"</span>, handler);
+     
+  <strong class="hl-keyword">var</strong> ctrl = authorAccess.getDocumentController();
+
+  <em class="hl-comment">// Add the proxy listener.</em>
+  ctrl.addAuthorListener(authorDocumentListener);
+}</pre></li>
+          <li class="li">Since a listener was added on the document, it is important to remove it once the form
+            control is not used anymore. When a form control is discarded, the
+                <strong class="ph b"><code class="ph codeph">dispose()</code></strong> JavaScript function is invoked, so if you have any
+            cleanup to do, make sure you define a function with this name and remove any previously
+            created listeners in
+            it.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><em class="hl-comment">/**
+ * The form control will not be used anymore. Clean up.
+ */</em>
+<strong class="hl-keyword">function</strong> dispose() {
+  <em class="hl-comment">// Dispose all added listeners.</em>
+  <strong class="hl-keyword">var</strong> ctrl = authorAccess.getDocumentController();
+  ctrl.removeAuthorListener(authorDocumentListener);
+}</pre></li>
+        </ol></div>
+    </section>
+    <section class="section" id="oxy-browser-form-control__debugging_javascript_used_for_custom_form_control"><h2 class="title sectiontitle">Debugging JavaScript Used for Custom Form Controls</h2>
+      
+      <div class="p">If you encounter unexpected results when using the <a class="xref" href="oxy-browser-form-control.html#oxy-browser-form-control__interacting_with_the_workspace">method
+          described above</a>, you can debug the script by using the following guidelines:<ul class="ul">
+          <li class="li">Calls to <code class="ph codeph">alert("message.to.present")</code> or
+              <code class="ph codeph">console.log("message.to.present")</code> will be presented in the <a class="xref" href="results-view.html#results-view">Results panel</a>.</li>
+          <li class="li">You can install the <a class="xref" href="http://getfirebug.com/" target="_blank" rel="external noopener"><strong class="ph b">Firebug</strong> extension</a> by executing the following
+            script:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">{code:javascript}
+<strong class="hl-keyword">function</strong> installFB() {
+  <strong class="hl-keyword">if</strong> (!document.getElementById(<span class="hl-string">'FirebugLite'</span>)) {
+    E = document[<span class="hl-string">'createElement'</span> + <span class="hl-string">'NS'</span>] &amp;&amp; document.documentElement.namespaceURI;
+    E = E ? document[<span class="hl-string">'createElement'</span> + <span class="hl-string">'NS'</span>](E, <span class="hl-string">'script'</span>) 
+          : document[<span class="hl-string">'createElement'</span>](<span class="hl-string">'script'</span>);
+    E[<span class="hl-string">'setAttribute'</span>](<span class="hl-string">'id'</span>, <span class="hl-string">'FirebugLite'</span>);
+    E[<span class="hl-string">'setAttribute'</span>](<span class="hl-string">'src'</span>, 
+                      <span class="hl-string">'https://getfirebug.com/'</span> + <span class="hl-string">'firebug-lite.js'</span> + <span class="hl-string">'#startOpened'</span>);
+    E[<span class="hl-string">'setAttribute'</span>](<span class="hl-string">'FirebugLite'</span>, <span class="hl-string">'4'</span>);
+    (document[<span class="hl-string">'getElementsByTagName'</span>](<span class="hl-string">'head'</span>)[<span class="hl-number">0</span>] 
+          || document[<span class="hl-string">'getElementsByTagName'</span>](<span class="hl-string">'body'</span>)[<span class="hl-number">0</span>]).appendChild(E);
+    E = <strong class="hl-keyword">new</strong> Image;
+    E[<span class="hl-string">'setAttribute'</span>](<span class="hl-string">'src'</span>, <span class="hl-string">'https://getfirebug.com/'</span> + <span class="hl-string">'#startOpened'</span>);
+  }
+}
+{code}</pre></li>
+        </ul></div>
+      <div class="note note note_note"><span class="note__title">Note:</span> To force the <em class="ph i">Browser Form Control</em> to reload after making changes to the
+        JavaScript file, you need to use the <span class="ph uicontrol">Reload page</span> action from the form
+        control's contextual menu.</div>
+    </section>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/oxy-audio-form-control.html" title="The oxy_audio built-in form control is used for providing a mechanism to play audio clips.">Audio File Player Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/button-editor.html" title="The oxy_button built-in form control is used for graphical user interface objects that invoke a custom Author mode action (defined in the associated Document Type) referencing it by its ID, or directly in the CSS.">Button Form Control</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li><li class="linklist"><a class="link" href="dg-url-function.html" title="This function extends the standard CSS url() function by allowing you to specify additional relative path components (parameters loc_1 to loc_n).">URL: oxy_url() Function</a></li></ul></div></nav>
+</article></main></body></html>

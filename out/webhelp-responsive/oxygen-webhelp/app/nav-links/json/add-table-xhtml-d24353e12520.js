@@ -1,0 +1,1 @@
+define({"topics":[{"title":"XHTML Table Layout","href":"topics\/author-editing-tables-xhtml.html","attributes":{"data-id":"author-editing-tables-xhtml"},"menu":{"hasChildren":false},"tocID":"author-editing-tables-xhtml-d24353e12539","topics":[]}]});

@@ -1,0 +1,309 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Finding/Replacing text,Find/Replace in multiple files,Find/Replace in multiple files,Find/Replace in Files action,Search multiple files"><meta name="keywords" content="Finding/Replacing text, Find/Replace in multiple files, Find/Replace in multiple files, Find/Replace in Files action, Search multiple files"><meta name="DC.relation" scheme="URI" content="../topics/searching-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/find-replace-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/find-all-elements-dialog.html"><meta name="DC.relation" scheme="URI" content="predefined-refactoring-operations.html"><meta name="DC.relation" scheme="URI" content="custom-refactoring-operations.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="find-and-replace-text-in-files"><title>Find/Replace in Multiple Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="find-and-replace-text-in-files"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Find/Replace in Multiple Files</h1>
+  
+  <div class="body">
+    <div class="p">The <span class="ph uicontrol">Find/Replace in Files</span> feature enables you to define <em class="ph i">Search
+        for</em> or <em class="ph i">Search for and Replace</em> operations across multiple files<span class="ph"> (for example, in DITA projects you can search in the scope of an
+        entire <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a>)</span>. To open the
+        <span class="ph uicontrol">Find/Replace in Files</span> dialog box, use the <span class="ph uicontrol"><img class="image" id="find-and-replace-text-in-files__image_pbj_xhk_qr" src="../img/SearchInPath16.png">Find/Replace in Files</span>
+      action that is available in the following locations:<ul class="ul">
+        <li class="li">The <span class="ph uicontrol">Find</span> menu. </li>
+        <li class="li">The <span class="ph uicontrol"><img class="image" src="../img/SearchInPath16.png">Find/Replace in
+            Files</span> button on the main toolbar.</li>
+        <li class="li">The contextual menu of the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span>
+            view</a>.</li>
+        <li class="li">The contextual menu of the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+            view</a>.</li>
+        <li class="li">The contextual menu of the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a> for most types of database
+          connections.</li>
+      </ul></div>
+    <p class="p">The operation works on both local and remote files from an (S)FTP, WebDAV, or CMS server.</p>
+    <section class="section" id="find-and-replace-text-in-files__findreplace_in_files_dialog_box"><h2 class="title sectiontitle">Find/Replace in Files Dialog Box</h2>
+      
+      <div class="p">
+        <figure class="fig fignone" id="find-and-replace-text-in-files__figure-find-replace-in-files-dialog"><figcaption><span class="fig--title-label">Figure 1. </span>Find / Replace in Files Dialog Box (When Opened from the Toolbar Button)</figcaption>
+          
+          <img class="image" src="../img/sa_find_replace_in_files.png">
+        </figure>
+      </div>
+      <p class="p">The dialog box contains the following options:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Text to Find</span> section</dt>
+            <dd class="dd">
+              <p class="p">The first text field is where you enter the character string to search for. You can
+                search for Unicode characters specified in the <code class="ph codeph">\uNNNN</code> format. Also,
+                hexadecimal notation (<code class="ph codeph">\xNNNN</code>) and octal notation
+                  (<code class="ph codeph">\0NNNN</code>) can be used. In this case you have to select the
+                  <span class="ph uicontrol">Regular expression</span> option. For example, to search for a
+                space character you can use the <code class="ph codeph">\u0020</code> code.</p>
+              <div class="p">The rest of the options in this section can be used to refine your search:<dl class="dl">
+                  
+                    <dt class="dt dlterm">Case sensitive</dt>
+                    <dd class="dd">When selected, the search operation follows the exact letter case of the
+                      value entered in the <span class="ph uicontrol">Text to find</span> field.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Whole words only</dt>
+                    <dd class="dd">Only entire occurrences of a word are included in the search operation. This
+                      option is automatically disabled if either the <span class="ph uicontrol">Ignore extra
+                        whitespaces</span> or <span class="ph uicontrol">Regular expression</span> options
+                      are selected.</dd>
+                  
+                  
+          <dt class="dt dlterm">Ignore extra whitespaces</dt>
+          <dd class="dd">If selected, the application normalizes the content (collapses any sequence of
+            whitespace characters into a single space) and trims its leading and trailing
+            whitespaces when performing the search operation. This is helpful when searching for
+            spaced-separated words since line breaks and indentation between words will not affect
+            the results. This option is automatically disabled if the <span class="ph uicontrol">Regular
+              expression</span> option is selected.</dd>
+        
+                  
+          <dt class="dt dlterm" id="find-and-replace-text-in-files__regular-expression">Regular <span class="ph">expression</span></dt>
+          <dd class="dd">When this option is selected, you can use regular expressions in <a class="xref" href="regular-expressions.html#regular-expressions">Perl-like regular
+              expressions syntax</a> to look for specific pieces of text.<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Dot matches all</span> - A dot used in a regular expression also
+                matches end of line characters.</li>
+              <li class="li"><span class="ph uicontrol">Canonical equivalence</span> - If selected, two characters will be
+                considered a match if, and only if, their full <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonical</dfn></a> decompositions
+                match. For example, the <strong class="ph b">ã</strong> symbol can be inserted as a single character or as
+                two characters (the <strong class="ph b">a</strong> character followed by the tilde <strong class="ph b">~</strong> character).
+                This option is not selected by default.</li>
+            </ul></dd>
+        
+                  
+                    <dt class="dt dlterm" id="find-and-replace-text-in-files__xpath">Restrict to XPath</dt>
+                    <dd class="dd">The XPath 2.0 expression you input in this combo is used for restricting the
+                      search scope. Clicking the <span class="ph uicontrol"><img class="image" src="../img/Options16.png">XPath Options</span> button opens a preferences page where you can
+                      configure some XPath-related options.<div class="note note note_note"><span class="note__title">Note:</span> You can use the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                            Assistant</dfn></a> to help you input XPath expressions that are
+                        valid in the current context.</div></dd>
+                  
+                  
+          <dt class="dt dlterm">Enable XML search options</dt>
+          <dd class="dd">
+            <div class="p">This option is only available when editing in <span class="ph uicontrol">Text</span> mode. It
+              provides access to a set of options that allow you to search specific XML component
+                types:<ul class="ul" id="find-and-replace-text-in-files__ul_x33_q5g_z3b">
+                <li class="li"><span class="ph uicontrol">Element names</span> - Only the element names are included in
+                  the search operation that ignores XML-tag notations ('&lt;', '/', '&gt;'),
+                  attributes or white-spaces.</li>
+                <li class="li"><span class="ph uicontrol">Element contents</span> - Search in the text content of XML
+                  elements.</li>
+                <li class="li"><span class="ph uicontrol">Attribute names</span> - Only the attribute names are included
+                  in the search operation, without the leading or trailing white-spaces.</li>
+                <li class="li"><span class="ph uicontrol">Attribute values</span> - Only the attribute values are included
+                  in the search operation, without single quotes(') or double quotes(").</li>
+                <li class="li"><span class="ph uicontrol">Comments</span> - Only the content of comments is included in
+                  the search operation, excluding the XML comment delimiters ('&lt;!--',
+                  '--&gt;').</li>
+                <li class="li"><span class="ph uicontrol">PIs</span> (Processing Instructions) - Only the content is
+                  searched, skipping '&lt;?'...'?&gt;' (for example, <code class="ph codeph">&lt;?processing
+                    instruction?&gt;</code>).</li>
+                <li class="li"><span class="ph uicontrol">CDATA</span> - Searches inside content of CDATA sections.</li>
+                <li class="li"><span class="ph uicontrol">DOCTYPE</span> - Searches inside content of DOCTYPE
+                  sections.</li>
+                <li class="li"><span class="ph uicontrol">Entities</span> - Only the entity names are searched.</li>
+              </ul></div>
+            <div class="p">The two buttons <span class="ph uicontrol">Select All</span> and <span class="ph uicontrol">Deselect
+                All</span> allow a simple activation and deactivation of all types of XML
+                components.<div class="note note note_note"><span class="note__title">Note:</span> Even if you select all options of the <span class="ph uicontrol">Enable XML search
+                  options</span> section, the search is still XML-aware. If you want to perform
+                the search over the entire file content, deselect <span class="ph uicontrol">Enable XML search
+                  options</span>.</div></div>
+          </dd>
+        
+                </dl></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Replace with</span> section</dt>
+            <dd class="dd">
+              <div class="p">Use the text field in this section to specify a character string to replace the
+                target with. It may contain regular expression group markers if the search
+                expression is a regular expression and the <span class="ph uicontrol">Regular expression</span>
+                checkbox is selected.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to change the XML structure, you
+                  could use the <a class="xref" href="predefined-refactoring-operations.html">built-in XML
+                    refactoring operations</a>.<span class="ph"> You can even <a class="xref" href="custom-refactoring-operations.html">customize your own refactoring
+                      operations</a>.</span></div></div>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Make backup files with extension</dt>
+                    <dd class="dd"> In the replace process <span class="ph">Oxygen XML Editor</span> makes backup files of the
+                      modified files. The default extension is <span class="ph filepath">.bak</span>, but you
+                      can change the extension as you prefer.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Scope</span> section</dt>
+            <dd class="dd">
+              <p class="p">The options available in this section depend on the context (how the dialog box was
+                opened). Select one of the listed options to specify the scope for the operation.
+                The possible options include:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Selected project resources</dt>
+                    <dd class="dd">Searches only in the selected files.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Project files</dt>
+                    <dd class="dd">Searches in all files from the current project.</dd>
+                  
+                  
+                    <dt class="dt dlterm">All opened files</dt>
+                    <dd class="dd">Searches in all files opened in <span class="ph">Oxygen XML Editor</span><span class="ph"> (regular files or <dfn class="term">DITA maps</dfn>)</span>. You
+                      are prompted to save all modified files before any operation is
+                      performed.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Current file directory</dt>
+                    <dd class="dd">The search is done in the directory of the file opened in the current editor
+                      panel. If there is no open file, this option is not available.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Current DITA Map hierarchy (only available if opened from the DITA Maps
+                      Manager)</dt>
+                    <dd class="dd">The search is done in all maps and topics referenced by the currently
+                      selected <dfn class="term">DITA map</dfn>, opened in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                          Manager</span> view</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Selected references (only available if opened from the DITA Maps
+                      Manager)</dt>
+                    <dd class="dd">Searches only in the selected DITA references.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Opened archive (only available if opened from the Archive Browser view)</dt>
+                    <dd class="dd">The search is done in an archive opened in the <a class="xref" href="archive-browser-view.html#archive-browser-view">Archive
+                        Browser</a> view.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Specified path</dt>
+                    <dd class="dd">Use this option to specify the search path.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Filters</span> section</dt>
+            <dd class="dd">
+              <p class="p">The options available in this section depend on the context (how the dialog box was
+                opened) and they can be used to filter the search operation. The possible options
+                include:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">Include files</dt>
+                    <dd class="dd">Narrows the scope of the operation only to the files that match the given
+                      filters. For example, you can choose to filter the search to only include
+                      files with a certain file extension (such as <span class="ph filepath">*.xml</span>).</dd>
+                  
+                  
+                    <dt class="dt dlterm">Recurse subdirectories</dt>
+                    <dd class="dd">When selected, the search is performed recursively for the specified scope.
+                      The one exception is that this option is ignored if the scope is set to
+                        <span class="ph uicontrol">All opened files</span>.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Recurse references (only available if opened from the DITA Maps
+                      Manager)</dt>
+                    <dd class="dd">When selected, the search is performed recursively for the selected
+                      scope.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Include hidden files</dt>
+                    <dd class="dd">When selected, the search is also performed in the hidden files.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Include archives</dt>
+                    <dd class="dd">When selected, the search is also done in all individual file entries from
+                      all supported ZIP-type archives.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Show separate results for each search expression</dt>
+            <dd class="dd">When selected, the application opens a new tab to display the result of each new
+              search expression. When the option is unchecked, the search results are displayed in
+              the <em class="ph i">Find in Files</em> tab, replacing any previous search results.</dd>
+          
+          
+            <dt class="dt dlterm">Always open selected results in Text mode</dt>
+            <dd class="dd">If selected, double-clicking results will always open the documents in
+                <span class="ph uicontrol">Text</span> mode (even if the particular document type is set to
+              open in <span class="ph uicontrol">Author</span> mode, by default). If not selected (default
+              state), double-clicking results will open the documents in whatever editing mode is
+              specified as the default for that document type. For example, by default, DITA
+              documents will open in <span class="ph uicontrol">Author</span> mode (as specified in the default
+              framework configuration for DITA document types). Specialized XML documents such as
+              XSLT or XML Schema will continue being opened in the <span class="ph uicontrol">Text</span>
+              editing mode.</dd>
+          
+          
+            <dt class="dt dlterm">Find All</dt>
+            <dd class="dd">Use the <span class="ph uicontrol">Find All</span> button to execute the search operation. The
+              results are <a class="xref" href="results-view.html#results-view">displayed in a
+                view</a> that allows grouping the results as a tree with two levels.</dd>
+          
+          
+            <dt class="dt dlterm">Replace All</dt>
+            <dd class="dd">Use the <span class="ph uicontrol">Replace All</span> button to execute the search operation
+              and replace all occurrences with the specified string. When you replace a fragment of
+              text, <span class="ph">Oxygen XML Editor</span> offers an option to preview of the changes you make. The
+                <span class="ph uicontrol">Preview</span> dialog box is divided in two sections. The first
+              section presents a list of all the documents containing the fragment of text you want
+              to modify. The second section offers a view of the original file and a view of the
+              final result. It also allows you to highlight all changes using the vertical bar from
+              the right side of the view. The <span class="ph uicontrol">Next change</span> and
+                <span class="ph uicontrol">Previous change</span> buttons allow you to navigate through the
+              changes displayed in the <span class="ph uicontrol">Preview</span> dialog box.<div class="note caution note_caution"><span class="note__title">CAUTION:</span> Use the <span class="ph uicontrol">Replace All</span> option with caution.
+                Global searches may result in matching strings being replaced in instances that were
+                not originally intended.</div></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <div class="note note note_note"><span class="note__title">Note:</span> 
+      <ul class="ul">
+        <li class="li">You can use <a class="xref" href="regular-expressions.html#regular-expressions">Perl-like regular
+            expression syntax</a> to match patterns in text content. The <em class="ph i">replace</em> operation
+          can bind regular expression capturing groups ($1, $2, etc.) from the find pattern.</li>
+        <li class="li">Exclusion patterns are accepted. For example, <code class="ph codeph">*.java, !*Test.java</code> would
+          search for all files with a <em class="ph i">.java</em> extension, with the exception of any file whose
+          name ends in <em class="ph i">Test</em>.</li>
+        <li class="li">To replace the <code class="keyword markupname xmlelement">&lt;tag-name&gt;</code> start tag and its attributes with the
+            <code class="keyword markupname xmlelement">&lt;new-tag-name&gt;</code> tag use as <span class="ph uicontrol">Text to find</span> the
+          expression <em class="ph i">&lt;tag-name(\s+)(.*)&gt;</em> and as <span class="ph uicontrol">Replace with</span> the
+          expression <em class="ph i">&lt;new-tag-name$1$2&gt;</em>. </li>
+        <li class="li">The encoding used to read and write the files is detected from the XML header or from
+          the BOM. If a file does not have an XML header or BOM <span class="ph">Oxygen XML Editor</span> uses by
+          default the UTF-8 encoding for files of type XML, that is for files with one of the
+          extensions: <span class="ph filepath">.xml</span>, <span class="ph filepath">.xsl</span>,
+          <span class="ph filepath">.fo</span>, <span class="ph filepath">.xsd</span>, <span class="ph filepath">.rng</span>,
+            <span class="ph filepath">.nvdl</span>, <span class="ph filepath">.sch</span>, <span class="ph filepath">.wsdl</span> or
+            <a class="xref" href="preferences-file-types.html">an extension associated with the XML editor
+            type</a>. For the other files it uses <a class="xref" href="preferences-encoding.html">the
+            encoding configured for non-XML files</a>.</li>
+        <li class="li">You can cancel a long operation at any time by pressing the
+            <span class="ph uicontrol">Cancel</span> button of the progress dialog box, but doing so will not
+          revert any replacements that have been processed up to that point.</li>
+        <li class="li">Since the content of read-only files cannot be modified, the
+            <span class="ph uicontrol">Replace</span> operation does not process those files. For every such
+          file, a warning message is displayed in the message panel.</li>
+      </ul>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/searching-documents.html">Search and Find/Replace Features</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/find-replace-dialog.html">Find/Replace Dialog Box</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/find-all-elements-dialog.html">Find All Elements Dialog Box</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="predefined-refactoring-operations.html">Built-in Refactoring Operations</a></li><li class="linklist"><a class="link" href="custom-refactoring-operations.html">Custom Refactoring Operations</a></li></ul></div></nav>
+</article></main></body></html>

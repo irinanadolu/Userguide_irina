@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Editing Table Properties in DITA","href":"topics\/dita-table-properties.html","attributes":{"data-id":"dita-table-properties"},"menu":{"hasChildren":false},"tocID":"dita-table-properties-d24353e42422","topics":[]}]});

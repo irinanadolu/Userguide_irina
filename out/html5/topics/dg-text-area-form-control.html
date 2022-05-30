@@ -1,0 +1,148 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_textArea built-in form control is used for entering multiple lines of text in a graphical user interface box. A text area may include optional syntax highlight capabilities to present the form control."><meta name="DC.subject" content="CSS extensions,Form Controls,Text area,Text area"><meta name="keywords" content="CSS extensions, Form Controls, Text area, Text area"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/pop-up-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/text-field-editor.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="dg-visibility-css-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-text-area-form-control"><title>Text Area Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-text-area-form-control"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Text Area Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_textArea</code> built-in form control is used for entering multiple
+    lines of text in a graphical user interface box. A text area may include optional syntax
+    highlight capabilities to present the form control.</p>
+    <p class="p">The <code class="ph codeph">oxy_textArea</code> form control supports the following properties:</p>
+    <ul class="ul">
+      <li class="li">
+        <div class="p"><span class="ph"><strong class="ph b">edit</strong> - Lets you edit the value of an attribute, the text content of an element,
+          or Processing Instructions (PI). This property can have the following values:</span><ul class="ul" id="dg-text-area-form-control__ul_rr4_pl1_x3b">
+            <li class="li"><strong class="ph b">@attribute_name</strong> - The name of the attribute whose value is
+            being edited. If the attribute is in a namespace, the value of the property must be a
+              <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> and the CSS must have a
+            namespace declaration for the prefix.</li>
+            <li class="li"><strong class="ph b">#text</strong> - Specifies that the presented/edited value is the simple
+            text value of an element.<div class="note note note_note"><span class="note__title">Note:</span> You can set the value of the <a class="xref" href="dg-visibility-css-extension.html" title="Used to collapse the content of an element."><code class="ph codeph">visibility</code>
+                property to <code class="ph codeph">-oxy-collapse-text</code></a> to render the text only in
+              the form control that the <code class="ph codeph">oxy_editor</code> function specifies.</div></li>
+            <li class="li">
+              <p class="p"><strong class="ph b">#content</strong> - This parameter is useful when an element has mixed or
+                element-only content and you want to edit its content inside a text area form
+                control.</p>
+              <div class="p">For example, if you have the following XML
+                content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;codeblock</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"language-xml"</span><strong class="hl-tag">&gt;</strong>START_TEXT<strong class="hl-tag">&lt;ph&gt;</strong>phase<strong class="hl-tag">&lt;/ph&gt;</strong>
+           <strong class="hl-tag">&lt;apiname&gt;</strong><strong class="hl-tag">&lt;text&gt;</strong>API<strong class="hl-tag">&lt;/text&gt;</strong><strong class="hl-tag">&lt;/apiname&gt;</strong><strong class="hl-tag">&lt;/codeblock&gt;</strong></pre></div>
+              <div class="p">and your CSS includes the following
+                snippet:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">codeblock:before{
+<strong class="hl-keyword">content</strong>:
+    oxy_textArea(
+      edit, <span class="hl-string">'#content'</span>,
+      contentType, <span class="hl-string">'text/xml'</span>);
+}</pre></div>
+              <div class="p">then the text area form control will edit the following
+                  fragment:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">START_TEXT&lt;ph&gt;phase&lt;/ph&gt;&lt;apiname&gt;&lt;text&gt;API&lt;/text&gt;&lt;/apiname&gt;</pre><div class="note note note_note"><span class="note__title">Note:</span> When
+                  the value of the <code class="ph codeph">edit</code> property is <code class="ph codeph">#content</code>, the
+                  text area form control will also offer content completion proposals.</div></div>
+            </li>
+          </ul></div>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">#content</strong> - This parameter is useful when an element has mixed or element-only
+          content and you want to edit its content inside a text area form control.</p>
+        <div class="p">For example, if you have the following XML
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;codeblock</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"language-xml"</span><strong class="hl-tag">&gt;</strong>START_TEXT<strong class="hl-tag">&lt;ph&gt;</strong>phase<strong class="hl-tag">&lt;/ph&gt;</strong>
+           <strong class="hl-tag">&lt;apiname&gt;</strong><strong class="hl-tag">&lt;text&gt;</strong>API<strong class="hl-tag">&lt;/text&gt;</strong><strong class="hl-tag">&lt;/apiname&gt;</strong><strong class="hl-tag">&lt;/codeblock&gt;</strong></pre></div>
+        <div class="p">and your CSS includes the following
+          snippet:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">codeblock:before{
+<strong class="hl-keyword">content</strong>:
+    oxy_textArea(
+      edit, <span class="hl-string">'#content'</span>,
+      contentType, <span class="hl-string">'text/xml'</span>);
+}</pre></div>
+        <div class="p">then the text area form control will edit the following
+            fragment:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">START_TEXT&lt;ph&gt;phase&lt;/ph&gt;&lt;apiname&gt;&lt;text&gt;API&lt;/text&gt;&lt;/apiname&gt;</pre><div class="note note note_note"><span class="note__title">Note:</span> When
+            the value of the <code class="ph codeph">edit</code> property is <code class="ph codeph">#content</code>, the text
+            area form control will also offer content completion proposals.</div></div>
+      </li>
+      <li class="li"><span class="ph"><strong class="ph b">columns</strong> - Controls the width of the form
+          control. The unit size is the width of the <span class="ph uicontrol">w</span>
+          character.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of the
+          content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units. The <code class="ph codeph">width</code> property takes
+          precedence over the <code class="ph codeph">columns</code> property (if the two are used
+        together).</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">fontInherit</strong> - This value
+          specifies whether or not the form control inherits its font from its parent element. The
+          values of this property can be <code class="ph codeph">true</code> or <code class="ph codeph">false</code> (default
+          value). To make the form control inherit its font from its parent element, set the
+            <code class="ph codeph">fontInherit</code> property to <code class="ph codeph">true</code>.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">visible</strong> - Specifies whether or not the form control is
+          visible. The possible values of this property are <code class="ph codeph">true</code> (default value)
+          and <code class="ph codeph">false</code>.</span></li>
+      <li class="li"><span class="ph"><strong class="ph b">rows</strong> - This property specifies the number of rows that the form
+          control presents.</span> If the form control
+        has more lines, you can scroll and see them all.</li>
+      <li class="li"><span class="ph"><strong class="ph b">contentType</strong> - Specifies the type of content that the
+        form control will format with syntax highlighting. The following values are supported:
+          <code class="ph codeph">text/css; text/shell; text/cc; text/xquery; text/xml; text/python; text/xsd;
+          text/c; text/xpath; text/javascript; text/xsl; text/wsdl; text/html; text/xproc;
+          text/properties; text/sql; text/rng; text/sch; text/json; text/perl; text/php; text/java;
+          text/batch; text/rnc; text/dtd; text/nvdl; text/plain.</code></span></li>
+      <li class="li"><span class="ph"><strong class="ph b">indentOnTab</strong> - Specifies the behavior
+          of the <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> key. If the value of this property
+          is set to <code class="ph codeph">true</code> (default value), the
+            <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> key inserts characters. If it is set to
+            <code class="ph codeph">false</code>, <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> is used for
+          navigation, jumping to the next editable position in the document.</span></li>
+      <li class="li"><strong class="ph b">white-space</strong> - CSS property that influences the value that you edit, as well as the
+        form control size:<ul class="ul" id="dg-text-area-form-control__ul_kw1_vdn_rq">
+          <li class="li"><strong class="ph b">pre</strong> - The whitespaces and new lines of the value are preserved and edited. If
+            the <code class="ph codeph">rows</code> and <code class="ph codeph">columns</code> properties are not specifies, the
+            form control calculates its size on its own so that all the text is visible.</li>
+          <li class="li"><strong class="ph b">pre-wrap</strong> - The long lines are wrapped to avoid horizontal scrolling.<div class="note note note_note"><span class="note__title">Note:</span> The
+                <code class="ph codeph">rows</code> and <code class="ph codeph">columns</code> properties must be specified. If
+              these are not specified, the form control considers the value to be
+                <code class="ph codeph">pre</code>.</div></li>
+          <li class="li"><strong class="ph b">normal</strong> - The white spaces and new lines are normalized.</li>
+        </ul></li>
+      <li class="li"><span class="ph"><strong class="ph b">hoverPseudoclassName</strong> - Allows
+          you to change the way an element is rendered when you hover over a form control. The value
+          is the name of a CSS pseudo-class. When you hover over the form control, the specified
+          pseudo-class will be set on the element that contains the form control.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p:before {
+  <strong class="hl-keyword">content</strong>: oxy_textArea(hoverPseudoclassName, <span class="hl-string">'showBorder'</span>)
+}
+p:showBorder {
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid red;
+}</pre></li>
+    </ul>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_textArea</em> Form Control</u></strong></p>
+    <div class="p">The following example presents a text area with CSS syntax highlighting that calculates its
+      own dimension, and a second one with XML syntax highlighting with defined
+      dimension.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">textArea {
+    <strong class="hl-keyword">visibility</strong>: -oxy-collapse-text;
+    <strong class="hl-keyword">white-space</strong>: pre;
+}
+
+textArea[language=<span class="hl-string">"CSS"</span>]:before {
+    <strong class="hl-keyword">content</strong>: oxy_textArea(
+      edit, <span class="hl-string">'#text'</span>,
+      contentType, <span class="hl-string">'text/css'</span>);
+}
+
+textArea[language=<span class="hl-string">"XML"</span>]:before {
+    <strong class="hl-keyword">content</strong>: oxy_textArea(
+      edit, <span class="hl-string">'#text'</span>,
+      contentType, <span class="hl-string">'text/xml'</span>,
+      rows, <span class="hl-number">10</span>,
+      columns, <span class="hl-number">30</span>);
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_textArea</code> form control in a CSS
+      file <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="dg-text-area-form-control__image_fyc_fhh_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_textArea</code> code template.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/pop-up-editor.html" title="The oxy_popup built-in form control is used to offer a contextual menu that provides quick access to various actions. A pop-up form control can display single or multiple selections.">Pop-up Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/text-field-editor.html" title="The oxy_textfield built-in form control is used for entering a single line of text in a graphical user interface box. A text field may include optional content completion capabilities, used to present and edit the value of an attribute or an element.">Text Field Form Control</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li><li class="linklist"><a class="link" href="dg-visibility-css-extension.html" title="Used to collapse the content of an element.">Collapse Text: -oxy-collapse-text Property Value</a></li></ul></div></nav>
+</article></main></body></html>

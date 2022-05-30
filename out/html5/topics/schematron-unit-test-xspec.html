@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron,Unit test (XSpec)"><meta name="keywords" content="Schematron, Unit test (XSpec)"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-quick-assist-support.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron-quick-fixes.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="schematron-unit-test-xspec"><title>Schematron Unit Test (XSpec)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="schematron-unit-test-xspec"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Schematron Unit Test (XSpec)</h1>
+  
+  <div class="body">
+    <p class="p">XSpec is a behavior driven development (BDD) <dfn class="term">framework</dfn> for
+        XSLT, XQuery, and Schematron. XSpec consists of syntax for describing the behavior of your
+        XSLT, XQuery, or Schematron code, and some code that enables you to test your code against
+        those descriptions.</p>
+    <section class="section" id="schematron-unit-test-xspec__creating_an_xslt_unit_test"><h2 class="title sectiontitle">Creating a Schematron Unit Test</h2>
+      
+      <p class="p">To create a Schematron Unit Test, go to <span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Schematron Unit Test</span></span>. This is simple document template to help you get started.</p>
+    </section>
+    <section class="section" id="schematron-unit-test-xspec__running_an_xslt_unit_test"><h2 class="title sectiontitle">Running a Schematron Unit Test</h2>
+      
+      <p class="p">To run a Unit Test, open the XSpec file in an editor and click
+            <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ApplyStyleSheet16.png">Apply Transformation
+          Scenario(s)</span> on the main toolbar. This will run the built-in <span class="ph uicontrol">Run
+          XSpec Test</span> transformation scenario that is defined in the XSpec <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>.</p>
+    </section>
+    <section class="section" id="schematron-unit-test-xspec__testing_a_stylesheet"><h2 class="title sectiontitle">Testing a Stylesheet</h2>
+      
+      <p class="p">An XSpec file contains one or more test scenarios. </p>
+      <p class="p"><u class="ph u"><strong class="ph b">Example</strong></u></p>
+      <div class="p">Suppose you have this Schematron rule that says sections should have a
+        title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;sch:pattern&gt;</strong>
+    <strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"section"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;sch:assert</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"title"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"a002"</span><strong class="hl-tag">&gt;</strong>
+        section should have a title
+      <strong class="hl-tag">&lt;/sch:assert&gt;</strong>
+    <strong class="hl-tag">&lt;/sch:rule&gt;</strong>
+  <strong class="hl-tag">&lt;/sch:pattern&gt;</strong></pre></div>
+      <div class="p">The XSpec test could look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:description</strong> <span class="hl-attribute">xmlns:x</span>=<span class="hl-value">"http://www.jenitennison.com/xslt/xspec"</span> <span class="hl-attribute">schematron</span>=<span class="hl-value">"demo-01.sch"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:scenario</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"section should have a title"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;x:context&gt;</strong>
+        <strong class="hl-tag">&lt;article&gt;</strong>
+          <strong class="hl-tag">&lt;section&gt;</strong>
+            <strong class="hl-tag">&lt;title&gt;</strong>Introduction<strong class="hl-tag">&lt;/title&gt;</strong>
+            <strong class="hl-tag">&lt;p&gt;</strong>This is an example.<strong class="hl-tag">&lt;/p&gt;</strong>
+          <strong class="hl-tag">&lt;/section&gt;</strong>
+          <strong class="hl-tag">&lt;section&gt;</strong>
+            <strong class="hl-tag">&lt;p&gt;</strong>This is an example.<strong class="hl-tag">&lt;/p&gt;</strong>
+          <strong class="hl-tag">&lt;/section&gt;</strong>
+        <strong class="hl-tag">&lt;/article&gt;</strong>
+      <strong class="hl-tag">&lt;/x:context&gt;</strong>
+      
+      <strong class="hl-tag">&lt;x:expect-not-assert</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"a002"</span> <span class="hl-attribute">location</span>=<span class="hl-value">"/article[1]/section[1]"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;x:expect-assert</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"a002"</span> <span class="hl-attribute">location</span>=<span class="hl-value">"/article[1]/section[2]"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/x:scenario&gt;</strong>
+<strong class="hl-tag">&lt;/x:description&gt;</strong></pre></div>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;sch:assert&gt;</code> with the <code class="ph codeph">id="a002"</code> is not expected to be
+        triggered on the first section since it includes a title. This requirement is expressed with
+        the <code class="keyword markupname xmlelement">&lt;x:expect-not-assert&gt;</code> element.</p>
+      <p class="p">Since the second section does not have a title, you would expect the Schematron rule to be
+        triggered and this requirement is expressed with the <code class="keyword markupname xmlelement">&lt;x:expect-assert&gt;</code>
+        element.</p>
+      <p class="p">For more details about how to write Schematron tests and various samples, see <a class="xref" href="https://github.com/xspec/xspec/wiki/Writing-Scenarios-for-Schematron#writing-tests" target="_blank" rel="external noopener">https://github.com/xspec/xspec/wiki/Writing-Scenarios-for-Schematron#writing-tests</a>.</p>
+    </section>
+    <section class="section" id="schematron-unit-test-xspec__adding_a_catalog_to_an_xspec_transformation"><h2 class="title sectiontitle">Adding a Catalog to an XSpec Transformation</h2>
+      
+      <div class="p">If your Schematron needs a catalog, you can add one to the XSpec transformation by doing
+        one of the following:<ul class="ul">
+        <li class="li">If you are using a <a class="xref" href="grouping-documents-xml-projects.html#grouping-documents-xml-projects">project</a> in <span class="ph">Oxygen XML Editor</span>, create a <span class="ph filepath">catalog.xml</span>
+          file in the project directory. This catalog will then be loaded automatically.</li>
+        <li class="li"><a class="xref" href="edit-scenario-dialog.html#edit-scenario-dialog">Edit</a> the
+            <span class="ph uicontrol">Run XSpec Test</span> transformation scenario, go to the <a class="xref" href="ant-transformation-parameters-tab.html#ant-transformation-parameters-tab"><span class="ph uicontrol">Parameters</span> tab</a>, and set the value of the
+            <code class="ph codeph">catalog</code> parameter to the location of your catalog file.</li>
+      </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron.html">Editing Schematron Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/schematron-quick-assist-support.html">Quick Assist Support in Schematron Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editing-schematron-quick-fixes.html">Editing Schematron Quick Fixes</a></div></div></nav></article></main></body></html>

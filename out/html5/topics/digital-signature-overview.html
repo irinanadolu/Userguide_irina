@@ -1,0 +1,108 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Digital Signatures,Overview"><meta name="keywords" content="Digital Signatures, Overview"><meta name="DC.relation" scheme="URI" content="../topics/digital-signature.html"><meta name="DC.relation" scheme="URI" content="../topics/digital-signature.html"><meta name="DC.relation" scheme="URI" content="../topics/certificates.html"><meta name="DC.relation" scheme="URI" content="certificates.html#certificates"><meta name="DC.relation" scheme="URI" content="canonicalizing-files.html#canonicalizing-files"><meta name="DC.relation" scheme="URI" content="signing-files.html#signing-files"><meta name="DC.relation" scheme="URI" content="verifying-signature.html#verifying-signature"><meta name="DC.relation" scheme="URI" content="example-signing-files.html#example-signing-files"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="digital-signature-overview"><title>Digital Signatures Overview</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="digital-signature-overview"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Digital Signatures Overview</h1>
+  
+  <div class="body">
+    <p class="p"><em class="ph i">Digital signatures</em> are widely used as security tokens, not just in XML. A <em class="ph i">digital
+        signature</em> provides a mechanism for assuring integrity of data, the authentication of its
+      signer, and the non-repudiation of the entire signature to an external party:</p>
+    <ul class="ul">
+      <li class="li">A <em class="ph i">digital signature</em> must provide a way to verify that the data has not been
+        modified or replaced to ensure integrity.</li>
+      <li class="li">The <em class="ph i">signature</em> must provide a way to establish the identity of the data's signer for
+        authentication.</li>
+      <li class="li">The <em class="ph i">signature</em> must provide the ability for the data's integrity and authentication
+        to be provable to a third party for non-repudiation.</li>
+    </ul>
+    <p class="p">A <em class="ph i">public key system</em> is used to create the digital signature and it is also used for
+      verification. The signature binds the signer to the document because digitally signing a
+      document requires the originator to create a hash of the message and then encrypt that hash
+      value with their own private key. Only the originator has that private key and that person is
+      the only one who can encrypt the hash so that it can be unencrypted using their public key.
+      The recipient, upon receiving both the message and the encrypted hash value, can decrypt the
+      hash value, knowing the originator's public key. The recipient must also try to generate the
+      hash value of the message and compare the newly generated hash value with the unencrypted hash
+      value received from the originator. If the hash values are identical, it proves that the
+      originator created the message, because only the actual originator could encrypt the hash
+      value correctly.</p>
+    <p class="p"><em class="ph i">XML Signatures</em> can be applied to any digital content (data object), including XML (see
+      W3C Recommendation, <a class="xref" href="http://www.w3.org/TR/xmldsig-core/" target="_blank" rel="external noopener">XML-Signature Syntax and Processing</a>). An XML Signature may be applied
+      to the content of one or more resources:</p>
+    <ul class="ul">
+      <li class="li">Enveloped or enveloping signatures are applied over data within the same XML document as
+        the signature</li>
+      <li class="li">Detached signatures are applied over data external to the signature element; the signature
+        is "detached" from the content it signs. This definition typically applies to separate data
+        objects, but it also includes the instance where the signature and data object reside within
+        the same XML document but are sibling elements.</li>
+    </ul>
+    <p class="p">The <em class="ph i">XML Signature</em> is a method of associating a key with referenced data. It does not
+      normatively specify how keys are associated with persons or institutions, nor the meaning of
+      the data being referenced and signed.</p>
+    <p class="p">The original data is not actually signed. Instead, the signature is applied to the output of
+      a chain of <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a> and
+      transformation algorithms, which are applied to the data in a designated sequence. This system
+      provides the flexibility to accommodate whatever "normalization" or desired preprocessing of
+      the data that might be required or desired before subjecting it to being signed.</p>
+    <p class="p">Since the signature is dependent on the content it is signing, a signature produced from a
+        <dfn class="term">non-canonicalized</dfn> document could possibly be different from one produced from a
+        <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalized</dfn></a> document. The <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonical</dfn></a> form of an XML document is
+      physical representation of the document produced by the method described in this
+      specification. The <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">XML
+        canonicalization</dfn></a> method is the algorithm defined by this specification that
+      generates the canonical form of a given XML document or document subset. <dfn class="term">XML
+        canonicalization</dfn> is designed to be useful for applications that require the ability
+      to test whether or not the information content of a document or document subset has been
+      changed. This is done by comparing the <dfn class="term">canonical</dfn> form of the original document
+      before application processing with the <dfn class="term">canonical</dfn> form of the document result of
+      the application processing.</p>
+    <p class="p">A digital signature over the <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonical</dfn></a> form of an XML document or document subset allows the
+      signature digest calculations to be oblivious to changes in the original document's physical
+      representation. During signature generation, the digest is computed over the
+        <dfn class="term">canonical</dfn> form of the document. The document is then transferred to the relying
+      party, which validates the signature by reading the document and computing a digest of the
+        <dfn class="term">canonical</dfn> form of the received document. The equivalence of the digests
+      computed by the signing and relying parties (hence, the equivalence of the
+        <dfn class="term">canonical</dfn> forms that they were computed for) ensures that the information
+      content of the document has not been altered since it was signed.</p>
+    <p class="p">The following <dfn class="term">canonicalization algorithms</dfn> are used in <span class="ph">Oxygen XML Editor</span>:</p>
+    <div class="p">
+      <ul class="ul">
+        <li class="li">
+          <p class="p"><strong class="ph b">Canonical XML (or Inclusive XML Canonicalization)</strong> (<a class="xref" href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank" rel="external noopener">XMLC14N</a>) - Used for XML where the context doesn't change.</p>
+          <p class="p"><dfn class="term">Inclusive Canonicalization</dfn> copies all the declarations, even if they are
+            defined outside of the scope of the signature, and all the declarations you might use
+            will be unambiguously specified. <dfn class="term">Inclusive Canonicalization</dfn> is useful when
+            it is less likely that the signed data will be inserted in other XML document and it is
+            the safer method from the security standpoint because it requires no knowledge of the
+            data that are to be secured to safely sign them. A problem may occur if the signed
+            document is moved into another XML document that has other declarations because the
+              <dfn class="term">Inclusive Canonicalization</dfn> will copy them and the signature will be
+            invalid.</p>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b">Exclusive XML Canonicalization</strong> (<a class="xref" href="http://www.w3.org/TR/2002/REC-xml-exc-c14n-20020718/" target="_blank" rel="external noopener">EXCC14N</a>) - Designed for <dfn class="term">canonicalization</dfn> where the
+            context might change.</p>
+          <p class="p"><dfn class="term">Exclusive Canonicalization</dfn> just copies the namespaces you are actually
+            using (the ones that are a part of the XML syntax). It does not look into attribute
+            values or element content, so the namespace declarations required to process these are
+            not copied. This is useful if you have a signed XML document that you want to insert
+            into other XML documents (or you need self-signed structures that support placement
+            within various XML contexts), as it will ensure the signature is verified correctly each
+            time.</p>
+        </li>
+      </ul>
+    </div>
+    <p class="p">The <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a> method can
+      specify whether or not comments should be included in the <dfn class="term">canonical</dfn> form output
+      by the <dfn class="term">XML canonicalization</dfn> method. If a <dfn class="term">canonical</dfn> form contains
+      comments corresponding to the comment nodes in the input node-set, the result is called
+        <dfn class="term">canonical</dfn> XML with comments. In an uncommented <dfn class="term">canonical</dfn> form,
+      comments are removed, including the delimiter for comments outside the document element.</p>
+    <p class="p">The three operations. <a class="xref" href="canonicalizing-files.html#canonicalizing-files"><span class="ph uicontrol">Canonicalize</span></a>, <a class="xref" href="signing-files.html#signing-files"><span class="ph uicontrol">Sign</span></a>, and <a class="xref" href="verifying-signature.html#verifying-signature"><span class="ph uicontrol">Verify
+        Signature</span></a>, are available from the <span class="ph uicontrol">Source</span> submenu
+      when invoking the contextual menu in <span class="ph uicontrol">Text</span> mode<span class="ph"> or from the <span class="ph uicontrol">Tools</span> menu</span>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/digital-signature.html">XML Digital Signatures</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/digital-signature.html">XML Digital Signatures</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/certificates.html">Certificates</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="certificates.html#certificates">Certificates</a></li><li class="linklist"><a class="link" href="canonicalizing-files.html#canonicalizing-files">Canonicalizing Files</a></li><li class="linklist"><a class="link" href="signing-files.html#signing-files">Signing Files</a></li><li class="linklist"><a class="link" href="verifying-signature.html#verifying-signature">Verifying Signature</a></li><li class="linklist"><a class="link" href="example-signing-files.html#example-signing-files">Example of How to Digitally Sign XML Files or Content</a></li></ul></div></nav>
+</article></main></body></html>

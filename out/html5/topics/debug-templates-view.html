@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Information views,Templates view,XSLT Debugger perspective,Templates view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Information views, Templates view, XSLT Debugger perspective, Templates view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-trace-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-node-set-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-templates-view"><title>Templates View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-templates-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Templates View</h1>
+  
+  <div class="body">
+    <p class="p">The <strong class="ph b">xsl:template</strong> is the basic element for stylesheets transformation. The
+        <span class="ph uicontrol">Templates</span> view is only available during XSLT debugging sessions and
+      shows all <em class="ph i">xsl:template</em> instructions used by the transformation. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <p class="p">Being able to see the number of <em class="ph i">hits</em> for each of the templates allows you to get an
+      idea of the stylesheet coverage by template rules with respect to the input source.</p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-templates-view__the-templates-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Templates view</figcaption>
+        
+        <img class="image" src="../img/sa_templates_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The contextual menu contains one action: <span class="ph uicontrol">Go to</span>, which moves the
+      selection in the editor panel to the line that contains the XSLT template displayed on the
+      selected line from the view.</p>
+    <table class="table frame-all" id="debug-templates-view__table-debug-templates-details"><caption><span class="table--title-label">Table 1. </span><span class="title">Templates columns</span></caption><colgroup><col style="width:8%"><col style="width:92%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="debug-templates-view__table-debug-templates-details__entry__1">Column</th>
+            <th class="entry colsep-1 rowsep-1" id="debug-templates-view__table-debug-templates-details__entry__2">Description</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Match</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The <em class="ph i">match</em> attribute of the <em class="ph i">xsl:template</em>.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Hits</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The number of hits for the <em class="ph i">xsl:template</em>. Shows how many times the XSLT
+              processor used this particular template.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Priority</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The template priority as established by XSLT processor.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Mode</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The <em class="ph i">mode</em> attribute of the <em class="ph i">xsl:template</em>.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Name</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The <em class="ph i">name</em> attribute of the <em class="ph i">xsl:template</em>.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__1"><strong class="ph b">Resource</strong></td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-templates-view__table-debug-templates-details__entry__2">The resource file where the template is located. <span class="ph">The complete path of the resource file is available as tooltip.</span></td>
+          </tr>
+        </tbody></table>
+    <div class="note important note_important"><span class="note__title">Important:</span> Remarks:<ul class="ul">
+        <li class="li">Clicking a record highlights that template definition inside the resource.</li>
+        <li class="li">Saxon only shows the applied templates having at least one hit from the processor. Xalan
+          shows all defined templates, with or without hits.</li>
+        <li class="li">Template table values can be sorted by clicking the corresponding column header. When
+          clicking a column header the sorting order switches between: ascending, descending, no
+          sort.</li>
+        <li class="li">Xalan shows also the built-in rules.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-trace-view.html">Trace View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-node-set-view.html">Nodes/Values Set View</a></div></div></nav></article></main></body></html>

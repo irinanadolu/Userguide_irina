@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Built-in frameworks,jTEI,jTEI document type"><meta name="keywords" content="Built-in frameworks, jTEI, jTEI document type"><meta name="DC.relation" scheme="URI" content="../topics/doc-type.html"><meta name="DC.relation" scheme="URI" content="../topics/author-tei-odd-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/author-jats-doc-type.html"><meta name="DC.relation" scheme="URI" content="editing-xml-documents-author.html#editing-xml-documents-author"><meta name="DC.relation" scheme="URI" content="xml-editor-specific-actions.html#xml-editor-specific-actions"><meta name="DC.relation" scheme="URI" content="add-table-tei.html#add-table-tei"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-jtei-doc-type"><title>jTEI Document Type (Framework)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-jtei-doc-type"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">jTEI Document Type (Framework)</h1>
+  
+  <div class="body">
+    <p class="p" id="author-jtei-doc-type__tei-intro">The <em class="ph i">jTEI (Journal of the Text Encoding Initiative)</em> document type is a
+      highly restrictive customization (only about 80 elements are included) of the TEI P5
+        <dfn class="term">framework</dfn>.</p>
+    <section class="section" id="author-jtei-doc-type__file_definition"><h2 class="title sectiontitle">File Definition</h2>
+      
+      <p class="p">A file is considered to be a <em class="ph i">jTEI</em> document when the root element is named
+        <em class="ph i">TEI</em>, it is in the namespace <em class="ph i">http://www.tei-c.org/ns/1.0</em>, and the
+          <code class="keyword markupname xmlatt">@rend</code> attribute is set to <em class="ph i">"jTEI"</em>.</p>
+    </section>
+    <section class="section" id="author-jtei-doc-type__document_templates"><h2 class="title sectiontitle">Default Document Templates</h2>
+      
+      <p class="p">There is a default <strong class="ph b">jTEI Article</strong> template available when creating <a class="xref" href="new-dialog-sa.html#new-dialog-sa">new documents
+          from templates</a>
+        and they can be found in: <span class="ph menucascade"><span class="ph uicontrol">Framework Templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">TEI JTEI</span></span>.</p>
+      <p class="p">The default template is located in the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/templates/TEI
+          jTEI</span> folder.</p>
+    </section>
+    <section class="section" id="author-jtei-doc-type__default_schema"><h2 class="title sectiontitle">Default Schema for Validation and Content Completion</h2>
+      
+      <p class="p">The default schema that is used if one is not detected is <span class="ph filepath">tei_jtei.rng</span>
+        and it is stored in <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/xml/tei/custom/schema/relaxng/</span>.</p>
+    </section>
+    <section class="section" id="author-jtei-doc-type__default_css"><h2 class="title sectiontitle">Default CSS</h2>
+      
+      <p class="p">The default CSS file (<span class="ph filepath">jtei.css</span>) that is used for rendering jTEI in
+          <span class="ph uicontrol">Author</span> mode is stored in <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/xml/tei/css/</span>.</p>
+      <p class="p">By default, these default CSS files are merged with any that are specified in the document.
+        For more information, see <a class="xref" href="selecting-combining-multiple-css-styles.html#selecting-combining-multiple-css-styles">Configuring and Managing Multiple CSS Styles for a Framework</a>.</p>
+    </section>
+    <section class="section" id="author-jtei-doc-type__default_xml_catalogs"><h2 class="title sectiontitle">Default XML Catalogs</h2>
+      
+      <p class="p">The default <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalogs</dfn></a> for jTEI
+        are as follows:</p>
+      <ul class="ul" id="author-jtei-doc-type__ul_phz_rpg_wq">
+        <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/xml/tei/schema/dtd/catalog.xml</span></li>
+        <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/xml/tei/custom/schema/dtd/catalog.xml</span></li>
+        <li class="li"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/tei/xml/tei/stylesheet/catalog.xml</span></li>
+      </ul>
+    </section>
+    <section class="section" id="author-jtei-doc-type__transformation_scenarios"><h2 class="title sectiontitle">Transformation Scenarios</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes built-in transformation scenarios that allow you to
+        transform jTEI documents to PDF and ODT. They can be found in the <span class="ph uicontrol">TEI
+          JTEI</span> section in the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box</a>.</p>
+    </section>
+    <section class="section" id="author-jtei-doc-type__resources"><h2 class="title sectiontitle">Resources</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li"><a class="xref" href="https://www.oxygenxml.com/demo/WYSIWYG_TEI_Editing.html" target="_blank" rel="external noopener">Oxygen Video
+              Tutorial: Editing TEI Documents in Author Mode</a></li>
+          <li class="li"><a class="xref" href="https://www.tei-c.org/guidelines/customization/jtei/" target="_blank" rel="external noopener">jTEI Article Guidelines</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/doc-type.html" title="The XML frameworks that are supported in Oxygen XML Editor">Built-in XML Frameworks (Document Types)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-tei-odd-extensions.html">TEI ODD Author Mode Actions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-jats-doc-type.html" title="A technical standard that defines an XML format for scientific literature">JATS Document Type (Framework)</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="editing-xml-documents-author.html#editing-xml-documents-author">Editing XML Documents in Author Mode</a></li><li class="linklist"><a class="link" href="xml-editor-specific-actions.html#xml-editor-specific-actions">Editing XML Documents in Text Mode</a></li><li class="linklist"><a class="link" href="add-table-tei.html#add-table-tei">Adding Tables in TEI Documents</a></li></ul></div></nav>
+</article></main></body></html>

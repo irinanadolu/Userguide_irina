@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Generate/Convert Schema tool,Convert schema to another schema language"><meta name="keywords" content="XML Schemas, Generate/Convert Schema tool, Convert schema to another schema language"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-schema-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing-xml-schema-documentation-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/convert-db-to-xml-schema.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="converting-between-schema-languages"><title>Converting Schema to Another Schema Language</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="converting-between-schema-languages"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Converting Schema to Another Schema Language</h1>
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol"><img class="image" src="../img/ConvertTo16.png">Generate/Convert Schema</span> tool
+      allows you to convert a DTD or Relax NG (full or compact syntax) schema or a set of XML files
+      to an equivalent XML Schema, DTD or Relax NG (full or compact syntax) schema. Where perfect
+      equivalence is not possible due to limitations of the target language, <span class="ph">Oxygen XML Editor</span>
+      generates an approximation of the source schema. <span class="ph">Oxygen XML Editor</span> uses the <a class="xref" href="https://relaxng.org/" target="_blank" rel="external noopener"><dfn class="term">Trang multiple format
+          converter</dfn></a> to perform the actual schema conversions. </p>
+    <p class="p">To use this tool, select the <span class="ph uicontrol"><img class="image" id="converting-between-schema-languages__image_kyg_2wm_wr" src="../img/ConvertTo16.png">Generate/Convert Schema</span>
+      <span class="ph uicontrol">(<span class="keyword shortcut">Alt + Shift + C
+                    (Command + Alt + C on OS X)</span>)</span> action from the <span class="ph uicontrol">Tools</span> menu<span class="ph"> or from the <span class="ph uicontrol">Open with</span> submenu when
+        invoking the contextual menu in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a></span>. This action opens the
+        <span class="ph uicontrol">Generate/Convert Schema</span> dialog box that allows you to configure
+      various options for conversion.</p>
+    <div class="p">
+      <figure class="fig fignone" id="converting-between-schema-languages__figure-trang-converter-dialog-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Generate/Convert Schema Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_convert_dialog.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">The <span class="ph uicontrol">Generate/Convert Schema</span> dialog box includes the following options:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Input</span> section</dt>
+          <dd class="dd">Allows you to select the language of the source schema. If the conversion is based on
+            a set of XML files, rather than just a single XML file, select the <span class="ph uicontrol">XML
+              Documents</span> option and use the file selector to add the XML files involved
+            in the conversion.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Output</span> section</dt>
+          <dd class="dd">
+            <p class="p">Allows you to select the language of the target schema.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Options</span></dt>
+                  <dd class="dd">You can choose the <span class="ph uicontrol">Encoding</span>, the maximum
+                      <span class="ph uicontrol">Line width</span>, and the <span class="ph uicontrol">Indent size</span>
+                    (in number of spaces) for one level of indentation.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Output file</span></dt>
+                  <dd class="dd">Specifies the path for the output file that will be generated.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Close dialog when finished</span></dt>
+          <dd class="dd">If you deselect this option, the dialog box will remain open after the conversion so
+            that you can easily continue to convert more files.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Advanced options</span></dt>
+          <dd class="dd">
+            <p class="p">If you select <span class="ph uicontrol">XML 1.0 DTD</span> for the input, you can click this
+              button to access more advance options to further fine-tune the conversion. The
+              following advanced options are available:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">XML 1.0 DTD Input</span> section</dt>
+                  <dd class="dd">These options apply to the source DTD:<ul class="ul">
+                      <li class="li"><span class="ph uicontrol">xmlns</span> - Specifies the default namespace, that is
+                        the namespace used for unqualified element names.</li>
+                      <li class="li"><span class="ph uicontrol">attlist-define</span> - Specifies how to construct the
+                        name of the definition representing an attribute list declaration from the
+                        name of the element. The specified value must contain exactly one percent
+                        character. This percent character is replaced by the name of element (after
+                        colon replacement) and the result is used as the name of the
+                        definition.</li>
+                      <li class="li"><span class="ph uicontrol">colon-replacement</span> - Replaces colons in element
+                        names with the specified chars when constructing the names of definitions
+                        used to represent the element declarations and attribute list declarations
+                        in the DTD.</li>
+                      <li class="li"><span class="ph uicontrol">any-name</span> - Specifies the name of the definition
+                        generated for the content of elements declared in the DTD as having a
+                        content model of ANY.</li>
+                      <li class="li"><span class="ph uicontrol">element-define</span> - Specifies how to construct the
+                        name of the definition representing an element declaration from the name of
+                        the element. The specified value must contain exactly one percent character.
+                        This percent character is replaced by the name of element (after colon
+                        replacement) and the result is used as the name of the definition.</li>
+                      <li class="li"><span class="ph uicontrol">annotation-prefix</span> - Default values are represented
+                        using a <code class="keyword markupname xmlatt">@prefix:defaultValue</code> annotation attribute where
+                        prefix is the specified value and is bound to
+                          <code class="ph codeph">http://relaxng.org/ns/compatibility/annotations/1.0</code> as
+                        defined by the RELAX NG DTD Compatibility Committee Specification. By
+                        default, the conversion engine will use a for prefix unless that conflicts
+                        with a prefix used in the DTD.</li>
+                      <li class="li"><span class="ph uicontrol">inline-attlist</span> - Instructs the application not to
+                        generate definitions for attribute list declarations, but instead move
+                        attributes declared in attribute list declarations into the definitions
+                        generated for element declarations. This is the default behavior when the
+                        output language is XSD.</li>
+                      <li class="li"><span class="ph uicontrol">strict-any</span> - Preserves the exact semantics of
+                          <em class="ph i">ANY</em> content models by using an explicit choice of references to all
+                        declared elements. By default, the conversion engine uses a wildcard that
+                        allows any element</li>
+                      <li class="li"><span class="ph uicontrol">generate-start</span> - Specifies whether or not the
+                        conversion engine should generate a start element. DTD's do not indicate
+                        what elements are allowed as document elements. The conversion engine
+                        assumes that all elements that are defined but never referenced are allowed
+                        as document elements.</li>
+                      <li class="li"><span class="ph uicontrol">xmlns mappings</span> table - Each row specifies the
+                        prefix used for a namespace in the input schema.</li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">W3C XML Schema Output</span> section</dt>
+                  <dd class="dd">This section is available if you select <span class="ph uicontrol">W3C XML Schema</span>
+                    for the output.<ul class="ul">
+                      <li class="li"><span class="ph uicontrol">disable-abstract-elements</span> - Disables the use of
+                        abstract elements and substitution groups in the generated XML Schema. This
+                        can also be controlled using an annotation attribute.</li>
+                      <li class="li"><span class="ph uicontrol">any-process-contents</span> - One of the values: strict,
+                        lax, skip. Specifies the value for the <code class="keyword markupname xmlatt">@processContents</code>
+                        attribute of any elements. The default is skip (corresponding to RELAX NG
+                        semantics) unless the input format is DTD, in which case the default is
+                        strict (corresponding to DTD semantics).</li>
+                      <li class="li"><span class="ph uicontrol">any-attribute-process-contents</span> - Specifies the
+                        value for the <code class="keyword markupname xmlatt">@processContents</code> attribute of
+                          <code class="keyword markupname xmlelement">&lt;anyAttribute&gt;</code> elements. The default is skip
+                        (corresponding to RELAX NG semantics).</li>
+                    </ul></dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-schema-schemas.html">Editing XML Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/customizing-xml-schema-documentation-dita.html">Customizing DITA Output of Generated XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/convert-db-to-xml-schema.html">Converting Database to XML Schema</a></div></div></nav></article></main></body></html>

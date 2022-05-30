@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dita-pdf-output.html"><meta name="DC.relation" scheme="URI" content="../topics/dita_pdf_embed_logo.html"><meta name="DC.relation" scheme="URI" content="../topics/add-watermark-pdf-output.html"><meta name="DC.relation" scheme="URI" content="https://github.com/oxygenxml/com.oxygenxml.pdf2.ug/wiki"><meta name="DC.relation" scheme="URI" content="dita_pdf_output_customization.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita_pdf_header_footer_customization"><title>Customizing the Header and Footer in PDF Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita_pdf_header_footer_customization"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing the Header and Footer in PDF Output</h1>
+  <div class="body">
+    <p class="p">The XSLT stylesheet <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/xsl/fo/static-content.xsl</span> contains templates that output
+      the static header and footers for various parts of the PDF such as the prolog, table of
+      contents, front matter, or body.</p>
+    <p class="p">The templates for generating a footer for pages in the body are called
+        <code class="ph codeph">insertBodyOddFooter</code> or <code class="ph codeph">insertBodyEvenFooter</code>.</p>
+    <p class="p">These templates get the static content from resource files that depend on the language used
+      for generating the PDF. The default resource file is <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/cfg/common/vars/en.xml</span>.
+      These resource files contain variables (such as <em class="ph i">Body odd footer</em>) that can be set to
+      specific user values.</p>
+    <div class="p">Instead of modifying these resource files directly, they can be overwritten with modified
+      versions of the resources in a PDF customization directory.<ol class="ol">
+        <li class="li"><a class="xref" href="dita_pdf_output_customization.html">Create a customization directory</a>
+          (if you haven't already done so).</li>
+        <li class="li">Locate the stylesheets and templates listed above in your customization directory and
+          modify them in whatever way necessary to achieve your specific goal.<div class="note tip note_tip"><span class="note__title">Tip:</span> For
+            more information and examples, see the <a class="xref" href="https://github.com/oxygenxml/com.oxygenxml.pdf2.ug/wiki" target="_blank" rel="external noopener">Oxygen PDF Customization Plugin project on GitHub</a>.</div></li>
+        <li class="li">Edit the <a class="xref" href="dita-pdf-transformation-2.html"><strong class="ph b"><span class="ph">DITA Map PDF - based on XSL-FO</span></strong> transformation scenario</a>, go to the <span class="ph uicontrol">Parameters</span>
+          tab, and set the <strong class="ph b">customization.dir</strong> parameter to point to the location of your
+          customization directory.</li>
+      </ol></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-pdf-output.html">XSL FO-based DITA to PDF Customization</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita_pdf_embed_logo.html">Embedding a Company Logo</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-watermark-pdf-output.html">Adding a Watermark to PDF Output</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://github.com/oxygenxml/com.oxygenxml.pdf2.ug/wiki" target="_blank" rel="external noopener">https://github.com/oxygenxml/com.oxygenxml.pdf2.ug/wiki</a></li><li class="linklist"><a class="link" href="dita_pdf_output_customization.html">Using a Customization Directory</a></li></ul></div></nav>
+</article></main></body></html>

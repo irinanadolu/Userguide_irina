@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Integrating in a framework,Sharing,SQF,Integrating in a framework,Integrate Schematron Quick Fixes in a framework,Sharing Schematron Quick Fixes"><meta name="keywords" content="Schematron Quick Fixes, Integrating in a framework, Sharing, SQF, Integrating in a framework, Integrate Schematron Quick Fixes in a framework, Sharing Schematron Quick Fixes"><meta name="DC.relation" scheme="URI" content="../topics/editing-schematron-quick-fixes.html"><meta name="DC.relation" scheme="URI" content="../topics/localizing-sqf-messages.html"><meta name="DC.relation" scheme="URI" content="../topics/validating-sqf.html"><meta name="DC.relation" scheme="URI" content="customizing-sqf.html#customizing-sqf"><meta name="DC.relation" scheme="URI" content="sqf-operations.html#sqf-operations"><meta name="DC.relation" scheme="URI" content="associate-schema-framework-validation.html#associate-schema-framework-validation"><meta name="DC.relation" scheme="URI" content="author-document-type-extension-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sqf-implementing-framework"><title>Integrating SQF in a Framework and Sharing Them</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sqf-implementing-framework"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Integrating SQF in a Framework and Sharing Them</h1>
+  
+  <div class="body">
+    <p class="p">You can use Schematron <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fixes</dfn></a> to
+      assist your content authors by imposing rules for an entire <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type) and offering
+      fixes when a rule violation is detected.</p>
+    <p class="p">For example, if you are using DITA, you may want your contributors to avoid inserting a
+      figure (<code class="keyword markupname xmlelement">&lt;fig&gt;</code> element) inside a paragraph (<code class="keyword markupname xmlelement">&lt;p&gt;</code>
+      element) that contains other content since it may result in undesirable placement or spacing
+      in the output. The Schematron rule and its <dfn class="term">Quick Fix</dfn> for this particular use-case
+      could look like this:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;schema</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span>
+    <span class="hl-attribute">xmlns:sqf</span>=<span class="hl-value">"http://www.schematron-quickfix.com/validator/process"</span>
+ <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;pattern</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"check.figure.location"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"p/fig"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;report</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"true()"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"warn"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"moveAfter"</span><strong class="hl-tag">&gt;</strong>
+         A figure inside a paragraph doesn't transform well into PDF. <strong class="hl-tag">&lt;/report&gt;</strong>
+         <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"moveAfter"</span><strong class="hl-tag">&gt;</strong>
+             <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+                 <strong class="hl-tag">&lt;sqf:title&gt;</strong>Move after the paragraph.<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+             <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+             <strong class="hl-tag">&lt;let</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"figToMove"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"."</span><strong class="hl-tag">/&gt;</strong>
+             <strong class="hl-tag">&lt;sqf:add</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"parent::p"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"$figToMove"</span> <span class="hl-attribute">position</span>=<span class="hl-value">"after"</span><strong class="hl-tag">/&gt;</strong>
+             <strong class="hl-tag">&lt;sqf:delete</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"."</span><strong class="hl-tag">/&gt;</strong>
+         <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+     <strong class="hl-tag">&lt;/rule&gt;</strong>
+   <strong class="hl-tag">&lt;/pattern&gt;</strong>
+<strong class="hl-tag">&lt;/schema&gt;</strong></pre>
+    </div>
+    <p class="p">The result of this example would be that the user will see a warning if they insert a
+        <code class="keyword markupname xmlelement">&lt;fig&gt;</code> element inside a <code class="keyword markupname xmlelement">&lt;p&gt;</code> element and they
+      are presented with the option of selecting the <dfn class="term">Quick Fix</dfn> that would move the
+      figure outside the paragraph.</p>
+    <section class="section" id="sqf-implementing-framework__how_to_integrate_sqf_in_a_framework"><h2 class="title sectiontitle">How to Integrate SQF in a Framework</h2>
+      
+      <div class="p">To integrate a Schematron <dfn class="term">Quick Fix</dfn> in a <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>, follow these steps:<ol class="ol">
+          <li class="li">Create a folder structure for an extended framework and save it somewhere on
+        disk where you have full write access (for example,
+          <span class="ph filepath">custom_frameworks/dita-extension</span>).</li>
+          <li class="li">In that new folder structure, create another folder that will contain all of
+        your custom Schematron files (for example,
+          <span class="ph filepath">custom_frameworks/dita-extension/rules</span>).</li>
+          <li class="li"><a class="xref" href="customizing-sqf.html#customizing-sqf">Define the Schematron <dfn class="term">Quick
+                Fix</dfn> for a rule</a> in an existing or new Schematron file and save it in
+            the folder you created in step 2.</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go
+        to <a class="xref" href="framework-location.html#framework-location"><span class="ph menucascade"><span class="ph uicontrol">Document Type Association</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Locations</span></span></a>. In this preferences page, add the path to your
+          <span class="ph filepath">custom_frameworks</span> folder in the <span class="ph uicontrol">Additional frameworks
+          directories</span> list, then click <span class="ph uicontrol">OK</span> or
+          <span class="ph uicontrol">Apply</span> to save your changes.</li>
+          <li class="li">Go to the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span> and select
+        a <dfn class="term">framework</dfn> configuration (for example, <strong class="ph b">DITA</strong>) and use the
+          <span class="ph uicontrol">Extend</span> button to create an extension for it.</li>
+          <li class="li">Give the extension an appropriate name (for example, <em class="ph i">DITA - Custom</em>),
+        select <span class="ph uicontrol">External</span> for the <span class="ph uicontrol">Storage</span> option, and
+        specify an appropriate path to your framework configuration file (for example,
+          <span class="ph filepath">path/to/.../custom_frameworks/dita-extension/dita-extension.framework</span>).</li>
+          <li class="li" id="sqf-implementing-framework__step8">Make whatever changes you desire to the extension, then go to the
+              <strong class="ph b">Validation</strong> tab, edit the default validation scenario (select the scenario and
+            click the <span class="ph uicontrol"><img class="image" src="../img/Wrench16.png">Edit</span> button), and
+            add an extra validation unit to it (one that uses your custom Schematron file that
+            includes the SQF).<span class="ph"> For more
+              details about editing validation scenarios, see <a class="xref" href="dg-validation-scenarios.html">Configuring Validation Scenarios for a Framework</a>.</span></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to close the dialog box and then
+          <span class="ph uicontrol">OK</span> or <span class="ph uicontrol">Apply</span> to save the changes to the <span class="ph"><a class="xref" href="preferences-document-type-association.html"><span class="ph uicontrol">Document Type
+            Association</span> preferences page</a></span>.</li>
+          <li class="li">Add a reference to the Schematron file that includes the SQF in your
+              <dfn class="term">framework</dfn> by following the procedure in <a class="xref" href="associate-schema-framework-validation.html#associate-schema-framework-validation">Associating a Schema in Validation Scenarios Defined in the Document Type</a>.</li>
+          <li class="li">Open a document in your <dfn class="term">framework</dfn> and test the new rule and <dfn class="term">Quick
+              Fix</dfn>.</li>
+          <li class="li">You can continue to refine the Schematron and develop additional rules as
+        needed.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="sqf-implementing-framework__sharing_schematron_quick_fixes"><h2 class="title sectiontitle">Sharing Schematron Quick Fixes</h2>
+      
+      <p class="p">To share Schematron Quick Fixes with other members of your team, you simply need to share
+        the framework where you integrated the SQF.<span class="ph"> There are
+          several methods for sharing frameworks and you can find details here: <a class="xref" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a>.</span></p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-schematron-quick-fixes.html">Editing Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/localizing-sqf-messages.html">Localizing SQF Messages</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/validating-sqf.html">Validating Schematron Quick Fixes</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="customizing-sqf.html#customizing-sqf">Defining Schematron Quick Fixes</a></li><li class="linklist"><a class="link" href="sqf-operations.html#sqf-operations">Basic Schematron Quick Fix Operations</a></li><li class="linklist"><a class="link" href="associate-schema-framework-validation.html#associate-schema-framework-validation">Associating a Schema in Validation Scenarios Defined in the Document Type</a></li><li class="linklist"><a class="link" href="author-document-type-extension-sharing.html">Sharing a Custom Framework</a></li></ul></div></nav>
+</article></main></body></html>

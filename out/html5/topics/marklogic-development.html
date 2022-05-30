@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Databases,Connections,MarkLogic development,MarkLogic for the developer"><meta name="keywords" content="Databases, Connections, MarkLogic development, MarkLogic for the developer"><meta name="DC.relation" scheme="URI" content="../topics/marklogic-connection.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-marklogic-connection.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-debugging-with-marklogic.html"><meta name="DC.relation" scheme="URI" content="xquery-debugging-with-marklogic.html#xquery-debugging-with-marklogic"><meta name="DC.relation" scheme="URI" content="how-to-marklogic.html#how-to-marklogic"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="marklogic-development"><title>MarkLogic Development in Oxygen XML Editor</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="marklogic-development"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">MarkLogic Development in <span class="ph">Oxygen XML Editor</span></h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph">Oxygen XML Editor</span> support for MarkLogic includes features designed for developers,
+      such as debugging XQuery transformations, remote and collaborative debugging, XQuery editing
+      and validation, and an <a class="xref" href="xquery-builder-view.html#xquery-builder-view">XQuery
+        builder</a> that helps to improve productivity.</p>
+    <section class="section" id="marklogic-development__working_with_xquery_files"><h2 class="title sectiontitle">Working with XQuery Files</h2>
+      
+      <p class="p">MarkLogic supports working with XQuery files to create queries over stored XML content. You
+        can open an XQuery file, configure a transformation scenario to match your MarkLogic
+        connection, write the XQuery, and then execute it.</p>
+      <p class="p">When editing XQuery modules stored on the MarkLogic server, the <a class="xref" href="xquery-outline.html#xquery-outline"><span class="ph uicontrol">Outline</span> view</a>
+        collects and displays all the functions from all imported modules. The <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a> also presents all of these functions along with the latest
+        built-in XQuery functions in accordance with the server version. </p>
+      <p class="p">When developing queries for MarkLogic, it is best to open the resources from the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data
+            Source Explorer</span> view</a>. When you execute or debug XQuery files opened
+        from this view, imported modules can be resolved better by the MarkLogic server. Another
+        advantage is that validation is automatically performed on the MarkLogic server, including
+        any imported modules.</p>
+    </section>
+    <section class="section" id="marklogic-development__xquery_debugging"><h2 class="title sectiontitle">XQuery Debugging</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to use MarkLogic connections to debug real applications
+        that use XQuery (for example, web applications that trigger XQuery executions). By setting
+        the server in debug mode, you can intercept all the XQuery scripts that run on that server.
+          <span class="ph">Oxygen XML Editor</span> connects to the MarkLogic server, shows you the running XQuery
+        scripts, and allows you to debug them. The remote debugging support also allows you to debug
+        collaboratively. Multiple users can participate in the same debugging session. You can start
+        a debugging session and another user can continue it, and vice versa.</p>
+    </section>
+    <section class="section" id="marklogic-development__working_with_modules"><h2 class="title sectiontitle">Working with Modules</h2>
+      
+      <p class="p">MarkLogic has a concept of two types of XQuery modules, <em class="ph i">library</em> and
+          <em class="ph i">main</em> modules. A <em class="ph i">library</em> module is used to define functions.
+        Library modules cannot be evaluated directly. They are imported, either from other library
+        modules or from main modules. A <em class="ph i">main</em> module is used as an entry point that can
+        be executed as an XQuery program. For more information on these types of modules, see <a class="xref" href="https://docs.marklogic.com/guide/app-dev/import_modules#id_45509" target="_blank" rel="external noopener">XQuery Library Modules and Main Modules</a>.</p>
+      <p class="p">When working with <em class="ph i">library</em> modules, you need to create a validation scenario
+        and associate it with the module. In the validation scenario you need to specify a main
+        module as the entry point for validation. The modules need to be deployed on a MarkLogic
+        server because <span class="ph">Oxygen XML Editor</span> will request the server to validate the modules.</p>
+      <div class="p">To validate <em class="ph i">library</em> modules stored on a MarkLogic server, follow these steps:<ol class="ol">
+          <li class="li"><a class="xref" href="how-to-marklogic.html#how-to-marklogic">Configure a MarkLogic database
+              connection</a>.</li>
+          <li class="li">Expand the MarkLogic connection in the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data
+                Source Explorer</span> view</a> and open the <em class="ph i">library</em> modules.
+            The <em class="ph i">main</em> module must also be opened from the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>.</li>
+          <li class="li">
+            <p class="p"><a class="xref" href="create-validation-scenario.html#create-validation-scenario">Configure a
+                validation scenario</a> for each <em class="ph i">library</em> module. Specify the <em class="ph i">main</em>
+              module in the <span class="ph uicontrol">URL of the file to validate</span> field.</p>
+            <p class="p"><strong class="ph b">Result:</strong> Validation is done on the server that contains the <em class="ph i">main</em> module.
+              The <em class="ph i">main</em> module and all other <em class="ph i">library</em> modules involved in the validation
+              must be saved. Otherwise, the server will validate what was saved on the server,
+              without the uncommitted changes. Also, the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                  Assistant</dfn></a> and the <a class="xref" href="xquery-outline.html#xquery-outline"><span class="ph uicontrol">Outline</span> view</a> should now present the functions from
+              all the modules.</p>
+          </li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/marklogic-connection.html">MarkLogic Database Connections</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configure-marklogic-connection.html">How to Configure a MarkLogic Connection</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-debugging-with-marklogic.html">Debugging with MarkLogic</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xquery-debugging-with-marklogic.html#xquery-debugging-with-marklogic">Debugging with MarkLogic</a></li><li class="linklist"><a class="link" href="how-to-marklogic.html#how-to-marklogic">Configuring a MarkLogic Database Connection</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Oxygen XML Author Component,Insert references from a WebDAV connection"><meta name="keywords" content="Oxygen XML Author Component, Insert references from a WebDAV connection"><meta name="DC.relation" scheme="URI" content="../topics/author-component.html"><meta name="DC.relation" scheme="URI" content="../topics/mathml_support_mathflow.html"><meta name="DC.relation" scheme="URI" content="../topics/author-component-plugins.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="insert-reference-from-webdav-repository"><title>Adding Support to Insert References from a WebDAV Connection</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="insert-reference-from-webdav-repository"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Support to Insert References from a WebDAV Connection </h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">Predefined actions that insert references, such as the <span class="ph uicontrol">Insert Image</span>
+        action, includes a URL chooser field with a drop-down menu that allows you to select a
+          <span class="ph uicontrol">Browse Data Source Explorer</span> action. This action opens the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data
+            Source Explorer</span></a> that allows you to view a WebDAV connection.</p>
+      <p class="p">To use a WebDAV connection in the <span class="ph">Oxygen XML Author Component</span>, follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Open a standalone <span class="ph">Oxygen XML Editor</span>
+          <span class="ph">23.0</span> and <a class="xref" href="configure-webdav-connection.html#configure-webdav-connection">configure a WebDAV
+            connection</a>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Pack the <a class="xref" href="author_component_pack_options.html">fixed set of options</a>
+          from the standalone application to use them with the <span class="ph">Oxygen XML Author Component</span>
+          project.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">In the <span class="ph">Oxygen XML Author Component</span>, the defined connection still does not work when
+          expanded because the additional <dfn class="term">JAR</dfn> libraries used to browse the WebDAV
+          repository are missing. By default, the <strong class="ph b">httpclient</strong> dependency of the <em class="ph i">Oxygen
+            SDK</em> artifact is excluded. You can enable it by commenting the following lines:</span>
+        <div class="itemgroup info"><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;exclusion&gt;</strong>
+    <strong class="hl-tag">&lt;artifactId&gt;</strong>httpclient<strong class="hl-tag">&lt;/artifactId&gt;</strong>
+    <strong class="hl-tag">&lt;groupId&gt;</strong>org.apache.httpcomponents<strong class="hl-tag">&lt;/groupId&gt;</strong>
+<strong class="hl-tag">&lt;/exclusion&gt;</strong> </pre>If
+          you want to have multiple WebDAV connection URLs, user names, and passwords (depending on
+          the user who started the component), you can use a more flexible approach by using the
+          following
+          API:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">    <em class="hl-comment">//DBConnectionInfo(String id, String driverName, String url, String user, </em>
+String passwd, String host, String port) 
+    DBConnectionInfo info = <strong class="hl-keyword">new</strong> DBConnectionInfo(<span class="hl-string">"WEBDAV"</span>, <span class="hl-string">"WebDAV FTP"</span>, 
+<span class="hl-string">"http://host/webdav-user-root"</span>, <span class="hl-string">"userName"</span>, <span class="hl-string">"password"</span>, null, null);
+    AuthorComponentFactory.getInstance().setObjectProperty
+(<span class="hl-string">"database.stored.sessions1"</span>, <strong class="hl-keyword">new</strong> DBConnectionInfo[] {info}); </pre></div>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-component.html">Oxygen XML Author Component</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/mathml_support_mathflow.html">Adding MathML Support Using MathFlow</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-component-plugins.html">Using Plugins with the Oxygen XML Author Component</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="The oxy_popup built-in form control is used to offer a contextual menu that provides quick access to various actions. A pop-up form control can display single or multiple selections."><meta name="DC.subject" content="CSS extensions,Form Controls,Pop-up,Form Controls"><meta name="keywords" content="CSS extensions, Form Controls, Pop-up, Form Controls"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/html-content-form-control.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-text-area-form-control.html"><meta name="DC.relation" scheme="URI" content="dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="dg-visibility-css-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="pop-up-editor"><title>Pop-up Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="pop-up-editor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Pop-up Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The <code class="ph codeph">oxy_popup</code> built-in form control is used to offer a contextual menu
+    that provides quick access to various actions. A pop-up form control can display single or
+    multiple selections.</p>
+    <div class="p">The <code class="ph codeph">oxy_popup</code> form control supports the following properties:<ul class="ul">
+        <li class="li"><span class="ph"><strong class="ph b">edit</strong> - Lets you edit the value of an attribute, the text content of an element,
+          or Processing Instructions (PI). This property can have the following values:</span><ul class="ul">
+          <li class="li" id="pop-up-editor__attr-name-li"><strong class="ph b">@attribute_name</strong> - The name of the attribute whose value is
+            being edited. If the attribute is in a namespace, the value of the property must be a
+              <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> and the CSS must have a
+            namespace declaration for the prefix.</li>
+          <li class="li" id="pop-up-editor__text-li"><strong class="ph b">#text</strong> - Specifies that the presented/edited value is the simple
+            text value of an element.<div class="note note note_note"><span class="note__title">Note:</span> You can set the value of the <a class="xref" href="dg-visibility-css-extension.html" title="Used to collapse the content of an element."><code class="ph codeph">visibility</code>
+                property to <code class="ph codeph">-oxy-collapse-text</code></a> to render the text only in
+              the form control that the <code class="ph codeph">oxy_editor</code> function specifies.</div></li>
+        </ul></li>
+        <li class="li"><span class="ph"><strong class="ph b">rows</strong> - This property specifies the number of rows that the form
+          control presents.</span><div class="note note note_note"><span class="note__title">Note:</span> If the value of
+            the <span class="ph uicontrol">rows</span> property is not specified, the default value of
+              <strong class="ph b">12</strong> is used.</div></li>
+        <li class="li"><span class="ph"><strong class="ph b">color</strong> - Specifies the foreground color
+          of the form control. If the value of the <code class="ph codeph">color</code> property is
+            <code class="ph codeph">inherit</code>, the form control has the same color as the element that was used to insert it.</span><div class="note note note_note"><span class="note__title">Note:</span> This property
+            is used for rendering in the <span class="ph uicontrol">Author</span> mode.</div></li>
+        <li class="li"><span class="ph"><strong class="ph b">visible</strong> - Specifies whether or not the form control is
+          visible. The possible values of this property are <code class="ph codeph">true</code> (default value)
+          and <code class="ph codeph">false</code>.</span></li>
+        <li class="li">
+          <p class="p"><span class="ph"><strong class="ph b">tooltips</strong> - Associates tooltips to
+          each value in the <code class="ph codeph">values</code> property. The value of this property is a list
+          of tooltip messages separated by commas. If you want the tooltip to display a comma, use
+          the <a class="xref" href="editor-variables.html#editor-variables__edVar-comma"><code class="ph codeph">${comma}</code> variable</a>.</span></p>
+          <div class="p"><strong class="ph b">Example:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">link:before{
+ <strong class="hl-keyword">content</strong>: oxy_popup(
+         edit, <span class="hl-string">'@href'</span>,
+         values, <span class="hl-string">"Spring, Summer, Autumn, Winter"</span>,
+         tooltips, <span class="hl-string">"Iris${comma}Snowdrop, Gardenia${comma}Liliac,
+             Chrysanthemum${comma}Salvia, Gerbera"</span>,
+        selectionMode, single);  
+}</pre></div>
+        </li>
+        <li class="li"><span class="ph"><strong class="ph b">values</strong> - Specifies
+          the values that populate the list of proposals. If these values are not specified in the
+          CSS, they are collected from the associated XML Schema.</span><div class="note note note_note"><span class="note__title">Note:</span> Typically, when you use a comma in the
+          values of a form control, the content that follows a comma is considered a new value. If
+          you want to include a comma in the values, precede the comma with two backslashes. For
+          example, <code class="ph codeph">(values, '1\\, 2\\, 3, 4, edit, false)</code> will display a form
+          control that has <strong class="ph b">1, 2, 3</strong> for the first value and <strong class="ph b">4</strong> for the second
+          value.</div></li>
+        <li class="li"><span class="ph"><strong class="ph b">resultSeparator</strong> - If multiple check-boxes are used, the separator is used to
+          compose the final result. If not specified, the <em class="ph i">space</em> character is
+          used.</span><div class="note note note_note"><span class="note__title">Note:</span> The
+            value of the <code class="ph codeph">resultSeparator</code> property cannot exceed one
+            character.</div></li>
+        <li class="li"><span class="ph"><strong class="ph b">selectionMode</strong> - Specifies whether the form control
+          allows the selection of a single value or multiple values. The predefined values of this
+          property are <code class="ph codeph">single</code> (default value) and
+        <code class="ph codeph">multiple</code>.</span></li>
+        <li class="li"><strong class="ph b">labels</strong> - Specifies the label associated with each entry used for presentation. If
+          this property is not specified, the <span class="ph uicontrol">values</span> property is used
+          instead.</li>
+        <li class="li"><span class="ph"><strong class="ph b">columns</strong> - Controls the width of the form
+          control. The unit size is the width of the <span class="ph uicontrol">w</span>
+          character.</span> This property is
+          used for the visual representation of the form control.</li>
+        <li class="li"><span class="ph"><strong class="ph b">width</strong> - Specifies the width of the
+          content area using relative (<code class="ph codeph">em</code>, <code class="ph codeph">ex</code>), absolute
+            (<code class="ph codeph">in</code>, <code class="ph codeph">cm</code>, <code class="ph codeph">mm</code>, <code class="ph codeph">pt</code>,
+            <code class="ph codeph">pc</code>, <code class="ph codeph">px</code>), and percentage (followed by the
+            <code class="ph codeph">%</code> character) length units. The <code class="ph codeph">width</code> property takes
+          precedence over the <code class="ph codeph">columns</code> property (if the two are used
+        together).</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">rendererSort</strong> - Specifies the sorting of the values (labels) displayed on the
+          form control before clicking the popup control. The possible values of this property are
+            <code class="ph codeph">ascending</code> and <code class="ph codeph">descending</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">editorSort</strong> - Specifies the sorting of the values displayed after clicking the
+          popup control (for example, clicking a drop-down arrow button). The possible values of
+          this property are <code class="ph codeph">ascending</code> and
+          <code class="ph codeph">descending</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">rendererSeparator</strong> - Defines a separator used when
+          multiple values are rendered. If not specified, the value of the
+            <code class="ph codeph">resultSeparator</code> property is used.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">sort</strong> - Specifies the default sorting of the form control values (the
+          values displayed before and after clicking the popup control). However, the
+            <code class="ph codeph">editorSort</code> and <code class="ph codeph">rendererSort</code> properties have a higher
+          priority. The possible values of this property are <code class="ph codeph">ascending</code> and
+            <code class="ph codeph">descending</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">fontInherit</strong> - This value
+          specifies whether or not the form control inherits its font from its parent element. The
+          values of this property can be <code class="ph codeph">true</code> or <code class="ph codeph">false</code> (default
+          value). To make the form control inherit its font from its parent element, set the
+            <code class="ph codeph">fontInherit</code> property to <code class="ph codeph">true</code>.</span></li>
+        <li class="li"><span class="ph"><strong class="ph b">hoverPseudoclassName</strong> - Allows
+          you to change the way an element is rendered when you hover over a form control. The value
+          is the name of a CSS pseudo-class. When you hover over the form control, the specified
+          pseudo-class will be set on the element that contains the form control.</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">p:before {
+  <strong class="hl-keyword">content</strong>: oxy_popup(hoverPseudoclassName, <span class="hl-string">'showBorder'</span>)
+}
+p:showBorder {
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid red;
+}</pre></li>
+      </ul></div>
+    <div class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_popup</em> Form
+      Control</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">popupWithMultipleSelection:before {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">" This editor edits an attribute value. 
+                The possible values are specified
+    inside the CSS: "</span>
+        oxy_popup(
+            edit, <span class="hl-string">"@attribute"</span>,
+            values, <span class="hl-string">"value1, value2, value3, value4, value5"</span>,
+            labels, <span class="hl-string">"Value no1, Value no2, Value no3, Value no4, Value no5"</span>,
+            resultSeparator, <span class="hl-string">"|"</span>,
+            columns, <span class="hl-number">10</span>,
+            selectionMode, <span class="hl-string">"multiple"</span>,
+            <strong class="hl-keyword">color</strong>, <span class="hl-string">"blue"</span>,
+            fontInherit, true);
+    <strong class="hl-keyword">font-size</strong>:<span class="hl-number">30</span>px;
+}</pre></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To insert a sample of the <code class="ph codeph">oxy_popup</code> form control in a CSS file
+        <span class="ph">(or LESS file)</span>, invoke the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> and select the <img class="image" id="pop-up-editor__image_tls_ghh_5r" src="../img/CodeTemplates12.gif">
+      <code class="ph codeph">oxy_popup</code> code template.<p class="p"><span class="ph">To see more detailed examples and more information about how form
+        controls work in <span class="ph">Oxygen XML Editor</span>, see the sample files in the following directory:
+              <strong class="ph b"><span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/samples/form-controls</span></strong>.</span></p></div>
+    <p class="p">For more information about form controls, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/-WY3wzkMSLM" allowfullscreen="true"></iframe></div></p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/html-content-form-control.html" title="The oxy_htmlContent built-in form control is used for rendering HTML content. This HTML content is displayed as a graphical element shaped as a box. The shape of the box is determined by a given width and the height is computed based upon the length of the text.">HTML Content Form Control</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-text-area-form-control.html" title="The oxy_textArea built-in form control is used for entering multiple lines of text in a graphical user interface box. A text area may include optional syntax highlight capabilities to present the form control.">Text Area Form Control</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dg-oxygen-css-functions.html">Custom CSS Functions</a></li><li class="linklist"><a class="link" href="dg-visibility-css-extension.html" title="Used to collapse the content of an element.">Collapse Text: -oxy-collapse-text Property Value</a></li></ul></div></nav>
+</article></main></body></html>

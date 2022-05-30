@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Footnotes,Style Markers and Calls,Reset Counter"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Footnotes, Style Markers and Calls, Reset Counter"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_index.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_page_breaking.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_footnotes"><title>Footnotes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_footnotes">
+  <h1 class="title topictitle1" id="ariaid-title1">Footnotes</h1>
+  
+  <div class="body">
+    <p class="p">Footnotes are pieces of information placed at the bottom of the page. A footnote has a number
+      that is left in the content (the footnote call) and the same value placed before the footnote
+      text (the footnote marker).</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_index.html">Index</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_page_breaking.html">Page Breaks</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_footnotes___built_in_css">
+    <h2 class="title topictitle2" id="ariaid-title2">Footnotes - Built-in CSS</h2>
+    <div class="body">
+    <p class="p">Footnote properties are defined in
+        <span class="ph filepath">[PLUGIN_DIR]css/print/p-foot-notes.css</span>.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_change_style_of_the_footnote_markers_and_footnote_calls">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Change Style of the Footnote Markers and Footnote Calls</h2>
+  
+  <div class="body">
+    <p class="p">To bold the footnotes numbers and use some colors, add the following rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/fn"</span>]:footnote-call {
+	<strong class="hl-keyword">font-weight</strong>: bold;
+       <strong class="hl-keyword">color</strong>:red;
+}
+
+*[class ~= <span class="hl-string">"topic/fn"</span>]:footnote-marker {
+	<strong class="hl-keyword">font-weight</strong>: bold;
+       <strong class="hl-keyword">color</strong>:red;
+}</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_footnotes.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_footnotes.html</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="ch_how_to_add_a_separator_above_the_footnotes">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Add a Separator Above the Footnotes</h2>
+  <div class="body">
+    <p class="p">The <code class="ph codeph">@footnote</code> part of a <code class="ph codeph">@page</code> declaration controls the
+      style of the separator between the page content and the footnotes. For the content, you should
+      set a <code class="ph codeph">leader</code>. The leader uses a letter or a line style to fill the entire
+      width of the page. </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+	<strong class="hl-keyword">margin</strong>:<span class="hl-number">0.5</span>in;
+       ....	
+	@footnote {
+		<strong class="hl-keyword">content</strong>: leader(solid);
+		<strong class="hl-keyword">color</strong>:silver;
+	}
+}	</pre>
+    <p class="p">To create a dotted line, you can use the dot character: <code class="ph codeph">leader('.')</code>. Other
+      commonly used characters are: "-" (dash) and "_" (underscore).</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_reset_the_footnotes_counter">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Reset the Footnotes Counter</h2>
+  
+  <div class="body">
+    <p class="p">There are cases where you want to reset the footnote counter. </p>
+    <p class="p">For example, if you need to reset it at the beginning of each chapter, add the following
+      rules to your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"bookmap/chapter"</span>],
+*[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter] {
+	<strong class="hl-keyword">counter-reset</strong>: footnote <span class="hl-number">1</span>;
+}</pre>
+    <p class="p">Or you can mark any element with an <code class="keyword markupname xmlatt">@outputclass</code> value, match that value, and
+      reset the counter at any point in your counter:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p</strong> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"reset-footnotes"</span><strong class="hl-tag">/&gt;</strong></pre>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[outputclass ~= <span class="hl-string">"reset-footnotes"</span>] {
+	<strong class="hl-keyword">counter-reset</strong>: footnote <span class="hl-number">1</span>;
+}</pre>
+  </div>
+</article></article></article></main></body></html>

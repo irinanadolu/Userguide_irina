@@ -1,0 +1,141 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,Content completion in XPath expressions"><meta name="keywords" content="XSLT, Content completion in XPath expressions"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-tooltip-helper.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-tooltip-helper.html"><meta name="DC.relation" scheme="URI" content="running-xpath-expressions.html#running-xpath-expressions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="content-completion-xpath-expressions"><title>Content Completion in XPath Expressions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="content-completion-xpath-expressions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Content Completion in XPath Expressions</h1>
+  
+  <div class="body">
+    <p class="p">In XSLT stylesheets, the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content
+          Completion Assistant</dfn></a> provides <a class="xref" href="streamline-with-content-completion.html">all the features available in the XML
+        editor</a> and also adds some enhancements. In XPath expressions used in attributes of
+      XSLT stylesheets (such as <code class="keyword markupname xmlatt">@match</code>, <code class="keyword markupname xmlatt">@select</code>, and
+        <code class="keyword markupname xmlatt">@test</code>), the <dfn class="term">Content Completion Assistant</dfn> offers the names of
+      XPath and XSLT functions, XSLT axes, and user-defined functions (the name of the function and
+      its parameters). If a transformation scenario was defined and associated to the edited
+      stylesheet, the <dfn class="term">Content Completion Assistant</dfn> computes and presents elements and
+      attributes based on: </p>
+    <ul class="ul">
+      <li class="li">The input XML document selected in the scenario.</li>
+      <li class="li">The current context in the stylesheet.</li>
+    </ul>
+    <p class="p">The associated document is displayed in the <a class="xref" href="xslt-input-view.html"><span class="ph uicontrol">XSLT/XQuery Input</span> view</a>.</p>
+    <p class="p">Content completion for XPath expressions is started:</p>
+    <ul class="ul">
+      <li class="li">On XPath operators detected in one of the <code class="keyword markupname xmlatt">@match</code>, <code class="keyword markupname xmlatt">@select</code>,
+        and <code class="keyword markupname xmlatt">@test</code> attributes of XSLT elements: <code class="ph codeph">"</code>,
+          <code class="ph codeph">'</code>, <code class="ph codeph">/</code>, <code class="ph codeph">//</code>, <code class="ph codeph">(</code>,
+          <code class="ph codeph">[</code>, <code class="ph codeph">|</code>, <code class="ph codeph">:</code>, <code class="ph codeph">::</code>,
+          <code class="ph codeph">$</code></li>
+      <li class="li">For attribute value templates of non-XSLT elements, that is the <code class="ph codeph">{</code>
+        character when detected as the first character of the attribute value.</li>
+      <li class="li">On request, if the combination <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> is pressed inside an edited XPath
+        expression.</li>
+    </ul>
+    <p class="p">The proposals presented in the <dfn class="term">Content Completion Assistant</dfn> are dependent
+      on:</p>
+    <ul class="ul">
+      <li class="li">The context of the current XSLT element.</li>
+      <li class="li">The XML document associated with the edited stylesheet in the stylesheet transformation
+        scenario.</li>
+      <li class="li">The XSLT version of the stylesheet (1.0, 2.0, or 3.0).<div class="note note note_note"><span class="note__title">Note:</span> The XSLT 3.0 content
+          completion list of proposals includes specific elements and attributes for the 3.0
+          version. </div></li>
+    </ul>
+    <p class="p">For example, if the document associated with the edited stylesheet is:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;personnel&gt;</strong>
+    <strong class="hl-tag">&lt;person</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"Big.Boss"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;name&gt;</strong>
+            <strong class="hl-tag">&lt;family&gt;</strong>Boss<strong class="hl-tag">&lt;/family&gt;</strong>
+            <strong class="hl-tag">&lt;given&gt;</strong>Big<strong class="hl-tag">&lt;/given&gt;</strong>
+        <strong class="hl-tag">&lt;/name&gt;</strong>
+        <strong class="hl-tag">&lt;email&gt;</strong>chief@oxygenxml.com<strong class="hl-tag">&lt;/email&gt;</strong>
+        <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">subordinates</span>=<span class="hl-value">"one.worker"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/person&gt;</strong>
+    <strong class="hl-tag">&lt;person</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"one.worker"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;name&gt;</strong>
+            <strong class="hl-tag">&lt;family&gt;</strong>Worker<strong class="hl-tag">&lt;/family&gt;</strong>
+            <strong class="hl-tag">&lt;given&gt;</strong>One<strong class="hl-tag">&lt;/given&gt;</strong>
+        <strong class="hl-tag">&lt;/name&gt;</strong>
+        <strong class="hl-tag">&lt;email&gt;</strong>one@oxygenxml.com<strong class="hl-tag">&lt;/email&gt;</strong>
+        <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">manager</span>=<span class="hl-value">"Big.Boss"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/person&gt;</strong>
+<strong class="hl-tag">&lt;/personnel&gt;</strong></pre>
+    <p class="p">If you enter an <code class="keyword markupname xmlelement">&lt;xsl:template&gt;</code> element using the <dfn class="term">Content
+        Completion Assistant</dfn>, the following actions are triggered:</p>
+    <ul class="ul">
+      <li class="li">The <code class="keyword markupname xmlatt">@match</code> attribute is inserted automatically.</li>
+      <li class="li">The cursor is placed between the quotes.</li>
+      <li class="li">The XPath <dfn class="term">Content Completion Assistant</dfn> automatically displays a pop-up window
+        with all the XSLT axes, XPath functions and elements and attributes from the XML input
+        document that can be inserted in the current context.</li>
+    </ul>
+    <p class="p">The set of XPath functions depends on the XSLT version declared in the root element
+        <code class="ph codeph">xsl:stylesheet</code>: 1.0, 2.0, or 3.0. Functions from other namespaces, such as
+        <a class="xref" href="http://www.w3.org/2005/xpath-functions/map" target="_blank" rel="external noopener">maps</a>, <a class="xref" href="http://www.w3.org/2005/xpath-functions/array" target="_blank" rel="external noopener">arrays</a>, and <a class="xref" href="http://www.w3.org/2005/xpath-functions/math" target="_blank" rel="external noopener">math</a>, are presented only if the namespaces are
+      declared.</p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xpath-expressions__figure-content-completion-xpath-match-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Content Completion in the <code class="keyword markupname xmlatt">@match</code> Attribute</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_xpath_match.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">If the cursor is inside the <code class="keyword markupname xmlatt">@select</code> attribute of an
+        <code class="keyword markupname xmlelement">&lt;xsl:for-each&gt;</code>, <code class="keyword markupname xmlelement">&lt;xsl:apply-templates&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;xsl:value-of&gt;</code> or <code class="keyword markupname xmlelement">&lt;xsl:copy-of&gt;</code> element the
+      content completion proposals depend on the path obtained by concatenating the XPath
+      expressions of the parent XSLT elements <code class="keyword markupname xmlelement">&lt;xsl:template&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;xsl:for-each&gt;</code> as shown in the following figure:</p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xpath-expressions__figure-content-completion-xpath-select-oxygen"><figcaption><span class="fig--title-label">Figure 2. </span>Content Completion in the <code class="keyword markupname xmlatt">@select</code> Attribute</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_xpath_select.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">Also XPath expressions typed in the <code class="keyword markupname xmlatt">@test</code> attribute of an
+        <code class="keyword markupname xmlelement">&lt;xsl:if&gt;</code> or <code class="keyword markupname xmlelement">&lt;xsl:when&gt;</code> element benefit of the
+      assistance of the content completion.</p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xpath-expressions__figure-content-completion-xpath-test-oxygen"><figcaption><span class="fig--title-label">Figure 3. </span>Content Completion in the <code class="keyword markupname xmlatt">@test</code> Attribute</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_xpath_test.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">XSLT variable references are easier to insert in XPath expressions with the help of the
+      content completion pop-up triggered by the <code class="ph codeph">$</code> character, which signals the
+      start of such a reference in an XPath expression.</p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xpath-expressions__figure-content-completion-xpath-variable-oxygen"><figcaption><span class="fig--title-label">Figure 4. </span>Content Completion in the <code class="keyword markupname xmlatt">@test</code> Attribute</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_xpath_variable.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">If the <code class="ph codeph">{</code> character is the first one in the value of the attribute, the same
+        <dfn class="term">Content Completion Assistant</dfn> is available also in attribute value templates of
+      non-XSLT elements. </p>
+    <div class="p">
+      <figure class="fig fignone" id="content-completion-xpath-expressions__figure-content-completion-avt-oxygen"><figcaption><span class="fig--title-label">Figure 5. </span>Content Completion in Attribute Value Templates</figcaption>
+        
+        <img class="image" src="../img/sa_content_completion_xpath_avt.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The time delay (<a class="xref" href="preferences-content-completion.html#preferences-content-completion__activation-delay">configured in the
+          <span class="ph uicontrol">Content Completion</span> preferences page</a>) is also applied for the
+      content completion in XPath expressions.</p>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/xpath-tooltip-helper.html">Tooltip Helper for the XPath Functions Arguments</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/content-completion-xslt-stylesheets.html">Content Completion in XSLT Stylesheets</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/content-completion-xslt-stylesheets.html">Content Completion in XSLT Stylesheets</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xpath-tooltip-helper.html">Tooltip Helper for the XPath Functions Arguments</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="running-xpath-expressions.html#running-xpath-expressions">Working with XPath Expressions</a></li></ul></div></nav>
+</article></main></body></html>

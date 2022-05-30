@@ -1,0 +1,55 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="description" content="This section includes examples that can be used as a starting point for various customizations using XSLT and CSS."><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/pdf-xslt-extensions-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp-dita-ot-extensions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_other_sample_usecases"><title>Sample Use-cases: Using XSLT and CSS for PDF Transformations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_other_sample_usecases">
+  <h1 class="title topictitle1" id="ariaid-title1">Sample Use-cases: Using XSLT and CSS for PDF Transformations</h1>
+  <p class="shortdesc">This section includes examples that can be used as a starting point for various
+    customizations using XSLT and CSS.</p>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/pdf-xslt-extensions-plugin.html" title="The examples in this section demonstrate how to use XSLT extension points from a DITA-OT plugin.">How to Use XSLT Extension Points for PDF Output from a DITA-OT Plugin</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp-dita-ot-extensions.html" title="Information about expanding the functionality through DITA-OT Extensions">DITA-OT Extension Points</a></div></div></nav><article class="topic task nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_use_bullet_instead_decimal_numbering_for_tasks_with_a_single_step">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Use a Bullet Instead of Numbers for Tasks Containing a Single Step</h2>
+  <div class="body taskbody">
+    <section class="section context" id="dcpp_how_to_use_bullet_instead_decimal_numbering_for_tasks_with_a_single_step__context_b24_5x5_q2b">
+      <p class="p">If a DITA Task only contains one step (<code class="keyword markupname xmlelement">&lt;step&gt;</code> element), you probably
+        want it to be rendered like an unordered list (displayed with a bullet instead of a
+        number).</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+<strong class="hl-tag">&lt;steps&gt;</strong>
+   <strong class="hl-tag">&lt;step&gt;</strong>
+        <strong class="hl-tag">&lt;cmd&gt;</strong>The step<strong class="hl-tag">&lt;/cmd&gt;</strong>
+   <strong class="hl-tag">&lt;/step&gt;</strong>
+<strong class="hl-tag">&lt;/steps&gt;</strong>
+...</pre>
+      </div>
+      <div class="p">Should be rendered as:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"> o The step</pre>Instead
+        of:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">  <span class="hl-number">1.</span> The step</pre></div>
+      <p class="p">To achieve this, you need to create an XSLT template that adds a special
+          <code class="keyword markupname xmlatt">@outputclass</code> attribute (with its value set to <code class="ph codeph">single</code>) for
+        the single step, then you need to match this attribute from the CSS and change its
+        aspect.</p>
+    </section>
+    <section id="dcpp_how_to_use_bullet_instead_decimal_numbering_for_tasks_with_a_single_step__steps_o5v_ly5_q2b"><ol class="ol steps" id="dcpp_how_to_use_bullet_instead_decimal_numbering_for_tasks_with_a_single_step__steps_o5v_ly5_q2b"><li class="li step stepexpand">
+        <span class="ph cmd">In the customization XSL, add:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' task/step ')][count(../*[contains
+(@class, ' task/step ')]) = 1]"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+         <strong class="hl-xsl">&lt;xsl:copy-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"@*"</span><strong class="hl-xsl">/&gt;</strong>
+         <strong class="hl-xsl">&lt;xsl:attribute</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"outputclass"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"concat(@outputclass, ' single ')"</span><strong class="hl-xsl">/&gt;</strong>
+         <strong class="hl-xsl">&lt;xsl:apply-templates/&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>       
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre>
+        </div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>,
+          add:</span>
+        <div class="itemgroup info">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[outputclass ~= <span class="hl-string">"single"</span>] {
+    <strong class="hl-keyword">list-style-type</strong>:circle !important;
+    <strong class="hl-keyword">margin-left</strong>:<span class="hl-number">2</span>em;
+}</pre>
+        </div>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="pdf-xslt-extensions-pub-template.html" title="The examples in this section demonstrate how to use XSLT extension points from an Oxygen Publishing Template.">How to Use XSLT Extension Points for PDF Output from a Publishing Template</a></li></ul></div></nav>
+</article></article></article></main></body></html>

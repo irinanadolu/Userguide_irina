@@ -1,0 +1,83 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This type of plugin allows you to work with a custom designed protocol for retrieving and storing files."><meta name="DC.subject" content="Plugin extensions,Custom Protocol,Custom Protocol plugin extension"><meta name="keywords" content="Plugin extensions, Custom Protocol, Custom Protocol plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/contribute-external-dita-ot-extension.html"><meta name="DC.relation" scheme="URI" content="../topics/lock-handler-factory.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom-protocol-plugin"><title>Custom Protocol Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom-protocol-plugin"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Protocol Plugin Extension</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    work with a custom designed protocol for retrieving and storing files.</p>
+    <p class="p">It provides the following API:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><strong class="ph b"><em class="ph i">URLStreamHandlerPluginExtension</em> interface</strong></dt>
+          <dd class="dd">
+            <p class="p">There is one method that must be implemented:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><em class="ph i">getURLStreamHandler(String protocol)</em></dt>
+                  <dd class="dd">It takes as an argument the name of the protocol and returns a
+                      <code class="ph codeph">URLStreamHandler</code> object, or null if there is no URL handler
+                    for the specified protocol.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p">This type of <dfn class="term">plugin</dfn> extension can be usually combined with a <a class="xref" href="workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access plugin extension</a> that can add a
+      custom toolbar with custom actions for opening documents from a certain source.</p>
+    <p class="p">As an alternative, two older <dfn class="term">plugin</dfn> extensions can also be used to add a toolbar
+      action for showing a custom URL chooser:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><strong class="ph b"><em class="ph i">URLChooserPluginExtension2</em> interface</strong></dt>
+          <dd class="dd">
+            <p class="p">Makes it possible to create your own dialog box that works with the custom protocol.
+              This interface provides two methods:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><em class="ph i">chooseURLs(StandalonePluginWorkspace workspaceAccess)</em></dt>
+                  <dd class="dd">Returns a <code class="ph codeph">URL[]</code> object that contains the URLs the user
+                    decided to open with the custom protocol. You can invoke your own URL chooser
+                    dialog box here and then return the chosen URLs having your own custom protocol.
+                    You have access to the workspace of <span class="ph"><span class="ph">Oxygen XML Editor</span></span>.</dd>
+                
+                
+                  <dt class="dt dlterm"><em class="ph i">getMenuName()</em></dt>
+                  <dd class="dd">Returns a <code class="ph codeph">String</code> object that is the name of the entry added
+                    in the <span class="ph uicontrol">File</span> menu.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><strong class="ph b"><em class="ph i">URLChooserToolbarExtension</em> interface</strong></dt>
+          <dd class="dd">
+            <p class="p">Makes it possible to provide a toolbar entry that is used for launching the custom
+              URLs chooser from the <em class="ph i">URLChooserPluginExtension</em> implementation. This interface
+              provides two methods:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><em class="ph i">getToolbarIcon()</em></dt>
+                  <dd class="dd">Returns the <code class="ph codeph">javax.swing.Icon</code> image used on the toolbar.</dd>
+                
+                
+                  <dt class="dt dlterm"><em class="ph i">getToolbarTooltip()</em></dt>
+                  <dd class="dd">Returns a <code class="ph codeph">String</code> that is the tooltip used on the toolbar
+                    button.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/contribute-external-dita-ot-extension.html" title="This type of plugin allows you to contribute an external DITA-OT distribution to Oxygen XML Editor.">Contribute External DITA-OT Distribution Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/lock-handler-factory.html" title="This type of plugin extension is used for locking resources from a specific protocol.">Lock Handler Plugin Extension</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="JSON documents,Validation scenarios,JSON validation scenarios"><meta name="keywords" content="JSON documents, Validation scenarios, JSON validation scenarios"><meta name="DC.relation" scheme="URI" content="../topics/json-validating-documents-against-schema.html"><meta name="DC.relation" scheme="URI" content="../topics/json-marking-validation-errors.html"><meta name="DC.relation" scheme="URI" content="../topics/json-validation-scenarios-sharing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-validation-scenario"><title>Creating a JSON Validation Scenario</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-validation-scenario"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating a JSON Validation Scenario</h1>
+  
+  <div class="body">
+    <p class="p">Validation scenarios can be used to <a class="xref" href="json-associate-schema-validation-scenario.html">associate one or more JSON Schemas
+        with a JSON document</a>. <span class="ph">Oxygen XML Editor</span> also includes a built-in JSON Schematron
+      Validator engine that can be specified in the validation scenario to validate JSON documents
+      against a specified Schematron schema.</p>
+    <section class="section" id="json-validation-scenario__creating_a_json_validation_scenario"><h2 class="title sectiontitle">Creating a JSON Validation Scenario</h2>
+      
+      <div class="p">To create a validation scenario, follow these steps:<ol class="ol">
+          <li class="li">
+            <div class="p">Select the <span class="ph uicontrol"><img class="image" id="json-validation-scenario__image_k3g_x5v_sr" src="../img/ValidationConfig16.png">Configure Validation Scenario(s)</span> action in one
+              of the following ways:<ul class="ul" id="json-validation-scenario__ul_trg_zcy_b2b">
+                <li class="li">From the <span class="ph"><span class="ph uicontrol"><img class="image" id="json-validation-scenario__image_dyn_x5v_sr" src="../img/ValidateDrop.png">Validation</span>
+                    toolbar drop-down menu</span>.</li>
+                <li class="li">From the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span>
+                  menu.</li>
+                <li class="li">From the <span class="ph uicontrol">Validate</span> submenu, when invoking the contextual
+                  menu on a file in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph"><span class="ph uicontrol">Project</span> view</span></a>.</li>
+              </ul></div>
+            <p class="p"><strong class="ph b">Step Result:</strong> The <span class="ph uicontrol">Configure Validation Scenario(s)</span>
+              dialog box is displayed.</p>
+          </li>
+          <li class="li">
+            <p class="p">Click the <span class="ph uicontrol">New</span> button.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> A validation scenario configuration dialog box is displayed.</p>
+            <div class="p">
+              <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Validation Scenario Configuration Dialog Box</figcaption>
+                
+                <img class="image" src="../img/JSON-validation-scenario.png">
+              </figure>
+            </div>
+            <div class="p">This scenario configuration dialog box allows you to configure the following
+              information and options:<dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+                  <dd class="dd">The name of the validation scenario.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Storage</span></dt>
+                  <dd class="dd">You can choose between storing the scenario in the <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project
+                      Options</span></a> or <a class="xref" href="../glossary/global-options.html"><span class="ph uicontrol">Global Options</span></a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">URL of the file to validate</span></dt>
+                  <dd class="dd">The URL of the main module that includes the current module. It is also the
+                    entry module of the validation process when the current one is validated. To
+                    edit the URL, <span class="ph">double-</span>click its cell and
+                    specify the URL of the main module by doing one of the following:<ul class="ul">
+                      <li class="li">Enter the URL in the text field or select it from the drop-down list.</li>
+                      <li class="li">Use the <span class="ph uicontrol"><img class="image" src="../img/BrowseDrop.png">Browse</span>
+                        drop-down button to browse for a local, remote, or archived file.</li>
+                      <li class="li">
+                        <p class="p">Use the <span class="ph uicontrol"><img class="image" id="json-validation-scenario__image_gbn_qvd_w3b" src="../img/InsertEditorVariables16.png">Insert Editor Variable</span> button to
+                          insert an <a class="xref" href="editor-variables.html">editor variable</a> or a
+                            <a class="xref" href="custom-editor-variables.html">custom editor
+                          variable</a>.</p>
+                        <div class="p">
+                          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Insert an Editor Variable</figcaption>
+                            
+                            <img class="image" src="../img/sa_editor_variables_menu.png">
+                          </figure>
+                        </div>
+                        <p class="p">
+                          
+                        </p>
+                      </li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">File type</span></dt>
+                  <dd class="dd">The type of the document that is validated in the current validation unit. <span class="ph">Oxygen XML Editor</span> automatically selects the file type depending on the value
+                    of the <span class="ph uicontrol">URL of the file to validate</span> field.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Validation engine</span></dt>
+                  <dd class="dd">You can choose between the following types of validation engines for
+                    validating JSON documents:<ul class="ul" id="json-validation-scenario__ul_n4q_tc4_3kb">
+                      <li class="li"><span class="ph uicontrol">Default engine</span> - The built-in JSON Validator will
+                        be used. For JSON Schema documents, this type should not be chosen unless
+                        the document has a schema version specified.</li>
+                      <li class="li"><span class="ph uicontrol">JSON Schema Validator</span> - This type is for JSON
+                        Schema documents only. It will use the version specified in the JSON Schema,
+                        or if a version is not specified, the <a class="xref" href="https://tools.ietf.org/html/draft-fge-json-schema-validation-00" target="_blank" rel="external noopener">JSON Schema draft-04</a> will be
+                        used.</li>
+                      <li class="li"><span class="ph uicontrol">JSON Schematron Validator</span> - The built-in JSON
+                        Schematron Validator will be used to validation JSON documents against a
+                        specified Schematron schema.<div class="note note note_note"><span class="note__title">Note:</span> For proper error localization, the root element
+      of the Schematron schema should include the <code class="keyword markupname xmlatt">@queryBinding</code> attribute with the
+      value of <strong class="ph b">xslt2</strong> after the Schematron namespace
+      declaration:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sch:schema</strong> <span class="hl-attribute">xmlns:sch</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span> <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span><strong class="hl-tag">&gt;</strong></pre></div></li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Automatic validation</span></dt>
+                  <dd class="dd">If this option is selected, the validation operation defined by this row is
+                    also applied by <a class="xref" href="automatic-validation.html">the automatic validation
+                      feature</a>. If the <span class="ph uicontrol">Automatic validation</span> feature is
+                    disabled in the <a class="xref" href="preferences-editor-document-checking.html">Document
+                      Checking preferences page</a>, then this option is ignored, as the
+                    preference setting has a higher priority.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Schema</span></dt>
+                  <dd class="dd">Displays the specified schema.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Options16.png">Specify Schema</span></dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">Specify Schema</span> dialog box that allows you to
+                    set a schema to be used for validating JSON documents.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-validation-scenario__image_jhv_vr1_5r" src="../img/MoveUpEntry16.gif">Move
+                      Up</span></dt>
+                  <dd class="dd">Moves the selected scenario up one spot in the list.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="json-validation-scenario__image_q44_vr1_5r" src="../img/MoveDownEntry16.gif">Move Down</span></dt>
+                  <dd class="dd">Moves the selected scenario down one spot in the list.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Add</span></dt>
+                  <dd class="dd">Adds a new validation unit to the list.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Remove</span></dt>
+                  <dd class="dd">Removes an existing validation unit from the list.</dd>
+                
+              </dl></div>
+          </li>
+          <li class="li">Configure any of the existing validation units according to the information above. You
+            can use the buttons at the bottom of the table to add, remove, or move validation
+            units.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span>.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> The newly created validation scenario will now be included in the list of
+        scenarios in the <span class="ph uicontrol">Configure Validation Scenario(s)</span> dialog box. You can
+        select the scenario in this dialog box to associate it with the current document and click
+        the <span class="ph uicontrol">Apply associated</span> button to run the validation scenario.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/json-validating-documents-against-schema.html">Validating JSON Documents Against JSON Schema or Schematron</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/json-marking-validation-errors.html">Presenting Validation Errors in JSON Documents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/json-validation-scenarios-sharing.html">Sharing JSON Validation Scenarios</a></div></div></nav></article></main></body></html>

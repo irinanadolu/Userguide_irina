@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function extends the standard CSS url() function by allowing you to specify additional relative path components (parameters loc_1 to loc_n)."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_url"><meta name="keywords" content="CSS extensions, Custom functions, oxy_url"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-uppercase-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-xpath-function.html"><meta name="DC.relation" scheme="URI" content="editor-variables.html#editor-variables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-url-function"><title>URL: oxy_url() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-url-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">URL: oxy_url() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function extends the standard CSS <code class="ph codeph">url()</code> function by allowing you
+    to specify additional relative path components (parameters <code class="ph codeph">loc_1</code> to
+      <code class="ph codeph">loc_n</code>).</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> uses all these parameters to construct an absolute location. Note that
+      any of the parameters that are passed to the function can be either relative or absolute
+      locations. These locations can be expressed as String objects, functions, or <a class="xref" href="editor-variables.html#editor-variables">editor variables</a> (built-in or
+      custom).</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Syntax:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_url</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>base_location</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>loc_1</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>loc_2</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">base_location</dt>
+                  <dd class="dd">String representing the base location. If not absolute, will be solved
+                    relative to the CSS file URL.</dd>
+                
+                
+                  <dt class="dt dlterm">loc_1 ... loc_n (optional)</dt>
+                  <dd class="dd">Strings representing relative location path components.</dd>
+                
+              </dl>
+            </div>
+            <p class="p"><strong class="ph b"><u class="ph u">Examples: <em class="ph i">oxy_url</em> Function</u></strong></p>
+            <div class="p">The following function receives String objects as input
+              parameters:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">oxy_url('http://www.oxygenxml.com/css/test.css', '../dir1/', 
+        'dir2/dir3/', '../../dir4/dir5/test.xml')</pre>and
+              returns:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">'http://www.oxygenxml.com/dir1/dir4/dir5/test.xml'</pre></div>
+            <div class="p">The following function receives the result of the evaluation of two other functions
+              as parameters (for instance, this is useful if you have image references and you want
+              to see thumbnail images stored in the same
+              folder):<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[href]{
+ <strong class="hl-keyword">content</strong>:oxy_url(oxy_base-uri(), oxy_replace(attr(href), 
+    <span class="hl-string">'.jpeg'</span>, <span class="hl-string">'Thumbnail.jpeg'</span>));
+}</pre></div>
+            <div class="p">The following function uses an <a class="xref" href="editor-variables.html#editor-variables">editor variable</a> as the first parameter to point to the <span class="ph">Oxygen XML Editor</span> installation
+              location:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[href] {
+    <strong class="hl-keyword">content</strong>: oxy_url(<span class="hl-string">'${oxygenHome}'</span>, <span class="hl-string">'logo.png'</span>);
+}</pre></div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-uppercase-function.html" title="This function transforms the text received as argument to upper case.">Uppercase: oxy_uppercase() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-xpath-function.html" title="This function is used to evaluate XPath expressions.">XPath: oxy_xpath() Function</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="editor-variables.html#editor-variables">Editor Variables</a></li></ul></div></nav>
+</article></main></body></html>

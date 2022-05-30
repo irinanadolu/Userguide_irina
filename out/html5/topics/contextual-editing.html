@@ -1,0 +1,23 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Relax NG schemas,Editing in Master Files context"><meta name="keywords" content="Relax NG schemas, Editing in Master Files context"><meta name="DC.relation" scheme="URI" content="../topics/editing-relax-ng-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-relax-ng-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/relax-ng-schema-diagram.html"><meta name="DC.relation" scheme="URI" content="create-validation-scenario.html#create-validation-scenario"><meta name="DC.relation" scheme="URI" content="xml-schema-diagram-outline-view.html#xml-schema-diagram-outline-view"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="contextual-editing"><title>Editing Relax NG Schema in the Master Files Context</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="contextual-editing"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Relax NG Schema in the Master Files Context</h1>
+  
+  <div class="body">
+    <p class="p">Smaller interrelated modules that define a complex Relax NG Schema cannot be correctly edited
+      or validated individually, due to their interdependency with other modules. For example, an
+      element defined in a main schema document is not visible when you edit an included module. <span class="ph">Oxygen XML Editor</span> provides the support for defining the main module (or modules), thus
+      allowing you to edit any of the imported/included schema files in the context of the larger
+      schema structure.</p>
+    <p class="p">You cat set a main Relax NG document <span class="ph">either using the <a class="xref" href="defining_master_files.html#defining_master_files"><dfn class="term">master files</dfn> support
+          from the <span class="ph uicontrol">Project</span> view</a>, or</span>
+      using a validation scenario.</p>
+    <p class="p">To set a <dfn class="term">master file</dfn> using a validation scenario, add validation units that
+      point to the main schemas. <span class="ph">Oxygen XML Editor</span> warns you if the current module is not part
+      of the dependencies graph computed for the main schema. In this case, it considers the current
+      module as the main schema.</p>
+    <p class="p">The main advantage of editing in the context of a <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a> is that it provides correct validation of a module in the
+      context of a larger schema structure. </p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-relax-ng-schemas.html">Editing Relax NG Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/editing-relax-ng-schemas.html">Editing Relax NG Schemas</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/relax-ng-schema-diagram.html">Relax NG Schema Diagram Editor</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="create-validation-scenario.html#create-validation-scenario">Creating a New Validation Scenario</a></li><li class="linklist"><a class="link" href="xml-schema-diagram-outline-view.html#xml-schema-diagram-outline-view">XML Schema Outline View</a></li></ul></div></nav>
+</article></main></body></html>

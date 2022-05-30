@@ -1,0 +1,134 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Front matter,,Back matter,Page breaks,,Style topics,Back matter"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Front matter, , Back matter, Page breaks, , Style topics, Back matter"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_cover_page.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_numbering_intro.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_front_matter_and_back_matter"><title>Front Matter and Back Matter</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_front_matter_and_back_matter">
+  <h1 class="title topictitle1" id="ariaid-title1">Front Matter and Back Matter</h1>
+  
+  <div class="body">
+    <p class="p">The <dfn class="term">front matter</dfn> is a series of topics that are usually placed after the cover
+      page and before the TOC or the content. </p>
+    <p class="p">The <dfn class="term">back matter</dfn> is a series of topics that are usually placed after the content
+      of the book. </p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_cover_page.html">Cover (Title) Page</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_numbering_intro.html">Numbering</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_front_matter_and_back_matter___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Front Matter and Back Matter - XML Fragment</h2>
+  <div class="body">
+    <p class="p">In the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+        map file</a>, the frontmatter topic references are wrapped in a
+        <code class="keyword markupname xmlelement">&lt;frontmatter&gt;</code> element that has the class
+        <code class="ph codeph">bookmap/frontmatter</code>. Then, the referenced content is marked with the
+      attribute <code class="keyword markupname xmlatt">@is-frontmatter="true"</code>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span> <span class="hl-attribute">...&gt;</span>
+    <span class="hl-attribute">&lt;oxy:front-page</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- front-page/front-page "</span><strong class="hl-tag">&gt;</strong>
+       ...
+    <strong class="hl-tag">&lt;/oxy:front-page&gt;</strong>
+    <strong class="hl-tag">&lt;opentopic:map</strong> <span class="hl-attribute">xmlns:ot-placeholder</span>=<span class="hl-value">"http://suite-sol.com/namespaces/ot-placeholder"</span>
+    <span class="hl-attribute">class</span>=<span class="hl-value">"- toc/toc "</span><strong class="hl-tag">&gt;</strong>
+        ...
+        <strong class="hl-tag">&lt;frontmatter</strong> <span class="hl-attribute">xmlns:dita-ot</span>=<span class="hl-value">"http://dita-ot.sourceforge.net/ns/201007/dita-ot"</span>
+        <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref bookmap/frontmatter "</span><strong class="hl-tag">&gt;</strong>
+          ...
+          <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref "</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_1"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"concept"</span><strong class="hl-tag">&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/frontmatter&gt;</strong>
+    <strong class="hl-tag">&lt;/opentopic:map&gt;</strong>
+    <strong class="hl-tag">&lt;concept</strong> 
+    	<span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic concept/concept "</span> 
+           <span class="hl-attribute">is-frontmatter</span>=<span class="hl-value">"true"</span>
+           <span class="hl-attribute">topicrefclass</span>=<span class="hl-value">"- map/topicref bookmap/bookabstract "</span> <span class="hl-attribute">...&gt;</span></pre>
+    <div class="div">
+      <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span> <span class="hl-attribute">...&gt;</span>
+    <span class="hl-attribute">&lt;div</span> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>
+       ...
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- toc/toc toc"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref bookmap/frontmatter topicref frontmatter"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicref topicref"</span><strong class="hl-tag">&gt;</strong>
+        ...
+        <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+    <strong class="hl-tag">&lt;article</strong> 
+	    <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic concept/concept topic concept nested0"</span>
+    	<span class="hl-attribute">is-frontmatter</span>=<span class="hl-value">"true"</span>
+    	<span class="hl-attribute">topicrefclass</span>=<span class="hl-value">"- map/topicref bookmap/bookabstract "</span>  <span class="hl-attribute">...&gt;</span></pre>
+    </div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The process also applies for the backmatter topic references inside a
+        <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code> element with the <code class="ph codeph">bookmap/backmatter</code>
+      class and referenced content with the <code class="keyword markupname xmlatt">@is-backmatter="true"</code> attribute both in
+      the merged map and merged HTML files.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_front_matter_and_backmatter___built_in_css">
+  <h2 class="title topictitle2" id="ariaid-title3">Front Matter and Back Matter - Built-in CSS</h2>
+  <div class="body">
+    <p class="p">The built-in CSS rules are in
+        <span class="ph filepath">[PLUGIN_DIR]/css/print/p-bookmap-frontmatter-backmatter.css</span>. By
+      default, it associates the top-level topics that do not represent chapters to a
+        <code class="ph codeph">matter-page</code> style of page layout. Each child topic starts on a new
+      page.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_headers_and_footers.html">Page Headers and Footers</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_remove_page_breaks_between_frontmatter_and_backmatter_child_topics">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Remove Page Breaks Between Front Matter Child Topics</h2>
+  
+  <div class="body">
+    <div class="p">If you do not like the fact that all the topics that enter a bookmap frontmatter start on a
+      new page, you can disable this by using the following rules in your <a class="xref" href="dcpp_the_customization_css.html">customization
+      CSS</a>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"topic/topic"</span>][is-frontmatter]{
+   <strong class="hl-keyword">page-break-before</strong>: auto;
+}</pre></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_style_the_front_matter_and_back_matter_topics">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Style the Front Matter and Back Matter Topics</h2>
+  
+  <div class="body">
+    <section class="section" id="dcpp_how_to_style_the_front_matter_and_back_matter_topics__section_fx2_k2y_mhb"><h3 class="title sectiontitle">Style all the Topics with the Same Aspect</h3>
+      
+      <p class="p">All the topics referenced from the <code class="keyword markupname xmlelement">&lt;frontmatter&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code> bookmap elements are formatted using the
+          <code class="ph codeph">matter-page</code> as defined in <a class="xref" href="dcpp_default_page_definitions_css.html">Default Page Definitions</a>. In the merged file, the
+          <code class="keyword markupname xmlelement">&lt;backmatter&gt;</code> and <code class="keyword markupname xmlelement">&lt;frontmatter&gt;</code> elements are
+        omitted, and their child topic content is matched using a CSS rule like the one below:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"topic/topic"</span>][is-backmatter],
+*[class ~= <span class="hl-string">"map/map"</span>] &gt; *[class ~= <span class="hl-string">"topic/topic"</span>][is-frontmatter]{
+  page: matter-page;
+  ...
+}</pre>
+    </section>
+    <section class="section" id="dcpp_how_to_style_the_front_matter_and_back_matter_topics__section_ygc_m2y_mhb"><h3 class="title sectiontitle">Style the Topics Depending on Their Role</h3>
+      
+      <div class="p">There might be cases when you need to distinguish between certain types of topics that have
+        different roles in your publication:<ul class="ul" id="dcpp_how_to_style_the_front_matter_and_back_matter_topics__ul_enm_xcy_mhb">
+          <li class="li">Preface</li>
+          <li class="li">Notice</li>
+          <li class="li">Abstract</li>
+          <li class="li">Copyright</li>
+        </ul>These are referenced from the DITA map by specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+        elements, with different class attribute values. </div>
+      <p class="p">The class attribute values are then passed by the transformation process onto the
+        corresponding topic elements from the merged map content. For example, a topic that was
+        referenced by a <code class="keyword markupname xmlelement">&lt;preface&gt;</code> map element now has a " bookmap/preface "
+        value in its <code class="keyword markupname xmlatt">@topicrefclass</code> attribute:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic</strong> 
+	<span class="hl-attribute">class</span>=<span class="hl-value">"- topic/topic "</span> 
+	<span class="hl-attribute">id</span>=<span class="hl-value">"unique_1"</span> 
+	<span class="hl-attribute">topicrefclass</span>=<span class="hl-value">"- map/topicref bookmap/preface "</span> <span class="hl-attribute">..</span><strong class="hl-tag"> &gt;</strong>
+...
+<strong class="hl-tag">&lt;/topic&gt;</strong></pre>
+      <p class="p">This can be used to match and apply various styling choices, or even a particular page
+        layout:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> preface-page {
+	<strong class="hl-keyword">background-color</strong>:silver;
+	@top-center{
+		<strong class="hl-keyword">content</strong>: <span class="hl-string">"Custom Preface Header"</span>;
+	}
+}
+*[class ~= <span class="hl-string">"topic/topic"</span>][@topicrefclass ~= <span class="hl-string">"bookmap/preface"</span>] {
+	page: preface-page;
+}</pre>
+    </section>
+  </div>
+</article></article></article></main></body></html>

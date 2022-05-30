@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Content Completion,Content completion preferences"><meta name="keywords" content="Preferences, Content Completion, Content completion preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-format-js.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-xsl.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-xsl.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-xpath.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-xsd.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-js.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-json.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-content-completion-annotations.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-code-templates.html"><meta name="DC.relation" scheme="URI" content="configuring-content-completion-proposals.html#configuring-content-completion-proposals"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-content-completion"><title>Content Completion Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-content-completion"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Content Completion Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides a <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion Assistant</dfn></a> that provides a list of available
+      options at any point in a document and can auto-complete structures, elements, and attributes.
+      To configure the <span class="ph uicontrol">Content Completion</span> preferences, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Content Completion</span></span>. These options control how the <dfn class="term">Content Completion Assistant</dfn>
+      works.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Auto close the last opened tag</span></dt>
+          <dd class="dd">When selected, <span class="ph">Oxygen XML Editor</span> automatically closes the last open tag when you
+            type <code class="ph codeph">&lt;/</code>.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-content-completion__auto-edit-matching-tag"><span class="ph uicontrol">Automatically rename/delete/comment matching tags</span></dt>
+          <dd class="dd">If you rename, delete, or comment out a start tag, <span class="ph">Oxygen XML Editor</span>
+            automatically renames, deletes, or comments out the matching end tag. <div class="note note note_note"><span class="note__title">Note:</span> If you
+              select <span class="ph uicontrol">Toggle comment</span> for multiple starting tags and the
+              matching end tags are on the same line as other start tags, the end tags are not
+              commented.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-content-completion__enable-content-completion"><span class="ph uicontrol">Enable content completion</span></dt>
+          <dd class="dd">Toggles the content completion feature on or off.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Consider subsequent sibling elements</span></dt>
+          <dd class="dd">When this option is selected (default), the subsequent sibling elements of the current
+            element are taken into account when using the <dfn class="term">Content Completion Assistant</dfn>.
+            For example, in DITA, if you invoke the content completion before an already inserted
+            required element (e.g. a <code class="keyword markupname xmlelement">&lt;title&gt;</code> element), the content completion
+            mechanism will not offer a proposal to insert a title (since it was already
+            inserted).</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Close the inserted element</span></dt>
+          <dd class="dd">When you choose an entry from the <dfn class="term">Content Completion Assistant</dfn> list of
+            proposals, <span class="ph">Oxygen XML Editor</span> inserts both start and end tags. The following
+            additional options are available with regard to closing the element: <ul class="ul">
+              <li class="li"><span class="ph uicontrol">If it has no matching tag</span> - The end tag of the inserted
+                element is automatically added only if it is not already present in the
+                document.</li>
+              <li class="li" id="preferences-content-completion__add-element-content"><span class="ph uicontrol">Add element content</span> - <span class="ph">Oxygen XML Editor</span> inserts the required elements specified in the DTD, XML Schema,
+                or RELAX NG schema that is <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document">associated
+                  with the edited XML document</a>. <ul class="ul">
+                  <li class="li" id="preferences-content-completion__add-optional-content"><span class="ph uicontrol">Add optional content</span> - If
+                    selected, <span class="ph">Oxygen XML Editor</span> inserts the optional elements specified in the
+                    DTD, XML Schema, or RELAX NG schema. </li>
+                  <li class="li" id="preferences-content-completion__add-first-choice"><span class="ph uicontrol">Add first Choice particle</span> - If
+                    selected, <span class="ph">Oxygen XML Editor</span> inserts the first <span class="ph uicontrol">choice</span>
+                    particle specified in the DTD, XML Schema, or RELAX NG schema.</li>
+                </ul></li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Case sensitive search</span></dt>
+          <dd class="dd">When selected, the search in the <dfn class="term">Content Completion Assistant</dfn> is
+            case-sensitive when you type a character ('a' and 'A' are different
+              characters).<div class="note note note_note"><span class="note__title">Note:</span> This option is ignored when the current language itself is not
+              case-sensitive. For example, the case is ignored in the CSS language.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-content-completion__position-cursor-between-tags"><span class="ph uicontrol">Position cursor between tags</span></dt>
+          <dd class="dd">When selected, <span class="ph">Oxygen XML Editor</span> automatically moves the cursor between the start
+            and end tag after inserting the element. This only applies to:<ul class="ul">
+              <li class="li">Elements with only optional attributes or no attributes at all.</li>
+              <li class="li">Elements with required attributes, but only when the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__insert-required-attributes"><span class="ph uicontrol">Insert the required attributes</span> option</a> is not
+                selected.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show all entities</span></dt>
+          <dd class="dd"><span class="ph">Oxygen XML Editor</span> displays a list with all the internal and external entities
+            declared in the current document when you type the start character of an entity
+            reference (for example, <code class="ph codeph">&amp;</code>).</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-content-completion__insert-required-attributes"><span class="ph uicontrol">Insert the required attributes</span></dt>
+          <dd class="dd"><span class="ph">Oxygen XML Editor</span> inserts automatically the required attributes taken from the
+            DTD or XML Schema.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert the fixed attributes</span></dt>
+          <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> automatically inserts any <code class="ph codeph">FIXED</code>
+            attributes from the DTD or XML Schema for an element inserted with the help of the
+              <dfn class="term">Content Completion Assistant</dfn>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show recently used items</span></dt>
+          <dd class="dd">
+            <p class="p">When selected, <span class="ph">Oxygen XML Editor</span> remembers the last inserted items from the
+                <dfn class="term">Content Completion Assistant</dfn> window. The number of items to be
+              remembered is limited by the <span class="ph uicontrol">Maximum number of recent items
+                shown</span> list box. These most frequently used items are displayed on the
+              top of the content completion window and<span class="ph"> are
+                separated from the rest of the suggestions by a thin gray line</span>
+              .</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Maximum number of recent items shown</span></dt>
+                  <dd class="dd">Specifies the limit for the number of recently used items presented at the top
+                    of the <dfn class="term">Content Completion Assistant</dfn> window.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Learn attributes values</span></dt>
+          <dd class="dd">When selected, <span class="ph">Oxygen XML Editor</span> learns the attribute values used in a
+            document.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Learn on open document</span></dt>
+          <dd class="dd"><span class="ph">Oxygen XML Editor</span> automatically learns the document structure when the document
+            is opened.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Learn words (Dynamic Abbreviations, available on
+                <span class="keyword shortcut">Ctrl+Space</span> (<span class="keyword shortcut">Command+Space</span> on OS
+              X))</span></dt>
+          <dd class="dd">When selected, <span class="ph">Oxygen XML Editor</span> learns the typed words and makes them available
+            in a content completion fashion by pressing <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span> on your keyboard;<div class="note note note_note"><span class="note__title">Note:</span> For the
+              words to be learned, they need to be separated by space characters.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-content-completion__activation-delay"><span class="ph uicontrol">Activation delay of the proposals window (ms)</span></dt>
+          <dd class="dd">Delay in milliseconds from the last key press until the <dfn class="term">Content Completion
+              Assistant</dfn> is displayed.</dd>
+        
+      </dl></div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/preferences-content-completion-xsl.html">XSLT Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-content-completion-xpath.html">XPath Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-content-completion-xsd.html">XSD Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-content-completion-js.html">JavaScript Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-content-completion-json.html">JSON Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-content-completion-annotations.html">Annotations Preferences</a><br></li><li class="link olchildlink"><a href="../topics/preferences-editor-code-templates.html">Code Templates Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-format-js.html">JavaScript Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-content-completion-xsl.html">XSLT Preferences</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="configuring-content-completion-proposals.html#configuring-content-completion-proposals">Configuring the Proposals for Attribute and Element Values</a></li></ul></div></nav>
+</article></main></body></html>

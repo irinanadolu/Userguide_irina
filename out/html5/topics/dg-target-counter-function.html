@@ -1,0 +1,114 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="CSS target-counter() function,CSS target-counters() function"><meta name="keywords" content="CSS target-counter() function, CSS target-counters() function"><meta name="DC.relation" scheme="URI" content="../topics/dg-properties-support.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-attr-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg_calc_function.html"><meta name="DC.relation" scheme="URI" content="https://www.w3.org/TR/css-gcpm-3/#target-counter"><meta name="DC.relation" scheme="URI" content="https://www.w3.org/TR/css-gcpm-3/#target-counters"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-target-counter-function"><title>CSS Level 3 target-counter() and target-counters() Functions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-target-counter-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">CSS Level 3 target-counter() and target-counters() Functions</h1>
+  
+  <div class="body">
+    <p class="p">The CSS Level 3 functions <em class="ph i">target-counter</em> and <em class="ph i">target-counters</em> can be used as
+      values for the <code class="ph codeph">content</code> property to retrieve counter values and display
+      information obtained from a target at the end of a link.</p>
+    <section class="section" id="dg-target-counter-function__section_w3m_5zh_thb"><h2 class="title sectiontitle">The <em class="ph i">target-counter</em> Function</h2>
+      
+      <p class="p">This function retrieves the value of the innermost counter with a given name.</p>
+      <div class="p">
+        <div class="fig syntaxdiagram">
+           
+            <kbd><b>target-counter</b></kbd>
+            <kbd class="ph sep">(</kbd>
+            <kbd><b>&lt;fragment&gt;</b></kbd>
+            <kbd class="ph sep">,</kbd>
+            <kbd><b>&lt;counter-name&gt;</b></kbd>
+            <kbd class="ph sep">[ ,</kbd>
+            <kbd><b>&lt;counter-style&gt;</b></kbd>
+            <kbd class="ph sep">] ? )</kbd>
+           
+        </div>
+      </div>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">fragment</dt>
+            <dd class="dd">
+              <p class="p">The URI fragment pointing to the ID of the target element.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">counter-name</dt>
+            <dd class="dd">
+              <p class="p">The name of the counter. This argument is required.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">counter-style</dt>
+            <dd class="dd">
+              <p class="p">This optional argument can be used to format the result.</p>
+            </dd>
+          
+        </dl>
+      </div>
+      <p class="p"><strong class="ph b">Example:</strong></p>
+      <div class="p">HTML:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;nav&gt;</strong>
+  <strong class="hl-tag">&lt;ol&gt;</strong>
+    <strong class="hl-tag">&lt;li</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"frontmatter"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#pref_01"</span><strong class="hl-tag">&gt;</strong>Preface<strong class="hl-tag">&lt;/a&gt;</strong><strong class="hl-tag">&lt;/li&gt;</strong>
+    <strong class="hl-tag">&lt;li</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"frontmatter"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#intr_01"</span><strong class="hl-tag">&gt;</strong>Introduction<strong class="hl-tag">&lt;/a&gt;</strong><strong class="hl-tag">&lt;/li&gt;</strong>
+    <strong class="hl-tag">&lt;li</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"bodymatter"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#chap_01"</span><strong class="hl-tag">&gt;</strong>Chapter One<strong class="hl-tag">&lt;/a&gt;</strong><strong class="hl-tag">&lt;/li&gt;</strong>
+  <strong class="hl-tag">&lt;/ol&gt;</strong>
+<strong class="hl-tag">&lt;/nav&gt;</strong></pre></div>
+      <div class="p">CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.frontmatter a::after { <strong class="hl-keyword">content</strong>: leader(<span class="hl-string">'.'</span>) target-counter(attr(href), page, lower-roman) }
+.bodymatter a::after { <strong class="hl-keyword">content</strong>: leader(<span class="hl-string">'.'</span>) target-counter(attr(href), page, decimal) }</pre></div>
+      <p class="p">Result:</p>
+      <p class="p"><img class="image" id="dg-target-counter-function__image_djc_k13_thb" src="../img/target-counter-example.png"></p>
+    </section>
+    <section class="section" id="dg-target-counter-function__section_vvb_wzh_thb"><h2 class="title sectiontitle">The <em class="ph i">target-counters</em> Function</h2>
+      
+      <p class="p">This function fetches the value of all counters of a given name from the end of a link and
+        formats them by inserting a given string between the value of each nested counter.</p>
+      <div class="p">
+        <div class="fig syntaxdiagram">
+           
+            <kbd><b>target-counter</b></kbd>
+            <kbd class="ph sep">(</kbd>
+            <kbd><b>&lt;fragment&gt;</b></kbd>
+            <kbd class="ph sep">,</kbd>
+            <kbd><b>&lt;counter-name&gt;</b></kbd>
+            <kbd class="ph sep">,</kbd>
+            <kbd><b>&lt;delimiter&gt;</b></kbd>
+            <kbd class="ph sep">[ ,</kbd>
+            <kbd><b>&lt;counter-style&gt;</b></kbd>
+            <kbd class="ph sep">] ? )</kbd>
+           
+        </div>
+      </div>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">fragment</dt>
+            <dd class="dd">
+              <p class="p">The URI fragment pointing to the ID of the target element.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">counter-name</dt>
+            <dd class="dd">
+              <p class="p">The name of the counter. This argument is required.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">delimiter</dt>
+            <dd class="dd">
+              <p class="p">The string to be inserted between the value of each nested counter. This argument
+                is required.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">counter-style</dt>
+            <dd class="dd">
+              <p class="p">This optional argument can be used to format the result.</p>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-properties-support.html">Supported CSS Properties</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-attr-function.html">attr() Function: Properties Values Collected from the Edited Document</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg_calc_function.html">calc() Function</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.w3.org/TR/css-gcpm-3/#target-counter" target="_blank" rel="external noopener">https://www.w3.org/TR/css-gcpm-3/#target-counter</a></li><li class="linklist"><a class="link" href="https://www.w3.org/TR/css-gcpm-3/#target-counters" target="_blank" rel="external noopener">https://www.w3.org/TR/css-gcpm-3/#target-counters</a></li></ul></div></nav>
+</article></main></body></html>

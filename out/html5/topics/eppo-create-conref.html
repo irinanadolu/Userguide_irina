@@ -1,0 +1,103 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Conref"><meta name="keywords" content="DITA, Reusing content, Conref"><meta name="DC.relation" scheme="URI" content="../topics/working-with-content-references.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-content-references.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-create-conkeyref.html"><meta name="DC.relation" scheme="URI" content="insert-dita-content-reference.html#insert-dita-content-reference"><meta name="DC.relation" scheme="URI" content="dita-reusable-components-view.html#dita-reusable-components-view"><meta name="DC.relation" scheme="URI" content="eppo-create-conkeyref.html#eppo-create-conkeyref"><meta name="DC.relation" scheme="URI" content="edit-dita-content-reference.html#edit-dita-content-reference"><meta name="DC.relation" scheme="URI" content="dita-reusable-components.html#dita-reusable-components"><meta name="DC.relation" scheme="URI" content="working-with-content-references.html#working-with-content-references"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-create-conref"><title>Creating a DITA Content Reference</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-create-conref"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating a DITA Content Reference</h1>
+  
+  <div class="body">
+    <section class="section" id="eppo-create-conref__dita_content_reference"><h2 class="title sectiontitle">DITA Content Reference</h2>
+      
+      <p class="p">A DITA content reference, or <code class="ph codeph">conref</code>, is one of the main <a class="xref" href="eppo-pathfinder-reuse.html">content <em class="ph i">reuse</em> features of DITA</a>. It is a
+        mechanism for re-using the same content in multiple topics (or even in multiple locations
+        within the same topic).</p>
+      <p class="p">For a <code class="ph codeph">conref</code> to be created, the source content must have an
+          <code class="ph codeph">id</code> attribute that the <code class="ph codeph">conref</code> can reference. Therefore,
+        creating a <code class="ph codeph">conref</code> requires that you add an <code class="ph codeph">id</code> to the
+        content to be reused before inserting a <code class="ph codeph">conref</code> into the topic that reuses
+        the referenced content. </p>
+    </section>
+    <section class="section" id="eppo-create-conref__assign-id-section"><h2 class="title sectiontitle">Assigning an <em class="ph i">ID</em> to the Referenced Content</h2>
+      
+      <p class="p">To add an <code class="ph codeph">id</code> to a DITA element in a topic, place the cursor on the element
+        and select <span class="ph uicontrol"><img class="image" id="eppo-create-conref__image_rt3_hnq_js" src="../img/Attribute16.gif">Edit
+          Attributes</span> from the contextual menu <span class="ph">(or simply
+          press <span class="ph uicontrol"><span class="keyword shortcut">Alt+Enter</span></span>)</span> to open the <a class="xref" href="author-attributes-view.html#author-attributes-view__in-place-attr-editor">in-place
+          attribute editor</a>. Enter <kbd class="ph userinput">id</kbd> as the
+          <span class="ph uicontrol">Name</span> of the attribute and a value of your choice in the
+          <span class="ph uicontrol">Value</span> field. You can also use <a class="xref" href="author-attributes-view.html#author-attributes-view">the
+            <span class="ph uicontrol">Attributes</span> view</a> to enter a value in the
+          <span class="ph uicontrol">id</span> attribute.</p>
+      <div class="note note note_note"><span class="note__title">Note:</span> The element may already have an <code class="ph codeph">id</code>, since in some cases, <span class="ph">Oxygen XML Editor</span> automatically generates an <em class="ph i">ID</em> value when the <code class="ph codeph">id</code>
+        attribute is created. </div>
+    </section>
+    <section class="section" id="eppo-create-conref__creating_a_content_reference"><h2 class="title sectiontitle">Creating a Content Reference</h2>
+      
+      <p class="p">To create a content reference (<code class="ph codeph">conref</code>), follow these steps:</p>
+      <ol class="ol" id="eppo-create-conref__ol_ocz_fcb_bq">
+        <li class="li">Make sure the element you want to reference has an <a class="xref" href="eppo-create-conref.html#eppo-create-conref__assign-id-section"><em class="ph i">ID</em> assigned to
+            it</a>.</li>
+        <li class="li">In <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span>
+            mode</a>, place the cursor at the location where you want the reused content to be
+          inserted.</li>
+        <li class="li">Select the <span class="ph uicontrol"><img class="image" id="eppo-create-conref__image_gmv_hrx_xr" src="../img/Conref20.png">Reuse
+            Content</span> action on the main toolbar (or from the <span class="ph uicontrol">DITA</span>
+          menu or <span class="ph uicontrol">Reuse</span> submenu of the contextual menu). The <a class="xref" href="insert-dita-content-reference.html#insert-dita-content-reference"><span class="ph uicontrol">Reuse
+              Content</span> dialog box</a> is displayed.</li>
+        <li class="li">In the <span class="ph uicontrol">Location</span> field of the <span class="ph uicontrol">Reuse Content</span>
+          dialog box, select the topic that contains the element you want to reference. The elements
+          that you can reference are presented in a table.</li>
+        <li class="li">Select the <span class="ph uicontrol">Target ID</span> of the element (or elements) to have their content inserted, and verify the content in the <span class="ph uicontrol">Preview</span>
+          pane. The <code class="ph codeph">id</code> value of the element that you select is automatically added
+          to the <span class="ph uicontrol">Reference to (conref)</span> field. </li>
+        <li class="li">Make any other selections you need in the <a class="xref" href="insert-dita-content-reference.html"><span class="ph uicontrol">Reuse Content</span> dialog box</a>. If you select multiple
+          elements, the <span class="ph uicontrol">Expand to (conrefend)</span> field is automatically filled
+          with the <code class="ph codeph">id</code> value of the last element in your selection.</li>
+        <li class="li">Click <span class="ph uicontrol">Insert</span> or <span class="ph uicontrol">Insert and close</span> to create
+          the content reference. </li>
+      </ol>
+    </section>
+    <section class="section" id="eppo-create-conref__using_copypaste_actions_to_create_a_content_refer"><h2 class="title sectiontitle">Using Copy/Paste Actions to Create a Content Reference</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> also includes support for creating content references with simple
+        copy/paste actions. The copied content must be an entire DITA XML element with an ID
+        attribute. Also, the location in the document where you paste the element must be valid,
+        although as long as the <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware__smart-paste-drag-drop"><span class="ph uicontrol">Smart paste and drag and drop</span> option</a> is selected in the
+          <span class="ph uicontrol">Schema-Aware</span> preferences page, if you try to paste it in an invalid
+        location, <span class="ph">Oxygen XML Editor</span> will attempt to place it in a valid location, and may
+        prompt you with one or more choices for where to place it.</p>
+      <div class="p">To create a content reference (<code class="ph codeph">conref</code>) using copy/paste actions, follow
+        these steps:<ol class="ol">
+          <li class="li">Copy an entire DITA element that has an ID attribute assigned to it.</li>
+          <li class="li">Place the cursor at a location where the copied element will be valid.</li>
+          <li class="li">Select the <span class="ph uicontrol">Paste as Content Reference</span> action from the
+                <span class="ph uicontrol"><img class="image" src="../img/PasteSpecialDITA16.png">Paste Special</span>
+            submenu from the contextual menu.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="eppo-create-conref__other_ways_to_reuse_content"><h2 class="title sectiontitle">Other Ways to Reuse Content</h2>
+      
+      <div class="p">
+        <ul class="ul">
+          <li class="li">You can use the <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view__components_tab"><span class="ph uicontrol">Components</span> tab in the <span class="ph uicontrol">DITA Reusable
+                Components</span> view</a> to easily insert content references.</li>
+          <li class="li">An alternate way to reuse content is to use the <span class="ph">Oxygen XML Editor</span>
+            <a class="xref" href="eppo-creating-reusable-content.html"><span class="ph uicontrol">Create Reusable
+                Component</span></a> and <a class="xref" href="eppo-reuse-content.html"><span class="ph uicontrol">Insert Reusable Component</span></a> actions (available in the
+              <span class="ph uicontrol">DITA</span> menu and the <span class="ph uicontrol">Reuse</span> submenu of the
+            contextual menu). They handle the details of creating an <em class="ph i">ID</em> and <em class="ph i">conref</em> and
+            create reusable component files, separate from your normal content files. This can help
+            you manage your reusable content more effectively.</li>
+          <li class="li">You can also <a class="xref" href="eppo-create-conkeyref.html">insert reusable content
+              using content key references</a>. This may also make reusable content easier to
+            manage, depending on your particular situation and needs.</li>
+          <li class="li">Other topics in this section include information about more specialized or advanced
+            ways or reusing content, such as <a class="xref" href="coderef.html#coderef"><em class="ph i">code
+                references</em></a>, the <a class="xref" href="conref-push-mechanism.html#conref-push-mechanism"><em class="ph i">conref push
+                mechanism</em></a>, <a class="xref" href="eppo-variables.html"><em class="ph i">variable
+                text</em></a>, <a class="xref" href="dita-keyscopes.html#dita-keyscopes"><em class="ph i">key
+              scopes</em></a>, and <a class="xref" href="dita-branch-filtering.html#dita-branch-filtering"><em class="ph i">branch filtering</em></a>.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-content-references.html">Working with Content References</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/working-with-content-references.html">Working with Content References</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-create-conkeyref.html">Creating a DITA Content Key Reference</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="insert-dita-content-reference.html#insert-dita-content-reference">Reuse Content Dialog Box</a></li><li class="linklist"><a class="link" href="dita-reusable-components-view.html#dita-reusable-components-view">DITA Reusable Components View</a></li><li class="linklist"><a class="link" href="eppo-create-conkeyref.html#eppo-create-conkeyref">Creating a DITA Content Key Reference</a></li><li class="linklist"><a class="link" href="edit-dita-content-reference.html#edit-dita-content-reference">Editing DITA Content References</a></li><li class="linklist"><a class="link" href="dita-reusable-components.html#dita-reusable-components">Working with Reusable Components</a></li><li class="linklist"><a class="link" href="working-with-content-references.html#working-with-content-references">Working with Content References</a></li></ul></div></nav>
+</article></main></body></html>

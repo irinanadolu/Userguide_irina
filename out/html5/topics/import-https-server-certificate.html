@@ -1,0 +1,135 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="HTTPS troubleshooting"><meta name="keywords" content="HTTPS troubleshooting"><meta name="DC.relation" scheme="URI" content="../topics/webdav-over-https.html"><meta name="DC.relation" scheme="URI" content="../topics/webdav-over-https.html"><meta name="DC.relation" scheme="URI" content="../topics/http-authentication-schemes.html"><meta name="DC.relation" scheme="URI" content="https-webdav-preferences.html#https-webdav-preferences"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="import-https-server-certificate"><title>Troubleshooting HTTPS</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="import-https-server-certificate"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Troubleshooting HTTPS</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <div class="p">When <span class="ph">Oxygen XML Editor</span> cannot connect to an HTTPS-capable server, most likely there is
+        no certificate set in the <em class="ph i">Java Runtime Environment (JRE)</em> that <span class="ph">Oxygen XML Editor</span>
+        runs into. The following procedure describes how to:<ul class="ul" id="import-https-server-certificate__ul_4r3_mhr_kf">
+          <li class="li">Export a certificate to a local file using any HTTPS-capable Web browser (for example,
+            Internet Explorer).</li>
+          <li class="li">Import the certificate file into the JRE using the <dfn class="term">keytool</dfn> that comes
+            bundled with <span class="ph">Oxygen XML Editor</span>.</li>
+        </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> To make <span class="ph">Oxygen XML Editor</span> accept a certificate even if it is
+          invalid, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+            <span class="ph menucascade"><span class="ph uicontrol">Connection settings</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">HTTP(S)/WebDAV</span></span>, and select the <span class="ph uicontrol">Automatically accept a security certificate,
+            even if invalid</span> option.</div></div>
+    </section>
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Export the certificate into a local file</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Point your HTTPS-aware Web browser to the repository URL. </span>
+            <div class="itemgroup stepresult">
+              <p class="p">If this is your first visit to the repository, it will display a security alert
+                stating that the security certificate presented by the server is not trusted.</p>
+              <div class="p">
+                <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Security alert - untrusted certificate</figcaption>
+                  
+                  <img class="image" src="../img/sa_security_alert.png">
+                </figure>
+              </div>
+            </div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Go to <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Internet Options</span></span>.</span>
+            <div class="itemgroup stepresult">The <span class="ph uicontrol">Internet Options</span> dialog box is
+              opened.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Select the <span class="ph uicontrol">Security</span> tab.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Select the <span class="ph uicontrol">Trusted sites</span> icon.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Sites</span> button.</span>
+            <div class="itemgroup stepresult">This will open the <span class="ph uicontrol">Trusted sites</span> dialog
+              box.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Add the repository URL to the <span class="ph uicontrol">Websites</span> list.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Close the <span class="ph uicontrol">Trusted sites</span> and <span class="ph uicontrol">Internet
+                Options</span> dialog boxes.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Try again to connect to the same repository URL in Internet Explorer.</span>
+            <div class="itemgroup stepresult">The same error page as above will be displayed.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Select the <span class="ph uicontrol">Continue to this website</span> option.</span>
+            <div class="itemgroup stepresult">A clickable area with a red icon and the text <span class="ph uicontrol">Certificate
+                Error</span> is added to the Internet Explorer address bar.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Certificate Error</span> area.</span>
+            <div class="itemgroup stepresult">A dialog box that contains a <span class="ph uicontrol">View certificates</span> link
+              is displayed.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">View certificates</span> link.</span>
+            <div class="itemgroup stepresult"><span class="ph uicontrol">Certificate</span> dialog box is displayed.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Select the <span class="ph uicontrol">Details</span> tab of the
+                <span class="ph uicontrol">Certificate</span> dialog box.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Copy to File</span> button.</span>
+            <div class="itemgroup stepresult">The <span class="ph uicontrol">Certificate Export Wizard</span> is
+              started.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Follow indications of the wizard for the DER encoded binary X.509 certificate. Save
+              the certificate to the local file <span class="ph filepath">server.cer</span>.</span>
+          </li>
+        </ol>
+      </li><li class="li step">
+        <span class="ph cmd">Import the local file into the JRE running <span class="ph">Oxygen XML Editor</span>.</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Open a text-mode console with administrative rights.</span>
+            <div class="itemgroup info">If <span class="ph">Oxygen XML Editor</span> has been installed in a user's home directory and
+              includes a bundled JRE, administrative rights are not required. In all other cases,
+              administrative rights will be required.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Go to the <span class="ph filepath">lib/security</span> directory of the JRE running <span class="ph">Oxygen XML Editor</span>. You can find the home directory of the JRE in the
+                <em class="ph i">java.home</em> property that is displayed in the <span class="ph uicontrol">About</span>
+              dialog box (<span class="ph"><span class="ph uicontrol">System
+                  properties</span> tab</span>).</span>
+            <div class="itemgroup info">On OS X, for the distribution of <span class="ph">Oxygen XML Editor</span> that bundles the JRE from
+              Oracle, the JRE uses the
+                <span class="ph filepath">.install4j/jre.bundle/Contents/Home/jre/lib/security/cacerts</span>
+              path within its installation directory.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Run the following command:</span>
+            <div class="itemgroup info"><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">..\..\bin\keytool -import -trustcacerts -file server.cer -keystore cacerts</pre>The
+                <span class="ph filepath">server.cer</span> file contains the server certificate, created during
+              the previous step. The <dfn class="term">keytool</dfn> requires a password before adding the
+              certificate to the JRE <a class="xref" href="../glossary/keystore.html"><dfn class="term">keystore</dfn></a>. The default password is
+              <kbd class="ph userinput">changeit</kbd>. If someone changed the default password, then that
+              person is the only one who can perform the import.<div class="note tip note_tip"><span class="note__title">Tip:</span> If you need to
+                import multiple certificates, you need to specify a different alias for each
+                additional imported certificate with the <code class="ph codeph">-alias</code> command-line
+                argument, as in the following example:<div class="p">
+                  <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">..\..\bin\keytool -import -alias myalias1 -trustcacerts -file 
+server1.cer -keystore cacerts
+ 
+..\..\bin\keytool -import -alias myalias2 -trustcacerts -file 
+server2.cer -keystore cacerts </pre>
+                </div></div></div>
+          </li>
+        </ol>
+      </li><li class="li step">
+        <span class="ph cmd">Restart <span class="ph">Oxygen XML Editor</span>. </span>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webdav-over-https.html">WebDAV over HTTPS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webdav-over-https.html">WebDAV over HTTPS</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/http-authentication-schemes.html">HTTP Authentication Schemes</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https-webdav-preferences.html#https-webdav-preferences">HTTP(S)/WebDAV Preferences</a></li></ul></div></nav>
+</article></main></body></html>

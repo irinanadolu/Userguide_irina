@@ -1,0 +1,87 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Optimizing search results"><meta name="keywords" content="WebHelp Responsive, Optimizing search results"><meta name="DC.relation" scheme="URI" content="../topics/whr_searching.html"><meta name="DC.relation" scheme="URI" content="../topics/exclude-topics-webhelp.html"><meta name="DC.relation" scheme="URI" content="../topics/index-japanese-content-webhelp.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="webhelp-seo"><title>How to Optimize Search Results</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="webhelp-seo"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Optimize Search Results</h1>
+  
+  <div class="body">
+    <p class="p">A <span class="ph uicontrol">DITA Map WebHelp</span> transformation scenario can be configured to
+      produce a <span class="ph filepath">sitemap.xml</span> file that is used by search engines to aid crawling
+      and indexing mechanisms. A <em class="ph i">sitemap</em> lists all pages of a WebHelp system and allows
+      webmasters to provide additional information about each page, such as the date it was last
+      updated, change frequency, and importance of each page in relation to other pages in your
+      WebHelp deployment.</p>
+    <div class="p">The structure of the <span class="ph filepath">sitemap.xml</span> file looks like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;urlset</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;url&gt;</strong>
+    <strong class="hl-tag">&lt;loc&gt;</strong>http://www.example.com/topics/introduction.html<strong class="hl-tag">&lt;/loc&gt;</strong>
+    <strong class="hl-tag">&lt;lastmod&gt;</strong>2014-10-24<strong class="hl-tag">&lt;/lastmod&gt;</strong>
+    <strong class="hl-tag">&lt;changefreq&gt;</strong>weekly<strong class="hl-tag">&lt;/changefreq&gt;</strong>
+    <strong class="hl-tag">&lt;priority&gt;</strong>0.5<strong class="hl-tag">&lt;/priority&gt;</strong>
+  <strong class="hl-tag">&lt;/url&gt;</strong>
+  <strong class="hl-tag">&lt;url&gt;</strong>
+    <strong class="hl-tag">&lt;loc&gt;</strong>http://www.example.com/topics/care.html#care<strong class="hl-tag">&lt;/loc&gt;</strong>
+    <strong class="hl-tag">&lt;lastmod&gt;</strong>2014-10-24<strong class="hl-tag">&lt;/lastmod&gt;</strong>
+    <strong class="hl-tag">&lt;changefreq&gt;</strong>weekly<strong class="hl-tag">&lt;/changefreq&gt;</strong>
+    <strong class="hl-tag">&lt;priority&gt;</strong>0.5<strong class="hl-tag">&lt;/priority&gt;</strong>
+  <strong class="hl-tag">&lt;/url&gt;</strong>
+   .  .  .
+<strong class="hl-tag">&lt;/urlset&gt;</strong></pre></div>
+    <div class="p">Each page has a <code class="ph codeph">&lt;url&gt;</code> element structure containing additional
+      information, such as:<ul class="ul" id="webhelp-seo__ul_iq3_nmt_kq">
+        <li class="li"><strong class="ph b">loc</strong> - The URL of the page. This URL must begin with the protocol (such as
+            <code class="ph codeph">http</code>), if required by your web server. It is constructed from the value
+          of the <code class="ph codeph">webhelp.sitemap.base.url</code> parameter from the transformation
+          scenario and the relative path to the page (collected from the <code class="ph codeph">href</code>
+          attribute of a <code class="ph codeph">topicref</code> element in the <dfn class="term">DITA map</dfn>).<div class="note note note_note"><span class="note__title">Note:</span> The
+            value must have fewer than 2,048 characters.</div></li>
+        <li class="li"><strong class="ph b">lastmod</strong> (optional) - The date when the page was last modified. The date format is
+            <code class="ph codeph">YYYY-MM-DD</code>.</li>
+        <li class="li"><strong class="ph b">changefreq</strong> (optional) - Indicates how frequently the page is likely to change.
+          This value provides general information to assist search engines, but may not correlate
+          exactly to how often they crawl the page. Valid values are: <code class="ph codeph">always</code>,
+            <code class="ph codeph">hourly</code>, <code class="ph codeph">daily</code>, <code class="ph codeph">weekly</code>,
+            <code class="ph codeph">monthly</code>, <code class="ph codeph">yearly</code>, and <code class="ph codeph">never</code>. The first
+          time the <span class="ph filepath">sitemap.xml</span> file is generated, the value is set based upon
+          the value of the <code class="ph codeph">webhelp.sitemap.change.frequency</code> parameter in the DITA
+          WebHelp transformation scenario. You can change the value in each <code class="ph codeph">url</code>
+          element by editing the <span class="ph filepath">sitemap.xml</span> file.<div class="note note note_note"><span class="note__title">Note:</span> The value
+              <code class="ph codeph">always</code> should be used to describe documents that change each time
+            they are accessed. The value <code class="ph codeph">never</code> should be used to describe archived
+            URLs.</div></li>
+        <li class="li"><strong class="ph b">priority</strong> (optional) - The priority of this page relative to other pages on your
+          site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are
+          compared to pages on other sites. It only lets the search engines know which pages you
+          deem most important for the crawlers. The first time the <span class="ph filepath">sitemap.xml</span>
+          file is generated, the value is set based upon the value of the
+            <code class="ph codeph">webhelp.sitemap.priority</code> parameter in the DITA WebHelp transformation
+          scenario. You can change the value in each <code class="ph codeph">url</code> element by editing the
+            <span class="ph filepath">sitemap.xml</span> file.</li>
+      </ul></div>
+    <section class="section" id="webhelp-seo__creating_and_editing_the_sitemapxml_file"><h2 class="title sectiontitle">Creating and Editing the <span class="ph filepath">sitemap.xml</span> File</h2>
+      
+      <div class="p">Follow these steps to produce a <span class="ph filepath">sitemap.xml</span> file for your WebHelp
+        system, which can then be edited to fine-tune search engine optimization:<ol class="ol" id="webhelp-seo__ol_z2w_ytt_kq">
+          <li class="li"><span class="ph uicontrol">Edit</span> the transformation scenario you currently use for
+            obtaining your WebHelp output. This opens the <span class="ph uicontrol">Edit DITA Scenario</span>
+            dialog box.</li>
+          <li class="li">Open the <span class="ph uicontrol">Parameters</span> tab and set a value for the following
+              parameters:<ul class="ul" id="webhelp-seo__ul_fzz_l5t_kq">
+              <li class="li"><strong class="ph b">webhelp.sitemap.base.url</strong> - The URL of the location where your WebHelp
+                system is deployed.<div class="note note note_note"><span class="note__title">Note:</span> This parameter is required for <span class="ph">Oxygen XML Editor</span> to
+                  generate the <span class="ph filepath">sitemap.xml</span> file.</div></li>
+              <li class="li"><strong class="ph b">webhelp.sitemap.change.frequency</strong> - How frequently the WebHelp pages are
+                likely to change (accepted values are: <code class="ph codeph">always</code>,
+                  <code class="ph codeph">hourly</code>, <code class="ph codeph">daily</code>, <code class="ph codeph">weekly</code>,
+                  <code class="ph codeph">monthly</code>, <code class="ph codeph">yearly</code>, and
+                <code class="ph codeph">never</code>).</li>
+              <li class="li"><strong class="ph b">webhelp.sitemap.priority</strong> - The priority of each page (value ranging from
+                0.0 to 1.0).</li>
+            </ul></li>
+          <li class="li">Run the transformation scenario.</li>
+          <li class="li">Look for the <span class="ph filepath">sitemap.xml</span> file in the transformation's output
+            folder. Edit the file to fine-tune the parameters of each page, according to your
+            needs.</li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_searching.html">Searching the Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/exclude-topics-webhelp.html">How to Exclude Certain DITA Topics from Search Results</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/index-japanese-content-webhelp.html">How to Index Japanese Content</a></div></div></nav></article></main></body></html>

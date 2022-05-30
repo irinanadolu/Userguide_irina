@@ -1,0 +1,85 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Customizing annotations for the Content Completion Assistant,Translating annotations for the Content Completion Assistant,Customizing annotations for the Content Completion Assistant,Translating annotations for the Content Completion Assistant"><meta name="keywords" content="Framework customization, Customizing annotations for the Content Completion Assistant, Translating annotations for the Content Completion Assistant, Customizing annotations for the Content Completion Assistant, Translating annotations for the Content Completion Assistant"><meta name="DC.relation" scheme="URI" content="../topics/customize-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/rendering-elements-cc-author.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-file-templates.html"><meta name="DC.relation" scheme="URI" content="rendering-elements-cc-author.html#rendering-elements-cc-author"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-styleguide-annotations"><title>Customizing Annotations in the Content Completion Assistant</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-styleguide-annotations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Annotations in the Content Completion Assistant</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> gathers documentation from the associated schemas (DTD, XML Schema,
+      RelaxNG) and presents it for each element or attribute. For example, if you open the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a> for a recognized XML vocabulary, documentation is displayed for each
+      element provided by the associated schema. Similar information is displayed when you hover
+      over tag names presented in the <a class="xref" href="author-elements-view.html#author-elements-view"><span class="ph uicontrol">Elements</span> view</a>. If you hover over attributes in the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span>
+        view</a> you also see information about each attribute, gathered from the same
+      schema.</p>
+    <p class="p">If you have a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><dfn class="term">framework</dfn> configuration</a> set up for your XML vocabulary, there is a
+      special XML configuration file that can be added to provide additional documentation
+      information or links to additional information for certain elements and attributes.</p>
+    <div class="p">To provide this additional information in the <dfn class="term">Content Completion Assistant</dfn>,
+      follow these steps:<ol class="ol">
+        <li class="li"> Create a new folder in the configuration directory for the document type. 
+            <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong>
+              <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/styleguide</span></p>
+          </li>
+        <li class="li"> Use the <span class="ph uicontrol">New</span> document wizard to create a file using the
+            <span class="ph uicontrol">Content Completion Styleguide</span> document template (in the <span class="ph menucascade"><span class="ph uicontrol">Framework Templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Extensions</span></span> section). </li>
+        <li class="li"> Save the file in the folder created in step 1, using the fixed name:
+            <span class="ph filepath">contentCompletionElementsMap.xml</span>. </li>
+        <li class="li">
+          <span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+            <span class="ph uicontrol">Document Type Association</span>, and edit the document type
+          configuration for your XML vocabulary. Now you need to indicate where <span class="ph">Oxygen XML Editor</span> will locate your mapping file by doing one of the following: <ul class="ul" id="author-styleguide-annotations__choices_ub3_mqw_sr">
+            <li class="li">In the <span class="ph uicontrol">Classpath</span> tab add a link to the newly created
+              folder.</li>
+            <li class="li">
+              <div class="p">In the <span class="ph uicontrol">Catalogs</span> tab <a class="xref" href="using-XML-Catalogs.html#using-XML-Catalogs">add a new catalog file</a>.
+                The selected file needs to contain the
+                following:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN" 
+    "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd"&gt;</span>
+<strong class="hl-tag">&lt;catalog</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"urn:oasis:names:tc:entity:xmlns:xml:catalog"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;uri</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"http://www.oxygenxml.com/{processed_dt_name}/styleguide/
+contentCompletionElementsMap.xml"</span> <span class="hl-attribute">uri</span>=<span class="hl-value">"contentCompletionElementsMap.xml"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/catalog&gt;</strong></pre></div>
+              <div class="p">where <em class="ph i">{processed_dt_name}</em> is the name of the document type in lower case and
+                with spaces replaced by underscores.<div class="note note note_note"><span class="note__title">Note:</span> If <span class="ph">Oxygen XML Editor</span> finds a mapping
+                  file in both locations, the one in the <span class="ph uicontrol">Catalogs</span> tab takes
+                  precedence. </div></div>
+            </li>
+          </ul></li>
+        <li class="li"> Make the appropriate changes to your custom mapping file. 
+            <p class="p"><strong class="ph b"><u class="ph u">Example:</u></strong> You can look at how the DITA mapping file is configured:
+                <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/styleguide/contentCompletionElementsMap.xml</span></p>
+            <p class="p">The associated XML Schema contains additional details about how each element and
+              attribute is used in the mapping file.</p>
+          </li>
+        <li class="li"> Re-open the application and open an XML document.  </li>
+      </ol></div>
+    <p class="p">In the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>, you should see the additional annotations for each element.</p>
+    <section class="section" id="author-styleguide-annotations__section_qv3_qv4_thb"><h2 class="title sectiontitle">Translating Annotations</h2>
+      
+      <p class="p">Annotations in the Content Completion Assistant can be displayed in various languages.
+        Based on the language set for the interface, <span class="ph">Oxygen XML Editor</span> looks for several
+        filename formats to determine the information to load for the content completion
+        annotations. These files that begin with the name <em class="ph i">contentCompletionElementsMap</em>, are
+        located in the <span class="ph filepath">styleguide</span> folder for each built-in framework (for
+        example, <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/styleguide</span>).</p>
+      <div class="p">For example, for English, the files are loaded in the following order (from specific to
+        more general):<ul class="ul" id="author-styleguide-annotations__ul_b3d_jx4_thb">
+          <li class="li"><span class="ph filepath">contentCompletionElementsMap_en_US.xml</span> or
+              <span class="ph filepath">contentCompletionElementMap_en_UK.xml</span>, and so on</li>
+          <li class="li"><span class="ph filepath">contentCompletionElementsMap_en.xml</span></li>
+          <li class="li"><span class="ph filepath">contentCompletionElementsMap.xml</span></li>
+        </ul></div>
+      <div class="p">If you want the annotations to be displayed in another language, you need to create similar
+        files for the particular language. For example, to show annotations in German, create a file
+        with one of the following names (and store it in the <span class="ph filepath">styleguide</span> folder
+        for your framework):<ul class="ul">
+          <li class="li"><span class="ph filepath">contentCompletionElementsMap_de_DE.xml</span></li>
+          <li class="li"><span class="ph filepath">contentCompletionElementsMap_de.xml</span></li>
+        </ul></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customize-content-completion.html">Customizing the Content Completion Assistant</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/rendering-elements-cc-author.html">Customizing the Rendering of Elements</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-file-templates.html">Creating New Document Templates for a Custom Framework</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="rendering-elements-cc-author.html#rendering-elements-cc-author">Customizing the Rendering of Elements</a></li></ul></div></nav>
+</article></main></body></html>

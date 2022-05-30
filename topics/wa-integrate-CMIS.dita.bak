@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="wa-integrate-CMIS">
+  <title>Integrating Web Author with Alfresco, SharePoint On-Premise, FileNet</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Alfresco integration</indexterm>
+        <indexterm>SharePoint On-Premise integration</indexterm>
+        <indexterm>FileNet integration</indexterm>
+        <indexterm>CMIS Connector</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <ph keyref="webappProduct"/> includes a generic CMIS connector plugin that provides the
+      ability to use Web Author with various types of content management platforms:<ul>
+        <li><b>Alfresco</b></li>
+        <li><b>SharePoint On-Premise</b></li>
+        <li><b>FileNet</b></li>
+      </ul></p>
+    <p>The plugin provides an interface for browsing files, opening the files in the editor, and
+      submitting changes.</p>
+    <section id="installing_the_plugin">
+      <title>Configuring the CMIS Connector Plugin</title>
+      <ol>
+        <li>Go to your <xref href="webapp-admin-page.dita#webapp-admin-page">Administration
+            Page</xref>.</li>
+        <li>Select <uicontrol>Plugins</uicontrol>.</li>
+        <li>
+          <p>Click the <uicontrol><image href="../img/ConfigureSearchScope16.png"
+                id="image_uxh_nb5_53b"/>Configure</uicontrol> icon next to the CMIS plugin.</p>
+          <p><b>Step Result:</b> This opens the plugin configuration dialog box.</p>
+          <p>
+            <fig>
+              <title>CMIS Connector Plugin Configuration Dialog Box</title>
+              <image href="../img/wa-cmis-config.png"/>
+            </fig>
+          </p>
+        </li>
+        <li>Enter the options in the <uicontrol>Plugin configuration</uicontrol> dialog box:<ul>
+            <li><b>Server URL</b> - The URL of your server. Examples:<ul>
+                <li><i>Alfresco</i> -
+                    <filepath>http://[host]:[port]/alfresco/api/-default-/public/cmis/versions/1.1/atom</filepath></li>
+                <li><i>SharePoint On-Premise</i> -
+                  <filepath>http://[host]/path/to/folder</filepath></li>
+                <li><i>FileNet</i> -
+                    <filepath>http://[host]:[port]/fncmis/resources/Service</filepath></li>
+              </ul></li>
+            <li><b>Server name</b> - This name will appear in the Web Author Dashboard as the name
+              for the tab that users will select to browse files. It will also appear in the Web
+              Author editor interface as the name of a toolbar drop-down menu used for checking out
+              an opened file or checking in modified files.</li>
+            <li><b>Server logo URL</b> (Optional) - You can specify a URL for a logo that will
+              appear in the Web Author Dashboard for the tab that users will select to browse for
+              files.</li>
+            <li><b>Autosave interval (seconds)</b> - Specifies how often modified files are
+              automatically saved.</li>
+            <li id="check-out-required"><b>Check out required</b> - If you select this option, files
+              will be opened in the Web Author editor in read-only mode and users will need to check
+              out the file to edit it.</li>
+          </ul></li>
+        <li>Click <uicontrol>Apply</uicontrol>.</li>
+        <li><xref href="webauthor-restart.dita">Restart <ph keyref="webappProduct"/></xref>.</li>
+      </ol>
+    </section>
+    <section id="section_ryn_cgg_3mb">
+      <title>Configuring a Service Account</title>
+      <p>In some applications, all users that have access to <ph keyref="webappProduct"/> are
+        trusted. This could happen if the users need to log in before accessing the editor.</p>
+      <p>In such situations, it is possible to configure a service account to be used by <ph
+          keyref="webappProduct"/> when connecting to the CMIS server on behalf of the users. The
+        following options can be set in the <xref
+          href="customizing-options.dita#customizing-options"><ph keyref="webappProduct"/>
+          <filepath>options.xml</filepath> file</xref>:<ul id="ul_dd1_hgz_tkb">
+          <li><b>PLUGIN_CUSTOM_OPTIONS.cmis.service.user</b></li>
+          <li><b>PLUGIN_CUSTOM_OPTIONS.cmis.service.password</b></li>
+        </ul></p>
+      <p><b>Example:</b> The <filepath>options.xml</filepath> snippet would look like
+        this:<codeblock outputclass="language-xml">&lt;entry>
+  &lt;String>PLUGIN_CUSTOM_OPTIONS.cmis.service.user&lt;/String>
+  &lt;String>example_username&lt;/String>
+&lt;/entry>
+&lt;entry>
+  &lt;String>PLUGIN_CUSTOM_OPTIONS.cmis.service.password&lt;/String>
+  &lt;String>example_password&lt;/String>
+&lt;/entry></codeblock></p>
+    </section>
+  </body>
+  <related-links product="webauthor">
+    <linklist>
+      <title>Related Information:</title>
+      <link href="wa-using-cmis.dita"/>
+    </linklist>
+  </related-links>
+</topic>

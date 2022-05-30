@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="oxy:allows-child-element function"><meta name="keywords" content="oxy:allows-child-element function"><meta name="DC.relation" scheme="URI" content="../topics/xpath-activation-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/xpath-activation-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-allows-global-element.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="oxy-allows-child-element"><title>oxy:allows-child-element() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="oxy-allows-child-element"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">oxy:allows-child-element() Function</h1>
+  
+  <div class="body">
+    <p class="p">The <strong class="ph b">oxy:allows-child-element()</strong> function allows you to check whether or not an element
+      that matches the arguments of the function is valid as a child of the element at the current
+      cursor position, according to the associated schema. It is evaluated at the cursor position
+      and has the following signature:</p>
+    <p class="p"><strong class="ph b"><code class="ph codeph">oxy:allows-child-element($childName, ($attributeName, $defaultAttributeValue,
+          $contains?)?)</code></strong></p>
+    <div class="p">The following parameters are supported:<dl class="dl parml">
+        
+          <dt class="dt pt dlterm">childName</dt>
+          <dd class="dd pd">The name of the element that you want to check if it is valid in the current context.
+            Its value is a string that supports the following forms:<ul class="ul">
+              <li class="li">
+                <div class="p">The child element with the specified local name that belongs to the default
+                  namespace.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"para"</span>)</pre></div>
+                <p class="p">The above example verifies if the <code class="keyword markupname xmlelement">&lt;para&gt;</code> element (of the
+                  default namespace) is allowed in the current context.</p>
+              </li>
+              <li class="li">
+                <div class="p">The child element with the local name specified by any
+                  namespace.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"*:para"</span>)</pre></div>
+                <p class="p">The above example verifies if the <code class="keyword markupname xmlelement">&lt;para&gt;</code> element (of any
+                  namespace) is allowed in the current context.</p>
+              </li>
+              <li class="li">
+                <div class="p">A prefix-qualified name of an
+                  element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"prefix:para"</span>)</pre></div>
+                <p class="p">The prefix is resolved in the context of the element where the cursor is located.
+                  The function matches on the element with the <code class="ph codeph">para</code> local name from
+                  the previously resolved namespace. If the prefix is not resolved to a namespace,
+                  the function returns a value of <code class="ph codeph">false</code>.</p>
+              </li>
+              <li class="li">
+                <div class="p">A specified namespace-URI-qualified name of an
+                  element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"{namespaceURI}para"</span>)</pre></div>
+                <p class="p">The <code class="ph codeph">namespaceURI</code> is the namespace of the element. The above
+                  example verifies if the <code class="keyword markupname xmlelement">&lt;para&gt;</code> element (of the specified
+                  namespace) is allowed in the current context.</p>
+              </li>
+              <li class="li">
+                <div class="p">Any
+                  element.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"*"</span>)</pre></div>
+                <div class="p">The above function verifies if any element is allowed in the current
+                    context.<div class="note note note_note"><span class="note__title">Note:</span> A common use case of
+                      <code class="ph codeph">oxy:allows-child-element("*")</code> is in combination with the
+                      <code class="ph codeph">attributeName</code> parameter.</div></div>
+              </li>
+            </ul></dd>
+        
+        
+          <dt class="dt pt dlterm"><code class="ph codeph">attributeName</code></dt>
+          <dd class="dd pd">The attribute of an element that you want to check if it is valid in the current
+            context. Its value is a string that supports the following forms:<ul class="ul">
+              <li class="li">
+                <div class="p">The attribute with the specified name from no
+                  namespace.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"*"</span>, <span class="hl-string">"class"</span>, <span class="hl-string">" topic/topic "</span>)</pre></div>
+                <p class="p">The above example verifies if an element with the <code class="keyword markupname xmlatt">@class</code>
+                  attribute and the default value of this attribute (that contains the
+                    <code class="ph codeph">topic/topic</code> string) is allowed in the current context.</p>
+              </li>
+              <li class="li">The attribute with the local name specified by any
+                namespace.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"*"</span>, <span class="hl-string">"*:localname"</span>, <span class="hl-string">" topic/topic "</span>)</pre></li>
+              <li class="li">
+                <div class="p">A qualified name of an
+                  attribute.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy:allows-child-element(<span class="hl-string">"*"</span>, <span class="hl-string">"prefix:localname"</span>, <span class="hl-string">" topic/topic "</span>)</pre></div>
+                <p class="p">The prefix is resolved in the context of the element where the cursor is located.
+                  If the prefix is not resolved to a namespace, the function returns a value of
+                    <code class="ph codeph">false</code>.</p>
+              </li>
+            </ul></dd>
+        
+        
+          <dt class="dt pt dlterm"><code class="ph codeph">defaultAttributeValue</code></dt>
+          <dd class="dd pd">A string that represents the default value of the attribute. Depending on the value of
+            the next parameter, the default value of the attribute must either contain this value or
+            be equal to it.</dd>
+        
+        
+          <dt class="dt pt dlterm"><code class="ph codeph">contains</code></dt>
+          <dd class="dd pd">An optional boolean. The default value is <code class="ph codeph">true</code>. For the
+              <code class="ph codeph">true</code> value, the default value of the attribute must contain the
+              <code class="ph codeph">defaultAttributeValue</code> parameter. If the value is
+              <code class="ph codeph">false</code>, the two values must be the same.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xpath-activation-expressions.html">Controlling Which Author Operations Gets Executed Through XPath Expressions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xpath-activation-expressions.html">Controlling Which Author Operations Gets Executed Through XPath Expressions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/oxy-allows-global-element.html">oxy:allows-global-element() Function</a></div></div></nav></article></main></body></html>

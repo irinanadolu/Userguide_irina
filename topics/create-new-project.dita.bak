@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="create-new-project">
+  <title>Creating a New Project</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>New project</indexterm>
+        <indexterm>Projects<indexterm>Adding items to projects</indexterm></indexterm>
+        <indexterm>Projects<indexterm>Creating new projects</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p><ph keyref="product"/> allows you to organize your XML-related files into projects. This
+      helps you manage and organize your files and also allows you to perform batch operations (such
+      as validation and transformation) over multiple files.<ph product="author developer editor">
+        You can also <xref href="sharing-projects.dita#sharing-projects">share your project settings
+          and transformation/validation scenarios</xref> with other users.</ph> Use the <xref
+        href="using-the-project-view.dita#using-the-project-view"><uicontrol
+          product="author developer editor">Project</uicontrol><uicontrol
+          product="authorEclipse developerEclipse editorEclipse">Project Explorer</uicontrol> view</xref>
+      to manage projects, and the files and folders contained within.</p>
+    <section id="creating_a_new_project" product="author developer editor">
+      <title>Creating a New Project</title>
+      <p>To create a new project, select <uicontrol><image href="../img/NewProject16.png"
+            id="image_nsh_3sh_ymb"/>New Project</uicontrol> from the <uicontrol>Project</uicontrol>
+        menu, the <uicontrol>New</uicontrol> menu in the contextual menu, or the drop-down menu at
+        the top-left of the <uicontrol>Project</uicontrol> view.</p>
+      <p>This opens a new project wizard:</p>
+      <p>
+        <fig id="fig_ngk_55q_js">
+          <title>New Project Wizard</title>
+          <image href="../img/New-Project-dialog.png" id="image_odn_xh4_y4"/>
+        </fig>
+      </p>
+      <p>With the exception of the <i>Default project</i> template, which is a pseudo-template and
+        does not exist on the local disk (it is used only to create a new <filepath>.xpr</filepath>
+        file), project templates are actually ZIP archives (with a <filepath>.zxpr</filepath>
+        extension) and are stored within the file template directory structure (for example, in the <menucascade>
+          <uicontrol>Framework templates</uicontrol>
+          <uicontrol>Project</uicontrol>
+        </menucascade> directory).<note type="tip">Archives with a <filepath>.zxpr</filepath>
+          extension can be edited in the <xref href="archive-browser-view.dita"><uicontrol>Archive
+              Browser</uicontrol> view</xref>.</note></p>
+      <p>After selecting a project template, you can specify the following:</p>
+      <p>
+        <dl>
+          <dlentry>
+            <dt>Project file name</dt>
+            <dd>Specifies the name of the new project file. <ph keyref="product"/> provides a
+              default proposal for the file name based on the following rules:<ul
+                id="ul_ohk_bwh_ymb">
+                <li>If there is an <filepath>.xpr</filepath> file inside the archive, its name is
+                  used.</li>
+                <li>Otherwise, the name of the template is used.</li>
+              </ul></dd>
+          </dlentry>
+          <dlentry>
+            <dt>Project directory</dt>
+            <dd>Specifies the directory where the archive content will be extracted.<note>The
+                archive should not contain an extra single folder as the root. For the
+                  <uicontrol>Project directory</uicontrol> path to work properly, the archive must
+                have the <filepath>.xpr</filepath> file on the first level, along with the other
+                resources (files and folders).</note></dd>
+          </dlentry>
+        </dl>
+      </p>
+      <p>Once you are done, click the <uicontrol>Create</uicontrol> button to begin the creation
+        process. <ph keyref="product"/> extracts the content from the archive inside the path
+        specified in the <uicontrol>Project directory</uicontrol> field.</p>
+    </section>
+    <section id="section_jf2_nxh_ymb" product="authorEclipse developerEclipse editorEclipse">
+      <title>Creating a New Project</title>
+      <p>To create a new project, select <menucascade>
+          <uicontrol>New</uicontrol>
+          <uicontrol>XML Project</uicontrol>
+        </menucascade> or <menucascade>
+          <uicontrol>New</uicontrol>
+          <uicontrol>Sample XML Project</uicontrol>
+        </menucascade> from the contextual menu or <uicontrol>File</uicontrol> menu.</p>
+      <p>This opens a dialog box that allows you to create and customize a new project and adds it
+        to the structure of the project in the <uicontrol>Project Explorer</uicontrol> view.</p>
+      <p>You can either create a new XML document from scratch by choosing one of the available
+        types in the wizard. You can also create one from a template by selecting <menucascade>
+          <uicontrol>File</uicontrol>
+          <uicontrol>New</uicontrol>
+          <uicontrol>New from Templates</uicontrol>
+        </menucascade> and choosing a template from the <uicontrol>Global templates</uicontrol> or
+          <uicontrol>Framework templates</uicontrol> folders. If you are looking for a common
+        document type, such as DITA or DocBook, you can find templates for these document types in
+        the <uicontrol>Framework templates</uicontrol> folder. If your company has created its own
+        templates, you can also find them there.</p>
+    </section>
+    <section id="adding_items_to_the_project"><title>Adding Items to the Project</title><p>To add
+        items to the project, select <ph product="authorEclipse developerEclipse editorEclipse">the
+          desired document type or folder from the <uicontrol>New</uicontrol> menu of the contextual
+          menu, when invoked from the <uicontrol>Project Explorer</uicontrol> view (or from the
+            <uicontrol>File</uicontrol> menu). You can also create a document from a template by
+          selecting <menucascade>
+            <uicontrol>New</uicontrol>
+            <uicontrol>New from Templates</uicontrol>
+          </menucascade> from the contextual menu.</ph><ph product="author developer editor">any of
+          the following actions that are available when invoking the contextual menu in the
+            <uicontrol>Project</uicontrol> view:</ph></p><p>
+        <dl product="author developer editor">
+          <dlentry>
+            <dt><menucascade>
+                <uicontrol>New</uicontrol>
+                <uicontrol><image href="../img/New16.png"/>File</uicontrol>
+              </menucascade></dt>
+            <dd>Opens a <uicontrol>New</uicontrol> file dialog box that helps you create a new file
+              and adds it to the project structure.</dd>
+          </dlentry>
+          <dlentry>
+            <dt><menucascade>
+                <uicontrol>New</uicontrol>
+                <uicontrol><image href="../img/NewFolder16.png"/>Folder</uicontrol>
+              </menucascade></dt>
+            <dd>Opens a <uicontrol>New Folder</uicontrol> dialog box that allows you to specify a
+              name for a new folder and adds it to the structure of the project.</dd>
+          </dlentry>
+        </dl>
+      </p><ph product="author developer editor">The project itself is considered a logical folder.
+        You can add a logical folder, or content to a logical folder, by using one of the following
+        actions that are available in the contextual menu, when invoked from the <i>project
+        root</i>:</ph><p>
+        <dl product="author developer editor">
+          <dlentry>
+            <dt><menucascade>
+                <uicontrol>New</uicontrol>
+                <uicontrol><image href="../img/LogicalFolderWindows16.png" placement="inline"
+                  />Logical Folder</uicontrol>
+              </menucascade></dt>
+            <dd>Creates a logical folder in the tree structure (the icon is a magenta folder on Mac
+              OS X - <image href="../img/LogicalFolderOpenMac16.png" placement="inline"/>).</dd>
+          </dlentry>
+          <dlentry>
+            <dt><menucascade>
+                <uicontrol>New</uicontrol>
+                <uicontrol>Logical Folders from Web</uicontrol>
+              </menucascade></dt>
+            <dd>Replicates the structure of a remote folder accessible over FTP/SFTP/WebDAV, as a
+              structure of logical folders. The newly created logical folders contain the file
+              structure of the folder it points to.</dd>
+          </dlentry>
+          <dlentry>
+            <dt><uicontrol><image href="../img/AddLinksToFoldersWindows16.png" placement="inline"
+                />Add Folder</uicontrol></dt>
+            <dd>Adds a link to a physical folder, whose name and content mirror a real folder that
+              exists in the local file system (the icon of this action is different on Mac OS X -
+                <image href="../img/AddLinksToFoldersMac16.png" placement="inline"
+                id="image_jy1_4t2_tq"/>).</dd>
+          </dlentry>
+          <dlentry>
+            <dt><uicontrol><image href="../img/AddFiles16.png" placement="inline"/>Add
+                Files</uicontrol></dt>
+            <dd>Adds links to files on the local file system.</dd>
+          </dlentry>
+          <dlentry>
+            <dt><uicontrol><image href="../img/AddSelectedFile16.png" id="image_h3n_r4h_5r"/>Add
+                Edited File</uicontrol></dt>
+            <dd>Adds a link to the currently edited file in the project.</dd>
+          </dlentry>
+        </dl>
+      </p></section>
+    <section id="using_linked_folders_shortcuts">
+      <title>Using Linked Folders (Shortcuts)</title>
+      <p>Another easy way to organize your XML working files is to place them in a directory and
+        then to create a corresponding linked folder in your project. If you add new files to that
+        folder, you can simply use the <uicontrol><image href="../img/Refresh16.png"/>Refresh
+            (<shortcut>F5</shortcut>)</uicontrol> action from the project contextual menu and the
+          <xref href="using-the-project-view.dita#using-the-project-view"><uicontrol
+            product="author developer editor">Project</uicontrol><uicontrol
+            product="authorEclipse developerEclipse editorEclipse">Project Explorer</uicontrol>
+          view</xref> will display the existing files and subdirectories. If your files are
+        scattered among several folders, but represent the same class of files, you might find it
+        useful to combine them in a logical folder.</p>
+      <p><ph product="author developer editor">You can create linked folders (shortcuts) by dragging
+          and dropping folders from the Windows Explorer (Mac OS X Finder) to the project tree, or
+          by selecting <uicontrol><image href="../img/AddLinksToFoldersWindows16.png"
+              placement="inline"/>Add Folder</uicontrol> in the contextual menu from the <i>project
+            root</i>. Linked folders are displayed in the <xref
+            href="../topics/using-the-project-view.dita#using-the-project-view"
+              ><uicontrol>Project</uicontrol> view</xref> with bold text. To create a file inside a
+          linked folder, select the <menucascade>
+            <uicontrol>New</uicontrol>
+            <uicontrol><image href="../img/New16.png"/>File</uicontrol>
+          </menucascade> action from the contextual menu. The linked files presented in the <xref
+            href="../topics/using-the-project-view.dita#using-the-project-view"
+              ><uicontrol>Project</uicontrol> view</xref> are marked with a special icon.</ph><ph
+          product="authorEclipse developerEclipse editorEclipse">You can create linked folders
+          (shortcuts) by dragging and dropping folders from the Windows Explorer (Mac OS X Finder)
+          to the project tree, or by using the contextual menu from the location in the project tree
+          where you want it added and selecting <menucascade>
+            <uicontrol>New</uicontrol>
+            <uicontrol>Folder</uicontrol>
+            <uicontrol>Advanced</uicontrol>
+          </menucascade>. The linked folders presented in the <xref
+            href="using-the-project-view.dita#using-the-project-view"
+              ><uicontrol>Project Explorer</uicontrol> view</xref> are marked with a special icon. To
+          create a file inside a linked folder, use the contextual menu and select <menucascade>
+            <uicontrol>New</uicontrol>
+            <uicontrol>File</uicontrol>
+          </menucascade> (you can use the <uicontrol>Advanced</uicontrol> button to link to a file
+          in the local file system).</ph><note>Files may have multiple instances within the folder
+          system, but cannot appear twice within the same folder.</note></p>
+    </section>
+    <p>For more information on managing projects and their content, see <xref
+        href="using-the-project-view.dita#using-the-project-view"/>. </p>
+    <p product="author developer editor">For more details about how you can share projects with
+      other users, see <xref href="sharing-projects.dita#sharing-projects"/>.</p>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="grouping-documents-xml-projects.dita#grouping-documents-xml-projects"/>
+    </linklist>
+  </related-links>
+</topic>

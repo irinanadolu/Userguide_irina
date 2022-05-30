@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Example: Adding a Custom View in <span class=\"ph\">Oxygen XML Editor<\/span>","href":"topics\/adding-oxygen-custom-view.html","attributes":{"data-id":"adding-oxygen-custom-view"},"menu":{"hasChildren":false},"tocID":"adding-oxygen-custom-view-d24353e34787","topics":[]}]});

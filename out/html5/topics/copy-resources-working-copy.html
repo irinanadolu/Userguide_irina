@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Working copy resource management,Copy resources"><meta name="keywords" content="SVN Client, Working copy resource management, Copy resources"><meta name="DC.relation" scheme="URI" content="../topics/manage-working-copy-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/delete-resources-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/move-resources-working-copy.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="copy-resources-working-copy"><title>Copy Resources</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="copy-resources-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Copy Resources</h1>
+  
+  <div class="body">
+    <p class="p">You can copy resources from various locations of the working copy. You select them in the
+        <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a> and then
+      use <span class="ph uicontrol">Copy to</span> from the contextual menu. This is not a simple file system
+      copy, but an Apache Subversion™ command. It will copy the resource and the
+      copy will also have the original history. This is one of the important features of Subversion,
+      as you can keep track of where the copied resources originated.</p>
+    <div class="p">Based on the selected items, the <span class="ph uicontrol">Copy to</span> action is available only if
+      it can be performed. Even if the operation would not normally be possible in SVN (due to some
+      invalid local file states against copy), <span class="ph">Oxygen XML Editor</span> performs the copy operation as
+      a simple file system operation. This means no SVN versioning meta-data is affected.<div class="note note note_note"><span class="note__title">Note:</span> 
+        <ul class="ul">
+          <li class="li">If you copy an item to a directory that is <a class="xref" href="working-copy-view.html#working-copy-view__wc_local_file_status">not under version
+              control</a> (<em class="ph i">unversioned</em> or <em class="ph i">ignored</em>), the history of the item is not
+            preserved. For example, when copying directories, all items inside them will also be
+            copied without history.</li>
+          <li class="li">If you copy a directory that contains <a class="xref" href="working-copy-view.html#working-copy-view__wc_external"><em class="ph i">external</em></a>
+            items, these are not copied. This is specific for SVN 1.7 working copies only. To fetch
+            the <em class="ph i">external</em> items, use the <span class="ph uicontrol">Update</span> operation on the copied
+            directory.</li>
+        </ul>
+      </div></div>
+    <div class="p">In the <span class="ph uicontrol">Copy to</span> dialog box, you can navigate through the working copy
+      directories to choose a target directory, to copy inside it. If you try to copy a single
+      resource you are also able to change that resource's name. For <em class="ph i">versioned</em> items, you can
+      select <span class="ph uicontrol">Ignore resource history</span> to copy them without their history
+      (similar to a simple file system copy).<div class="note note note_note"><span class="note__title">Note:</span> The <span class="ph uicontrol">Copy to</span> dialog box
+        only presents all the local directories that are a valid destination against the copy
+        operation, based on their local file status. Also, the <a class="xref" href="working-copy-settings.html#working-copy-settings">working copy settings</a> are
+        taken into account.</div></div>
+    <p class="p">In the <span class="ph uicontrol">Commit</span> dialog box, only the directory in question will appear
+      without its children.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/manage-working-copy-resources.html">Manage Working Copy Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/delete-resources-working-copy.html">Delete Resources</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/move-resources-working-copy.html">Move Resources</a></div></div></nav></article></main></body></html>

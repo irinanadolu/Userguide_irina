@@ -1,0 +1,121 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-default-author-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-default-author-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-op-SurroundWithFragmentOperation-arguments.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-author-op-InsertFragmentOperation-arguments"><title>Arguments of InsertFragmentOperation Operation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-author-op-InsertFragmentOperation-arguments"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Arguments of InsertFragmentOperation Operation</h1>
+  <div class="body">
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><em class="ph i">fragment</em></dt>
+          <dd class="dd">
+            <p class="p">This argument has a textual value. This value is parsed by <span class="ph">Oxygen XML Editor</span> as
+              it was already in the document at the cursor position. You can use entity references
+              declared in the document and it is namespace aware. The fragment may have multiple
+              roots.</p>
+            <p class="p">You can even use namespace prefixes that are not declared in the inserted fragment,
+              if they are declared in the document where the insertion is done. For the sake of
+              clarity, you should always prefix and declare namespaces in the inserted fragment!</p>
+            <p class="p">If the fragment contains namespace declarations that are identical to those found in
+              the document, the namespace declaration attributes will be removed from elements
+              contained by the inserted fragment. </p>
+            <div class="p">There are two possible scenarios:<ul class="ul" id="dg-author-op-InsertFragmentOperation-arguments__ol_a9cd91c4-d9d0-4c25-ae3f-df91171f25b1">
+                <li class="li">
+                  <p class="p"><u class="ph u"><strong class="ph b">Prefixes that are not bound explicitly</strong></u></p>
+                  <div class="p">For instance, the
+                    fragment:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;x:item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty2"</span><strong class="hl-tag">/&gt;</strong>
+&amp;ent;
+<strong class="hl-tag">&lt;x:item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty3"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+                  <div class="p">Can be correctly inserted in the document: ('|' marks the insertion
+                    point):<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE x:root [
+    &lt;!ENTITY ent "entity"&gt;
+]&gt;</span>
+
+<strong class="hl-tag">&lt;x:root</strong> <span class="hl-attribute">xmlns:x</span>=<span class="hl-value">"nsp"</span><strong class="hl-tag">&gt;</strong> 
+  |
+<strong class="hl-tag">&lt;/x:root&gt;</strong></pre></div>
+                  <div class="p">Result:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE x:root [
+    &lt;!ENTITY ent "entity"&gt;
+]&gt;</span>
+<strong class="hl-tag">&lt;x:root</strong> <span class="hl-attribute">xmlns:x</span>=<span class="hl-value">"nsp"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;x:item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty2"</span><strong class="hl-tag">/&gt;</strong>
+    &amp;ent;
+    <strong class="hl-tag">&lt;x:item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty3"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/x:root&gt;</strong></pre></div>
+                </li>
+                <li class="li">
+                  <p class="p"><u class="ph u"><strong class="ph b">Default namespaces</strong></u></p>
+                  <p class="p">If there is a default namespace declared in the document and the <a class="xref" href="../glossary/document-fragment.html"><dfn class="term">document fragment</dfn></a>
+                    does not declare a namespace, the elements from the fragment are considered to
+                    be in <strong class="ph b">no namespace</strong>. </p>
+                  <div class="p">For instance, the
+                    fragment:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty2"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"dty3"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+                  <div class="p">Inserted in the
+                    document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;root</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"nsp"</span><strong class="hl-tag">&gt;</strong>
+|
+<strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+                  <div class="p">Gives the result
+                    document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;root</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"nsp"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">""</span> <span class="hl-attribute">id</span>=<span class="hl-value">"dty2"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">""</span> <span class="hl-attribute">id</span>=<span class="hl-value">"dty3"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/root&gt;</strong></pre></div>
+                </li>
+              </ul></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">insertLocation</em></dt>
+          <dd class="dd">
+            <p class="p">An XPath expression that is relative to the current node. It selects the reference
+              node for the fragment insertion. When missing, the fragment will be inserted at the
+              cursor position.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">insertPosition</em></dt>
+          <dd class="dd">
+            <div class="p">Specifies where the insertion is made relative to the reference node selected by the
+                <em class="ph i">insertLocation</em>. It can be one of the following constants:<ul class="ul">
+                <li class="li"><strong class="ph b">Inside as first child</strong> (default value) - The fragment is inserted as first
+                  child of the reference node.</li>
+                <li class="li"><strong class="ph b">Inside as last child</strong> - The fragment is inserted as the last child of the
+                  reference node.</li>
+                <li class="li"><strong class="ph b">After</strong> - The fragment is inserted after the reference node.</li>
+                <li class="li"><strong class="ph b">Before</strong> - The fragment is inserted before the reference node.</li>
+              </ul></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">goToNextEditablePosition</em></dt>
+          <dd class="dd">
+            <p class="p">After inserting the fragment, the first editable position is detected and the cursor
+              is placed at that location. It handles any in-place editors used to edit attributes.
+              It will be ignored if the fragment specifies a cursor position using the <a class="xref" href="editor-variables.html#editor-variables__edvar-caret"><strong class="ph b">${caret}</strong> editor
+                variable</a>. The possible values of this action are <span class="ph uicontrol">true</span>
+              and <span class="ph uicontrol">false</span>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">schemaAware</em></dt>
+          <dd class="dd"><span class="ph">This argument applies only on the surround with element
+        operation and controls whether or not the insertion is valid, based upon the schema. If the
+        insertion is not valid, then wrapping action will be broken up into smaller intervals until
+        the wrapping action is valid. For example, if you try to wrap a <em class="ph i">paragraph</em> element
+        with a <em class="ph i">bold</em> element, it would not be valid, so the operation will wrap the text
+        inside the paragraph instead, since it would be valid at that position.</span></dd>
+        
+        
+          <dt class="dt dlterm"><em class="ph i">insertEvenIfInvalid</em></dt>
+          <dd class="dd">The possible values of this argument are <span class="ph uicontrol">true</span> and
+              <span class="ph uicontrol">false</span>. If <span class="ph uicontrol">true</span>, the content that would
+            make the document invalid is accepted. If <span class="ph uicontrol">false</span> and the insertion
+            is not valid, the operation will not be executed and an error message will be displayed.</dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-default-author-operations.html">Author Mode Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-default-author-operations.html">Author Mode Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-author-op-SurroundWithFragmentOperation-arguments.html">Arguments of SurroundWithFragmentOperation</a></div></div></nav></article></main></body></html>

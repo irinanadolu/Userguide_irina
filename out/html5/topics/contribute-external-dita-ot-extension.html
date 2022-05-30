@@ -1,0 +1,32 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="This type of plugin allows you to contribute an external DITA-OT distribution to Oxygen XML Editor."><meta name="DC.subject" content="Plugin extensions,Contribute external DITA-OT,External DITA-OT plugin extension"><meta name="keywords" content="Plugin extensions, Contribute external DITA-OT, External DITA-OT plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/contribute-new-languages-extension.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-protocol-plugin.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="contribute-external-dita-ot-extension"><title>Contribute External DITA-OT Distribution Plugin Extension</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="contribute-external-dita-ot-extension"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Contribute External DITA-OT Distribution Plugin Extension </h1>
+  
+  
+  <div class="body"><p class="shortdesc">This type of <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a> allows you to
+    contribute an external DITA-OT distribution to <span class="ph">Oxygen XML Editor</span>.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> comes bundled with DITA-OT version <span class="ph">3.5.4</span>. If
+      you want to use a different DITA-OT version, the <strong class="ph b"><em class="ph i">AdditionalDITAOT</em></strong>
+      <dfn class="term">plugin</dfn> extension provides the ability to contribute an external distribution of
+      the <dfn class="term">DITA Open Toolkit</dfn> to <span class="ph">Oxygen XML Editor</span>.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Example</u></strong></p>
+    <div class="p">For instance, if you wanted to use a DITA-OT version 1.8, your
+        <span class="ph filepath">plugin.xml</span> file might look like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">id</span>=<span class="hl-value">"dita-ot-18"</span>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Contribute DITA-OT 1.8"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Contributes DITA-OT 1.8"</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span>
+ <span class="hl-attribute">vendor</span>=<span class="hl-value">"Syncro Soft"</span>
+ <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.exml.plugin.Plugin"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"AdditionalDITAOT"</span> <span class="hl-attribute">path</span>=<span class="hl-value">"DITA-OT1.8.5"</span> <span class="hl-attribute">description</span>=<span class="hl-value">"DITA-OT 1.8"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+    <p class="p">The <code class="keyword markupname xmlatt">@path</code> attribute points to a folder located relative to the
+        <span class="ph filepath">plugin.xml</span> file and this folder is where the additional distribution of
+      DITA-OT would be located.</p>
+    <p class="p">When <span class="ph">Oxygen XML Editor</span> is started with this plugin enabled, that addition DITA-OT
+      version can now be selected in the <a class="xref" href="preferences-dita.html#preferences-dita__DITA-OT-section"><span class="ph uicontrol">DITA Open
+          Toolkit</span> option in the <span class="ph uicontrol">DITA</span> preferences page</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/contribute-new-languages-extension.html" title="This type of plugin allows you to contribute new translation languages to the Oxygen XML Editor UI.">Contribute Additional Languages Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/custom-protocol-plugin.html" title="This type of plugin allows you to work with a custom designed protocol for retrieving and storing files.">Custom Protocol Plugin Extension</a></div></div></nav></article></main></body></html>

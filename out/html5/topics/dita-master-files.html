@@ -1,0 +1,137 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Master Files support"><meta name="keywords" content="DITA, Master Files support"><meta name="DC.relation" scheme="URI" content="../topics/author-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-translating.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-resource-hierarchy-view.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-resource-hierarchy-view.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-search-rename-ids.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-master-files"><title>Master Files Support in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-master-files"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Master Files Support in DITA</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a feature that allows you to define <a class="xref" href="../glossary/master-file.html"><dfn class="term">Master Files</dfn></a> at project level. This
+      feature is typically used in <span class="ph">Oxygen XML Editor</span> for XML documents to determine the context
+      for operations such as validation, content completion, refactoring, searches, or displaying
+      components collected from various modules. For DITA projects, this feature has a more limited
+      purpose in <span class="ph">Oxygen XML Editor</span> since it is mainly used to provide the means for updating
+      references to moved or renamed resources.</p>
+    <p class="p">Since you can move or rename DITA resources (such as topics and maps) in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+        Manager</span></a>, the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root
+        map</dfn></a> is used as the scope to update all the references to the moved or renamed
+      resources. However, you do not have this option for non-DITA resources (such as folders,
+      images, HTML files, audio, video, text files, Markdown documents) since they do not appear in
+      the <span class="ph uicontrol">DITA Maps Manager</span>. Also, when moving DITA resources in the
+        <span class="ph uicontrol">DITA Maps Manager</span>, you have to do it one at a time.</p>
+    <p class="p">You can use the <dfn class="term">Master Files</dfn> support in DITA to update all the references to
+      moved or renamed resources in the scope of the <dfn class="term">Master Files</dfn>, and since the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> will be set as the <dfn class="term">Master
+        File</dfn>, you achieve the same result as if you were moving or renaming them in the
+        <span class="ph uicontrol">DITA Maps Manager</span>. It also allows you to move multiple DITA resources
+      (or entire folders) at once in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a>, instead of the <span class="ph uicontrol">DITA Maps Manager</span>,
+      while still giving you the option of updating all the references.</p>
+    <section class="section" id="dita-master-files__how_to_enable_master_files_support_in_dita"><h2 class="title sectiontitle">How to Enable Master Files Support in DITA</h2>
+      
+      
+      <div class="p">To use the <dfn class="term">Master Files</dfn> support in DITA, follow these steps:<ol class="ol">
+          <li class="li">Go to the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and enable <dfn class="term">Master Files</dfn>
+            support with one of the following methods:<ul class="ul">
+              <li class="li">Select <span class="ph uicontrol">Enable Master Files Support</span> from the
+                    <span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> menu in the
+                top-right corner.</li>
+              <li class="li">Select <span class="ph uicontrol">Enable Master Files Support</span> from the contextual menu
+                of the project root folder. If a disabled <dfn class="term">Master Files</dfn> folder exists,
+                you can also select that option from its contextual menu.</li>
+              <li class="li" id="dita-master-files__enable-master-files-dialog">Click the <span class="ph uicontrol">Enable</span> button in
+                the tooltip located at the bottom. This tooltip window is displayed when the
+                  <dfn class="term">Master Files</dfn> support is disabled. Clicking the <span class="ph uicontrol">Read
+                  more</span> link takes you to the user guide. Clicking the
+                  <span class="ph uicontrol">Enable</span> button opens the <span class="ph uicontrol">Enable Master
+                  Files</span> dialog box. This dialog box contains general information about
+                the <span class="ph uicontrol">Master Files Support</span> and allows you to enable it.<div class="note warning note_warning"><span class="note__title">Warning:</span>  Once you close this window tip, <span class="ph">Oxygen XML Editor</span> hides it
+                  for all projects. You can make the window tip reappear by <a class="xref" href="import-export-preferences.html#import-export-preferences">resetting <span class="ph">Oxygen XML Editor</span> to its default settings</a>. However, doing so will
+                  result in you losing your customized options.</div></li>
+            </ul></li>
+          <li class="li">Add the <a class="xref" href="../glossary/root-map_glossentry.html">main DITA map (<dfn class="term">root
+              map</dfn>)</a> to the Master Files folder by doing one of the following:<ul class="ul">
+              <li class="li">Right-click the project root folder and select <span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect Master Files</span>.</li>
+              <li class="li">Right-click the <em class="ph i">Master Files</em> folder and select <span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect Master Files from
+                  Project</span>.</li>
+              <li class="li">If you enabled the <dfn class="term">Master Files</dfn> support from the tooltip at the
+                bottom of the <span class="ph uicontrol">Project</span> view, you can also use the
+                  <span class="ph uicontrol">Detect and Enable</span> button in the resulting dialog box to
+                detect the <dfn class="term">master files</dfn> from the current project.</li>
+              <li class="li">Manually add the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>
+                to the <em class="ph i">Master Files</em> folder by doing one of the following:<ul class="ul">
+                  <li class="li">Right-click a file from your project and select <span class="ph uicontrol"><img class="image" src="../img/AddToMasterFiles16.png">Add to Master Files</span> from
+                    the contextual menu (or simply drag and drop it into the <em class="ph i">Master Files</em>
+                    folder).</li>
+                  <li class="li">Select <span class="ph uicontrol"><img class="image" src="../img/AddFiles16.png">Add Files</span>
+                    or <span class="ph uicontrol"><img class="image" src="../img/AddSelectedFile16.png">Add Edited
+                      File</span> from the contextual menu of the <em class="ph i">Master Files</em>
+                    folder.</li>
+                </ul></li>
+            </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> You can set multiple maps in the <em class="ph i">Master Files</em> folder and
+              all of them will automatically be added to the list of root maps you can select from
+              the <a class="xref" href="dita-maps-manager.html#dita-maps-manager__root-map">drop-down menu in
+                the <strong class="ph b">DITA Maps Manager</strong> toolbar</a>.</div></li>
+          <li class="li">[Alternative] If you have a defined <a class="xref" href="dita_open_toolkit_project.html#dita_open_toolkit_project_master">DITA Open
+              Toolkit project XML file</a> you can add it  to the <em class="ph i">Master Files</em> folder.
+            Once you do that the application will know the dependencies between all resources
+            directly and indirectly referenced from the project file, including DITA maps, topics,
+            binary resources and DITAVAL filter files.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="dita-master-files__moving_or_renaming_nondita_resources"><h2 class="title sectiontitle">Moving or Renaming Non-DITA Resources and Updating the References to Them</h2>
+      
+      <p class="p">With the <dfn class="term">Master Files</dfn> support enabled, you can move or rename non-DITA
+        resources (such as folders, images, HTML files, audio, video, text files, Markdown
+        documents) or move multiple normal DITA resources (or entire folders) in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> and <span class="ph">Oxygen XML Editor</span> will offer the option of updating all the references to the moved or
+        renamed resources in the scope of the <dfn class="term">Master Files</dfn> (in this case, the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">main DITA map (root map)</dfn></a>).</p>
+      <div class="p">To move or rename non-DITA resources (or move multiple DITA resources) and update the
+        references to them, follow these steps:<ol class="ol">
+          <li class="li">Enable <dfn class="term">Master Files</dfn> support and add your <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root DITA map</dfn></a> to the <dfn class="term">Master
+              Files</dfn> folder as described in the <a class="xref" href="dita-master-files.html#dita-master-files__how_to_enable_master_files_support_in_dita">How to Enable Master Files Support in DITA</a>
+            section above.</li>
+          <li class="li">
+            <p class="p">Go to the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a>,
+              and use one of the following methods to move or rename the resources:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">Moving Resources</dt>
+                  <dd class="dd">
+                    <div class="p">To move resources in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+                        view</a>, do one of the following:<ul class="ul" id="dita-master-files__ul_ed3_22y_w3b">
+                        <li class="li">Simply drag and drop the resource to the new location in the tree
+                            structure<span class="ph"> (the <span class="ph uicontrol">Enable
+                              drag-and-drop in Project view</span> option must be selected in
+                            the <a class="xref" href="preferences-view.html#preferences-view"><span class="ph uicontrol">View</span> preferences page</a>)</span>.</li>
+                        <li class="li">Use the <span class="ph"><span class="ph uicontrol"><img class="image" id="dita-master-files__image_id3_22y_w3b" src="../img/Cut16.png">Cut</span>,
+                                <span class="ph uicontrol"><img class="image" id="dita-master-files__image_jd3_22y_w3b" src="../img/Copy16.png">Copy</span>, and <span class="ph uicontrol"><img class="image" id="dita-master-files__image_kd3_22y_w3b" src="../img/Paste16.png">Paste</span> actions</span> from the
+                          contextual menu.</li>
+                        <li class="li">Right-click the resource and select <span class="ph menucascade"><span class="ph uicontrol">Refactoring</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Move resource</span></span> action from the contextual menu. Note that this method also
+                          allows you to specify a new name and destination path in the
+                            <span class="ph uicontrol">Move resource</span> dialog box.</li>
+                      </ul></div>
+                    <p class="p"><strong class="ph b">Result:</strong> In all cases, a <span class="ph uicontrol">Move resource</span> dialog
+                      box will be presented. </p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">Renaming Resources</dt>
+                  <dd class="dd">
+                    <div class="p">To rename resources in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span>
+                        view</a>, do one of the following:<ul class="ul" id="dita-master-files__ul_npz_22y_w3b">
+                        <li class="li">Select the resource and press <span class="ph uicontrol"><span class="keyword shortcut" id="dita-master-files__f2_shortcut">F2</span></span>, or simply left-click
+                          again, until the in-place editor allows you to change the file name.</li>
+                        <li class="li">Right-click the resource and select <span class="ph uicontrol">Rename</span> or <span class="ph menucascade"><span class="ph uicontrol">Refactoring</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Rename resource </span></span>.</li>
+                      </ul></div>
+                    <p class="p"><strong class="ph b">Result:</strong> In all cases, a <span class="ph uicontrol">Rename resource</span> dialog
+                      box will be presented. </p>
+                  </dd>
+                
+              </dl>
+            </div>
+          </li>
+          <li class="li"> Make sure the <span class="ph uicontrol">Update references of the moved resource(s)</span>
+            option is selected in the resulting <span class="ph uicontrol">Move</span> or
+              <span class="ph uicontrol">Rename</span> dialog box and keep the scope as <strong class="ph b">master files</strong> to
+            make sure all the references to the moved or renamed resource are updated.</li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dita-resource-hierarchy-view.html">DITA Resource Hierarchy/Dependencies View</a><br></li><li class="link olchildlink"><a href="../topics/dita-search-rename-ids.html">Search and Rename Actions for IDs in DITA</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita.html" title="A guide to help content authors who create and publish DITA content">DITA Authoring</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-translating.html">Translating DITA Projects Overview</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-resource-hierarchy-view.html">DITA Resource Hierarchy/Dependencies View</a></div></div></nav></article></main></body></html>

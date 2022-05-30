@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="Used to specify whether or not tag markers are displayed."><meta name="DC.subject" content="CSS extensions,Additional CSS properties,-oxy-display-tags property"><meta name="keywords" content="CSS extensions, Additional CSS properties, -oxy-display-tags property"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-additional-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-list-style-type-css-extension.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-editable-css-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-display-tags"><title>Display Tag Markers: -oxy-display-tags Property</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-display-tags"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Display Tag Markers: -oxy-display-tags Property</h1>
+  
+  
+  <div class="body"><p class="shortdesc">Used to specify whether or not tag markers are displayed.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to choose whether tag markers of an element should never be
+      presented or the current display mode should be respected. This is especially useful when
+      working with <code class="ph codeph">:before</code> and <code class="ph codeph">:after</code> pseudo-elements, in which
+      case the element range is already visually defined so the tag markers are redundant.</p>
+    <div class="p">The property is named <code class="ph codeph">-oxy-display-tags</code>, with the following possible values:<ul class="ul">
+        <li class="li">
+          <em class="ph i">none</em> - Tags markers will not be presented regardless of the current <a class="xref" href="author-display-markup.html">display mode</a>.</li>
+        <li class="li">
+          <em class="ph i">default</em> - The tag markers will be created depending on the current <a class="xref" href="author-display-markup.html">display mode</a>.</li>
+        <li class="li">
+          <em class="ph i">inherit</em> - The value of the property is inherited from an ancestor element. </li>
+      </ul><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">-oxy-display-tags
+    Value: none | default | inherit
+    Initial: default
+    Applies to: all nodes(comments, elements, CDATA, etc.)
+    Inherited: false
+    Media: all </pre></div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">-oxy-display-tags</em> Property</u></strong></p>
+    <div class="p">In this example, the <strong class="ph b">para</strong> element from DocBook uses a <code class="ph codeph">:before</code> and
+        <code class="ph codeph">:after</code> element and its tag markers will not be
+      visible.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">para:before{
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"{"</span>;
+}
+
+para:after{
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"}"</span>;
+}
+
+para{
+    -oxy-display-tags: none;
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">margin</strong>: <span class="hl-number">0.5</span>em <span class="hl-number">0</span>;
+}</pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-css-additional-properties.html">Additional CSS Properties</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-list-style-type-css-extension.html" title="Used to style lists with Cyrillic counters.">Cyrillic Counters: -oxy-lower-cyrillic Property Values</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-editable-css-extension.html" title="Used to inhibit editing the content of a particular element.">Editable: -oxy-editable Property</a></div></div></nav></article></main></body></html>

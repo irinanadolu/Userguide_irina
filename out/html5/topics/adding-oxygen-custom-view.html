@@ -1,0 +1,35 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Plugin extensions,Workspace Access,Adding custom views,Adding custom views"><meta name="keywords" content="Plugin extensions, Workspace Access, Adding custom views, Adding custom views"><meta name="DC.relation" scheme="URI" content="../topics/workspace-access-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/workspace-access-plugin.html"><meta name="DC.relation" scheme="URI" content="../topics/workspace-access-plugin-js.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/oxygen_sdk/oxygen_standalone_plugins.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="adding-oxygen-custom-view"><title>Example: Adding a Custom View in Oxygen XML Editor</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="adding-oxygen-custom-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: Adding a Custom View in <span class="ph">Oxygen XML Editor</span></h1>
+  
+  <div class="body">
+    <p class="p">To add a custom view in <span class="ph">Oxygen XML Editor</span>, follow this procedure:</p>
+    <div class="p">
+      <ol class="ol">
+        <li class="li">Locate the <span class="ph filepath">plugin.xml</span> descriptor file for your plugin (should be
+          located inside the <strong class="ph b">plugins</strong> folder, for example, <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/plugins/myPlugin</span>).
+          Define the ID of the view you want to add and specify the location where it will be
+          placed:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;view</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"SampleWorkspaceAccessID"</span> <span class="hl-attribute">initialSide</span>=<span class="hl-value">"WEST"</span> <span class="hl-attribute">initialRow</span>=<span class="hl-value">"0"</span><strong class="hl-tag">/&gt;</strong></pre></li>
+        <li class="li">In your <a class="xref" href="workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access Plugin Extension</a> implementation, where the
+            <code class="ph codeph">applicationStarted</code> callback is received, add a view component
+          customizer like
+          this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">pluginWorkspaceAccess.addViewComponentCustomizer(<strong class="hl-keyword">new</strong> ViewComponentCustomizer() {
+ <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> customizeView(ViewInfo viewInfo) {
+   <strong class="hl-keyword">if</strong>(
+     <em class="hl-comment">//The view ID defined in the "plugin.xml"</em>
+     <span class="hl-string">"SampleWorkspaceAccessID"</span>.equals(viewInfo.getViewID())) {
+     cmsMessagesArea = <strong class="hl-keyword">new</strong> JTextArea(<span class="hl-string">"CMS Session History:"</span>);
+     viewInfo.setComponent(<strong class="hl-keyword">new</strong> JScrollPane(cmsMessagesArea));
+     viewInfo.setTitle(<span class="hl-string">"CMS Messages"</span>);
+     viewInfo.setIcon(Icons.getIcon(Icons.CMS_MESSAGES_CUSTOM_VIEW_STRING));
+   }
+ }
+});</pre></li>
+        <li class="li">Define the <code class="ph codeph">cmsMessagesArea</code> as a <em class="ph i">static</em> field (if you can access
+          the messages area from anywhere in your code).</li>
+      </ol>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access Plugin Extension</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/workspace-access-plugin-js.html" title="This is a JavaScript-based plugin extension that allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access Plugin Extension (JavaScript-Based)</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/oxygen_sdk/oxygen_standalone_plugins.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/oxygen_sdk/oxygen_standalone_plugins.html</a></li></ul></div></nav>
+</article></main></body></html>

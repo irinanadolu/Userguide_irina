@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/resolving-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/content-property-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/revert-changes.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="edit-conflict"><title>Edit Real Content Conflicts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="edit-conflict"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Edit Real Content Conflicts</h1>
+  <div class="body">
+    <p class="p">The conflicts of a file in the conflicted state (a file with the red double arrow icon) can
+      be edited visually with the <span class="ph uicontrol">Compare</span> view (the built-in file comparison
+      tool) or with an <a class="xref" href="preferences-svn.html">external diff application</a>. Resolving
+      the conflict means deciding for each conflict if the local version of the change will remain
+      or the remote one instead of the special conflict markers inserted in the file by the SVN
+      server.</p>
+    <p class="p">The <span class="ph uicontrol">Compare</span> view (or the external diff application <a class="xref" href="preferences-svn.html">set in Preferences</a>) is opened with the <span class="ph uicontrol">Edit
+        Conflict</span> action, which is available on the contextual menus of <a class="xref" href="working-copy-view.html">the <span class="ph uicontrol">Working Copy</span> view</a> for files
+      in the conflicted state (an update operation was executed but the differences could not be
+      merged without conflicts). The external diff application is called with 3 parameters because
+      it is a 3-way diff operation between the local version of the file from the working copy and
+      the HEAD version from the SVN repository with the BASE version from the working copy as common
+      ancestor.</p>
+    <p class="p">If the<a class="xref" href="preferences-svn-messages.html"><span class="ph uicontrol">Show warning dialog when edit
+          conflicts</span> option</a> is selected, you will be warned at the beginning of
+      the operation that the operation will overwrite the conflict version of the file received from
+      the SVN server (the version that contains the conflict markers &lt;&lt;&lt;&lt;&lt;&lt;&lt;,
+      =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;) with the original local version of the file that
+      preceded the update operation. If you click the OK button the visual conflict editing will
+      proceed and a backup file of the conflict version received from the SVN server is created in
+      the same working copy folder as the file with the edited conflicts. The name of the backup
+      file is obtained by appending the extension <span class="ph filepath">.sync.bak</span> to the file as
+      stored on the SVN server. If you click the <span class="ph uicontrol">Cancel</span> button the visual
+      editing will be aborted.</p>
+    <p class="p">The usual actions on the differences between two versions of a file are available on the
+      toolbar of this view:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_save_button_compare" src="../img/DiffSave20.png">Save</span></dt>
+          <dd class="dd">Saves the modifications of the local version of the file displayed in the left side of
+            the view.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffPerform20.png">Perform Files
+              Differencing</span></dt>
+          <dd class="dd"><span class="ph" id="edit-conflict__files-perform-files-diff-ph">Looks for differences between the two files
+              displayed in the left and right side panels.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_gmn_wk3_tc" src="../reusables/topics/../../img/DiffIgnoreWhitespaces20.png">Ignore Whitespaces</span></dt>
+          <dd class="dd">Enables or disables the whitespace ignoring feature. Ignoring whitespace means that
+            before performing the comparison, the application normalizes the content and trims its
+            leading and trailing whitespaces.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_ygw_yph_tc" src="../reusables/topics/../../img/DiffSynchronizeScroll20.png">Synchronized scrolling</span></dt>
+          <dd class="dd">Toggles synchronized scrolling. When toggled on, a selected difference can be seen in
+            both panels.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffPrettyPrint20.png">Format and Indent Both
+              Files</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_shift_p_shortcut">Ctrl + Shift
+                    + P (Command + Shift + P on OS X)</span></span>)</dt>
+          <dd class="dd"><span class="ph" id="edit-conflict__files-format-indent-ph">Formats and indents both files before comparing them.
+              Use this option for comparisons that contain long lines that make it difficult to spot
+              differences.</span><div class="note note note_note" id="edit-conflict__format-indent-note"><span class="note__title">Note:</span> When comparing two JSON files, the
+                <span class="ph uicontrol">Format and Indent Both Files</span> action will automatically sort
+              the keys in both files the same to make it easier to compare. </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyRightToLeft20.png">Copy Change from Right
+              to Left</span></dt>
+          <dd class="dd"><span class="ph" id="edit-conflict__files-copy-right-left">Copies the selected difference from the file in the
+              right panel to the file in the left panel.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyAllRightToLeft20.png">Copy All Changes from
+              Right to Left</span></dt>
+          <dd class="dd"><span class="ph" id="edit-conflict__files-copy-all-right-left-ph">Copies all changes from the file in the right
+              panel to the file in the left panel.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_vrq_3k3_tc" src="../reusables/topics/../../img/DiffNextBlock16.png">Next
+              Block of Changes</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_period_shortcut">Ctrl + Period
+                    (Command + Period on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the next block of changes. This action is not available when the cursor is
+            positioned on the last change block or when there are no changes.<div class="note note note_note"><span class="note__title">Note:</span> A change block
+              groups one or more consecutive lines that contain at least one change.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_lbz_hk3_tc" src="../reusables/topics/../../img/DiffPreviousBlock16.png">Previous Block of Changes</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_comma_shortcut">Ctrl + Comma
+                    (Command + Comma on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the previous block of changes. This action is not available when the cursor
+            is positioned on the first change block or when there are no changes.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_lbp_jk3_tc" src="../reusables/topics/../../img/DiffNext16.png">Next
+              Change</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_shift_period_shortcut">Ctrl + Shift + Period (Command + Shift + Period on OS
+                X)</span></span>)</dt>
+          <dd class="dd">Jumps to the next change from the current block of changes. When the last change from
+            the current block of changes is reached, it highlights the next block of changes. This
+            action is not available when the cursor is positioned on the last change or when there
+            are no changes.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="edit-conflict__image_vc1_hk3_tc" src="../reusables/topics/../../img/DiffPrevious16.png">Previous
+              Change</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_shift_comma_shortcut">Ctrl
+                    + Shift + Comma (Command + Shift + M on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the previous change from the current block of changes. When the first change
+            from the current block of changes is reached, it highlights the previous block of
+            changes. This action is not available when the cursor is positioned on the first change
+            or when there are no changes.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffFirst16.png">First Change</span>
+              (<span class="ph uicontrol"><span class="keyword shortcut" id="edit-conflict__ctrl_b_shortcut">Ctrl + B (Command + B on
+                    OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the first change.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">The operation begins by overwriting the conflict version of the file received from the SVN
+      server (the version that contains the conflict markers &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======,
+      &gt;&gt;&gt;&gt;&gt;&gt;&gt;) with the original local version of the file before running the
+      update action that created the conflict. After that the differences between this original
+      local version and the repository version are displayed in the <span class="ph uicontrol">Compare</span>
+      view.</p>
+    <p class="p">If you want to edit the conflict version of the file directly in a text editor instead of the
+      visual editing offered by the <span class="ph uicontrol">Compare</span> view you should work on the local
+      working copy file after the update operation without running the action <span class="ph uicontrol">Edit
+        Conflict</span>. If you decide that you want to edit the conflict version directly
+      after running the action <span class="ph uicontrol">Edit Conflict</span> you have to work on the
+        <span class="ph filepath">.sync.bak</span> file.</p>
+    <p class="p">If you did not finish editing the conflicts in a file at the first run of the action
+        <span class="ph uicontrol">Edit Conflict</span> you can run the action again and you will be prompted
+      to choose between resuming the editing where the previous run left it and starting again from
+      the conflict file received from the SVN server.</p>
+    <p class="p">After the conflicts are edited and saved in the local version of the file you should run one
+      of the following:</p>
+    <ul class="ul">
+      <li class="li">The <span class="ph uicontrol">Mark Resolved</span> action on the file so that the result of the
+        conflict editing process can be committed to the SVN repository.</li>
+      <li class="li">The <span class="ph uicontrol">Revert</span> action so that the repository version overwrites all the
+        local modifications.</li>
+    </ul>
+    <p class="p">Both actions remove the backup file and other temporary files created with the conflict
+      version of the local file.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/resolving-conflicts.html">Conflicts</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/content-property-conflicts.html">Content Conflicts vs Property Conflicts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/revert-changes.html">Revert Your Changes</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,User Entry operation,SQF,User Entry SQF operation"><meta name="keywords" content="Schematron Quick Fixes, User Entry operation, SQF, User Entry SQF operation"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/sqf-operations.html"><meta name="DC.relation" scheme="URI" content="../topics/use-when-sqf-condition.html"><meta name="DC.relation" scheme="URI" content="sqf-operations.html#sqf-operations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="user-entry-sqf-operation"><title>User Entry SQF Operation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="user-entry-sqf-operation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">User Entry SQF Operation</h1>
+  
+  <div class="body">
+    <p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:user-entry&gt;</code> element defines a value that must be set manually
+      by the user. If multiple <code class="keyword markupname xmlelement">&lt;user-entry&gt;</code> elements are defined, <span class="ph">Oxygen XML Editor</span> will display a dialog box for each one where the user can specify
+      values. Also, the <code class="keyword markupname xmlelement">&lt;user-entry&gt;</code> element can be used as an XPath variable
+      where the XPath variable is the name of the <code class="keyword markupname xmlelement">&lt;user-entry&gt;</code>. Note that the
+        <code class="keyword markupname xmlatt">@default</code> attribute defines a default value for the operation by using an
+      XPath expression (as in the example below) and its value will be presented in the user entry
+      dialog box.</p>
+    <div class="p"><strong class="ph b">An Example of the <code class="keyword markupname xmlelement">&lt;sqf:user-entry&gt;</code>
+      Element:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"editTitle"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+        <strong class="hl-tag">&lt;sqf:title&gt;</strong>Edit the journal title<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+    <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:user-entry</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"newTitle"</span> <span class="hl-attribute">default</span>=<span class="hl-value">"@title"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:title&gt;</strong>Edit the title:<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+        <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+    <strong class="hl-tag">&lt;/sqf:user-entry&gt;</strong>
+    <strong class="hl-tag">&lt;sqf:replace</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"@title"</span> <span class="hl-attribute">target</span>=<span class="hl-value">"title"</span> <span class="hl-attribute">node-type</span>=<span class="hl-value">"keep"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"$newTitle"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/sqf:fix&gt;</strong></pre></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/sqf-operations.html">Basic Schematron Quick Fix Operations</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/use-when-sqf-condition.html">Restricting Quick Fix Operations</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="sqf-operations.html#sqf-operations">Basic Schematron Quick Fix Operations</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="CSS extensions,Additional CSS selectors"><meta name="keywords" content="CSS extensions, Additional CSS selectors"><meta name="DC.relation" scheme="URI" content="../topics/dg-oXygen-css-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/builtin-css-selectors.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-css-additional-properties.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-additional-custom-selectors"><title>Additional CSS Selectors</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-additional-custom-selectors"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Additional CSS Selectors</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides support for selecting additional types of nodes. These custom
+      selectors apply to: <em class="ph i">document</em>, <em class="ph i">doctype</em>, <em class="ph i">processing-instruction</em>,
+        <em class="ph i">comment</em>, <em class="ph i">CDATA sections</em>, <em class="ph i">entities</em>, and <em class="ph i">reference sections</em>.
+        <em class="ph i">Processing-instructions</em> are not displayed by default. To display them, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span></span>, and select <span class="ph uicontrol">Show processing instructions</span>.</p>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> The custom selectors are presented in the default CSS for <span class="ph uicontrol">Author</span>
+        mode and all of their properties are marked with the <em class="ph i">!important</em> flag. For this
+        reason, you have to set the <em class="ph i">!important</em> flag on each property of the custom selectors
+        from your CSS to be applicable.</div>
+    </div>
+    <p class="p">For the custom selectors to work in your CSS stylesheets, declare the
+        <span class="ph uicontrol">Author</span> mode extensions namespace at the beginning of the stylesheet
+      documents: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@namespace oxy url(<span class="hl-string">'http://www.oxygenxml.com/extensions/author'</span>);</pre>
+    <ul class="ul" id="dg-additional-custom-selectors__ul_gh4_fyr_gd">
+      <li class="li"><strong class="ph b">oxy|document</strong> - The <code class="ph codeph">oxy|document</code> selector matches the entire
+        document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|document {
+    <strong class="hl-keyword">display</strong>:block !important;
+}</pre></li>
+      <li class="li"><strong class="ph b">oxy|doctype</strong> - The following example changes the rendering of
+          <code class="ph codeph">doctype</code> sections:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|doctype {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">color</strong>:blue !important;
+    <strong class="hl-keyword">background-color</strong>:transparent !important;
+}</pre></li>
+      <li class="li">
+        <div class="p"><strong class="ph b">oxy|processing-instruction</strong> - To match the processing instructions, you can use the
+            <code class="ph codeph">oxy|processing-instruction</code> selector:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|processing-instruction {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">color</strong>:purple !important;
+    <strong class="hl-keyword">background-color</strong>:transparent !important;
+}</pre></div>
+        <div class="p">A processing instruction usually has a target and one or more pseudo
+          attributes:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?target_name data="b"?&gt;</span></pre></div>
+        <div class="p">You can match a processing instruction with a particular target from the CSS using the
+          following
+          construct:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|processing-instruction[target_name]</pre></div>
+        <div class="p">You can also match the processing instructions having a certain target and pseudo
+          attribute value, such
+          as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|processing-instruction[target_name][data=<span class="hl-string">"b"</span>]</pre></div>
+      </li>
+      <li class="li"><strong class="ph b">oxy|comment</strong> - The XML comments displayed in <span class="ph uicontrol">Author</span> mode can
+        be changed using the <code class="ph codeph">oxy|comment</code> selector:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|comment {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">color</strong>:green !important;
+    <strong class="hl-keyword">background-color</strong>:transparent !important;
+}</pre></li>
+      <li class="li"><strong class="ph b">oxy|cdata</strong> - The <code class="ph codeph">oxy|cdata</code> selector matches <code class="ph codeph">CDATA</code>
+        sections:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|cdata{
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">color</strong>:gray !important;
+    <strong class="hl-keyword">background-color</strong>:transparent !important;
+} </pre></li>
+      <li class="li">
+        <div class="p"><strong class="ph b">oxy|entity</strong> - The <code class="ph codeph">oxy|entity</code> selector matches the entity
+          content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|entity {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    editable:false !important;
+    <strong class="hl-keyword">color</strong>:orange !important;
+    <strong class="hl-keyword">background-color</strong>:transparent !important;
+}</pre></div>
+        <div class="p">To match particular entities, use the <code class="ph codeph">oxy|entity</code> selector in expressions
+          such
+          as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|entity[name=<span class="hl-string">'amp'</span>],
+oxy|entity[name=<span class="hl-string">'lt'</span>],
+oxy|entity[name=<span class="hl-string">'gt'</span>],
+oxy|entity[name=<span class="hl-string">'quot'</span>],
+oxy|entity[name=<span class="hl-string">'apos'</span>],
+oxy|entity[name^=<span class="hl-string">'#'</span>]{
+    -oxy-display-tags: none;
+}</pre></div>
+      </li>
+      <li class="li">
+        <p class="p"><strong class="ph b">oxy|reference</strong> - The <em class="ph i">references to entities</em>, <em class="ph i">XInclude</em>, and DITA
+            <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conkeyref</code> attributes are expanded by
+          default in <span class="ph uicontrol">Author</span> mode and the referenced content is displayed. The
+          referenced resources are displayed inside the element or entity that references them.</p>
+        <div class="p">You can use the <code class="ph codeph">reference</code> property to customize the way these references
+          are rendered in <span class="ph uicontrol">Author</span>
+          mode:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|reference {
+  <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid gray !important;
+}</pre></div>
+        <p class="p">In the <span class="ph uicontrol">Author</span> mode, content is highlighted when text contains
+            <a class="xref" href="author-change-tracking.html">comments</a> and changes (if <a class="xref" href="author-change-tracking.html"><em class="ph i">Track Changes</em></a> was active when the content
+          was modified).</p>
+        <div class="p">If this content is referenced, the <span class="ph uicontrol">Author</span> mode does not display
+          the highlighted areas in the new context. If you want to mark the existence of the
+          comments and changes, you can use the <code class="ph codeph">oxy|reference[comments]</code>,
+            <code class="ph codeph">oxy|reference[changeTracking]</code>, and
+            <code class="ph codeph">oxy|reference[changeTracking][comments]</code> selectors.<div class="note note note_note"><span class="note__title">Note:</span> Two artificial
+            attributes (<code class="ph codeph">comments</code> and <code class="ph codeph">changeTracking</code>) are set on
+            the reference node, containing information about the number of comments and tracked
+            changes in the content.</div></div>
+        <div class="p">
+          <ul class="ul" id="dg-additional-custom-selectors__ul_udv_z3b_v3b">
+            <li class="li">The following example represents the customization of the reference fragments that
+              contain
+              comments:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|reference[comments]:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Comments: "</span> attr(comments) !important;  
+}</pre></li>
+            <li class="li">To match reference fragments based on the fact that they contain tracked changes
+              inside, use the <code class="ph codeph">oxy|reference[changeTracking]</code>
+              selector:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|reference[changeTracking]:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Change tracking: "</span> attr(changeTracking) !important;  
+}</pre></li>
+            <li class="li">Here is an example of how you can set a custom color for the reference containing
+              both tracked changes and
+              comments:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">oxy|reference[changeTracking][comments]:before {
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Change tracking: "</span> attr(changeTracking) 
+           <span class="hl-string">" and comments: "</span> attr(comments) !important;  
+}</pre></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Example: A Document Rendered Using these Rules</figcaption>
+        
+        <img class="image" src="../img/dg_custom_selectors_sample.png">
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oXygen-css-extensions.html">CSS Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/builtin-css-selectors.html">Built-in CSS Selectors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-css-additional-properties.html">Additional CSS Properties</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Open,Open preferences,Performance preferences,Special character preferences"><meta name="keywords" content="Preferences, Open, Open preferences, Performance preferences, Special character preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-schema-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor-save.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-open"><title>Open Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-open"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Open Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> lets you control how files are opened. To configure the options for
+      opening documents, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and
+      go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open each document in a tab next to the current one</span></dt>
+          <dd class="dd">When selected (default), each new document is opened in a tab next to the currently
+            open tab. If not selected, each new document is opened in a tab at the end of the
+            current tab stack.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Restore cursor position</span></dt>
+          <dd class="dd">Selected by default, it ensures that the last position of the cursor will be
+            remembered when a document is re-opened. If this option is not selected, the cursor will
+            always be positioned at the beginning of the document.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Lock local resources</span></dt>
+          <dd class="dd">When this option is selected and you open a file from the local file system or a
+            shared network drive, <span class="ph">Oxygen XML Editor</span> locks the file for the current user and the
+            file becomes read-only for other users while the lock exists. Locked and read-only files
+            have a lock icon (<img class="image" src="../img/SVNLockInternal10.png">) displayed on their
+            editor tabs. Newly created files are <em class="ph i">locked</em> when you first save them. If you
+            select this option with files already opened in <span class="ph">Oxygen XML Editor</span>, it will
+              <em class="ph i">lock</em> all the currently open files. If you deselect this option with files
+            already opened, it will unlock them by deleting the corresponding
+              <span class="ph filepath">.lock</span> files. When you try to save locked (read-only) files, a
+              <span class="ph uicontrol">Save As</span> dialog box will be displayed to avoid overwriting the
+            initial resource.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-open__support-for-special-characters"><span class="ph uicontrol">Support for Special Characters</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="note note note_note"><span class="note__title">Note:</span> The options in this section only affect the <span class="ph uicontrol">Text</span> editing
+                mode.</div>
+            </div>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">When bidirectional text, Asian languages, or other special
+                      characters are detected</span></dt>
+                  <dd class="dd">You can choose how you want <span class="ph">Oxygen XML Editor</span> to handle bidirectional
+                    text, Asian languages, or other special characters when they are detected in
+                      <span class="ph uicontrol">Text</span> mode. You can choose one of the following:<ul class="ul" id="preferences-editor-open__ul_fgm_2w4_sq">
+                      <li class="li" id="preferences-editor-open__enable-support-special-chars"><span class="ph uicontrol">Enable support for special
+                          characters</span> - The support for special characters will always be
+                        enabled. For details about what this means, see <a class="xref" href="bidirectional-support.html#bidirectional-support__enabled">Bidirectional Text Support in Text Mode - Enabled</a>.</li>
+                      <li class="li"><span class="ph uicontrol">Disable support for special characters</span> - The
+                        support for special characters will always be disabled. For details about
+                        what this means, see <a class="xref" href="bidirectional-support.html#bidirectional-support__disabled">Bidirectional Text Support in Text Mode - Disabled</a>.</li>
+                      <li class="li"><span class="ph uicontrol">Prompt for each document</span> (default setting) - You
+                        will be prompted to choose whether or not to enable the support for special
+                        characters whenever they are detected in a newly opened document. For
+                        details about which setting to choose, see <a class="xref" href="bidirectional-support.html#bidirectional-support">Special Character Support in Text Mode</a>.</li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Disable special characters support for documents larger than
+                      (characters)</span></dt>
+                  <dd class="dd">Enabling bidirectional text editing support can affect performance on large
+                    files. When this option is selected, bidirectional editing is disabled for files
+                    exceeding the specified size (even if the <a class="xref" href="preferences-editor-open.html#preferences-editor-open__enable-support-special-chars"><span class="ph uicontrol">Enable support for special characters</span> option</a>
+                    is selected). The default limit is 300 MB. You can change it to 500 MB or 800
+                    MB, but it is recommended that you always leave this option selected regardless
+                    of the limit that is set.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-editor-open__performance-section"><span class="ph uicontrol">Performance</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="preferences-editor-open__optimize-loading-text-mode"><span class="ph uicontrol">Optimize loading in the Text edit mode for files over
+                      (MB)</span></dt>
+                  <dd class="dd">
+                    <p class="p">File loading is optimized for reduced memory usage for any file whose size is
+                      larger than the value specified in this drop-down list. This is useful for
+                      editing large files, but there are <a class="xref" href="editing-large-documents.html#editing-large-documents">several
+                        restrictions</a> for memory-intensive operations.</p>
+                    <div class="p">
+                      <dl class="dl">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Show warning when loading large documents</span></dt>
+                          <dd class="dd"><span class="ph">Oxygen XML Editor</span> will warn you if you open a file that is bigger
+                            than the specified size.</dd>
+                        
+                      </dl>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="preferences-editor-open__optimize-loading-long-lines"><span class="ph uicontrol">Optimize loading for documents with lines longer than
+                      (Characters)</span></dt>
+                  <dd class="dd">
+                    <p class="p"><em class="ph i">Line wrap</em> is automatically performed for documents that contain lines
+                      that exceed the length specified in this text field. For a list of the
+                      restrictions applied to a document with long lines, see <a class="xref" href="long-lines-document.html#long-lines-document">Editing
+                        Documents with Long Lines</a>.</p>
+                    <div class="p">
+                      <dl class="dl">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Show warning when loading documents with long
+                              lines</span></dt>
+                          <dd class="dd">When selected, <span class="ph">Oxygen XML Editor</span>will warn you when you open a
+                            file with lines longer than the specified length. To reduce the length
+                            of lines in a file, <a class="xref" href="format-and-indent-xml.html#format-and-indent-xml">format and indent the document</a> after it is opened in the
+                            editor panel. For a list of the restrictions applied to a document with
+                            long lines, see <a class="xref" href="long-lines-document.html#long-lines-document">Documents with Long Lines</a>.</dd>
+                        
+                      </dl>
+                    </div>
+                  </dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-editor-schema-properties.html">Properties Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-editor-save.html">Save Preferences</a></div></div></nav></article></main></body></html>

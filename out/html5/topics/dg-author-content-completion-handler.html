@@ -1,0 +1,98 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,Content Completion Handler"><meta name="keywords" content="Framework customization, Extensions, Content Completion Handler"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/unique_attributes_recognizer.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-dnd-listener.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-author-content-completion-handler"><title>Configuring Content Completion Proposals</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-author-content-completion-handler"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring Content Completion Proposals</h1>
+  
+  <div class="body">
+    <p class="p">You can filter or contribute to proposals offered for content completion by implementing the
+        <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/contentcompletion/xml/SchemaManagerFilter.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.contentcompletion.xml.SchemaManagerFilter</em></a> interface.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">import</strong> java.util.List;
+
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.CIAttribute;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.CIElement;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.CIValue;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.Context;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.SchemaManagerFilter;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.WhatAttributesCanGoHereContext;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.WhatElementsCanGoHereContext;
+<strong class="hl-keyword">import</strong> ro.sync.contentcompletion.xml.WhatPossibleValuesHasAttributeContext;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> SDFSchemaManagerFilter <strong class="hl-keyword">implements</strong> SchemaManagerFilter {</pre>
+    <p class="p">You can implement the various callbacks of the interface either by returning the default
+      values given by <span class="ph">Oxygen XML Editor</span> or by contributing to the list of proposals. The filter
+      can be applied on elements, attributes or on their values. Attributes filtering can be
+      implemented using the <em class="ph i">filterAttributes</em> method and changing the default content
+      completion list of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/contentcompletion/xml/CIAttribute.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.contentcompletion.xml.CIAttribute</em></a> for
+      the element provided by the current <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/contentcompletion/xml/WhatAttributesCanGoHereContext.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.contentcompletion.xml.WhatAttributesCanGoHereContext</em></a> context. For
+      example, the <code class="ph codeph">SDFSchemaManagerFilter</code> checks if the element from the current
+      context is the <code class="ph codeph">table</code> element and adds the <code class="ph codeph">frame</code> attribute to
+      the <code class="ph codeph">table</code> list of attributes.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><span class="hl-tag-doctype-comment">/**
+ * Filter attributes of the "table" element.
+ */</span>
+<strong class="hl-keyword">public</strong> List&lt;CIAttribute&gt; filterAttributes(List&lt;CIAttribute&gt; attributes,
+    WhatAttributesCanGoHereContext context) {
+  <em class="hl-comment">// If the element from the current context is the 'table' element add the</em>
+  <em class="hl-comment">// attribute named 'frame' to the list of default content completion proposals</em>
+  <strong class="hl-keyword">if</strong> (context != null) {
+    ContextElement contextElement = context.getParentElement();
+    <strong class="hl-keyword">if</strong> (<span class="hl-string">"table"</span>.equals(contextElement.getQName())) {
+      CIAttribute frameAttribute = <strong class="hl-keyword">new</strong> CIAttribute();
+      frameAttribute.setName(<span class="hl-string">"frame"</span>);
+      frameAttribute.setRequired(false);
+      frameAttribute.setFixed(false);
+      frameAttribute.setDefaultValue(<span class="hl-string">"void"</span>);
+      <strong class="hl-keyword">if</strong> (attributes == null) {
+        attributes = <strong class="hl-keyword">new</strong> ArrayList&lt;CIAttribute&gt;();
+      }
+      attributes.add(frameAttribute);
+    }
+  }
+  <strong class="hl-keyword">return</strong> attributes;
+}</pre>
+    <p class="p">The elements that can be inserted in a specific context can be filtered using the
+        <em class="ph i">filterElements</em> method. The <code class="ph codeph">SDFSchemaManagerFilter</code> uses this method
+      to replace the <code class="ph codeph">td</code> child element with the <code class="ph codeph">th</code> element when
+        <code class="ph codeph">header</code> is the current context element.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java"><strong class="hl-keyword">public</strong> List&lt;CIElement&gt; filterElements(List&lt;CIElement&gt; elements,
+    WhatElementsCanGoHereContext context) {
+  <em class="hl-comment">// If the element from the current context is the 'header' element remove the</em>
+  <em class="hl-comment">// 'td' element from the list of content completion proposals and add the</em>
+  <em class="hl-comment">// 'th' element.</em>
+  <strong class="hl-keyword">if</strong> (context != null) {  
+    Stack&lt;ContextElement&gt; elementStack = context.getElementStack();
+    <strong class="hl-keyword">if</strong> (elementStack != null) {
+      ContextElement contextElement = context.getElementStack().peek();
+      <strong class="hl-keyword">if</strong> (<span class="hl-string">"header"</span>.equals(contextElement.getQName())) {
+        <strong class="hl-keyword">if</strong> (elements != null) {
+          <strong class="hl-keyword">for</strong> (Iterator&lt;CIElement&gt; iterator = 
+elements.iterator(); iterator.hasNext();) {
+            CIElement element = iterator.next();
+            <em class="hl-comment">// Remove the 'td' element</em>
+            <strong class="hl-keyword">if</strong> (<span class="hl-string">"td"</span>.equals(element.getQName())) {
+              elements.remove(element);
+              <strong class="hl-keyword">break</strong>;
+            }
+          }
+        } <strong class="hl-keyword">else</strong> {
+          elements = <strong class="hl-keyword">new</strong> ArrayList&lt;CIElement&gt;();
+        }
+        <em class="hl-comment">// Insert the 'th' element in the list of content completion proposals</em>
+        CIElement thElement = <strong class="hl-keyword">new</strong> SDFElement();
+        thElement.setName(<span class="hl-string">"th"</span>);
+        elements.add(thElement);
+      }
+    }
+  } <strong class="hl-keyword">else</strong> {
+    <em class="hl-comment">// If the given context is null then the given list of content completion</em>
+    <em class="hl-comment">// elements contains global elements. </em>
+  }
+  <strong class="hl-keyword">return</strong> elements;
+}</pre>
+    <p class="p">The elements or attributes values can be filtered using the <em class="ph i">filterElementValues</em> or
+        <em class="ph i">filterAttributeValues</em> methods.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/unique_attributes_recognizer.html">Configuring the Automatic ID Generation and Unique Attributes Recognizer</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-author-dnd-listener.html">Configuring a Custom Drag and Drop Listener</a></div></div></nav></article></main></body></html>

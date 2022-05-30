@@ -1,0 +1,81 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WSDL documents,SOAP analyzer,WSDL SOAP Analyzer tool"><meta name="keywords" content="WSDL documents, SOAP analyzer, WSDL SOAP Analyzer tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/verifying-signature-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/testing-remote-wsdl-files-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/testing-remote-wsdl-files-x-tools.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="composing-web-service-calls"><title>WSDL SOAP Analyzer Tool</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="composing-web-service-calls"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">WSDL SOAP Analyzer Tool</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph uicontrol">WSDL SOAP Analyzer</span> is a tool that helps you test if the messages
+      defined in a Web Service Descriptor (WSDL) are accepted by a Web Services server. </p>
+    <p class="p">After you edit and validate your Web service descriptor against a mix of the XML Schemas for
+      WSDL and SOAP, it is easy to check if the defined SOAP messages are accepted by the remote Web
+      Services server by using the integrated <span class="ph uicontrol">WSDL SOAP Analyzer</span> tool
+      (available from the toolbar or <span class="ph uicontrol">Tools</span>
+      menu).</p>
+    <div class="p"><span class="ph">Oxygen XML Editor</span> provides two ways of testing, one for the currently edited WSDL
+      document and another for the remote WSDL documents that are published on a web server. To open
+      the <span class="ph uicontrol">WSDL SOAP Analyzer</span> tool for the currently edited WSDL document do
+      one of the following:<ul class="ul">
+        <li class="li">Click the <span class="ph uicontrol"><img class="image" id="composing-web-service-calls__image_mnh_zxh_5r" src="../img/WsdlShowDialog16.png">WSDL SOAP Analyzer</span> toolbar button.</li>
+        <li class="li">Use the <span class="ph uicontrol"><img class="image" id="composing-web-service-calls__image_cbm_mxn_ds" src="../img/WsdlShowDialog16.png">WSDL SOAP Analyzer</span> action from the <span class="ph uicontrol">Tools</span> menu.</li>
+        <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Open with</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="composing-web-service-calls__image_ms4_txn_ds" src="../img/WsdlShowDialog16.png">WSDL SOAP Analyzer </span></span> in the contextual menu of the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span></a> view.</li>
+      </ul></div>
+    <div class="p">
+      <figure class="fig fignone" id="composing-web-service-calls__figure-testing-wsdl-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>WSDL SOAP Analyzer Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_wsdl_analyser.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <div class="p">This tool contains a SOAP analyzer and sender for Web Services Description Language file
+      types. The analyzer fields are as follows:<ul class="ul">
+        <li class="li"><span class="ph uicontrol">Services</span> - The list of services defined by the WSDL file.</li>
+        <li class="li"><span class="ph uicontrol">Ports</span> - The ports for the selected service.</li>
+        <li class="li"><span class="ph uicontrol">Operations</span> - The list of available operations for the selected
+          service.</li>
+        <li class="li"><span class="ph uicontrol">Action URL</span> - The script that serves the operation.</li>
+        <li class="li"><span class="ph uicontrol">SOAP Action</span> - Identifies the action performed by the script.</li>
+        <li class="li"><span class="ph uicontrol">Version</span> - Choose between 1.1 and 1.2. The SOAP version is
+          selected automatically depending on the selected port.</li>
+        <li class="li"><span class="ph uicontrol">Request Editor</span> - It allows you to compose the web service
+          request. When an action is selected, <span class="ph">Oxygen XML Editor</span> tries to generate as much
+          content as possible for the SOAP request. The envelope of the SOAP request has the correct
+          namespace for the selected SOAP version, that is
+            <em class="ph i">http://schemas.xmlsoap.org/soap/envelope/</em> for SOAP 1.1 or
+            <em class="ph i">http://www.w3.org/2003/05/soap-envelope</em> for SOAP 1.2. Usually you just have to
+          change a few values for the request to be valid. The <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+              Assistant</dfn></a> is available for this editor and is driven by the schema that
+          defines the type of the current message. While selecting various operations, <span class="ph">Oxygen XML Editor</span> remembers the modified request for each one. You can click the
+            <span class="ph uicontrol">Regenerate</span> button to overwrite your modifications for the current
+          request with the initial generated content.</li>
+        <li class="li"><span class="ph uicontrol">Attachments List</span> - You can define a list of file URLs to be
+          attached to the request.</li>
+        <li class="li"><span class="ph uicontrol">Response Area</span> - Initially it displays an auto generated server
+          sample response so you can have an idea about how the response looks like. After pressing
+          the <span class="ph uicontrol">Send</span> button, it presents the message received from the server
+          in response to the Web Service request. It may show also error messages. If the response
+          message contains attachments, <span class="ph">Oxygen XML Editor</span> prompts you to save them, then tries
+          to open them with the associated system application.</li>
+        <li class="li"><span class="ph uicontrol">Errors List</span> - There may be situations where the WSDL file is
+          respecting the WSDL XML Schema, but it fails to be valid (for example, in the case of a
+          message that is defined by means of an element that is not found in the types section of
+          the WSDL). In such a case, the errors are listed here. This list is presented only when
+          there are errors.</li>
+        <li class="li"><span class="ph uicontrol">Send Button</span> - Executes the request. A status dialog box is
+          displayed when <span class="ph">Oxygen XML Editor</span> is connecting to the server.</li>
+      </ul></div>
+    <div class="p">The testing of a WSDL file is straight-forward. Click the WSDL analysis button, then select
+      the service, the port, and the operation. The editor generates the skeleton for the SOAP
+      request. You can edit the request, eventually attach files to it and send it to the server.
+      Watch the server response in the response area. You can find more details in the <a class="xref" href="testing-remote-wsdl-files.html#testing-remote-wsdl-files">Testing Remote WSDL
+        Files</a> section.<div class="note note note_note"><span class="note__title">Note:</span> SOAP requests and responses are automatically validated in the
+          <span class="ph uicontrol">WSDL SOAP Analyzer</span> using the XML Schemas specified in the WSDL
+        file.</div></div>
+    <p class="p">Once defined, a request derived from a Web Service descriptor can be saved with the
+        <span class="ph uicontrol">Save</span> button to a Web Service SOAP Call (WSSC) file for later reuse.
+      In this way, you save time in configuring the URLs and parameters.</p>
+    <p class="p">You can open the result of a Web Service call in an editor panel using the
+        <span class="ph uicontrol">Open</span> button.</p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/testing-remote-wsdl-files-x-tools.html">Testing Remote WSDL Files</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/verifying-signature-x-tools.html">Verifying Signature</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/testing-remote-wsdl-files-x-tools.html">Testing Remote WSDL Files</a></div></div></nav></article></main></body></html>

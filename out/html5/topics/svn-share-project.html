@@ -1,0 +1,72 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Share projects"><meta name="keywords" content="SVN Client, Share projects"><meta name="DC.relation" scheme="URI" content="../topics/svn-getting-started.html"><meta name="DC.relation" scheme="URI" content="../topics/authentication.html"><meta name="DC.relation" scheme="URI" content="../topics/define-working-copy.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="svn-share-project"><title>Share a Project</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="svn-share-project"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Share a Project</h1>
+  
+  <div class="body">
+    <p class="p">Even if you start developing a new project, or you want to migrate an existing one to
+      Subversion, the <span class="ph">Syncro SVN Client</span> allows you to easily share it with the rest of your
+      team. The shared project directory is automatically converted to a working copy and added
+      under <span class="ph">Syncro SVN Client</span> management. The <span class="ph uicontrol">Share project</span> action is
+      available in the <span class="ph uicontrol">Tools</span> menu and the contextual menu of the
+        <span class="ph uicontrol">Repositories</span> view.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Share Project Dialog Box</figcaption>
+        
+        <img class="image" id="svn-share-project__image_1mm_gs3_hf" src="../img/svn_share_project.png">
+      </figure>
+    </div>
+    <div class="p">The following options can be configured in the <span class="ph uicontrol">Share project</span> dialog box:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Project</span></dt>
+          <dd class="dd"><a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__local-path-section">The
+              location of the project folder</a> on the local disk by using the text box or the
+              <span class="ph uicontrol">Browse</span> button. This folder should not be empty or already under
+            version control.<div class="note important note_important"><span class="note__title">Important:</span> By default, the SVN system only imports the
+              content of the specified folder, and not the root folder itself. Therefore, it is
+              recommended to use the <span class="ph uicontrol">Browse</span> button to select the project
+              folder so that the client will automatically append the name of it to the specified
+              URL.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+          <dd class="dd"><a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">The
+              new location of the project</a> (inside the repository) that will be used to access
+                it.<div class="note note note_note"><span class="note__title">Note:</span> <em class="ph i">Peg revisions</em> have no effect for this operation since it is
+              used to send information to the repository.  </div><div class="note attention note_attention"><span class="note__title">Attention:</span> If the new
+              location already exists, make sure that it is an empty directory to avoid mixing your
+              project content with other files (if items exist with the same name, an error will
+              occur and the operation will not proceed). Otherwise, if the address does not exist,
+              it is created automatically.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Format</span></dt>
+          <dd class="dd">The SVN format of the working copy. You can choose between <span class="ph uicontrol">SVN
+              1.8</span> or <span class="ph uicontrol">SVN 1.7</span>.</dd>
+        
+        
+          <dt class="dt dlterm" id="svn-share-project__share-files-dlentry"><span class="ph uicontrol">Share files matching global ignore patterns</span></dt>
+          <dd class="dd">When selected, the file names that match the patterns defined in either of the
+            following locations are also imported into the repository:<ul class="ul" id="svn-share-project__ul_xgf_cck_4r">
+              <li class="li">The <code class="ph codeph">global-ignores</code> property in <a class="xref" href="svn-preferences.html#svn-preferences">the SVN configuration
+                file</a>.</li>
+              <li class="li">The <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy__svn-options-app-global-ignores"><span class="ph uicontrol">File name ignore patterns</span> option</a> in the <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy"><span class="ph menucascade"><span class="ph uicontrol">SVN</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Working Copy</span></span> preferences page</a>.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm" id="svn-share-project__enable-disable-auto-dlentry"><span class="ph uicontrol">Enable automatic properties</span>/<span class="ph uicontrol">Disable automatic
+              properties</span></dt>
+          <dd class="dd">Enables or disables automatic property assignment (per runtime configuration rules),
+            overriding the <code class="ph codeph">enable-auto-props</code> runtime configuration directive,
+            defined in <a class="xref" href="svn-preferences.html#svn-preferences">the SVN configuration
+              file</a>.<div class="note note note_note"><span class="note__title">Note:</span> This option is available only when there are defined properties to
+              be applied automatically for newly added items under version control. You can define
+              these properties in the SVN <code class="ph codeph">config</code> file (in the
+                <code class="ph codeph">auto-props</code> section). Based on the value of the
+                <code class="ph codeph">enable-auto-props</code> runtime configuration directive, the presented
+              option is either <span class="ph uicontrol">Enable automatic properties</span>, or
+                <span class="ph uicontrol">Disable automatic properties</span>.</div></dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-getting-started.html">Getting Started</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/authentication.html">Authentication</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/define-working-copy.html">Defining a Working Copy</a></div></div></nav></article></main></body></html>

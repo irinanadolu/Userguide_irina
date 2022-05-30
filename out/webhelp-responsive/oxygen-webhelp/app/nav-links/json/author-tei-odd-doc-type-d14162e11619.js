@@ -1,0 +1,1 @@
+define({"topics":[{"title":"TEI ODD Author Mode Actions","href":"topics\/author-tei-odd-extensions.html","attributes":{"data-id":"author-tei-odd-extensions"},"menu":{"hasChildren":false},"tocID":"author-tei-odd-extensions-d14162e11641","topics":[]}]});

@@ -1,0 +1,156 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/the-xquery-tab-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-extensions-x-publishing2.html"><meta name="DC.relation" scheme="URI" content="../topics/fo-processor-tab--xml-xquery-x-publishing2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="transform-xquery-advanced-saxon-options"><title>Advanced Saxon HE/PE/EE XQuery Transformation Options</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="transform-xquery-advanced-saxon-options"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Advanced Saxon HE/PE/EE XQuery Transformation Options</h1>
+  <div class="body">
+    <p class="p">The XQuery transformation scenario allows you to configure advanced options that are specific
+      for the Saxon HE (Home Edition), PE (Professional Edition), and EE (Enterprise Edition)
+        engines.<span class="ph"> They are the same
+        options as <a class="xref" href="preferences-xquery-saxon.html">those in the <span class="ph uicontrol">Saxon
+            HE/PE/EE</span> preferences page</a> but they are configured as a specific set
+        of transformation options for each transformation scenario, while the values set in the
+        preferences page apply as global options. The advanced options configured in a
+        transformation scenario override the <span class="ph"><a class="xref" href="../glossary/global-options.html">global
+            options</a></span> defined in the preferences page.</span>
+    </p>
+    <section class="section" id="transform-xquery-advanced-saxon-options__saxonhepeee_options"><h2 class="title sectiontitle">Saxon-HE/PE/EE Options</h2>
+      
+      <div class="p">The advanced options for Saxon <span class="ph">9.9.1.5</span> Home Edition (HE),
+        Professional Edition (PE), and Enterprise Edition (EE) are as follows:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Use a configuration file ("-config")</span></dt>
+          <dd class="dd">Sets a Saxon <span class="ph">9.9.1.5</span> configuration file that is used for
+            XQuery transformation and validation scenarios.</dd>
+        
+          
+          <dt class="dt dlterm" id="transform-xquery-advanced-saxon-options__optimization-level"><span class="ph uicontrol">Enable Optimizations ("-opt")</span></dt>
+          <dd class="dd">This option is selected by default, which means that optimization is enabled. If not
+            selected, the optimization is suppressed, which is helpful when reducing the compiling
+            time is important, optimization conflicts with debugging, or optimization causes
+            extension functions with side-effects to behave unpredictably.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Use linked tree model ("-tree:linked")</span></dt>
+          <dd class="dd">This option activates the linked tree model.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Recoverable errors ("-warnings")</span></dt>
+          <dd class="dd">Specifies how dynamic errors are handled. The following options can be selected:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Recover silently ("silent")</span> - Continues processing without
+                reporting the error.</li>
+              <li class="li"><span class="ph uicontrol">Recover with warnings ("recover")</span> - Issues a warning but
+                continues processing.</li>
+              <li class="li"><span class="ph uicontrol">Signal the error and do not attempt recovery ("fatal")</span> -
+                Issues an error and stops processing.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Strip whitespaces ("-strip")</span></dt>
+          <dd class="dd">Specifies how the <em class="ph i">strip whitespaces</em> operation is handled. You can choose one of
+            the following values:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">All ("all")</span> - Strips <em class="ph i">all</em> whitespace text nodes from
+                source documents before any further processing, regardless of any
+                  <code class="keyword markupname xmlatt">@xml:space</code> attributes in the source document.</li>
+              <li class="li"><span class="ph uicontrol">Ignore ("ignorable")</span> - Strips all <em class="ph i">ignorable</em>
+                whitespace text nodes from source documents before any further processing,
+                regardless of any <code class="keyword markupname xmlatt">@xml:space</code> attributes in the source document.
+                Whitespace text nodes are ignorable if they appear in elements defined in the DTD or
+                schema as having element-only content.</li>
+              <li class="li"><span class="ph uicontrol">None ("none")</span> - Strips <em class="ph i">no</em> whitespace before further
+                processing.</li>
+            </ul></dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="transform-xquery-advanced-saxon-options__saxonpeee_options"><h2 class="title sectiontitle">Saxon-PE/EE Options</h2>
+      
+      <div class="p">The following advanced options are specific for Saxon <span class="ph">9.9.1.5</span>
+        Professional Edition (PE) and Enterprise Edition (EE) only:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Allow calls on extension functions ("-ext")</span></dt>
+          <dd class="dd">If selected, calls on external functions are allowed. Selecting this option is
+            recommended in an environment where untrusted stylesheets may be executed. It also
+            disables user-defined extension elements and the writing of multiple output files, both
+            of which carry similar security risks.</dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="transform-xquery-advanced-saxon-options__saxonee_options"><h2 class="title sectiontitle">Saxon-EE Options</h2>
+      
+      <div class="p">The advanced options that are specific for Saxon <span class="ph">9.9.1.5</span>
+        Enterprise Edition (EE) are as follows:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Validation of the source file ("-val")</span></dt>
+          <dd class="dd">Requests schema-based validation of the source file and of any files read using
+              <code class="ph codeph">document()</code> or similar functions. It can have the following values:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Schema validation ("strict")</span> - This mode requires an XML
+                Schema and allows for parsing the source documents with strict schema-validation
+                enabled.</li>
+              <li class="li"><span class="ph uicontrol">Lax schema validation ("lax")</span> - If an XML Schema is
+                provided, this mode allows for parsing the source documents with schema-validation
+                enabled but the validation will not fail if, for example, element declarations are
+                not found.</li>
+              <li class="li"><span class="ph uicontrol">Disable schema validation</span> - This specifies that the source
+                documents should be parsed with schema-validation disabled.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Validation errors in the result tree treated as warnings
+              ("-outval")</span></dt>
+          <dd class="dd">
+            <p class="p">Normally, if validation of result documents is requested, a validation error is
+              fatal. Selecting this option causes such validation failures to be treated as
+              warnings.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Write comments for non-fatal validation errors of the result
+                      document</span></dt>
+                  <dd class="dd">The validation messages for non-fatal errors are written (wherever possible)
+                    as a comment in the result document itself.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm" id="transform-xquery-advanced-saxon-options__enable-xquery-update-option"><span class="ph uicontrol">Enable XQuery update ("-update:(on|off)")</span></dt>
+          <dd class="dd">
+            <p class="p">This option controls whether or not XQuery update syntax is accepted. The default
+              value is off.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="transform-xquery-advanced-saxon-options__xquery-saxon-ee-advanced-options-end-"><span class="ph uicontrol">Backup files updated by XQuery
+                    ("-backup:(on|off)")</span></dt>
+                  <dd class="dd">If selected, backup versions for any XML files updated with an XQuery Update
+                    are generated. This option is available when the <span class="ph uicontrol">Enable XQuery
+                      update</span> option is selected.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="transform-xquery-advanced-saxon-options__other_options"><h2 class="title sectiontitle">Other Options</h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Initializer class</span></dt>
+            <dd class="dd">Equivalent to the <code class="ph codeph">-init</code> Saxon command-line argument. The value is
+              the name of a user-supplied class that implements the
+                <em class="ph i">net.sf.saxon.lib.Initializer</em> interface. This initializer is called during the
+              initialization process, and may be used to set any options required on the
+              configuration programmatically. It is particularly useful for tasks such as
+              registering extension functions, collations, or external object models, especially in
+              Saxon-HE where the option cannot be set via a configuration file. Saxon only calls the
+              initializer when running from the command line, but the same code may be invoked to
+              perform initialization when running user application code.</dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/the-xquery-tab-x-publishing2.html">XQuery Tab</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-extensions-x-publishing2.html">XQuery Extensions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/fo-processor-tab--xml-xquery-x-publishing2.html">FO Processor Tab (XQuery Transformations)</a></div></div></nav></article></main></body></html>

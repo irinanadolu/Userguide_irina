@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/json-transforming.html"><meta name="DC.relation" scheme="URI" content="../topics/json-transforming-xquery.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-JSON-schema.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-querying-xpath-xquery"><title>Querying JSON Documents with XPath or XQuery</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-querying-xpath-xquery"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Querying JSON Documents with XPath or XQuery</h1>
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides an XPath toolbar that makes it
+      easy to quickly query JSON documents using XPath expressions. You can also use the dedicated
+        <span class="ph uicontrol">XPath/XQuery Builder</span> view that allows you to compose more complex
+      XPath or XQuery expressions and execute them over JSON documents in
+        <span class="ph uicontrol">Text</span><span class="ph"> or <span class="ph uicontrol">Author</span></span>
+      mode.</p>
+    
+    <section class="section" id="json-querying-xpath-xquery__xpath_toolbar"><h2 class="title sectiontitle">XPath Toolbar</h2>
+      
+      <p class="p">When an XPath expression is run over a JSON document, the document is converted to XML and
+        the XPath is executed over the converted XML document. For more information about this
+        toolbar, see <a class="xref" href="xpath-toolbar.html">XPath Toolbar</a>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XPath Toolbar for JSON</figcaption>
+          
+          <img class="image" src="../img/JSONXPath_results.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="json-querying-xpath-xquery__xpathxquery_builder_view"><h2 class="title sectiontitle">XPath/XQuery Builder View</h2>
+      
+      <p class="p">You can also use the <span class="ph uicontrol">XPath/XQuery</span> view to run XPath and XQuery
+        expressions over a JSON document. For XQuery, you need to reference the JSON document in
+        your XQuery content. For more information about this view, see <a class="xref" href="xpath-builder-view.html">XPath Builder View</a>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>XPath/XQuery Builder View for JSON</figcaption>
+          
+          <img class="image" src="../img/json-xquery-builder.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="json-querying-xpath-xquery__details_about_querying_using_xpath_expressions"><h2 class="title sectiontitle">Details About Querying JSON Documents Using XPath Expressions</h2>
+      
+      <p class="p">To execute XPath expressions over a JSON document, the document is converted to XML and the
+        XPath is executed over the converted XML document. For this conversion, <span class="ph">Oxygen XML Editor</span> uses the built-in <a class="xref" href="convert-JSON-to-XML.html">JSON to XML Converter
+        tool</a>. The results are mapped back to the original JSON document.</p>
+      <div class="p">For example, if you have the following JSON
+        document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-json">{
+   <span class="hl-json_key">"personnel"</span>: {
+    <span class="hl-json_key">"person"</span>: [
+      {<span class="hl-json_key">"name"</span>: <span class="hl-string">"Boss"</span>},
+      {<span class="hl-json_key">"name"</span>: <span class="hl-string">"Worker"</span>}
+    ]
+  },
+  <span class="hl-json_key">"id"</span>:<span class="hl-string">"personnel-id"</span>
+}</pre>and
+        you want to match the name of the second person, the XPath expression would look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">/JSON/personnel/person[2]/name</pre></div>
+      <p class="p">The reason why the first element is <code class="ph codeph">JSON</code> is because if the JSON document
+        contains more than one property on the first level, the converted XML document will have an
+        additional root element called <code class="keyword markupname xmlelement">&lt;JSON&gt;</code>. For more information, see
+          <a class="xref" href="convert-JSON-to-XML.html#convert-JSON-to-XML__section_t2q_dxv_llb">JSON to XML
+          Conversion Details</a>.</p>
+      <p class="p">The <code class="ph codeph">[2]</code> in the expression represents the index of the
+          <code class="ph codeph">person</code> in the array and in this case, it matches the second
+          <code class="ph codeph">person</code> because the index counting starts with 1. </p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/json-transforming.html">Transforming and Querying JSON Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/json-transforming-xquery.html">Transforming JSON Documents with XQuery</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editing-JSON-schema.html">Editing JSON Schema Documents</a></div></div></nav></article></main></body></html>

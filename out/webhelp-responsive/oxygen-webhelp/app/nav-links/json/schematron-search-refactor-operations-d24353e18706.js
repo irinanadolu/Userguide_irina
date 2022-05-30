@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Searching and Refactoring Operations Scope in Schematron Documents","href":"topics\/schematron-search-refactor-operations-scope.html","attributes":{"data-id":"schematron-search-refactor-operations-scope"},"menu":{"hasChildren":false},"tocID":"schematron-search-refactor-operations-scope-d24353e18725","topics":[]}]});

@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Linking"><meta name="keywords" content="DITA, Linking"><meta name="DC.relation" scheme="URI" content="../topics/author-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-reusable-components-view.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-hierarchical-linking.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-hierarchical-linking.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-inline-linking.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-relationship-table-linking.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-pathfinder-linking"><title>Linking in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-pathfinder-linking"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Linking in DITA</h1>
+  
+  <div class="body">
+    <p class="p">DITA provides support for various types of linking between topics, some of which is
+      automated, while others are specified by the author. <span class="ph">Oxygen XML Editor</span> provides support
+      for all forms of linking in DITA.</p>
+    <section class="section" id="eppo-pathfinder-linking__linking_between_parent_child_and_sibling_topics"><h2 class="title sectiontitle">Linking Between Parent, Child, and Sibling Topics</h2>
+      
+      <p class="p">A <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> creates a hierarchical
+        relationship between topics. That relationship map expresses a narrative flow from one topic
+        to another, or it may be used as a classification system to help the reader find topics
+        based on their classification, without creating a narrative flow. Since there may be various
+        types of relationships between topics in a hierarchy, you may want to create links between
+        topics in a variety of ways. For instance, if your topics are supposed to be organized into
+        a narrative flow, you may want to have links to the next and previous topics in that flow.
+        If your topics are part of a hierarchical classification, you may want links from parent to
+        child topics, and vice versa, but not to the next and previous topics. </p>
+      <p class="p">Parent, child, and sibling links are created automatically by the DITA output
+        transformations (and may differ between various output formats). The kinds of links that are
+        created are determined by the DITA <a class="xref" href="dita-edit-properties.html#dita-edit-properties__collection-type-attr-dlentry"><em class="ph i">collection-type</em> attribute</a>.</p>
+    </section>
+    <section class="section" id="eppo-pathfinder-linking__inline_linking_in_the_content_of_a_topic"><h2 class="title sectiontitle">In-Line Linking in the Content of a Topic</h2>
+      
+      <p class="p">DITA supports linking within the text of a topic using the <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element.
+        The destination of the link can be expressed directly using the <code class="keyword markupname xmlatt">@href</code>
+        attribute or indirectly using the <code class="keyword markupname xmlatt">@keyref</code> attribute. If you use the
+          <code class="keyword markupname xmlatt">@keyref</code> attribute, you link to a key rather than directly to a topic. That
+        key is then assigned to a topic in a map that includes that topic. This means that you can
+        change the destination that a key points to by editing the key definition in the map or by
+        substituting another map in the build. </p>
+    </section>
+    <section class="section" id="eppo-pathfinder-linking__linking_between_related_topics"><h2 class="title sectiontitle">Linking Between Related Topics</h2>
+      
+      <p class="p">In addition to the relationships between topics that expressed by their place in the
+        hierarchy of a map, a topic may be related to other topics in various ways. For instance, a
+        task topic may be related to a concept topic that gives the background of the task, or to a
+        reference topic that provides data needed to complete the task. Task topics may also be
+        related to other tasks in a related area, or concepts to related concepts. </p>
+      <p class="p">Typically, they are grouped in a list at the end of the topic, although this depends on the
+        behavior of the output transformation. DITA provides two mechanisms for expressing
+        relationships between topics at the topic level: the <strong class="ph b">Related Links</strong> section of a topic
+        and relationship tables in maps. To add related links, select <span class="ph uicontrol">Related Link to
+          Topic</span>, <span class="ph uicontrol">Related Link to File</span>, or <span class="ph uicontrol">Related Link
+          to Web Page</span> from the <span class="ph uicontrol"><img class="image" id="eppo-pathfinder-linking__image_nbp_mkx_sr" src="../img/LinkDrop.png">Link</span> drop-down menu from the toolbar (or the
+            <span class="ph uicontrol"><img class="image" id="eppo-pathfinder-linking__image_xsq_rby_thb" src="../img/Link16.png">Link</span>
+        submenu in the contextual menu or <span class="ph uicontrol">DITA</span> menu).</p>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> You can use the <span class="ph uicontrol">Find Similar
+        Topics</span> action (available in the contextual menu or <span class="ph uicontrol">DITA</span>
+      menu) to quickly find related topics that can be added as related links. It opens the
+        <span class="ph uicontrol">Open/Find Resource</span> view and performs a search using text content from
+      the <code class="keyword markupname xmlelement">&lt;title&gt;</code>, <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, and <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</div>
+    </section>
+    <section class="section" id="eppo-pathfinder-linking__managing_links"><h2 class="title sectiontitle">Managing Links</h2>
+      
+      <p class="p">Links can break for a variety of reasons. The topic that a link points to may be renamed or
+        removed. A topic may be used in a map that does not include a linked topic. A topic or a key
+        may not exist in a map when a particular profile is applied. The <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+          Manager</span></a> provides a way to <a class="xref" href="dita-map-validate.html">validate all the links in the documents
+          that are included in the map</a>. This can include validating all the profiling
+        conditions that are applied. </p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/eppo-hierarchical-linking.html">Hierarchical Linking in DITA Maps</a><br></li><li class="link olchildlink"><a href="../topics/eppo-inline-linking.html">Linking in DITA Topics</a><br></li><li class="link olchildlink"><a href="../topics/eppo-relationship-table-linking.html">Linking with Relationship Tables in DITA</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita.html" title="A guide to help content authors who create and publish DITA content">DITA Authoring</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-reusable-components-view.html">DITA Reusable Components View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-hierarchical-linking.html">Hierarchical Linking in DITA Maps</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Web Author vs. Web Author Component","href":"topics\/wa-product-vs-sdk.html","attributes":{"data-id":"wa-product-vs-sdk"},"menu":{"hasChildren":false},"tocID":"wa-product-vs-sdk-d14162e26794","topics":[]}]});

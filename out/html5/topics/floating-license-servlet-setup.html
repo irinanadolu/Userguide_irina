@@ -1,0 +1,284 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="HTTP license server"><meta name="keywords" content="HTTP license server"><meta name="DC.relation" scheme="URI" content="../topics/installation-setting-up-license-server.html"><meta name="DC.relation" scheme="URI" content="../topics/servlet-report-page.html"><meta name="DC.relation" scheme="URI" content="../topics/replace-floating-license.html"><meta name="DC.relation" scheme="URI" content="../topics/upgrade-license-servlet.html"><meta name="DC.relation" scheme="URI" content="machine-signature-mismatch.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="floating-license-servlet-setup"><title>Setting up an HTTP License Server (Floating or Named-User Licenses)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="floating-license-servlet-setup"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Setting up an HTTP License Server (Floating or Named-User Licenses)</h1>
+  
+  <div class="body">
+    <div class="note restriction note_restriction"><span class="note__title">Restriction:</span> The floating license server does not work with <em class="ph i">Docker</em>
+      containers.</div>
+    <div class="p">The HTTP License Server is available in several distributions, tailored for covering various
+      deployment configurations:<ul class="ul">
+        <li class="li"><a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__installation_steps_for_the_http_license_server_in"><strong class="ph b">Windows installer</strong></a> - Easy-to-use Windows installation wizard.
+          Requires elevated permissions to run it.</li>
+        <li class="li"><a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__installation_steps_for_the_http_license_server_al"><strong class="ph b">All-platform distribution</strong></a> - Script-based deployment that
+          does not require elevated permissions to run it. Provides scripts for Windows, Mac, and
+          Linux.</li>
+        <li class="li"><a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__installation_steps_for_the_http_license_server_wa"><strong class="ph b">Web Archive (<strong class="ph b">WAR</strong>) distribution</strong></a> - Provides more
+          flexibility in your deployment configuration, but it requires an existing HTTP server
+          (such as Apache Tomcat).</li>
+      </ul></div>
+    <section class="section" id="floating-license-servlet-setup__section_h1f_lhk_4nb"><h2 class="title sectiontitle">HTTP License Server System Requirements</h2>
+      
+      <div class="p">
+        <table class="table frame-all" id="floating-license-servlet-setup__table_i1f_lhk_4nb"><caption><span class="table--title-label">Table 1. </span><span class="title">Requirements</span></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+              <tr class="row">
+                <th class="entry colsep-1 rowsep-1" id="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1"><strong class="ph b">Hardware</strong></th>
+                <th class="entry colsep-1 rowsep-1" id="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2"><strong class="ph b">Specification</strong></th>
+              </tr>
+            </thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">CPU</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2">1 core</td>
+              </tr>
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">RAM</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2">512MB/Linux OS, 1GB/Windows OS (256MB available memory)</td>
+              </tr>
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">Hard Disk Space</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2">500MB</td>
+              </tr>
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">Network Requirements</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2"><strong class="ph b">Network interfaces stay unchanged (static MAC addresses) after
+                    activation</strong></td>
+              </tr>
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">Server OS Requirements</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2">Linux or Windows</td>
+              </tr>
+              <tr class="row">
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__1">Antivirus and Firewall Requirements</td>
+                <td class="entry colsep-1 rowsep-1" headers="floating-license-servlet-setup__table_i1f_lhk_4nb__entry__2">Allow access to the configured TCP port (default 8080)</td>
+              </tr>
+            </tbody></table>
+      </div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__installation_steps_for_the_http_license_server_in"><h2 class="title sectiontitle">Installing the HTTP License Server Installer Distribution for Windows</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">Download the HTTP license server installer from the <a class="xref" href="https://www.oxygenxml.com/license_server.html" target="_blank" rel="external noopener">HTTP License Server website</a>.</li>
+          <li class="li">Run the installer and follow the on-screen instructions.</li>
+          <li class="li">You need to configure two sets of credentials:<ol class="ol" type="a">
+              <li class="li"><strong class="ph b">Administrator credentials</strong> - Used for accessing the <span class="ph">Oxygen XML Editor</span>
+                license server administrative interface.</li>
+              <li class="li"><strong class="ph b">Standard user credentials</strong> - Used by an <span class="ph">Oxygen XML Editor</span> application
+                to connect to the license server.<div class="note note note_note"><span class="note__title">Note:</span> It is possible to configure the credentials for users after the installation. Once
+      the installation is complete, there will be a <span class="ph filepath">password.properties</span> file
+      located in the license server's installation directory. You can edit this file and follow the
+      instructions at the top to assign <em class="ph i">admin</em> or <em class="ph i">user</em> roles to each user. There is
+      also a <span class="ph filepath">readme.txt</span> file in the same directory that has more
+      information.</div></li>
+            </ol></li>
+          <li class="li">You can choose to change the default 8080 port the server will run on. If you need to
+            change the port after the installation, you can do it by editing the following
+              <em class="ph i">vmoptions</em> file: <span class="ph filepath">oXygen HTTP License Server\Windows
+              Service\oXygenHTTPLicenseServer.vmoptions</span>.</li>
+          <li class="li">Optionally, you can choose to install the server as a Windows service. In this case,
+            you can choose the name of the Windows service.</li>
+        </ol>
+        <div class="note tip note_tip"><span class="note__title">Tip:</span> In case you run into issues, the license server log file is located in:
+            <span class="ph filepath">[Installation_Directory]\work\logs\oXygenLicenseServlet.log</span>.</div>
+      </div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__installation_steps_for_the_http_license_server_al"><h2 class="title sectiontitle">Installing the HTTP License Server All-Platform Distribution</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li"><strong class="ph b">[Prerequisite]</strong> Java 8 or later must be installed.</li>
+          <li class="li">Download the HTTP license server all-platform archive from the <a class="xref" href="https://www.oxygenxml.com/license_server.html" target="_blank" rel="external noopener">HTTP License Server website</a>.</li>
+          <li class="li">Unpack the archive.</li>
+          <li class="li">Run the license server scripts suitable for your operating system
+              (<span class="ph filepath">licenseServer.bat</span> for Windows or
+              <span class="ph filepath">licenseServer.sh</span> for Linux and Mac).<div class="note note note_note"><span class="note__title">Note:</span> To specify a different
+              port (other than the default 8080), you can pass the new port number as an argument to
+              the scripts (for example, <span class="ph filepath">licenseServer.bat 8082</span>). You can also
+              change the port by editing the following <em class="ph i">vmoptions</em> file: <span class="ph filepath">oXygen HTTP
+                License Server\Windows
+            Service\oXygenHTTPLicenseServer.vmoptions</span>.</div></li>
+          <li class="li">On the first run, you will be prompted to set two sets of credentials:<ol class="ol" type="a">
+              <li class="li"><strong class="ph b">Administrator credentials</strong> - Used for accessing the <span class="ph">Oxygen XML Editor</span>
+                license server administrative interface.</li>
+              <li class="li"><strong class="ph b">Standard user credentials</strong> - Used by an <span class="ph">Oxygen XML Editor</span> application
+                to connect to the license server.<div class="note note note_note"><span class="note__title">Note:</span> It is possible to configure the credentials for users after the installation. Once
+      the installation is complete, there will be a <span class="ph filepath">password.properties</span> file
+      located in the license server's installation directory. You can edit this file and follow the
+      instructions at the top to assign <em class="ph i">admin</em> or <em class="ph i">user</em> roles to each user. There is
+      also a <span class="ph filepath">readme.txt</span> file in the same directory that has more
+      information.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to manually install, start, stop, or uninstall the server as a Windows service,
+      run the following scripts from a command line as an Administrator:<ul class="ul" id="floating-license-servlet-setup__ul_j3f_gp3_5q">
+        <li class="li"><span class="ph filepath">installWindowsService.bat [serviceName]</span> - Installs the server as a
+          Windows service with the name <em class="ph i">serviceName</em>. The parameters for the license key
+          folder and the server port can be set in the
+            <span class="ph filepath">oXygenLicenseServer.vmoptions</span> file. </li>
+        <li class="li"><span class="ph filepath">startWindowsService.bat [serviceName]</span> - Starts the Windows
+          service.</li>
+        <li class="li"><span class="ph filepath">stopWindowsService.bat [serviceName]</span> - Stops the Windows
+          service.</li>
+        <li class="li"><span class="ph filepath">uninstallWindowsService.bat [serviceName]</span> - Uninstalls the Windows
+          service.</li>
+      </ul><p class="p">If you do not provide the <code class="ph codeph">serviceName</code> argument, the default name
+          <em class="ph i">oXygenLicenseServer</em> is used.</p><div class="p">If the license server is installed as a Windows
+        service, the output and error messages are automatically redirected to the following log
+        files that are created in the install folder:<ul class="ul" id="floating-license-servlet-setup__ul_rfs_pjn_5q">
+          <li class="li"><span class="ph filepath">outLicenseServer.log</span> - Standard output stream of the server.</li>
+          <li class="li"><span class="ph filepath">errLicenseServer.log</span> - Standard error stream of the server.</li>
+        </ul></div></div></li>
+            </ol></li>
+        </ol>
+      </div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__installation_steps_for_the_http_license_server_wa"><h2 class="title sectiontitle">Installing the HTTP License Server WAR Distribution</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">Make sure that you have Java Servlet Container installed on the machine you have
+            selected to be the license server. Apache Tomcat 5.5 or higher is recommended (available
+            at <a class="xref" href="http://tomcat.apache.org" target="_blank" rel="external noopener">http://tomcat.apache.org</a>).<div class="note important note_important"><span class="note__title">Important:</span> By default, the license server stores the statistics database and
+              other data in the Java Servlet Container's temporary directory. If you are not using
+              Apache Tomcat, this directory may be deleted when the server is stopped or restarted.
+              However, you can set the <code class="ph codeph">oxygen.license.server.work.dir</code> system
+              property to specify a different path for the directory where the database is
+              stored.</div></li>
+          <li class="li">Download the HTTP license server <span class="ph uicontrol">Web Archive</span> (<strong class="ph b">.war</strong>) from
+            the <a class="xref" href="https://www.oxygenxml.com/license_server.html" target="_blank" rel="external noopener">HTTP License Server website</a>. </li>
+          <li class="li">
+            <div class="p">Configure three user roles in your installation of the Java Servlet Container (such
+              as Apache Tomcat):<ol class="ol" type="a" id="floating-license-servlet-setup__ol_asc_kb5_53b">
+                <li class="li">One user with the role <em class="ph i">user</em>, used by an <span class="ph">Oxygen XML Editor</span>
+                  application to connect to the license server. In the subsequent example, this user
+                  name is <strong class="ph b">John</strong>.</li>
+                <li class="li">Another user with the role <em class="ph i">admin</em>, used for accessing the HTTP License
+                  Server administrative interface and the management interface. In the subsequent
+                  example, this user name is <strong class="ph b">Mary</strong>.</li>
+              </ol></div>
+            <div class="p">For example, in Apache Tomcat, a typical way to achieve this is to edit the
+                <span class="ph filepath">tomcat-users.xml</span> file from your Tomcat installation (if using a
+              Tomcat <strong class="ph b">zip</strong>/<strong class="ph b">tar.gz</strong> distribution, by default this configuration file is
+              found in the <span class="ph filepath">/TomcatInstallFolder/conf/</span> directory). After adding
+              the three users, the configuration file might look like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;tomcat-users</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://tomcat.apache.org/xml"</span>
+              <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+              <span class="hl-attribute">xsi:schemaLocation</span>=<span class="hl-value">"http://tomcat.apache.org/xml tomcat-users.xsd"</span>
+              <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!-- ... other user and role definitions ... --&gt;</em>
+  <strong class="hl-tag">&lt;role</strong> <span class="hl-attribute">rolename</span>=<span class="hl-value">"user"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;role</strong> <span class="hl-attribute">rolename</span>=<span class="hl-value">"admin"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;user</strong> <span class="hl-attribute">username</span>=<span class="hl-value">"John"</span> <span class="hl-attribute">password</span>=<span class="hl-value">"user_pass"</span> <span class="hl-attribute">roles</span>=<span class="hl-value">"user"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;user</strong> <span class="hl-attribute">username</span>=<span class="hl-value">"Mary"</span> <span class="hl-attribute">password</span>=<span class="hl-value">"admin_pass"</span> <span class="hl-attribute">roles</span>=<span class="hl-value">"admin"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/tomcat-users&gt;</strong></pre></div>
+          </li>
+          <li class="li">
+            <p class="p">Deploy the WAR file.</p>
+            <p class="p">For example, in Apache Tomcat, go to the Web Application Manager page and log in with
+              the user you configured with the <em class="ph i">admin</em> role (<strong class="ph b">Mary</strong> in the example above).
+              In the <span class="ph uicontrol">WAR file to deploy</span> section, choose the WAR file and
+              click the <span class="ph uicontrol">Deploy</span> button. The
+                <code class="ph codeph">oXygenLicenseServlet</code> application is now up and running, but the
+              license key is not yet registered. </p>
+          </li>
+          <li class="li">
+            <p class="p">Go to the HTTP License Server administration page. By default, the address of this
+              page is <code class="ph codeph">http://&lt;server-address&gt;/oXygenLicenseServlet</code>. In Apache
+              Tomcat, you can also open this page by clicking the
+                <code class="ph codeph">oXygenLicenseServlet</code> link in the manager page.</p>
+            <p class="p">You will need to authenticate with the user configured with the
+                <code class="ph codeph">admin</code> role (Mary in the example above).</p>
+          </li>
+          <li class="li" id="floating-license-servlet-setup__activate-li">
+            <div class="p"><strong class="ph b">Activate the license key</strong>. This process involves binding your license key to
+              your license server deployment. The browser used in the activation process needs to
+              have Internet access.<div class="note note note_note"><span class="note__title">Note:</span> If you cannot access the internet during the deployment,
+                you can <a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__manual_license_activation_procedure_for_users_who">manually activate the license key</a>.</div></div>
+            <div class="p">Once the process is completed you cannot activate the license on another license
+              server. Follow these steps to activate the license:<ol class="ol" type="a" id="floating-license-servlet-setup__substeps_sjt_w54_5r">
+                <li class="li">
+                  <p class="p">Paste your license key into the form and click
+                      <span class="ph uicontrol">Register/Activate</span>.</p>
+                  <p class="p"><strong class="ph b">Step Result:</strong> You will be redirected to an online form hosted on the <span class="ph">Oxygen XML Editor</span> website. This form is pre-filled with an activation code
+                    that uniquely identifies your license server deployment, and your license
+                    key.</p>
+                </li>
+                <li class="li">
+                  <p class="p">Click <span class="ph uicontrol">Register/Activate</span>.</p>
+                  <p class="p">If the activation process is successfully completed, your license server is
+                    running. Follow the on-screen instructions to configure the <span class="ph">Oxygen XML Editor</span> client applications.</p>
+                </li>
+              </ol></div>
+          </li>
+          <li class="li">
+            <p class="p">The application's log file location is specified by the
+                <code class="ph codeph">log4j.appender.R2.File</code> property from the
+                <span class="ph filepath">WEB-INF/lib/log4j.properties</span> configuration file.</p>
+            <p class="p">For example, in Apache Tomcat, the configuration file is located at:
+                <span class="ph filepath">TomcatInstallDir/webapps/oXygenLicenseServlet/WEB-INF/lib/log4j.properties</span>
+              and the default log file location is
+                <span class="ph filepath">TomcatInstallDir/logs/oxygenLicenseServlet.log</span>.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__installation_steps_for_multiple_inst"><h2 class="title sectiontitle">Installing Multiple Instances of the Oxygen License Servlet on a Tomcat Web
+        Server</h2>
+      
+      <p class="p">For cases where your organization has multiple sets of licenses (for example, an integrator
+        with multiple clients might host a different license server for each client), follow this
+        procedure to install multiple instances of the <em class="ph i">Oxygen License Servlet</em> on a Tomcat web
+        server:</p>
+      <div class="p">
+        <ol class="ol" id="floating-license-servlet-setup__ol_xcz_yv4_llb">
+          <li class="li">Rename the license server WAR file according to your needs. For example, you could use
+            the customer name and a number (e.g. <em class="ph i">client23415</em>).</li>
+          <li class="li">Go to your Tomcat license server manager (e.g.
+              <span class="ph filepath">http://my.tomcatserver.com:port/manager/</span> ) and enter your
+            credentials.</li>
+          <li class="li">Scroll to <span class="ph uicontrol">WAR file to deploy</span> and press
+              <span class="ph uicontrol">Browse</span> button.</li>
+          <li class="li">Locate the WAR file from step 1 and press the <span class="ph uicontrol">Open</span> button.</li>
+          <li class="li">Press the <span class="ph uicontrol">Deploy</span> button.</li>
+          <li class="li">Check that the newly deployed license server is running (it must be in the
+              <strong class="ph b">Applications</strong> table).</li>
+        </ol>
+      </div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__manual_license_activation_procedure_for_users_who"><h2 class="title sectiontitle">Manual License Activation Procedure (For Users Whose License Server is Offline)</h2>
+      
+      <div class="p">If your license server is not connected to the internet (therefore, the license cannot be
+        activated automatically during the installation), you can manually activate the license by
+        following these steps:<ol class="ol">
+          <li class="li">Access the HTTP license server management page in a web browser.</li>
+          <li class="li">Copy the license server machine signature code.</li>
+          <li class="li">Go to the activation page at: <a class="xref" href="http://www.oxygenxml.com/activation/" target="_blank" rel="external noopener">http://www.oxygenxml.com/activation/</a>.</li>
+          <li class="li">
+            <p class="p">Enter or paste the license server machine signature code and the license key, then
+              click <span class="ph uicontrol">Activate</span>.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> The activated license key is displayed on-screen.</p>
+          </li>
+          <li class="li">Copy the activated license key and paste it in the license registration page of the
+            HTTP server.</li>
+        </ol></div>
+    </section>
+    
+    <section class="section" id="floating-license-servlet-setup__preconfiguring_license_server_details_when_instal"><h2 class="title sectiontitle">Preconfiguring License Server Details When Installing <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">It is possible to install <span class="ph">Oxygen XML Editor</span> with the license server details
+        preconfigured. For more information see:<ul class="ul">
+          <li class="li"><strong class="ph b">Windows:</strong>
+            <a class="xref" href="eppo-installation-windows.html#eppo-installation-windows__parameters-preconfig-license">Windows Installation: Command-Line Parameters for Preconfiguring License Server
+              Details</a></li>
+          <li class="li"><strong class="ph b">Linux:</strong>
+            <a class="xref" href="eppo-installation-linux.html#eppo-installation-linux__parameters-preconfig-license">Linux Installation: Command-Line Parameters for Preconfiguring License Server
+              Details</a></li>
+        </ul></div>
+    </section>
+    <section class="section" id="floating-license-servlet-setup__backup_server_information"><h2 class="title sectiontitle">Backup License Server Information</h2>
+      
+      <p class="p">If you want to use a backup license server, the setup instructions are the same as the
+        procedures for a main license server, but it will require its own separate license key. You
+        do not need to purchase the separate license if it is to be used for a backup server, but
+        you will need to request a separate license key by contacting the <a class="xref" href="https://www.oxygenxml.com/support.html" target="_blank" rel="external noopener">Oxygen support team</a>. </p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/servlet-report-page.html">License Server Management and Statistics Pages</a><br></li><li class="link olchildlink"><a href="../topics/replace-floating-license.html">Replacing or Removing a License Key in an HTTP License Server</a><br></li><li class="link olchildlink"><a href="../topics/upgrade-license-servlet.html">Upgrading Your HTTP License Server</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/installation-setting-up-license-server.html">License Servers</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="machine-signature-mismatch.html">Troubleshooting: Machine Signature Mismatch Errors</a></li></ul></div></nav>
+</article></main></body></html>

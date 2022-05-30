@@ -1,0 +1,647 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Projects,Project view,Project view,Managing resources"><meta name="keywords" content="Projects, Project view, Project view, Managing resources"><meta name="DC.relation" scheme="URI" content="../topics/grouping-documents-xml-projects.html"><meta name="DC.relation" scheme="URI" content="../topics/create-new-project.html"><meta name="DC.relation" scheme="URI" content="../topics/move-rename-resources-project-view.html"><meta name="DC.relation" scheme="URI" content="../topics/move-rename-resources-project-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="using-the-project-view"><title>Project View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="using-the-project-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Project</span> View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Project</span> view is
+      designed to assist you with organizing and managing related files grouped in the same XML
+      project. The actions available in the contextual menu and on the toolbar associated to this
+      panel allows you to create XML projects and provide shortcuts to various operations for the
+      project documents.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Project View</figcaption>
+        
+        <img class="image" src="../img/sa_editor_project_panel.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">By default, the view is positioned on the left side of the <span class="ph">Oxygen XML Editor</span> window,
+      above the <a class="xref" href="outliner-view.html"><span class="ph uicontrol">Outline</span> view</a>. If the
+      view has been closed, it can be reopened at any time from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu <span class="ph">(or using the <span class="ph uicontrol">Show
+          Project View</span> action from the <span class="ph uicontrol">Project</span> menu)</span>.</p>
+    <section class="section" id="using-the-project-view__project_view_toolbar"><h2 class="title sectiontitle">Project View Toolbar</h2>
+      
+      <p class="p">The tree structure occupies most of the view area. In the
+        upper left side of the view, there is a drop-down menu that contains all recently used
+        projects and some actions to open a project or create a new one. You can use this history
+        drop-down menu to quickly switch to a recently opened project. If you enable the <a class="xref" href="preferences-application-layout.html#preferences-application-layout__remember-layout"><span class="ph uicontrol">Remember layout changes for each project</span> option in the
+            <span class="ph uicontrol">Application Layout</span> preferences page</a>, the application will
+        remember the layout, open files, and editing location for your session when you switch
+        projects.</p>
+      <div class="p">The following actions are grouped in the upper right corner:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_vqr_1jt_tr" src="../img/CollapseAll16.png">Collapse
+                All</span></dt>
+            <dd class="dd">Collapses all project tree folders. You can also collapse/expand a project tree
+              folder if you select it and press the
+                <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> key or <span class="ph uicontrol"><span class="keyword shortcut">Left
+                  Arrow</span></span> to collapse and <span class="ph uicontrol"><span class="keyword shortcut">Right
+                  Arrow</span></span> to expand.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_b3j_pft_tr" src="../img/CaretUpdateOff16.png">Link with
+                Editor</span></dt>
+            <dd class="dd">When selected, the project tree highlights the currently edited file, if it is found
+              in the project files. <div class="note note note_note"><span class="note__title">Note:</span> This button is disabled automatically when you move to the
+                  <span class="ph uicontrol">Debugger</span>
+                <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>. </div></dd>
+          
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_fmh_kyl_tq" src="../img/Settings16.png">Settings</span></dt>
+            <dd class="dd">
+              <p class="p">A submenu that contains the following actions: </p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_vyj_mjt_tr" src="../img/Filters16.png">Filters</span></dt>
+                    <dd class="dd">Allows you to filter the information displayed in the
+                        <span class="ph uicontrol">Project</span> view. Click the toolbar button to set filter
+                      patterns for the files you want to show or hide. Also, you can set filter
+                      patterns for the linked directories that are hidden.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Show Full Path</span></dt>
+                    <dd class="dd">When selected, linked files and folders are presented with a full file path.
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Enable Master Files Support </span></dt>
+                    <dd class="dd">Select this option to enable the <a class="xref" href="defining_master_files.html#defining_master_files"><span class="ph uicontrol">Master
+                          Files</span> support</a>. </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Change Search and Refactor operations scope</span></dt>
+                    <dd class="dd">Allows you to change the collection of documents that define the context of
+                      the <a class="xref" href="search-refactor-scope.html">search and refactor
+                        operations</a>. <ul class="ul">
+                        <li class="li"><span class="ph uicontrol">Use only Master Files, if enabled</span> - Restricts <span class="ph">Oxygen XML Editor</span> to perform the search and refactor operations
+                          starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master
+                              files</dfn></a> that are defined for the current resource. This
+                          option is available when you select <span class="ph uicontrol">Project</span> in the
+                            <span class="ph uicontrol">Select the scope for Search and Refactor
+                            operations</span> dialog box and the <span class="ph uicontrol">Master
+                            Files</span> support is enabled.</li>
+                        <li class="li"><span class="ph uicontrol">Working sets</span> - Allows you to specify the set of
+                          files that will be used for the scope of the search and refactor
+                          operations.</li>
+                      </ul></dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="using-the-project-view__file_explorer_area"><h2 class="title sectiontitle">File Explorer Area</h2>
+      
+      <p class="p">The rest of the view is basically a file explorer similar to most other commonly used file
+        explorers. The XML project (<span class="ph filepath">.xpr</span> file) is a logical container with a
+        collection of resources (folders and files). The types of resources displayed include:</p>
+      <ul class="ul">
+        <li class="li"><strong class="ph b">Logical folders with Linked folders/files</strong> - <span class="ph">Marked with a blue icon on Windows and Unix/Linux (<img class="image" src="../img/LogicalFolderWindows16.png">) and a magenta icon on Mac OS X (<img class="image" src="../img/LogicalFolderOpenMac16.png">), they help you group files within the
+            project. </span>This folder type is used as containers for linked resources (shortcuts).
+          The icons for file shortcuts include a shortcut symbol (<img class="image" src="../img/LinkedFile16.png">)<span class="ph"> and names of folder shortcuts are displayed in
+            bold text</span>. The <span class="ph">logical folders are created on
+            the project root or inside other logical folders by using the contextual menu action <span class="ph menucascade"><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Logical Folder</span></span>, and the </span>linked folders/files are added using <span class="ph"><span class="ph uicontrol">Add Files</span>, <span class="ph uicontrol">Add
+              Folder</span></span>, or by dragging and dropping files/folders from the view or the
+          system file explorer. <span class="ph uicontrol"><img class="image" id="using-the-project-view__image_zv4_cv2_tq" src="../img/RemoveSelected16.gif">Remove from
+            Project</span> can be used to remove them
+          from the project<span class="ph"> and the <span class="ph uicontrol"><img class="image" src="../img/TrashIcon16.gif">Remove from Disk
+              (<span class="keyword shortcut">Shift+Delete</span>)</span> action can be used to remove them from
+            both the project and the local file system</span>.</li>
+        <li class="li"><strong class="ph b">Physical folders and files</strong> - Marked with the operating system-specific icon for
+          folders (usually a yellow icon on Windows and a blue icon on Mac OS X). These folders and
+          files are mirrors of real folders or files that exist in the local file system. They are
+          created or added to the project by using contextual menu actions (such as <span class="ph menucascade"><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">File</span></span>, <span class="ph menucascade"><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Folder</span></span>, <span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Copy</span>, and
+              <span class="ph uicontrol"><img class="image" src="../img/Paste16.png">Paste</span>) or by dragging and
+          dropping files/folders from the view or the system file explorer. Also, the contextual
+          menu action <span class="ph uicontrol"><img class="image" id="using-the-project-view__image_jrq_mph_5r" src="../img/TrashIcon16.gif">Remove from Disk
+              (<span class="keyword shortcut">Shift+Delete</span>)</span> can be used to
+          remove them from the project and local file system.</li>
+      </ul>
+      <div class="p">
+        <figure class="fig fignone" id="using-the-project-view__fig_bz2_5s2_tq"><figcaption><span class="fig--title-label">Figure 2. </span>Project View with Both Types of Resources</figcaption>
+          
+          <img class="image" id="using-the-project-view__image_ay3_gc2_tq" src="../img/project_view.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+    </section>
+    <section class="section" id="using-the-project-view__creating_new_projects"><h2 class="title sectiontitle">Creating New Projects</h2>
+      
+      <div class="p">The following <span class="ph">action is </span>available from the
+          <span class="ph uicontrol">New</span> menu when right-clicking any item, <span class="ph">the <span class="ph uicontrol">Project</span> menu, or from the
+          drop-down menu in the top-left of the <span class="ph uicontrol">Project</span> view</span>:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewProject16.png">New Project</span></dt>
+          <dd class="dd">Opens a wizard that assists you with creating a new project. For more details, see
+              <a class="xref" href="create-new-project.html">Creating a New Project</a>.</dd>
+        
+          
+          
+        </dl></div>
+    </section>
+    <section class="section" id="using-the-project-view__managing_physical_folders_and_files"><h2 class="title sectiontitle">Managing Project Contents</h2>
+      
+      <p class="p">There are various contextual menu actions, shortcuts, and ways to organize the folders and
+        files inside the project:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Creating New Folders and Files</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Right-click any item</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" src="../img/New16.png">File</span></span></dt>
+                    <dd class="dd">Opens a <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> file dialog box</a> that helps you create a
+                      new file and adds it to the project structure.</dd>
+                  
+                  
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Right-click any item in a physical folder</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" src="../img/NewFolder16.png">Folder</span></span></dt>
+                    <dd class="dd">Opens a <span class="ph uicontrol">New Folder</span> dialog box that allows you to
+                      specify a name for a new folder and adds it to the structure of the
+                      project.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Right-click any item in a logical folder</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" src="../img/LogicalFolderWindows16.png">Logical Folder</span></span></dt>
+                    <dd class="dd">Creates a logical folder in the tree structure (the icon is a magenta folder
+                      on Mac OS X <img class="image" src="../img/LogicalFolderOpenMac16.png">).</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Right-click on a logical folder</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Logical Folders from Web</span></span></dt>
+                    <dd class="dd">Replicates the structure of a remote folder accessible over FTP/SFTP/WebDAV,
+                      as a structure of logical folders. The newly created logical folders contain
+                      the file structure of the folder it points to.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Adding Resources</dt>
+            <dd class="dd">
+              <p class="p">You can add resources by using drag and drop (or <span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Copy</span> and <span class="ph uicontrol"><img class="image" src="../img/Paste16.png">Paste</span>) actions from within the <span class="ph uicontrol">Project</span> view
+                or dragging them from the system file explorer. Files may have multiple instances
+                within the folder system, but cannot appear twice within the same folder.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Adding Resources to Logical Folders</dt>
+            <dd class="dd">
+              <p class="p">You can add resources to logical folders by using the following actions available
+                in the contextual menu when invoked on a logical folder (or the project's root
+                container):</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/AddLinksToFoldersWindows16.png">Add Folder</span></dt>
+                    <dd class="dd">Adds a link to a physical folder, whose name and content mirror a real
+                      folder that exists in the local file system (the icon for this action is
+                      different on Mac OS X <img class="image" src="../img/AddLinksToFoldersMac16.png">).</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/AddFiles16.png">Add
+                        Files</span></dt>
+                    <dd class="dd">Adds links to files on the local file system.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/AddSelectedFile16.png">Add Edited
+                        File</span></dt>
+                    <dd class="dd">Adds a link to the currently edited file in the project.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Removing Folders and Files</dt>
+            <dd class="dd">
+              <p class="p">To remove logical folders or the linked resources inside them from the project, use
+                  <span class="ph uicontrol"><img class="image" id="using-the-project-view__image_pks_btq_y3b" src="../img/RemoveSelected16.gif">Remove from
+                  Project</span> from
+                the contextual menu (or press <span class="ph uicontrol"><span class="keyword shortcut">Delete</span></span> on
+                your keyboard).</p>
+              <p class="p">To remove folders or files from both the project and the local file system, use <span class="ph"><span class="ph uicontrol"><img class="image" src="../img/TrashIcon16.gif">Remove from Disk</span> from the contextual menu (or press
+                      <span class="ph uicontrol"><span class="keyword shortcut">Shift+Delete</span></span> on your
+                  keyboard)</span>.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Moving Folders and Files</dt>
+            <dd class="dd">
+              <p class="p">You can move the resources by using drag and drop actions from within the
+                  <span class="ph uicontrol">Project</span>
+                  view<span class="ph"> (the <span class="ph uicontrol">Enable drag-and-drop in
+                    Project view</span> option must be selected in the <a class="xref" href="preferences-view.html#preferences-view"><span class="ph uicontrol">View</span>
+                    preferences page</a>)</span>.</p>
+              <p class="p"><span class="ph">You can also use the usual <span class="ph uicontrol"><img class="image" src="../img/Cut16.png">Cut</span>, <span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Copy</span>, and <span class="ph uicontrol"><img class="image" src="../img/Paste16.png">Paste</span> actions to move resources in the
+                  project.</span></p>
+              <div class="p">You can also move certain types of files (such as XML<span class="ph">, XML Schema, Relax NG,
+                  WSDL, and XSLT</span>) by using the <span class="ph menucascade"><span class="ph uicontrol">Refactoring</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Move resource</span></span> action from the contextual menu. This action opens the
+                  <span class="ph uicontrol">Move resource</span> dialog box that includes the following
+                  options:<ul class="ul" id="using-the-project-view__ul_vn2_rrq_ls">
+                  <li class="li"><span class="ph uicontrol">Destination</span> - Presents the path to the current location
+                    of the resource you want to move and gives you the option to introduce a new
+                    location.</li>
+                  <li class="li"><span class="ph uicontrol">New name</span> - Presents the current name of the moved
+                    resource and gives you the option to change it.</li>
+                  <li class="li"><span class="ph uicontrol">Update references of the moved resource(s)</span> - Select
+                    this option to update the references to the resource you are moving, based upon
+                    the selected scope. You can <a class="xref" href="search-refactor-scope.html#search-refactor-scope">select or configure
+                      the scope</a> by using the <span class="ph uicontrol"><img class="image" id="using-the-project-view__image_d1j_v5h_5r" src="../img/ConfigureSearchScope16.png"></span>
+                    button.</li>
+                </ul></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Renaming Folders and Files</dt>
+            <dd class="dd">
+              <div class="p">There are several ways to rename a folder or file in the project (this works for
+                both physical and linked resources):<ul class="ul" id="using-the-project-view__ul_nkv_dtq_y3b">
+                  <li class="li">Select <span class="ph uicontrol">Rename</span> from the contextual menu.</li>
+                  <li class="li">Press <span class="ph uicontrol"><span class="keyword shortcut">F2</span></span> on your keyboard.</li>
+                  <li class="li">Select the item, then click the name, and
+                    type the new name.</li>
+                </ul></div>
+              <div class="p">You also can rename certain types of files (such as XML<span class="ph">, XML Schema, Relax NG,
+                  WSDL, and XSLT</span>) by using the <span class="ph menucascade"><span class="ph uicontrol">Refactoring</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Rename resource </span></span> action from the contextual menu. This action opens the
+                  <span class="ph uicontrol">Rename resource</span> dialog box that includes the following
+                  options:<ul class="ul" id="using-the-project-view__ul_odt_vtq_ls">
+                  <li class="li"><span class="ph uicontrol">New name</span> - Presents the current name of the edited
+                    resource and allows you to modify it.</li>
+                  <li class="li"><span class="ph uicontrol">Update references of the renamed resource</span> - Select this
+                    option to update the references to the resource you are renaming. You can <a class="xref" href="search-refactor-scope.html#search-refactor-scope">select or configure
+                      the scope</a> by using the <span class="ph uicontrol"><img class="image" id="using-the-project-view__image_dlf_3qq_ls" src="../img/ConfigureSearchScope16.png"></span>
+                    button.</li>
+                </ul></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Opening Files</dt>
+            <dd class="dd">There are several ways to open a file:<ul class="ul">
+                <li class="li">Double-click the file.</li>
+                <li class="li">Select it and press <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span> on your
+                  keyboard.</li>
+                <li class="li">Right-click the file and select <span class="ph uicontrol">Open</span>.</li>
+                <li class="li"><span class="ph">If there are no other files open in the
+                    editor area, you can drag</span> the file from
+                  the project tree and drop it in the editor area.</li>
+                <li class="li">If you want to choose the application or location where to open it, you can
+                  right-click the file and select <span class="ph uicontrol">Open with</span>.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Saving the Project</dt>
+            <dd class="dd">The project file is automatically saved every time the content of the <span class="ph uicontrol">Project</span> view is
+              saved or modified by actions such as adding or removing files and drag and drop.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="using-the-project-view__other_contextual_menu_actions"><h2 class="title sectiontitle">Other Contextual Menu Actions</h2>
+      
+      <div class="p">Numerous other actions are available in the contextual menu, depending on the type of file
+        or folder where it is invoked from (some actions are available for multiple selected files):<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Show in</span> submenu</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Explorer</span> (<span class="ph uicontrol">Finder</span> on OS X)</dt>
+                    <dd class="dd">On Windows and Mac OS X, the parent directory of the selected file or folder
+                      is presented in a specific Explorer/Finder window, and the selected resource
+                      is highlighted. On Linux, the selected file or folder is not highlighted after
+                      opening its parent in the file explorer.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Terminal</span></dt>
+                    <dd class="dd">Opens a console (terminal) at the location of the selected physical
+                      resource. If the resource is a file, it will start at the parent
+                      directory.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Copy Location</span></dt>
+            <dd class="dd">Copies an application-specific URL for the selected resource to the clipboard.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Refactoring</span> submenu</dt>
+            <dd class="dd">
+              <p class="p"><span class="ph">Oxygen XML Editor</span> includes some refactoring operations that help you manage
+                the structure of your documents. The following actions are available from the
+                contextual menu in the <span class="ph uicontrol">Refactoring</span> submenu:</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Rename resource</span> (Available for certain types of XML
+                      documents) </dt>
+                    <dd class="dd">Opens the <a class="xref" href="move-rename-resources-project-view.html"><span class="ph uicontrol">Rename resource</span> dialog box</a> where you can
+                      change the name of a resource. It also includes an option to update the
+                      references to the renamed resource and you can choose between various scopes
+                      for the operation. </dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Move resource</span> (Available for certain types of XML
+                      documents)</dt>
+                    <dd class="dd">Opens the <a class="xref" href="move-rename-resources-project-view.html"><span class="ph uicontrol">Move resource</span> dialog box</a> where you can
+                      choose a destination and change the name of a resource. It also includes an
+                      option to update the references to the moved resource and you can choose
+                      between various scopes for the operation.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XMLRefactoring16.png">XML
+                        Refactoring</span></dt>
+                    <dd class="dd">Opens the <a class="xref" href="refactoring-xml-documents.html"><span class="ph uicontrol">XML
+                          Refactoring</span> tool wizard</a> that presents refactoring
+                      operations to assist you with managing the structure of your XML
+                      documents.</dd>
+                  
+                  
+                    <dt class="dt dlterm">Other XML Refactoring Actions</dt>
+                    <dd class="dd">For your convenience, the last 5 <a class="xref" href="refactoring-xml-documents.html">XML Refactoring tool
+                        operations</a> that were finished or previewed will also appear in this
+                      submenu.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Resource
+                Hierarchy</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="xml-resource-hierarchy-view.html#xml-resource-hierarchy-view"><span class="ph uicontrol">Resource Hierarchy/Dependencies</span> view</a> that allows
+              you to see the resource hierarchy for an XML document.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Resource
+                Dependencies</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="xml-resource-hierarchy-view.html#xml-resource-hierarchy-view"><span class="ph uicontrol">Resource Hierarchy/Dependencies</span> view</a> that allows
+              you to see the resource dependencies for an XML document.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_pvw_jhw_sr" src="../img/Refresh16.png">Refresh</span></dt>
+            <dd class="dd">Refreshes the content and the dependencies between the resources in <a class="xref" href="defining_master_files.html#defining_master_files">the <span class="ph uicontrol">Master
+                  Files</span> directory</a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_kgr_dqh_5r" src="../img/SearchInPath16.png">Find/Replace in Files</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> dialog box</a> that allows you to
+              find and replace text in multiple files. </dd>
+          
+          
+            <dt class="dt dlterm" id="using-the-project-view__xpath-in-files"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_zbj_5dh_5r" src="../img/XPath16.gif">XPath in
+                Files</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="xpath-builder-view.html"><span class="ph uicontrol">XPath/XQuery
+                  Builder</span> view</a> that allows you to compose XPath and XQuery
+              expressions and execute them over the currently edited XML document.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_c2z_knp_sr" src="../img/OpenResource16.png">Open/Find
+                Resource</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="open-find-resource-dialog.html#open-find-resource-dialog"><span class="ph uicontrol">Open/Find Resource</span> dialog box</a>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_mff_gvh_5r" src="../img/CheckSpelling16.png">Check
+                Spelling in Files</span></dt>
+            <dd class="dd">Allows you to <a class="xref" href="spell-check-in-files.html#spell-check-in-files">check the spelling of multiple files.</a>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_mff_wj1_5r" src="../img/PrettyPrint16.png">Format and
+                Indent Files</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="format-indent-multiple-files.html#format-indent-multiple-files"><span class="ph uicontrol">Format and Indent Files</span> dialog box</a> that allows you
+              to configure the format and indent (<a class="xref" href="../glossary/pretty-print.html"><dfn class="term">pretty-print</dfn></a>) action that will be applied on the selected
+              documents.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SyncroSVNClient16.png">Open in
+                SVN Client</span></dt>
+            <dd class="dd"><a class="xref" href="svn-quick-start.html#svn-quick-start">Syncro SVN
+                Client</a> tool is opened and it highlights the selected resource in its
+              corresponding working copy.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Compare</span></dt>
+            <dd class="dd">
+              <p class="p">Allows you to compare multiple files or directories and the order of your selection
+                determines where they are opened in the <a class="xref" href="file-comparison.html#file-comparison"><span class="ph uicontrol">Compare
+                  Files</span></a> or <a class="xref" href="directories-comparison.html#directories-comparison"><span class="ph uicontrol">Compare
+                    Directories</span></a> tool. If you select two files or folders, your
+                first selection will be opened in the left panel and the other one in the right
+                panel.</p>
+              <p class="p">You can also select 3 files and the tool will automatically be opened in the <a class="xref" href="file-comparison.html#file-comparison__threeway_comparisons">three-way
+                  comparison mode</a>. If you select three files, your first selection will be
+                opened in the left panel, the second in the right panel, and the third selection
+                will be the base (ancestor) file.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">HTML to XML Well-formed (Available when selecting multiple resources)</dt>
+            <dd class="dd">Batch converts the selected HTML documents to be XML well-formed. This means that
+              missing end tags will be added to applicable elements,.unclosed tags will be properly
+              closed, and quotes will be added to attribute values that were missing the
+                quotes.<div class="note note note_note"><span class="note__title">Notes:</span> 
+      <ul class="ul" id="using-the-project-view__ul_jw4_cm5_xmb">
+        <li class="li">All selected HTML files are backed up before being processed (same path/name but with
+          the ".bak" extension added at the end).</li>
+        <li class="li">Any detected conversion errors are grouped and listed in a dedicated tab in the
+            <span class="ph uicontrol">Results</span> pane at the bottom of the application.</li>
+        <li class="li">A brief report is displayed at the end of the operation.</li>
+      </ul>
+    </div></dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Transform</span> submenu</dt>
+          <dd class="dd">
+            <p class="p">The currently selected files <span class="ph">in the
+                  <span class="ph uicontrol">Project</span> view</span> can be transformed in one step
+              with one of the following actions available from contextual menu in the
+                <span class="ph uicontrol">Transform</span> submenu:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="using-the-project-view__apply-transformation-scenario"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ApplyStyleSheet16.png">Apply Transformation
+                      Scenario(s)</span></dt>
+                  <dd class="dd">Obtains the output with one of the <a class="xref" href="builtin-transformation-scenarios.html#builtin-transformation-scenarios">built-in scenarios</a>.</dd>
+                
+                
+                  <dt class="dt dlterm" id="using-the-project-view__configure-transformation-scenario"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TransformConfig16.png">Configure
+                      Transformation Scenario(s)</span></dt>
+                  <dd class="dd">Opens a <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog">dialog box</a> that allows you to configure pre-defined transformation
+                    scenarios.</dd>
+                
+                
+                  <dt class="dt dlterm" id="using-the-project-view__transform-with"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TransformConfig16.png">Transform
+                      with</span></dt>
+                  <dd class="dd">Allows you to select a transformation scenario to be applied to the currently
+                    selected files.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Validate</span> submenu</dt>
+          <dd class="dd">
+            <p class="p">The currently selected files <span class="ph">in the
+                  <span class="ph uicontrol">Project</span> view</span> can be checked to be XML
+              well-formed or validated against a schema (DTD, XML Schema, Relax NG, Schematron or
+              NVDL) with one of the following contextual menu actions found in the
+                <span class="ph uicontrol">Validate</span> submenu:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="using-the-project-view__check-well-formedness"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/WellFormed16.png">Check
+                      Well-Formedness</span></dt>
+                  <dd class="dd">Checks if the selected file or files are well-formed.</dd>
+                
+                
+                  <dt class="dt dlterm" id="using-the-project-view__validate"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Validate16.png">Validate</span></dt>
+                  <dd class="dd">Validates the selected file or files against their associated schema. <span class="ph">For
+                      EPUB files, this action triggers an <a class="xref" href="working-with-epub.html"><span class="ph uicontrol">EPUB
+                          Validate and Check for Completeness</span></a> operation.</span>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="using-the-project-view__validate-with-schema"><span class="ph uicontrol">Validate with Schema</span></dt>
+                  <dd class="dd">Validates the selected file of files against a specified schema.</dd>
+                
+                
+                  <dt class="dt dlterm" id="using-the-project-view__configure-validation-scenario"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ValidationConfig16.png">Configure
+                      Validation Scenario(s)</span></dt>
+                  <dd class="dd">Allows you to configure and run a <a class="xref" href="validation-scenario.html#validation-scenario">validation scenario</a>.</dd>
+                
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Generate Documentation</span> submenu</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Generate Documentation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Schema Documentation</span></span></dt>
+                    <dd class="dd">Opens <a class="xref" href="documentation-XML-Schema.html">the XML
+                        Schema Documentation Dialog Box</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Generate Documentation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT Stylesheet Documentation</span></span></dt>
+                    <dd class="dd">Opens <a class="xref" href="documentation-XSLT-Stylesheet.html#documentation-XSLT-Stylesheet">the
+                        XSLT Stylesheet Documentation Dialog Box</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Generate Documentation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XQuery Documentation</span></span></dt>
+                    <dd class="dd">Opens <a class="xref" href="html-documentation-xquery-documents.html#html-documentation-xquery-documents">the XQuery Documentation Dialog Box</a>.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph menucascade"><span class="ph uicontrol">Generate Documentation</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">WSDL Documentation</span></span></dt>
+                    <dd class="dd">Opens <a class="xref" href="wsdl-generating-documentation.html#wsdl-generating-documentation">the
+                        WSDL Documentation Dialog Box</a>.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+          
+          
+          
+          
+            <dt class="dt dlterm" id="using-the-project-view__properties_files"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_mtw_d5h_5r" src="../img/DockableFrameProperties16.png">Properties</span></dt>
+            <dd class="dd">Displays the properties of the current file in a <span class="ph uicontrol">Properties</span>
+              dialog box.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Enable Master Files Support</span> (Available from the project
+              container)</dt>
+            <dd class="dd">Allows you to enable the <a class="xref" href="enabling-the-master-files-support.html"><span class="ph uicontrol">Master Files Support</span></a> for each project you are
+              working on.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/DetectMasterFiles16.png">Detect
+                Master Files</span> (Available from the project container when Master Files
+              Support is enabled)</dt>
+            <dd class="dd">Opens the <a class="xref" href="detecting-master-files.html"><span class="ph uicontrol">Detect Master
+                  Files</span> wizard</a> that enables the automatic detection of
+                <dfn class="term">master files</dfn>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/AddToMasterFiles16.png">Add to Master
+                Files</span> (Available when Master Files Support is enabled)</dt>
+            <dd class="dd"><a class="xref" href="adding-removing-a-master-file.html">Adds the selected files to the
+                Master Files folder</a>.</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="using-the-project-view__menu_level_actions"><h2 class="title sectiontitle">Project Menu Actions</h2>
+      
+      <div class="p">The following actions are available in the <span class="ph uicontrol">Project</span> menu:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewProject16.png">New Project</span></dt>
+          <dd class="dd">Opens a wizard that assists you with creating a new project. For more details, see
+              <a class="xref" href="create-new-project.html">Creating a New Project</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/OpenProject16.png">Open
+              Project</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="using-the-project-view__ctrl_f2_shortcut">Ctrl + F2 (Command + F2
+                    on OS X)</span></span>)</dt>
+          <dd class="dd">Opens an existing project. Alternatively, you can open a project by dropping an <span class="ph">Oxygen XML Editor</span> XPR project file from the file explorer into the
+              <span class="ph uicontrol">Project</span> panel.<div class="note notice note_notice" id="using-the-project-view__security-note"><span class="note__title">Notice:</span> When a
+              project is opened for the first time, a confirmation dialog box will be displayed that
+              asks you to confirm that the project came from a trusted source. This is meant to help
+              prevent potential security issues.</div></dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Save Project As</span></dt>
+            <dd class="dd">Allows you to save the current project under a different name.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_oxb_r5h_5r" src="../img/ValidateAll16.png">Validate
+                all project files</span></dt>
+            <dd class="dd">Checks if the project files are well-formed and their mark-up conforms with the
+              specified DTD, XML Schema, or Relax NG schema rules. It returns an error list in the
+              message panel.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_o2g_rjt_tr" src="../img/Filters16.png">Filters</span></dt>
+            <dd class="dd">Opens the <span class="ph uicontrol">Project filters</span> dialog box that allows you to
+              decide which files and directories will be shown or hidden.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Enable Master Files Support</span></dt>
+            <dd class="dd">Allows you to enable the <a class="xref" href="enabling-the-master-files-support.html"><span class="ph uicontrol">Master Files Support</span></a> for each project you are
+              working on.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="using-the-project-view__image_rft_55h_5r" src="../img/ConfigureSearchScope16.png">Change Search and Refactor operations scope</span></dt>
+            <dd class="dd">Opens a dialog box that allows you to define the context of search and refactor
+              operations.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Show Project View</span></dt>
+            <dd class="dd">Displays the <span class="ph uicontrol">Project</span> view.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Reopen Project</span></dt>
+            <dd class="dd">Contains a list of links of previously used projects. This list can be emptied by
+              invoking the <span class="ph uicontrol">Clear history</span> action.</dd>
+          
+        </dl></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/move-rename-resources-project-view.html">Moving/Renaming Resources in the Project View</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/grouping-documents-xml-projects.html">Using Projects to Group Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/create-new-project.html">Creating a New Project</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/move-rename-resources-project-view.html">Moving/Renaming Resources in the Project View</a></div></div></nav></article></main></body></html>

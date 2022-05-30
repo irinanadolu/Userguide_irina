@@ -1,0 +1,101 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function is used to evaluate XPath expressions."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_xpath"><meta name="keywords" content="CSS extensions, Custom functions, oxy_xpath"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-url-function.html"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-xpath-function"><title>XPath: oxy_xpath() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-xpath-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XPath: oxy_xpath() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function is used to evaluate XPath expressions.</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Syntax:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_xpath</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>XPathExpression</b></kbd>
+                  <kbd class="ph sep">[,</kbd>
+                  <kbd><b>processChangeMarkers</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>value</b></kbd>
+                  <kbd class="ph sep">]</kbd>
+                  <kbd class="ph sep">[,</kbd>
+                  <kbd><b>evaluate</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>value</b></kbd>
+                  <kbd class="ph sep">])</kbd>
+                 
+              </div>
+            </div>
+            <p class="p">It evaluates the given XPath 2.0 expression using Saxon 9 and returns the result.
+              XPath expressions that depend on the cursor location can be successfully evaluated
+              only when the cursor is located in the actual XML content. Evaluation fails when the
+              current editing context is inside a referenced <strong class="ph b">xi:include</strong> section or inside
+              artificially referenced content (for example, DITA <code class="keyword markupname xmlatt">@conref</code> or
+                <code class="keyword markupname xmlatt">@topicref</code> references).</p>
+            <div class="p">The parameters of the function are as follows: <ul class="ul" id="dg-xpath-function__ul_g4l_r5j_4r">
+                <li class="li">A required <code class="ph codeph">expression</code> parameter, which is the XPath expression
+                  to be evaluated. </li>
+                <li class="li">An optional <code class="ph codeph">processChangeMarkers</code> parameter, followed by its
+                  value, which can be either <code class="ph codeph">true</code> or <code class="ph codeph">false</code>
+                  (default value). When you set the parameter to <code class="ph codeph">true</code>, the function
+                  returns the resulting text with all the change markers accepted (<em class="ph i">delete</em>
+                  changes are removed and <em class="ph i">insert</em> changes are preserved). </li>
+                <li class="li">An optional <code class="ph codeph">evaluate</code> parameter, followed by its value, which
+                  can be one of the following:<ul class="ul" id="dg-xpath-function__ul_m32_lv3_qr">
+                    <li class="li"><strong class="ph b">dynamic</strong> - Evaluates the XPath each time there are changes in the
+                      document.</li>
+                    <li class="li"><strong class="ph b">dynamic-once</strong> - Separately evaluates the XPath for each node that
+                      matches the CSS selector. It will not re-evaluate the expression when changes
+                      are made to other nodes in the document. This will lead to improved
+                      performance, but the displayed content may not be updated to reflect the
+                      actual document content.</li>
+                    <li class="li"><strong class="ph b">static</strong> - If the same XPath is evaluated on several nodes, the result
+                      for the first evaluation will be used for all other matches. Use this only if
+                      the XPath does not contain a relationship with the node on which the CSS
+                      property is evaluated. This will lead to improved performance, but the static
+                      displayed content may not be updated to reflect the actual document
+                        content.<div class="note note note_note"><span class="note__title">Note:</span> When XPath expressions are evaluated, the entities and
+                          <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> elements are replaced with the actual
+                        content that is referenced. For example, consider the following code
+                        snippet:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;article&gt;</strong>
+  <strong class="hl-tag">&lt;xi:include</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"section1.xml"</span> <span class="hl-attribute">xmlns:xi</span>=<span class="hl-value">"http://www.w3.org/2001/XInclude"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/article&gt;</strong></pre>where
+                          <span class="ph filepath">section1.xml</span> contains the following
+                        content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;section&gt;</strong>
+  <strong class="hl-tag">&lt;p&gt;</strong>Referenced content<strong class="hl-tag">&lt;/p&gt;</strong>
+<strong class="hl-tag">&lt;/section&gt;</strong></pre>The
+                        XPath expression will be executed over the actual content in the
+                          <span class="ph filepath">section1.xml</span> file.</div></li>
+                  </ul></li>
+              </ul></div>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_xpath</em> Function</u></strong></p>
+    <div class="p">The following example counts the number of words from a paragraph (including <a class="xref" href="../glossary/track-changes.html"><dfn class="term">tracked changes</dfn></a>) and displays the
+      result in front of
+      it:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">para:before{ 
+  <strong class="hl-keyword">content</strong>: 
+   concat(<span class="hl-string">"|Number of words:"</span>, 
+    oxy_xpath(
+        <span class="hl-string">"count(tokenize(normalize-space(string-join(text(), '')), ' '))"</span>,
+        processChangeMarkers,
+       true),
+    <span class="hl-string">"| "</span>); 
+}</pre></div>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">oxy_xpath()</code> function supports <a class="xref" href="editor-variables.html#editor-variables"><dfn class="term">editor variables</dfn></a>, as in
+        the following
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">* {
+    <strong class="hl-keyword">content</strong>: 
+    oxy_concat(<span class="hl-string">"Result: "</span>, 
+        oxy_xpath(<span class="hl-string">'count(collection("${cfdu}/?select=*.xml"))'</span>)
+    );
+}</pre></div>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-url-function.html" title="This function extends the standard CSS url() function by allowing you to specify additional relative path components (parameters loc_1 to loc_n).">URL: oxy_url() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div></div></nav></article></main></body></html>

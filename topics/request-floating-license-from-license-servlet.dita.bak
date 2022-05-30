@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="request-floating-license-from-license-servlet">
+    <title>Requesting a Floating License from an HTTP License Server</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Licensing Oxygen<indexterm>Request a floating license<indexterm>HTTP license
+              server</indexterm></indexterm></indexterm>
+        <indexterm>Request a floating license from an HTTP license server</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+    <body>
+    <section id="section_tx2_3m5_shb">
+      <title>How to Request a Floating License</title>
+      <p>To request a floating license from an HTTP license server, follow this procedure:<ol
+          id="ol_frq_jm5_shb">
+          <li>Contact your server administrator to make sure the license server has already been set
+            up and get network address and login details for the license server.</li>
+          <li><ph product="author developer editor svnClient">Start <ph keyref="product"/>.</ph><ph
+              product="editorEclipse authorEclipse developerEclipse">Start the Eclipse
+              platform.</ph></li>
+          <li>
+            <p><ph product="author developer editor svnClient">Go to <menucascade>
+                  <uicontrol>Help</uicontrol>
+                  <uicontrol>Register</uicontrol>
+                </menucascade></ph><ph product="editorEclipse authorEclipse developerEclipse"><ph
+                  conkeyref="reusables-preferences-pages/Open-the-preferences-page"/> and click the
+                  <uicontrol>Register</uicontrol> button</ph>.</p>
+            <p><b>Step Result:</b> The license registration dialog box is displayed.</p>
+          </li>
+          <li>Choose <uicontrol>Use a license server</uicontrol> as licensing method.</li>
+          <li>Select <uicontrol>HTTP/HTTPS Server</uicontrol> as server type.</li>
+          <li>In the <i>URL</i> field, enter the address of the license server. The URL address has
+            the following format:
+              <codeph>http://hostName:port/oXygenLicenseServlet/license-servlet</codeph>.</li>
+          <li>Complete the <i>User</i> and <i>Password</i> fields.</li>
+          <li>Click the <uicontrol>OK</uicontrol> button.</li>
+        </ol></p>
+      <p><b>Result</b>: If a floating license is available, it is registered in <ph keyref="product"
+        />. To display the license details, <ph product="author developer editor">open the
+            <uicontrol>About</uicontrol> dialog box from the <uicontrol>Help</uicontrol>
+          menu</ph><ph conkeyref="reusables-preferences-pages/open-the-preferences-page"
+          product="authorEclipse developerEclipse editorEclipse"/>. If a floating license is not
+        available, you will get a message listing the users currently using floating licenses.</p>
+    </section>
+    <section id="section_esl_l45_shb">
+      <title>How to Register Floating Licenses for Additional Users</title>
+      <p>If you are an administrator and you want to register floating licenses for multiple users
+        without having to open <ph keyref="product"/> on each machine to manually configure the
+        registration details one by one, you can use the following procedure:<ol id="ol_vhv_d55_shb">
+          <li>Reset the registration details in <ph keyref="product"/>:<ol id="ol_a3j_255_shb">
+              <li>
+                <p><ph product="author developer editor svnClient">Go to <menucascade>
+                      <uicontrol>Help</uicontrol>
+                      <uicontrol>Register</uicontrol>
+                    </menucascade></ph><ph product="editorEclipse authorEclipse developerEclipse"
+                      ><ph conkeyref="reusables-preferences-pages/Open-the-preferences-page"/> and
+                    click the <uicontrol>Register</uicontrol> button</ph>.</p>
+              </li>
+              <li>Click <b>OK</b> without entering any information in this dialog box.</li>
+              <li>Click <b>Reset</b> and restart the application.</li>
+            </ol></li>
+          <li>Register the license using one of the <xref href="how-floating-licenses-work.dita"
+              >floating license registration procedures</xref>.<p><b>Step Result:</b> A
+                <filepath>license.xml</filepath> file is created.</p></li>
+          <li product="author developer editor">Copy the <filepath>license.xml</filepath> file from
+            the <xref href="preferences.dita#preferences/preferences-directory-location"
+                ><filepath>preferences</filepath> directory</xref> and place it in the installation
+            folder on each machine to be registered.</li>
+          <li product="authorEclipse developerEclipse editorEclipse">Copy the
+              <filepath>license.xml</filepath> file from the <xref
+              href="preferences.dita#preferences/preferences-directory-location"
+                ><filepath>preferences</filepath> directory</xref> and place it in the
+              <filepath>lib</filepath> subfolder of the installation directory (e.g. <filepath
+              product="editorEclipse"
+              >[ECLIPSE-INSTALL-DIR]\plugins\com.oxygenxml.editor_22.1.0.v*\lib</filepath><filepath
+              product="authorEclipse"
+              >[ECLIPSE-INSTALL-DIR]\plugins\com.oxygenxml.author_22.1.0.v*\lib</filepath><filepath
+              product="developerEclipse"
+              >[ECLIPSE-INSTALL-DIR]\plugins\com.oxygenxml.developer_22.1.0.v*\lib</filepath>).</li>
+        </ol></p>
+    </section>
+    </body>
+  <related-links>
+    <linklist><title>Related Information:</title><link href="floating-license-servlet-setup.dita#floating-license-servlet-setup"/></linklist>
+  </related-links>
+</topic>

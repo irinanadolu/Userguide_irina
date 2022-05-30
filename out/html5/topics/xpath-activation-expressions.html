@@ -1,0 +1,31 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/the-action-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/the-action-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-allows-child-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-allows-child-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-allows-global-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-current-selected-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-selected-elements.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-is-required-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-is-editable-element.html"><meta name="DC.relation" scheme="URI" content="../topics/oxy-platform.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xpath-activation-expressions"><title>Controlling Which Author Operations Gets Executed Through XPath Expressions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xpath-activation-expressions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Controlling Which Author Operations Gets Executed Through XPath Expressions</h1>
+  <div class="body">
+    <p class="p">An <span class="ph uicontrol">Author</span> mode action can have multiple operation modes, each one
+      invoking an <a class="xref" href="dg-default-author-operations.html">Author operation</a> with certain configured parameters. Each operation mode has an
+      XPath 2.0 expression for activating it.</p>
+    <p class="p">For each operation mode of an action, the application will check if the XPath expression is
+      fulfilled (when it returns a non-empty node set or a <strong class="ph b">true</strong> result). Only the first
+      operation whose XPath operation is fulfilled will be executed.</p>
+    <div class="p">The following special XPath extension functions are provided:<ul class="ul">
+        <li class="li"><a class="xref" href="oxy-allows-child-element.html#oxy-allows-child-element"><em class="ph i">oxy:allows-child-element()</em></a> - Use this function to check whether or not
+          an element is valid child element in the current context, according to the associated
+          schema.</li>
+        <li class="li"><a class="xref" href="oxy-allows-global-element.html#oxy-allows-global-element"><em class="ph i">oxy:allows-global-element()</em></a> - Use this function to check whether or not
+          an element is a valid global element for the current <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>, according to the associated schema.</li>
+        <li class="li"><a class="xref" href="oxy-current-selected-element.html#oxy-current-selected-element"><em class="ph i">oxy:current-selected-element()</em></a> - Use this function to get the currently
+          selected element.</li>
+        <li class="li"><a class="xref" href="oxy-selected-elements.html"><em class="ph i">oxy:selected-elements()</em></a> - Use this
+          function to get the selected elements.</li>
+        <li class="li"><a class="xref" href="oxy-is-required-element.html#oxy-is-required-element"><em class="ph i">oxy:is-required-element()</em></a> - Use this function to check if the element
+          returned by the given XPath expression is required (based on the rules declared in the
+          schema).</li>
+        <li class="li"><a class="xref" href="oxy-platform.html"><em class="ph i">oxy:platform()</em></a> - Use this function to get
+          the current platform in cases where you want to enable or disable an action depending on
+          the platform. Possible values include: <dfn class="term">eclipse</dfn>, <dfn class="term">standalone</dfn> and
+            <dfn class="term">webapp</dfn>.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/oxy-allows-child-element.html">oxy:allows-child-element() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-allows-global-element.html">oxy:allows-global-element() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-current-selected-element.html">oxy:current-selected-element() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-selected-elements.html">oxy:selected-elements() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-is-required-element.html">oxy:is-required-element() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-is-editable-element.html">oxy:is-editable-element() Function</a><br></li><li class="link olchildlink"><a href="../topics/oxy-platform.html">oxy:platform() Function</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/the-action-dialog.html">Author Action Dialog Box</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/the-action-dialog.html">Author Action Dialog Box</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/oxy-allows-child-element.html">oxy:allows-child-element() Function</a></div></div></nav></article></main></body></html>

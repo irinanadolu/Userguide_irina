@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML Schemas,Set version"><meta name="keywords" content="XML Schemas, Set version"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-schema-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/schema-1-1-support.html"><meta name="DC.relation" scheme="URI" content="../topics/editing-xquery-documents.html"><meta name="DC.relation" scheme="URI" content="schema-1-1-support.html#schema-1-1-support"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="set-xml-schema-version"><title>Setting the XML Schema Version</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="set-xml-schema-version"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Setting the XML Schema Version</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> lets you set the version of the XML Schema you are editing either in
+      the <span class="ph uicontrol">XML Schema</span> preferences page, or through the versioning attributes.
+      If you want to use the versioning attributes, set the <em class="ph i">minVersion</em> and <em class="ph i">maxVersion</em>
+      attributes, from the <em class="ph i">http://www.w3.org/2007/XMLSchema-versioning</em> namespace, on the
+        <em class="ph i">schema</em> root element.<div class="note note note_note"><span class="note__title">Note:</span> The versioning attributes take priority over the XML Schema
+        version defined in the preferences page. </div></div>
+    <div class="p">
+      <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Using the <em class="ph i">minVersion</em> and <em class="ph i">maxVersion</em> Attributes to Set the XML Schema
+          Version</span></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry colsep-1 rowsep-1" id="set-xml-schema-version__entry__1">Versioning Attributes</th>
+              <th class="entry colsep-1 rowsep-1" id="set-xml-schema-version__entry__2">XML Schema Version</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__1"><strong class="ph b">minVersion</strong> = "1.0" <strong class="ph b">maxVersion</strong> = "1.1"</td>
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__2">1.0</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__1"><strong class="ph b">minVersion</strong> = "1.1"</td>
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__2">1.1</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__1"><strong class="ph b">minVersion</strong> = "1.0" <strong class="ph b">maxVersion</strong> = greater than "1.1"</td>
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__2">The XML Schema version defined in the <a class="xref" href="xml-schema-preferences-page.html#xml-schema-preferences-page"><span class="ph uicontrol">XML
+                    Schema</span> preferences page</a></td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__1">Not set in the XML Schema document</td>
+              <td class="entry colsep-1 rowsep-1" headers="set-xml-schema-version__entry__2">The XML Schema version defined in the <a class="xref" href="xml-schema-preferences-page.html#xml-schema-preferences-page"><span class="ph uicontrol">XML
+                    Schema</span> preferences page</a></td>
+            </tr>
+          </tbody></table>
+    </div>
+    <div class="p">To change the XML Schema version of the current document, use the <span class="ph uicontrol">Change XML
+        Schema version</span> action from the contextual menu. This is available both in the
+        <span class="ph uicontrol">Text</span> mode, and in the <span class="ph uicontrol">Design</span> mode and opens
+      the <span class="ph uicontrol">Change XML Schema version</span> dialog box. The following options are
+      available: <ul class="ul">
+        <li class="li">
+          <span class="ph uicontrol">XML Schema 1.0</span> - Inserts the <em class="ph i">minVersion</em> and
+            <em class="ph i">maxVersion</em> attributes on the <em class="ph i">schema</em> element and gives them the values
+          "1.0" and "1.1" respectively. Also, the namespace declaration
+            (<em class="ph i">xmlns:vc=http://www.w3.org/2007/XMLSchema-versioning</em>) is inserted automatically
+          if it does not exist. </li>
+        <li class="li">
+          <span class="ph uicontrol">XML Schema 1.1</span> - Inserts the <em class="ph i">minVersion</em> attribute on the
+            <em class="ph i">schema</em> element and gives it the value "1.1". Also, removes the <em class="ph i">maxVersion</em>
+          attribute if it exists and adds the versioning namespace
+            (<em class="ph i">xmlns:vc=http://www.w3.org/2007/XMLSchema-versioning</em>) if it is not declared. </li>
+        <li class="li">
+          <span class="ph uicontrol">Default XML Schema version</span> - Removes the <em class="ph i">minVersion</em> and
+            <em class="ph i">maxVersion</em> attributes from the <em class="ph i">schema</em> element. The default schema version,
+          defined in the <span class="ph uicontrol">XML Schema</span> preferences page, is used. </li>
+      </ul><div class="note note note_note"><span class="note__title">Note:</span> The <span class="ph uicontrol">Change XML Schema version</span> action is also available in
+        the informative panel presented at the top of the edited XML Schema. If you close this
+        panel, it will no longer appear until you restore <span class="ph">Oxygen XML Editor</span> to its default
+        options.</div></div>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> automatically uses the version set through the versioning attributes,
+      or the default version if the versioning attributes are not declared, when proposing content
+      completion elements and validating an XML Schema. Also, the XML instance validation against an
+      XML Schema is aware of the versioning attributes defined in the XML Schema.</p>
+    <p class="p">When you generate sample XML files from an XML Schema, <span class="ph">Oxygen XML Editor</span> takes into
+      account the <em class="ph i">minVersion</em> and <em class="ph i">maxVersion</em> attributes defined in the XML Schema.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-schema-schemas.html">Editing XML Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/schema-1-1-support.html">XML Schema 1.1</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editing-xquery-documents.html">Editing XQuery Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="schema-1-1-support.html#schema-1-1-support">XML Schema 1.1</a></li></ul></div></nav>
+</article></main></body></html>

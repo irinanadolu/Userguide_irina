@@ -1,0 +1,888 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Menus"><meta name="keywords" content="SVN Client, Menus"><meta name="DC.relation" scheme="URI" content="../topics/svn-main-window.html"><meta name="DC.relation" scheme="URI" content="../topics/views.html"><meta name="DC.relation" scheme="URI" content="../topics/svn-main-toolbar.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="svn-main-menu"><title>SVN Main Menu</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="svn-main-menu"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">SVN Main Menu</h1>
+    
+    <div class="body">
+        <div class="p">The main menu of the <span class="ph">Syncro SVN Client</span> is composed of the following menus:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">File</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">New</span> submenu:</dt>
+                  <dd class="dd">
+                    <div class="p">
+                      <dl class="dl">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">New File</span></dt>
+                          <dd class="dd">This operation creates a new file as a child of the selected folder
+                            from the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a> tree or the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span>
+                              view</a> tree, depending on the view that was last used. Note that
+                            for the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working
+                                Copy</span> view</a>, the file is added to <em class="ph i">version
+                              control</em> only if the selected folder is under <em class="ph i">version
+                              control</em>.</dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">New Folder<span class="keyword shortcut">(Ctrl + Shift + F (Command + Shift + F
+                                on OS X))</span></span></dt>
+                          <dd class="dd">This operation creates a new folder as a child of the selected folder
+                            from the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a> tree or the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span>
+                              view</a> tree, depending on the view that was last used. Note that
+                            for the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working
+                                Copy</span> view</a>, the file is added to <em class="ph i">version
+                              control</em> only if the selected folder is under <em class="ph i">version
+                              control</em>.</dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">New External Folder <span class="keyword shortcut">(Ctrl + Shift + W (Command +
+                                Shift + W on OS X))</span></span></dt>
+                          <dd class="dd">
+                            <div class="p">This operation allows you to add a new external definition on the
+                              selected folder. An external definition is a mapping of a local
+                              directory to <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">a URL of a versioned directory</a>, and ideally a particular
+                              revision, stored in the <code class="ph codeph">svn:externals</code> property of the
+                              selected folder.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can specify a particular revision
+                                of the external item by using a <a class="xref" href="using-peg-revisions.html#using-peg-revisions"><em class="ph i">peg</em> revision</a> at the end of the URL (for example,
+                                  <code class="ph codeph">URL@rev1234</code>). You can also use peg revisions to
+                                access external items that were deleted, moved, or
+                              replaced.</div></div>
+                            <div class="p">The URL used in the external definition format can be relative. You
+                              can specify the repository URL that the external folder points to by
+                              using one of the following relative formats:<ul class="ul" id="svn-main-menu__ul_bfw_5xv_g4">
+                                <li class="li"><strong class="ph b">../</strong> - Relative to the URL of the directory that the
+                                    <code class="ph codeph">svn:externals</code> property is set.</li>
+                                <li class="li"><strong class="ph b">^/</strong> - Relative to the root of the repository where the
+                                    <code class="ph codeph">svn:externals</code> property is versioned.</li>
+                                <li class="li"><strong class="ph b">//</strong> - Relative to the scheme of the URL of the directory
+                                  that the <code class="ph codeph">svn:externals</code> property is set.</li>
+                                <li class="li"><strong class="ph b">/</strong> - Relative to the root URL of the server that has the
+                                    <code class="ph codeph">svn:externals</code> property versioned. </li>
+                              </ul></div>
+                            <div class="p">
+                              <div class="note important note_important"><span class="note__title">Important:</span> To change the target URL of an external
+                                definition, or to delete an external item, do the following:<ol class="ol" id="svn-main-menu__ol_nk2_klr_qq">
+                                  <li class="li">Modify or delete the item definition found in the
+                                      <code class="ph codeph">svn:externals</code> property that is set on the
+                                    parent folder.</li>
+                                  <li class="li">For the change to take effect, use the
+                                      <span class="ph uicontrol">Update</span> operation on the parent folder
+                                    of the external item.</li>
+                                </ol></div>
+                              <div class="note note note_note"><span class="note__title">Note:</span> Syncro SVN Client does not support definitions of
+                                local relative external items.</div>
+                            </div>
+                          </dd>
+                        
+                      </dl>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Open <span class="keyword shortcut">(Ctrl + O (Command + O on OS
+                      X))</span></span></dt>
+                  <dd class="dd">This action opens the selected file in an editor where you can modify it. The
+                    action is active only when a single item is selected. The action opens a file
+                    with the internal editor or the external application associated with that file
+                    type. This action works on any file selection from the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>,
+                      <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span>
+                      view</a>, <a class="xref" href="history-view.html"><span class="ph uicontrol">History</span>
+                      view</a>, or <a class="xref" href="svn-dir-change-set-view.html"><span class="ph uicontrol">Directory
+                        Change Set</span> view</a>, depending on the view that was last used
+                    to invoke it. In the case of a folder, the action opens the selected folder with
+                    the system application for folders (for example, Windows Explorer on Windows or
+                    Finder on OS X). Note that opening folders is available only for folders
+                    selected in the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working
+                        Copy</span> view</a>. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Open with<span class="keyword shortcut">(Ctrl + Shift + O (Command + Shift + O on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Displays the <span class="ph uicontrol">Open with</span> dialog box for specifying the
+                    editor where the selected file is opened. If multiple files are selected only
+                    external applications can be used to open the files. This action works on any
+                    file selection from <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>, <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a>,
+                      <a class="xref" href="history-view.html"><span class="ph uicontrol">History</span> view</a>, or
+                      <a class="xref" href="svn-dir-change-set-view.html"><span class="ph uicontrol">Directory Change
+                        Set</span> view</a>, depending on the view that was last used to
+                    invoke it.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__show-in-explorer"><span class="ph uicontrol">Show in Explorer</span>/<span class="ph uicontrol">Show in
+                    Finder</span></dt>
+                  <dd class="dd">Opens the parent directory of the selected working copy file and selects the
+                    file.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_xqc_zfp_5r" src="../img/DiffSave16.gif">Save
+                        <span class="keyword shortcut">(Ctrl + S (Command + S on OS X))</span></span></dt>
+                  <dd class="dd">Saves the local file currently opened in the editor or the
+                      <span class="ph uicontrol">Compare</span> view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Save as</span></dt>
+                  <dd class="dd">Saves any file selected in the <span class="ph uicontrol">Repositories</span>,
+                      <span class="ph uicontrol">History</span>, or <span class="ph uicontrol">Directory Change Set</span>
+                    view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Copy URL Location <span class="keyword shortcut">(Ctrl + Alt + U (Command + Alt + U on
+                        OS X))</span></span></dt>
+                  <dd class="dd">Copies the URL location of the resource currently selected in the
+                      <span class="ph uicontrol">Repositories</span> view to clipboard.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_nky_5yf_ps" src="../img/SVNCopyMove16.png">Copy to</span></dt>
+                  <dd class="dd">Copies the currently selected resource, either in
+                      <span class="ph uicontrol">Repositories</span> or <span class="ph uicontrol">Working copy</span>
+                    view, to a specified location. <div class="note note note_note"><span class="note__title">Note:</span> This action can also be used from
+                        <span class="ph uicontrol">History</span> and <span class="ph uicontrol">Directory Change
+                        Set</span> views to recover older versions of a repository
+                    item.</div></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Move to<span class="keyword shortcut">(Ctrl + M (Command + M on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Moves the currently selected resource, either in
+                      <span class="ph uicontrol">Repositories</span> or <span class="ph uicontrol">Working copy</span>
+                    view, to a specified location. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename<span class="keyword shortcut">(F2)</span></span></dt>
+                  <dd class="dd">Renames the resource currently selected, either in
+                      <span class="ph uicontrol">Repositories</span> or <span class="ph uicontrol">Working copy</span>
+                    view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_hfm_vbp_5r" src="../img/SVNDelete16.gif">Delete
+                        <span class="keyword shortcut">(Delete)</span></span></dt>
+                  <dd class="dd">Deletes the resource currently selected either, in
+                      <span class="ph uicontrol">Repositories</span> or <span class="ph uicontrol">Working copy</span>
+                    view.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_locking"><span class="ph uicontrol">Locking</span>:</dt>
+                  <dd class="dd">
+                    <div class="p">
+                      <ul class="ul">
+                        <li class="li"><span class="ph uicontrol">Scan for locks <span class="keyword shortcut">(Ctrl + L (Command + L on OS
+                              X))</span></span> - Contacts the repository and recursively
+                          obtains the list of locks for the selected resources. A dialog box
+                          containing the locked files and the lock description will be displayed.
+                          This is only active for resources under <em class="ph i">version control</em>. For more
+                          details see <a class="xref" href="scan-locks.html">Scanning for locks</a>.</li>
+                        <li class="li"><span class="ph uicontrol"><img class="image" src="../img/Lock16.png">Lock
+                              <span class="keyword shortcut">(Ctrl + K (Command + K on OS X))</span></span> -
+                          Allows you to lock certain files that need exclusive access. You can write
+                          a comment describing the reason for the lock and you can also force
+                            (<em class="ph i">steal</em>) the lock. This action is active only on files under
+                            <em class="ph i">version control</em>. For more details on the use of this action see
+                            <a class="xref" href="lock-file.html"> Locking a file</a>.</li>
+                        <li class="li"><span class="ph uicontrol"><img class="image" src="../img/Unlock16.png">Unlock
+                              <span class="keyword shortcut">(Ctrl + Alt + K (Command + Alt + K on OS
+                            X))</span></span> - Releases the exclusive access to a file
+                          from the repository. You can also choose to unlock it by force (<em class="ph i">break
+                            the lock</em>). </li>
+                      </ul>
+                    </div>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_oky_5yf_ps" src="../img/SVNProperties16.png">Show SVN Properties <span class="keyword shortcut">(Ctrl + P (Command + P
+                        on OS X))</span></span></dt>
+                  <dd class="dd">Opens the <a class="xref" href="properties-view.html"><span class="ph uicontrol">Properties</span>
+                      view</a> and displays the SVN properties for a selected resource from <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a> or
+                      <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span>
+                      view</a>, depending on the view that was last used to invoke it.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_plj_tcp_5r" src="../img/SVNInfo16.png">Show SVN
+                      Information <span class="keyword shortcut">(Ctrl + I (Command + I on OS
+                    X))</span></span></dt>
+                  <dd class="dd">Provides additional information for a selected resource. For more details, go
+                    to <a class="xref" href="show-info.html">Obtain information for a resource</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Exit <span class="keyword shortcut">(Ctrl + Q (Command + Q on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Closes the application.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Edit</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_i44_fgp_5r" src="../img/Undo16.png">Undo
+                        <span class="keyword shortcut">(Ctrl + Z (Command + Z on OS X))</span></span></dt>
+                  <dd class="dd">Undo edit changes in the local file that is currently opened in the editor or
+                    the <span class="ph uicontrol">Compare</span> view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_lpl_mgp_5r" src="../img/Redo16.png">Redo
+                        <span class="keyword shortcut">(Ctrl + Y (Command + Y on OS X))</span></span></dt>
+                  <dd class="dd">Redo edit changes in the local file that is currently opened in the editor or
+                    the <span class="ph uicontrol">Compare</span> view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_tt5_jz1_5r" src="../img/Cut16.png">Cut
+                        <span class="keyword shortcut">(Ctrl + X (Command + X on OS X))</span></span></dt>
+                  <dd class="dd">Cut selection from the local file that is currently opened in the editor view
+                    or the <span class="ph uicontrol">Compare</span> view to clipboard.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ipc_gst_tr" src="../img/Copy16.png">Copy
+                        <span class="keyword shortcut">(Ctrl + C (Command + C on OS X))</span></span></dt>
+                  <dd class="dd">Copy selection from the local file that is currently opened in the editor or
+                    the <span class="ph uicontrol">Compare</span> view to clipboard.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_zyv_yqt_tr" src="../img/Paste16.png">Paste
+                        <span class="keyword shortcut">(Ctrl + V (Command + V on OS X))</span></span></dt>
+                  <dd class="dd">Paste selection from clipboard into the local file that is currently opened in
+                    editor or the <span class="ph uicontrol">Compare</span> view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_n2n_whp_5r" src="../img/SVNSearch16.png">Find/Replace <span class="keyword shortcut">(Ctrl + F (Command + F on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Perform find and replace operations in the local file that is currently opened
+                    in the editor or the <span class="ph uicontrol">Compare</span> view.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ddx_2hp_5r" src="../img/SVNFindNext16.png">Find
+                      Next <span class="keyword shortcut">(F3)</span></span></dt>
+                  <dd class="dd">Go to the next match using the same find options of the last find operation.
+                    This action runs in the editor panel and in any non-editable text area (for
+                    example, the <span class="ph uicontrol">Console</span> view).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_rc2_fhp_5r" src="../img/SVNFindPrevious16.png">Find Previous <span class="keyword shortcut">(Shift + F3)</span></span></dt>
+                  <dd class="dd">Go to the previous match using the same find options of the last find
+                    operation. This action runs in the editor panel and in any non-editable text
+                    area (for example, the <span class="ph uicontrol">Console</span> view).</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Repository</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_new_repos_location"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_fq3_y3p_5r" src="../img/SVNNewRepositoryLocation16.png">New Repository Location</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_alt_n_shortcut">Ctrl + Alt + N
+                    (Command + Alt + N on OS X)</span></span>)</dt>
+                  <dd class="dd">
+                    <p class="p">Displays the <span class="ph uicontrol">Add SVN Repository</span> dialog box. This
+                      dialog box allows you to define a new repository location.</p>
+                    <div class="p">
+                      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Add SVN Repository Dialog Box</figcaption>
+                        
+                        <img class="image" src="../img/sa_svn_add_svn_repository.png">
+                      </figure>
+                    </div>
+                    <p class="p">If the <span class="ph uicontrol">Validate repository connection</span> option is
+                      selected, the URL connection is validated before being added to the
+                        <span class="ph uicontrol">Repositories</span> view.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_edit_repos_location"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_x3d_c3p_5r" src="../img/SVNEditRepository16.gif">Edit Repository Location</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_alt_e_shortcut">Ctrl + Alt + E
+                    (Command + Alt + E on OS X)</span></span>)</dt>
+                  <dd class="dd">Context-dependent action that allows you to edit the selected repository
+                    location using the <span class="ph uicontrol">Edit SVN Repository</span> dialog box. It is
+                    active only when a repository location root is selected.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_browse_repos_location"><span class="ph uicontrol">Change the Revision to Browse</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_alt_b_shortcut">Ctrl + Alt + B
+                    (Command + Alt + B on OS X)</span></span>)</dt>
+                  <dd class="dd">Context-dependent action that allows you to change the selected repository
+                    revision using the <span class="ph uicontrol">Change the Revision to Browse</span> dialog
+                    box. It is active only when a repository location root is selected.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_remove_repos_location"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_qbg_5bp_5r" src="../img/SVNDelete16.gif">Remove
+                      Repository Location</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_alt_r_shortcut">Ctrl + Alt + R
+                    (Command + Alt + R on OS X)</span></span>)</dt>
+                  <dd class="dd">Allows you to remove the selected repository location from the view. It shows
+                    you a confirmation dialog box before removal. It is active only when a
+                    repository location root is selected.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_repos_refresh"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_oqj_s2w_sr" src="../img/SVNRefresh16.png">Refresh</span> (<span class="ph uicontrol"><span class="keyword shortcut">F5</span></span>)</dt>
+                  <dd class="dd">Refreshes the resource selected in the <span class="ph uicontrol">Repositories</span>
+                    view. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_repos_checkout"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_isw_ycp_5r" src="../img/SVNCheckOut16.gif">Check
+                      out</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_alt_o_shortcut">Ctrl + Alt + O
+                    (Command + Alt + O on OS X)</span></span>)</dt>
+                  <dd class="dd">Allows you to create a working copy from a repository directory, on your local
+                    file system. To read more about this operation, see <a class="xref" href="check-out-working-copy.html">Check out a working
+                    copy</a>.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__export-dlentry"><span class="ph uicontrol">Export</span></dt>
+                  <dd class="dd">Opens <a class="xref" href="export-repos.html#export-repos">the
+                        <span class="ph uicontrol">Export</span> dialog box</a> that allows you to configure
+                    options for exporting a folder from the repository to the local file
+                    system.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_repos_import"><span class="ph uicontrol">Import</span>:</dt>
+                  <dd class="dd">
+                    <div class="p">
+                      <dl class="dl" id="svn-main-menu__ul_hvn_rf3_hf">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Import folder</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_l_shortcut">Ctrl + Shift
+                    + L (Command + Shift + L on OS X)</span></span>)</dt>
+                          <dd class="dd">Allows you to import the contents of a specified folder from the file
+                            system into the selected folder in a repository. To read more about this
+                            operation, see the section <a class="xref" href="import-repos.html">Importing
+                              resources into a repository</a>. <div class="note note note_note"><span class="note__title">Note:</span> The difference between the
+                                <span class="ph uicontrol">Import folder</span> and <span class="ph uicontrol">Share
+                                project</span> actions is that the latter also converts the
+                              selected directory into a working copy.</div></dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol">Import Files</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_i_shortcut">Ctrl + Shift
+                    + I (Command + Shift + I on OS X)</span></span>)</dt>
+                          <dd class="dd">Imports the files selected from the files system into the selected
+                            folder in the repository.</dd>
+                        
+                      </dl>
+                    </div>
+                  </dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Working Copy</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_hyg_l1h_hf" src="../img/SvnWCManagerWin16.png">Working Copies Manager (<img class="image" id="svn-main-menu__image_g44_rmg_hf" src="../img/SvnWCManagerMac16.png"> on OS
+                      X)</span></dt>
+                  <dd class="dd">Opens a dialog box with a list of working copies that the Apache Subversion™ client is aware of. In this dialog box you can add
+                    existing working copies or remove those that are no longer needed.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Switch to</span></dt>
+                  <dd class="dd">Selects one of the following view modes: <span class="ph uicontrol"><img class="image" id="svn-main-menu__image_svc_dzf_ps" src="../img/SVNAllFilesMode16.png">All Files</span>, <span class="ph uicontrol"><img class="image" id="svn-main-menu__image_tvc_dzf_ps" src="../img/SVNInOutMode16.png">Modified</span>,
+                        <span class="ph uicontrol"><img class="image" id="svn-main-menu__image_uvc_dzf_ps" src="../img/SVNIncomingMode16.png">Incoming</span>, <span class="ph uicontrol"><img class="image" id="svn-main-menu__image_vvc_dzf_ps" src="../img/SVNOutgoingMode16.png">Outgoing</span>, or <span class="ph uicontrol"><img class="image" id="svn-main-menu__image_wvc_dzf_ps" src="../img/SVNConflictsMode16.png">Conflicts</span>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_m5z_t2w_sr" src="../img/SVNRefresh16.png">Refresh <span class="keyword shortcut">(F5)</span></span></dt>
+                  <dd class="dd">Refreshes the state of the selected resources or of the entire working copy
+                    (if there is no selection).</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_synchronize"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_enc_2c3_5r" src="../img/SVNSynchronize16.png">Synchronize <span class="keyword shortcut">(Ctrl + Shift + S (Command + Shift + S on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Connects to the repository and determines the working copy and repository
+                    changes made to the selected resources. The application switches to
+                      <span class="ph uicontrol">Modified</span> view mode if the <a class="xref" href="preferences-svn-working-copy.html#preferences-svn-working-copy"><span class="ph uicontrol">Always switch to 'Modified' mode</span>
+                      option</a> is selected. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Update <span class="keyword shortcut">(Ctrl + U (Command + U on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Updates all the selected resources that have incoming changes to the HEAD
+                    revision. If one of the selected resources is a directory then the update for
+                    that resource will be recursive.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_update_rev_depth"><span class="ph uicontrol">Update to revision/depth</span></dt>
+                  <dd class="dd">Allows you to update the selected resources from the working copy to an
+                    earlier revision from the repository. You can also select the update
+                      <em class="ph i">depth</em> for the current folder. You can find out more about the
+                      <em class="ph i">depth</em> term in the <a class="xref" href="sparse-checkouts.html">sparse
+                      checkouts</a> section. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_commit"><span class="ph uicontrol">Commit</span></dt>
+                  <dd class="dd">Collects the outgoing changes from the selected resources in the working copy
+                    and allows you to choose exactly what resources to commit. A directory will
+                    always be committed recursively. Unversioned resources will be deselected by
+                    default. In the <span class="ph uicontrol">Commit</span> dialog box you can also enter a
+                    comment before sending your changes to the repository.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_cxp_tnp_5r" src="../img/SVNUpdateAll16.gif">Update all<span class="keyword shortcut">(Ctrl + Shift + U (Command + Shift + U on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Updates all resources from the working copy that have incoming changes. It
+                    performs a recursive update on the synchronized resources.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ez2_tnp_5r" src="../img/SVNCommitAll16.gif">Commit all</span></dt>
+                  <dd class="dd">Commits all the resources with outgoing changes. It is disabled when
+                      <span class="ph uicontrol">Incoming</span> mode is selected or the synchronization result
+                    does not contain resources with outgoing changes. It performs a recursive commit
+                    on the synchronized resources.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_revert"><span class="ph uicontrol"><img class="image" src="../img/SVNRevert16.png">Revert
+                        <span class="keyword shortcut">(Ctrl + Shift + V (Command + Shift + V on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Undoes all local changes for the selected resources. It does not contact the
+                    repository and the files are obtained from Apache
+                      Subversion™ pristine copy. It is available only for modified resources.
+                    See <a class="xref" href="revert-changes.html">Revert your changes</a> for more
+                    information. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_edit_conflict"><span class="ph uicontrol">Edit conflict <span class="keyword shortcut">(Ctrl + E (Command + E on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">Compare</span> editor, allowing you to modify the
+                    content of the currently conflicting resources. For more information about
+                    editing conflicts, see <a class="xref" href="edit-conflict.html">Edit conflicts</a>.
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_mark_resolved"><span class="ph uicontrol"><img class="image" src="../img/SVNMarkResolved16.png">Mark
+                      Resolved <span class="keyword shortcut">(Ctrl + Shift + R (Command + Shift + R on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Instructs the Subversion system that you resolved a conflicting resource. For
+                    more information, see <a class="xref" href="merge-conflicts.html">Merge conflicts</a>.
+                  </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_mark_merged"><span class="ph uicontrol"><img class="image" src="../img/SVNMarkAsMerged16.png">Mark
+                      as Merged <span class="keyword shortcut">(Ctrl + Shift + M (Command + Shift + M on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Instructs the Subversion system that you resolved the pseudo-conflict by
+                    merging the changes and you want to commit the resource. Read the <a class="xref" href="merge-conflicts.html">Merge conflicts</a> section for more
+                    information about how you can solve the pseudo-conflicts.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_override_update"><span class="ph uicontrol">Override and Update</span></dt>
+                  <dd class="dd">Drops any outgoing change and replaces the local resource with the HEAD
+                    revision. This action is available on resources with outgoing changes, including
+                    conflicting ones. See the <a class="xref" href="revert-changes.html">Revert your
+                      changes</a> section. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_override_commit"><span class="ph uicontrol">Override and Commit</span></dt>
+                  <dd class="dd">Drops any incoming changes and sends your local version of the resource to the
+                    repository. This action is available on conflicting resources. For more
+                    information see <a class="xref" href="drop-incoming.html">Drop incoming
+                      modifications</a>. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__mark-as-copied"><span class="ph uicontrol">Mark as copied</span></dt>
+                  <dd class="dd">You can use this action to mark an item from the working copy as a copy of
+                    another item under <em class="ph i">version control</em>, when the copy operation was performed
+                    outside of an SVN client. The <span class="ph uicontrol">Mark as copied</span> action is
+                    available when you select two items (both the new item and source item), and it
+                    depends on the state of the source item. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__mark-as-moved"><span class="ph uicontrol">Mark as moved</span></dt>
+                  <dd class="dd">You can use this action to mark an item from the working copy as being moved
+                    from another location of the working copy, when the move operation was performed
+                    outside of an SVN client. The <span class="ph uicontrol">Mark as moved</span> action is
+                    available when you select two items from different locations (both the new item
+                    and the source item that is usually reported as <em class="ph i">missing</em>), and it depends
+                    on the state of the source item.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__mark-as-renamed"><span class="ph uicontrol">Mark as renamed</span></dt>
+                  <dd class="dd">You can use this action to mark an item from the working copy as being renamed
+                    outside of an SVN client. The <span class="ph uicontrol">Mark as renamed</span> action is
+                    available when you select two items from the same directory (both the new item
+                    and the source item that is usually reported as <em class="ph i">missing</em>), and it depends
+                    on the state of the source item.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_svn_ignore"><span class="ph uicontrol">Add to "svn:ignore" <span class="keyword shortcut">(Ctrl + Alt + I (Command + Alt + I on
+                        OS X))</span></span></dt>
+                  <dd class="dd">Allows you to add files that should not participate in the <em class="ph i">version
+                      control</em> operations inside your working copy. This action can only be
+                    performed on resources not under <em class="ph i">version control</em>. It actually modifies
+                    the value of the <code class="ph codeph">svn:ignore</code> property in the parent directory of
+                    the resource. Read more about this in the <a class="xref" href="ignore-resources-working-copy.html#ignore-resources-working-copy">Ignore Resources Not Under Version Control</a> section. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_add_version_control"><span class="ph uicontrol"><img class="image" src="../img/SVNAdd16.png">Add to
+                      version control <span class="keyword shortcut">(Ctrl + Alt + V (Command + Alt + V on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Allows you to add resources that are not under <em class="ph i">version control</em>. For
+                    further details, see <a class="xref" href="add-resources-working-copy.html#add-resources-working-copy">Add
+                      Resources to Version Control </a> section. </dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__remove-from-version-control"><span class="ph uicontrol">Remove from version control</span></dt>
+                  <dd class="dd">Schedules the selected items for deletion from repository upon the next
+                    commit. The items are not removed from the file system after committing.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_cleanup"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_m4x_kcp_5r" src="../img/SVNCleanUpWorkingCopy16.png">Clean up <span class="keyword shortcut">(Ctrl + Shift + C (Command + Shift
+                        + C on OS X))</span></span></dt>
+                  <dd class="dd">Performs a maintenance cleanup operation on the selected resources from the
+                    working copy. This operation removes the Subversion maintenance locks that were
+                    left behind. This is useful when you already know where the problem originated
+                    and want to fix it as quickly as possible. It is only active for resources under
+                      <em class="ph i">version control</em>.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_expand_all"><span class="ph uicontrol"><img class="image" src="../img/ExpandAll16.png">Expand All
+                        <span class="keyword shortcut">(Ctrl + Alt + X (Command + Alt + X on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Displays all descendants of the selected folder. The same behavior is obtained
+                    by double-clicking a collapsed folder.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ow1_1jt_tr" src="../img/CollapseAll16.png">Collapse all <span class="keyword shortcut">(Ctrl + Alt + Z (Command + Alt + Z on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Collapses all descendants of the selected folder. The same behavior is
+                    obtained by double-clicking an expanded folder.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffPerform20.png">Perform Files
+              Differencing</span></dt>
+          <dd class="dd"><span class="ph" id="svn-main-menu__files-perform-files-diff-ph">Looks for differences between the two files
+              displayed in the left and right side panels.</span></dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_vrq_3k3_tc" src="../reusables/topics/../../img/DiffNextBlock16.png">Next
+              Block of Changes</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_period_shortcut">Ctrl + Period
+                    (Command + Period on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the next block of changes. This action is not available when the cursor is
+            positioned on the last change block or when there are no changes.<div class="note note note_note"><span class="note__title">Note:</span> A change block
+              groups one or more consecutive lines that contain at least one change.</div></dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_lbz_hk3_tc" src="../reusables/topics/../../img/DiffPreviousBlock16.png">Previous Block of Changes</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_comma_shortcut">Ctrl + Comma
+                    (Command + Comma on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the previous block of changes. This action is not available when the cursor
+            is positioned on the first change block or when there are no changes.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_lbp_jk3_tc" src="../reusables/topics/../../img/DiffNext16.png">Next
+              Change</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_period_shortcut">Ctrl + Shift + Period (Command + Shift + Period on OS
+                X)</span></span>)</dt>
+          <dd class="dd">Jumps to the next change from the current block of changes. When the last change from
+            the current block of changes is reached, it highlights the next block of changes. This
+            action is not available when the cursor is positioned on the last change or when there
+            are no changes.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_vc1_hk3_tc" src="../reusables/topics/../../img/DiffPrevious16.png">Previous
+              Change</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_comma_shortcut">Ctrl
+                    + Shift + Comma (Command + Shift + M on OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the previous change from the current block of changes. When the first change
+            from the current block of changes is reached, it highlights the previous block of
+            changes. This action is not available when the cursor is positioned on the first change
+            or when there are no changes.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffLast16.png">Last Change</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_e_shortcut">Ctrl + E (Command + E on
+                    OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the last change.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffFirst16.png">First Change</span>
+              (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_b_shortcut">Ctrl + B (Command + B on
+                    OS X)</span></span>)</dt>
+          <dd class="dd">Jumps to the first change.</dd>
+        
+                
+                  <dt class="dt dlterm" id="svn-main-menu__copy_all_right_to_left"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_xbb_1dx_r2" src="../img/DiffCopyAllRightToLeft16.png">Copy All Changes from Right to Left</span></dt>
+                  <dd class="dd"><span class="ph">Copies all changes from the file in the right
+              panel to the file in the left panel.</span></dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_copy_right_to_left"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_3hq_4k3_tc" src="../img/DiffCopyRightToLeft16.png">Copy Change from Right to Left</span></dt>
+                  <dd class="dd"><span class="ph">Copies the selected difference from the file in the
+              right panel to the file in the left panel.</span></dd>
+                
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_kwp_4yh_5r" src="../reusables/topics/../../img/DiffWordDetails16.gif">Show
+              Word Level Details</span></dt>
+          <dd class="dd">Provides a word-level comparison of the selected change.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_sjs_gyh_5r" src="../reusables/topics/../../img/DiffCharDetails16.gif">Show
+              Character Level Details</span></dt>
+          <dd class="dd">Provides a character-level comparison of the selected change.</dd>
+        
+                
+                  <dt class="dt dlterm" id="svn-main-menu__format_indent_files"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_dcg_bm1_5r" src="../img/PrettyPrint16.png">
+                      ormat and Indent Both Files</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_p_shortcut">Ctrl + Shift
+                    + P (Command + Shift + P on OS X)</span></span>)</dt>
+                  <dd class="dd"><span class="ph">Formats and indents both files before comparing them.
+              Use this option for comparisons that contain long lines that make it difficult to spot
+              differences.</span><div class="note note note_note"><span class="note__title">Note:</span> When comparing two JSON files, the
+                <span class="ph uicontrol">Format and Indent Both Files</span> action will automatically sort
+              the keys in both files the same to make it easier to compare. </div></dd>
+                
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_gmn_wk3_tc" src="../reusables/topics/../../img/DiffIgnoreWhitespaces20.png">Ignore Whitespaces</span></dt>
+          <dd class="dd">Enables or disables the whitespace ignoring feature. Ignoring whitespace means that
+            before performing the comparison, the application normalizes the content and trims its
+            leading and trailing whitespaces.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">History</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_jxh_g13_5r" src="../img/SVNDockableFrameHistory16.png">Show History<span class="keyword shortcut">(Ctrl + H (Command + H on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Displays the history for an SVN resource at a given revision. The resource can
+                    be one selected from the <span class="ph uicontrol">Repositories</span> view,
+                      <span class="ph uicontrol">Working Copy</span> view, or from the <span class="ph uicontrol">Affected
+                      Paths</span> table from the <span class="ph uicontrol">History</span> view,
+                    depending on which view was last focused when this action was invoked.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__show-annotation-action-dlentry"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ufv_db3_5r" src="../img/SVNAnnotationsView16.gif">Show Annotation</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-main-menu__ctrl_shift_a_shortcut">Ctrl + Shift
+                    + A (Command + Shift + A on OS X)</span></span>)</dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">Show Annotation</span> dialog box that computes
+                      <a class="xref" href="annotations-view.html#annotations-view">the annotations for a file
+                      and displays them in the <span class="ph uicontrol">Annotations</span> view</a>, along
+                    with the history of the file in the <span class="ph uicontrol">History</span> view. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Repositories</span></dt>
+                  <dd class="dd">This operation is available for any resource selected from view,
+                      <span class="ph uicontrol">Working Copy</span> view, <span class="ph uicontrol">History</span> view
+                    or <span class="ph uicontrol">Directory Change Sets</span> view, depending on which view
+                    was last focused when this action was invoked. </dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_qfr_gb3_5r" src="../img/SVNRevisionGraph16.gif">Revision Graph <span class="keyword shortcut">(Ctrl + G (Command + G on OS
+                      X))</span></span></dt>
+                  <dd class="dd">This action allows you to see the graphical representation of a resource's
+                    history. For more details about a resource's revision graph see the section
+                      <a class="xref" href="svn-history-graph.html">Revision Graph</a>. This operation is
+                    available for any resource selected in the <span class="ph uicontrol">Repositories</span>
+                    view or <span class="ph uicontrol">Working Copy</span> view.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Tools</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="svn-main-menu__svn-share-project-action"><span class="ph uicontrol">Share project</span></dt>
+                  <dd class="dd">Allows you to <a class="xref" href="svn-share-project.html#svn-share-project">share a new project</a> using an SVN repository. The local
+                    project is automatically converted into an SVN working copy.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Branch / Tag</span></dt>
+                  <dd class="dd">Allows you to copy the selected resource from the
+                      <span class="ph uicontrol">Repositories</span> view or <span class="ph uicontrol">Working
+                      Copy</span> view to a branch or tag into the repository. To read more
+                    about this operation, see the section <a class="xref" href="branch-tag.html">Creating a
+                      Branch / Tag</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_ohy_3nq_4r" src="../img/SVNMerge16.png">Merge
+                        <span class="keyword shortcut">(Ctrl + J (Command + J on OS X))</span></span></dt>
+                  <dd class="dd">Allows you to merge the changes made on one branch back into the trunk, or
+                    vice versa, using the selected resource from the working copy. To read more
+                    about this operation, see the section <a class="xref" href="merge-branches.html">Merging</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Switch <span class="keyword shortcut">(Ctrl + Alt + W (Command + Alt + W on OS
+                        X))</span></span></dt>
+                  <dd class="dd">Allows you to change the repository location of a working copy, or only of a
+                    versioned item of the working copy, within the same repository. It is available
+                    when the selected item of the working copy is a versioned resource, except for
+                      <em class="ph i">external</em> items. To read more about this action, see the <a class="xref" href="switch-repository-location.html">Switching the Repository
+                      Location</a> section.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Relocate</span></dt>
+                  <dd class="dd">Allows you to change the base URL of the root folder of the working copy to a
+                    new URL when the base URL of the repository changed. For example, if the
+                    repository itself was moved to a different server. This operation is only
+                    available for the root item of the working copy. To read more about this
+                    operation, see the <a class="xref" href="relocate-working-copy.html">Relocate a Working
+                      Copy</a> section.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__action_create_patch"><span class="ph uicontrol"><img class="image" src="../img/SVNPatch16.png">Create
+                      patch <span class="keyword shortcut">(Ctrl + Alt + P (Command + Alt + P on OS
+                      X))</span></span></dt>
+                  <dd class="dd">Allows you to create a file containing all the differences between two
+                    resources, based on the <code class="ph codeph">svn diff</code> command. To read more about
+                    creating patches, see <a class="xref" href="create-patch-wc-repository.html" title="This type of patch contains changes between an old revision and the current content from the selected item within the working copy.">the
+                      section about patches</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Working copy format</span></dt>
+                  <dd class="dd">
+                    <p class="p">This submenu contains the following two operations:</p>
+                    <div class="p">
+                      <dl class="dl">
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_kgc_znp_5r" src="../img/SvnUpgradeWCFormat16.gif">Upgrade </span></dt>
+                          <dd class="dd">Upgrades the format of the currently loaded working copy to the newest
+                            one known by Syncro SVN Client. This allows you to benefit of all the
+                            new features of the client.</dd>
+                        
+                        
+                          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-main-menu__image_dxd_14p_5r" src="../img/SvnDowngradeWCFormat16.gif">Downgrade </span></dt>
+                          <dd class="dd">Downgrades the format of the currently loaded working copy to SVN 1.7
+                            format. This is useful if you want to use older SVN clients with the
+                            current working copy, or, by mistake, you have upgraded the format of an
+                            older working copy to SVN 1.8. <div class="note note note_note"><span class="note__title">Note:</span> SVN 1.7 working copies cannot be
+                              downgraded to older formats.</div></dd>
+                        
+                      </dl>
+                    </div>
+                    <p class="p">See the section <a class="xref" href="working-copy-format.html">Working Copy
+                        Format</a> to read more about this subject.</p>
+                  </dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Options</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preferences</span></dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">Preferences</span> dialog box.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Menu Shortcut Keys</span></dt>
+                  <dd class="dd">Opens the <a class="xref" href="preferences-menu-shortcut-keys.html#preferences-menu-shortcut-keys"><span class="ph uicontrol">Menu Shortcut Keys</span> preferences page</a>, where
+                    users can configure in one place the keyboard shortcuts available for menu items
+                    available in Syncro SVN Client.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Global Run-Time Configuration</span></dt>
+                  <dd class="dd">Allows you to configure SVN general options, that should be used by all the
+                    SVN clients you may use: <ul class="ul" id="svn-main-menu__ul_wwq_lzf_ps">
+                      <li class="li" id="svn-main-menu__svn-clients-config-file"><span class="ph uicontrol">Edit 'config' file</span> -
+                        In this file you can configure various SVN client-side behaviors.</li>
+                      <li class="li"><span class="ph uicontrol">Edit 'servers' file</span> - In this file you can
+                        configure various server-specific protocol parameters, including HTTP proxy
+                        information and HTTP timeout settings.</li>
+                    </ul></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Export Options</span></dt>
+                  <dd class="dd">Allows you to export the current options to an XML file.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Import Options</span></dt>
+                  <dd class="dd">Allows you to import options you have previously exported.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Reset Options</span></dt>
+                  <dd class="dd">Resets all your options to the default ones.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Reset Authentication</span></dt>
+                  <dd class="dd">Resets the Subversion authentication information.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Window</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show View</span></dt>
+                  <dd class="dd">Allows you to select the view you want to bring to front.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show Toolbar</span></dt>
+                  <dd class="dd">Allows you to select the toolbar you want to be visible.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Enable flexible layout</span></dt>
+                  <dd class="dd">Toggles between a fixed and a flexible layout. When the flexible layout is
+                    enabled, you can move and dock the internal views to adapt the application to
+                    various viewing conditions and personal requirements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Reset Layout</span></dt>
+                  <dd class="dd">Resets all the views to their default position.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Help</span> Menu</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Help (<span class="keyword shortcut">F1</span>)</span></dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">Help</span> dialog box.</dd>
+                
+                
+                  <dt class="dt dlterm" id="svn-main-menu__help-menu-online-help"><span class="ph uicontrol">Use online help</span> (selected by default)</dt>
+                  <dd class="dd">If this option is selected, when you select <span class="ph uicontrol">Help</span> or
+                    press <span class="ph uicontrol"><span class="keyword shortcut">F1</span></span> while hovering over any
+                    part of the interface, <span class="ph">Oxygen XML Editor</span> attempts to open the help
+                    documentation in online mode. If this option is not selected or an internet
+                    connection fails, the help documentation is opened in offline mode.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show Dynamic Help view</span></dt>
+                  <dd class="dd">Displays the <span class="ph uicontrol">Dynamic Help</span> view.</dd>
+                
+                
+                
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Report Problem</span></dt>
+                  <dd class="dd">Opens a dialog box that allows you to write the description of a problem that
+                    was encountered while using the application.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Support Center</span></dt>
+                  <dd class="dd">Opens the Support Center web page in a browser.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">About</span></dt>
+                  <dd class="dd">Opens the <span class="ph uicontrol">About</span> dialog box.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl></div>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-main-window.html">Main Window</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/views.html">Views</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/svn-main-toolbar.html">SVN Main Toolbar</a></div></div></nav></article></main></body></html>

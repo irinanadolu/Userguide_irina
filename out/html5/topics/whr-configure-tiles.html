@@ -1,0 +1,93 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Customizing the tiles"><meta name="keywords" content="WebHelp Responsive, Customizing the tiles"><meta name="DC.relation" scheme="URI" content="../topics/whr_how_to_change_an_html_layout_page.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-custom-footer.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-media-resources.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-configure-tiles"><title>How to Configure the Tiles on the WebHelp Responsive Main Page</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-configure-tiles"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Configure the Tiles on the WebHelp Responsive Main Page</h1>
+  
+  
+  <div class="body">
+    <p class="p">The <em class="ph i">tiles</em> version of the main page of the WebHelp Responsive output displays a tile
+      for each topic found on the first level of the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+          map</dfn></a>. However, you might want to customize the way they look or even to hide
+      some of them.</p>
+    <p class="p">Depending on your particular setup, you can choose to customize the tiles either by setting
+      metadata information in the <dfn class="term">DITA map</dfn> or by customizing the CSS that is associated
+      with the <dfn class="term">DITA map</dfn>.</p>
+    <section class="section" id="whr-configure-tiles__how_to_hide_some_of_the_tiles"><h2 class="title sectiontitle">How to Hide Some of the Tiles</h2>
+      
+      <p class="p">If your documentation is very large or there is a large number of topics on the first
+        level, you might want to hide some of the tiles. Also, this might be useful if you only want
+        to display the topics in the first page that are most relevant to your intended
+        audience.</p>
+      <p class="p">There are two methods for doing this. One of them involves editing the <dfn class="term">DITA
+          map</dfn> and marking the topics that do not need to be displayed as tiles, and another
+        one that uses a small CSS customization level to hide some tiles identified by the ID of the
+        topic.</p>
+      <div class="sectiondiv"><strong class="ph b">Editing the DITA Map</strong><div class="p">To edit the metadata in the <dfn class="term">DITA map</dfn> to
+          control which topics on the first level of the <dfn class="term">DITA map</dfn> will not be displayed
+          as a tile, follow these steps:<ol class="ol">
+            <li class="li">Open the <dfn class="term">DITA map</dfn> in the <span class="ph uicontrol">Text</span> editing mode of
+                <span class="ph">Oxygen XML Editor</span>.</li>
+            <li class="li">Add the following metadata information in the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element (or
+              any of its specializations) for each first-level topic that you do not want to be
+              displayed as a
+              tile:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"wh-tile"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"hide"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>        
+  <strong class="hl-tag">&lt;/data&gt;</strong>
+<strong class="hl-tag">&lt;/topicmeta&gt;</strong></pre></li>
+          </ol></div></div>
+      <div class="sectiondiv"><strong class="ph b">Customizing the CSS</strong><div class="p">To customize the CSS to control which topics on the
+          first level of the <dfn class="term">DITA map</dfn> will not be displayed as a tile, follow these steps:<ol class="ol">
+            <li class="li">Make sure you set an ID on the topic you want to hide.</li>
+            <li class="li">Create a new CSS file that contains a rule that hides the tile generated for the
+              topic (identified in the following example by the topic ID
+                <code class="ph codeph">growing-flowers</code>). The CSS file should have content that is similar
+              to
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.wh_tile [data-id=<span class="hl-string">'growing-flowers'</span>] {
+  <strong class="hl-keyword">display</strong>:none;
+}</pre></li>
+            <li class="li">Reference the CSS file in a <dfn class="term">WebHelp Responsive</dfn> transformation using
+                <a class="xref" href="webhelp-customizing-with-css.html#whr-custom-css-pt-oxy">an <dfn class="term">Oxygen
+                  Publishing Template</dfn></a> or <a class="xref" href="webhelp-customizing-with-css.html#whr-custom-css-param-oxy">the
+                  <code class="ph codeph">args.css</code> parameter</a>.</li>
+          </ol></div></div>
+    </section>
+    <section class="section" id="whr-configure-tiles__how_to_add_an_image_to_the_tiles"><h2 class="title sectiontitle">How to Add an Image to the Tiles</h2>
+      
+      <p class="p">There are two methods that you can use to add an image to a tile. One of them involves
+        editing the <dfn class="term">DITA map</dfn>, and the other uses a CSS customization.</p>
+      <div class="sectiondiv"><strong class="ph b">Editing the DITA Map</strong><div class="p">To edit the metadata in the <dfn class="term">DITA map</dfn> to
+          set an image to be displayed in a tile, follow these steps:<ol class="ol">
+            <li class="li">Open the <dfn class="term">DITA map</dfn> in the <span class="ph uicontrol">Text</span> editing mode of
+                <span class="ph">Oxygen XML Editor</span>.</li>
+            <li class="li">Add the following metadata information in the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element (or
+              any of its specializations) for each first-level topic that will have an image
+              displayed in the corresponding
+                tile:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"wh-tile"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"image"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"img/tile-image.png"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"png"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attr-width"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"64"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attr-height"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"64"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/data&gt;</strong>
+  <strong class="hl-tag">&lt;/data&gt;</strong>  
+<strong class="hl-tag">&lt;/topicmeta&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> The
+                  <code class="keyword markupname xmlatt">@attr-width</code> and <code class="keyword markupname xmlatt">@attr-height</code> attributes can be
+                used to control the size of the image, but they are optional.</div></li>
+          </ol></div></div>
+      <div class="sectiondiv"><strong class="ph b">Customizing the CSS</strong><div class="p">To customize the CSS to set an image to be displayed
+          in a tile, follow these steps:<ol class="ol">
+            <li class="li">Make sure you set an ID on the topic that you want the tile to include an
+              image.</li>
+            <li class="li">Create a new CSS file that contains a rule that associates an image with a specific
+              tile. The CSS file should have content that is similar to
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">.wh_tile[data-id=<span class="hl-string">'growing-flowers'</span>]&gt; div {
+    <strong class="hl-keyword">background-image</strong>:url(<span class="hl-string">'resources/flower.png'</span>);
+}</pre></li>
+            <li class="li">Reference the CSS file in a <dfn class="term">WebHelp Responsive</dfn> transformation using
+                <a class="xref" href="webhelp-customizing-with-css.html#whr-custom-css-pt-oxy">an <dfn class="term">Oxygen
+                  Publishing Template</dfn></a> or <a class="xref" href="webhelp-customizing-with-css.html#whr-custom-css-param-oxy">the
+                  <code class="ph codeph">args.css</code> parameter</a>.</li>
+          </ol></div></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_how_to_change_an_html_layout_page.html">How to Change the Main Page Layout</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-custom-footer.html">How to Create a Custom Footer</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-media-resources.html">Adding Graphics and Media Resources</a></div></div></nav></article></main></body></html>

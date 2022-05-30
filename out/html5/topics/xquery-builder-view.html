@@ -1,0 +1,153 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XQuery,XQuery Builder view"><meta name="keywords" content="XQuery, XQuery Builder view"><meta name="DC.relation" scheme="URI" content="../topics/editing-xquery-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-outline.html"><meta name="DC.relation" scheme="URI" content="../topics/xquery-input-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xquery-builder-view"><title>XQuery Builder View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xquery-builder-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XQuery Builder View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">XPath/XQuery Builder</span> view allows you to compose complex XQuery
+      expressions and execute them over the currently edited XML document. You can use the
+        <code class="ph codeph">doc()</code> function to specify the source file that will have the expressions
+      executed. When you connect to a database, the expressions are executed over that database. If
+      you are using the <span class="ph uicontrol">XPath/XQuery Builder</span> view and the current file is an
+      XSLT document, <span class="ph">Oxygen XML Editor</span> executes the expressions over the XML document in the
+      associated scenario.</p>
+    <p class="p"><span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">The upper part of the view contains the following actions:<dl class="dl">
+        
+          <dt class="dt dlterm">XPath version chooser drop-down menu</dt>
+          <dd class="dd">A drop-down menu that allows you to select the type of the expression you want to
+            execute. You can choose between:<ul class="ul">
+              <li class="li">XPath 1.0 (Xerces-driven)</li>
+              <li class="li">XPath 2.0, XPath 2.0 SA, XPath 3.1, XPath 3.1 SA, Saxon-HE XQuery, Saxon-PE
+                XQuery, or Saxon-EE XQuery (all of them are Saxon-driven)</li>
+              <li class="li">Custom connection to XML databases that can execute XQuery expressions<div class="note note note_note"><span class="note__title">Note:</span> The
+                  results returned by XPath 2.0 SA and XPath 3.1 SA have a location limited to the
+                  line number of the start element (there are no column information and no end
+                  specified).</div><div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">Oxygen XML Editor</span> uses Saxon to execute XPath 3.1
+                  expressions. Since Saxon implements a part of the 3.1 functions, when using a
+                  function that is not implemented, <span class="ph">Oxygen XML Editor</span> returns a compilation
+                  error. </div></li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/ApplyStyleSheet16.png">Execute XPath</span>
+            button</dt>
+          <dd class="dd">Use this button to start the execution of the XPath or XQuery expression you are
+            editing. The result of the execution is displayed in the <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span>
+              view</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XPathAdd2Favorites16.png">Favorites</span>
+            button</dt>
+          <dd class="dd">Allows you to save certain expressions that you can later reuse. To add an expression
+            as a favorite, click this button and enter a name for it. The star turns yellow to
+            confirm that the expression was saved. Expand the drop-down menu next to the star button
+            to see all your favorites. <span class="ph">Oxygen XML Editor</span> automatically groups favorites in
+            folders named after the method of execution.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/XPathHistory16.png">History</span> drop-down
+            menu</dt>
+          <dd class="dd">Keeps a list of the last 15 executed XPath or XQuery expressions. Use the
+                <span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_iyy_kbp_5r" src="../img/RemoveAll16.gif"> Clear
+              history</span> action from the bottom of the list to remove them.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings</span> drop-down
+            menu</dt>
+          <dd class="dd">
+            <p class="p">Contains the following three options:</p>
+            <div class="p">
+              <dl class="dl">
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CaretUpdateOff16.png">Update on cursor
+              move</span></dt>
+          <dd class="dd">When selected and you navigate through a document, the XPath expression corresponding
+            to the XML node at the current cursor position is displayed. For JSON documents, it
+            displays the XPath expression for the current property.</dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/XPathEvaluate16.png">Evaluate as you
+              type</span></dt>
+          <dd class="dd">When you select this option, the XPath expression you are composing is evaluated in
+            real time.<div class="note note note_note"><span class="note__title">Note:</span> This option and the automatic validation are disabled <span class="ph">when you edit <a class="xref" href="editing-large-documents.html#editing-large-documents">huge
+                  documents</a> or </span>when the scope is other than <span class="ph uicontrol">Current
+                file</span>.</div></dd>
+        
+                
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Options</span></dt>
+          <dd class="dd">Opens the Preferences page of the currently selected processing engine.</dd>
+        
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">XPath scope</span> menu</dt>
+          <dd class="dd">
+            <div class="p"><span class="ph"><span class="ph">Oxygen XML Editor</span></span> allows you to define a scope for the XPath operation
+              to be executed. You can choose where the XPath expression will be executed:<ul class="ul" id="xquery-builder-view__ul_rxh_hx1_1jb">
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_sxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeCurrentFile16.png">Current file</span> - Currently selected file
+                  only.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_txh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeProject16.png">Project</span> - All the files in the project.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_vxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeProjectSelection16.png">Selected project resources</span> - The files selected in the
+                  project.</li>
+                
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_xxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeOpenedFiles16.png">All opened files</span> - All files that are
+                  opened in the application.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_yxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeDitaMap16.png">Current DITA
+                    Map hierarchy</span> - All resources referenced in the currently selected
+                    <dfn class="term">DITA map</dfn> that is open in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA
+                      Maps Manager</span> view</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_zxh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeArchive16.png">Opened archive</span> - Files that are opened in
+                  the <a class="xref" href="archive-browser-view.html#archive-browser-view"><span class="ph uicontrol">Archive Browser</span> view</a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_ayh_hx1_1jb" src="../reusables/topics/../../img/xpathScopeWorkingSets16.png">Working sets</span> - The selected <a class="xref" href="../glossary/working-set.html"><dfn class="term">working sets</dfn></a>.</li>
+              </ul></div>
+            <div class="p">At the bottom of the scope menu the following scope configuration actions are available:<ul class="ul">
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ConfigureSearchScope16.png">Configure XPath
+                    working sets</span> - Allows you to configure and manage collections of
+                  files and folders, encapsulated in logical containers called <a class="xref" href="../glossary/working-set.html"><dfn class="term">working sets</dfn></a>.</li>
+                <li class="li"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Filters16.png">XPath file filter</span>
+                  - You can filter the files from the selected scope that will have the XPath
+                  expression executed. By default, the XPath expression will be executed only on XML
+                  or JSON files, but you can also define a set of patterns that will filter out
+                  files from the current scope.<span class="ph"> If you select
+                    the <span class="ph uicontrol">Include archive</span> option, the XPath expression will be
+                    also executed on the files in any archive (including EPUB and DocX) found at the
+                    current scope.</span></li>
+              </ul></div>
+          </dd>
+        
+      </dl></div>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XPath/XQuery Builder View</figcaption>
+        
+        <img class="image" src="../img/sa_xpath_builder_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    
+    <div class="p">While you edit an XPath or XQuery expression, <span class="ph">Oxygen XML Editor</span> assists you with the
+      following features:<ul class="ul">
+        <li class="li"><a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+              Assistant</dfn></a> - It offers context-dependent proposals and takes into account
+          the cursor position in the document you are editing. The set of functions proposed by the
+            <dfn class="term">Content Completion Assistant</dfn> also depends on the engine version. Select the
+          engine version from the drop-down menu available in the toolbar.</li>
+        <li class="li">Syntax Highlighting - Allows you to identify the components of an expression. To
+          customize the colors of the components of the expression, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <a class="xref" href="preferences-colors-sh.html#preferences-colors-sh"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Syntax Highlight</span></span></a>.</li>
+        <li class="li">Automatic validation of the expression as you type.<div class="note note note_note"><span class="note__title">Note:</span> When you type invalid syntax, a
+            red serrated line underlines the invalid fragments.</div></li>
+        <li class="li">Function signature and documentation balloon, when the cursor is located inside a
+          function. </li>
+      </ul></div>
+    <p class="p">The usual edit actions (<span class="ph uicontrol"><img class="image" src="../img/RemoveSelected16.gif">Cut</span>, <span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_fhv_5w4_5r" src="../img/Copy16.png">Copy</span>, <span class="ph uicontrol"><img class="image" id="xquery-builder-view__image_mtg_gqt_tr" src="../img/Paste16.png">Paste</span>, <span class="ph uicontrol">Select
+        All</span>, <span class="ph uicontrol"><img class="image" src="../img/Undo16.png">Undo</span>,
+          <span class="ph uicontrol"><img class="image" src="../img/Redo16.png">Redo</span>) are available in the
+      contextual menu of the top editable part of the view.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xquery-documents.html">Editing XQuery Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xquery-outline.html">XQuery Outline View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xquery-input-view.html">XQuery Input View</a></div></div></nav></article></main></body></html>

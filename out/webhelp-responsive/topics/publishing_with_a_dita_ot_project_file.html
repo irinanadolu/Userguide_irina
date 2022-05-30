@@ -1,0 +1,178 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="24.1">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="The DITA Open Toolkit project file allows you to define all your DITA map input and filter pairs and to produce the desired output formats by applying the publishing engine over this single project ..."/><meta name="DC.rights.owner" content="(C) Copyright 2022"/><meta name="copyright" content="(C) Copyright 2022"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="topic"/><meta name="DC.relation" content="../topics/dita-map-transform.html"/><meta name="DC.relation" content="../topics/add-syntax-highlights-codeblocks.html"/><meta name="DC.relation" content="../topics/dita-troubleshooting-transformations.html"/><meta name="DC.relation" content="dita_open_toolkit_project.html#dita_open_toolkit_project"/><meta name="prodname" content=""/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="publishing_with_a_dita_ot_project_file"/><title>Publishing with a DITA-OT Project File</title><!--  Generated with Oxygen version 24.1, build number 2022033103.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="publishing_with_a_dita_ot_project_file-d14162e33615"/><meta name="wh-source-relpath" content="topics/publishing_with_a_dita_ot_project_file.dita"/><meta name="wh-out-relpath" content="topics/publishing_with_a_dita_ot_project_file.html"/>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/lib/bootstrap/css/bootstrap.min.css"/>
+    
+    <link rel="stylesheet" href="../oxygen-webhelp/lib/jquery-ui/jquery-ui.min.css"/>
+    
+    <!-- Template default styles  -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic-page.css?buildId=2022033103"/>
+    
+    
+    <script src="../oxygen-webhelp/lib/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script data-main="../oxygen-webhelp/app/topic-page.js" src="../oxygen-webhelp/lib/requirejs/require.js"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2022033103"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/notes.css?buildId=2022033103"/></head>
+
+    <body id="publishing_with_a_dita_ot_project_file" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="booktitle">  <span class="ph mainbooktitle">  <span class="ph">Oxygen XML Author</span>  <span class="ph">23.0</span>  </span>  <span class="ph booktitlealt">User Guide</span>  </span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="getting-started-intro-d14162e901-mi" data-tocid="getting-started-intro-d14162e901" data-state="not-ready" class=" topicref " data-id="getting-started-intro"><span class="title"><a href="../topics/getting-started-intro.html">Getting Started</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="working-with-documents-d14162e5086-mi" data-tocid="working-with-documents-d14162e5086" data-state="not-ready" class=" topicref " data-id="working-with-documents"><span class="title"><a href="../topics/working-with-documents.html">Working With Any Type of Document</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="editing-documents-d14162e6883-mi" data-tocid="editing-documents-d14162e6883" data-state="not-ready" class=" topicref " data-id="editing-documents"><span class="title"><a href="../topics/editing-documents.html">Editing Documents</a></span></span></li><li role="menuitem"><span id="zulu-d14162e11164-mi" data-tocid="zulu-d14162e11164" data-state="leaf" class=" topicref " data-id="zulu"><span class="title"><a href="../topics/zulu.html">zulu</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="additional-doc-type-d14162e11768-mi" data-tocid="additional-doc-type-d14162e11768" data-state="not-ready" class=" topicref " data-id="additional-doc-type"><span class="title"><a href="../topics/additional-doc-type.html">Additional XML Editing Frameworks (Document Types)</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="transforming-documents-d14162e11834-mi" data-tocid="transforming-documents-d14162e11834" data-state="not-ready" class=" topicref " data-id="transforming-documents"><span class="title"><a href="../topics/transforming-documents.html">Publishing</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="author-dita-d14162e31939-mi" data-tocid="author-dita-d14162e31939" data-state="not-ready" class=" topicref " data-id="author-dita"><span class="title"><a href="../topics/author-dita.html">DITA Authoring</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="scripting_oxygen-d14162e34513-mi" data-tocid="scripting_oxygen-d14162e34513" data-state="not-ready" class=" topicref " data-id="scripting_oxygen"><span class="title"><a href="../topics/scripting_oxygen.html">Scripting Oxygen</a></span></span></li></ul></nav>
+                <div class=" wh_indexterms_link "><a href="../indexTerms.html" title="Index" aria-label="Go to index terms page"><span>Index</span></a></div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="author-dita"><div class="title"><a href="../topics/author-dita.html">DITA Authoring</a><div class="wh-tooltip"><p class="shortdesc">A guide to help content authors who create and publish DITA content</p></div></div></div></li><li><div class="topicref" data-id="dita-map-transform"><div class="title"><a href="../topics/dita-map-transform.html">Publishing DITA Output</a></div></div></li><li class="active"><div class="topicref" data-id="publishing_with_a_dita_ot_project_file"><div class="title"><a href="../topics/publishing_with_a_dita_ot_project_file.html">Publishing with a DITA-OT Project File</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../topics/add-syntax-highlights-codeblocks.html" title="Adding Syntax Highlights for Codeblocks in the Output" aria-label="Previous topic: Adding Syntax Highlights for Codeblocks in the Output" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../topics/dita-troubleshooting-transformations.html" title="Troubleshooting DITA Transformation Problems" aria-label="Next topic: Troubleshooting DITA Transformation Problems" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="author-dita-d14162e31939" class="topicref" data-id="author-dita" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action author-dita-d14162e31939-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/author-dita.html" id="author-dita-d14162e31939-link">DITA Authoring</a><div class="wh-tooltip"><p class="shortdesc">A guide to help content authors who create and publish DITA content</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="eppo-first-dita-topic-d14162e31961" class="topicref" data-id="eppo-first-dita-topic" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-first-dita-topic.html" id="eppo-first-dita-topic-d14162e31961-link">Getting Started with DITA</a></div></div></li><li role="treeitem"><div data-tocid="create-new-dita-project-d14162e31980" class="topicref" data-id="create-new-dita-project" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/create-new-dita-project.html" id="create-new-dita-project-d14162e31980-link">Working with Projects in DITA</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="eppo-pathfinder-documents-d14162e31999" class="topicref" data-id="eppo-pathfinder-documents" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action eppo-pathfinder-documents-d14162e31999-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-pathfinder-documents.html" id="eppo-pathfinder-documents-d14162e31999-link">Working with DITA Maps</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="eppo-pathfinder-structure-d14162e32455" class="topicref" data-id="eppo-pathfinder-structure" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action eppo-pathfinder-structure-d14162e32455-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-pathfinder-structure.html" id="eppo-pathfinder-structure-d14162e32455-link">Working with DITA Topics</a></div></div></li><li role="treeitem"><div data-tocid="markdown-dita-d14162e32722" class="topicref" data-id="markdown-dita" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-dita.html" id="markdown-dita-d14162e32722-link">Working with Markdown Documents in DITA</a></div></div></li><li role="treeitem"><div data-tocid="eppo-background-keys-d14162e32741" class="topicref" data-id="eppo-background-keys" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-background-keys.html" id="eppo-background-keys-d14162e32741-link">Working with Keys in DITA</a></div></div></li><li role="treeitem"><div data-tocid="dita-creating-glossary-d14162e32760" class="topicref" data-id="dita-creating-glossary" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-creating-glossary.html" id="dita-creating-glossary-d14162e32760-link">Working with a Glossary of Terms in DITA</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="eppo-pathfinder-reuse-d14162e32779" class="topicref" data-id="eppo-pathfinder-reuse" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action eppo-pathfinder-reuse-d14162e32779-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-pathfinder-reuse.html" id="eppo-pathfinder-reuse-d14162e32779-link">Reusing DITA Content</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="eppo-pathfinder-linking-d14162e33083" class="topicref" data-id="eppo-pathfinder-linking" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action eppo-pathfinder-linking-d14162e33083-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-pathfinder-linking.html" id="eppo-pathfinder-linking-d14162e33083-link">Linking in DITA</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="dita-map-transform-d14162e33159" class="topicref" data-id="dita-map-transform" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action dita-map-transform-d14162e33159-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-map-transform.html" id="dita-map-transform-d14162e33159-link">Publishing DITA Output</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="author-dita-map-transformation-scenarios-d14162e33178" class="topicref" data-id="author-dita-map-transformation-scenarios" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action author-dita-map-transformation-scenarios-d14162e33178-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/author-dita-map-transformation-scenarios.html" id="author-dita-map-transformation-scenarios-d14162e33178-link">Built-in DITA Map Transformation Scenarios</a></div></div></li><li role="treeitem"><div data-tocid="dita-topic-transformation-scenarios-d14162e33332" class="topicref" data-id="dita-topic-transformation-scenarios" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-topic-transformation-scenarios.html" id="dita-topic-transformation-scenarios-d14162e33332-link">Built-in DITA Topic Transformation Scenarios</a></div></div></li><li role="treeitem"><div data-tocid="dita-running-transformation-d14162e33349" class="topicref" data-id="dita-running-transformation" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-running-transformation.html" id="dita-running-transformation-d14162e33349-link">Running a DITA Transformation Scenario</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="create-dita-ot-transformation-d14162e33368" class="topicref" data-id="create-dita-ot-transformation" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action create-dita-ot-transformation-d14162e33368-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/create-dita-ot-transformation.html" id="create-dita-ot-transformation-d14162e33368-link">Creating or Editing a DITA-OT Transformation</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-ot-customization-d14162e33539" class="topicref" data-id="dita-ot-customization" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-ot-customization-d14162e33539-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-ot-customization.html" id="dita-ot-customization-d14162e33539-link">Customizing DITA Transformations</a></div></div></li><li role="treeitem" class="active"><div data-tocid="publishing_with_a_dita_ot_project_file-d14162e33615" class="topicref" data-id="publishing_with_a_dita_ot_project_file" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/publishing_with_a_dita_ot_project_file.html" id="publishing_with_a_dita_ot_project_file-d14162e33615-link">Publishing with a DITA-OT Project File</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-troubleshooting-transformations-d14162e33634" class="topicref" data-id="dita-troubleshooting-transformations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-troubleshooting-transformations-d14162e33634-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-troubleshooting-transformations.html" id="dita-troubleshooting-transformations-d14162e33634-link">Troubleshooting DITA Transformation Problems</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-profiling-conditional-text-d14162e33806" class="topicref" data-id="dita-profiling-conditional-text" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-profiling-conditional-text-d14162e33806-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-profiling-conditional-text.html" id="dita-profiling-conditional-text-d14162e33806-link">DITA Profiling / Conditional Text</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-ot-support-d14162e34054" class="topicref" data-id="dita-ot-support" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-ot-support-d14162e34054-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-ot-support.html" id="dita-ot-support-d14162e34054-link">DITA Open Toolkit Support</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-specialization-support-d14162e34246" class="topicref" data-id="dita-specialization-support" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-specialization-support-d14162e34246-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-specialization-support.html" id="dita-specialization-support-d14162e34246-link">DITA Specialization Support</a></div></div></li><li role="treeitem"><div data-tocid="dita-translating-d14162e34322" class="topicref" data-id="dita-translating" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-translating.html" id="dita-translating-d14162e34322-link">Translating DITA Projects Overview</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dita-master-files-d14162e34341" class="topicref" data-id="dita-master-files" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dita-master-files-d14162e34341-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-master-files.html" id="dita-master-files-d14162e34341-link">Master Files Support in DITA</a></div></div></li><li role="treeitem"><div data-tocid="eppo-pathfinder-metadata-d14162e34398" class="topicref" data-id="eppo-pathfinder-metadata" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/eppo-pathfinder-metadata.html" id="eppo-pathfinder-metadata-d14162e34398-link">Metadata</a></div></div></li><li role="treeitem"><div data-tocid="ooxml-to-dita-d14162e34417" class="topicref" data-id="ooxml-to-dita" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/ooxml-to-dita.html" id="ooxml-to-dita-d14162e34417-link">Migrating MS Office Documents to DITA</a></div></div></li><li role="treeitem"><div data-tocid="dita-migrating-various-formats-d14162e34436" class="topicref" data-id="dita-migrating-various-formats" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita-migrating-various-formats.html" id="dita-migrating-various-formats-d14162e34436-link">Migrating Various Document Formats to and from DITA</a></div></div></li><li role="treeitem"><div data-tocid="count-words-d14162e34455" class="topicref" data-id="count-words" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/count-words.html" id="count-words-d14162e34455-link">How to Count Words in DITA Topics or Maps</a></div></div></li><li role="treeitem"><div data-tocid="dita1-3-support-d14162e34474" class="topicref" data-id="dita1-3-support" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita1-3-support.html" id="dita1-3-support-d14162e34474-link">DITA 1.3 Support</a></div></div></li><li role="treeitem"><div data-tocid="dita2-0-support-d14162e34493" class="topicref" data-id="dita2-0-support" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/dita2-0-support.html" id="dita2-0-support-d14162e34493-link">DITA 2.0 Support</a></div></div></li></ul></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Publishing with a DITA-OT Project File</h1>
+    <div class="- topic/body body">
+    <p class="- topic/p p">The <em class="+ topic/ph hi-d/i ph i">DITA Open Toolkit</em> project file allows you to define all
+      your DITA map input and filter pairs and to produce the desired output formats by applying the
+      publishing engine over this single project file: <a class="- topic/xref xref" href="https://www.dita-ot.org/dev/topics/using-project-files.html" target="_blank" rel="external noopener">https://www.dita-ot.org/dev/topics/using-project-files.html</a>.</p>
+    <div class="- topic/p p">Once a DITA-OT project file is opened in the application, two
+      predefined publishing scenarios become available in the <a class="- topic/xref xref" href="configure-transformation-dialog.html"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Configure Transformation
+          Scenario(s)</span> dialog box</a>:<ul class="- topic/ul ul" id="publishing_with_a_dita_ot_project_file__ul_fwd_4x1_mjb" data-ofbid="publishing_with_a_dita_ot_project_file__ul_fwd_4x1_mjb">
+        <li class="- topic/li li"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Publish DITA-OT Project (all deliverables)</span> - Runs the publishing
+          engine and produces output for all deliverables defined in the project file.</li>
+        <li class="- topic/li li"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Publish DITA-OT Project (select deliverable)</span> - Runs the
+          publishing engine and produces output for only one deliverable specified by the end-user.</li>
+      </ul></div>
+    <div class="- topic/p p">Some of the allowed transformation parameters that are relevant to
+      the DITA-OT project file include:<ul class="- topic/ul ul" id="publishing_with_a_dita_ot_project_file__ul_p4v_kgz_jkb" data-ofbid="publishing_with_a_dita_ot_project_file__ul_p4v_kgz_jkb">
+        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">project.file</strong> - Specifies the path to the project file.</li>
+        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">dita-ot.dir</strong> - Specifies the directory where DITA-OT, used in transformation is
+          installed.</li>
+        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">additional.args</strong> - Specifies the additional arguments used in transformation.</li>
+        <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">deliverable.id</strong> - Specifies the id of the deliverable. This parameter is only
+          available in the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Publish DITA-OT Project (select deliverable)</span>
+          transformation.</li>
+      </ul></div>
+    </div>
+  
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist"><strong>Related Information:</strong><ul class="linklist related_link"><li class="linklist"><a class="navheader_parent_path" href="dita_open_toolkit_project.html#dita_open_toolkit_project" title="DITA Open Toolkit Project">DITA Open Toolkit Project</a></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+ &lt;oXygen/&gt; XML WebHelp
+ </a></div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Disable caching"><meta name="keywords" content="WebHelp Responsive, Disable caching"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/mathjax-webhelp.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-responsive-plugin-additional-parameters.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh_disable-caching-in-webhelp-responsive"><title>How to Disable Caching in WebHelp Responsive Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh_disable-caching-in-webhelp-responsive"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Disable Caching in WebHelp Responsive Output</h1>
+  
+  <div class="body">
+    <p class="p">In cases where a set of WebHelp Responsive pages need to be updated on a regular basis to
+      deliver the latest version of the documentation, the WebHelp pages should always be requested
+      from the server upon re-loading it in a web browser on the client side, (rather than re-using
+      an outdated <em class="ph i">cached</em> version in the browser).</p>
+    <div class="p">To disable caching in WebHelp Responsive output, follow this procedure: <ol class="ol" id="wh_disable-caching-in-webhelp-responsive__ol_eqz_q11_5s">
+        <li class="li">Create a new well-formed XML file and add the following code
+            snippet:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;meta</strong> <span class="hl-attribute">http-equiv</span>=<span class="hl-value">"Pragma"</span> <span class="hl-attribute">content</span>=<span class="hl-value">"no-cache"</span><strong class="hl-tag"> /&gt;</strong>
+<strong class="hl-tag">&lt;meta</strong> <span class="hl-attribute">http-equiv</span>=<span class="hl-value">"Expires"</span> <span class="hl-attribute">content</span>=<span class="hl-value">"-1"</span><strong class="hl-tag"> /&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> The code should look like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-tag-doctype">&lt;!DOCTYPE html&gt;</span>
+<strong class="hl-tag">&lt;html</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.w3.org/1999/xhtml"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;head&gt;</strong>
+        <strong class="hl-tag">&lt;meta</strong> <span class="hl-attribute">http-equiv</span>=<span class="hl-value">"Pragma"</span> <span class="hl-attribute">content</span>=<span class="hl-value">"no-cache"</span><strong class="hl-tag"> /&gt;</strong>
+        <strong class="hl-tag">&lt;meta</strong> <span class="hl-attribute">http-equiv</span>=<span class="hl-value">"Expires"</span> <span class="hl-attribute">content</span>=<span class="hl-value">"-1"</span><strong class="hl-tag"> /&gt;</strong>
+    <strong class="hl-tag">&lt;/head&gt;</strong>
+<strong class="hl-tag">&lt;/html&gt;</strong></pre></div></li>
+        <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and open the
+            <span class="ph uicontrol">Parameters</span> tab.</li>
+        <li class="li">Edit the value of the <code class="ph codeph">webhelp.fragment.head</code> parameter and set it to the
+          absolute path of your XML file.</li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation scenario.</li>
+        <li class="li">Run the transformation scenario.</li>
+      </ol><strong class="ph b">Result:</strong> Your additional content is included at the end of the
+        <code class="keyword markupname xmlelement">&lt;head&gt;</code> element of your output document.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/mathjax-webhelp.html">How to View MathML Equations in HTML Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/webhelp-responsive-plugin-additional-parameters.html">WebHelp Responsive Transformation Parameters</a></div></div></nav></article></main></body></html>

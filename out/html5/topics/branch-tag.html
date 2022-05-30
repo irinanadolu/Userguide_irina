@@ -1,0 +1,50 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Branches/Tags,Create branch/tag"><meta name="keywords" content="SVN Client, Branches/Tags, Create branch/tag"><meta name="DC.relation" scheme="URI" content="../topics/creating-branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/creating-branch-tag.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-branches.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="branch-tag"><title>Create a Branch / Tag</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="branch-tag"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Create a Branch / Tag</h1>
+  
+  <div class="body">
+    <p class="p">To create a branch or tag by copying a directory, use the
+        <span class="ph uicontrol">Branch/Tag</span> action that is available in the
+        <span class="ph uicontrol">Tools</span> menu when an item is selected in the  <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a> or <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>, or from the
+      contextual menu of the <span class="ph uicontrol">Repositories</span> view.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Branch/Tag Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_svn_branch_tag_dialog.png">
+      </figure>
+    </div>
+    <p class="p">You can configure the following options in this dialog box:</p>
+    <div class="p"> You can specify the source revision of the copy in the <span class="ph uicontrol">Copy from</span>
+      section. You can choose between the following options: <ul class="ul" id="branch-tag__ul_xps_t25_pr">
+        <li class="li"><span class="ph uicontrol">HEAD revision in the repository</span> - The new branch or tag will be
+          copied in the repository from the <code class="ph codeph">HEAD</code> revision. The branch will be
+          created very quickly, as the repository will make a <em class="ph i">cheap</em> copy.</li>
+        <li class="li"><span class="ph uicontrol">Specific revision in the repository</span> - The new branch will be
+          copied into the repository, but you can specify the exact desired revision. For example,
+          this is useful if you forgot to make a branch or tag when you released your application.
+          If you click the <span class="ph uicontrol">History</span> button you can select the revision number
+          from <a class="xref" href="history-dialog.html#history-dialog">the
+              <span class="ph uicontrol">History</span> dialog box</a>. This type of branch will also be
+          created very quickly.</li>
+        <li class="li"><span class="ph uicontrol">Working copy</span> - (Available only if the item is selected from the
+            <span class="ph uicontrol">Working copy</span> view). The new branch will be a copy of your local
+          working copy. If you have updated some files to an older revision in your working copy, or
+          if you have made local changes, that is exactly what goes into the copy. This involves
+          transferring some data from your working copy back to the repository, or more
+          specifically, the locally modified files.</li>
+      </ul></div>
+    <div class="p">You can specify the location of the new branch or tag in the
+        <span class="ph uicontrol">Destination</span> section:<ul class="ul" id="branch-tag__ul_f2j_sf5_pr">
+        <li class="li"><span class="ph uicontrol">Into repository's directory</span> - <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">The URL of
+            the parent directory</a> of the new branch or tag.<div class="note note note_note"><span class="note__title">Note:</span> <em class="ph i">Peg revisions</em> have no
+            effect for this operation since it is used to send information to the repository.
+          </div></li>
+        <li class="li"><span class="ph uicontrol">Under the name</span> - You can specify another branch or tag name other
+          than the name of the resource selected in the <span class="ph uicontrol">Repositories</span> or
+            <span class="ph uicontrol">Working copy</span> view. </li>
+      </ul></div>
+    <p class="p">The new branch or tag will be created as a child of the specified URL of the repository
+      directory and will have the new name.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/creating-branch-tag.html">Branches and Tags</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/creating-branch-tag.html">Branches and Tags</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/merge-branches.html">Merging</a></div></div></nav></article></main></body></html>

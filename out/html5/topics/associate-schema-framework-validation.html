@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Associate schema in a validation scenario defined in framework,Associate schema in a validation scenario defined in framework"><meta name="keywords" content="XML documents, Associate schema in a validation scenario defined in framework, Associate schema in a validation scenario defined in framework"><meta name="DC.relation" scheme="URI" content="../topics/associate-schema-to-document.html"><meta name="DC.relation" scheme="URI" content="../topics/associate-schema-validation-scenario.html"><meta name="DC.relation" scheme="URI" content="../topics/associating-schema-directly.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="associate-schema-framework-validation"><title>Associating a Schema in Validation Scenarios Defined in the Document Type</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="associate-schema-framework-validation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Associating a Schema in Validation Scenarios Defined in the Document Type</h1>
+  
+  <div class="body">
+    <p class="p">To report errors and warnings during automatic and manual validations that help maintain the
+      structural integrity of particular XML document types, <span class="ph">Oxygen XML Editor</span> uses rules
+      defined in the schema that is detected in the validation scenarios that are associated to each
+      particular document type.</p>
+    <div class="p">To associate a schema in validation scenarios defined in the <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> (document type) configuration,
+      follow these steps:<ol class="ol">
+        <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+            <span class="ph uicontrol">Document Type Association</span>.</li>
+        <li class="li">
+          <p class="p">Select your particular document type and click the <span class="ph uicontrol">Edit</span> or
+              <span class="ph uicontrol">Duplicate</span> button to modify an existing <dfn class="term">framework</dfn>
+            (or use the <span class="ph uicontrol">New</span> button to create a new one).</p>
+          <p class="p"><strong class="ph b">Step Result:</strong> This opens a <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                type</span> configuration dialog box</a>.</p>
+        </li>
+        <li class="li">Go to the <a class="xref" href="document-type-validation-tab.html#document-type-validation-tab"><span class="ph uicontrol">Validation</span> tab</a>.</li>
+        <li class="li">Create or edit a validation scenario:<ol class="ol" type="a">
+            <li class="li">To <a class="xref" href="create-validation-scenario.html#create-validation-scenario">create a
+                new validation scenario</a>, click the <span class="ph uicontrol"><img class="image" src="../img/Add16.png">New</span> button.</li>
+            <li class="li">To <a class="xref" href="edit-validation-scenario.html#edit-validation-scenario">edit the
+                properties of an existing validation scenario</a>, select it and click the
+                  <span class="ph uicontrol"><img class="image" id="associate-schema-framework-validation__image_pkh_qns_tr" src="../img/Wrench16.png">Edit</span> button (you can also use the <span class="ph uicontrol"><img class="image" src="../img/Copy16.png">Duplicate</span> button to copy an existing
+              scenario and edit its properties).</li>
+          </ol></li>
+        <li class="li">
+          <p class="p"><a class="xref" href="edit-validation-scenario.html#edit-validation-scenario__validation-unit-stepresult">Add or configure validation units</a> according to your needs and click the
+                <span class="ph uicontrol"><img class="image" id="associate-schema-framework-validation__image_fk2_fl3_t3b" src="../img/Options16.png">Specify
+              Schema</span> button.</p>
+          <p class="p"><strong class="ph b">Step Result:</strong> The <span class="ph uicontrol">Specify Schema</span> dialog box is
+            displayed:</p>
+          <div class="p">
+            <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Specify Schema Dialog Box</figcaption>
+              
+              <img class="image" src="../img/specify_schema_dialog.png">
+            </figure>
+          </div>
+          <p class="p">The <span class="ph uicontrol">Specify Schema</span> dialog box contains the following
+            options:</p>
+          <div class="p">
+            <dl class="dl">
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Use detected schema</span></dt>
+                <dd class="dd">Uses the <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document__detecting_a_default_schema">schema detected for the particular document</a>.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="ph uicontrol">Use custom schema</span></dt>
+                <dd class="dd">Allows you to specify the schema using the following options:<ul class="ul">
+      <li class="li">
+        <span class="ph uicontrol">URL</span> - Allows you to specify or select a URL for the schema. It also
+        keeps a history of the last used schemas. The URL must point to the schema file that can be
+        loaded from the local disk or from a remote server through HTTP(S), FTP(S)<span class="ph"> or a <a class="xref" href="howto-custom-protocol-plugin.html#howto-custom-protocol-plugin">custom protocol</a></span>. You can specify the URL by using the text
+        field, the history drop-down, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down list.</li>
+      <li class="li">
+        <span class="ph uicontrol">Schema type</span> - Select a possible schema type from this combo box that
+        is populated based on the extension of the schema file that was entered in the
+          <span class="ph uicontrol">URL</span> field. The possible schema types are: XML Schema, DTD, Relax
+        NG, Relax NG Compact, Schematron, or NVDL.</li>
+      <li class="li"><span class="ph uicontrol">Embedded Schematron rules</span> - If you have selected XML Schema or
+        Relax NG schemas with embedded Schematron rules and you want to use those embedded rules,
+        select this option.</li>
+      <li class="li">
+        <span class="ph uicontrol">Public ID</span> - Allows you to specify a public ID if you have selected a
+        DTD.</li>
+      <li class="li"><span class="ph uicontrol">Extensions</span>- Opens a dialog box that allows you to specify <a class="xref" href="../glossary/jar.html"><dfn class="term">Java extension JARs</dfn></a> to be used during the
+        validation.</li>
+      <li class="li"><span class="ph uicontrol">Schematron phase</span> - If you select a Schematron schema, this
+        drop-down list allows you to select a Schematron phase that you want to use for validation.
+        The listed phases are defined in the Schematron document.</li>
+    </ul></dd>
+              
+            </dl>
+          </div>
+        </li>
+        <li class="li">Select the schema to be associated with the validation unit and configure the rest of
+          the options according to your preferences.</li>
+        <li class="li">Click <span class="ph uicontrol">OK</span> on both dialog boxes.</li>
+      </ol></div>
+    <p class="p"><strong class="ph b">Result:</strong> The schema is now associated with the validation scenario you just configured
+      for that particular document type.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/associate-schema-to-document.html">Associating a Schema to XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/associate-schema-validation-scenario.html">Associating a Schema Through a Validation Scenario</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/associating-schema-directly.html">Associating a Schema Directly in XML Documents</a></div></div></nav></article></main></body></html>

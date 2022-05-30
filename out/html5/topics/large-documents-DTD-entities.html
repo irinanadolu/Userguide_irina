@@ -1,0 +1,62 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,DTD Entities"><meta name="keywords" content="XML documents, DTD Entities"><meta name="DC.relation" scheme="URI" content="../topics/large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/large-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/including-document-parts-with-XInclude.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="large-documents-DTD-entities"><title>Combining XML Document Content Using DTD Entities</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="large-documents-DTD-entities"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Combining XML Document Content Using DTD Entities</h1>
+  
+  <div class="body">
+    <p class="p">There are two conditions for including a document fragment using DTD entities:</p>
+    <ul class="ul">
+      <li class="li">The master document should declare the DTD to be used, while the external entities should
+        declare the XML fragments to be referenced.</li>
+      <li class="li">The referenced documents that contain the fragments cannot also define the DTD because the
+        main document will not be valid. If you want to validate the parts separately you have to
+          <a class="xref" href="including-document-parts-with-XInclude.html">use XInclude</a> for
+        assembling the parts together with the <dfn class="term">master file</dfn>.</li>
+    </ul>
+    <div class="p">The master document looks like
+      this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span> 
+<span class="hl-tag-doctype">&lt;!DOCTYPE book SYSTEM "../xml/docbookx.dtd" [ 
+&lt;!ENTITY testing SYSTEM "testing.xml" &gt; ]
+&gt;</span> 
+<strong class="hl-tag">&lt;book&gt;</strong> 
+<strong class="hl-tag">&lt;chapter&gt;</strong> ...</pre></div>
+    <p class="p">The referenced document (<em class="ph i">testing.xml</em>) looks like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;section&gt;</strong> ... here is the section content ... <strong class="hl-tag">&lt;/section&gt;</strong></pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> 
+      <p class="p">The indicated DTD and the element names (<em class="ph i">section</em>, <em class="ph i">chapter</em>) are used here only
+        for illustrating the inclusion mechanism. You can use any DTD and element names you
+        need.</p>
+    </div>
+    <div class="p">The content from the referenced file (in the example above, it is a
+        <code class="keyword markupname xmlelement">&lt;section&gt;</code> in the <em class="ph i">test.xml</em> file) can be inserted somewhere in
+      the master
+      document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">... &amp;testing<em class="hl-comment">; ...</em></pre></div>
+    <p class="p">To obtain output in various formats (for example, PDF or HTML), you simply need to apply an
+      XSLT stylesheet over the master document using a transformation scenario.</p>
+    <section class="section" id="large-documents-DTD-entities__d1187e84"><h2 class="title sectiontitle">Viewing the Expanded Content in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <div class="p">When a transformation scenario is applied on the <dfn class="term">master file</dfn>, an intermediary
+        file combines all the referenced content and it will be expanded in the final output. If you
+        want to see how the referenced content will be expanded before applying the
+          transformation<span class="ph">, you can do one of
+          the following:</span><ul class="ul">
+          <li class="li">Simply switch to <span class="ph uicontrol">Author</span> mode.</li>
+          <li class="li">Create a minimal XSLT stylesheet that simply copies the XML content, then create a new
+            XSLT transformation scenario that applies the stylesheet over the XML. The XSLT
+            stylesheet would look like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:stylesheet</strong> <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+    <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+    <span class="hl-attribute">xmlns:math</span>=<span class="hl-value">"http://www.w3.org/2005/xpath-functions/math"</span>
+    <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs math"</span>
+    <span class="hl-attribute">version</span>=<span class="hl-value">"3.0"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:copy&gt;</strong>
+            <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"node() | @*"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;/xsl:copy&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+    
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></li>
+        </ul></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/large-documents.html">Combining XML Content Using DTD Entities and XInclude</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/large-documents.html">Combining XML Content Using DTD Entities and XInclude</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/including-document-parts-with-XInclude.html">Combining XML Documents and Fragments Using XInclude</a></div></div></nav></article></main></body></html>

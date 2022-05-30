@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="date-picker-editor">
+  <title>Date Picker Form Control</title>
+  <shortdesc>The <codeph>oxy_datePicker</codeph> built-in form control is used for offering a text
+    field with a calendar browser that allows the user to choose a certain date in a specified
+    format.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>CSS extensions<indexterm>Form Controls<indexterm>Date
+            picker</indexterm></indexterm></indexterm>
+        <indexterm>Form Controls<indexterm>Date picker</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <codeph>oxy_datePicker</codeph> form control supports the following properties:<ul
+        id="ul_ec1_jzk_wh">
+        <li><ph conkeyref="reusables-author-mode-customization/edit_property"/><ul
+            conkeyref="reusables-author-mode-customization/edit_property_ul">
+            <li/>
+          </ul></li>
+        <li><ph conkeyref="reusables-author-mode-customization/columns-property"/></li>
+        <li><ph conkeyref="reusables-author-mode-customization/width-property"/></li>
+        <li><ph conkeyref="reusables-author-mode-customization/color-property"/></li>
+        <li><ph conkeyref="reusables-author-mode-customization/fontInherit-property"/></li>
+        <li><b>format</b> - This property specifies the format of the inserted date. The pattern
+          value must be a valid Java date (or date-time) format. If this property is missing, the
+          format of the date is determined from the associated schema.</li>
+        <li><ph conkeyref="reusables-author-mode-customization/visible-property"/></li>
+        <li><b>validateInput</b> - Specifies if the form control is validated. If you introduce a
+          date that does not respect the format, the <codeph>datePicker</codeph> form control is
+          rendered with a red foreground. By default, the input is validated. To disable the
+          validation, set this property to <codeph>false</codeph>.</li>
+        <li><ph conkeyref="reusables-author-mode-customization/hover-property-li"
+          /><codeblock outputclass="language-css">p:before {
+  content: oxy_datePicker(edit, "@attribute", hoverPseudoclassName, 'showBorder')
+}
+p:showBorder {
+  border: 1px solid red;
+}</codeblock></li>
+      </ul></p>
+    <p><b><u>Example: <i>oxy_datePicker</i> Form
+      Control</u></b><codeblock outputclass="language-css">date {
+    content:
+        oxy_label(text, "Date time attribute with 
+                   format defined in CSS: ", width, 300px)
+        oxy_datePicker(
+            columns, 16, 
+            edit, "@attribute",
+            format, "yyyy-MM-dd");
+}</codeblock></p>
+    <note type="tip">To insert a sample of the <codeph>oxy_datePicker</codeph> form control in a CSS
+      file <ph product="author developer editor">(or LESS file)</ph>, invoke the <xref
+        keyref="glossentry_content-completion-assistant"><term>Content Completion
+        Assistant</term></xref> by pressing <uicontrol
+        conkeyref="reusable-oxygen-shortcuts-list/ctrl_space"/> and select the <image
+        href="../img/CodeTemplates12.gif" id="image_a4y_22h_5r"/>
+      <codeph>oxy_datePicker</codeph> code template.<p><ph
+          conkeyref="reusables-author-mode-customization/samples-ph"/></p></note>
+    <p>For more information about form controls, watch our video demonstration:</p>
+    <p><object width="450" height="250" data="https://www.youtube.com/embed/-WY3wzkMSLM"
+        outputclass="iframe">
+        <param name="allowfullscreen" value="true"/>
+      </object></p>
+  </body>
+  <related-links>
+    <linklist>
+      <title>Related Information:</title>
+      <link href="dg-oxygen-css-functions.dita"/>
+      <link href="dg-oxy-label-function.dita"/>
+    </linklist>
+  </related-links>
+</topic>

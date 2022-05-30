@@ -1,0 +1,84 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Resource History view,Directory Change Set view"><meta name="keywords" content="SVN Client, Resource History view, Directory Change Set view"><meta name="DC.relation" scheme="URI" content="../topics/svn-views.html"><meta name="DC.relation" scheme="URI" content="../topics/history-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/editor-description.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="svn-dir-change-set-view"><title>Directory Change Set View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="svn-dir-change-set-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Directory Change Set View</h1>
+  <div class="body">
+    <p class="p">The result of comparing two reference revisions from the history of a folder resource is a
+      set with all the resources changed between the two revision numbers. The changed resources can
+      be contained in the folder or in a subfolder of that folder. These resources are presented in
+      a tree format. For each changed resource all the revisions committed between the two reference
+      revision numbers are presented.</p>
+    <div class="p">
+      <figure class="fig fignone" id="svn-dir-change-set-view__figure-dir-change-set-view"><figcaption><span class="fig--title-label">Figure 1. </span>Directory Change Set View</figcaption>
+        
+        <img class="image" src="../img/sa_svn_dir_change_set_view.png">
+      </figure>
+    </div>
+    <p class="p">The set of changed resources displayed in the tree is obtained by running the action
+        <span class="ph uicontrol">Compare revisions</span> available on the contextual menu of the
+        <span class="ph uicontrol">History</span> view when two revisions of a folder resource are selected in
+      the <span class="ph uicontrol">History</span> view.</p>
+    <p class="p">The left side panel of the view contains the tree hierarchy with the names of all the changed
+      resources between the two reference revision numbers. The right side panel presents the list
+      with all the revisions of the resource selected in the left side tree. These revisions were
+      committed between the two reference revision numbers. Selecting one revision in the list
+      displays the commit message of that revision in the bottom area of the right side panel.</p>
+    <p class="p">Double-clicking a file listed in the left-side tree performs a diff operation between the two
+      revisions of the file corresponding to the two reference revisions. Double-clicking one of the
+      revisions displayed in the right-side list of the view performs a diff operation between that
+      revision and the previous one for the same file.</p>
+    <p class="p">The contextual menu of the right side list contains the following actions:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare with previous version</span></dt>
+          <dd class="dd">Performs a diff operation between the selected revision in the list and the previous
+            one.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open</span></dt>
+          <dd class="dd">Opens the selected revision in the associated editor type.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Open with</span></dt>
+          <dd class="dd">Displays a dialog box with the available editor types and allows you to select the
+            editor type for opening the selected revision.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Save as</span></dt>
+          <dd class="dd">Saves the selected file as it was in the selected revision.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Copy to</span></dt>
+          <dd class="dd">Copies to the repository the item whose history is displayed, using the selected
+            revision. <div class="note note note_note"><span class="note__title">Note:</span> This action can be used to resurrect deleted items also.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-dir-change-set-view__image_ik3_xcp_5r" src="../img/SVNCheckOut16.gif">Check
+              out</span></dt>
+          <dd class="dd">Checks out a new working copy of the selected directory, from the selected
+            revision.</dd>
+        
+        
+          <dt class="dt dlterm" id="svn-dir-change-set-view__export-dlentry"><span class="ph uicontrol">Export</span></dt>
+          <dd class="dd">Opens <a class="xref" href="export-repos.html#export-repos">the <span class="ph uicontrol">Export</span>
+              dialog box</a> that allows you to configure options for exporting a folder from the
+            repository to the local file system.</dd>
+        
+        
+          <dt class="dt dlterm" id="svn-dir-change-set-view__show-annotation-action-dlentry"><span class="ph uicontrol"><img class="image" id="svn-dir-change-set-view__image_ufv_db3_5r" src="../img/SVNAnnotationsView16.gif">Show
+              Annotation</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="svn-dir-change-set-view__ctrl_shift_a_shortcut">Ctrl + Shift
+                    + A (Command + Shift + A on OS X)</span></span>)</dt>
+          <dd class="dd">Opens the <span class="ph uicontrol">Show Annotation</span> dialog box that computes <a class="xref" href="annotations-view.html#annotations-view">the annotations for a file and displays
+              them in the <span class="ph uicontrol">Annotations</span> view</a>, along with the history of
+            the file in the <span class="ph uicontrol">History</span> view. </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="svn-dir-change-set-view__image_jsl_5cp_5r" src="../img/SVNInfo16.png">Show SVN
+              Information <span class="keyword shortcut">(Ctrl + I (Command + I on OS X))</span></span></dt>
+          <dd class="dd">Provides additional information for a selected resource. For more details, go to <a class="xref" href="show-info.html">Obtain information for a resource</a>.</dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-views.html">Syncro SVN Client Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/history-actions.html">History View Contextual Menu Actions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/editor-description.html">Editor Panel of SVN Client</a></div></div></nav></article></main></body></html>

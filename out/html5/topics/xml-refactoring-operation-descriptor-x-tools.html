@@ -1,0 +1,190 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-operations-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-refactoring-xquery-script-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/custom_operation_sample-x-tools.html"><meta name="DC.relation" scheme="URI" content="custom_operation_sample.html#custom_operation_sample/descriptor-example-section"><meta name="DC.relation" scheme="URI" content="custom_operation_sample_xquery.html#custom_operation_sample_xquery/descriptor-example-section"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-refactoring-operation-descriptor"><title>Custom Refactoring Operation Descriptor File</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-refactoring-operation-descriptor"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Custom Refactoring Operation Descriptor File</h1>
+  <div class="body">
+    <p class="p">The second step in creating a custom refactoring operation is to create an operation
+      descriptor file. The easiest way to do this is to use the <strong class="ph b">New</strong> document wizard and
+      choose the <strong class="ph b">XML Refactoring Operation Descriptor</strong> template.</p>
+    <section class="section" id="xml-refactoring-operation-descriptor__introduction_to_the_descriptor_file"><h2 class="title sectiontitle">Introduction to the Descriptor File</h2>
+      
+      <p class="p">This file contains information (such as <em class="ph i">name</em>, <em class="ph i">description</em>, and <em class="ph i">id</em>)
+        that is necessarily when loading an XML Refactoring operation. It also contains the path to
+        the <a class="xref" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery">XQuery
+          Update script</a> or <a class="xref" href="custom_operation_sample.html#custom_operation_sample">XSLT stylesheet</a> that is associated with the particular operation through the
+          <code class="keyword markupname xmlelement">&lt;script&gt;</code> element.</p>
+      <p class="p">You can specify a <em class="ph i">category</em> for your custom operations to logically group certain
+        operations. The <code class="keyword markupname xmlelement">&lt;category&gt;</code> element is optional and if it is not
+        included in the descriptor file, the default name of the category for the custom operations
+        is <em class="ph i">Other operations</em>. </p>
+      <p class="p">The descriptor file is edited and validated against the following schema:
+          <span class="ph filepath">frameworks/xml_refactoring/operation_descriptor.xsd</span>. </p>
+    </section>
+    <section class="section" id="xml-refactoring-operation-descriptor__declaring_parameters_in_the_descriptor_file"><h2 class="title sectiontitle">Declaring Parameters in the Descriptor File</h2>
+      
+      <p class="p">If the XQuery Update script or XSLT stylesheet includes parameters, they should be declared
+        in the <strong class="ph b">parameters</strong> section of the descriptor file. All the parameters specified in
+        this section of the descriptor file will be displayed in the <span class="ph uicontrol">XML
+          Refactoring</span> tool within <a class="xref" href="refactoring-xml-documents.html#refactoring-xml-documents__parameters_dlentry">the
+            <span class="ph uicontrol">Configure Operation Parameters</span> wizard page</a> for that
+        particular operation.</p>
+      <p class="p">The value of the first <code class="keyword markupname xmlelement">&lt;description&gt;</code> element in the
+          <code class="keyword markupname xmlelement">&lt;parameters&gt;</code> section will be displayed at the top of <a class="xref" href="refactoring-xml-documents.html#refactoring-xml-documents__parameters_dlentry">the
+            <span class="ph uicontrol">Configure Operation Parameters</span> wizard page</a>.</p>
+      <p class="p">To declare a parameter, specify the following information:</p>
+      <ul class="ul" id="xml-refactoring-operation-descriptor__ul_irs_glv_gr">
+        <li class="li"><strong class="ph b">label</strong> - This value is displayed in the user interface for the parameter.</li>
+        <li class="li"><strong class="ph b">name</strong> - The parameter name used in the XQuery Update script or XSLT stylesheet and
+          it should be the same as the one declared in the script.</li>
+        <li class="li"><strong class="ph b">type</strong> - Defines the type of the parameter and how it will be rendered. There are
+          several types available:<ul class="ul" id="xml-refactoring-operation-descriptor__ul_xm5_j4v_gr">
+            <li class="li"><strong class="ph b">TEXT</strong> - Generic type used to specify a simple text fragment.</li>
+            <li class="li"><strong class="ph b">XPATH</strong> - Type of parameter whose value is an XPATH expression. For this type
+              of parameter, <span class="ph">Oxygen XML Editor</span> will use a text input with corresponding content
+              completion and syntax highlighting.<div class="note note note_note"><span class="note__title">Note:</span> The value of this parameter is transferred as
+                plain text to the XQuery Update or XSLT transformation without being evaluated. You
+                should evaluate the XPath expression inside the XQuery Update script or XSLT
+                stylesheet. For example, you could use the <code class="ph codeph">saxon:evaluate</code> Saxon
+                extension function. </div><div class="note note note_note"><span class="note__title">Note:</span> A relative XPath expression is converted to an
+                absolute XPath expression by adding <code class="ph codeph">//</code> before it
+                  (<code class="ph codeph">//XPathExp</code>). This conversion is done before transferring the
+                XPath expression to the XML refactoring engine.</div><div class="note note note_note"><span class="note__title">Note:</span> When writing XPath
+                expressions, you can only use prefixes declared in the <a class="xref" href="preferences-xpath.html"><span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT-FO-XQUERY</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XPath</span></span></a> options page.</div></li>
+            <li class="li"><strong class="ph b">NAMESPACE</strong> - Used for editing namespace values.</li>
+            <li class="li"><strong class="ph b">REG_EXP_FIND</strong> - Used when you want to match a certain text by using Perl-like
+              regular expressions.</li>
+            <li class="li"><strong class="ph b">REG_EXP_REPLACE</strong> - Used along with <code class="ph codeph">REG_EXP_FIND</code> to specify
+              the replacement string.</li>
+            <li class="li"><strong class="ph b">XML_FRAGMENT</strong> - This type is used when you want to specify an XML fragment.
+              For this type, <span class="ph">Oxygen XML Editor</span> will display a text area specialized for
+              inserting XML documents.</li>
+            <li class="li"><strong class="ph b">NC_NAME</strong> - The parameter for <code class="ph codeph">NC_NAME</code> values. It is useful
+              when you want to specify the local part of a <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> for an element or attribute.</li>
+            <li class="li"><strong class="ph b">BOOLEAN</strong> - Used to edit boolean parameters.</li>
+            <li class="li"><strong class="ph b">TEXT_CHOICE</strong> - It is useful for parameters whose value should be from a list
+              of possible values. <span class="ph">Oxygen XML Editor</span> renders each possible value as a radio
+              button option.</li>
+          </ul></li>
+        <li class="li"><strong class="ph b">description</strong> - The description of the parameter. It is used by the application to
+          display a tooltip when you hover over the parameter.</li>
+        <li class="li"><strong class="ph b">possibleValues</strong> - Contains the list with possible values for the parameter and you
+          can specify the default value, as in the following
+          example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;possibleValues</strong> <span class="hl-attribute">onlyPossibleValuesAllowed</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"before"</span><strong class="hl-tag">&gt;</strong>Before<strong class="hl-tag">&lt;/value&gt;</strong>
+    <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"after"</span><span class="hl-attribute">default</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>After<strong class="hl-tag">&lt;/value&gt;</strong>
+    <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"firstChild"</span><strong class="hl-tag">&gt;</strong>First child<strong class="hl-tag">&lt;/value&gt;</strong>
+    <strong class="hl-tag">&lt;value</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"lastChild"</span><strong class="hl-tag">&gt;</strong>Last child<strong class="hl-tag">&lt;/value&gt;</strong>
+<strong class="hl-tag">&lt;/possibleValues&gt;</strong></pre></li>
+      </ul>
+    </section>
+    <section class="section" id="xml-refactoring-operation-descriptor__specialized_parameters_to_match_elements_or_attri"><h2 class="title sectiontitle">Specialized Parameters to Match Elements or Attributes</h2>
+      
+      <div class="p">If you want to match elements or attributes, you can use some specialized parameters, in
+        which case <span class="ph">Oxygen XML Editor</span> will propose all declared elements or attributes based on
+        the schema associated with the currently edited file. The following specialized parameters
+        are supported:<dl class="dl">
+          
+            <dt class="dt dlterm">elementLocation</dt>
+            <dd class="dd">
+              <p class="p">This parameter is used to match elements. For this type of parameter, the
+                application displays a text field where you can enter the element name or an XPath
+                expression. The text from the <code class="keyword markupname xmlatt">@label</code> attribute is displayed in the
+                application as the label of the text field. The <code class="keyword markupname xmlatt">@name</code> attribute is
+                used to specify the name of the parameter from the XQuery Update script or XSLT
+                stylesheet. If the value of the <code class="keyword markupname xmlatt">@useCurrentContext</code> attribute is set
+                to <strong class="ph b">true</strong>, the element name from the cursor position is used as proposed values
+                for this parameter.</p>
+              <div class="p">Example of an
+                <code class="keyword markupname xmlelement">&lt;elementLocation&gt;</code>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;elementLocation</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"elem_loc"</span> <span class="hl-attribute">useCurrentContext</span>=<span class="hl-value">"false"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;element</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Element location"</span><strong class="hl-tag">&gt;</strong>
+                    <strong class="hl-tag">&lt;description&gt;</strong>Element location description.<strong class="hl-tag">&lt;/description&gt;</strong>
+                <strong class="hl-tag">&lt;/element&gt;</strong>
+<strong class="hl-tag">&lt;/ ElementLocation&gt;</strong></pre></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">attributeLocation</dt>
+            <dd class="dd">
+              <p class="p">This parameter is used to match attributes. For this type of parameter, the
+                application displays two text fields where you can enter the parent element name and
+                the attribute name (both text fields accept XPath expressions for a finer match).
+                The text from the <code class="keyword markupname xmlatt">@label</code> attributes is displayed in the application
+                as the label of the associated text fields. The <code class="keyword markupname xmlatt">@name</code> attribute is
+                used to specify the name of the parameter from the XQuery Update script or XSLT
+                stylesheet. The value of this parameter is an XPath expression that is computed by
+                using the values of the expression from the <em class="ph i">element</em> and <em class="ph i">attribute</em> text
+                fields. For example, if <kbd class="ph userinput">section</kbd> is entered for the element
+                and a <kbd class="ph userinput">title</kbd> is entered for the attribute, the XPath
+                expression would be computed as <code class="ph codeph">//section/@title</code>. If the value of
+                the <code class="ph codeph">useCurrentContext</code> attribute is set to
+                  <kbd class="ph userinput">true</kbd>, the element and attribute name from the cursor
+                position is used as proposed values for the operation parameters.</p>
+              <div class="p">Example of an
+                <code class="keyword markupname xmlelement">&lt;attributeLocation&gt;</code>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;attributeLocation</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"attr_xpath"</span> <span class="hl-attribute">useCurrentContext</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;element</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Element path"</span><strong class="hl-tag">&gt;</strong>
+                    <strong class="hl-tag">&lt;description&gt;</strong>Element path description.<strong class="hl-tag">&lt;/description&gt;</strong>
+                <strong class="hl-tag">&lt;/element&gt;</strong>
+                <strong class="hl-tag">&lt;attribute</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Attribute"</span><strong class="hl-tag"> &gt;</strong>
+                    <strong class="hl-tag">&lt;description&gt;</strong>Attribute path description.<strong class="hl-tag">&lt;/description&gt;</strong>
+                <strong class="hl-tag">&lt;/attribute&gt;</strong>
+<strong class="hl-tag">&lt;/ AttributeLocation&gt;</strong></pre></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">elementParameter</dt>
+            <dd class="dd">
+              <p class="p">This parameter is used to specify elements by local name and namespace. For this
+                type of parameter, the application displays two combo boxes with elements and
+                namespaces collected from the associated schema of the currently edited file. The
+                text from the <code class="keyword markupname xmlatt">@label</code> attribute is displayed in the application as
+                label of the associated combo. The <code class="keyword markupname xmlatt">@name</code> attribute is used to
+                specify the name of the parameter from the XQuery Update script or XSLT stylesheet.
+                If you specify the <code class="keyword markupname xmlatt">@allowsAny</code> attribute, the application will
+                propose <em class="ph i">&lt;ANY&gt;</em> as a possible value for the <strong class="ph b">Name</strong> and <strong class="ph b">Namespace</strong>
+                combo boxes. You can also use the <code class="keyword markupname xmlatt">@useCurrentContext</code> attribute and
+                if its value is set to <kbd class="ph userinput">true</kbd>, the element name and namespace
+                from the cursor position is used as proposed values for the operation
+                parameters.</p>
+              <div class="p">Example of an
+                <code class="keyword markupname xmlelement">&lt;elementParameter&gt;</code>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;elementParameter</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"elemID"</span> <span class="hl-attribute">useCurrentContext</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_localName"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element.<strong class="hl-tag">&lt;/description&gt;</strong>           
+    <strong class="hl-tag">&lt;/localName&gt;</strong>
+    <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"element_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;description&gt;</strong>Local name of the parent element<strong class="hl-tag">&lt;/description&gt;</strong>           
+    <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+<strong class="hl-tag">&lt;/elementParameter&gt;</strong></pre></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">attributeParameter</dt>
+            <dd class="dd">
+              <div class="p">This parameter is used to specify attributes by local name and namespace. For this
+                type of parameter, the application displays two combo boxes with attributes and
+                their namespaces collected from the associated schema of the currently edited file.
+                The text from the <code class="keyword markupname xmlatt">@label</code> attribute is displayed in the application
+                as the label of the associated combo box. You can also use the
+                  <code class="keyword markupname xmlatt">@useCurrentContext</code> attribute and if its value is set to
+                  <kbd class="ph userinput">true</kbd>, the attribute name and namespace from the cursor
+                position is used as proposed values for the operation parameters.<div class="note note note_note"><span class="note__title">Note:</span> An
+                    <code class="keyword markupname xmlelement">&lt;attributeParameter&gt;</code> is dependant upon an
+                    <code class="keyword markupname xmlelement">&lt;elementParameter&gt;</code>. The list of attributes and namespaces
+                  are computed based on the selection in the <em class="ph i">elementParameter</em> combo
+                  boxes.</div></div>
+              <div class="p">Example of an
+                <code class="keyword markupname xmlelement">&lt;attributeParameter&gt;</code>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;attributeParameter</strong> <span class="hl-attribute">dependsOn</span>=<span class="hl-value">"elemID"</span> <span class="hl-attribute">useCurrentContext</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;localName</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Name"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_localName"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;description&gt;</strong>The name of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+    <strong class="hl-tag">&lt;/localName&gt;</strong>
+    <strong class="hl-tag">&lt;namespace</strong> <span class="hl-attribute">label</span>=<span class="hl-value">"Namespace"</span> <span class="hl-attribute">name</span>=<span class="hl-value">"attribute_namespace"</span> <span class="hl-attribute">allowsAny</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;description&gt;</strong>Namespace of the attribute to be converted.<strong class="hl-tag">&lt;/description&gt;</strong>
+    <strong class="hl-tag">&lt;/namespace&gt;</strong>        
+<strong class="hl-tag">&lt;/attributeParameter&gt;</strong> </pre></div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <div class="note note note_note"><span class="note__title">Note:</span> All built-in operations are loaded from the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/refactoring</span> folder.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/custom-refactoring-operations-x-tools.html">Custom Refactoring Operations</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/custom-refactoring-xquery-script-x-tools.html">Custom Refactoring Script</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/custom_operation_sample-x-tools.html">XSLT Stylesheet for Creating a Custom Operation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="custom_operation_sample.html#custom_operation_sample__descriptor-example-section">Example of an Operation Descriptor File with an XSLT Stylesheet</a></li><li class="linklist"><a class="link" href="custom_operation_sample_xquery.html#custom_operation_sample_xquery__descriptor-example-section">Example of an Operation Descriptor File with an XQuery Update script</a></li></ul></div></nav>
+</article></main></body></html>

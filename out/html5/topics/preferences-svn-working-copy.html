@@ -1,0 +1,75 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,SVN Working Copy"><meta name="keywords" content="Preferences, SVN Working Copy"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-diff.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-svn-working-copy"><title>Working Copy Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-svn-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working Copy Preferences</h1>
+  
+  <div class="body">
+    <div class="p">To configure the <span class="ph uicontrol">Working Copy</span> preferences, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">SVN</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Working Copy</span></span>. The options in this preferences page are specific to SVN working copies and
+      they include the following:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Working copies location</span></dt>
+          <dd class="dd">Allows you to define a location where you keep your working copies. This location is
+            automatically suggested when you checkout a new working copy.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Working copy administrative directory</span></dt>
+          <dd class="dd">Allows you to customize the directory name where the SVN entries are kept for each
+            directory in the working copy.</dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-svn-working-copy__svn-load-old-wc-format"><span class="ph uicontrol">When loading an old format working copy</span></dt>
+          <dd class="dd">You can instruct the SVN client to do one of the following:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Always ask</span> - You are notified when such a working copy is
+                used and you are allowed to choose what action to be taken (whether or not to
+                upgrade the format of the current working copy).</li>
+              <li class="li"><span class="ph uicontrol">Never upgrade</span> - Older format working copies are left
+                untouched. No attempt to upgrade the format is made.<div class="note note note_note"><span class="note__title">Note:</span> SVN 1.6 and older working
+                  copies still need to be upgraded before loading them.</div></li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable working copy caching</span></dt>
+          <dd class="dd">If selected, the content of the working copies is cached for refresh operations.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Automatically refresh the working copy</span></dt>
+          <dd class="dd">If selected, the working copy is refreshed from cache. Only the new changes
+            (modifications with a date/time that follows the last refresh operation) are refreshed
+            from disk. <span class="ph">This option is not selected by
+              default.</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Allow moving/renaming mixed revision directories</span></dt>
+          <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> will allow you to move or rename a directory even
+            if its child items have a different revision. Otherwise, an error message is displayed
+            when there are multiple revisions to avoid unnecessary conflicts. It is recommended to
+            leave this option deselected and to <span class="ph uicontrol">Update</span> the subtree to a
+            single revision before moving or renaming it.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">When synchronizing with repository</span></dt>
+          <dd class="dd">The action that will be executed automatically after the
+              <span class="ph uicontrol">Synchronize</span> action. The possible actions are:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Always switch to 'Modified' mode</span> - The
+                  <span class="ph uicontrol">Synchronize</span> action is followed automatically by a switch to
+                  <span class="ph uicontrol">Modified</span> mode of <span class="ph uicontrol">Working Copy</span> view,
+                if <span class="ph uicontrol">All Files</span> mode is currently selected.</li>
+              <li class="li"><span class="ph uicontrol">Never switch to 'Modified' mode</span> - Keeps the currently
+                selected view mode unchanged.</li>
+              <li class="li"><span class="ph uicontrol">Always ask</span> - The user is always asked if they want to
+                switch to <span class="ph uicontrol">Modified</span> mode.</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-svn-working-copy__svn-options-app-global-ignores"><span class="ph uicontrol">Application global ignores</span></dt>
+          <dd class="dd">Allows you to set file patterns that may include the <code class="ph codeph">*</code> and
+              <code class="ph codeph">?</code> wildcards for unversioned files and folders that must be ignored
+            when displaying the working copy resources in <a class="xref" href="working-copy-view.html">the
+                <span class="ph uicontrol">Working Copy</span> view</a>. These patterns are case-sensitive.
+            For example,<code class="ph codeph">*.txt</code> matches <code class="ph codeph">file.txt</code>, but does not match
+              <code class="ph codeph">file.TXT</code>.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-svn.html">SVN Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-svn.html">SVN Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-svn-diff.html">Diff Preferences</a></div></div></nav></article></main></body></html>

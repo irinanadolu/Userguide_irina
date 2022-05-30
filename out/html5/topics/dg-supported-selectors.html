@@ -1,0 +1,304 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="CSS selectors"><meta name="keywords" content="CSS selectors"><meta name="DC.relation" scheme="URI" content="../topics/dg-standard-css-support.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-standard-css-support.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-namespace-selectors.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-namespace-selectors.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-subject-selector.html"><meta name="DC.relation" scheme="URI" content="../topics/has-selector.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-supported-selectors"><title>Supported CSS Selectors</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-supported-selectors"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Supported CSS Selectors</h1>
+  
+  <div class="body">
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> CSS rules that match attributes are always more specific than element
+      selectors. For more information, see <a class="xref" href="https://drafts.csswg.org/selectors-3/#specificity" target="_blank" rel="external noopener">https://drafts.csswg.org/selectors-3/#specificity</a>.</div>
+    <p class="p">The following table lists the CSS selectors that are supported in <span class="ph">Oxygen XML Editor</span>:</p>
+    <div class="p">
+      <table class="table frame-all" id="dg-supported-selectors__dg-table-supported-selectors"><caption></caption><colgroup><col style="width:20.119225037257827%"><col style="width:29.508196721311474%"><col style="width:14.903129657228018%"><col style="width:35.46944858420268%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry colsep-1 rowsep-1" id="dg-supported-selectors__dg-table-supported-selectors__entry__1">Expression</th>
+              <th class="entry colsep-1 rowsep-1" id="dg-supported-selectors__dg-table-supported-selectors__entry__2">Name</th>
+              <th class="entry colsep-1 rowsep-1" id="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level</th>
+              <th class="entry colsep-1 rowsep-1" id="dg-supported-selectors__dg-table-supported-selectors__entry__4">Description / Example</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">*</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Universal selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any element </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Type selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">E</code> element (i. e. an element with the local name
+                  <code class="ph codeph">E</code>)</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E F</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Descendant selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">F</code> element that is a descendant of an
+                  <code class="ph codeph">E</code> element. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E &gt; F</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Child selectors</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">F</code> element that is a child of an element
+                  <code class="ph codeph">E</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:lang(c)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Language pseudo-class </td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches element of type <code class="ph codeph">E</code> if it is in (human) language
+                  <code class="ph codeph">c</code> (the document language specifies how language is determined).
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E + F</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Adjacent selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">F</code> element immediately preceded by a sibling
+                element <code class="ph codeph">E</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E ~ F</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">General sibling selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">F</code> element preceded by a sibling element
+                  <code class="ph codeph">E</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[foo]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Attribute selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">E</code> element with the <code class="ph codeph">"foo"</code>
+                attribute set (whatever the value). </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[foo="warning"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Attribute selector with value</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">E</code> element whose <code class="ph codeph">"foo"</code> attribute
+                value is exactly equal to <code class="ph codeph">"warning"</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[foo~="warning"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Attribute selector containing value</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">E</code> element whose <code class="ph codeph">"foo"</code> attribute
+                value is a list of space-separated values, one of which is exactly equal to
+                  <code class="ph codeph">"warning"</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[lang|="en"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Attribute selector containing hyphen separated values</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches any <code class="ph codeph">E</code> element whose <code class="ph codeph">"lang"</code> attribute
+                has a hyphen-separated list of values beginning (from the left) with
+                  <code class="ph codeph">"en"</code>. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:before and E:after</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Pseudo-elements</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">The <code class="ph codeph">':before'</code> and <code class="ph codeph">':after'</code> pseudo-elements
+                can be used to insert generated content before or after an element's content.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:first-child</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The first-child pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches element <code class="ph codeph">E</code> when <code class="ph codeph">E</code> is the first child
+                of its parent. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:not(s)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Negation pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element that does not match simple selector s.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:has</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Relational pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 4</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">The <code class="ph codeph">:has()</code> relational pseudo-class is a functional pseudo-class
+                  that takes a relative selector as an argument.</p>
+                <p class="p">For more information, see <a class="xref" href="has-selector.html#has-selector">:has Relational Pseudo-Class</a>.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:hover</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The hover pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">The <code class="ph codeph">:hover</code> pseudo-class applies while the user designates an
+                  element with a pointing device, but does not necessarily activate it. When moving
+                  the pointing device over an element, all the parent elements up to the root are
+                  taken into account.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:focus</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The focus pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">The <code class="ph codeph">:focus</code> pseudo-class applies while an element has the focus
+                  (accepts keyboard input).</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:focus-within</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The generalized input focus pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 4</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">The <code class="ph codeph">:focus-within</code> pseudo-class applies to elements that will have the
+                    <code class="ph codeph">:focus</code> pseudo-class applied. Additionally, the ancestors of an
+                  element that matches <code class="ph codeph">:focus-within</code> also match.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:marker</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The marker pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 4</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">The <code class="ph codeph">::marker</code> pseudo-element represents the automatically
+                generated marker box of a list item.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E#myid</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The ID selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 2</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <div class="p">Matches any E element with ID equal to "myid". <div class="note important note_important"><span class="note__title">Important:</span> Limitation:
+                    In <span class="ph">Oxygen XML Editor</span> the match is performed only taking into account the
+                    attributes with the exact name: <em class="ph i">"id"</em>.</div></div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[att^="val"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Substring matching attribute selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">An E element whose <code class="ph codeph">att</code> attribute value begins exactly with the
+                string <code class="ph codeph">val</code>.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[att$="val"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Substring matching attribute selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">An E element whose <code class="ph codeph">att</code> attribute value ends exactly with the
+                string <code class="ph codeph">val</code>.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E[att*="val"]</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Substring matching attribute selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">An E element whose <code class="ph codeph">att</code> attribute value contains the substring
+                  <code class="ph codeph">val</code>.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:root</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Root pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">Matches the root element of the document. In HTML, the root element is always
+                the HTML element. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:empty</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Empty pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">An E element that has no text or child elements.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:nth-child(n)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The nth-child pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">An E element, the nth child of its parent.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:nth-last-child(n)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The nth-last-child pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, the nth child of its parent, counting from the last one.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:nth-of-type(n)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The nth-of-type pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, the nth sibling of its type.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:nth-last-of-type(n)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The nth-last-of-type pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, the nth sibling of its type, counting from the last one.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:last-child</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The last-child pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, last child of its parent.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:first-of-type</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The first-of-type pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, first sibling of its type.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:last-of-type</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The last-of-type pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, last sibling of its type.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:only-child</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The only-child pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, only child of its parent.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E:only-of-type</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The only-of-type pseudo-class</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An E element, only sibling of its type.</p>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">ns|E</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">Element namespace selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 3</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <div class="p">An element that has the local name E and the namespace given by the prefix
+                    <code class="ph codeph">ns</code>. The namespace prefix can be bound to a URI by the
+                  at-rule:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@namespace ns <span class="hl-string">"http://some_namespace_uri"</span>;</pre>See
+                    <a class="xref" href="dg-namespace-selectors.html">Namespace Selector</a>.</div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__1">E!&gt;F</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__2">The subject selector</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__3">CSS Level 4 (experimental)</td>
+              <td class="entry colsep-1 rowsep-1" headers="dg-supported-selectors__dg-table-supported-selectors__entry__4">
+                <p class="p">An element that has the local name E and has a child F. See <a class="xref" href="dg-subject-selector.html">Subject Selector</a>.</p>
+              </td>
+            </tr>
+          </tbody></table>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dg-namespace-selectors.html">Namespace Selector</a><br></li><li class="link olchildlink"><a href="../topics/dg-subject-selector.html">Subject Selector</a><br></li><li class="link olchildlink"><a href="../topics/has-selector.html">:has Relational Pseudo-Class</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-standard-css-support.html">Standard W3C CSS Supported Features</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-standard-css-support.html">Standard W3C CSS Supported Features</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-namespace-selectors.html">Namespace Selector</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DITA topic,Transformation scenarios,DITA topic transformations"><meta name="keywords" content="Transformation Scenarios, DITA topic, Transformation scenarios, DITA topic transformations"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-transform.html"><meta name="DC.relation" scheme="URI" content="../topics/ditamap-run-dita-ot-integrator.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-running-transformation.html"><meta name="DC.relation" scheme="URI" content="edit-scenario-dialog.html#edit-scenario-dialog"><meta name="DC.relation" scheme="URI" content="configure-transformation-dialog.html#configure-transformation-dialog"><meta name="DC.relation" scheme="URI" content="apply-transformation-scenarios.html#apply-transformation-scenarios"><meta name="DC.relation" scheme="URI" content="author-dita-map-transformation-scenarios.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-topic-transformation-scenarios"><title>DITA Topic Transformation Scenarios</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-topic-transformation-scenarios"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Topic Transformation Scenarios</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes built-in transformation scenarios for transforming individual
+      DITA Topics to HTML5, XHTML, or PDF output. They can be found in the
+        <span class="ph uicontrol">DITA</span> section in the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenario(s)</span> dialog box</a>.</p>
+    <div class="p">The available transformations scenarios for individual DITA topics include:<ul class="ul">
+        <li class="li"><span class="ph uicontrol">DITA HTML5</span> - This DITA-OT transformation scenario generates HTML5
+          output from a single DITA topic.</li>
+        <li class="li"><span class="ph uicontrol">DITA XHTML</span> - This DITA-OT transformation scenario generates XHTML
+          output from a single DITA topic. This was the first transformation scenario created for
+          the DITA Open Toolkit and it originally served as the basis for all HTML-based
+          transformations.</li>
+        <li class="li" id="dita-topic-transformation-scenarios__HTML5-CSS"><span class="ph uicontrol">DITA PDF - based on HTML5 &amp; CSS</span> - This
+          transformation scenario converts individual DITA topics to PDF using a CSS-based
+          processing engine and an HTML5 intermediate format. <span class="ph">Oxygen XML Editor</span> comes bundled
+          with a built-in CSS-based PDF processing engine called <strong class="ph b">Oxygen PDF Chemistry</strong>. <span class="ph">Oxygen XML Editor</span> also supports some third-party processors.<p class="p">For those who are
+            familiar with CSS, this makes it very easy to style and customize the PDF output of your
+            DITA projects without having to work with <em class="ph i">xsl:fo</em> customizations. Another
+            advantage of this transformation scenario is that you can use the same <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a> or <a class="xref" href="whr-publishing-template.html">publishing template</a> that you use for
+            converting entire DITA maps.</p><p class="p">The transformation scenario automatically detects the currently selected <a class="xref" href="dita-maps-manager.html#dita-maps-manager__root-map">context DITA map (root
+              map)</a> so that keys and references are properly resolved (the detected context
+            map is set as the value of the <code class="ph codeph">args.root.map</code> parameter (this can be
+            changed in the <span class="ph uicontrol">Parameters</span> tab). It also automatically detects the
+            currently <a class="xref" href="dita-apply-profiling-conditional-set.html">applied profiling
+              condition set</a> to be used as the default filtering option in the transformation
+            scenario (this can be changed in the <span class="ph uicontrol">Filters</span> tab). </p><div class="p">The transformation scenario also
+            supports a parameter named <code class="ph codeph">args.enable.root.map.key.processing</code> that can
+            be used to specify whether or not the values for <code class="keyword markupname xmlatt">@keyref</code> and
+              <code class="keyword markupname xmlatt">@conkeyref</code> attributes within the transformed topics are resolved. The
+            possible values are:<ul class="ul" id="dita-topic-transformation-scenarios__ul_bls_5hs_rjb">
+              <li class="li"><strong class="ph b">no</strong> - This means that the values for all <code class="keyword markupname xmlatt">@keyref</code> and
+                  <code class="keyword markupname xmlatt">@conkeyref</code> attributes are ignored in the transformation. This
+                results in lower processing times.</li>
+              <li class="li"><strong class="ph b">yes</strong> - This means that the values for any <code class="keyword markupname xmlatt">@keyref</code> and
+                  <code class="keyword markupname xmlatt">@conkeyref</code> attributes found in the transformed topic are processed
+                and resolved using the value of the <code class="ph codeph">args.root.map</code> parameter.</li>
+              <li class="li"><strong class="ph b">auto</strong> - This means that the process will search for any
+                  <code class="keyword markupname xmlatt">@keyref</code> and <code class="keyword markupname xmlatt">@conkeyref</code> attributes within the
+                transformed topic and if any are found, the values will be processed and resolved
+                using the value of the <code class="ph codeph">args.root.map</code> parameter. If none are found,
+                the <code class="keyword markupname xmlatt">@keyref</code> and <code class="keyword markupname xmlatt">@conkeyref</code> attributes are
+                ignored.</li>
+            </ul></div></li>
+        <li class="li"><span class="ph uicontrol">DITA PDF - based on XSL-FO</span> - This DITA-OT transformation scenario
+          converts individual DITA topics to PDF using an <em class="ph i">xsl:fo</em> processor.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-map-transform.html">Publishing DITA Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/ditamap-run-dita-ot-integrator.html">Run DITA-OT Integrator Transformation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-running-transformation.html">Running a DITA Transformation Scenario</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="edit-scenario-dialog.html#edit-scenario-dialog">Editing a Transformation Scenario</a></li><li class="linklist"><a class="link" href="configure-transformation-dialog.html#configure-transformation-dialog">Configure Transformation Scenario(s) Dialog Box</a></li><li class="linklist"><a class="link" href="apply-transformation-scenarios.html#apply-transformation-scenarios">Applying Associated Transformation Scenarios</a></li><li class="linklist"><a class="link" href="author-dita-map-transformation-scenarios.html">DITA Map Transformation Scenarios</a></li></ul></div></nav>
+</article></main></body></html>

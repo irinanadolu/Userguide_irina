@@ -1,0 +1,232 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Configuring content completion proposals,Configuring content completion proposals,Content completion configuration file (cc_config.xml)"><meta name="keywords" content="Framework customization, Configuring content completion proposals, Configuring content completion proposals, Content completion configuration file (cc_config.xml)"><meta name="DC.relation" scheme="URI" content="../topics/customize-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/configuring-content-completion-proposals.html"><meta name="DC.relation" scheme="URI" content="../topics/author-styleguide-annotations.html"><meta name="DC.relation" scheme="URI" content="configuring-content-completion-proposals.html#configuring-content-completion-proposals"><meta name="DC.relation" scheme="URI" content="configure-elements-attr-cc-individually.html#configure-elements-attr-cc-individually"><meta name="DC.relation" scheme="URI" content="configuring-xml-node-renderer-customizer.html#configuring-xml-node-renderer-customizer"><meta name="DC.relation" scheme="URI" content="content-completion-schema-annotations-author.html#content-completion-schema-annotations-author"><meta name="DC.relation" scheme="URI" content="author-styleguide-annotations.html#author-styleguide-annotations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="rendering-elements-cc-author"><title>Customizing the Rendering of Elements</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="rendering-elements-cc-author"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing the Rendering of Elements</h1>
+  
+  <div class="body">
+    <p class="p">In addition to the support for configuring the proposals that appear in the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+        Assistant</dfn></a>, <span class="ph">Oxygen XML Editor</span> also includes support for customizing how
+      the elements are rendered. You can do this by using the <a class="xref" href="configuring-xml-node-renderer-customizer.html#configuring-xml-node-renderer-customizer"><em class="ph i">XMLNodeRendererCustomizer</em> API extension</a>, but you can also use the same
+      configuration file that is used to configure the content completion proposals.</p>
+    <p class="p">For an example of a specific use-case, suppose that in DITA you want the names of paragraph
+      elements (<code class="keyword markupname xmlelement">&lt;p&gt;</code>) to be rendered as <strong class="ph b">"Paragraph"</strong> instead of <strong class="ph b">"p"</strong> in
+      the various components in <span class="ph uicontrol">Author</span> mode (such as in the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span>
+        view</a>, <a class="xref" href="author-elements-view.html#author-elements-view"><span class="ph uicontrol">Elements</span> view</a>, <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span>
+        view</a>, and the breadcrumb navigation bar). To achieve this, you can use the
+      <code class="keyword markupname xmlelement">&lt;elementRenderings&gt;</code> element in the configuration file.</p>
+    <section class="section" id="rendering-elements-cc-author__d2e47"><h2 class="title sectiontitle">Setting up the Content Completion Configuration File</h2>
+      
+      <div class="p" id="rendering-elements-cc-author__customize-cc-proposals-p">To customize the configuration file for the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>, follow these steps:<ol class="ol" id="rendering-elements-cc-author__ol_js3_4k5_kq">
+          <li class="li">Create a new <span class="ph filepath">resources</span> folder (if it does not already exist) in
+            the <span class="ph filepath">frameworks</span> directory for the particular document type (for
+            example, <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources</span>).</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <span class="ph uicontrol">Document Type Association</span>. Select the particular document type,
+            click the <span class="ph uicontrol">Edit</span> button, and in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> add a link to that
+              <span class="ph filepath">resources</span> folder (if it does not already exist).</li>
+          <li class="li">Create a new configuration file or edit an existing one.<ol class="ol" type="a">
+              <li class="li">To easily create a new configuration file, you can use the <em class="ph i">Content Completion
+                  Configuration</em> document template that is included in <span class="ph">Oxygen XML Editor</span>
+                  (<span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Extensions</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Content Completion Configuration</span></span>). The document template includes details about how each element and
+                attribute is used in the configuration file.</li>
+              <li class="li">If a configuration file (<span class="ph filepath">cc_config.xml</span>) already exists for
+                the particular document type (in the <span class="ph filepath">resources</span> folder), you can
+                modify this existing file. </li>
+              <li class="li">If you extend a framework, you need to copy the content of the
+                  <span class="ph filepath">cc_config.xml</span> file from the base framework and modify it. You
+                also need to make sure that the file in your extension is listed in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> before the one from the base
+                framework. If you only want to make small changes or add extra rules in your content
+                completion configuration file, you need to rename it to
+                  <span class="ph filepath">cc_config_ext.xml</span> and it will be merged with the base
+                  <span class="ph filepath">cc_config.xml</span>.</li>
+            </ol></li>
+          <li class="li">Make the appropriate changes to your custom configuration file.</li>
+          <li class="li">Save the file in the <span class="ph filepath">resources</span> folder for the particular document
+            type, using the fixed name: <span class="ph filepath">cc_config.xml</span> (for example,
+              <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources/cc_config.xml</span>).</li>
+          <li class="li">Restart the application and open an XML document. In the <dfn class="term">Content Completion
+              Assistant</dfn> you should see your customizations.<div class="note tip note_tip"><span class="note__title">Tip:</span> In some cases,
+              you can simply use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Refresh16.png">Refresh
+                  (<span class="keyword shortcut">F5</span>)</span> action to test your customizations, without
+              having to restart the application.</div><div class="note attention note_attention"><span class="note__title">Attention:</span> In the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a>, if you have references to multiple
+                <span class="ph filepath">resources</span> folders, each with its own
+                <span class="ph filepath">cc_config.xml</span> file, the first reference listed in the
+                <span class="ph uicontrol">Classpath</span> tab takes precedence and the multiple configuration
+              files are not combined.</div></li>
+        </ol></div>
+    </section>
+    <section class="section" id="rendering-elements-cc-author__configuration_file"><h2 class="title sectiontitle">Changing the Rendering of Elements (Their Names, Annotations, and Icons) </h2>
+      
+      <p class="p">For the purposes of customizing how the content completion elements are rendered, you can
+        use the <code class="keyword markupname xmlelement">&lt;render&gt;</code> element inside a <code class="keyword markupname xmlelement">&lt;elementRenderings&gt;</code> element
+        to specify how element names, their annotations, and their icons are rendered. </p>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;elementRenderings&gt;</code> element supports the <code class="keyword markupname xmlatt">@platform</code>
+        attribute, which can have one of the following values:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">webapp</dt>
+            <dd class="dd">The element renderings are only applied to <span class="ph">Oxygen XML Web Author</span>.</dd>
+          
+          
+            <dt class="dt dlterm">standalone</dt>
+            <dd class="dd">The element renderings are only applied to standalone distributions of
+              <strong class="ph b">Oxygen</strong>.</dd>
+          
+          
+            <dt class="dt dlterm">eclipse</dt>
+            <dd class="dd">The element renderings are only applied to Eclipse plugin distributions of
+                <strong class="ph b">Oxygen</strong>.<div class="note note note_note"><span class="note__title">Note:</span> If the <code class="keyword markupname xmlatt">@platform</code> attribute is missing, the
+                element renderings are applied to all types of distributions.</div></dd>
+          
+        </dl>
+      </div>
+      <p class="p">You can use the following attributes for the <code class="keyword markupname xmlelement">&lt;render&gt;</code> element:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">element</dt>
+            <dd class="dd">Identifies the element to be customized, in the form of a qualified name. If it does
+              not have a prefix, it is considered to be from <em class="ph i">noNamespace</em>.</dd>
+          
+          
+            <dt class="dt dlterm">as</dt>
+            <dd class="dd">
+              <p class="p">Provides the name (label) that will be displayed for the element in various
+                components in <span class="ph uicontrol">Author</span> mode (the <dfn class="term">Content Completion
+                  Assistant</dfn>, the breadcrumb navigation bar, the <a class="xref" href="author-display-markup.html#author-display-markup"><span class="ph uicontrol">Full
+                    Tags</span> display mode</a>, and the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span></a>,
+                  <a class="xref" href="author-elements-view.html#author-elements-view"><span class="ph uicontrol">Elements</span></a>, and <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span></a> views). This attribute is optional. If
+                it is missing, the name of the element is used.</p>
+              <div class="p">If you want to translate this label into another language, use the <a class="xref" href="editor-variables.html#editor-variables__localization"><code class="ph codeph">${i18n(key_name)}</code> editor variable</a>. The following code
+                snippet shows how the DITA paragraph elements (<code class="keyword markupname xmlelement">&lt;p&gt;</code>) can be
+                  translated:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">       <strong class="hl-tag">&lt;elementRenderings&gt;</strong>
+	        <strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"p"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"${i18n(cc_p)}"</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;/elementRenderings&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> The
+                    <code class="ph codeph">cc_p</code> id is a key that identifies the translations available for
+                  the paragraph element.</div></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">iconPath</dt>
+            <dd class="dd">Optional attribute that specifies the icon for the element. This is shown in the
+                <dfn class="term">Content Completion Assistant</dfn> and the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span>
+                view</a> in <span class="ph uicontrol">Author</span> mode. If it is a relative path, the
+              full path of the icon image file will be computed starting from the directory of the
+              configuration file (for example, a value of <span class="ph filepath">"myImg.png"</span> will cause
+                <span class="ph">Oxygen XML Editor</span> to load <span class="ph filepath">"frameworks/$
+                {framework}/resources/myImg.png"</span>). If you want to access a built-in
+              resource, the value can begin with a forward slash <code class="ph codeph">"/"</code>, and the image
+              file will be searched for in the <span class="ph">Oxygen XML Editor</span> classpath resources (for
+                example,<span class="ph filepath">"/images/OrderedList16.png"</span> will load an icon from the
+              built-in <span class="ph">Oxygen XML Editor</span>
+              <dfn class="term">JAR</dfn> file resources.</dd>
+          
+          
+            <dt class="dt dlterm">xml:lang (Deprecated)</dt>
+            <dd class="dd">
+              <div class="p">It is recommended to use the <a class="xref" href="editor-variables.html#editor-variables__localization"><code class="ph codeph">${i18n(key_name)}</code> editor variable</a> instead. Optional
+                attribute that could be used to render the same element differently, depending on
+                the language. If there are multiple <code class="keyword markupname xmlelement">&lt;render&gt;</code> elements for the
+                same <code class="keyword markupname xmlatt">@element</code> attribute (element name) and the
+                  <code class="keyword markupname xmlatt">@xml:lang</code> attribute is missing on one of them, that one will be
+                considered the default fallback value to be used if none of the others match the
+                language specified in the interface.<div class="note note note_note"><span class="note__title">Note:</span> The default entry should be listed first,
+                  since the application tries to match them in sequence and the last match found is
+                  the one that is used.</div></div>
+              <div class="p">For example, suppose that you want the name of DITA paragraph elements
+                  (<code class="keyword markupname xmlelement">&lt;p&gt;</code>) to be rendered as "Paragraphe" if the language is
+                French, "Absatz" if the language is German, and "Paragraph" if the language is
+                English (or any other language). Your configuration file should look something like
+                this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">       <strong class="hl-tag">&lt;elementRenderings&gt;</strong>
+	        <strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"p"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"Paragraph"</span><strong class="hl-tag">/&gt;</strong>
+        	<strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"p"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"Paragraphe"</span> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"fr"</span><strong class="hl-tag">/&gt;</strong>
+        	<strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"p"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"Absatz"</span> <span class="hl-attribute">xml:lang</span>=<span class="hl-value">"de"</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;/elementRenderings&gt;</strong></pre></div>
+            </dd>
+          
+        </dl>
+      </div>
+      <p class="p">You can also use the configuration file to customize the annotations for elements. For this
+        purpose, the <code class="keyword markupname xmlelement">&lt;render&gt;</code> element also accepts the following element to change
+        the tooltip annotations for an element (in both <span class="ph uicontrol">Author</span> mode and
+          <span class="ph uicontrol">Text</span> mode):</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">annotation</dt>
+            <dd class="dd">This element can be used within the <code class="keyword markupname xmlelement">&lt;render&gt;</code> element to customize the
+              tooltip annotations that are displayed for the element in various components in
+                <span class="ph uicontrol">Author</span> mode (such as tooltips shown in the <dfn class="term">Content
+                Completion Assistant</dfn> documentation window, the breadcrumb navigation bar, the
+                <a class="xref" href="author-display-markup.html#author-display-markup"><span class="ph uicontrol">Full
+                  Tags</span> display mode</a>, and the <a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span></a>, <a class="xref" href="author-elements-view.html#author-elements-view"><span class="ph uicontrol">Elements</span></a>, <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span></a> views), as well as the tooltips that are
+              displayed when you hover over elements in <span class="ph uicontrol">Text</span> mode. You can
+              use HTML content to style the annotations (see the <a class="xref" href="rendering-elements-cc-author.html#rendering-elements-cc-author__example-rendering">example
+                below</a>).<div class="note note note_note"><span class="note__title">Note:</span> If this element is missing, the <a class="xref" href="content-completion-schema-annotations-author.html#content-completion-schema-annotations-author">styling for the annotations for that element is collected from the associated
+                  schema</a>.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> The annotations can also be translated in
+                the configuration file. For
+                example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;elementRenderings&gt;</strong>
+    <strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"p"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"${i18n(cc_p)}"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;annotation&gt;</strong>${i18n(cc_p)}<strong class="hl-tag">&lt;/annotation&gt;</strong>
+    <strong class="hl-tag">&lt;/render&gt;</strong>
+<strong class="hl-tag">&lt;/elementRenderings&gt;</strong></pre></div></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="rendering-elements-cc-author__other_important_notes"><h2 class="title sectiontitle">Other Important Notes About the Configuration File for Rendering Elements</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> 
+        <ul class="ul">
+          <li class="li">This configuration file only affects the content completion assistance, not
+            validation.</li>
+          <li class="li">To test the effects of your changes, you should restart the application, although in
+            some cases, you can simply use the <span class="ph uicontrol"><img class="image" src="../img/Reload16.png">Reload
+                (<span class="keyword shortcut">F5</span>)</span> action to test your customizations.</li>
+          <li class="li">If the <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> has an
+            associated <em class="ph i">style guide</em>, then the annotations defined in the configuration file
+            will take precedence over those defined in the <em class="ph i">style guide</em>. To check to see if
+            your <dfn class="term">framework</dfn> uses a <em class="ph i">style guide</em>, look for the following folder:
+              <span class="ph filepath">${oXygenInstallDir}frameworks/${framework}/styleguide/</span>. If that
+            folder exists, it is recommended that you make your annotation changes directly in the
+              <dfn class="term">style guide</dfn>, rather than in the configuration file.</li>
+          <li class="li">If an <a class="xref" href="configuring-xml-node-renderer-customizer.html#configuring-xml-node-renderer-customizer"><em class="ph i">XMLNodeRendererCustomizer</em> API extension</a> has been implemented for the
+              <dfn class="term">framework</dfn> and a configuration file is also used, the rendering
+            customization for an element will be the result of merging the two. For example, if the
+              <em class="ph i">XMLNodeRendererCustomizer</em> implementation customizes the element name, while the
+            configuration file specifies an icon for the element, the properties of both
+            customizations will be rendered. However, if both implementations define the same
+            property (for example, both specify the rendering of an element name), the
+            customizations defined in the configuration file take precedence.</li>
+          <li class="li">The rendering customizations defined in the configuration file also apply to aspects
+            of the <span class="ph">Oxygen XML Web Author</span> interface.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="rendering-elements-cc-author__example-rendering"><h2 class="title sectiontitle">Example: Changing the Rendering of an Element</h2>
+      
+      <div class="p">Suppose that you want to render the name of the DITA <code class="keyword markupname xmlelement">&lt;title&gt;</code> element
+        to begin with a capital letter, use a custom icon for it, and provide specific documentation
+        for that element in the various components in <span class="ph uicontrol">Author</span> mode. The
+        configuration file should look like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;elementRenderings&gt;</strong>
+   <strong class="hl-tag">&lt;render</strong> <span class="hl-attribute">element</span>=<span class="hl-value">"title"</span>   <span class="hl-attribute">as</span>=<span class="hl-value">"Title"</span>  <span class="hl-attribute">iconPath</span>=<span class="hl-value">"cimg/AcceptAll16.png"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;annotation&gt;</strong>
+         <strong class="hl-tag">&lt;html</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.w3.org/1999/xhtml"</span><strong class="hl-tag">&gt;</strong>
+           <strong class="hl-tag">&lt;head&gt;</strong>
+             <strong class="hl-tag">&lt;title&gt;</strong>Documentation for the Title Element<strong class="hl-tag">&lt;/title&gt;</strong>
+           <strong class="hl-tag">&lt;/head&gt;</strong>
+             <strong class="hl-tag">&lt;body&gt;</strong>
+           <strong class="hl-tag">&lt;p&gt;</strong>A <strong class="hl-tag">&lt;i&gt;</strong>heading<strong class="hl-tag">&lt;/i&gt;</strong> or <strong class="hl-tag">&lt;b&gt;</strong>label<strong class="hl-tag">&lt;/b&gt;</strong> for the main parts of a topic<strong class="hl-tag">&lt;/p&gt;</strong>
+             <strong class="hl-tag">&lt;/body&gt;</strong>
+         <strong class="hl-tag">&lt;/html&gt;</strong>
+             <strong class="hl-tag">&lt;/annotation&gt;</strong>
+	  <strong class="hl-tag">&lt;/render&gt;</strong>
+   <strong class="hl-tag">&lt;/elementRenderings&gt;</strong></pre></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customize-content-completion.html">Customizing the Content Completion Assistant</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configuring-content-completion-proposals.html">Configuring the Proposals for Attribute and Element Values</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-styleguide-annotations.html">Customizing Annotations in the Content Completion Assistant</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="configuring-content-completion-proposals.html#configuring-content-completion-proposals">Configuring the Proposals for Attribute and Element Values</a></li><li class="linklist"><a class="link" href="configure-elements-attr-cc-individually.html#configure-elements-attr-cc-individually">Configuring the Proposals for Elements and Attributes</a></li><li class="linklist"><a class="link" href="configuring-xml-node-renderer-customizer.html#configuring-xml-node-renderer-customizer">Customizing XML Node Rendering</a></li><li class="linklist"><a class="link" href="content-completion-schema-annotations-author.html#content-completion-schema-annotations-author">Schema Annotations in Author Mode</a></li><li class="linklist"><a class="link" href="author-styleguide-annotations.html#author-styleguide-annotations">Customizing Annotations in the Content Completion Assistant</a></li></ul></div></nav>
+</article></main></body></html>

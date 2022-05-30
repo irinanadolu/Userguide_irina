@@ -1,0 +1,63 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,XSLT Debugger perspective,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, XSLT Debugger perspective, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/import-dynamic-conversions.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-layout.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-layout.html"><meta name="DC.relation" scheme="URI" content="../topics/steps-in-typical-debug-process.html"><meta name="DC.relation" scheme="URI" content="../topics/determining-what-template-generated-particular-output.html"><meta name="DC.relation" scheme="URI" content="../topics/using-breakpoints.html"><meta name="DC.relation" scheme="URI" content="../topics/performance-profiling.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-xslt-with-java.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging-supported-processors.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debugging"><title>Debugging XSLT Stylesheets and XQuery Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debugging"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugging XSLT Stylesheets and XQuery Documents</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a powerful debugging interface that helps you to detect and
+      solve problems with XSLT and XQuery transformations.</p>
+    <section class="section" id="debugging__xslt_debugger_perspective"><h2 class="title sectiontitle">XSLT Debugger Perspective</h2>
+      
+      <p class="p">The <span class="ph uicontrol">XSLT Debugger</span>
+        <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> allows you to detect
+        problems in an XSLT transformation by executing the process step by step. To switch the
+        focus to this <dfn class="term">perspective</dfn>, select <span class="ph">the
+              <span class="ph uicontrol"><img class="image" src="../img/Debugger18.png">XSLT Debugger</span> button in
+          the top-right corner of the interface or <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open perspective</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XSLT Debugger</span></span></span>.</p>
+    </section>
+    <section class="section" id="debugging__xquery_debugger_perspective"><h2 class="title sectiontitle">XQuery Debugger Perspective</h2>
+      
+      <p class="p">The <span class="ph uicontrol">XQuery Debugger</span>
+        <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a> allows you to detect
+        problems in an XQuery transformation process by executing the process step by step in a
+        controlled environment and inspecting the information provided in the special views. To
+        switch the focus to this <dfn class="term">perspective</dfn>, select <span class="ph">the
+              <span class="ph uicontrol"><img class="image" src="../img/DebuggerXQuery18.png">XQuery Debugger</span>
+          button in the top-right corner of the interface or <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Open perspective</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XQuery Debugger</span></span></span>.</p>
+    </section>
+    <section class="section" id="debugging__xsltxquery_debugging_overview"><h2 class="title sectiontitle">XSLT/XQuery Debugging Overview</h2>
+      
+      <p class="p">The <span class="ph uicontrol">XSLT Debugger</span> and <span class="ph uicontrol">XQuery Debugger</span>
+        <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspectives</dfn></a> allows you to test
+        and debug XSLT 1.0 / 2.0 / 3.0 stylesheets and XQuery 1.0 / 3.0 documents including complex
+        XPath 2.0 / 3.0 expressions. The interface presents simultaneous views of the source XML
+        document, the XSLT/XQuery document and the result document. As you go step by step through
+        the XSLT/XQuery document the corresponding output is generated step by step, and the
+        corresponding position in the XML file is highlighted. At the same time, special views
+        provide various types of debugging information and events useful to understand the
+        transformation process.</p>
+      <p class="p">The following set of features allow you to test and solve XSLT/XQuery problems:</p>
+      <ul class="ul" id="debugging__debug-feature-list">
+        <li class="li">Support for XSLT 1.0 stylesheets (using Saxon <span class="ph">6.5.5</span> and Xalan
+          XSLT engines), XSLT 2.0 / 3.0 stylesheets and XPath 2.0 / 3.0 expressions that are
+          included in the stylesheets (using Saxon <span class="ph">9.9.1.5</span> XSLT engine) and
+          XQuery 1.0 / 3.0 (using Saxon <span class="ph">9.9.1.5</span> XQuery engine).</li>
+        <li class="li">Stepping capabilities: step in, step over, step out, run, run to cursor, run to end,
+          pause, stop.</li>
+        <li class="li">Output to source mapping between every line of output and the instruction element /
+          source context that generated it.</li>
+        <li class="li"><a class="xref" href="using-breakpoints.html#using-breakpoints"><dfn class="term">Breakpoints</dfn></a> on
+          both source and XSLT/XQuery documents.</li>
+        <li class="li">Call stack on both source and XSLT/XQuery documents.</li>
+        <li class="li">Trace history on both source and XSLT/XQuery documents.</li>
+        <li class="li">Support for XPath expression evaluation during debugging.</li>
+        <li class="li">Step into imported/included stylesheets as well as included source entities.</li>
+        <li class="li">Available templates and hits count.</li>
+        <li class="li">Variables view.</li>
+        <li class="li">Dynamic output generation.</li>
+      </ul>
+    </section>
+    <p class="p">For even more information, watch our video demonstration:</p>
+    <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/m9d8c4V-LJw" allowfullscreen="true"></iframe></div></p>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/debugging-layout.html">Debugger Layout</a><br></li><li class="link olchildlink"><a href="../topics/steps-in-typical-debug-process.html">Steps in a Typical Debugging Process</a><br></li><li class="link olchildlink"><a href="../topics/determining-what-template-generated-particular-output.html">Identify the XSLT / XQuery Expression that Generated Particular Output</a><br></li><li class="link olchildlink"><a href="../topics/using-breakpoints.html">Using Breakpoints</a><br></li><li class="link olchildlink"><a href="../topics/performance-profiling.html">Performance Profiling of XSLT Stylesheets and XQuery Documents</a><br></li><li class="link olchildlink"><a href="../topics/debug-xslt-with-java.html">Debugging XSLT that Call Java Extensions</a><br></li><li class="link olchildlink"><a href="../topics/debugging-supported-processors.html">Supported Processors for XSLT / XQuery Debugging</a><br></li></ol><div class="familylinks"><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/import-dynamic-conversions.html">Import Content Dynamically</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debugging-layout.html">Debugger Layout</a></div></div></nav></article></main></body></html>

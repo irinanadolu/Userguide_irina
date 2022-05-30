@@ -1,0 +1,205 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Ant build files,Outline view"><meta name="keywords" content="Ant build files, Outline view"><meta name="DC.relation" scheme="URI" content="../topics/editing-ant-build-files.html"><meta name="DC.relation" scheme="URI" content="../topics/ant-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/ant-hierarchy-view.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="ant-outline"><title>Ant Outline View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="ant-outline"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Ant Outline View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Outline</span> view for Ant files displays the list of all the components
+      (properties, targets, extension points, task/type definitions and references) from both the
+      edited Ant build file and its imported and included modules. For Ant resources, the
+        <span class="ph uicontrol">Outline</span> view collects its components starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master files</dfn></a>. The <dfn class="term">master
+        files</dfn> can be defined in the project and the main build file can be specified in a
+      validation scenario. For more details, see <a class="xref" href="defining_master_files.html#defining_master_files">Defining Master Files at Project
+        Level</a>. </p>
+    <p class="p">By default, it is displayed on the left side of the editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="ant-outline__fig_hhw_zbg_ks"><figcaption><span class="fig--title-label">Figure 1. </span>Ant Outline View</figcaption>
+        
+        <img class="image" id="ant-outline__image_c15_bcg_ks" src="../img/sa_ant_outline.png">
+      </figure>
+    </div>
+    <div class="p">The following actions are available in the <span class="ph uicontrol"><img class="image" id="ant-outline__image_umy_2cg_ks" src="../img/Settings16.png">Settings</span> menu on the Outline view toolbar:<dl class="dl" id="ant-outline__ul_tnl_yy5_5n">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Filter returns exact matches</span></dt>
+          <dd class="dd">The text filter of the <span class="ph uicontrol">Outline</span> view returns only exact matches.
+            By default, this filter is not selected.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_bzk_vft_tr" src="../img/CaretUpdateOff16.png">Selection
+              update on cursor move</span></dt>
+          <dd class="dd">Controls the synchronization between <span class="ph uicontrol">Outline</span> view and source
+            document. The selection in the <span class="ph uicontrol">Outline</span> view can be synchronized
+            with the cursor moves or the changes in the Ant editor. Selecting one of the components
+            from the outline view also selects the corresponding item in the source document.</dd>
+        
+      </dl></div>
+    <p class="p">When the <span class="ph uicontrol"><img class="image" id="ant-outline__image_vlg_kfg_ks" src="../img/TagsComponents16.png">Show
+        components</span> option is selected, the following actions are available:</p>
+    <div class="p"><dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_asl_yy5_5n" src="../img/TagsComponents16.png">Show XML structure</span></dt>
+          <dd class="dd">Displays the XML document structure in a tree-like manner.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_mmn_bfg_ks" src="../img/Sort16.png">Sort</span></dt>
+          <dd class="dd">Sorts the components in the <span class="ph uicontrol">Outline</span> view alphabetically.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show all components</span></dt>
+          <dd class="dd">Displays all components that were collected starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master file</dfn></a>. This option is set by
+            default.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show only local components</span></dt>
+          <dd class="dd">Displays the components defined in the current file only.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by location/type</span></dt>
+          <dd class="dd">The build file components can be grouped by location and type.</dd>
+        
+      </dl>When the <span class="ph uicontrol"><img class="image" id="ant-outline__image_v2n_gfg_ks" src="../img/TagsComponents16.png">Show
+        XML structure</span> option is selected, the following actions are available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_xky_jht_tr" src="../img/TagsComponents16.png">Show
+              components</span></dt>
+          <dd class="dd">Switches the <span class="ph uicontrol">Outline</span> view to the components display mode.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Flat16.png">Flat presentation
+              mode of the filtered results</span></dt>
+          <dd class="dd">When active, the application flattens the filtered result elements to a single
+            level.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CommentsPIsOff16.png">Show
+              comments and processing instructions</span></dt>
+          <dd class="dd">Show/hide comments and processing instructions in the <span class="ph uicontrol">Outline</span>
+            view.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DockableFrameContext16.png">Show
+              element name</span></dt>
+          <dd class="dd">Show/hide element name.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/TextsVerboseOff16.png">Show
+              text</span></dt>
+          <dd class="dd">Show/hide additional text content for the displayed elements.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/AttributesVerboseOff16.png">Show
+              attributes</span></dt>
+          <dd class="dd">Show/hide attribute values for the displayed elements. The displayed attribute values
+            can be changed from <a class="xref" href="preferences-outline.html">the Outline
+              preferences panel</a>.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">Configure displayed
+              attributes</span></dt>
+          <dd class="dd">Displays the <a class="xref" href="preferences-outline.html#preferences-outline"><span class="ph uicontrol">XML Structured Outline</span> preferences
+            page</a>.</dd>
+        
+      </dl></div>
+    <p class="p">The following actions are available in the contextual menu of the
+        <span class="ph uicontrol">Outline</span> view (when the <span class="ph uicontrol"><img class="image" id="ant-outline__image_lkj_t3g_ks" src="../img/TagsComponents16.png">Show XML structure</span>
+      option is selected in the <span class="ph uicontrol"><img class="image" id="ant-outline__image_zqk_53g_ks" src="../img/Settings16.png">Settings</span> menu: </p>
+    <div class="p">
+      <dl class="dl" id="ant-outline__ul_bsl_yy5_5n">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Append Child</span></dt>
+          <dd class="dd">Displays a list of elements that can be inserted as children of the current
+            element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert Before</span></dt>
+          <dd class="dd">Displays a list of elements that can be inserted as siblings of the current element,
+            before the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Insert After</span></dt>
+          <dd class="dd">Displays a list of elements that can be inserted as siblings of the current element,
+            after the current element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/Attribute16.gif">Edit Attributes</span></dt>
+          <dd class="dd">Displays an in-place attribute editing window.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_lcg_frd_cs" src="../img/ToggleComment16.png">Toggle
+              Comment</span></dt>
+          <dd class="dd">Comments/uncomments the currently selected element.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_vwl_yy5_5n" src="../img/SearchReferences16.png">Search References <span class="keyword shortcut">Ctrl + Shift
+                    + R (Command + Shift + R on OS X)</span></span></dt>
+          <dd class="dd">Searches all references of the item found at current cursor position in the defined
+            scope. See <a class="xref" href="find-ant-references-and-declarations.html#find-ant-references-and-declarations">Find References and Declarations of Ant Components</a> for more
+            details.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Search References in</span></dt>
+          <dd class="dd">Searches all references of the item found at current cursor position in the specified
+            scope. See <a class="xref" href="find-ant-references-and-declarations.html#find-ant-references-and-declarations">Find References and Declarations of Ant Components</a> for more
+            details.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_wyh_23t_tr" src="../img/ComponentDependencies16.png">Component Dependencies</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="ant-component-dependencies.html#ant-component-dependencies">Ant <span class="ph uicontrol">Component Dependencies</span> view</a> that
+            allows you to see the dependencies for the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_off_sv1_5r" src="../img/RenameXSLResource16.png">Rename
+              Component in</span></dt>
+          <dd class="dd">Renames the selected component. See <a class="xref" href="ant-refactoring-actions.html#ant-refactoring-actions">Ant
+              Refactoring Actions</a> for more details.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_brg_3z1_5r" src="../img/Cut16.png">Cut</span>,
+                <span class="ph uicontrol"><img class="image" id="ant-outline__image_sf4_lst_tr" src="../img/Copy16.png">Copy</span>,
+                <span class="ph uicontrol"><img class="image" id="ant-outline__image_arl_jpd_cs" src="../img/Remove16.png">Delete</span></dt>
+          <dd class="dd">Executes the typical editing actions on the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_lny_prd_cs" src="../img/ExpandAll16.png">Expand More</span></dt>
+          <dd class="dd">Expands recursively all sub-components of the selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="ant-outline__image_yl1_r3t_tr" src="../img/CollapseAll16.png">Collapse
+              All</span></dt>
+          <dd class="dd">Collapses recursively all sub-components of the selected component.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">You can search a component in the <span class="ph uicontrol">Outline</span> view by typing its name in
+      the filter text field at the top of the view or directly on the tree structure. When you type
+      the component name in the text field, you can switch to the tree structure using the
+      following:</p>
+    <ul class="ul" id="ant-outline__ul_lxl_yy5_5n">
+      <li class="li"><span class="ph uicontrol"><span class="keyword shortcut">Down</span></span> arrow key</li>
+      <li class="li"><span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> key</li>
+      <li class="li"><span class="ph uicontrol"><span class="keyword shortcut">Shift-Tab</span></span> key combination</li>
+    </ul>
+    <p class="p">To switch from tree structure to the filter text field, you can use
+          <span class="ph uicontrol"><span class="keyword shortcut">Tab</span></span> and
+          <span class="ph uicontrol"><span class="keyword shortcut">Shift-Tab</span></span>.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> The search filter is case insensitive. The following wildcards are accepted:<ul class="ul" id="ant-outline__ul_ecm_yy5_5n">
+        <li class="li"><strong class="ph b">*</strong> - any string</li>
+        <li class="li"><strong class="ph b">?</strong> - any character</li>
+        <li class="li"><strong class="ph b">,</strong> - patterns separator</li>
+      </ul>If no wildcards are specified, the string to search is used as a partial match (such as
+        <strong class="ph b">*textToFind*</strong>).</div>
+    <p class="p">The content of the <span class="ph uicontrol">Outline</span> view and the
+      editing area are synchronized. When you select a component in the
+        <span class="ph uicontrol">Outline</span> view, its definition is highlighted in the editing area.</p>
+    <div class="p">
+      <span class="ph">Oxygen XML Editor</span> has a predefined order for the groups in the
+        <span class="ph uicontrol">Outline</span> view:<ul class="ul" id="ant-outline__ul_tg4_3fm_2g">
+        <li class="li">For location, the names of the files are sorted alphabetically. The file you are editing
+          is located at the top of the list.</li>
+        <li class="li">For type, the order is: properties, targets, references. <div class="note note note_note"><span class="note__title">Note:</span> When no grouping is
+            available <span class="ph">Oxygen XML Editor</span> sorts the components depending on their order in the
+            document. <span class="ph">Oxygen XML Editor</span> also takes into account the name of the file that the
+            components are part of. </div></li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-ant-build-files.html">Editing Ant Build Files</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/ant-syntax-highlight.html">Syntax Highlighting in Ant Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/ant-hierarchy-view.html">Ant Resource Hierarchy/Dependencies View</a></div></div></nav></article></main></body></html>

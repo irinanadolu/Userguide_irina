@@ -1,0 +1,305 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Linking,Cross reference,File reference,Web link,Related links,Cross references"><meta name="keywords" content="DITA, Linking, Cross reference, File reference, Web link, Related links, Cross references"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-linking.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-hierarchical-linking.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-relationship-table-linking.html"><meta name="DC.relation" scheme="URI" content="insert-define-keys.html#insert-define-keys"><meta name="DC.relation" scheme="URI" content="dita-reusable-components-view.html#dita-reusable-components-view"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-inline-linking"><title>Linking in DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-inline-linking"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Linking in DITA Topics</h1>
+  
+  <div class="body">
+    <section class="section" id="eppo-inline-linking__direct_links"><h2 class="title sectiontitle">Direct Links</h2>
+      
+      <p class="p">Inline links can be created DITA topics using the <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element. The
+        destination of the link can be expressed directly by using the <code class="keyword markupname xmlatt">@href</code>
+        attribute and the target can be another topic or a specific element within the other topic,
+        another location within the same topic, a file, or a web link. You can also create direct
+          <em class="ph i">related links</em> to topics, files, or websites in a DITA topic using the
+        <code class="keyword markupname xmlelement">&lt;related-links&gt;</code> element.</p>
+    </section>
+    <section class="section" id="eppo-inline-linking__indirect_links_using_keys"><h2 class="title sectiontitle">Indirect Links Using Keys</h2>
+      
+      <p class="p">The destination of the link can also be expressed indirectly by using <a class="xref" href="eppo-background-keys.html">keys</a> to create either inline links or <em class="ph i">related
+          links</em> (with the <code class="keyword markupname xmlatt">@keyref</code> attribute). By using keys, you avoid creating
+        a direct dependency between topics. This makes links easier to manage and can make it easier
+        to reuse topics in various publications. It can also be helpful in verifying the
+        completeness of a publication, by ensuring that a publication map provides a key definition
+        for every key reference used in the content. </p>
+      <div class="p">Links based on keys require two pieces:<ul class="ul">
+          <li class="li">Key Definition - Assigns a key to a topic so that other topics can link to it. For
+            more information, see <a class="xref" href="insert-define-keys.html#insert-define-keys">Defining Keys in DITA Maps</a>.</li>
+        <li class="li">Key Reference - Created in an <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element and specifies the key to
+            link to.</li>
+        </ul>The key reference points to a key definition, and the key definition points to a topic.
+        Key definitions are created in maps, as an element on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+        that points to a topic. This allows you to assign a particular key to one topic in one map
+        and to another topic in another map. When a topic that links to that key is used in each of
+        these maps, the links work correctly in both maps.</div>
+    </section>
+    <section class="section" id="eppo-inline-linking__inserting_a_link_in"><h2 class="title sectiontitle">Inserting a Link in <span class="ph">Oxygen XML Editor</span></h2>
+      
+      <p class="p">To insert a link in <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>, use the actions available in the
+            <span class="ph uicontrol"><img class="image" id="eppo-inline-linking__image_nbp_mkx_sr" src="../img/LinkDrop.png">Link</span>
+        drop-down menu from the toolbar (or the <span class="ph uicontrol"><img class="image" src="../img/Link16.png">Link</span> submenu in the contextual menu or <span class="ph uicontrol">DITA</span> menu).
+        You can choose between the following types of inline links:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__cross-reference-dlentry"><span class="ph uicontrol">Cross Reference</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__cross_reference_xref_dialog_box"><span class="ph uicontrol">Cross Reference (xref)</span> dialog box</a> that
+              allows you to insert a cross reference link to a target DITA resource at the current
+              location within a document. The target resource can be the location of a file or a key
+              that is already defined in your DITA map structure. Once the target resource has been
+              selected, you can also target specific elements within that resource. Depending on the
+              context where it is invoked, the action inserts one of the following two elements: <ul class="ul" id="eppo-inline-linking__ul_tx4_ggb_2r">
+                <li class="li"><code class="keyword markupname xmlelement">&lt;xref&gt;</code> - Used to link to other topics or another location within
+                  the same topic and points to the target using the <code class="keyword markupname xmlatt">@href</code> or
+                    <code class="keyword markupname xmlatt">@keyref</code> attribute.</li>
+                <li class="li"><code class="keyword markupname xmlelement">&lt;fragref&gt;</code> - A logical reference to a fragment element within a
+                  syntax diagram and points to the target using the <code class="keyword markupname xmlatt">@href</code> or
+                    <code class="keyword markupname xmlatt">@keyref</code> attribute.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__file-reference-dlentry"><span class="ph uicontrol">File Reference</span></dt>
+            <dd class="dd">Opens a dialog box that allows you to insert a link to a target non-DITA file
+              resource at the current location within a document. The target resource can be the
+              location of a file or a key that is already defined in your <dfn class="term">DITA map</dfn>
+              structure. It inserts an <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element with either an
+                <code class="keyword markupname xmlatt">@href</code> attribute or a <code class="keyword markupname xmlatt">@keyref</code> attribute. If you
+              select <span class="ph uicontrol">Location</span> for the target, the link is expressed in an
+                <code class="keyword markupname xmlatt">@href</code> attribute. If you select <span class="ph uicontrol">Key</span> for the
+              target, keys will be used to express the link in a <code class="keyword markupname xmlatt">@keyref</code> attribute.
+              You can select a key from the drop-down list or click the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose Key Reference</span>
+              button to use the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__key-dialog-box"><span class="ph uicontrol">Choose
+                  Key</span> dialog box</a>.</dd>
+          
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__web-link-dlentry"><span class="ph uicontrol">Web Link</span></dt>
+            <dd class="dd">Opens a dialog box that allows you to insert a link to a target web-related resource
+              at the current location within a document. The target resource can be a URL or a key
+              that is already defined in your <dfn class="term">DITA map</dfn> structure. It inserts an
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element with either an <code class="keyword markupname xmlatt">@href</code> attribute or a
+                <code class="keyword markupname xmlatt">@keyref</code> attribute. If you select <span class="ph uicontrol">URL</span> for the
+              target resource, the link is expressed in an <code class="keyword markupname xmlatt">@href</code> attribute. If you
+              select <span class="ph uicontrol">Key</span> for the target, keys will be used to express the
+              link in a <code class="keyword markupname xmlatt">@keyref</code> attribute. You can select a key from the drop-down
+              list or click the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose Key Reference</span> button to use the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__key-dialog-box"><span class="ph uicontrol">Choose Key</span> dialog
+                box</a>.</dd>
+          
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__related-topic-dlentry"><span class="ph uicontrol">Related Link to Topic</span></dt>
+            <dd class="dd">Opens the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__cross_reference_xref_dialog_box"><span class="ph uicontrol">Cross Reference (xref)</span> dialog box</a> that
+              allows you to insert a link to a target DITA resource in a related links section that
+              is typically at the bottom of your topic (although this depends on the behavior of the
+              output transformation). The target resource can be the location of a file or a key
+              that is already defined in your <dfn class="term">DITA map</dfn> structure. Once the target
+              resource has been selected, you can also target specific elements within that
+              resource. If a related links section does not already exist, this action creates one.
+              Specifically, it inserts a <code class="keyword markupname xmlelement">&lt;link&gt;</code> element inside a <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/containers/related-links-elements.html" target="_blank" rel="external noopener"><em class="ph i">related-links</em> element</a>. <div class="note tip note_tip"><span class="note__title">Tip:</span> You can use the <span class="ph uicontrol">Find Similar
+        Topics</span> action (available in the contextual menu or <span class="ph uicontrol">DITA</span>
+      menu) to quickly find related topics that can be added as related links. It opens the
+        <span class="ph uicontrol">Open/Find Resource</span> view and performs a search using text content from
+      the <code class="keyword markupname xmlelement">&lt;title&gt;</code>, <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, and <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</div></dd>
+          
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__related-file-dlentry"><span class="ph uicontrol">Related Link to File</span></dt>
+            <dd class="dd">Opens a dialog box that allows you to insert a link to a target non-DITA file
+              resource in a related links section that is typically at the bottom of your topic
+              (although this depends on the behavior of the output transformation). The target
+              resource can be the location of a file or a key that is already defined in your
+                <dfn class="term">DITA map</dfn> structure. If a related links section does not already exist,
+              this action creates one. Specifically, it inserts a <code class="keyword markupname xmlelement">&lt;link&gt;</code> element
+              inside a <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/containers/related-links-elements.html" target="_blank" rel="external noopener"><em class="ph i">related-links</em> element</a>. If you select
+                <span class="ph uicontrol">Location</span> for the target, the link is expressed in an
+                <code class="keyword markupname xmlatt">@href</code> attribute. If you select <span class="ph uicontrol">Key</span> for the
+              target, keys will be used to express the link in a <code class="keyword markupname xmlatt">@keyref</code> attribute.
+              You can select a key from the drop-down list or click the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose Key Reference</span>
+              button to use the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__key-dialog-box"><span class="ph uicontrol">Choose
+                  Key</span> dialog box</a>.</dd>
+          
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__related-web-dlentry"><span class="ph uicontrol">Related Link to Web Page</span></dt>
+            <dd class="dd">Opens the <span class="ph uicontrol">Web Link</span> dialog box that allows you to insert a
+              link to a target web-related resource in a related links section that is typically at
+              the bottom of your topic (although this depends on the behavior of the output
+              transformation). The target resource can be a URL or a key that is already defined in
+              your <dfn class="term">DITA map</dfn> structure. If a related links section does not already
+              exist, this action creates one. Specifically, it inserts a <code class="keyword markupname xmlelement">&lt;link&gt;</code>
+              element inside a <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/containers/related-links-elements.html" target="_blank" rel="external noopener"><em class="ph i">related-links</em> element</a>. If you select
+                <span class="ph uicontrol">URL</span> for the target resource, the link is expressed in an
+                <code class="keyword markupname xmlatt">@href</code> attribute. If you select <span class="ph uicontrol">Key</span> for the
+              target, keys will be used to express the link in a <code class="keyword markupname xmlatt">@keyref</code> attribute.
+              You can select a key from the drop-down list or click the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose Key Reference</span>
+              button to use the <a class="xref" href="eppo-inline-linking.html#eppo-inline-linking__key-dialog-box"><span class="ph uicontrol">Choose
+                  Key</span> dialog box</a>.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="eppo-inline-linking__cross_reference_xref_dialog_box"><h2 class="title sectiontitle">Cross Reference (xref) Dialog Box</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Cross Reference (xref)</span> dialog box is displayed when you insert a
+          <span class="ph uicontrol">Cross Reference</span> or <span class="ph uicontrol">Related Link to Topic</span>
+        (from the <span class="ph uicontrol"><img class="image" src="../img/LinkDrop.png"> Link</span> drop-down menu).
+        It allows you to insert a link to a target resource at the current location within a
+        document (for a <span class="ph uicontrol">Cross Reference</span> link) or in a related links section
+        (for a <span class="ph uicontrol">Related Link to Topic</span>). The target resource can be the
+        location of a file or a key that is already defined in your <dfn class="term">DITA map</dfn> structure.
+        Once the target resource has been selected, you can also target specific elements within
+        that resource. </p>
+      <div class="p">
+        <figure class="fig fignone" id="eppo-inline-linking__cross-ref-dialog-fig-sa"><figcaption><span class="fig--title-label">Figure 1. </span>Cross Reference (xref) Dialog Box</figcaption>
+          
+          <img class="image" id="eppo-inline-linking__image_ibp_ggb_2r" src="../img/sa_dita_insert_xref.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p" id="eppo-inline-linking__xref-dialog-sections-p">This dialog box includes the following sections and fields:<dl class="dl" id="eppo-inline-linking__insert-ref-dialog-dl">
+          
+            <dt class="dt dlterm" id="eppo-inline-linking__choose-target-dlentry"><span class="ph uicontrol">Choose the Target Resource</span> Section</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol">Location</span></dt>
+                  <dd class="dd">If you select <span class="ph uicontrol">Location</span> for the target, the link is
+                    expressed in an <code class="keyword markupname xmlatt">@href</code> attribute.</dd>
+                
+                  
+                  <dt class="dt dlterm" id="eppo-inline-linking__key-dialog-box"><span class="ph uicontrol">Key</span></dt>
+                  <dd class="dd">
+                    <div class="p">If you select <span class="ph uicontrol">Key</span> for the target, keys will be used to
+                      express the link in a <code class="keyword markupname xmlatt">@keyref</code> attribute. You can use the
+                          <span class="ph uicontrol"><img class="image" id="eppo-inline-linking__image_lqy_zq1_1jb" src="../reusables/topics/../../img/Conkeyref20.png">Choose Key Reference</span> button to open
+                      the <span class="ph uicontrol">Choose Key</span> dialog box that allows you to select one
+                      from a list of all the keys that are gathered from the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> (you can also
+                      select one from the drop-down list in the <span class="ph uicontrol">Key</span>
+                        field).<div class="note tip note_tip"><span class="note__title">Tip:</span> You can also use the <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view"><span class="ph uicontrol">DITA Reusable Components</span> view</a> for similar
+                        purposes.</div></div>
+                    <div class="p">
+                      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Choose Key Dialog Box</figcaption>
+                        
+                        <img class="image" src="../reusables/topics/../../img/insert_key_ref_dialog.png">
+                      </figure>
+                    </div>
+                    <div class="p">The <span class="ph uicontrol">Choose Key</span> dialog box includes the following:<ul class="ul">
+                        <li class="li"><strong class="ph b">Change Root Map</strong> - Opens a small dialog box that allows you to
+                            <a class="xref" href="root-map.html">select a <dfn class="term">root map</dfn></a>.</li>
+                        <li class="li"><strong class="ph b">Search Filter</strong> - You can enter text in the filter field at the top
+                          of the dialog box to filter the list and search for specific keys.</li>
+                        <li class="li"><strong class="ph b">Sortable Columns</strong> - The dialog box includes the following columns
+                          that can be sorted by clicking on the heading:<ul class="ul" id="eppo-inline-linking__ul-columns-for-choosing-keys">
+                            <li class="li"><span class="ph uicontrol">Key</span> - The name of the key (the value of the
+                                <code class="keyword markupname xmlatt">@keys</code> attribute).</li>
+                            <li class="li"><span class="ph uicontrol">Description</span> - The description of the key that
+                              is obtained from its definition. Keys that are defined with a text
+                              value in the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or
+                                <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element have that value listed in
+                              this column.</li>
+                            <li class="li"><span class="ph uicontrol">Href</span> - Keys that are defined with a value in
+                              an <code class="keyword markupname xmlatt">@href</code> attribute have that href value listed in this
+                              column.</li>
+                            <li class="li"><span class="ph uicontrol">Definition Location</span> - The name of the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> where the
+                              key is defined.</li>
+                          </ul></li>
+                        <li class="li"><strong class="ph b"><span class="ph uicontrol">Group by Definition Location</span></strong> - A
+                          contextual menu action that can be used to group (and sort) all the keys
+                          based upon the value in the <span class="ph uicontrol">Definition Location</span>
+                          column.</li>
+                      </ul></div>
+                  </dd>
+                
+                </dl>
+              </div>
+            </dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Select the Target Element</span> Section</dt>
+          <dd class="dd">
+            <p class="p">This section can be used to target a specific element inside the target resource.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show elements of type</span></dt>
+                  <dd class="dd">You can use this drop-down list to select specific types of elements to be
+                    displayed in the subsequent table. This can help you narrow down the list of
+                    possible source elements that you can select.</dd>
+                
+                
+                  <dt class="dt dlterm">Text Filter Field</dt>
+                  <dd class="dd">You can also use the text filter field to narrow down the list of possible
+                    source elements to be displayed in the subsequent table.</dd>
+                
+                
+                  <dt class="dt dlterm">Element Table</dt>
+                  <dd class="dd">Presents all the element IDs defined in the source topic. Use this table to
+                    select the <span class="ph uicontrol">Target ID</span> of the element that you want to
+                    reference.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preview</span> Pane</dt>
+                  <dd class="dd">Displays the content that will be references.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Source</span> Pane</dt>
+                  <dd class="dd">Displays the XML source code of the element to be referenced.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        </dl>Once you click <span class="ph uicontrol">Insert</span> or <span class="ph uicontrol">Insert and
+        close</span>, the configured cross reference is inserted into your document. <div class="note tip note_tip"><span class="note__title">Tip:</span> You can easily insert multiple cross references by keeping the dialog box
+          opened, using the <span class="ph uicontrol">Insert</span> button.</div></div>
+    </section>
+    <section class="section" id="eppo-inline-linking__using_copypaste_actions_to_create_a_content_refer"><h2 class="title sectiontitle">Using Copy/Paste or Drag/Drop Actions to Insert a Cross Reference</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> also includes support for inserting cross reference links with
+        simple copy/paste or drag/drop actions (additionally, you can insert them using the
+          <span class="ph uicontrol">Paste as Link</span> or <span class="ph uicontrol">Paste as Link (keyref)</span>
+        actions found in the <span class="ph uicontrol"><img class="image" id="eppo-inline-linking__image_p2m_jrp_lkb" src="../img/PasteSpecialDITA16.png">Paste Special</span> submenu from the contextual menu). The
+        copied/dragged content must be an entire DITA XML element with an <code class="keyword markupname xmlatt">@id</code>
+        attribute or a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. Also, the location in the document where
+        you paste or drop the link must be valid, although as long as the <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware__smart-paste-drag-drop"><span class="ph uicontrol">Smart paste and drag and drop</span> option</a> is selected in the
+          <span class="ph uicontrol">Schema-Aware</span> preferences page, if you try to paste it in an invalid
+        location, <span class="ph">Oxygen XML Editor</span> will attempt to place it in a valid location, and may
+        prompt you with one or more choices for where to place it.</p>
+      <p class="p">When the link is inserted, <span class="ph">Oxygen XML Editor</span> automatically tries to populate certain
+        attributes based on detected values. The <code class="keyword markupname xmlatt">@format</code>, <code class="keyword markupname xmlatt">@scope</code>,
+        and <code class="keyword markupname xmlatt">@type</code> attributes are populated if their corresponding options are
+        selected in the <a class="xref" href="preferences-dita-new-topics.html#preferences-dita-new-topics__insert-link-section"><span class="ph uicontrol">Inserting Links</span> section of the DITA Topics preferences
+          page</a>. Even if their corresponding options are not selected, the
+          <code class="keyword markupname xmlatt">@format</code> and <code class="keyword markupname xmlatt">@scope</code> attributes are populated if their
+        detected values are different than the default values.</p>
+      <div class="note note note_note"><span class="note__title">Note:</span> For the sake of performance, the <code class="keyword markupname xmlatt">@type</code> attribute is never automatically
+        computed in the following cases:<ul class="ul" id="eppo-inline-linking__ul_igj_tm5_lkb">
+          <li class="li">When using drag/drop or copy/paste actions from the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                Manager</span> view</a> or from the <span class="ph uicontrol">Keys</span> tab of the
+              <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view"><span class="ph uicontrol">DITA Reusable Components</span> view</a>.</li>
+          <li class="li">When using the <span class="ph uicontrol">Paste as Link</span> or <span class="ph uicontrol">Paste as Link
+              (keyref)</span> actions to paste a topic reference that was copied from the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                Manager</span> view</a> and its <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+            do not have the <code class="keyword markupname xmlatt">@type</code> attribute defined.</li>
+        </ul></div>
+      <div class="p">Typically, cross reference links are inserted with an <code class="keyword markupname xmlatt">@href</code> attribute, but
+        it is also possible to insert them with a <code class="keyword markupname xmlatt">@keyref</code> attribute using the
+          <span class="ph uicontrol">Paste as Link (keyref)</span> contextual menu action or copy/paste or
+        drag/drop actions. For the latter method, follow these steps :<ol class="ol" id="eppo-inline-linking__ol_cxy_npp_lkb">
+          <li class="li">In the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                Manager</span> view</a>, make sure that the <a class="xref" href="dita-maps-manager.html#dita-maps-manager__root-map"><span class="ph uicontrol">Context</span> combo box</a> points to the correct map that
+            stores the keys.</li>
+          <li class="li">Make sure the topic that contains the content you want to reference has a key assigned
+            to it. To assign a key, right-click the topic with its parent map opened in the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                Manager</span></a>, select <span class="ph uicontrol">Edit Properties</span>, and enter
+            a value in the <span class="ph uicontrol">Keys</span> field.</li>
+          <li class="li">Copy an entire DITA element that has an ID attribute assigned to it from a topic with
+            an assigned key, or a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> from a <dfn class="term">DITA map</dfn>. </li>
+          <li class="li">Place the cursor at a location, where you want to insert the link.</li>
+          <li class="li">Select the <span class="ph uicontrol">Paste as Link (keyref)</span> action from the
+                <span class="ph uicontrol"><img class="image" id="eppo-inline-linking__image_dxy_npp_lkb" src="../img/PasteSpecialDITA16.png">Paste
+              Special</span> submenu from the contextual menu.</li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-linking.html">Linking in DITA</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/eppo-hierarchical-linking.html">Hierarchical Linking in DITA Maps</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-relationship-table-linking.html">Linking with Relationship Tables in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="insert-define-keys.html#insert-define-keys">Defining Keys in DITA Maps</a></li><li class="linklist"><a class="link" href="dita-reusable-components-view.html#dita-reusable-components-view">DITA Reusable Components View</a></li></ul></div></nav>
+</article></main></body></html>

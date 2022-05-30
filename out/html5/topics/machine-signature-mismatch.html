@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content="Installing Oxygen,Floating license servers,Machine signature does not match,Machine signature does not match,Current license was already activated"><meta name="keywords" content="Installing Oxygen, Floating license servers, Machine signature does not match, Machine signature does not match, Current license was already activated"><meta name="DC.relation" scheme="URI" content="../topics/floating-license-server-setup-common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/floating-license-server-setup-common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/windows-service-reports-incorrect-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="machine-signature-mismatch"><title>Machine Signature Mismatch Error</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="machine-signature-mismatch"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Machine Signature Mismatch Error</h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="machine-signature-mismatch__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">I receive an error indicating that <em class="ph i">the current license was already activated on a
+          License Server</em> or that the <em class="ph i">License Server's Machine Signature does not
+        match</em>.</p>
+      <p class="p">During the license activation process, the license key becomes bound to a particular
+        license server deployment. This means that a code that uniquely identifies your license
+        server deployment (called <dfn class="term">Machine Signature</dfn>) is sent to the <span class="ph">Oxygen XML Editor</span> servers, which in turn will sign the license key. The <dfn class="term">Machine
+          Signature</dfn> is computed from the list of network interfaces of the machine where you
+        deployed the license.</p>
+      <p class="p">When starting the license server, if you receive an error stating that your server's
+        Machine Signature does not match, there are several possible causes:</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="machine-signature-mismatch__cause"><h2 class="title sectiontitle">Possible Cause 1</h2>
+        
+        <p class="p">The license key was moved to a new machine that hosts your license server.</p>
+      </section>
+      <section class="section remedy" id="machine-signature-mismatch__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">Revert to your previous configuration.</p>
+        </section>
+      </section>
+    </div>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="machine-signature-mismatch__possible_cause_2"><h2 class="title sectiontitle">Possible Cause 2</h2>
+        
+        <div class="p">A new network interface was changed, added, or activated in the machine that hosts your
+          license server.<div class="note note note_note"><span class="note__title">Note:</span> A specific example of when this could happen is if the Bluetooth or
+            the WiFi module is activated/deactivated.</div></div>
+      </section>
+      <section class="section remedy" id="machine-signature-mismatch__solution2"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">If reverting is not possible, contact the <a class="xref" href="https://www.oxygenxml.com/support.html" target="_blank" rel="external noopener">Oxygen support
+              team</a>.</p>
+        </section>
+      </section>
+    </div>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="machine-signature-mismatch__possible_cause_3"><h2 class="title sectiontitle">Possible Cause 3</h2>
+        
+        <p class="p">The license server was restarted from a different location as the previous restart. For
+          example, some server configurations will have the Apache Tomcat server installed in a
+          versioned folder (<span class="ph filepath">/usr/local/apache-tomcat-V.V.V</span>) with a symbolic
+          link to the typical folder (<span class="ph filepath">/usr/local/tomcat</span>). The server can be
+          restarted from either location, but it is recommended to always restart from the typical
+          folder (<span class="ph filepath">/usr/local/tomcat</span>) and always restart from the same
+          location.</p>
+      </section>
+      <section class="section remedy" id="machine-signature-mismatch__solution3"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <p class="p">The server simply needs to always be restarted from the same location.</p>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/floating-license-server-setup-common-problems.html">Common Problems: License Server Errors</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/floating-license-server-setup-common-problems.html">Common Problems: License Server Errors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/windows-service-reports-incorrect-function.html">Windows Service Reports Incorrect Function Error When Starting (TCP Server)</a></div></div></nav></article></main></body></html>

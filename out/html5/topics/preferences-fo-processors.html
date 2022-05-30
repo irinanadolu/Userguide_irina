@@ -1,0 +1,180 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,FO Processor,FO processor preferences,Out Of Memory error"><meta name="keywords" content="Preferences, FO Processor, FO processor preferences, Out Of Memory error"><meta name="DC.relation" scheme="URI" content="../topics/preferences-pdf-output.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-pdf-output.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-css-processors.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-fo-processors"><title>FO Processors Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-fo-processors"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">FO Processors Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes a built-in formatting objects processor (Apache FOP), but you
+      can also configure other external processors and use them in the transformation scenarios for
+      processing XSL-FO documents.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides an easy way to add two of the most commonly used commercial
+      FO processors: <strong class="ph b">RenderX XEP</strong> and <strong class="ph b">Antenna House Formatter</strong>. You can easily add
+        <em class="ph i">RenderX XEP</em> as an external FO processor if you have the XEP installed. Also, if you
+      have the <em class="ph i">Antenna House Formatter</em>, <span class="ph">Oxygen XML Editor</span> uses the environment variables
+      set by the XSL formatter installation to detect and use it for XSL-FO transformations. If the
+      environment variables are not set for the XSL formatter installation, you can browse and
+      choose the executable file just as you would for XEP. You can use these two external FO
+      processors for <a class="xref" href="dita-ot-transformation.html#dita-ot-transformation" title="This type of transformation specifies the parameters for an Ant transformation that executes a DITA-OT build script. Oxygen XML Editor includes a built-in version of Ant and a built-in version of DITA-OT, but other versions can be set in the scenario.">DITA-OT
+        transformations scenarios</a> and <a class="xref" href="xml-transformation-with-xslt.html#xml-transformation-with-xslt" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">XML with XSLT
+        transformation scenarios</a>.</p>
+    <p class="p">To configure the options for the FO processors, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">PDF Output</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">FO Processors</span></span>. This preferences page includes the following options:</p>
+    <section class="section" id="preferences-fo-processors__apache_fop_section"><h2 class="title sectiontitle">Apache FOP Section</h2>
+      
+      <p class="p">In this section, you can configure options for the built-in Apache processor. The following
+        options are available:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Use built-in Apache FOP</span></dt>
+            <dd class="dd">Instructs <span class="ph">Oxygen XML Editor</span> to use the built-in Apache FO processor. To see the
+              version of the built-in XSL-FO processor for your installation, go to <span class="ph menucascade"><span class="ph uicontrol">Help</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">About</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Libraries</span></span> and search for <em class="ph i">Apache FOP</em>.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Use other Apache FOP</span></dt>
+            <dd class="dd">Instructs <span class="ph">Oxygen XML Editor</span> to use another Apache FO processor that is
+              installed on your computer. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Enable the output of the built-in FOP</span></dt>
+            <dd class="dd">All Apache FOP output is displayed in a results pane at the bottom of the <span class="ph">Oxygen XML Editor</span> window, including warning messages about FO instructions not
+              supported by Apache FOP.</dd>
+          
+          
+            <dt class="dt dlterm" id="preferences-fo-processors__memory-available-fop"><span class="ph uicontrol">Memory available to the Apache FOP</span></dt>
+            <dd class="dd">If your Apache FOP transformations fail with an Out of Memory error
+                (<span class="ph uicontrol">OutOfMemoryError</span>), use this combo box to select a larger
+              value for the amount of memory reserved for Apache FOP transformations.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Configuration file for the built-in FOP</span></dt>
+            <dd class="dd">Use this option to specify the path to an Apache FOP configuration file (for
+              example, to render to PDF a document containing Unicode content using a special
+                <em class="ph i">true type</em> font). <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Generates PDF/A-1b output</span></dt>
+            <dd class="dd">When selected, PDF/A-1b output is generated.<div class="note note note_note"><span class="note__title">Notes:</span> 
+                <ul class="ul" id="preferences-fo-processors__ul_nwf_zfk_tlb">
+                  <li class="li">All fonts have to be embedded, even the implicit ones. More information about
+                    configuring metrics files for the embedded fonts can be found in <a class="xref" href="add-font-to-builtin-FOP.html">Add a font to the built-in
+                    FOP</a>.</li>
+                  <li class="li">You cannot use the <code class="ph codeph">&lt;filterList&gt;</code> key in the
+                    configuration file since the FOP would generate the following error: <cite class="cite">The
+                      Filter key is prohibited when PDF/A-1 is active</cite>.</li>
+                </ul>
+              </div></dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="preferences-fo-processors__external_fo_processors_section"><h2 class="title sectiontitle">External FO Processors Section</h2>
+      
+      <div class="p">In this section, you can manage the external FO processors you want to use in
+        transformation scenarios. You can use the two options at the bottom of the section to use
+        the <strong class="ph b">RenderX XEP</strong> or <strong class="ph b">Antenna House Formatter</strong> commercial FO processors.<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add 'XEP' FO processor (executable file is needed)</span></dt>
+            <dd class="dd">If <strong class="ph b">RenderX XEP</strong> is already installed on your computer, you can use this button
+              to choose the XEP executable script (<span class="ph filepath">xep.bat</span> for Windows,
+                <span class="ph filepath">xep</span> for Linux).</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Add 'Antenna House' FO processor (executable file is
+              needed)</span></dt>
+            <dd class="dd">If <strong class="ph b">Antenna House Formatter</strong> is already installed on your computer, you can use
+              this button to choose the Antenna House executable script
+                (<span class="ph filepath">AHFCmd.exe</span> or <span class="ph filepath">XSLCmd.exe</span> for Windows, and
+                <span class="ph filepath">run.sh</span> for Linux/Mac OS).<div class="note note note_note"><span class="note__title">Note:</span> The built-in <span class="ph uicontrol">Antenna
+                  House Formatter GUI</span> transformation scenario requires that you
+                configure an external FO processor that runs <span class="ph filepath">AHFormatter.exe</span>
+                (Windows only). In the <a class="xref" href="preferences-fo-processors.html#preferences-fo-processors__external-fo-processor-p">external
+                    <span class="ph uicontrol">FO Processor</span> configuration dialog box</a>, you could
+                use <code class="ph codeph">"${env(AHF63_64_HOME)}\AHFormatter.exe" -d ${fo} -s</code> for the
+                value in the <span class="ph uicontrol">Command line</span> field, although the environment
+                variable name changes for each version of the AH Formatter and for each system
+                architecture (you can install multiple versions side-by-side). For more information,
+                see <a class="xref" href="https://github.com/AntennaHouse/focheck/wiki/focheck" target="_blank" rel="external noopener">https://github.com/AntennaHouse/focheck/wiki/focheck</a>.</div></dd>
+          
+        </dl>You can also add external processors or configure existing ones. Click the <span class="ph uicontrol">New</span> button to
+        open a configuration dialog box that allows you to add a new external FO processor. Use the
+        other buttons (<span class="ph uicontrol">Edit</span>, <span class="ph uicontrol"><img class="image" id="preferences-fo-processors__image_skn_nlt_rs" src="../img/Copy16.png">Duplicate</span>, <span class="ph uicontrol">Delete</span><span class="ph">, <span class="ph uicontrol">Up</span>, <span class="ph uicontrol">Down</span></span>) to configure existing
+        external processors.</div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>External FO Processor Configuration Dialog Box</figcaption>
+          
+          <img class="image" src="../img/sa_external_fop.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p" id="preferences-fo-processors__external-fo-processor-p">The external <span class="ph uicontrol">FO Processor</span> configuration
+        dialog box includes the following options:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Name</span></dt>
+            <dd class="dd">The name that will be displayed in the list of available FO processors on the FOP
+              tab of the transformation scenario dialog box.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Description</span></dt>
+            <dd class="dd">A textual description of the FO processor that will be displayed in the FO
+              processors table and in tooltips of UI components where the processor is
+              selected.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Working directory</span></dt>
+            <dd class="dd">The directory where the intermediate and final results of the processing are stored.
+                <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span> You can use
+              one of the following <a class="xref" href="editor-variables.html#editor-variables">editor
+                variables</a>:<ul class="ul" id="preferences-fo-processors__ul_mm3_z4t_rs">
+                <li class="li"><span class="ph uicontrol">${homeDir}</span> - The path to the user home directory.</li>
+                <li class="li"><span class="ph uicontrol">${cfd}</span> - The path of the current file directory. If the
+                  current file is not a local file, the target is the user desktop directory.</li>
+                <li class="li"><span class="ph uicontrol">${pd}</span> - The project directory.</li>
+                <li class="li"><span class="ph uicontrol">${oxygenInstallDir}</span> -The <span class="ph">Oxygen XML Editor</span>
+                  installation directory.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Command line</span></dt>
+            <dd class="dd">The command line that starts the FO processor, specific to each processor. <span class="ph">You can
+        specify the path by using the text field, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Open16.png">Browse</span> button.</span> You can use one of
+              the following <a class="xref" href="editor-variables.html#editor-variables">editor
+                variables</a>:<ul class="ul" id="preferences-fo-processors__ul_xjq_1pt_rs">
+                <li class="li"><span class="ph uicontrol">${method}</span> - The FOP transformation method:
+                    <span class="ph uicontrol">pdf</span>, <span class="ph uicontrol">ps</span>, or
+                    <span class="ph uicontrol">txt</span>.</li>
+                <li class="li"><span class="ph uicontrol">${fo}</span> - The input FO file.</li>
+                <li class="li"><span class="ph uicontrol">${out}</span> - The output file.</li>
+                <li class="li"><span class="ph uicontrol">${pd}</span> - The project directory.</li>
+                <li class="li"><span class="ph uicontrol">${frameworksDir}</span> - The path of the
+                    <span class="ph filepath">frameworks</span> subdirectory of the <span class="ph">Oxygen XML Editor</span>
+                  installation directory.</li>
+                <li class="li"><span class="ph uicontrol">${oxygenInstallDir}</span> - The <span class="ph">Oxygen XML Editor</span>
+                  installation directory.</li>
+                <li class="li"><span class="ph uicontrol">${ps}</span> - The platform-specific path separator. It is used
+                  between the library files specified in the class path of the command line.</li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Output Encoding</span></dt>
+            <dd class="dd">The encoding of the FO processor output stream that is displayed in a <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span> panel</a> at
+              the bottom of the <span class="ph">Oxygen XML Editor</span> window.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Error Encoding</span></dt>
+            <dd class="dd">The encoding of the FO processor error stream that is displayed in a <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span> panel</a> at
+              the bottom of the <span class="ph">Oxygen XML Editor</span> window.</dd>
+          
+        </dl></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-pdf-output.html">PDF Output Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-pdf-output.html">PDF Output Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-css-processors.html">CSS-based Processors Preferences</a></div></div></nav></article></main></body></html>

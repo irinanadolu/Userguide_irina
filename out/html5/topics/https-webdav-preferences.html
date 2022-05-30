@@ -1,0 +1,70 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,HTTP(S)/WebDAV,HTTP connection settings,WebDAV connection settings"><meta name="keywords" content="Preferences, HTTP(S)/WebDAV, HTTP connection settings, WebDAV connection settings"><meta name="DC.relation" scheme="URI" content="../topics/connection-settings.html"><meta name="DC.relation" scheme="URI" content="../topics/proxy-using-pac.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-ftp-configuration.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="https-webdav-preferences"><title>HTTP(S)/WebDAV Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="https-webdav-preferences"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">HTTP(S)<span class="ph">/WebDAV</span> Preferences</h1>
+  
+  <div class="body">
+    <div class="p">To set the <span class="ph uicontrol">HTTP(S)/WebDAV</span> preferences,
+        <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph menucascade"><span class="ph uicontrol">Network Connection Settings</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">HTTP(S)/WebDAV</span></span>. The following options are available:<dl class="dl">
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Maximum number of simultaneous connections per host</span></dt>
+          <dd class="dd">Defines the maximum number of simultaneous connections established by the application
+            with a distinct host. Servers might consider multiple connections opened from the same
+            source to be a <strong class="ph b">Denial of Service</strong> attack. You can avoid that by lowering the value
+            of this option.<div class="note note note_note"><span class="note__title">Note:</span> The minimum value that can be set in this option is 5.</div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Read Timeout (seconds)</span></dt>
+          <dd class="dd">The period (in seconds) after which the application considers that an HTTP server is
+            unreachable if it does not receive any response from that server.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable HTTP 'Expect: 100-continue ' handshake (for HTTP/1.1
+              protocol)</span></dt>
+          <dd class="dd">Activates <em class="ph i">Expect: 100-Continue</em> handshake. The purpose of the <em class="ph i">Expect:
+              100-Continue</em> handshake is to allow a client that is sending a request message with
+            a request body to determine if the origin server is willing to accept the request (based
+            on the request headers) before the client sends the request body. The use of the
+              <em class="ph i">Expect: 100-continue</em> handshake can result in noticeable performance improvement
+            when working with databases. The <em class="ph i">Expect: 100-continue</em> handshake should be used
+            with caution, as it may cause problems with HTTP servers and proxies that do not support
+            the HTTP/1.1 protocol.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Use the 'Content-Type' header field to determine the content
+              type</span></dt>
+          <dd class="dd">When selected, <span class="ph"><span class="ph">Oxygen XML Editor</span></span> tries to determine a resource type
+            using the <span class="ph uicontrol">Content-Type</span> header field. This header indicates the
+              <em class="ph i">Internet media type</em> of the message content, consisting of a type and subtype.
+            For example:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Content-Type: text/xml</pre>When unchecked,
+            the resource type is determined by analyzing its extension. For example, a file ending
+            in <span class="ph filepath">.xml</span> is considered to be an XML file.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Automatic retry on recoverable error</span></dt>
+          <dd class="dd">When selected, if an HTTP error occurs when <span class="ph"><span class="ph">Oxygen XML Editor</span></span>
+            communicates with a server via HTTP (for example, sending or receiving a SOAP request to
+            or from a Web services server) and the error is recoverable, <span class="ph"><span class="ph">Oxygen XML Editor</span></span> tries to re-send the request to the server.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Automatically accept a security certificate, even if
+            invalid</span></dt>
+          <dd class="dd">When selected, the HTTPS connections that <span class="ph">Oxygen XML Editor</span> attempts to establish
+            with will accept all security certificates, even if they are invalid.<div class="note important note_important"><span class="note__title">Important:</span> By accepting an invalid certificate, you accept (at your own risk) a
+              potential security threat, since you cannot verify the integrity of the certificate's
+              issuer.</div></dd>
+        
+        
+        
+          <dt class="dt dlterm" id="https-webdav-preferences__lock-webdav"><span class="ph uicontrol">Lock WebDAV files on open</span></dt>
+          <dd class="dd">If selected, the files opened through WebDAV are locked on the server so that they
+            cannot be edited by other users while the lock placed by the current user still exists
+            on the server.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/connection-settings.html">Network Connection Settings Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/proxy-using-pac.html">Using a Proxy Auto-Configuration Script (PAC)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-ftp-configuration.html">(S)FTP Preferences</a></div></div></nav></article></main></body></html>

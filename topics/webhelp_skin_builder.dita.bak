@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="webhelp_skin_builder">
+  <title>WebHelp Skin Builder</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm product="author developer editor authorEclipse developerEclipse editorEclipse"
+          >WebHelp Classic<indexterm>Skin Builder</indexterm></indexterm>
+        <indexterm product="webhelp">Skin builder</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The <uicontrol>WebHelp Skin Builder</uicontrol> is a simple, easy-to-use tool, specially
+      designed to assist users to visually customize the look and feel of the WebHelp output. It is
+      implemented as an online tool hosted on the <b>Oxygen XML</b> website and allows you to
+      experiment with various styles and colors over a documentation sample.</p>
+    <p>To be able to use the <uicontrol>Skin Builder</uicontrol>, you need:<ul id="ul_nvb_ppl_14">
+        <li>An Internet connection and unrestricted access to <b>Oxygen XML</b> website.</li>
+        <li>A late version web browser.</li>
+      </ul></p>
+    <p>To start the <uicontrol>Skin Builder</uicontrol>, use a web browser to go to <xref
+        href="https://www.oxygenxml.com/webhelp-skin-builder" format="html" scope="external"/>.</p>
+    <section id="skin_builder_layout">
+      <title>Skin Builder Layout</title>
+      <p>The left side panel of the <uicontrol>Skin Builder</uicontrol> is divided into 3 sections:<ul
+          id="ul_nkp_z2q_14">
+          <li><uicontrol>Actions</uicontrol> - Contains the following two buttons:<ul
+              id="ul_ahq_hfq_14">
+              <li><uicontrol>Import</uicontrol> - Opens an <uicontrol>Import CSS</uicontrol> dialog
+                box that allows you to load a CSS stylesheet and apply it over the documentation
+                sample.</li>
+              <li><uicontrol>Export</uicontrol> - Saves all properties as a CSS file.</li>
+            </ul></li>
+          <li><uicontrol>Settings</uicontrol> - Includes a <uicontrol>Highlight
+              selection</uicontrol> option that helps you identify the areas affected by a
+            particular element customization.<ul id="ul_bwb_xgq_14">
+              <li>When hovering an item in the customizable elements menu, the affected sample area
+                is highlighted with a dotted blue border.</li>
+              <li>When an item in the customizable elements menu is selected, the affected sample
+                area is highlighted with a solid red border.</li>
+            </ul></li>
+          <li><uicontrol>Customize</uicontrol> - Provides a series of customizable elements
+            organized under four main categories:<ul id="ul_gyp_rzk_14">
+              <li>Header</li>
+              <li>TOC Area</li>
+              <li>Vertical Splitter</li>
+              <li>Content</li>
+            </ul>For each customizable element, you can alter properties such as background color or
+            font face. Any alteration made in the customizable elements menu is applied in real time
+            over the sample area.</li>
+        </ul></p>
+    </section>
+    <section id="create_a_customization_skin">
+      <title>Creating a Customization Skin</title>
+      <p>
+        <ol id="ul_cyf_m4q_14">
+          <li>You can start with one of the built-in skins or a CSS stylesheet applied over the
+            sample using the <uicontrol>Import</uicontrol> button.</li>
+          <li>Use the elements in the <uicontrol>Customize</uicontrol> section to set properties
+            that modify the look of the skin. By default, all customizable elements display a single
+            property, but you can make more visible by clicking the <uicontrol><image
+                href="../img/AddProp16.png" id="image_vpr_j5z_vr"/>Add</uicontrol> button and
+            choosing from the available properties.<note>If you want to revert a particular property
+              to its initial value, click the <uicontrol><image href="../img/ResetProp16.png"
+                  id="image_ahy_h5z_vr"/>Reset</uicontrol> button.</note></li>
+          <li>When you are happy with the skin customizations you have made, click the
+              <uicontrol>Export</uicontrol> button. All settings will be saved in a CSS file.</li>
+        </ol>
+      </p>
+    </section>
+    <section id="apply_a_customization_skin_to_a_docbook_to_webhel">
+      <title>Apply a Customization Skin to a DocBook to WebHelp Classic Transformation
+        Scenario</title>
+      <ol id="ul_hrr_mgs_14">
+        <li product="author developer editor authorEclipse developerEclipse editorEclipse">Start <ph
+            keyref="product"></ph>.</li>
+        <li product="author developer editor authorEclipse developerEclipse editorEclipse">Load the
+          DocBook file you want to produce as a WebHelp output.</li>
+        <li product="author developer editor authorEclipse developerEclipse editorEclipse">In the
+            <uicontrol>Parameters</uicontrol> tab, set the <codeph>webhelp.skin.css</codeph>
+          parameter to point to the previously exported CSS.</li>
+        <li product="webhelp">Use the <codeph>webhelp.skin.css</codeph> parameter in your
+          transformation script and set its value to the path of the exported CSS file.</li>
+        <li>To customize the logo, use the following parameters: <ph
+            conkeyref="reusables-webhelp-output-parameters/ph_webhelp_logo_image"/> and <ph
+            conkeyref="reusables-webhelp-output-parameters/ph_webhelp_logo_image_target_url"/>.</li>
+        <li>Run the transformation to obtain the WebHelp output.</li>
+      </ol>
+    </section>
+    <p>For more information about using the WebHelp Skin Builder, watch our video demonstration:</p>
+    <p><object width="450" height="250" data="https://www.youtube.com/embed/32PGX--PQx0"
+        outputclass="iframe">
+        <param name="allowfullscreen" value="true"/>
+      </object></p>
+  </body>
+</topic>

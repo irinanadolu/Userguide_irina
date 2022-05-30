@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,Resolve schemas through XML catalogs,Resolve schemas through XML catalogs"><meta name="keywords" content="XML documents, Resolve schemas through XML catalogs, Resolve schemas through XML catalogs"><meta name="DC.relation" scheme="URI" content="../topics/using-XML-Catalogs.html"><meta name="DC.relation" scheme="URI" content="../topics/using-XML-Catalogs.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-contextual-editing.html"><meta name="DC.relation" scheme="URI" content="using-XML-Catalogs.html#using-XML-Catalogs"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="resolve-xml-schema-location-through-xml-catalogs"><title>Resolving Schema Locations Through XML Catalogs</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="resolve-xml-schema-location-through-xml-catalogs"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Resolving Schema Locations Through XML Catalogs </h1>
+  
+  <div class="body">
+    <div class="p">Schema locations can be mapped using an <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML
+          Catalog</dfn></a>. <span class="ph">Oxygen XML Editor</span> resolves the location of a schema in the
+      following order:<ul class="ul">
+        <li class="li">First, it attempts to resolve the schema location as a URI (<code class="ph codeph">uri</code>,
+            <code class="ph codeph">uriSuffix</code>, <code class="ph codeph">rewriteUri</code>, <code class="ph codeph">delegateUri</code>
+          mappings from the <dfn class="term">XML Catalog</dfn>). If this succeeds, the process end here.</li>
+        <li class="li">If the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_resolve_schema"><span class="ph uicontrol">Resolve schema locations also through system mappings</span>
+            option</a>  is selected in the <span class="ph uicontrol">XML Catalog</span> preferences page,
+          it attempts to resolve the schema location as a system ID (<code class="ph codeph">system</code>,
+            <code class="ph codeph">systemSuffix</code>, <code class="ph codeph">rewriteSuffix</code>,
+            <code class="ph codeph">rerwriteSystem</code> from the <dfn class="term">XML Catalog</dfn>). If this succeeds,
+          the process ends here.</li>
+        <li class="li">If the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_process_ns"><span class="ph uicontrol">Process "schemaLocation" namespaces through URI mappings for XML
+              Schema</span> option</a> is selected in the <span class="ph uicontrol">XML Catalog</span>
+          preferences page, the target namespace of the imported XML Schema is resolved through URI
+          mappings. If the schema specified in the <em class="ph i">schemaLocation</em> attribute is not resolved
+          successfully, the namespace of the root element is taken into account. If this succeeds,
+          the process ends here.</li>
+        <li class="li">If none of these succeeds, the actual <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document__detecting_a_default_schema">schema location</a> is used.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/using-XML-Catalogs.html">Working with XML Catalogs</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/using-XML-Catalogs.html">Working with XML Catalogs</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-contextual-editing.html">Working with Modular XML Files in the Master Files Context</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="using-XML-Catalogs.html#using-XML-Catalogs">Working with XML Catalogs</a></li></ul></div></nav>
+</article></main></body></html>

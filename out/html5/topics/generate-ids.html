@@ -1,0 +1,170 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Generating IDs,XML documents,Author Mode editing,Generating IDs,Generate IDs in Author mode,ID generation,Auto generate IDs"><meta name="keywords" content="Author editing mode, Generating IDs, XML documents, Author Mode editing, Generating IDs, Generate IDs in Author mode, ID generation, Auto generate IDs"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents-author.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-refreshing.html"><meta name="DC.relation" scheme="URI" content="../topics/using-form-controls.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="generate-ids"><title>Generating IDs for Elements in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="generate-ids"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Generating IDs for Elements in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> allows you to manually assign or edit values of <code class="ph codeph">id</code>
+      attributes in <span class="ph uicontrol">Author</span> mode by using the <a class="xref" href="author-attributes-view.html"><span class="ph uicontrol">Attributes View</span></a> or an <a class="xref" href="editing-attributes-author-mode.html#editing-attributes-author-mode">in-place attribute
+        editor</a>. <span class="ph">Oxygen XML Editor</span> also includes mechanisms to generate ID values for
+      elements, either on-request or automatically, in DITA, DocBook, or TEI documents.</p>
+    <section class="section" id="generate-ids__generate_ids_onrequest"><h2 class="title sectiontitle">Generate IDs On-Request</h2>
+      
+      <div class="p">You can generate ID values for specific elements on-request. To do so, select the element
+        that will have an ID generated (or place the cursor inside the element) and select the
+          <span class="ph uicontrol">Generate IDs</span> action from the contextual menu. This action generates
+        a unique ID for the current element. If you invoke the action on a block of selected
+        content, the action will generate IDs for all top-level elements and elements that are
+        listed in the <a class="xref" href="generate-ids.html#generate-ids__id-options-dialog-section"><span class="ph uicontrol">ID Options</span> dialog box</a>. To open this dialog box, select
+          <span class="ph uicontrol">ID Options</span> from the <span class="ph uicontrol">DITA</span>,
+          <span class="ph uicontrol">DocBook</span>, or <span class="ph uicontrol">TEI</span> menu (depending on your
+        document type).<div class="note note note_note"><span class="note__title">Note:</span> The <span class="ph uicontrol">Generate IDs</span> action does
+                not overwrite existing ID values. It only affects elements that do not already have
+                an <code class="keyword markupname xmlatt">@id</code> attribute.</div></div>
+    </section>
+    <section class="section" id="generate-ids__automatically_generate_ids"><h2 class="title sectiontitle">Automatically Generate IDs</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes an option to automatically add unique ID values to certain
+        elements when they are created in <span class="ph uicontrol">Author</span> mode. The <span class="ph uicontrol">Auto
+          generate IDs for elements</span> option can be found in the <a class="xref" href="generate-ids.html#generate-ids__id-options-dialog-section"><span class="ph uicontrol">ID
+            Options</span> dialog box</a> that is displayed when you select the
+          <span class="ph uicontrol">ID Options</span> action from the <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>-specific menu (<span class="ph uicontrol">DITA</span>,
+          <span class="ph uicontrol">DocBook</span>, or <span class="ph uicontrol">TEI</span>). If this <span class="ph uicontrol">Auto
+          generate IDs for elements</span> option is selected, <span class="ph">Oxygen XML Editor</span>
+        automatically generates unique ID values for elements that are listed in this dialog box.
+        You can use this dialog box to customize the format of the ID values and choose which
+        elements will have their ID values automatically generated (for example, you can customize
+        the list of elements to include those that you most often need to identify).</p>
+    </section>
+    <section class="section" id="generate-ids__id-options-dialog-section"><h2 class="title sectiontitle">ID Options Dialog Box</h2>
+      
+      <p class="p">To configure options for generating IDs, select <span class="ph uicontrol">ID Options</span> from the
+          <span class="ph uicontrol">DITA</span>, <span class="ph uicontrol">DocBook</span>, or <span class="ph uicontrol">TEI</span>
+        menu (depending on your document type).</p>
+      <div class="p">
+        <figure class="fig fignone" id="generate-ids__fig_gjm_vwy_xs"><figcaption><span class="fig--title-label">Figure 1. </span>ID Options Dialog Box</figcaption>
+          
+          <img class="image" id="generate-ids__image_w4r_wwy_xs" src="../img/id_options_dialog.png">
+        </figure>
+      </div>
+      <p class="p">The <span class="ph uicontrol">ID Options</span> dialog box allows you to configure the following
+        options with regard to generating ID values:</p>
+      <div class="p">
+        <dl class="dl">
+          
+                  <dt class="dt dlterm"><span class="ph uicontrol">ID Pattern</span></dt>
+                  <dd class="dd">The pattern for the ID values that will be generated. This text field can be
+                    customized using constant strings or any of the <span class="ph">Oxygen XML Editor</span>
+                    <a class="xref" href="editor-variables.html">Editor Variables</a>.</dd>
+                
+          
+                  <dt class="dt dlterm"><span class="ph uicontrol">Element name or class value to generate ID for</span></dt>
+                  <dd class="dd">The elements that will have ID values generated, specified using class
+                    attribute values. To customize the list, use the <span class="ph uicontrol">Add</span>,
+                      <span class="ph uicontrol">Edit</span>, or <span class="ph uicontrol">Remove</span> buttons.</dd>
+                
+          
+                  <dt class="dt dlterm" id="generate-ids__auto-generate"><span class="ph uicontrol">Auto generate IDs for elements</span></dt>
+                  <dd class="dd">If selected, <span class="ph">Oxygen XML Editor</span> will automatically generate unique IDs for
+                    the elements listed in this dialog box when they are created in
+                      <span class="ph uicontrol">Author</span> mode.</dd>
+                
+          
+            <dt class="dt dlterm" id="generate-ids__remove-ids-dlentry"><span class="ph uicontrol">Remove IDs when copying content in the same document</span> (DITA or
+              TEI)</dt>
+            <dd class="dd">When copying and pasting content in the same DITA or TEI document, this option
+              allows you to control whether or not pasted elements that are listed in this dialog
+              box should retain their existing IDs. To retain the element IDs, deselect this
+                option.<div class="note note note_note"><span class="note__title">Note:</span> This option does not have an effect on content that is <em class="ph i">cut</em> and
+                  <em class="ph i">pasted</em>.</div></dd>
+          
+          
+            <dt class="dt dlterm" id="generate-ids__remove-ids-docbook"><span class="ph uicontrol">Remove IDs when copying content</span> (DocBook)</dt>
+            <dd class="dd">This option allows you to control whether or not pasted elements that are listed in
+              this dialog box should retain their existing IDs in DocBook documents. If this option
+              is not selected, IDs are always retained when you copy or cut content and paste it in
+              the same document or other documents. If this option is selected, IDs are never
+              retained for copied content, but if you cut the content, they are preserved for the
+              first paste action (and not retained for any subsequent paste actions). </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="generate-ids__duplicating_elements_with_existing_ids"><h2 class="title sectiontitle">Duplicating Elements with Existing IDs</h2>
+      
+      <div class="p">If you duplicate elements with existing IDs (for example, through copy/paste or drag/drop
+        actions), all IDs are removed at the resolution of the operation. However, you can use the
+        options in the <span class="ph uicontrol">ID Options</span> dialog box to change this behavior. The
+        options in this dialog box affect duplicated elements with existing IDs in the following ways:<ul class="ul">
+          <li class="li">Only the elements listed in this dialog box are affected by these options. Therefore,
+            if you want to use these options to preserve IDs or generate new ones, you must first
+            add the elements to be duplicated to the list in this dialog box.</li>
+          <li class="li">If the <a class="xref" href="generate-ids.html#generate-ids__auto-generate"><span class="ph uicontrol">Auto generate
+                IDs for elements</span> option</a> is selected and you duplicate elements
+            with existing IDs, <span class="ph">Oxygen XML Editor</span> assigns new, unique ID values to the
+            duplicates.</li>
+          <li class="li">If the <a class="xref" href="generate-ids.html#generate-ids__auto-generate"><span class="ph uicontrol">Auto generate
+                IDs for elements</span> option</a> is not selected and you duplicate
+            elements with existing IDs, the ID values are removed from the duplicates.</li>
+          <li class="li">For DITA and TEI, if the <a class="xref" href="generate-ids.html#generate-ids__remove-ids-dlentry"><span class="ph uicontrol">Remove IDs when copying content in the same document</span>
+              option</a> is selected, the ID values are removed from elements that are duplicated
+            in the same document. If it is not selected, the ID values are preserved when elements
+            are duplicated in the same document. Selecting this option has no effect if the
+              <span class="ph uicontrol">Auto generate IDs for elements</span> option is selected and this
+            option has no effect on elements that are duplicated in other documents.</li>
+          <li class="li">For DocBook, if the <a class="xref" href="generate-ids.html#generate-ids__remove-ids-docbook"><span class="ph uicontrol">Remove IDs when copying content</span> option</a> is selected,
+            the ID values are removed from any element that is duplicated. If it is not selected,
+            the ID values are preserved when elements are duplicated. Selecting this option has no
+            effect if the <span class="ph uicontrol">Auto generate IDs for elements</span> option is
+            selected.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="generate-ids__controlling_the_default_id_generation_options"><h2 class="title sectiontitle">Controlling the Default ID Generation Options</h2>
+      
+      <p class="p">It is possible to configure the default ID generation options for DITA, DocBook, and TEI
+        document types. In the <span class="ph filepath">frameworks</span> folder for each of those document
+        types, there is an XML configuration file called
+          <span class="ph filepath">idGenerationDefaultOptions.xml</span> that contains the default settings for
+        generating IDs in each particular type of document. To configure the default settings, you
+        can edit this file and save it back to the same directory.</p>
+      <p class="p">The configuration file can be found in the <span class="ph filepath">resources</span> folder within the
+        particular <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>. For example,
+        the configuration file for the DITA <dfn class="term">framework</dfn> is located in: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/resources/idGenerationDefaultOptions.xml</span>.</p>
+      <div class="sectiondiv"><strong class="ph b">Sharing Default ID Generation Options</strong><div class="p">If you want to share your
+          configured default ID generation settings with other members of your team, follow these steps:<ol class="ol">
+            <li class="li">Configure the <span class="ph filepath">idGenerationDefaultOptions.xml</span> file for your
+                <dfn class="term">framework</dfn> according to your needs.</li>
+            <li class="li">Bundle a modified version of the entire <dfn class="term">framework</dfn> folder (for example,
+                  <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/</span>). To do this:<ol class="ol" type="a">
+                <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go
+                  to <span class="ph uicontrol">Document Type Association</span>.</li>
+                <li class="li">Select your document type and click the <span class="ph uicontrol">Extend</span>
+                  button.</li>
+                <li class="li">In the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document type</span> configuration dialog box</a> that is
+                  now displayed, select <span class="ph uicontrol">External</span> for the
+                    <span class="ph uicontrol">Storage</span> option. By default, this will save the extension
+                  in a new folder in the <span class="ph filepath">frameworks</span> folder (for example,
+                      <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita-extension (1)</span>), but you can also use the
+                      <span class="ph uicontrol"><img class="image" src="../img/Open16.png">Browse</span> button to
+                  specify a specific name and folder.</li>
+                <li class="li">In this new extension folder, create a new folder called
+                    <span class="ph filepath">resources</span> and add your modified
+                    <span class="ph filepath">idGenerationDefaultOptions.xml</span> file to this new
+                    <span class="ph filepath">resources</span> folder.</li>
+                <li class="li">Go back to the <span class="ph uicontrol">Document Type Association</span> preferences
+                  page, select the extended <dfn class="term">framework</dfn>, and click
+                    <span class="ph uicontrol">Edit</span>.</li>
+                <li class="li">Go to the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a>, add a reference to your new
+                    <span class="ph filepath">resources</span> folder, and move this reference up (using the
+                      <span class="ph uicontrol"><img class="image" id="generate-ids__image_fpb_rr1_5r" src="../img/MoveUpEntry16.gif">Move
+                    Up</span> button) so that it is the first one that appears in the
+                  list.</li>
+                <li class="li">Click <span class="ph uicontrol">OK</span> and exit out of the preferences page.</li>
+              </ol></li>
+            <li class="li">Distribute your newly extended folder to other team members by using one of the
+              methods described in <a class="xref" href="author-document-type-extension-sharing.html#author-document-type-extension-sharing">Sharing a Custom Framework</a>.</li>
+          </ol></div></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents-author.html">Editing XML Documents in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-editing-refreshing.html">Refreshing the Content</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/using-form-controls.html">Using Form Controls in Author Mode</a></div></div></nav></article></main></body></html>

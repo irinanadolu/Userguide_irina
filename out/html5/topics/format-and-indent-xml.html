@@ -1,0 +1,283 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Text editing mode,Format and indent,XML documents,Text Mode editing,Format and indent,Format and Indent in Text Mode"><meta name="keywords" content="Text editing mode, Format and indent, XML documents, Text Mode editing, Format and indent, Format and Indent in Text Mode"><meta name="DC.relation" scheme="URI" content="../topics/xml-editor-specific-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/syntax-highlight-depending-on-namespace-prefix.html"><meta name="DC.relation" scheme="URI" content="../topics/setting-an-indent-of-zero.html"><meta name="DC.relation" scheme="URI" content="../topics/setting-an-indent-of-zero.html"><meta name="DC.relation" scheme="URI" content="../topics/format-indent-multiple-files.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="format-and-indent-xml"><title>Formatting and Indenting XML Documents</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="format-and-indent-xml"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Formatting and Indenting XML Documents</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> creates XML documents using several <a class="xref" href="oxygen-editing-modes.html">edit modes</a>. In <a class="xref" href="text-mode-editor.html#text-mode-editor"><span class="ph uicontrol">Text</span> mode</a>, you as the author decide how the XML file is
+      formatted and indented. In the other modes, and when you switch between modes, <span class="ph">Oxygen XML Editor</span> must decide how to format and indent the XML. <span class="ph">Oxygen XML Editor</span> will
+      also format and indent your XML for you in <span class="ph uicontrol">Text</span> mode if you use one of
+      the Format and Indent options:</p>
+    <ul class="ul" id="format-and-indent-xml__ul_jgt_d4l_jp">
+      <li class="li"><span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="format-and-indent-xml__image_bsp_pzq_js" src="../img/PrettyPrint16.png">Format and
+            Indent</span></span> - Formats and indents the whole document.</li>
+      <li class="li"><span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="format-and-indent-xml__image_shh_qzq_js" src="../img/IndentSelection16.png">Indent
+            Selection</span></span> - Indents the current selection (but does not add line breaks). This action
+        is also available in the <span class="ph uicontrol">Source</span> submenu of the contextual menu.</li>
+      <li class="li"><span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="format-and-indent-xml__image_syf_szq_js" src="../img/PPElement16.png">Format and Indent
+            Element</span></span> - Formats and indents the current element (the inmost nested element that
+        currently contains the cursor) and its child-elements. This action is also available in the
+          <span class="ph uicontrol">Source</span> submenu of the contextual menu.</li>
+    </ul>
+    <p class="p">A number of settings affect how <span class="ph">Oxygen XML Editor</span> formats and indents XML. Many of these
+      settings have to do with how whitespace is handled. </p>
+    <section class="section" id="format-and-indent-xml__significant_and_insignificant_whitespace_in_xml"><h2 class="title sectiontitle">Significant and Insignificant Whitespace in XML</h2>
+      
+      <p class="p">XML documents are text files that describe complex documents. Some of the white space
+        (spaces, tabs, line feeds, etc.) in the XML document belongs to the document it describes
+        (such as the space between words in a paragraph) and some of it belongs to the XML document
+        (such as a line break between two XML elements). Whitespace belonging to the XML file is
+        called <em class="ph i">insignificant whitespace</em>. The meaning of the XML would be the same if
+        the insignificant whitespace were removed. Whitespace belonging to the document being
+        described is called <em class="ph i">significant whitespace</em>. </p>
+      <p class="p">Knowing when whitespace is significant or insignificant is not always easy. For instance, a
+        paragraph in an XML document might be laid out like this:</p>
+    </section>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>NO Free man shall be taken or imprisoned, or be stripped of his Freedom,
+or Liberties, or free Customs, or be outlawed, or exiled, or any otherwise
+destroyed; nor will we not pass upon him, nor condemn him, but by lawful 
+judgment of his Peers, or by the <strong class="hl-tag">&lt;xref</strong> 
+<span class="hl-attribute">href</span>=<span class="hl-value">"http://en.wikipedia.org/wiki/Law_of_the_land"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"html"</span>
+<span class="hl-attribute">scope</span>=<span class="hl-value">"external"</span><strong class="hl-tag">&gt;</strong>Law of the land<strong class="hl-tag">&lt;/xref&gt;</strong>. 
+We will sell to no man, we will not deny to any man either Justice or Right.<strong class="hl-tag">&lt;/p&gt;</strong></pre>
+    <p class="p">By default, XML considers a single whitespace between words to be significant, and all other
+      whitespace to be insignificant. The paragraph above could have been written on one line
+      because the XML parser would see it as exactly the same paragraph since all multiple
+      consecutive whitespaces will be replaced with a single whitespace. Removing the insignificant
+      space in markup like this is called <em class="ph i">normalizing space</em>. </p>
+    <p class="p">In some cases, all the spaces inside an element should be treated as significant. For
+      example, in a code sample:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">&lt;codeblock&gt;
+<strong class="hl-keyword">class</strong> HelloWorld
+{
+   <strong class="hl-keyword">public</strong> <strong class="hl-keyword">static</strong> <strong class="hl-keyword">void</strong> main(String args[])
+   {
+      System.out.println(<span class="hl-string">"Hello World"</span>);
+   }
+}
+&lt;/codeblock&gt;</pre>
+    <p class="p">Here every whitespace character between the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> tags should be treated
+      as significant. </p>
+    <section class="section" id="format-and-indent-xml__how_determines_when_whitespace_is_significant"><h2 class="title sectiontitle">How <span class="ph">Oxygen XML Editor</span> Determines When Whitespace is Significant</h2>
+      
+      <p class="p">When <span class="ph">Oxygen XML Editor</span> formats and indents an XML document, it introduces or removes
+        insignificant whitespace to produce a layout with reasonable line lengths and elements
+        indented to show their place in the hierarchy of the document. To correctly format and
+        indent the XML source, <span class="ph">Oxygen XML Editor</span> needs to know when to treat whitespace as
+        significant and when to treat it as insignificant. However it is not always possible to tell
+        this from the XML source file alone. To determine what whitespace is significant, <span class="ph">Oxygen XML Editor</span> assigns each element in the document to one of four categories: </p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Ignore space</dt>
+            <dd class="dd">
+              <p class="p">In the ignore space category, all whitespace is considered insignificant. This
+                generally applies to content that consists only of elements nested inside other
+                elements, with no text content.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Normalize space</dt>
+            <dd class="dd">
+              <p class="p">In the normalize space category, a single whitespace character between character
+                strings is considered significant and all other spaces are considered insignificant.
+                Therefore, all consecutive whitespaces will be replaced with a single space. This
+                generally applies to elements that contain text content only.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Mixed content</dt>
+            <dd class="dd">
+              <div class="p">In the mixed content category, a single whitespace between text characters is
+                considered significant and all other spaces are considered insignificant.<div class="note note note_note"><span class="note__title">Notes:</span> 
+                  <ul class="ul" id="format-and-indent-xml__ul_awx_mwk_jp">
+                    <li class="li">Whitespace between two child elements embedded in the text is normalized to
+                      a single space (rather than to zero spaces as would normally be the case for a
+                      text node with only whitespace characters, or the space between elements
+                      generally).</li>
+                    <li class="li">The lack of whitespace between a child element embedded in the text and
+                      either adjacent text or another child element is considered significant. That
+                      is, no whitespace can be introduced here when formatting and indenting the
+                      file.</li>
+                  </ul>
+                </div></div>
+              <div class="p">For
+                example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;p&gt;</strong>The file is located in <strong class="hl-tag">&lt;i&gt;</strong>HOME<strong class="hl-tag">&lt;/i&gt;</strong>/<strong class="hl-tag">&lt;i&gt;</strong>USER<strong class="hl-tag">&lt;/i&gt;</strong>/hello. 
+     This is a <strong class="hl-tag">&lt;strong&gt;</strong>big<strong class="hl-tag">&lt;/strong&gt;</strong> 
+
+<strong class="hl-tag">&lt;emphasis&gt;</strong>deal<strong class="hl-tag">&lt;/emphasis&gt;</strong>.
+<strong class="hl-tag">&lt;/p&gt;</strong></pre></div>
+              <p class="p">In this example, whitespace should not be introduced around the i tags as it would
+                introduce extra significant whitespace into the document. The space between the end
+                <code class="keyword markupname xmlelement">&lt;strong&gt;</code> tag and the beginning <code class="keyword markupname xmlelement">&lt;emphasis&gt;</code>
+                tag should be normalized to a single space, not zero spaces. </p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Preserve space</dt>
+            <dd class="dd">
+              <p class="p">In the preserve space category, all whitespace in the element is regarded as
+                significant. No changes are made to the spaces in elements in this category.
+                However, child elements may be in another category, and may be treated
+                differently.</p>
+            </dd>
+          
+        </dl>
+      </div>
+      <p class="p">Attribute values are always in the preserve space category. The spaces between attributes
+        in an element tag are always in the default space category.</p>
+      <p class="p"><span class="ph">Oxygen XML Editor</span> evaluates several pieces of information to assign an element to one
+        of these categories. An element is always assigned to the most restrictive category (from
+        Ignore to Preserve) that it is assigned to by any of the sources <span class="ph">Oxygen XML Editor</span>
+        consults. For instance, if the element is named on the <span class="ph uicontrol">Default
+          elements</span> list (as described below) but it has an
+          <code class="keyword markupname xmlatt">@xml:space="preserve"</code> attribute in the source file, it will be assigned to
+        the preserve space category. If an element has the <code class="keyword markupname xmlatt">@xml:space="default"</code>
+        attribute in the source, but is listed on the <span class="ph uicontrol">Mixed content</span> elements
+        list, it will be assigned to the mixed content category.</p>
+      <p class="p">To assign elements to these categories, <span class="ph">Oxygen XML Editor</span> consults information from
+        the following sources: </p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">xml:space</dt>
+            <dd class="dd">If the XML element contains the <code class="keyword markupname xmlatt">@xml:space</code> attribute, the element is
+              promoted to the appropriate category based on the value of the attribute.</dd>
+          
+          
+            <dt class="dt dlterm">CSS whitespace property</dt>
+            <dd class="dd">If the CSS stylesheet controlling the <span class="ph uicontrol">Author</span> mode editor
+              applies the <code class="ph codeph">whitespace: pre</code> setting to an element, it is promoted to
+              the preserve space category.</dd>
+          
+          
+            <dt class="dt dlterm">CSS display property</dt>
+            <dd class="dd">If a text node contains only white-spaces: <ul class="ul" id="format-and-indent-xml__ul_dvk_dxk_jp">
+                <li class="li">If the node has a parent element with the CSS <code class="ph codeph">display</code> property
+                  set to <code class="ph codeph">inline</code> then the node is promoted to the mixed content
+                  category.</li>
+                <li class="li">If the left or right sibling is an element with the CSS <code class="ph codeph">display</code>
+                  property set to <code class="ph codeph">inline</code> then the node is promoted to the mixed
+                  content category.</li>
+                <li class="li">If one of its ancestors is an element with the CSS <code class="ph codeph">display</code>
+                  property set to <code class="ph codeph">table</code> then the node is assigned to the ignore
+                  space category. </li>
+              </ul></dd>
+          
+          
+            <dt class="dt dlterm">Schema-aware formatting</dt>
+            <dd class="dd">
+              <div class="p">If a schema is available for the XML document, <span class="ph">Oxygen XML Editor</span> can use
+                information from the schema to promote the element to the appropriate category. For
+                  example:<ul class="ul" id="format-and-indent-xml__ul_r4g_vll_jp">
+                  <li class="li">If the schema declares an element to be of type <code class="ph codeph">xs:string</code>,
+                    the element will be promoted to the preserve space category because the string
+                    built-in type has the whitespace facet with the value preserve. </li>
+                  <li class="li">If the schema declares an element to be mixed content, it will be promoted to
+                    the mixed content category.</li>
+                </ul></div>
+              <div class="p">Schema-aware formatting can be turned on and off.<ul class="ul" id="format-and-indent-xml__ul_wth_1ml_jp">
+                  <li class="li">To turn it on or off for
+                      <span class="ph uicontrol">Author</span> mode, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Schema-Aware</span></span>, and select/deselect the <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware__schema-aware-normalization"><span class="ph uicontrol">Schema-aware normalization, format and indent</span>
+                      option</a>. </li>
+                  <li class="li">To turn it on or off for the <span class="ph uicontrol">Text</span> editing mode,<span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span></span>, and select/deselect the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__schema-aware-format-indent"><span class="ph uicontrol">Schema-aware format and indent</span> option</a>.</li>
+                </ul></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Preserve space elements list</dt>
+            <dd class="dd">
+              <p class="p">If an element is listed in the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__element-spacing-section"><span class="ph uicontrol">Preserve space</span> tab of the <span class="ph uicontrol">Element
+                    Spacing</span> list</a> in the <a class="xref" href="preferences-editor-format-xml.html">XML formatting preferences</a>, it is promoted to the preserve space
+                category.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Default space elements list</dt>
+            <dd class="dd">
+              <p class="p">If an element is listed in the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__element-spacing-section"><span class="ph uicontrol">Default space</span> tab of the <span class="ph uicontrol">Element
+                    Spacing</span> list</a> in the <a class="xref" href="preferences-editor-format-xml.html">XML formatting preferences</a>, it is promoted to the default space
+                category</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Mixed content elements list</dt>
+            <dd class="dd">
+              <p class="p">If an element is listed in the <a class="xref" href="preferences-editor-format-xml.html#preferences-editor-format-xml__element-spacing-section"><span class="ph uicontrol">Mixed content</span> tab of the <span class="ph uicontrol">Element
+                    Spacing</span> list</a> in the <a class="xref" href="preferences-editor-format-xml.html">XML formatting preferences</a>, it is promoted to the mixed content category.
+              </p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Element content</dt>
+            <dd class="dd">
+              <p class="p">If an element contains mixed content, that is, a mix of text and other elements, it
+                is promoted to the mixed content category. (Note that, in accordance with these
+                rules, this happens even if the schema declares the element to have element only
+                content.)</p>
+              <p class="p">If an element contains text content, it is promoted to the default space
+                category.</p>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Text node content</dt>
+            <dd class="dd">If a text node contains any non-whitespace characters then the text node is promoted
+              to the normalize space category.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="format-and-indent-xml__exception_to_the_rule"><h2 class="title sectiontitle">Exception to the Rule</h2>
+      
+      <p class="p">In general, an element can only be promoted to a more restrictive category (one that treats
+        more whitespace as significant). However, there is one exception. In
+          <span class="ph uicontrol">Author</span> mode, if an element is marked as mixed content in the
+        schema, but the actual element contains no text content, it can be demoted to the space
+        ignore category if all of its child elements are displayed as <em class="ph i">blocks</em> by the
+        associated CSS (that is, they have a CSS property of <code class="ph codeph">display: block</code>). For
+        example, in some schemas, a section or a table entry can be defined as having mixed content
+        but in many cases they contain only <a class="xref" href="../glossary/block-element.html"><dfn class="term">block
+            elements</dfn></a>. In these cases, any whitespace they contain cannot be
+        significant and they can be treated as space ignore elements. This exception can be turned
+        on or off using the <a class="xref" href="preferences-schema-aware.html#preferences-schema-aware__schema-aware-editing-section"><span class="ph uicontrol">Schema-Aware Editing</span> option</a> in the
+          <span class="ph uicontrol">Schema-Aware</span> preferences page.</p>
+    </section>
+    <section class="section" id="format-and-indent-xml__how_formats_and_indents_xml"><h2 class="title sectiontitle">How <span class="ph">Oxygen XML Editor</span> formats and indents XML</h2>
+      
+      <p class="p">You can control how <span class="ph">Oxygen XML Editor</span> formats and indents XML documents. This can be
+        particularly important if you store your XML document in a version control system, as it
+        allows you to limit the number of trivial changes in spacing between versions of an XML
+        document. The following preference pages include options that control how XML documents are
+        formatted:</p>
+      <ul class="ul" id="format-and-indent-xml__ul_qrp_yzd_jp">
+        <li class="li"><a class="xref" href="preferences-editor-format.html"><span class="ph uicontrol">Format</span> preferences
+            page</a></li>
+        <li class="li"><a class="xref" href="preferences-editor-format-xml.html"><span class="ph uicontrol">XML Formatting</span>
+            preferences page</a></li>
+        <li class="li"><a class="xref" href="preferences-editor-format-xml-whitespaces.html"><span class="ph uicontrol">Whitespaces</span>
+            preferences page</a></li>
+      </ul>
+    </section>
+    <section class="section" id="format-and-indent-xml__when_formats_and_indents_xml"><h2 class="title sectiontitle">When <span class="ph">Oxygen XML Editor</span> formats and indents XML</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> formats and indents a document, or part of it, on the following
+        occasions:</p>
+      <ul class="ul" id="format-and-indent-xml__ul_qgy_jyd_jp">
+        <li class="li">In <span class="ph uicontrol">Text</span> mode when you select one of the format and indent actions (<span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format and Indent</span></span>, <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Indent Selection</span></span>, or <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Source</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Format and Indent Element</span></span>).</li>
+        <li class="li">When saving documents in
+            <span class="ph uicontrol">Author</span> mode.</li>
+        <li class="li">When switching from
+            <span class="ph uicontrol">Author</span> mode to another mode.</li>
+        <li class="li">When saving documents in
+            <span class="ph uicontrol">Design</span> mode.</li>
+        <li class="li">When switching from
+            <span class="ph uicontrol">Design</span> mode to another mode.</li>
+        <li class="li">When saving or switching to <span class="ph uicontrol">Text</span> mode from
+            <span class="ph uicontrol">Grid</span> mode, if the <a class="xref" href="preferences-grid.html#preferences-grid__format-indent-when-passing-grid-text"><span class="ph uicontrol">Format and indent when passing from grid to text or on save</span>
+            option</a> is selected in the <span class="ph uicontrol">Grid</span> preferences page.</li>
+      </ul>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/setting-an-indent-of-zero.html">Setting an Indent Size to Zero</a><br></li><li class="link olchildlink"><a href="../topics/format-indent-multiple-files.html">Format and Indent (Pretty-Print) Multiple Files</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xml-editor-specific-actions.html">Editing XML Documents in Text Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/syntax-highlight-depending-on-namespace-prefix.html">Syntax Highlight Depending on Namespace Prefix</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/setting-an-indent-of-zero.html">Setting an Indent Size to Zero</a></div></div></nav></article></main></body></html>

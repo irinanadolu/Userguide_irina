@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/validate-ant-build-files.html"><meta name="DC.relation" scheme="URI" content="../topics/validate-ant-build-files.html"><meta name="DC.relation" scheme="URI" content="../topics/ant-transformation-scenarios.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="associate-ant-validation-scenario"><title>Create a Validation Scenario for Ant Build Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="associate-ant-validation-scenario"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Create a Validation Scenario for Ant Build Files</h1>
+  <div class="body">
+    <p class="p">If you want to customize the validation process for Ant build files, you can create a new
+      validation scenario (or configure an existing one). For example, if you want to validate
+      interrelated modules that define a complex Ant build file, you can specify the main Ant file
+      by configuring a validation scenario. To create or configure a validation scenario, select
+          <span class="ph uicontrol"><img class="image" id="associate-ant-validation-scenario__image_bvl_55v_sr" src="../img/ValidationConfig16.png">Configure
+        Validation Scenario(s)</span> from the <span class="ph uicontrol"><img class="image" id="associate-ant-validation-scenario__image_d2m_v5v_sr" src="../img/ValidateDrop.png">Validation</span> toolbar drop-down menu or the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Validate</span></span> menu.</p>
+    <section class="section" id="associate-ant-validation-scenario__passing_parameters_to_the_ant_validation_engine"><h2 class="title sectiontitle">Passing parameters to the Ant validation engine</h2>
+      
+      <div class="p">Ant validation scenarios cannot be configured to accept custom Ant parameters. However, you
+        can specify values for the parameters in your Ant document using an Ant transformation scenario:<ol class="ol">
+          <li class="li">Create a new <a class="xref" href="ant-transformation.html#ant-transformation" title="This type of transformation allows you to configure the options and parameters of an Ant build script.">Ant
+              transformation scenario</a>.</li>
+          <li class="li">Edit the transformation scenario and <a class="xref" href="ant-transformation-parameters-tab.html#ant-transformation-parameters-tab">set
+              all parameters</a> you need to pass to your Ant document.</li>
+          <li class="li">Associate the new scenario with your Ant document (in the <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol">Configure Transformation Scenarios(s)</span> dialog box</a>).
+            You do not need to run the transformation scenario. Every time a validation operation is
+            triggered, the built-in validation engine uses the parameters set in the transformation
+              scenario.<div class="note note note_note"><span class="note__title">Note:</span> This behavior is available only for the validation scenarios that use
+              the built-in validation engine. The custom defined validation engines do not benefit
+              from this functionality.</div></li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/validate-ant-build-files.html">Validating Ant Build Files</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/validate-ant-build-files.html">Validating Ant Build Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/ant-transformation-scenarios.html">Transforming Ant Build Files</a></div></div></nav></article></main></body></html>

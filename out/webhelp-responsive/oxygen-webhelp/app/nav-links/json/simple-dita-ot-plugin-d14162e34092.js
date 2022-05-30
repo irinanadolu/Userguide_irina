@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Example: Creating a DITA-OT Plugin for Embedding Video Resources","href":"topics\/simple-dita-ot-plugin.html#example-custom-dita-ot-plugin","attributes":{"data-id":"example-custom-dita-ot-plugin"},"menu":{"hasChildren":false},"tocID":"example-custom-dita-ot-plugin-d14162e34111","topics":[]}]});

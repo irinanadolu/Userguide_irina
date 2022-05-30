@@ -1,0 +1,315 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.relation" scheme="URI" content="../topics/whr-accessibility.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-accessibility.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-vpat.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-write-dita-content-accessible-whr-output"><title>Writing Guidelines for Accessible Documentation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="whr-write-dita-content-accessible-whr-output">
+  <h1 class="title topictitle1" id="ariaid-title1">Writing Guidelines for Accessible Documentation</h1>
+  <div class="body">
+    <p class="p">To create accessible content, good authoring practices involve following guidelines, such as
+      marking table headers, using semantic elements where available, and using alternative text for
+      images.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-accessibility.html">Accessibility</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-accessibility.html">Accessibility</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-vpat.html">WebHelp Responsive VPAT Accessibility Conformance Report</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="whr-accessible-images">
+  <h2 class="title topictitle2" id="ariaid-title2">Accessible Images</h2>
+  <div class="body">
+    <p class="p">Images must have text alternatives that describe the information or function represented by
+      them.</p>
+    <section class="section" id="whr-accessible-images__section_mtm_jrm_sdb"><h3 class="title sectiontitle">Short Text Equivalents for Images</h3>
+      
+      <p class="p">When using the <code class="keyword markupname xmlelement">&lt;image&gt;</code> element, specify a short alternative text
+        with the <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"puffin.jpg"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;alt&gt;</strong>Puffin figure<strong class="hl-tag">&lt;/alt&gt;</strong>
+<strong class="hl-tag">&lt;/image&gt;</strong></pre>
+    </section>
+    <section class="section" id="whr-accessible-images__section_ikt_tqm_sdb"><h3 class="title sectiontitle">Long Descriptions of Images</h3>
+      
+      <p class="p">For complex images, when a short text equivalent does not suffice to adequately convey the
+        function or role of an image, provide additional information in a file designated by the
+          <code class="keyword markupname xmlelement">&lt;longdescref&gt;</code> element.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"puffin.jpg"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;alt&gt;</strong>Puffin figure<strong class="hl-tag">&lt;/alt&gt;</strong>
+  <strong class="hl-tag">&lt;longdescref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"http://www.example.org/birds/puffin.html"</span>
+               <span class="hl-attribute">scope</span>=<span class="hl-value">"external"</span>
+               <span class="hl-attribute">format</span>=<span class="hl-value">"html"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/image&gt;</strong></pre>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/image.html" target="_blank" rel="external noopener">Darwin Information Typing Architecture (DITA) Specification
+            <code class="keyword markupname xmlelement">&lt;image&gt;</code> element</a></li><li class="linklist"><a class="link" href="https://www.w3.org/WAI/tutorials/images/decision-tree/" target="_blank" rel="external noopener">Web Accessibility Tutorials: Alt Decision Tree</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="whr_accessible_image_maps">
+  <h2 class="title topictitle2" id="ariaid-title3">Accessible Image Maps</h2>
+  <div class="body">
+    <div class="bodydiv">
+      <p class="p">For image maps, text alternatives are needed on both the <code class="keyword markupname xmlelement">&lt;image&gt;</code>
+        element itself (to describe the informative context) and on each of the
+          <code class="keyword markupname xmlelement">&lt;area&gt;</code> elements (to convey the link destination or the action that
+        will be initiated if the link is followed). The <code class="keyword markupname xmlelement">&lt;xref&gt;</code> content within
+        the <code class="keyword markupname xmlelement">&lt;area&gt;</code> element contains the intended alternative text or hover
+        text for that image map area.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;imagemap</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"gear_pump_map"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../images/Gear_pump_exploded.png"</span> <span class="hl-attribute">id</span>=<span class="hl-value">"gear_pump_exploded"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;alt&gt;</strong>Gear Pump<strong class="hl-tag">&lt;/alt&gt;</strong>
+  <strong class="hl-tag">&lt;/image&gt;</strong>
+  <strong class="hl-tag">&lt;area&gt;</strong>
+    <strong class="hl-tag">&lt;shape&gt;</strong>circle<strong class="hl-tag">&lt;/shape&gt;</strong>
+      <strong class="hl-tag">&lt;coords&gt;</strong>172, 265, 14<strong class="hl-tag">&lt;/coords&gt;</strong>
+      <strong class="hl-tag">&lt;xref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"parts/bushings.dita#bushings_topic/bushings"</span> 
+            <span class="hl-attribute">format</span>=<span class="hl-value">"dita"</span><strong class="hl-tag">&gt;</strong>Bushings<strong class="hl-tag">&lt;/xref&gt;</strong>
+  <strong class="hl-tag">&lt;/area&gt;</strong>
+  <strong class="hl-tag">&lt;area&gt;</strong>
+      <strong class="hl-tag">&lt;shape&gt;</strong>circle<strong class="hl-tag">&lt;/shape&gt;</strong>
+      <strong class="hl-tag">&lt;coords&gt;</strong>324, 210, 14<strong class="hl-tag">&lt;/coords&gt;</strong>
+      <strong class="hl-tag">&lt;xref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"parts/ports.dita#ports_topic/sucction_port"</span> <span class="hl-attribute">format</span>=<span class="hl-value">"dita"</span><strong class="hl-tag">
+        &gt;</strong>Suction Port<strong class="hl-tag">&lt;/xref&gt;</strong>
+   <strong class="hl-tag">&lt;/area&gt;</strong>
+<strong class="hl-tag">&lt;/imagemap&gt;</strong></pre>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/imagemap.html" target="_blank" rel="external noopener">Darwin Information Typing Architecture (DITA) Specification
+            <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="whr_acceessible_tables">
+  <h2 class="title topictitle2" id="ariaid-title4">Accessible Tables</h2>
+  <div class="body">
+    <p class="p">Accessible HTML tables need markup that indicates header cells and data cells and defines
+      their relationship. Header cells must be marked with <code class="keyword markupname xmlelement">&lt;th&gt;</code>, and data
+      cells with <code class="keyword markupname xmlelement">&lt;td&gt;</code>, to make tables accessible. For more complex tables,
+      explicit associations may be needed using <code class="keyword markupname xmlatt">@scope</code>, <code class="keyword markupname xmlatt">@id</code>, and
+        <code class="keyword markupname xmlatt">@headers</code> attributes.</p>
+    <p class="p">When you implement the table, it is best to use the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element
+      (CALS table or OASIS Table Exchange Model). The <code class="keyword markupname xmlelement">&lt;table&gt;</code> element
+      includes all that you need to make a fully accessible table.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/table.html" target="_blank" rel="external noopener">Darwin Information Typing Architecture (DITA) Specification
+            <code class="keyword markupname xmlelement">&lt;table&gt;</code> element</a></li></ul></div></nav>
+<article class="topic nested2" aria-labelledby="ariaid-title5" id="whr_accessible_tables_header_top_row">
+  <h3 class="title topictitle3" id="ariaid-title5">Table with Header Cells in the Top Row Only</h3>
+  <div class="body">
+    <p class="p">For this type of table, you have to embed the table rows in the
+        <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element.</p>
+    <table class="table frame-all" id="whr_accessible_tables_header_top_row__table_azh_wzm_sdb"><caption><span class="table--title-label">Table 1. </span><span class="title"> Example: Oxygen Events</span></caption><colgroup><col style="width:32.25806451612903%"><col style="width:35.483870967741936%"><col style="width:32.25806451612903%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1 valign-top" id="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__1">Event</th>
+            <th class="entry colsep-1 rowsep-1 valign-top" id="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__2">Date</th>
+            <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__3">Location</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__1">Evolution of TC 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__2">May 31 - June 1, 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__3">Sofia, Bulgaria</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__1">Markup UK</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__2">June 9 - 10, 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__3">London, United Kingdom</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__1">Balisage 2018 - The Markup Conference</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__2">July 31 - August 3, 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row__table_azh_wzm_sdb__entry__3">Rockville, Maryland, USA</td>
+          </tr>
+        </tbody></table>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">colsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">rowsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">frame</span>=<span class="hl-value">"all"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>
+    <strong class="hl-tag">&lt;b&gt;</strong>Oxygen Events<strong class="hl-tag">&lt;/b&gt;</strong>
+  <strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;tgroup</strong> <span class="hl-attribute">cols</span>=<span class="hl-value">"3"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC0"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC1"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1.1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"newCol3"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;thead&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC0"</span> <span class="hl-attribute">valign</span>=<span class="hl-value">"top"</span><strong class="hl-tag">&gt;</strong>Event<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC1"</span> <span class="hl-attribute">valign</span>=<span class="hl-value">"top"</span><strong class="hl-tag">&gt;</strong>Date<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Location<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+    <strong class="hl-tag">&lt;/thead&gt;</strong>
+    <strong class="hl-tag">&lt;tbody&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Evolution of TC 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>May 31 - June 1, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Sofia, Bulgaria<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Markup UK<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>June 9 - 10, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>London, United Kingdom<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Balisage 2018 - The Markup Conference<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>July 31 - August 3, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Rockville, Maryland, USA<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+    <strong class="hl-tag">&lt;/tbody&gt;</strong>
+  <strong class="hl-tag">&lt;/tgroup&gt;</strong>
+<strong class="hl-tag">&lt;/table&gt;</strong></pre>
+    </div>
+  </div>
+</article><article class="topic nested2" aria-labelledby="ariaid-title6" id="whr_accessible_tables_header_first_column">
+  <h3 class="title topictitle3" id="ariaid-title6">Table with Header Cells in the First Column Only</h3>
+  <div class="body">
+    <p class="p">For this type of table, you have to set the <code class="ph codeph">rowheader="firstcol"</code> attribute
+      on the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element to identify the header column.</p>
+    <table class="table frame-all" id="whr_accessible_tables_header_first_column__table_azh_wzm_sdb"><caption><span class="table--title-label">Table 2. </span><span class="title"> Example: Oxygen Events </span></caption><colgroup><col style="width:24.39024390243903%"><col style="width:26.829268292682933%"><col style="width:24.39024390243903%"><col style="width:24.39024390243903%"></colgroup><tbody class="tbody">
+          <tr class="row">
+            <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__1">Event</th>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__1">Evolution of TC 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__1">Markup UK</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__1">Balisage 2018 - The Markup Conference</td>
+          </tr>
+          <tr class="row">
+            <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__5">Date</th>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__5">May 31 - June 1, 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__5">June 9 - 10, 2018</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__5">July 31 - August 3, 2018</td>
+          </tr>
+          <tr class="row">
+            <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__9">Location</th>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__9">Sofia, Bulgaria</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__9">London, United Kingdom</td>
+            <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_first_column__table_azh_wzm_sdb__entry__9">Rockville, Maryland, USA</td>
+          </tr>
+        </tbody></table>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">rowheader</span>=<span class="hl-value">"firstcol"</span> <span class="hl-attribute">colsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">rowsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">frame</span>=<span class="hl-value">"all"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>
+    <strong class="hl-tag">&lt;b&gt;</strong>Oxygen Events<strong class="hl-tag">&lt;/b&gt;</strong>
+  <strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;tgroup</strong> <span class="hl-attribute">cols</span>=<span class="hl-value">"4"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC0"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"COLSPEC1"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1.1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"newCol3"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colname</span>=<span class="hl-value">"newCol4"</span> <span class="hl-attribute">colwidth</span>=<span class="hl-value">"1*"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;tbody&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Event<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Evolution of TC 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Markup UK<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Balisage 2018 - The Markup Conference<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Date<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>May 31 - June 1, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>June 9 - 10, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>July 31 - August 3, 2018<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Location<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Sofia, Bulgaria<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>London, United Kingdom<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Rockville, Maryland, USA<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+    <strong class="hl-tag">&lt;/tbody&gt;</strong>
+  <strong class="hl-tag">&lt;/tgroup&gt;</strong>
+<strong class="hl-tag">&lt;/table&gt;</strong></pre>
+    </div>
+  </div>
+</article><article class="topic nested2" aria-labelledby="ariaid-title7" id="whr_accessible_tables_header_top_row_first_column">
+  <h3 class="title topictitle3" id="ariaid-title7">Table with Header Cells in the Top Row and First Column</h3>
+  <div class="body">
+    <p class="p">For this type of table, you can use <code class="keyword markupname xmlelement">&lt;thead&gt;</code> to identify header rows
+      and <code class="keyword markupname xmlatt">@rowheader</code> to identify a header column.</p>
+    <div class="p">
+      <table class="table frame-all" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb"><caption><span class="table--title-label">Table 3. </span><span class="title">Example: Bus Timetable</span></caption><colgroup><col><col><col><col><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__1"></th>
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__2">Monday</th>
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__3">Tuesday</th>
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__4">Wednesday</th>
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__5">Thursday</th>
+              <th class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__6">Friday</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__1">09:00 - 11:00</th>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__2">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__3">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__4">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__5">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__7 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__6">Closed</td>
+            </tr>
+            <tr class="row">
+              <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__1">11:00 - 13:00</th>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__2">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__3">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__4">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__5">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__13 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__6">Closed</td>
+            </tr>
+            <tr class="row">
+              <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__1">13:00 - 15:00</th>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__2">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__3">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__4">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__5">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__19 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__6">Closed</td>
+            </tr>
+            <tr class="row">
+              <th scope="row" class="entry colsep-1 rowsep-1" id="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__1">15:00 - 17:00</th>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__2">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__3">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__4">Closed</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__5">Open</td>
+              <td class="entry colsep-1 rowsep-1" headers="whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__25 whr_accessible_tables_header_top_row_first_column__table_dqk_n24_vdb__entry__6">Open</td>
+            </tr>
+          </tbody></table>
+    </div>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;table</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"table_dqk_n24_vdb"</span> <span class="hl-attribute">rowheader</span>=<span class="hl-value">"firstcol"</span> <span class="hl-attribute">colsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">rowsep</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">frame</span>=<span class="hl-value">"all"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;title&gt;</strong>Example: Bus Timetable<strong class="hl-tag">&lt;/title&gt;</strong>
+   <strong class="hl-tag">&lt;tgroup</strong> <span class="hl-attribute">cols</span>=<span class="hl-value">"6"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"1"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col1"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"2"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col2"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"3"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col3"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"4"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col4"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"5"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col5"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;colspec</strong> <span class="hl-attribute">colnum</span>=<span class="hl-value">"6"</span> <span class="hl-attribute">colname</span>=<span class="hl-value">"col6"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;thead&gt;</strong>
+       <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry/&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Monday<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Tuesday<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Wednesday<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Thursday<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Friday<strong class="hl-tag">&lt;/entry&gt;</strong>
+       <strong class="hl-tag">&lt;/row&gt;</strong>
+     <strong class="hl-tag">&lt;/thead&gt;</strong>
+     <strong class="hl-tag">&lt;tbody&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>09:00 - 11:00<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>11:00 - 13:00<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>13:00 - 15:00<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+      <strong class="hl-tag">&lt;row&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>15:00 - 17:00<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Closed<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+        <strong class="hl-tag">&lt;entry&gt;</strong>Open<strong class="hl-tag">&lt;/entry&gt;</strong>
+      <strong class="hl-tag">&lt;/row&gt;</strong>
+    <strong class="hl-tag">&lt;/tbody&gt;</strong>
+  <strong class="hl-tag">&lt;/tgroup&gt;</strong>
+<strong class="hl-tag">&lt;/table&gt;</strong></pre>
+    </div>
+  </div>
+</article></article></article></article></main></body></html>

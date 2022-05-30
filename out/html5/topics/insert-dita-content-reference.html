@@ -1,0 +1,355 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Reusing content,Reuse Content dialog box"><meta name="keywords" content="DITA, Reusing content, Reuse Content dialog box"><meta name="DC.relation" scheme="URI" content="../topics/working-with-content-references.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-dita-content-reference.html"><meta name="DC.relation" scheme="URI" content="../topics/coderef.html"><meta name="DC.relation" scheme="URI" content="dita-reusable-components-view.html#dita-reusable-components-view"><meta name="DC.relation" scheme="URI" content="working-with-content-references.html#working-with-content-references"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="insert-dita-content-reference"><title>Reuse Content Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="insert-dita-content-reference"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Reuse Content Dialog Box</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Reuse Content</span> dialog box provides a mechanism for reusing content
+      fragments. DITA <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and
+        <code class="keyword markupname xmlatt">@keyref</code> attributes can be used to insert references to reusable content. The
+        <code class="keyword markupname xmlatt">@conref</code> attribute stores a reference to another element and is processed to
+      replace the referencing element with the referenced element. The <code class="keyword markupname xmlatt">@conkeyref</code>
+      attribute uses <a class="xref" href="eppo-background-keys.html">keys</a> to locate the content to reuse
+      rather than direct references to the topic that contains the reusable content. The
+        <code class="keyword markupname xmlatt">@keyref</code> attribute also uses <a class="xref" href="eppo-background-keys.html">keys</a>
+      and can be used to indirectly reference metadata that may have different values in various
+      circumstances.</p>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> For a <em class="ph i">conref</em> or <em class="ph i">conkeyref</em>, to reference the content inside a DITA element,
+        the source element must have an <code class="keyword markupname xmlatt">@id</code> attribute assigned to it. The element
+        containing the content reference acts as a placeholder for the referenced element. For more
+        details about DITA <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conkeyref</code> attributes, go to
+          <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/conref.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/archSpec/base/conref.html</a>.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> For the purposes of using a <code class="keyword markupname xmlatt">@keyref</code>, keys are defined at map level and
+        referenced afterward. For more information about the DITA <code class="keyword markupname xmlatt">@keyref</code>
+        attribute, go to <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/thekeyrefattribute.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/thekeyrefattribute.html</a>.</div>
+    </div>
+    <p class="p"><span class="ph">Oxygen XML Editor</span>
+      <a class="xref" href="author-displaying-referenced-content.html">displays the referenced content</a>
+      of a DITA content reference if it can resolve it to a valid resource. If you use URIs instead
+      of local paths in your XML documents and your DITA-OT transformation needs an <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> to map the URIs to local
+      paths, you need to <a class="xref" href="using-XML-Catalogs.html">add the catalog in <span class="ph">Oxygen XML Editor</span></a>. If the URIs can be resolved, the referenced content is
+      displayed in <span class="ph uicontrol">Author</span> mode and in the transformation output.</p>
+    <div class="p">In <span class="ph uicontrol">Author</span> mode, a reference to reusable content
+        (<code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, or <code class="keyword markupname xmlatt">@keyref</code>) can easily
+      be inserted at the cursor position by using the <span class="ph uicontrol">Reuse Content</span> dialog
+      box. It can be opened with any of the following methods:<ul class="ul">
+        <li class="li">Click the <span class="ph uicontrol"><img class="image" id="insert-dita-content-reference__image_jgl_grx_xr" src="../img/Conref20.png">Reuse
+            Content</span> action on the main toolbar.</li>
+        <li class="li">In the contextual menu of the editing area, go to <span class="ph menucascade"><span class="ph uicontrol">Reuse</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="insert-dita-content-reference__image_yd4_zvx_sr" src="../img/Conref16.png">Reuse
+              Content</span></span>.</li>
+        <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">DITA</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="insert-dita-content-reference__image_mdc_zvx_sr" src="../img/Conref16.png">Reuse
+              Content</span></span>.</li>
+      </ul></div>
+    <p class="p">Your selection at the top of the dialog box for choosing the content source determines
+      whether <span class="ph">Oxygen XML Editor</span> will insert a <code class="keyword markupname xmlatt">@conref</code>,
+        <code class="keyword markupname xmlatt">@conkeyref</code>, or <code class="keyword markupname xmlatt">@keyref</code>.</p>
+    <p class="p">If you select <span class="ph uicontrol">Location</span> for the content source, a <em class="ph i">content
+        reference</em> (<code class="keyword markupname xmlatt">@conref</code>) will be inserted. If you select
+        <span class="ph uicontrol">Key</span> for the content source, keys will be used to insert a <em class="ph i">content
+        key reference</em> (<code class="keyword markupname xmlatt">@conkeyref</code>) or a <em class="ph i">key reference</em>
+        (<code class="keyword markupname xmlatt">@keyref</code>).</p>
+    <section class="section" id="insert-dita-content-reference__conref-section"><h2 class="title sectiontitle">Content Reference (<code class="keyword markupname xmlatt">@conref</code>) Options Using the Reuse Content Dialog
+        Box</h2>
+      
+      <div class="p">
+        <figure class="fig fignone" id="insert-dita-content-reference__fig_tmn_2cc_xs"><figcaption><span class="fig--title-label">Figure 1. </span>Reuse Content Dialog Box (with the Default Insert Content Reference Options
+            Displayed)</figcaption>
+          
+          <img class="image" id="insert-dita-content-reference__image_umn_2cc_xs" src="../img/sa_dita_insert_conref.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p"><span class="ph uicontrol">Choose the content source</span> Section</p>
+      <p class="p">When <span class="ph uicontrol">Location</span> is selected for the content source, a <em class="ph i">content
+          reference</em> (<code class="keyword markupname xmlatt">@conref</code>) will be inserted. Here you can specify the path of
+        the topic that contains the content you want to reference. </p>
+      <div class="p">The dialog box offers the following options:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Select an element from the content source</span> Section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show elements of type</span></dt>
+                  <dd class="dd">You can use this drop-down list to select specific types of elements to be
+                    displayed in the subsequent table. This can help you narrow down the list of
+                    possible source elements that you can select.</dd>
+                
+                
+                  <dt class="dt dlterm">Text Filter Field</dt>
+                  <dd class="dd">You can also use the text filter field to narrow down the list of possible
+                    source elements to be displayed in the subsequent table.</dd>
+                
+                
+                  <dt class="dt dlterm">Element Table</dt>
+                  <dd class="dd">Presents all the element IDs defined in the source topic. Use this table to
+                    select the <span class="ph uicontrol">Target ID</span> of the element that you want to
+                    reference. You can select multiple contiguous elements to reference a block of
+                    content.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preview</span> Pane</dt>
+                  <dd class="dd">Displays the content that will be references. If you select multiple elements
+                    in the element table, the content from all the selected elements is
+                    displayed.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Source</span> Pane</dt>
+                  <dd class="dd">Displays the source code of the element to be referenced.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Reference details</span> Section</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference to (conref)</span></dt>
+                    <dd class="dd"><span class="ph">Oxygen XML Editor</span> automatically fills this text field with the value of
+                      the <code class="keyword markupname xmlatt">@conref</code> attribute to be inserted. However, you can edit
+                      this value if need be.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference to range end (conrefend)</span></dt>
+                    <dd class="dd">If you select multiple elements (of the same type) in the element table, <span class="ph">Oxygen XML Editor</span> automatically fills this text field with the
+                        <code class="keyword markupname xmlatt">@id</code> value of the last element in your selection. This value
+                      will be inserted as a <code class="keyword markupname xmlatt">@conrefend</code> attribute, defining the end
+                      of the <em class="ph i">conref</em> range. </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="insert-dita-content-reference__conkeyref-section"><h2 class="title sectiontitle">Content Key Reference (<code class="keyword markupname xmlatt">@conkeyref</code>) Options Using the Reuse Content
+        Dialog Box</h2>
+      
+      <div class="p">
+        <figure class="fig fignone" id="insert-dita-content-reference__fig_ayf_wbc_xs"><figcaption><span class="fig--title-label">Figure 2. </span>Insert Content Key Reference Options</figcaption>
+          
+          <img class="image" id="insert-dita-content-reference__image_qh4_1cc_xs" src="../img/conkeyref_options.png">
+        </figure>
+      </div>
+      <p class="p"><span class="ph uicontrol">Choose the content source</span> Section</p>
+      <div class="p">When <span class="ph uicontrol">Key</span> is selected for the content source, you can
+      use keys to reference content. You can use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Conkeyref20.png">Choose Key Reference</span>
+      button to open the <span class="ph uicontrol">Choose Key</span> dialog box that allows you to select one
+      from a list of all the keys that are gathered from the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> (you can also select one from the drop-down list in the
+        <span class="ph uicontrol">Key</span> field).<div class="note note note_note"><span class="note__title">Note:</span> If the current <dfn class="term">DITA map</dfn> is not selected
+        as the <dfn class="term">root map</dfn>, no keys will be listed.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> You can also
+        use the <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view"><span class="ph uicontrol">DITA Reusable Components</span> view</a> for similar purposes.<div class="p">
+          <figure class="fig fignone" id="insert-dita-content-reference__insert-key-ref-image"><figcaption><span class="fig--title-label">Figure 3. </span>Choose Key Dialog Box</figcaption>
+            
+            <img class="image" src="../reusables/topics/../../img/insert_key_ref_dialog.png">
+          </figure>
+        </div><div class="p">The <span class="ph uicontrol">Choose Key</span> dialog box includes the following:<ul class="ul">
+            <li class="li"><strong class="ph b">Change Root Map</strong> - Opens a small dialog box that allows you to <a class="xref" href="root-map.html">select a <dfn class="term">root map</dfn></a>.</li>
+            <li class="li"><strong class="ph b">Search Filter</strong> - You can enter text in the filter field at the top of the
+              dialog box to filter the list and search for a specific key.</li>
+            <li class="li"><strong class="ph b">Sortable Columns</strong> - The dialog box includes the following columns that can be
+              sorted by clicking on the heading:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">Key</span> - The name of the key (the value of the
+                    <code class="keyword markupname xmlatt">@keys</code> attribute).</li>
+                <li class="li"><span class="ph uicontrol">Description</span> - The description of the key that is obtained
+                  from its definition. Keys that are defined with a text value in the
+                  <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element have that value
+                  listed in this column.</li>
+                <li class="li"><span class="ph uicontrol">Href</span> - Keys that are defined with a value in an
+                    <em class="ph i">href</em> attribute have that href value listed in this column.</li>
+                <li class="li"><span class="ph uicontrol">Definition Location</span> - The name of the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> where the key is
+                  defined.</li>
+              </ul></li>
+            <li class="li"><strong class="ph b"><span class="ph uicontrol">Group by Definition Location</span></strong> - A contextual menu
+              action that can be used to group (and sort) all the keys based upon the value in the
+                <span class="ph uicontrol">Definition Location</span> column.</li>
+          </ul></div></div></div>
+      <p class="p">To insert a <em class="ph i">content key reference</em> (<code class="keyword markupname xmlatt">@conkeyref</code>), select the key that
+        contains the content you want to reference. Notice that the file path is shown in the
+          <span class="ph uicontrol">Href</span> column. Keys that do not have a value in the
+          <span class="ph uicontrol">Href</span> column are for referencing metadata with a
+          <code class="keyword markupname xmlatt">@keyref</code> attribute. Therefore, to insert a <code class="keyword markupname xmlatt">@conkeyref</code>, you
+        need to select a key that does have a value (file path) in the <span class="ph uicontrol">Href</span>
+        column.</p>
+      <p class="p">After you select a key, click <span class="ph uicontrol">OK</span> to return to the <span class="ph uicontrol">Reuse
+          Content</span> dialog box.</p>
+      <p class="p">When a key that is defined as a <em class="ph i">content key reference</em> has been selected, the
+          <span class="ph uicontrol">Reuse Content</span> dialog box offers the following additional options
+        for inserting a <code class="keyword markupname xmlatt">@conkeyref</code>:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Select an element from the content source</span> Section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Show elements of type</span></dt>
+                  <dd class="dd">You can use this drop-down list to select specific types of elements to be
+                    displayed in the subsequent table. This can help you narrow down the list of
+                    possible source elements that you can select.</dd>
+                
+                
+                  <dt class="dt dlterm">Text Filter Field</dt>
+                  <dd class="dd">You can also use the text filter field to narrow down the list of possible
+                    source elements to be displayed in the subsequent table.</dd>
+                
+                
+                  <dt class="dt dlterm">Element Table</dt>
+                  <dd class="dd">Presents all the element IDs defined in the source topic. Use this table to
+                    select the <span class="ph uicontrol">Target ID</span> of the element that you want to
+                    reference. You can select multiple contiguous elements to reference a block of
+                    content.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Preview</span> Pane</dt>
+                  <dd class="dd">Displays the content that will be references. If you select multiple elements
+                    in the element table, the content from all the selected elements is
+                    displayed.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Source</span> Pane</dt>
+                  <dd class="dd">Displays the source code of the element to be referenced.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Reference details</span> Section</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference type</span></dt>
+                    <dd class="dd">The type of reference that will be inserted. If you selected a key that
+                      references a DITA resource, you will notice that
+                        <span class="ph uicontrol">conkeyref</span> value is automatically selected.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference to</span></dt>
+                    <dd class="dd"><span class="ph">Oxygen XML Editor</span> automatically fills this text field with the value of
+                      the <code class="keyword markupname xmlatt">@conkeyref</code> attribute to be inserted. However, you can edit
+                      this value if need be.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Fallback to (conref)</span></dt>
+                    <dd class="dd">You can select this option to define a <code class="keyword markupname xmlatt">@conref</code> attribute to
+                      be used as a fallback to determine the content reference relationship if the
+                      specified <em class="ph i">conkeyref</em> cannot be resolved.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference to range end (conrefend)</span></dt>
+                    <dd class="dd">If you select multiple elements (of the same type) in the element table, <span class="ph">Oxygen XML Editor</span> automatically fills this text field with the
+                        <code class="keyword markupname xmlatt">@id</code> value of the last element in your selection. This value
+                      will be inserted as a <code class="keyword markupname xmlatt">@conrefend</code> attribute, defining the end
+                      of the <em class="ph i">conkeyref</em> range. </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="insert-dita-content-reference__key-ref-options-section"><h2 class="title sectiontitle">Key Reference to Metadata (<code class="keyword markupname xmlatt">@keyref</code>) Options Using the Reuse Content
+        Dialog Box</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Insert Key Reference Options</figcaption>
+          
+          <img class="image" src="../img/keyref_options.png">
+        </figure>
+      </div>
+      <p class="p"><span class="ph uicontrol">Choose the content source</span> Section</p>
+      <div class="p">When <span class="ph uicontrol">Key</span> is selected for the content source, you can
+      use keys to reference content. You can use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Conkeyref20.png">Choose Key Reference</span>
+      button to open the <span class="ph uicontrol">Choose Key</span> dialog box that allows you to select one
+      from a list of all the keys that are gathered from the <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> (you can also select one from the drop-down list in the
+        <span class="ph uicontrol">Key</span> field).<div class="note note note_note"><span class="note__title">Note:</span> If the current <dfn class="term">DITA map</dfn> is not selected
+        as the <dfn class="term">root map</dfn>, no keys will be listed.</div><div class="note tip note_tip"><span class="note__title">Tip:</span> You can also
+        use the <a class="xref" href="dita-reusable-components-view.html#dita-reusable-components-view"><span class="ph uicontrol">DITA Reusable Components</span> view</a> for similar purposes.<div class="p">
+          <figure class="fig fignone" id="insert-dita-content-reference__d662e659"><figcaption><span class="fig--title-label">Figure 5. </span>Choose Key Dialog Box</figcaption>
+            
+            <img class="image" src="../reusables/topics/../../img/insert_key_ref_dialog.png">
+          </figure>
+        </div><div class="p">The <span class="ph uicontrol">Choose Key</span> dialog box includes the following:<ul class="ul">
+            <li class="li"><strong class="ph b">Change Root Map</strong> - Opens a small dialog box that allows you to <a class="xref" href="root-map.html">select a <dfn class="term">root map</dfn></a>.</li>
+            <li class="li"><strong class="ph b">Search Filter</strong> - You can enter text in the filter field at the top of the
+              dialog box to filter the list and search for a specific key.</li>
+            <li class="li"><strong class="ph b">Sortable Columns</strong> - The dialog box includes the following columns that can be
+              sorted by clicking on the heading:<ul class="ul">
+                <li class="li"><span class="ph uicontrol">Key</span> - The name of the key (the value of the
+                    <code class="keyword markupname xmlatt">@keys</code> attribute).</li>
+                <li class="li"><span class="ph uicontrol">Description</span> - The description of the key that is obtained
+                  from its definition. Keys that are defined with a text value in the
+                  <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element have that value
+                  listed in this column.</li>
+                <li class="li"><span class="ph uicontrol">Href</span> - Keys that are defined with a value in an
+                    <em class="ph i">href</em> attribute have that href value listed in this column.</li>
+                <li class="li"><span class="ph uicontrol">Definition Location</span> - The name of the <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> where the key is
+                  defined.</li>
+              </ul></li>
+            <li class="li"><strong class="ph b"><span class="ph uicontrol">Group by Definition Location</span></strong> - A contextual menu
+              action that can be used to group (and sort) all the keys based upon the value in the
+                <span class="ph uicontrol">Definition Location</span> column.</li>
+          </ul></div></div></div>
+      <p class="p">To insert a <em class="ph i">key reference</em> to metadata (<code class="keyword markupname xmlatt">@keyref</code>), select the key you
+        want to reference. Keys that do not have a value in the <span class="ph uicontrol">Href</span> column
+        are for referencing metadata with a <code class="keyword markupname xmlatt">@keyref</code> attribute. Therefore, to insert
+        a <code class="keyword markupname xmlatt">@keyref</code>, you need to select a key that does not have a value (file path)
+        in the <span class="ph uicontrol">Href</span> column.</p>
+      <p class="p">After you select a key, click <span class="ph uicontrol">OK</span> to return to the <span class="ph uicontrol">Reuse
+          Content</span> dialog box.</p>
+      <div class="p">When a key that references metadata has been selected, the <span class="ph uicontrol">Reuse
+          Content</span> dialog box offers the following additional options for inserting a
+          <code class="keyword markupname xmlatt">@keyref</code>:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Select an element from the content source</span> Section</dt>
+            <dd class="dd">This section is not used when referencing metadata.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Reference details</span> Section</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference type</span></dt>
+                    <dd class="dd">The type of reference that will be inserted. If you selected a key that does
+                      not reference a DITA resource, you will notice that
+                        <span class="ph uicontrol">keyref</span> value is automatically selected.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Reference to</span></dt>
+                    <dd class="dd"><span class="ph">Oxygen XML Editor</span> automatically fills this text field with the value of
+                      the <code class="keyword markupname xmlatt">@keyref</code> attribute to be inserted.</dd>
+                  
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Element name</span></dt>
+                    <dd class="dd"><span class="ph">Oxygen XML Editor</span> automatically selects the element that is most
+                      commonly used for the selected type of key reference, but you can use the
+                      drop-down list to choose another element to use for the reference.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="insert-dita-content-reference__finalizing_your_content_reference_configuration"><h2 class="title sectiontitle">Finalizing Your Content Reference Configuration</h2>
+      
+      <div class="p">Once you click <span class="ph uicontrol">Insert</span> or <span class="ph uicontrol">Insert and close</span>,
+        the configured content reference is inserted into your document. <div class="note tip note_tip"><span class="note__title">Tip:</span> You can
+          easily insert multiple content references by keeping the <span class="ph uicontrol">Reuse
+            Content</span> dialog box opened, using the <span class="ph uicontrol">Insert</span>
+          button.</div></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-content-references.html">Working with Content References</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/edit-dita-content-reference.html">Editing DITA Content References</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/coderef.html">Working with Code References</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-reusable-components-view.html#dita-reusable-components-view">DITA Reusable Components View</a></li><li class="linklist"><a class="link" href="working-with-content-references.html#working-with-content-references">Working with Content References</a></li></ul></div></nav>
+</article></main></body></html>

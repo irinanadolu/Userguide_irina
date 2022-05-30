@@ -1,0 +1,80 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Digital Signature,Sign files,Sign files tool"><meta name="keywords" content="Digital Signature, Sign files, Sign files tool"><meta name="DC.relation" scheme="URI" content="../topics/digital-signature.html"><meta name="DC.relation" scheme="URI" content="../topics/canonicalizing-files.html"><meta name="DC.relation" scheme="URI" content="../topics/verifying-signature.html"><meta name="DC.relation" scheme="URI" content="digital-signature-overview.html#digital-signature-overview"><meta name="DC.relation" scheme="URI" content="verifying-signature.html#verifying-signature"><meta name="DC.relation" scheme="URI" content="example-signing-files.html#example-signing-files"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="signing-files"><title>Signing Files</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="signing-files"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Signing Files</h1>
+  
+  <div class="body">
+    <p class="p">You can select the type of signature to be used for documents from a signature settings
+      dialog box. To open this dialog box, select the <span class="ph uicontrol">Sign</span> action from the
+        <span class="ph uicontrol">Source</span> submenu when invoking the contextual menu in
+        <span class="ph uicontrol">Text</span> mode<span class="ph"> or from the
+          <span class="ph uicontrol">Tools</span> menu</span>.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Signature Settings Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_sign_dialog.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The following options are available:</p>
+    <div class="p"><div class="note note note_note"><span class="note__title">Note:</span> If <span class="ph">Oxygen XML Editor</span> could not find a valid certificate, a link is provided at the
+        top of the dialog box that opens the <a class="xref" href="preferences-certificates.html">XML Signing
+          Certificates preferences page</a> where you can configure a valid certificate.<div class="p">
+          <br><img class="image" id="signing-files__image_scw_xk3_xq" src="../img/configure_certificate.png"><br>
+        </div></div></div>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol">Input</span> - Available if the <span class="ph uicontrol">Sign</span> action was
+        selected from the <span class="ph uicontrol">Tools</span> menu. Specifies the
+        location of the input URL.</li>
+      <li class="li" id="signing-files__transformation-options-li"><span class="ph uicontrol">Transformation Options</span> - See the
+          <a class="xref" href="digital-signature-overview.html#digital-signature-overview">Digital Signature
+          Overview</a> section for more information about these options.<ul class="ul" id="signing-files__ul_xwp_h33_xq">
+          <li class="li"><span class="ph uicontrol">None</span> - If selected, no <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a> algorithm is used.</li>
+          <li class="li"><span class="ph uicontrol">Exclusive</span> - If selected, the exclusive (uncommented) <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a> method is
+              used.<div class="note note note_note"><span class="note__title">Note:</span> <dfn class="term">Exclusive Canonicalization</dfn> just copies the namespaces you
+      are actually using (the ones that are a part of the XML syntax). It does not look into
+      attribute values or element content, so the namespace declarations required to process these
+      are not copied. This is useful if you have a signed XML document that you want to insert into
+      other XML documents (or you need self-signed structures that support placement within various
+      XML contexts), as it will ensure the signature is verified correctly each time.</div></li>
+          <li class="li"><span class="ph uicontrol">Exclusive with comments</span> - If selected, the exclusive with
+            comments <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a>
+            method is used.</li>
+          <li class="li"><span class="ph uicontrol">Inclusive</span> - If selected, the inclusive (uncommented) <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a> method is
+              used.<div class="note note note_note"><span class="note__title">Note:</span> <dfn class="term">Inclusive Canonicalization</dfn> copies all the declarations,
+      even if they are defined outside of the scope of the signature, and all the declarations you
+      might use will be unambiguously specified. Inclusive <dfn class="term">Canonicalization</dfn> is useful
+      when it is less likely that the signed data will be inserted in other XML document and it is
+      the safer method from the security standpoint because it requires no knowledge of the data
+      that are to be secured to safely sign them. A problem may occur if the signed document is
+      moved into another XML document that has other declarations because the Inclusive
+        <dfn class="term">Canonicalization</dfn> will copy them and the signature will be invalid.</div></li>
+          <li class="li"><span class="ph uicontrol">Inclusive with comments</span> - If selected, the inclusive with
+            comments <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonicalization</dfn></a>
+            method is used.</li>
+        </ul></li>
+      <li class="li"><span class="ph uicontrol">XPath</span> - The XPath expression provides the fragments of the XML
+        document to be signed.</li>
+      <li class="li"><span class="ph uicontrol">ID</span> - Provides ID of the XML element to be signed.</li>
+      <li class="li" id="signing-files__envelope-li"><span class="ph uicontrol">Envelope</span> - If selected, the <em class="ph i">enveloped</em>
+        signature is used. See the <a class="xref" href="digital-signature-overview.html#digital-signature-overview">Digital Signature
+          Overview</a> for more information.</li>
+      <li class="li"><span class="ph uicontrol">Detached</span> - If selected, the <em class="ph i">detached</em> signature is
+        used. See the <a class="xref" href="digital-signature-overview.html#digital-signature-overview">Digital Signature Overview</a> for more information.</li>
+      <li class="li"><span class="ph uicontrol">Append KeyInfo</span> - If this option is selected, the
+        <code class="keyword markupname xmlelement">&lt;ds:KeyInfo&gt;</code> element will be added in the signed document.</li>
+      <li class="li"><span class="ph uicontrol">Signature algorithm</span> - The algorithm used for signing the document.
+        The following options are available: <span class="ph uicontrol">RSA with SHA1</span>, <span class="ph uicontrol">RSA
+          with SHA256</span>, <span class="ph uicontrol">RSA with SHA384</span>, and <span class="ph uicontrol">RSA with
+          SHA512</span>.</li>
+      <li class="li"><span class="ph uicontrol">Output</span> - Available if the <span class="ph uicontrol">Sign</span> action was
+        selected from the <span class="ph uicontrol">Tools</span> menu. Specifies the path of
+        the output file where the signed XML document will be saved.</li>
+      <li class="li"><span class="ph uicontrol">Open in
+          editor</span> - If selected, the output file will be opened in <span class="ph">Oxygen XML Editor</span>.</li>
+    </ul>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/digital-signature.html">XML Digital Signatures</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/canonicalizing-files.html">Canonicalizing Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/verifying-signature.html">Verifying Signature</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="digital-signature-overview.html#digital-signature-overview">Digital Signatures Overview</a></li><li class="linklist"><a class="link" href="verifying-signature.html#verifying-signature">Verifying Signature</a></li><li class="linklist"><a class="link" href="example-signing-files.html#example-signing-files">Example of How to Digitally Sign XML Files or Content</a></li></ul></div></nav>
+</article></main></body></html>

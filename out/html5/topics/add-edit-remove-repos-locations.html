@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Manage repository locations"><meta name="keywords" content="SVN Client, Manage repository locations"><meta name="DC.relation" scheme="URI" content="../topics/svn-repository-location.html"><meta name="DC.relation" scheme="URI" content="../topics/svn-repository-location.html"><meta name="DC.relation" scheme="URI" content="../topics/authentication.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-edit-remove-repos-locations"><title>Add / Edit / Remove Repository Locations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-edit-remove-repos-locations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Add / Edit / Remove Repository Locations</h1>
+    
+    <div class="body">
+        <p class="p">Usually, team members do all of their work separately, in their own working copy, and
+      then must share their work by committing their changes. This is done using an Apache Subversion™ repository. <span class="ph">Oxygen XML Editor</span> supports versions 1.4, 1.5, 1.6,
+      1.7, and 1.8 of the SVN repository format.</p>
+        <p class="p">Before you can begin working with a Subversion repository, you must define a repository
+      location in the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span>
+        view</a>.</p>
+        <p class="p">To create a repository location, use the <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_o3q_x3p_5r" src="../img/SVNNewRepositoryLocation16.png">New Repository
+        Location</span> action that is available in the <span class="ph uicontrol">Repository</span> menu,
+      the <span class="ph uicontrol">Repositories</span> view toolbar, and in the contextual menu. This action
+      opens the <span class="ph uicontrol">New Repository Location</span> dialog box, which prompts you for the
+        <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">URL of the
+        repository</a> you want to connect to. You can also <a class="xref" href="using-peg-revisions.html#using-peg-revisions">use peg revisions at the end of the
+        URLs</a> (for example, <code class="ph codeph">URL@rev1234</code>) to browse only that specific
+      revision. No authentication information is requested at the time the location is defined. It
+      is left to the Subversion client to request the user and password information when it is
+      needed. The main benefit of allowing Subversion to manage your password is that it prompts you
+      for a new password only when your password changes.</p>
+        <p class="p">Once you enter the repository URL, <span class="ph">Oxygen XML Editor</span> tries to contact the server to
+      get the content of the repository for displaying it in the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>. If the server does not respond in the
+      timeout interval set in the preferences, an error is displayed. If you do not want to wait
+      until the timeout expires, you can use the <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_rsk_z1p_5r" src="../img/StopExternalTool16.png">Stop</span> button from
+      the toolbar of the view.</p>
+        <p class="p">To edit a repository location, use the <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_aqq_23p_5r" src="../img/SVNEditRepository16.gif">Edit Repository
+        Location</span> action that is available in the <span class="ph uicontrol">Repository</span> menu
+      and in the contextual menu. This action opens the <span class="ph uicontrol">Edit Repository
+        Location</span> dialog box, which prompts you for the <a class="xref" href="entering-local-paths-urls.html#entering-local-paths-urls__url-section">URL of the
+        repository</a> you want to connect to. You can also <a class="xref" href="using-peg-revisions.html#using-peg-revisions">use peg revisions at the end of the
+        URLs</a> (for example, <code class="ph codeph">URL@rev1234</code>) to browse only that specific
+      revision.</p>
+        <p class="p">To remove a repository location, use the <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_iy2_rbp_5r" src="../img/SVNDelete16.gif">Remove Repository Location</span> action that is available in
+      the <span class="ph uicontrol">Repository</span> menu and in the contextual menu. A confirmation dialog
+      box is displayed to make sure that you do not accidentally remove the wrong locations.</p>
+        <p class="p">The order of the repositories can be changed in the <span class="ph uicontrol">Repositories</span>
+      view at any time with the <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_clp_h3p_5r" src="../img/SvnMoveUp16.gif">Up</span> arrow and <span class="ph uicontrol"><img class="image" id="add-edit-remove-repos-locations__image_utl_33p_5r" src="../img/SvnMoveDown16.gif">Down</span> arrow buttons on
+      the toolbar of the view. For example, pressing the up arrow once moves the selected repository
+      in the list up one position.</p>
+        <p class="p">To set the reference revision number of an SVN repository use the <span class="ph uicontrol">Change the
+        Revision to Browse</span> action that is available in the
+        <span class="ph uicontrol">Repository</span> menu and in the contextual menu. The revision number of
+      the repository is used for displaying the contents of the repository when it is viewed in the
+        <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>. Only the
+      files and folders that were present in the repository at the moment when this revision number
+      was generated in the repository are displayed as contents of the repository tree. Also, this
+      revision number is used for all the operations executed directly from the <a class="xref" href="repository-view.html"><span class="ph uicontrol">Repositories</span> view</a>.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-repository-location.html">SVN Repository Location</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/svn-repository-location.html">SVN Repository Location</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/authentication.html">Authentication</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/bidi-support.html"><meta name="DC.relation" scheme="URI" content="../topics/control-text-direction-markup.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-refreshing.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="control-text-direction-dfc"><title>Controlling the Text Direction Using the Unicode Direction Formatting Codes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="control-text-direction-dfc"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Controlling the Text Direction Using the Unicode Direction Formatting Codes</h1>
+  <div class="body">
+    <p class="p">These Unicode Direction Formatting Codes codes can be embedded in the edited text, specifying
+      a text direction and embedding. However, it is not recommended to use them in XML as they are
+      zero width characters, making it hard to debug the text arrangement.</p>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Directional Formatting Codes</span></caption><colgroup><col style="width:14.285714285714285%"><col style="width:28.57142857142857%"><col style="width:57.14285714285714%"></colgroup><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+202A (LRE)</td>
+            <td class="entry colsep-1 rowsep-1">LEFT-TO-RIGHT EMBEDDING</td>
+            <td class="entry colsep-1 rowsep-1">Treats the following text as embedded left-to-right.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+202B (RLE)</td>
+            <td class="entry colsep-1 rowsep-1">RIGHT-TO-LEFT EMBEDDING</td>
+            <td class="entry colsep-1 rowsep-1">Treats the following text as embedded right to left.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+202D (LRO)</td>
+            <td class="entry colsep-1 rowsep-1">LEFT-TO-RIGHT OVERRIDE</td>
+            <td class="entry colsep-1 rowsep-1">Forces the following characters to be treated as strong left-to-right
+              characters.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+202E (RLO)</td>
+            <td class="entry colsep-1 rowsep-1">RIGHT-TO-LEFT OVERRIDE</td>
+            <td class="entry colsep-1 rowsep-1">Forces the following characters to be treated as strong right-to-left
+              characters.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+202C (PDF)</td>
+            <td class="entry colsep-1 rowsep-1">POP DIRECTIONAL FORMATTING CODE</td>
+            <td class="entry colsep-1 rowsep-1">Restores the bidirectional state to what it was before the last LRE, RLE, RLO, or
+              LRO.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+200E (LRM)</td>
+            <td class="entry colsep-1 rowsep-1">LEFT-TO-RIGHT MARK</td>
+            <td class="entry colsep-1 rowsep-1">Left-to-right strong zero-width character.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1">U+200F (RLM)</td>
+            <td class="entry colsep-1 rowsep-1">RIGHT-TO-LEFT MARK</td>
+            <td class="entry colsep-1 rowsep-1">Right-to-left strong zero-width character.</td>
+          </tr>
+        </tbody></table>
+    <p class="p">To insert Unicode Direction Formatting Codes, use the <span class="ph"><a class="xref" href="unicode-toolbar.html#unicode-toolbar"><span class="ph uicontrol">Character Map</span></a>
+        dialog box</span>. To easily find such a code, you can either enter directly the hexadecimal
+      value, or use the <span class="ph uicontrol">Details</span> tab to enter the codes name.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> offers the support for bi-directional text in all the side views
+        (<a class="xref" href="outliner-view.html#outliner-view"><span class="ph uicontrol">Outline</span>
+        view</a>, <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> and so on) and text fields.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/bidi-support.html">Special Character Support in Author Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/control-text-direction-markup.html">Controlling the Text Direction Using XML Markup</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-editing-refreshing.html">Refreshing the Content</a></div></div></nav></article></main></body></html>

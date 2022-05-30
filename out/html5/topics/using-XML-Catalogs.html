@@ -1,0 +1,137 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XML documents,XML catalogs,XML Catalogs"><meta name="keywords" content="XML documents, XML catalogs, XML Catalogs"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/create-DTD-from-learned-document-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/resolve-xml-schema-location-through-xml-catalogs.html"><meta name="DC.relation" scheme="URI" content="../topics/resolve-xml-schema-location-through-xml-catalogs.html"><meta name="DC.relation" scheme="URI" content="preferences-xml-catalog.html#preferences-xml-catalog"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="using-XML-Catalogs"><title>Working with XML Catalogs</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="using-XML-Catalogs"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with XML Catalogs</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> uses <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML
+        Catalogs</dfn></a> to resolve references for validations and transformations and they
+      are especially helpful for resolving external resources when internet access is not available
+      or your connection is slow.</p>
+    <p class="p"><span class="ph">Oxygen XML Editor</span> supports any <dfn class="term">XML Catalog</dfn> file that conforms to one of the
+      following:</p>
+    <ol class="ol" id="using-XML-Catalogs__ol_rc1_nl3_mg">
+      <li class="li"><a class="xref" href="https://www.oasis-open.org/committees/download.php/14809/xml-catalogs.html" target="_blank" rel="external noopener">OASIS XML Catalogs Committee Specification
+        v1.1</a>.</li>
+      <li class="li"><a class="xref" href="https://www.oasis-open.org/specs/a401.htm" target="_blank" rel="external noopener">OASIS Technical Resolution 9401:1997</a>, including the plain-text flavor described in
+        that resolution.</li>
+    </ol>
+    <p class="p">The version 1.1 of the OASIS <dfn class="term">XML Catalog</dfn> specification introduces the
+      possibility to map a system ID, public ID, or a URI to a local copy using only a suffix of the
+      ID or URI used in the actual document. This is done using the catalog elements <a class="xref" href="https://www.oasis-open.org/committees/download.php/14809/xml-catalogs.html#s.systemsuffix" target="_blank" rel="external noopener"><em class="ph i">systemSuffix</em>
+      </a> and <a class="xref" href="https://www.oasis-open.org/committees/download.php/14809/xml-catalogs.html#s.urisuffix" target="_blank" rel="external noopener"><em class="ph i">uriSuffix</em></a>.</p>
+    <p class="p">Depending on the resource type, <span class="ph">Oxygen XML Editor</span> uses different catalog mappings. </p>
+    <table class="table frame-all" id="using-XML-Catalogs__table_cw5_1v3_mg"><caption><span class="table--title-label">Table 1. </span><span class="title">Catalog Mappings</span></caption><colgroup><col style="width:8.29875518672199%"><col style="width:14.854771784232366%"><col style="width:76.84647302904564%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">Doc Type</th>
+            <th class="entry colsep-1 rowsep-1" id="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">Referenced Resource</th>
+            <th class="entry colsep-1 rowsep-1" id="using-XML-Catalogs__table_cw5_1v3_mg__entry__3">Mappings</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1" rowspan="5">XML</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">DTD</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3"><em class="ph i">system</em> or <em class="ph i">public</em>
+              <p class="p">The <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_prefer"><span class="ph uicontrol">Prefer</span> option</a> controls which one of
+                the mappings should be used.</p></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">XML Schema</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3" rowspan="4">
+              <div class="p">The following strategy is used (if one step fails to provide a resource, the next
+                is applied):<ol class="ol" id="using-XML-Catalogs__ol_iy1_mw3_mg">
+                  <li class="li">Resolve the schema using <em class="ph i">URI</em> catalog mappings.</li>
+                  <li class="li">Resolve the schema using <em class="ph i">system</em> catalog mappings. This happens only if
+                    the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_resolve_schema"><span class="ph uicontrol">Resolve schema locations also through system
+                        mappings</span> option</a> is selected (it is by default).</li>
+                  <li class="li">Resolve the root <em class="ph i">namespace</em> using <em class="ph i">URI</em> catalog mappings. </li>
+                </ol></div>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">Relax NG</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">Schematron</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">NVDL</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">XSL</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">XSL/ANY</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3"><em class="ph i">URI</em></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">CSS</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">CSS</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3"><em class="ph i">URI</em></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">JSON</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">JSON</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3"><em class="ph i">URI</em></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">XML Schema</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">XML Schema</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__3" rowspan="2">
+              <div class="p">The following strategy is used (if one step fails to provide a resource, the next
+                is applied):<ol class="ol" id="using-XML-Catalogs__ol_ukf_kv3_mg">
+                  <li class="li">Resolve schema reference using <em class="ph i">URI</em> catalog mappings. </li>
+                  <li class="li">Resolve schema reference using <em class="ph i">system</em> catalog mappings. This happens
+                    only if the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_resolve_schema"><span class="ph uicontrol">Resolve schema locations also through system
+                        mappings</span> option</a> is selected (it is by default).</li>
+                  <li class="li">Resolve schema <em class="ph i">namespace</em> using <em class="ph i">URI</em> catalog mappings. This
+                    happens only if the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog__xml_catalog_process_ns"><span class="ph uicontrol">Process namespaces through URI mappings for XML
+                        Schema</span> option</a> is selected (it is not by default).</li>
+                </ol></div>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__1">Relax NG</td>
+            <td class="entry colsep-1 rowsep-1" headers="using-XML-Catalogs__table_cw5_1v3_mg__entry__2">Relax NG</td>
+          </tr>
+        </tbody></table>
+    <section class="section" id="using-XML-Catalogs__creating_an_xml_catalog_with_a_template"><h2 class="title sectiontitle">Creating an XML Catalog with a Template</h2>
+      
+      <p class="p">An <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> file can be created quickly in <span class="ph">Oxygen XML Editor</span> starting from the document template called <em class="ph i">OASIS XML Catalog</em>. It is available when <a class="xref" href="new-dialog-sa.html#new-dialog-sa">creating new document templates</a>.</p>
+    </section>
+    <section class="section" id="using-XML-Catalogs__catalog-order"><h2 class="title sectiontitle">How <span class="ph">Oxygen XML Editor</span> Determines which Catalog to Use</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> uses <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML
+          Catalogs</dfn></a> to resolve references for validations and transformations and it
+        maps such references to the built-in local copies of the schemas associated with the various
+          <a class="xref" href="../glossary/framework.html"><dfn class="term">frameworks</dfn></a> (DocBook, DITA, TEI,
+        XHTML, SVG, etc.)</p>
+      <p class="p"><span class="ph">Oxygen XML Editor</span> includes default global catalogs and default catalogs for each of
+        the built-in <dfn class="term">frameworks</dfn>, and you can also create your own.</p>
+      <div class="p"><span class="ph">Oxygen XML Editor</span> looks for catalogs in the following order:<ul class="ul">
+          <li class="li">Global user-defined catalogs that are set in the <a class="xref" href="preferences-xml-catalog.html#preferences-xml-catalog"><span class="ph uicontrol">XML
+                Catalog</span> preferences page</a>.</li>
+          <li class="li">User-defined catalogs that are set for each <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a> in the <a class="xref" href="document-type-catalogs-tab.html#document-type-catalogs-tab"><span class="ph uicontrol">Catalog</span> tab</a> of the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                Type</span> configuration dialog box</a>.</li>
+          <li class="li">Default built-in catalogs.</li>
+        </ul></div>
+    </section>
+    <div class="div">
+      <div class="div">
+        <p class="p"><strong class="ph b"><u class="ph u">Example: Using an XML Catalog to map an Absolute XML Schema Reference to an XML
+              Schema Located Relative to the XML Catalog</u></strong></p>
+        <p class="p">An <dfn class="term">XML Catalog</dfn> can be used to map an XML Schema specified with a URN in the
+            <code class="keyword markupname xmlatt">@xsi:noNamespaceSchemaLocation</code> attribute of an XML document to a local
+          copy of the schema.</p>
+        <div class="p">Considering the following XML document code snippet:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topic</strong> <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+     <span class="hl-attribute">xsi:noNamespaceSchemaLocation</span>=<span class="hl-value">"urn:oasis:names:tc:dita:xsd:topic.xsd:1.1"</span><strong class="hl-tag">&gt;</strong></pre></div>
+        <div class="p">The URN can be resolved to a local schema file with an XML catalog entry like this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;uri</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"urn:oasis:names:tc:dita:xsd:topic.xsd:1.1"</span>
+    <span class="hl-attribute">uri</span>=<span class="hl-value">"topic.xsd"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+      </div>
+      <p class="p"><strong class="ph b"><u class="ph u">Example: Using an XML Catalog to map an Imported XML Schema Reference to an XML
+            Schema Located Relative to the XML Catalog</u></strong></p>
+      <p class="p">An <dfn class="term">XML Catalog</dfn> can be used to map an <code class="ph codeph">xs:import</code> or <code class="ph codeph">xs:include</code> XML Schema reference to a local copy of the schema.</p>
+      <div class="p">Considering the following <code class="ph codeph">xs:include</code> inside an XML Schema:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;xs:include</strong> <span class="hl-attribute">schemaLocation</span>=<span class="hl-value">"someFolder/common.xsd"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+      <div class="p">The reference can be resolved to a local schema file with an XML catalog entry like this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;uriSuffix</strong> <span class="hl-attribute">uriSuffix</span>=<span class="hl-value">"someFolder/common.xsd"</span> <span class="hl-attribute">uri</span>=<span class="hl-value">"relative/path/to/common.xsd"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/resolve-xml-schema-location-through-xml-catalogs.html">Resolving Schema Locations Through XML Catalogs</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-documents.html">Editing XML Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/create-DTD-from-learned-document-structure.html">Create a DTD from Learn Document Structure Option</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/resolve-xml-schema-location-through-xml-catalogs.html">Resolving Schema Locations Through XML Catalogs</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="preferences-xml-catalog.html#preferences-xml-catalog">XML Catalog Preferences</a></li></ul></div></nav>
+</article></main></body></html>

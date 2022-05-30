@@ -1,0 +1,576 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Markdown documents,Rules and specifications"><meta name="keywords" content="Markdown documents, Rules and specifications"><meta name="DC.relation" scheme="URI" content="../topics/editing-markdown.html"><meta name="DC.relation" scheme="URI" content="../topics/markdown-dita-2.html"><meta name="DC.relation" scheme="URI" content="../topics/zulu.html"><meta name="DC.relation" scheme="URI" content="http://daringfireball.net/projects/markdown/syntax"><meta name="DC.relation" scheme="URI" content="https://help.github.com/categories/writing-on-github/"><meta name="DC.relation" scheme="URI" content="markdown-editor.html#markdown-editor"><meta name="DC.relation" scheme="URI" content="markdown-actions.html#markdown-actions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="markdown-rules"><title>Markdown Editor Syntax Rules and Specifications</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="markdown-rules"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Markdown Editor Syntax Rules and Specifications</h1>
+  
+  <div class="body">
+    <p class="p">The Markdown editor in <span class="ph">Oxygen XML Editor</span> uses rules that were integrated from the most
+      common set of <a class="xref" href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external noopener">default Markdown syntax rules</a> along with many of the <a class="xref" href="https://help.github.com/categories/writing-on-github/" target="_blank" rel="external noopener">GitHub Flavored Markdown rules</a>.</p>
+    <p class="p">This topic lists the <span class="ph">Oxygen XML Editor</span> implementation of the most commonly used syntax
+      rules.</p>
+    <section class="section" id="markdown-rules__headers"><h2 class="title sectiontitle">Headers</h2>
+      
+      <p class="p">The Markdown editor supports two styles of headers, <em class="ph i">Setext</em> and <em class="ph i">Atx</em>.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li" id="markdown-rules__setext-header">
+            <p class="p"><u class="ph u"><strong class="ph b">Setext Style</strong></u></p>
+            <p class="p">Setext-style headers are underlined using equal signs (for first-level headers) and
+              dashes (for second-level headers). Any number of equal signs or dashes will result in
+              the same output.</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Setext Style
+              Headers</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-text">First-Level Header (H1)
+========
+
+Second-Level Header (H2)
+------------</pre></div>
+          </li>
+          <li class="li" id="markdown-rules__atx-header">
+            <p class="p"><u class="ph u"><strong class="ph b">Atx Style</strong></u></p>
+            <p class="p">Atx-style headers use 1-6 hash characters at the start of the line, corresponding to
+              header levels 1-6. Optionally, you may close atx-style headers. This is purely
+              cosmetic and the closing hashes do not need to match the number of hashes used to open
+              the header. It is the number of opening hashes that determines the header level.</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Atx Style
+              Headers</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"># H1 text #
+## H2 text 
+### H3 text ###### 
+#### H4 text
+##### H5 text ###
+###### H6 text</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__horizontal_rules"><h2 class="title sectiontitle">Horizontal Rules (for HMTL output only)</h2>
+      
+      <p class="p">You can produce a horizontal rule tag (<code class="keyword markupname xmlelement">&lt;hr&gt;</code>) by placing three or more
+        hyphens, asterisks, or underscores on a line by themselves (they also need to be preceded
+        and followed by a blank line). Optionally, they can be separated by spaces.</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Horizontal
+        Rules</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">
+* * *
+
+*****
+
+---------------------------------------
+
+_ _ _ _
+</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__paragraphs_and_line_breaks"><h2 class="title sectiontitle">Paragraphs and Line Breaks</h2>
+      
+      <div class="p">A paragraph is simply one or more consecutive lines of text, separated by one or more blank
+        lines. The text at the beginning of a paragraph should not be indented with spaces or tabs.
+        To create a new paragraph, simply insert a blank line in between them.<div class="note important note_important"><span class="note__title">Important:</span> When converting to HTML, if you break a paragraph on multiple lines (without a blank line
+          in between them), it will create a break tag (<code class="keyword markupname xmlelement">&lt;br&gt;</code>. When converting
+          to DITA, the text is kept in a single paragraph in this case and a blank line is required
+          to break a paragraph. This behavior differs slightly from the default Markdown
+          rules.</div></div>
+      <div class="p"><strong class="ph b"><u class="ph u">Example:
+        Paragraphs</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">This is a paragraph that contains
+two lines of text. (In HTML, a break tag is created in between the two lines)
+
+This is a new paragraph.</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__styling_text"><h2 class="title sectiontitle">Styling Text</h2>
+      
+      <div class="p">The Markdown editor supports some syntax rules for styling text (such as bold, italic, or strikethrough).<ul class="ul">
+          <li class="li" id="markdown-rules__italic">
+            <p class="p"><u class="ph u"><strong class="ph b">Italic (Emphasis)</strong></u></p>
+            <div class="p">Text wrapped with one asterisk or underscore produces an italic (emphasis)
+              tag.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">*italic*
+_italic_</pre></div>
+          </li>
+          <li class="li" id="markdown-rules__bold">
+            <p class="p"><u class="ph u"><strong class="ph b">Bold (Strong)</strong></u></p>
+            <div class="p">Text wrapped with two asterisks or underscores produces a bold (strong)
+              tag.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">**bold**
+__bold__</pre></div>
+          </li>
+          <li class="li" id="markdown-rules__strikethrough">
+            <p class="p"><u class="ph u"><strong class="ph b">Strikethrough</strong></u></p>
+            <div class="p">In HTML only, text wrapped with two tildes (<kbd class="ph userinput">~~</kbd>) produces a
+              strikethrough
+              tag.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">~~strikethrough~~</pre></div>
+          </li>
+        </ul><div class="note tip note_tip"><span class="note__title">Tip:</span> You can also combine these styling rules. For example,
+            <kbd class="ph userinput">**BoldText _ItalicText_ BoldText**</kbd> would produce italicized text
+          within bold text. Also, if you surround an asterisk or underscore with spaces, it will be
+          treated as a literal asterisk or underscore. To produce a literal asterisk or underscore
+          at a position where it would otherwise be used as a styling delimiter, you can escape it
+          with a backslash (for example, <kbd class="ph userinput">\*literal asterisks\*</kbd>.</div></div>
+    </section>
+    <section class="section" id="markdown-rules__links"><h2 class="title sectiontitle">Links</h2>
+      
+      <p class="p">The Markdown editor supports two types of links, <em class="ph i">inline</em> and <em class="ph i">reference</em>. In
+        both cases, it begins with link text that is delimited by [square brackets].</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Inline Links</strong></u></p>
+            <p class="p">To create an inline link, use a set of regular parentheses immediately after the
+              closing square bracket for the link text. Inside the parentheses, put the URL where
+              you want the link to point, and optionally a title surrounded in quotes. Also, if you
+              reference a local resource on the same server, you can use relative paths.</p>
+            <p class="p"><strong class="ph b"><u class="ph u">Examples: Inline Link</u></strong></p>
+            <div class="p">With a
+              title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with [example link text](http://www.example.com/path "Title") inline link and title.</pre></div>
+            <div class="p">Without a
+              title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with [example link text](http://www.example.com/path) inline link without a title.</pre></div>
+            <div class="p">Relative
+              path:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with [example link text](/relative_path/) inline link with relative path.</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Reference Links</strong></u></p>
+            <div class="p">Reference-type links use a second set of square brackets that include a label (link
+              identifier) to reference the target for the link (link identifier may consist of
+              letters, numbers, spaces, and punctuation and it is not case-sensitive). You can
+              optionally use a space to separate the sets of brackets. The labels (link identifiers)
+              are only used for creating the links and do not appear in the
+              output.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with [link text1][id 1] a reference-type link and [link text2][id_2] another one.</pre></div>
+            <div class="p">Then, somewhere in the document, you need to define your link label on a line by
+              itself. The link identifier must be within square brackets followed by a colon, then
+              after one or more spaces the URL for the link. Optionally this can be followed by a
+              title enclosed in single quotes, double quotes, or parentheses. Also, the link may
+              optionally be enclosed in angle brackets (<kbd class="ph userinput">&lt;
+              &gt;</kbd>).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">[id 1]: http://example1.com/ "Optional Title"
+[id_2]: &lt;http://example2.com/&gt; "Optional Title2"</pre></div>
+            <div class="p">Other notes about Reference Links:<ul class="ul">
+                <li class="li">You can put the title on a second line and use extra spaces or tabs for padding.
+                  This is useful for aesthetics when the URL is
+                  long.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">[id]: http://example.com/long/path/to/resource/here
+    "Optional Title Here"</pre></li>
+                <li class="li">
+                  <div class="p">The label (link identifier) can be missing, in which case the link text (in
+                    square brackets) is used as the
+                    name.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><strong class="hl-keyword">[My Link][]</strong></pre></div>
+                  <div class="p">and then defined
+                    as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">[My Link]: http://example.com/</pre></div>
+                </li>
+              </ul></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__automatic_links"><h2 class="title sectiontitle">Automatic Links</h2>
+      
+      <div class="p">The Markdown editor supports a shortcut style for creating automatic links for URLs and
+        email addresses. You simply surround the URL or email address with angle
+          brackets.<div class="note note note_note"><span class="note__title">Note:</span> These automatic links only work properly in HTML conversions. The
+            <em class="ph i">Preview</em> pane may display them properly in the DITA tab, but the DITA output will
+          not properly recognize the format.</div></div>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">URLs</strong></u></p>
+            <div class="p">By surrounding a URL with angle brackets, you can show the actual text of the URL
+              while also making it clickable in the
+              output.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&lt;http://example.com/&gt;</pre></div>
+            <div class="p">For example, in HTML it is converted
+              to:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">&lt;a href</span>="http://example.com/"&gt;http://example.com/&lt;/a&gt;</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Email Addresses</strong></u></p>
+            <div class="p">Automatic links for email addresses work similarly, except that Markdown will also
+              perform a bit of randomized decimal and hex entity-encoding to help obscure your
+              address from address-harvesting
+              <em class="ph i">spambots</em>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&lt;address@example.com&gt;</pre></div>
+            <div class="p">In HTML, it is converted to something
+              like:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">&lt;a href</span>="&amp;#x6D<em class="hl-comment">;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;</em>
+&amp;#115<em class="hl-comment">;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;</em>
+&amp;#109<em class="hl-comment">;"&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;</em>
+&amp;#109<em class="hl-comment">;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;</em></pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__images"><h2 class="title sectiontitle">Images</h2>
+      
+      <p class="p">The Markdown editor uses an image syntax that is intended to resemble the syntax for two
+        types of links (<em class="ph i">inline</em> and <em class="ph i">reference</em>). In both cases, the syntax for images
+        begins with an exclamation mark, followed by <code class="ph codeph">Alt</code> attribute text surrounded
+        by square brackets, and then followed by a set of parentheses that contain the URL or path
+        to the image.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Inline Images</strong></u></p>
+            <p class="p">For inline images, use a set of regular parentheses immediately after the closing
+              square bracket for the <code class="ph codeph">Alt</code> attribute text. Inside the parentheses,
+              put the URL or path of the image, and optionally a title surrounded in quotes.</p>
+            <p class="p"><strong class="ph b"><u class="ph u">Examples: Inline Images</u></strong></p>
+            <div class="p">With a
+              title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with ![Alt text](/path/to/img.jpg "Optional title") inline image and a title.</pre></div>
+            <div class="p">Without a
+              title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with ![Alt text](/path/to/img.jpg) inline link without a title.</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Reference Images</strong></u></p>
+            <div class="p">For reference-type images, use a second set of square brackets that include a label
+              (image identifier) to identify the image (it may consist of letters, numbers, spaces,
+              and punctuation and it is not case-sensitive). You can optionally use a space to
+              separate the sets of brackets. The labels (image identifiers) do not appear in the
+              output.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Text with ![Alt text1][id] a reference-type image.</pre></div>
+            <div class="p">Then, somewhere in the document, you need to define your image label on a line by
+              itself. The image identifier must be within square brackets followed by a colon, then
+              after one or more spaces the URL or path of the image. Optionally this can be followed
+              by a title enclosed in single quotes, double quotes, or
+              parentheses.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">[id]: url/to/image "Optional Title"</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__blockquotes"><h2 class="title sectiontitle">Blockquotes</h2>
+      
+      <p class="p">The Markdown editor uses email-style greater than characters (<kbd class="ph userinput">&gt;</kbd>) for
+          <em class="ph i">blockquotes</em>. You only need to put the <kbd class="ph userinput">&gt;</kbd> before the first
+        line of a hard-wrapped paragraph, but it looks better (and is clearer) if you put a
+          <kbd class="ph userinput">&gt;</kbd> before every line.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li"><strong class="ph b"><u class="ph u">Example:
+            Blockquotes</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt; 
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.</pre></li>
+          <li class="li">
+            <p class="p"><strong class="ph b"><u class="ph u">Example: Nested Blockquotes</u></strong></p>
+            <div class="p"><em class="ph i">Blockquotes</em> can be nested by adding additional levels of
+                <kbd class="ph userinput">&gt;</kbd>
+              characters.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><strong class="ph b"><u class="ph u">Example: Blockquotes with Other Markdown Elements</u></strong></p>
+            <div class="p"><em class="ph i">Blockquotes</em> can also contain other Markdown elements (such as headers, lists,
+              and code
+              blocks).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&gt; ## This is a header.
+&gt; 
+&gt; 1.   This is the first list item.
+&gt; 2.   This is the second list item.
+&gt; 
+&gt; Here's some example code:
+&gt; 
+&gt;     return shell_exec("echo $input | $markdown_script")</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__quoting_code_inline_and_code_blocks"><h2 class="title sectiontitle">Quoting Code (Inline and Code Blocks)</h2>
+      
+      <p class="p">The Markdown editor supports quoting code or commands inline within a sentence or in
+        distinct blocks.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Inline</strong></u></p>
+            <p class="p">You can quote or emphasize code within a sentence (inline) with single backticks
+                (<kbd class="ph userinput">`</kbd>). The text within the backticks will not be formatted.</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Inline Code
+              Emphasis</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">This is a normal sentence with a `code` in the middle. </pre></div>
+          </li>
+          <li class="li" id="markdown-rules__code-blocks">
+            <p class="p"><u class="ph u"><strong class="ph b">Code Blocks</strong></u></p>
+            <p class="p">You can format code or text into its own distinct block by inserting a blank line
+              before and after the content and using at least 4 spaces (or 1 tab), or by using
+              opening and closing triple backticks (<kbd class="ph userinput">```</kbd>) on separate
+              lines.</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Code
+              Block</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">This is a normal paragraph:
+
+    This is a code block
+
+This is a normal paragraph:
+
+```
+This is a code block
+```</pre></div>
+            <p class="p">One level of indentation is removed from each line of a codeblock and it continues
+              until it reaches a line that is not indented (or until the closing backticks).</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Code Block with
+              Indentation</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">    tell application "something"
+        beep
+    end tell</pre></div>
+            <div class="p">For example, in HTML the result would look like
+              this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&lt;pre&gt;&lt;code&gt;tell application "Foo"
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;</pre></div>
+            <p class="p">You can also add an optional language identifier to enable syntax highlighting in
+              your code blocks. The <span class="ph">Oxygen XML Editor</span> Markdown editor supports the following
+              languages: <em class="ph i">Java</em>, <em class="ph i">JavaScript</em>, <em class="ph i">CSS</em>, and <em class="ph i">Python</em>.</p>
+            <div class="p"><strong class="ph b"><u class="ph u">Example: Syntax Highlighting in Code
+              Block</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">```css
+<span class="hl-attribute">input[type</span>="submit"] {
+    color: white<em class="hl-comment">;</em>
+    font-weight: bold<em class="hl-comment">;</em>
+```</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__inline_xhtml"><h2 class="title sectiontitle">Inline XHTML (for HMTL output only)</h2>
+      
+      <p class="p">The Markdown editor supports writing inline XHTML. Since Markdown is just a writing format,
+        it requires a conversion for publishing purposes. If you are using the HTML conversion, for
+        any markup that is not covered by Markdown syntax, you can simply use XHTML syntax.</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Inline
+        XHTML</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Col 1&lt;/td&gt;
+        &lt;td&gt;Col 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__lists"><h2 class="title sectiontitle">Lists</h2>
+      
+      <p class="p">The Markdown editor supports ordered and unordered lists. You can also insert <a class="xref" href="markdown-rules.html#markdown-rules__blockquotes"><dfn class="term">blockquotes</dfn></a> and <a class="xref" href="markdown-rules.html#markdown-rules__quoting_code_inline_and_code_blocks"><dfn class="term">code
+            blocks</dfn></a> inside list items. List markers typically start at the left margin,
+        but may be indented by up to three spaces.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li" id="markdown-rules__unordered-list">
+            <p class="p"><u class="ph u"><strong class="ph b">Unordered Lists</strong></u></p>
+            <div class="p">For unordered lists, you can use asterisks (<kbd class="ph userinput">*</kbd>), plus signs
+                (<kbd class="ph userinput">+</kbd>), and hyphens (<kbd class="ph userinput">-</kbd>)
+              interchangeably.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">* List item 1
++ List item 2
+- List item 3</pre></div>
+          </li>
+          <li class="li" id="markdown-rules__ordered-list">
+            <p class="p"><u class="ph u"><strong class="ph b">Ordered Lists</strong></u></p>
+            <div class="p">For ordered lists, use numbers followed by periods. The actual numbers you use have
+              no effect on the output. It simply converts them to list items within an ordered list
+              and the actual number of list items will determine the numbers in the
+              output.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. List item 1
+8. List item 2
+5. List item 3</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Nested Lists</strong></u></p>
+            <div class="p">You can create nested lists by indenting lines by three
+              spaces.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1. Ordered list item 1
+   1. Nested ordered list item 1
+   2. Nested ordered list item 2
+      * 2nd level nested unordered list item 1
+      * 2nd level nested unordered list item 2
+         * 3rd level nested unordered list item 1
+2. Ordered list item 2  </pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Paragraphs Inside Lists</strong></u></p>
+            <div class="p">If list items are separated by blank lines, Markdown will wrap the items in a
+              paragraph in the
+              output.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">* List item 1
+
+* List item 2</pre></div>
+            <div class="p">For both DITA and HTML output, this would result
+              in:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;List item 1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;List item 2&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Multiple Paragraphs Inside Lists</strong></u></p>
+            <div class="p">List items may consist of multiple paragraphs. Each subsequent paragraph in a list
+              item must be indented by either 4 spaces or one tab. Optionally, you can also indent
+              each line of a paragraph to make it look
+              nicer.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Blockquotes Inside Lists</strong></u></p>
+            <div class="p">To put a <em class="ph i">blockquote</em> within a list item, the blockquote delimiters
+                (<kbd class="ph userinput">&gt;</kbd>) need to be indented so that it is under the first letter
+              of the text after the list item
+              marker.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">*   A list item with a blockquote:
+    &gt; This is a blockquote
+    &gt; inside a list item.</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Code Blocks Inside Lists</strong></u></p>
+            <div class="p">To put a code block within a list item, insert an empty line in between the list item
+              and the code block, and the code block needs to be indented twice (with 8 spaces or 2
+              tabs), or if you are using the triple backticks method, the opening triple backtick
+              needs to be indented with 4 spaces or 1
+              tab.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">*   A list item with a code block:
+
+        This is a code block inside a list item
+
+    ```
+    This is a code block inside a list item using the backticks method
+    ```</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__task_lists"><h2 class="title sectiontitle">Task Lists</h2>
+      
+      <p class="p">You can create task lists by prefacing list items with a hyphen followed by a space
+        followed by square brackets (<kbd class="ph userinput">- [ ]</kbd>). To mark a task as complete, use
+          <kbd class="ph userinput">- [x]</kbd>.</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Task
+        Lists</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">- [ ] Unfinished task 1
+- [x] Finished task 2</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__definition_lists"><h2 class="title sectiontitle">Definition Lists</h2>
+      
+      <p class="p">You can create definition lists by using a colon plus a space for each list item.</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Example: Definition
+        Lists</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Term 1
+: Definition A
+: Definition B</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__tables"><h2 class="title sectiontitle">Tables</h2>
+      
+      <p class="p">You can create tables in the Markdown editor by using pipes (<kbd class="ph userinput">|</kbd>) and
+        hyphens (<kbd class="ph userinput">-</kbd>).</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Creating a Table</strong></u></p>
+            <div class="p">Pipes are used to separate each column, while hyphens are used to create column
+              headers. The pipes on either end of the table are optional. Cells can vary in width
+              and do not need to be perfectly aligned within columns, but there must be at least
+              three hyphens in each column of the header
+              row.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">| First Header  | Second Header |
+| ------------- | ------------- |
+| Column 1 Row 1 Cell  | Column 2 Row 1 Cell  |
+| Column 1 Row 2 Cell  | Column 2 Row 2 Cell  |</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Formatting Rules in Table Cells</strong></u></p>
+            <div class="p">You can use formatting rules inside the cells of the table (such as links, inline
+              code blocks, and text
+              styling).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">| First Header  | Second Header |
+| --- | --- |
+| `inline code`  | Content with **bold text** inside cell  |</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Aligning Text in Tables</strong></u></p>
+            <div class="p">You can align text to the left, right, or center of a column by including colons
+                (<kbd class="ph userinput">:</kbd>) to the left, right, or on both sides of the hyphens
+              within the header
+              row.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| Content Cell | Content Cell   | Content Cell  |</pre></div>
+          </li>
+          <li class="li">
+            <p class="p"><u class="ph u"><strong class="ph b">Joining Cells (Span a Cell Over Multiple Columns)</strong></u></p>
+            <div class="p">You can join cells horizontally (span a cell over multiple columns) by using multiple
+              consecutive pipe characters (<kbd class="ph userinput">|</kbd>) to the right of the particular
+              cell. The number of consecutive pipes indicate the number of columns the cell will
+              span (<kbd class="ph userinput">||</kbd> for two, <kbd class="ph userinput">|||</kbd> for three, and so
+              on).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">| First Header | Second Header | Third Header | Fourth Header |
+| ------------ | ------------- | ------------ | ------------- |
+| Content Cell | *Cell Span Over 3 Columns* |||</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__emoji"><h2 class="title sectiontitle">Emoji</h2>
+      
+      <p class="p">You can add <em class="ph i">emoji</em> in the Markdown editor by surrounding the EMOJICODE with colons
+          (<kbd class="ph userinput">:EMOJICODE:</kbd>).</p>
+      <div class="p"><strong class="ph b"><u class="ph u">Example:
+        Emoji</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">:smile:
+:laughing:</pre></div>
+      <p class="p">The resulting emoticons will appear in the output, but they are not displayed in the
+          <em class="ph i">Preview</em> pane.</p>
+      <p class="p">For a full list of available emoji codes, see <a class="xref" href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank" rel="external noopener">Emoji Cheat Sheet</a>.</p>
+    </section>
+    <section class="section" id="markdown-rules__backslash_escapes"><h2 class="title sectiontitle">Backslash Escapes</h2>
+      
+      <div class="p">You can ignore Markdown formatting by using backslash escapes (<kbd class="ph userinput">\</kbd>) to
+        generate literal characters that would otherwise have special meaning in the Markdown
+        syntax. For example, if you want to surround a word with literal asterisks (instead of an
+        italic or emphasis tag), you can use backslashes to escape the
+        asterisks.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">\*literal asterisks\*</pre></div>
+      <div class="p">The Markdown editor provides backslash escapes for the following
+        characters:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">\   backslash
+`   backtick
+*   asterisk
+_   underscore
+{}  curly braces
+[]  square brackets
+()  parentheses
+#   hash mark
++   plus sign
+-   minus sign (hyphen)
+.   dot
+!   exclamation mark</pre></div>
+    </section>
+    <section class="section" id="markdown-rules__automatic_escaping_for_special_characters"><h2 class="title sectiontitle">Automatic Escaping for Special Characters</h2>
+      
+      <p class="p">The Markdown editor includes support for automatically escaping special characters such as
+        angle brackets (<kbd class="ph userinput">&lt; &gt;</kbd>) and ampersands
+        (<kbd class="ph userinput">&amp;</kbd>). If you want to use them as literal characters, you must
+        escape them as entities, as in the table below. The exception to this is in HTML output, if
+        the special characters for a valid tag (for example, <code class="keyword markupname xmlelement">&lt;b&gt;</code>), they are
+        treated as literal characters and escaping is not necessary.</p>
+      <div class="p">
+        <table class="table frame-all"><caption></caption><colgroup><col style="width:108.75pt"><col style="width:105.75pt"></colgroup><thead class="thead">
+              <tr class="row">
+                <th class="entry align-center colsep-1 rowsep-1" id="markdown-rules__automatic_escaping_for_special_characters__entry__1">Literal Character</th>
+                <th class="entry align-center colsep-1 rowsep-1" id="markdown-rules__automatic_escaping_for_special_characters__entry__2">Escaping Code</th>
+              </tr>
+            </thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="ph b">&lt;</strong></td>
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="ph b">&amp;lt;</strong></td>
+              </tr>
+              <tr class="row">
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="ph b">&gt;</strong></td>
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="ph b">&amp;gt;</strong></td>
+              </tr>
+              <tr class="row">
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="ph b">&amp;</strong></td>
+                <td class="entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="ph b">&amp;amp;</strong></td>
+              </tr>
+            </tbody></table>
+      </div>
+    </section>
+    <section class="section" id="markdown-rules__footnotes"><h2 class="title sectiontitle">Footnotes</h2>
+      
+      <p class="p">The Markdown editor in <span class="ph">Oxygen XML Editor</span> supports normal and inline footnotes. The
+        following examples show the required syntax.</p>
+      <div class="p">
+        <ul class="ul">
+          <li class="li"><strong class="ph b"><u class="ph u">Example: Normal
+            Footnote</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Here is a footnote reference,[^1]
+
+[^1]: Here is the footnote.</pre></li>
+          <li class="li"><strong class="ph b"><u class="ph u">Example: Normal Footnote with Multiple
+            Blocks</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Here is a footnote reference,[^longnote]
+
+[^longnote]: Here is the footnote with multiple blocks.
+
+    Subsequent paragraphs are indented with 4 spaces or 1 tab to show that they
+belong to the previous footnote.</pre></li>
+          <li class="li"><strong class="ph b"><u class="ph u">Example: Inline
+            Footnote</u></strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">Here is an inline note.^[Inlines notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]</pre></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-markdown.html">Editing Markdown Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/markdown-dita-2.html">Working with Markdown Documents in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/zulu.html">zulu</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external noopener">Default Markdown Syntax</a></li><li class="linklist"><a class="link" href="https://help.github.com/categories/writing-on-github/" target="_blank" rel="external noopener">GitHub Flavored Markdown Rules</a></li><li class="linklist"><a class="link" href="markdown-editor.html#markdown-editor">Markdown Editor</a></li><li class="linklist"><a class="link" href="markdown-actions.html#markdown-actions">Actions Available in the Markdown Editor</a></li></ul></div></nav>
+</article></main></body></html>

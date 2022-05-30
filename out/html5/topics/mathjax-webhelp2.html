@@ -1,0 +1,22 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="MathML equations in WebHelp output"><meta name="keywords" content="MathML equations in WebHelp output"><meta name="DC.relation" scheme="URI" content="../topics/wh-classic-media-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/copy_resources.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-classic-search-customizations.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="mathjax-webhelp2"><title>How to Add MathML Equations in WebHelp Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="mathjax-webhelp2"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Add MathML Equations in WebHelp Output</h1>
+  
+  <div class="body">
+    <p class="p">Currently, only <strong class="ph b">Firefox</strong> can render <strong class="ph b">MathML</strong> equations embedded in the <strong class="ph b">HTML</strong>
+      code. <a class="xref" href="http://www.mathjax.org/" target="_blank" rel="external noopener">MathJax</a> is a
+      solution to properly view MathML equations embedded in <strong class="ph b">HTML</strong> content in a variety of
+      browsers.</p>
+    <p class="p">If you have DocBook content that has embedded <strong class="ph b">MathML</strong> equations and you want to
+      properly view the equations in published HTML output types (such as WebHelp), you need to add
+      a reference to the MathJax script in the <strong class="ph b">head</strong> element of all HTML files that have the
+      equation embedded.</p>
+    <div class="p">For example:
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-bourne">&lt;script <strong class="hl-keyword">type</strong>=<span class="hl-string">"text/javascript"</span>
+  src=<span class="hl-string">"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;
+&lt;/script&gt;</pre></div>
+    <p class="p"><strong class="ph b">Result:</strong> The equation should now be properly rendered in the WebHelp output for other
+      browsers.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/wh-classic-media-resources.html">Adding Graphics and Media Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/copy_resources.html">How to Copy Additional Resources to Output Directory</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wh-classic-search-customizations.html">Searching the Output</a></div></div></nav></article></main></body></html>

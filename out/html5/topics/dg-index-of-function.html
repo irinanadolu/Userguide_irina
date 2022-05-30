@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function is used to define searches."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_indexof"><meta name="keywords" content="CSS extensions, Custom functions, oxy_indexof"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-getsometext-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxy-label-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-index-of-function"><title>Indexing: oxy_indexof() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-index-of-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Indexing: oxy_indexof() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function is used to define searches.</p>
+    <p class="p">The <code class="ph codeph">oxy_indexof()</code> function has two signatures:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Syntax 1:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_indexof</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>text</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>toFind</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <p class="p">Returns the index within <strong class="ph b"><strong class="ph b">text</strong></strong> string of the first occurrence of the
+                  <strong class="ph b"><strong class="ph b">toFind</strong></strong> substring. </p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><strong class="ph b">text</strong></dt>
+                  <dd class="dd">Text to search in.</dd>
+                
+                
+                  <dt class="dt dlterm"><strong class="ph b">toFind</strong></dt>
+                  <dd class="dd">The searched substring.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Syntax 2:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_indexof</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>text</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>toFind</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>fromOffset</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <p class="p">Returns the index within <strong class="ph b"><strong class="ph b">text</strong></strong> string of the first occurrence of the
+                  <strong class="ph b"><strong class="ph b">toFind</strong></strong> substring. The search starts from <strong class="ph b"><strong class="ph b">fromOffset</strong></strong>
+              index.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><strong class="ph b">text</strong></dt>
+                  <dd class="dd">Text to search in.</dd>
+                
+                
+                  <dt class="dt dlterm"><strong class="ph b">toFind</strong></dt>
+                  <dd class="dd">The searched substring.</dd>
+                
+                
+                  <dt class="dt dlterm"><strong class="ph b">fromOffset</strong></dt>
+                  <dd class="dd">The index to start the search from.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">oxy_indexof</em> Function</u></strong></p>
+    <p class="p"><code class="ph codeph">oxy_indexof('abcd', 'bc')</code> returns 1.</p>
+    <p class="p"><code class="ph codeph">oxy_indexof('abcdbc', 'bc', 2)</code> returns 4.</p>
+    <div class="p">If you only want to display part of an attribute value, for instance the part that comes
+      before an <strong class="ph b">Appendix</strong>
+      string:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[longdesc]{
+ <strong class="hl-keyword">content</strong>: oxy_substring(attr(longdesc), <span class="hl-number">0</span>, 
+          oxy_indexof(attr(longdesc), <span class="hl-string">"Appendix"</span>));
+}</pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-getsometext-function.html" title="This function allows you to truncate a long string and to set a maximum number of displayed characters.">Get Text: oxy_getSomeText(text, length) Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-oxy-label-function.html" title="This function can be used in conjunction with the CSS content property to change the style of generated text.">Label: oxy_label() Function</a></div></div></nav></article></main></body></html>

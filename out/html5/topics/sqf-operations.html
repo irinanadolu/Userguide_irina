@@ -1,0 +1,208 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,SQF Operations,SQF,Operations,Schematron Quick Fix Operations,Add,Delete,Replace,String Replace"><meta name="keywords" content="Schematron Quick Fixes, SQF Operations, SQF, Operations, Schematron Quick Fix Operations, Add, Delete, Replace, String Replace"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/user-entry-sqf-operation.html"><meta name="DC.relation" scheme="URI" content="user-entry-sqf-operation.html#user-entry-sqf-operation"><meta name="DC.relation" scheme="URI" content="use-when-sqf-condition.html#use-when-sqf-condition"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sqf-operations"><title>Basic Schematron Quick Fix Operations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sqf-operations"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Basic Schematron Quick Fix Operations</h1>
+  
+  <div class="body">
+    <p class="p">There are four basic operations that can be executed in a Schematron <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fix</dfn></a>: <strong class="ph b">Add</strong>, <strong class="ph b">Delete</strong>,
+        <strong class="ph b">Replace</strong>, and <strong class="ph b">String Replace</strong>.</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><strong class="ph b">Add</strong></dt>
+          <dd class="dd"><p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element allows you to add a node to the instance. An
+                <dfn class="term">anchor</dfn> node is required to select the position for the new node. The
+                <dfn class="term">anchor</dfn> node can be selected by the <code class="keyword markupname xmlatt">@match</code> attribute.
+              Otherwise, it is selected by the <code class="keyword markupname xmlatt">@context</code> attribute of the rule.</p>
+            <p class="p">The <code class="keyword markupname xmlatt">@target</code> attribute defines the name of the node to be added. It is
+              required if the value of the <code class="keyword markupname xmlatt">@node-type</code> attribute is set to anything
+              other than "comment".</p>
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element has a <code class="keyword markupname xmlatt">@position</code>
+              attribute and it determines the position relative to the <dfn class="term">anchor</dfn> node. The
+              new node could be specified as the first child of the <dfn class="term">anchor</dfn> node, the
+              last child of the <dfn class="term">anchor</dfn> node, before the <dfn class="term">anchor</dfn> node, or
+              after the <dfn class="term">anchor</dfn> node (<code class="ph codeph">first-child</code> is the default
+              value). If you want to add an attribute to the <dfn class="term">anchor</dfn> node, do not use
+              the <code class="keyword markupname xmlatt">@position</code> attribute.</p>
+            <div class="p">
+              <div class="note note note_note"><span class="note__title">Note:</span> If you insert an element and its content is empty, <span class="ph">Oxygen XML Editor</span> will
+                insert the required element content.</div>
+            </div>
+            <div class="p"><strong class="ph b">An Example of the <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code>
+              Element:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;schema</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span>
+   <span class="hl-attribute">xmlns:sqf</span>=<span class="hl-value">"http://www.schematron-quickfix.com/validator/process"</span>
+ <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;pattern&gt;</strong>
+     <strong class="hl-tag">&lt;rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"head"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;assert</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"title"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"addTitle"</span><strong class="hl-tag">&gt;</strong>title element missing.<strong class="hl-tag">&lt;/assert&gt;</strong>
+        <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"addTitle"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:title&gt;</strong>Insert title element.<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+            <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+           <strong class="hl-tag">&lt;sqf:add</strong> <span class="hl-attribute">target</span>=<span class="hl-value">"title"</span> <span class="hl-attribute">node-type</span>=<span class="hl-value">"element"</span><strong class="hl-tag">&gt;</strong>Title text<strong class="hl-tag">&lt;/sqf:add&gt;</strong>
+        <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+     <strong class="hl-tag">&lt;/rule&gt;</strong>
+   <strong class="hl-tag">&lt;/pattern&gt;</strong>
+<strong class="hl-tag">&lt;/schema&gt;</strong></pre></div>
+            <div class="p"><strong class="ph b">Specific Add Operations:</strong><ul class="ul" id="sqf-operations__ul_a53_5nf_3r">
+                <li class="li"><strong class="ph b">Insert Element</strong> - To insert an element, use the
+                    <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element, set the value of the
+                    <code class="keyword markupname xmlatt">@node-type</code> attribute as "element", and specify the element <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> with the
+                    <code class="keyword markupname xmlatt">@target</code> attribute. If the element has a prefix, it must be
+                  defined in the Schematron using a namespace declaration (<code class="ph codeph">&lt;ns
+                    uri="namespace" prefix="prefix"/&gt;</code>).</li>
+                <li class="li"><strong class="ph b">Insert Attribute</strong> - To insert an attribute, use the
+                    <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element, set the value of the
+                    <code class="keyword markupname xmlatt">@node-type</code> attribute as "attribute", and specify the attribute
+                    <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> with the
+                    <code class="keyword markupname xmlatt">@target</code> attribute. If the attribute has a prefix, it must be
+                  defined in the Schematron using a namespace declaration (<code class="ph codeph">&lt;ns
+                    uri="namespace" prefix="prefix"/&gt;</code>).</li>
+                <li class="li"><strong class="ph b">Insert Fragment</strong> - If the <code class="keyword markupname xmlatt">@node-type</code> attribute is not
+                  specified, the <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element will insert an XML
+                  fragment. The XML fragment must be well formed. You can specify the fragment in
+                  the <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element or by using the
+                    <code class="keyword markupname xmlatt">@select</code> attribute. </li>
+                <li class="li"><strong class="ph b">Insert Comment</strong> - To insert a comment, use the
+                    <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element and set the value of the
+                    <code class="keyword markupname xmlatt">@node-type</code> attribute as "comment".</li>
+                <li class="li"><strong class="ph b">Insert Processing Instruction</strong> - To insert a processing instruction, use
+                  the <code class="keyword markupname xmlelement">&lt;sqf:add&gt;</code> element, set the value of the
+                    <code class="keyword markupname xmlatt">@node-type</code> attribute as "pi" or "processing-instruction", and
+                  specify the name of the processing instruction in the <code class="keyword markupname xmlatt">@target</code>
+                  attribute.</li>
+              </ul></div></dd>
+        
+        
+          <dt class="dt dlterm"><strong class="ph b">Delete</strong></dt>
+          <dd class="dd">
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:delete&gt;</code> element allows you to remove any type of node
+              (such as elements, attributes, text, comments, or processing instructions). To specify
+              nodes for deletion, the <code class="keyword markupname xmlelement">&lt;sqf:delete&gt;</code> element can include a
+                <code class="keyword markupname xmlatt">@match</code> attribute that is an XPath expression (the default value is
+                <code class="ph codeph">.</code>). If the <code class="keyword markupname xmlatt">@match</code> attribute is not included, it
+              deletes the context node of the Schematron rule.</p>
+            <div class="p"><strong class="ph b">An Example of the <code class="keyword markupname xmlelement">&lt;sqf:delete&gt;</code>
+              Element:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;schema</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span> <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span> 
+    <span class="hl-attribute">xmlns:sqf</span>=<span class="hl-value">"http://www.schematron-quickfix.com/validator/process"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;pattern&gt;</strong>
+        <strong class="hl-tag">&lt;rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"*[@xml:lang]"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;report</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"@xml:lang"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"remove_lang"</span><strong class="hl-tag">&gt;</strong>
+                The attribute "xml:lang" is forbidden.<strong class="hl-tag">&lt;/report&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"remove_lang"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+                    <strong class="hl-tag">&lt;sqf:title&gt;</strong>Remove "xml:lang" attribute<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+                <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:delete</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"@xml:lang"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+        <strong class="hl-tag">&lt;/rule&gt;</strong>
+    <strong class="hl-tag">&lt;/pattern&gt;</strong>
+<strong class="hl-tag">&lt;/schema&gt;</strong></pre></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><strong class="ph b">Replace</strong></dt>
+          <dd class="dd">
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:replace&gt;</code> element allows you to replace nodes. Similar
+              to the <code class="keyword markupname xmlelement">&lt;sqf:delete&gt;</code> element, it can include a
+                <code class="keyword markupname xmlatt">@match</code> attribute. Otherwise, it replaces the context node of the
+              rule. The <code class="keyword markupname xmlelement">&lt;sqf:replace&gt;</code> element has three tasks. It identifies
+              the nodes to be replaced, defines the replacing nodes, and defines their content.</p>
+            <div class="p"><strong class="ph b">An Example of the <code class="keyword markupname xmlelement">&lt;sqf:replace&gt;</code>
+              Element:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;schema</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span>
+    <span class="hl-attribute">xmlns:sqf</span>=<span class="hl-value">"http://www.schematron-quickfix.com/validator/process"</span>
+ <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;pattern&gt;</strong>
+        <strong class="hl-tag">&lt;rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"title"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;report</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"exists(ph)"</span> <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"resolvePh"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"warn"</span><strong class="hl-tag">&gt;</strong>
+                ph element is not allowed in title.<strong class="hl-tag">&lt;/report&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"resolvePh"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+                    <strong class="hl-tag">&lt;sqf:title&gt;</strong>Change the ph element into text<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+                <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:replace</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"ph"</span><strong class="hl-tag">&gt;</strong>
+                    <strong class="hl-tag">&lt;value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"."</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;/sqf:replace&gt;</strong>
+            <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+        <strong class="hl-tag">&lt;/rule&gt;</strong>
+    <strong class="hl-tag">&lt;/pattern&gt;</strong>
+<strong class="hl-tag">&lt;/schema&gt;</strong></pre></div>
+            <div class="p"><strong class="ph b">Other Attributes for Replace Operations:</strong><ul class="ul" id="sqf-operations__ul_upg_3zf_3r">
+                <li class="li"><strong class="ph b">node-type</strong> - Determines the type of the replacing node. The permitted
+                  values include:<ul class="ul" id="sqf-operations__ul_pfj_mzf_3r">
+                    <li class="li"><strong class="ph b">keep</strong> - Keeps the node type of the node to be replaced.</li>
+                    <li class="li"><strong class="ph b">element</strong> - Replaces the node with an element.</li>
+                    <li class="li"><strong class="ph b">attribute</strong> - Replaces the node with an attribute.</li>
+                    <li class="li"><strong class="ph b">pi</strong> - Replaces the node with a processing instruction.</li>
+                    <li class="li"><strong class="ph b">comment</strong> - Replaces the node with a comment.</li>
+                  </ul></li>
+                <li class="li"><strong class="ph b">target</strong> - By using a <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> it gives the replacing node a name. This is necessary
+                  when the value of the <code class="keyword markupname xmlatt">@node-type</code> attribute is anything other than
+                  "comment".</li>
+                <li class="li"><strong class="ph b">select</strong> - Allows you to choose the content of the replacing nodes. You can
+                  use XPath expressions with the <code class="keyword markupname xmlatt">@select</code> attribute. If the
+                    <code class="keyword markupname xmlatt">@select</code> attribute is not specified then the content of the
+                    <code class="keyword markupname xmlelement">&lt;sqf:replace&gt;</code> element is used instead. </li>
+              </ul></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="sqf-operations__string-replace"><strong class="ph b">String Replace</strong></dt>
+          <dd class="dd">
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;sqf:stringReplace&gt;</code> element is different from the others.
+              It can be used to find a sub-string of text content and replace it with nodes or other
+              strings.</p>
+            <div class="p"><strong class="ph b">Attributes for the String Replace Operation:</strong><ul class="ul" id="sqf-operations__ul_dwx_xxl_kr">
+                <li class="li"><strong class="ph b">match</strong> - Allows you to select text nodes that contain the sub-strings you
+                  want to replace.</li>
+                <li class="li"><strong class="ph b">select</strong> - Allows you to select the replacing fragment, in case you do not
+                  want to set it in the content of the <code class="keyword markupname xmlelement">&lt;stringReplace&gt;</code>
+                  element.</li>
+                <li class="li"><strong class="ph b">regex</strong> - Matches the sub-strings using a regular expression.<div class="note note note_note"><span class="note__title">Note:</span> Consider
+                    the following information about using regular expressions in the
+                      <code class="keyword markupname xmlelement">&lt;stringReplace&gt;</code> element:<ul class="ul">
+                      <li class="li">The regular expressions from this operation are compiled as Java regular
+                        expressions. For more information, see <a class="xref" href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html" target="_blank" rel="external noopener">https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html</a>.</li>
+                      <li class="li">The <em class="ph i"><strong class="ph b">j flag</strong></em> allows you to use the standard Java regular
+                        expression engine, which allows native Java regular expression syntax. This
+                        allows, for example, the use of <code class="ph codeph"><strong class="ph b">\b</strong></code> in a regular
+                        expression to match word boundaries. For more information, see <a class="xref" href="http://www.saxonica.com/html/documentation/functions/fn/matches.html" target="_blank" rel="external noopener">http://www.saxonica.com/html/documentation/functions/fn/matches.html</a>.</li>
+                      <li class="li">Regular expressions in the <code class="keyword markupname xmlelement">&lt;sqf:stringReplace&gt;</code>
+                        element always have the <em class="ph i">dot matches all</em> flag set to "true".
+                        Therefore, the line terminator will also be matched by the regular
+                        expression. </li>
+                    </ul></div></li>
+                <li class="li"><strong class="ph b">flags</strong> - Specifies flags to control the interpretation of the regular
+                  expression (given in the <code class="keyword markupname xmlatt">@regex</code> attribute).</li>
+              </ul></div>
+            <div class="p">
+              <div class="note attention note_attention"><span class="note__title">Attention:</span> The context of the content within the
+                  <code class="keyword markupname xmlelement">&lt;sqf:stringReplace&gt;</code> element is set to the whole text node,
+                rather than the current sub-string.</div>
+            </div>
+            <div class="p"><strong class="ph b">An Example of the <code class="keyword markupname xmlelement">&lt;sqf:stringReplace&gt;</code>
+              Element:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;sch:schema</strong> <span class="hl-attribute">xmlns:sch</span>=<span class="hl-value">"http://purl.oclc.org/dsdl/schematron"</span>
+    <span class="hl-attribute">xmlns:sqf</span>=<span class="hl-value">"http://www.schematron-quickfix.com/validator/process"</span>
+ <span class="hl-attribute">queryBinding</span>=<span class="hl-value">"xslt2"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;sch:pattern&gt;</strong>
+        <strong class="hl-tag">&lt;sch:rule</strong> <span class="hl-attribute">context</span>=<span class="hl-value">"text()"</span><strong class="hl-tag">&gt;</strong>
+            <strong class="hl-tag">&lt;sch:report</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"matches(., 'Oxygen', 'i')"</span>
+ <span class="hl-attribute">sqf:fix</span>=<span class="hl-value">"changeWord"</span><strong class="hl-tag">&gt;</strong>The oXygen word is not allowed<strong class="hl-tag">&lt;/sch:report&gt;</strong>
+            <strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"changeWord"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+                    <strong class="hl-tag">&lt;sqf:title&gt;</strong>Replace word with product<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+                <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+                <strong class="hl-tag">&lt;sqf:stringReplace</strong> <span class="hl-attribute">regex</span>=<span class="hl-value">"Oxygen"</span> <span class="hl-attribute">flags</span>=<span class="hl-value">"i"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;ph</strong> <span class="hl-attribute">keyref</span>=<span class="hl-value">"product"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;/sqf:stringReplace&gt;</strong>
+            <strong class="hl-tag">&lt;/sqf:fix&gt;</strong>
+        <strong class="hl-tag">&lt;/sch:rule&gt;</strong>
+    <strong class="hl-tag">&lt;/sch:pattern&gt;</strong>
+<strong class="hl-tag">&lt;/sch:schema&gt;</strong></pre></div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/user-entry-sqf-operation.html">User Entry SQF Operation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="user-entry-sqf-operation.html#user-entry-sqf-operation">User Entry SQF Operation</a></li><li class="linklist"><a class="link" href="use-when-sqf-condition.html#use-when-sqf-condition">Restricting Quick Fix Operations</a></li></ul></div></nav>
+</article></main></body></html>

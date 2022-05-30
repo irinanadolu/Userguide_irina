@@ -1,0 +1,95 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Compare Files tool,Integrate with Sourcetree"><meta name="keywords" content="Compare Files tool, Integrate with Sourcetree"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-integrate-git-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-compare-toolbar-2.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="file-comparison-integrate-sourcetree"><title>How to Integrate the File Comparison Tool with Sourcetree</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="file-comparison-integrate-sourcetree"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Integrate the File Comparison Tool with Sourcetree</h1>
+  
+  <div class="body">
+    <div class="p">The file comparison tool can be integrated with Sourcetree so that you can use it to compare
+      changes. The advantages of doing this include:<ul class="ul">
+        <li class="li">The <dfn class="term">Oxygen</dfn>
+          <span class="ph uicontrol">Compare Files</span> tool presents the files side-by-side and makes it
+          much easier to determine real changes.</li>
+        <li class="li">The <dfn class="term">Oxygen</dfn>
+          <span class="ph uicontrol">Compare Files</span> tool includes XML comparison algorithms.</li>
+        <li class="li">The <dfn class="term">Oxygen</dfn>
+          <span class="ph uicontrol">Compare Files</span> tool includes various options for configuring the
+          comparison.</li>
+        <li class="li">The <dfn class="term">Oxygen</dfn>
+          <span class="ph uicontrol">Compare Files</span> tool allows you to navigate through changes.</li>
+      </ul></div>
+    <p class="p">To integrate the <span class="ph uicontrol">Compare Files</span> tool with Sourcetree, follow this
+      procedure, depending on your operating system:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Windows</dt>
+          <dd class="dd">
+            <div class="p">
+              <ol class="ol" id="file-comparison-integrate-sourcetree__ol_lvz_w3k_y3b">
+                <li class="li">In Sourcetree, go to <span class="ph menucascade"><span class="ph uicontrol">Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Options</span></span>.</li>
+                <li class="li">Go to the <span class="ph uicontrol">Diff</span> tab.</li>
+                <li class="li">In the <span class="ph uicontrol">External Diff/Merge</span> section, configure the
+                  settings as follows:<ul class="ul" id="file-comparison-integrate-sourcetree__ul_mvz_w3k_y3b">
+                    <li class="li"><span class="ph uicontrol">External Diff Tool</span> - Select <strong class="ph b">Custom</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Diff Command</span> - Enter the path of the
+                        <dfn class="term">Oxygen</dfn>
+                      <span class="ph filepath">diffFile.exe</span> file (for example:
+                        <span class="ph filepath">c:\Programs\Oxygen XML Editor 19\diffFiles.exe</span>).</li>
+                    <li class="li"><span class="ph uicontrol">Arguments</span> - Enter <strong class="ph b">-ext $REMOTE $LOCAL
+                      $LOCAL</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Merge Tool</span> - Select <strong class="ph b">Custom</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Diff Command</span> - Enter the path of the
+                        <dfn class="term">Oxygen</dfn>
+                      <span class="ph filepath">diffFile.exe</span> file (for example:
+                        <span class="ph filepath">c:\Programs\Oxygen XML Editor 19\diffFiles.exe</span>).</li>
+                    <li class="li"><span class="ph uicontrol">Arguments</span> - Enter <strong class="ph b">-ext $LOCAL $REMOTE $BASE
+                        $MERGED</strong>.</li>
+                  </ul></li>
+                <li class="li">Click <span class="ph uicontrol">OK</span>.</li>
+              </ol>
+            </div>
+            <p class="p"><strong class="ph b">Result:</strong> In Sourcetree, you can now compare file changes with the
+                <dfn class="term">Oxygen</dfn>
+              <span class="ph uicontrol">Compare Files</span> tool by simply selecting <span class="ph uicontrol">External
+                Diff</span> from the contextual menu, <span class="ph uicontrol">Actions</span> menu, or
+                  <span class="ph uicontrol"><span class="keyword shortcut">Ctrl+D</span></span>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Mac OS X</dt>
+          <dd class="dd">
+            <div class="p">
+              <ol class="ol" id="file-comparison-integrate-sourcetree__ol_g3g_w3k_y3b">
+                <li class="li">In Sourcetree, go to <span class="ph menucascade"><span class="ph uicontrol">Sourcetree</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span></span>.</li>
+                <li class="li">Go to the <span class="ph uicontrol">Diff</span> tab.</li>
+                <li class="li">In the <span class="ph uicontrol">External Diff/Merge</span> section, configure the
+                  settings as follows:<ul class="ul" id="file-comparison-integrate-sourcetree__ul_h3g_w3k_y3b">
+                    <li class="li"><span class="ph uicontrol">External Diff Tool</span> - Select <strong class="ph b">Custom</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Diff Command</span> - Enter a command-line argument to
+                      launch the <dfn class="term">Oxygen</dfn>
+                      <span class="ph filepath">diffFiles.sh</span> file (for example: <strong class="ph b">sh
+                        "/Applications/Oxygen XML Editor/diffFiles.sh"</strong>).</li>
+                    <li class="li"><span class="ph uicontrol">Arguments</span> - Enter <strong class="ph b">-ext $REMOTE $LOCAL
+                      $LOCAL</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Merge Tool</span> - Select <strong class="ph b">Custom</strong>.</li>
+                    <li class="li"><span class="ph uicontrol">Diff Command</span> - Enter a command-line argument to
+                      launch the <dfn class="term">Oxygen</dfn>
+                      <span class="ph filepath">diffFiles.sh</span> file (for example: <strong class="ph b">sh
+                        "/Applications/Oxygen XML Editor/diffFiles.sh"</strong>).</li>
+                    <li class="li"><span class="ph uicontrol">Arguments</span> - Enter <strong class="ph b">-ext $LOCAL $REMOTE $BASE
+                        $MERGED</strong>.</li>
+                  </ul></li>
+                <li class="li">Close the preferences dialog box.</li>
+              </ol>
+            </div>
+            <p class="p"><strong class="ph b">Result:</strong> In Sourcetree, you can now compare file changes with the
+                <dfn class="term">Oxygen</dfn>
+              <span class="ph uicontrol">Compare Files</span> tool by simply selecting <span class="ph uicontrol">External
+                Diff</span> from the contextual menu or <span class="ph uicontrol">Actions</span>
+              menu.</p>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/file-comparison-2.html">Compare Files Tool</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/file-comparison-integrate-git-2.html">How to Integrate the File Comparison Tool with Git</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/file-compare-toolbar-2.html">Toolbar and Contextual Menu Actions of the Compare Files Tool</a></div></div></nav></article></main></body></html>

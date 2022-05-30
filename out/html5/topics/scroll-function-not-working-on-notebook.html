@@ -1,0 +1,32 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="troubleshooting"><meta name="DC.subject" content="Trackpad scroll function doesn't work on Lenovo Thinkpad"><meta name="keywords" content="Trackpad scroll function doesn't work on Lenovo Thinkpad"><meta name="DC.relation" scheme="URI" content="../topics/common-problems.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon-issues.html"><meta name="DC.relation" scheme="URI" content="../topics/segmentation-fault-macosx.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scroll-function-not-working-on-notebook"><title>Scroll Function of my Notebook Trackpad is Not Working</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scroll-function-not-working-on-notebook"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Scroll Function of my Notebook Trackpad is Not Working</h1>
+  
+  <div class="body troublebody">
+    <section class="section condition" id="scroll-function-not-working-on-notebook__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">I got a new notebook (Lenovo Thinkpad™ with Windows) and noticed that
+        the scroll function of my trackpad is not working in <span class="ph">Oxygen XML Editor</span>.</p>
+    </section>
+    <div class="bodydiv troubleSolution">
+      <section class="section cause" id="scroll-function-not-working-on-notebook__cause"><h2 class="title sectiontitle">Cause</h2>
+        
+        <p class="p">It is most likely a problem with the Synaptics™ trackpads.</p>
+      </section>
+      <section class="section remedy" id="scroll-function-not-working-on-notebook__solution"><h2 class="title sectiontitle">Solution</h2>
+        
+        <section class="section steps-informal">
+          <div class="p">Try adding the following lines to the <span class="ph filepath">C:\Program
+              Files\Synaptics\SynTP\TP4table.dat</span> file (depending on your version of <span class="ph">Oxygen XML Editor</span>). For example:
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">*,*,oxygen20.1.exe,*,*,*,WheelStd,1,9
+*,*,oxygenAuthor20.1.exe,*,*,*,WheelStd,1,9
+*,*,oxygenDeveloper20.1.exe,*,*,*,WheelStd,1,9
+*,*,syncroSVNClient.exe,*,*,*,WheelStd,1,9
+*,*,diffDirs.exe,*,*,*,WheelStd,1,9
+*,*,diffFiles.exe,*,*,*,WheelStd,1,9</pre></div>
+        </section>
+      </section>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/common-problems.html">Misc Problems and Solutions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/saxon-issues.html">Saxon 9.7 Transformer Issues</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/segmentation-fault-macosx.html">Segmentation Fault Error on Mac OS X</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../dev_guide/frameworks.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="custom_links"><title>Customizing Links</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="custom_links"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Links</h1>
+  <div class="body">
+    <p class="p">If you need to have working links between your XML document instances in the
+      <strong class="ph b">Author</strong> visual editing mode, consider the following possibilities:</p>
+    <ul class="ul" id="custom_links__ul_a2d_j1s_rgb">
+      <li class="li">
+        <p class="p">You can use the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-link-elements.html" target="_blank" rel="external noopener"><em class="ph i">-oxy-link</em> CSS property</a> to specify a link
+          target on a static icon placed before the element.</p>
+      </li>
+      <li class="li">
+        <p class="p">You can use the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-oxy-link-text.html" target="_blank" rel="external noopener"><em class="ph i">oxy_link-text()</em> CSS function</a> to take
+          control over the text presented inside a link using a <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/link/LinkTextResolver.html" target="_blank" rel="external noopener">specific Java extension</a>.</p>
+      </li>
+      <li class="li">
+        <p class="p">You can use a custom <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html" target="_blank" rel="external noopener"><strong class="ph b">ExtensionsBundle</strong> implementation</a> to be
+          notified <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/ExtensionsBundle.html#resolveCustomHref-java.net.URL-ro.sync.ecss.extensions.api.node.AuthorNode-java.lang.String-ro.sync.ecss.extensions.api.AuthorAccess-" target="_blank" rel="external noopener">on a specific callback</a> if the reference needs
+          further processing.</p>
+      </li>
+      <li class="li">
+        <p class="p">You can implement a <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-author-link-target-reference-finder.html" target="_blank" rel="external noopener">custom link target element finder</a> if the links are
+          not referenced directly to elements that have an ID attribute. The link target element
+          finder will be used to locate the target when the end-user clicks the link.</p>
+      </li>
+    </ul>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dev_guide/frameworks.html">Frameworks</a></div></div></nav></article></main></body></html>

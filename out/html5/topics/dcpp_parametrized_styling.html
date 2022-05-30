@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Custom transformation parameters,DITA PDF - based on HTML5 &amp; CSS,Changing the TOC depth,Changing the TOC depth,Changing the page size,Changing the page size,Changing the cover page,Changing the cover page"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Custom transformation parameters, DITA PDF - based on HTML5 &amp; CSS, Changing the TOC depth, Changing the TOC depth, Changing the page size, Changing the page size, Changing the cover page, Changing the cover page"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_trademarks.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_control_the_content_of_bookmaps.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_parametrized_styling"><title>Styling Through Custom Parameters</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_parametrized_styling">
+  <h1 class="title topictitle1" id="ariaid-title1">Styling Through Custom Parameters</h1>
+  
+  <div class="body">
+    <p class="p">You can activate parts of your CSS by using custom transformation parameters that start with
+      the <code class="ph codeph">args.css.param.</code> prefix. </p>
+    <p class="p">These parameters are recognized by the publishing pipeline and are forwarded as synthetic
+      attributes on the root element of the merged map. The last part of the parameter name will
+      become the attribute name, while the value of the parameter will become the attribute value.
+      The namespace of these synthetic attributes is:
+        <code class="ph codeph">http://www.oxygenxml.com/extensions/publishing/dita/css/params</code>. </p>
+    <p class="p">When using the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> or the <strong class="ph b"><span class="ph">DITA PDF - based on HTML5 &amp; CSS</span></strong> transformations, the generated
+      attribute will be in no namespace.</p>
+    <div class="note note note_note"><span class="note__title">Notes:</span> 
+      <ul class="ul">
+        <li class="li">Make sure the name of your custom parameter does not conflict with an attribute name
+          that may already exist on the root element. </li>
+        <li class="li">Use only Latin alphanumeric characters for parameter names.</li>
+        <li class="li">You can set multiple styling parameters at the same time.</li>
+      </ul>
+    </div>
+    
+    
+		
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_trademarks.html">Trademarks</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_control_the_content_of_bookmaps.html" title="Explains how using a bookmap offers more control over the output">Controlling the Publication Content</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_parametrized_styling_how_to_limit_the_depth_of_the_toc_using_a_parameter">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Limit the Depth of the TOC Using a Parameter</h2>
+  
+  <div class="body">
+    <p class="p">In the following example, a custom parameter is used to switch from a full depth table of
+      contents to a flat one that shows only the titles of the first-level topics (such as chapters,
+      notices, or the preface). </p>
+    <p class="p">The custom parameter is:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">args.css.param.only-chapters-in-toc</span>="yes"</pre>
+    <div class="p">The CSS that hides the <em class="ph i">topicrefs</em> at level 2 or
+      more:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root[only-chapters-in-toc=<span class="hl-string">'yes'</span>] *[class ~= <span class="hl-string">"toc/toc"</span>] 
+         &gt; *[class ~= <span class="hl-string">"map/topicref"</span>]&gt; *[class ~= <span class="hl-string">"map/topicref"</span>] {
+  <strong class="hl-keyword">display</strong>:none;
+}</pre>The <code class="ph codeph">:root[a|only-chapters-in-toc='yes']</code> selector makes the rule
+      activate only when the attribute is set.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_parametrized_styling_how_to_change_the_page_size_using_a_parameter">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Change the Page Size Using a Parameter</h2>
+  
+  <div class="body">
+    <div class="p">In the following example, a custom parameter is used to modify the page size. The parameter
+      is defined in the transformation scenario
+      as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">args.css.param.page-size</span>="A4"</pre></div>
+    <p class="p">Then in the CSS, the attribute value is extracted and used as follows:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    size: oxy_xpath(<span class="hl-string">'/*/@*[local-name()="page-size"][1]'</span>);
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_parametrized_styling_how_to_change_the_cover_page_using_a_parameter">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Change the Cover Page Using a Parameter</h2>
+  
+  <div class="body">
+    <div class="p">In the following example, a custom parameter is used to set the path of the cover page. The
+      parameter points to an image by using its URL and is defined in the transformation scenario
+      as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">args.css.param.cover-page</span>="file:/path/to/cover-page.svg"</pre></div>
+    <p class="p">Then in the CSS, the attribute value is extracted and used as follows:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page {
+    <strong class="hl-keyword">background-image</strong>: url(oxy_xpath(<span class="hl-string">'/*/@*[local-name()="cover-page"][1]'</span>));
+}</pre>
+  </div>
+</article></article></article></main></body></html>

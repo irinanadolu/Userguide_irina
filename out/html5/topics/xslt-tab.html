@@ -1,0 +1,87 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT transformation scenario,XSLT tab"><meta name="keywords" content="XSLT transformation scenario, XSLT tab"><meta name="DC.relation" scheme="URI" content="../topics/xml-transformation-with-xslt.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-transformation-with-xslt.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-stylesheet-parameters.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-stylesheet-parameters.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-xquery-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/additional-xslt-stylesheets.html"><meta name="DC.relation" scheme="URI" content="../topics/advanced-saxon-xslt-options.html"><meta name="DC.relation" scheme="URI" content="../topics/saxon_extension_functions-x1.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xslt-tab"><title>XSLT Tab</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xslt-tab"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XSLT Tab</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">When you
+          <a class="xref" href="defining-new-transformation-scenario.html#defining-new-transformation-scenario">create a new transformation scenario</a> or <a class="xref" href="edit-scenario-dialog.html#edit-scenario-dialog">edit an existing
+          one</a>, a configuration dialog box is displayed that allows you to customize the
+        transformation with various options in several tabs.</span></p>
+    <div class="p" id="xslt-tab__xml-xslt-tabs">The <span class="ph uicontrol">XSLT</span> tab contains the following options:<dl class="dl">
+        
+          <dt class="dt dlterm" id="xslt-tab__xml-url"><span class="ph uicontrol">XML URL</span></dt>
+          <dd class="dd">Specifies the source XML file. <span class="ph">You can
+        specify the path by using the text field, its history drop-down, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down list.</span><span class="ph"> You can also use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Edit16.gif">Open in editor</span> button to open the
+              specified file in the editor panel.</span> This URL is resolved through the catalog
+            resolver. If the catalog does not have a mapping for the URL, then the file is used
+            directly from its remote location.</dd>
+        
+      </dl><div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">If the
+        transformer engine is Saxon 9.x and a custom URI resolver is configured in the <a class="xref" href="preferences-advanced-xslt-saxon8.html#preferences-advanced-xslt-saxon8">advanced Saxon preferences page</a>, the XML input of the transformation is passed to
+        that URI resolver.</span> If the
+        transformer engine is one of the built-in XSLT 2.0 / 3.0 engines and <a class="xref" href="xslt-tab.html#xslt-tab__advanced-options">the name of an initial template</a> is
+        specified in the scenario, the <span class="ph uicontrol">XML URL</span> field can be empty. The
+          <span class="ph uicontrol">XML URL</span> field can also be empty if you use <a class="xref" href="configuring-custom-xslt-processors.html#configuring-custom-xslt-processors">external XSLT processors</a>. Otherwise, a value is mandatory in this
+        field.</div><dl class="dl">
+        
+          <dt class="dt dlterm" id="xslt-tab__xsl-url"><span class="ph uicontrol">XSL URL</span></dt>
+          <dd class="dd">Specifies the source XSL file that the transformation will use. <span class="ph">You can
+        specify the path by using the text field, its history drop-down, the <a class="xref" href="editor-variables.html#editor-variables"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/InsertEditorVariables16.png">Insert Editor
+          Variables</span></a> button, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down list.</span><span class="ph"> You can also use the <span class="ph uicontrol"><img class="image" src="../img/Edit16.gif">Open in editor</span> button to open the specified
+              file in the editor panel.</span> This URL is resolved through the catalog resolver. If
+            the catalog does not have a mapping for the URL, the file is used directly from its
+            remote location.</dd>
+        
+        
+          <dt class="dt dlterm" id="xslt-tab__use-xml-stylesheet-declaration"><span class="ph uicontrol">Use "xml-stylesheet" declaration</span></dt>
+          <dd class="dd">If selected, the scenario applies the stylesheet specified explicitly in the XML
+            document with the <code class="ph codeph">xml-stylesheet</code> processing instruction. By default,
+            this option is deselected and the transformation applies the XSLT stylesheet that is
+            specified in the <span class="ph uicontrol">XSL URL</span> field.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Transformer</span></dt>
+          <dd class="dd">This drop-down menu presents all the transformation engines available to <span class="ph">Oxygen XML Editor</span> for performing a transformation. These include the built-in engines
+            and <a class="xref" href="preferences-custom-engines.html">the external engines
+              defined in the Custom Engines preferences page</a>. The engine you choose is used
+            as the default transformation engine. Also, if an XSLT or XQuery document does not have
+            an associated validation scenario, this transformation engine is used in the validation
+            process (if it provides validation support).</dd>
+        
+        
+          <dt class="dt dlterm" id="xslt-tab__advanced-options"><span class="ph uicontrol"><img class="image" src="../img/Options16.png">Advanced options</span></dt>
+          <dd class="dd">Allows you to configure the <a class="xref" href="advanced-saxon-xslt-options.html#advanced-saxon-xslt-options">advanced options
+              of the Saxon HE/PE/EE engine</a> for the current transformation scenario. To
+            configure the same options globally, go to the <a class="xref" href="preferences-xslt-saxon8.html">Saxon-HE/PE/EE preferences page</a>. For the current transformation scenario,
+            these <span class="ph uicontrol">Advanced options</span> override the options configured in that
+            preferences page.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Parameters</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="xslt-stylesheet-parameters.html"><span class="ph uicontrol">Configure
+                parameters</span> dialog box</a> that allows you to configure the XSLT
+            parameters used in the current transformation. In this dialog box, you can also
+            configure the parameters for <a class="xref" href="xslt-tab.html#xslt-tab__additional-stylesheets">additional XSLT stylesheets</a>. If the XSLT transformation engine is
+            custom-defined, you cannot use this dialog box to configure the parameters sent to the
+            custom engine. Instead, you can copy all parameters from the dialog box using contextual
+            menu actions and edit the custom XSLT engine to include the necessary parameters in the
+            command line that starts the transformation process.</dd>
+        
+        
+          <dt class="dt dlterm" id="xslt-tab__extensions"><span class="ph uicontrol">Extensions</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="xslt-xquery-extensions.html#xslt-xquery-extensions">dialog box for
+              configuring the XSLT extension <dfn class="term">JARS</dfn> or classes</a> that define
+            extension Java functions or extension XSLT elements used in the transformation.</dd>
+        
+        
+          <dt class="dt dlterm" id="xslt-tab__additional-stylesheets"><span class="ph uicontrol">Additional XSLT stylesheets</span></dt>
+          <dd class="dd">Opens a <a class="xref" href="additional-xslt-stylesheets.html">dialog box for adding XSLT
+              stylesheets</a> that are applied on the main stylesheet specified in the
+              <span class="ph uicontrol">XSL URL</span> field. This is useful when a chain of XSLT stylesheets
+            must be applied to the input XML document.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/xslt-stylesheet-parameters.html">XSLT Parameters</a><br></li><li class="link olchildlink"><a href="../topics/xslt-xquery-extensions.html">XSLT Extensions</a><br></li><li class="link olchildlink"><a href="../topics/additional-xslt-stylesheets.html">Additional XSLT Stylesheets</a><br></li><li class="link olchildlink"><a href="../topics/advanced-saxon-xslt-options.html">Advanced Saxon HE/PE/EE XSLT Transformation Options</a><br></li><li class="link olchildlink"><a href="../topics/saxon_extension_functions-x1.html">Using Saxon Integrated Extension Functions</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xml-transformation-with-xslt.html" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">XML Transformation with XSLT</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-transformation-with-xslt.html" title="This type of transformation specifies the transformation parameters and location of an XSLT stylesheet that is applied to the edited XML document. This scenario is useful when you develop an XML document and the XSLT document is in its final form.">XML Transformation with XSLT</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-stylesheet-parameters.html">XSLT Parameters</a></div></div></nav></article></main></body></html>

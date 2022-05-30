@@ -1,0 +1,55 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="XSLT,XPath Tooltip Helper"><meta name="keywords" content="XSLT, XPath Tooltip Helper"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/content-completion-xpath-expressions.html"><meta name="DC.relation" scheme="URI" content="../topics/xslt-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="running-xpath-expressions.html#running-xpath-expressions"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xpath-tooltip-helper"><title>Tooltip Helper for the XPath Functions Arguments</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xpath-tooltip-helper"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Tooltip Helper for the XPath Functions Arguments</h1>
+  
+  <div class="body">
+    <p class="p">When editing the arguments of an XPath/XSLT function, <span class="ph">Oxygen XML Editor</span> tracks the current entered
+      argument by displaying a tooltip containing the function signature. The currently edited
+      argument is highlighted with a bolder font.</p>
+    <p class="p">When moving the cursor through the expression, the tooltip is updated to reflect the argument
+      found at the cursor position.</p>
+    <p class="p"><strong class="ph b"><u class="ph u">Examples:</u></strong></p>
+    <div class="p">If you want to concatenate the absolute values of two variables, named <em class="ph i">v1</em> and
+        <em class="ph i">v2</em>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"/"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"concat(abs($v1), abs($v2))"</span><strong class="hl-xsl">&gt;</strong><strong class="hl-xsl">&lt;/xsl:value-of&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></div>
+    <div class="p">When moving the cursor before the first <code class="ph codeph">abs</code> function, <span class="ph">Oxygen XML Editor</span>
+      identifies it as the first argument of the <code class="ph codeph">concat</code> function. The tooltip shows
+      in bold font the following information about the first argument:<ul class="ul">
+        <li class="li">Its name is <code class="ph codeph">$arg1</code>.</li>
+        <li class="li">Its type is <code class="ph codeph">xdt:anyAtomicType</code>.</li>
+        <li class="li">It is optional (note the <code class="ph codeph">?</code> sign after the argument type).</li>
+      </ul></div>
+    <p class="p">The function also takes other arguments that have the same type and returns a
+        <code class="ph codeph">xs:string</code>.</p>
+    <div class="p">
+      <figure class="fig fignone" id="xpath-tooltip-helper__figure-xpath-arguments-helper-concat1"><figcaption><span class="fig--title-label">Figure 1. </span>XPath Tooltip Helper - Identify the <code class="ph codeph">concat</code> Function's First
+          Argument</figcaption>
+        
+        <img class="image" src="../img/content_completion_xpath_helper_concat1.png">
+      </figure>
+    </div>
+    <p class="p">Moving the cursor on the first variable <code class="ph codeph">$v1</code>, the editor identifies the
+        <code class="ph codeph">abs</code> as context function and shows its signature:</p>
+    <div class="p">
+      <figure class="fig fignone" id="xpath-tooltip-helper__figure-xpath-arguments-helper-abs"><figcaption><span class="fig--title-label">Figure 2. </span>XPath Tooltip Helper - Identify the <code class="ph codeph">abs</code> Function's Argument</figcaption>
+        
+        <img class="image" src="../img/content_completion_xpath_helper_abs.png">
+      </figure>
+    </div>
+    <p class="p">Further, clicking the second <code class="ph codeph">abs</code> function name, the editor detects that it
+      represents the second argument of the <code class="ph codeph">concat</code> function. The tooltip is
+      repainted to display the second argument in bold font.</p>
+    <div class="p">
+      <figure class="fig fignone" id="xpath-tooltip-helper__figure-xpath-arguments-helper-concat2"><figcaption><span class="fig--title-label">Figure 3. </span>XPath Tooltip Helper - Identify the <code class="ph codeph">concat</code> Function's Second
+          Argument</figcaption>
+        
+        <img class="image" src="../img/content_completion_xpath_helper_concat2.png">
+      </figure>
+    </div>
+    <div class="note note note_note"><span class="note__title">Note:</span> The tooltip helper is also available in the <a class="xref" href="xpath-builder-view.html#xpath-builder-view"><span class="ph uicontrol">XPath Builder</span>
+        view</a><span class="ph"> and <a class="xref" href="xpath-toolbar.html#xpath-toolbar">XPath toolbar</a></span>.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/content-completion-xpath-expressions.html">Content Completion in XPath Expressions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/content-completion-xpath-expressions.html">Content Completion in XPath Expressions</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xslt-syntax-highlight.html">Syntax Highlighting in XSLT</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="running-xpath-expressions.html#running-xpath-expressions">Working with XPath Expressions</a></li></ul></div></nav>
+</article></main></body></html>

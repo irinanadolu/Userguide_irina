@@ -1,0 +1,109 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Facebook Like button"><meta name="keywords" content="WebHelp Responsive, Facebook Like button"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-social-media-integration.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-social-media-integration.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-add-tweet-button.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-add-facebook-button"><title>How to Add a Facebook Like Button in WebHelp Responsive Output</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-add-facebook-button"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Add a Facebook Like Button in WebHelp Responsive Output</h1>
+  
+  
+  <div class="body">
+    <p class="p">It is possible to integrate Facebook™ into your <strong class="ph b">WebHelp
+        Responsive</strong> output and you can specify where you want the widget to appear in your
+      WebHelp page.</p>
+    <section class="section" id="whr-add-facebook-button__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Publishing Template</h2>
+      
+      <div class="p">To add a Facebook
+        <em class="ph i">Like</em> widget to your WebHelp output using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing Template</dfn></a>, follow this procedure:<ol class="ol">
+          <li class="li">Go to the <a class="xref" href="https://developers.facebook.com/docs/plugins/like-button" target="_blank" rel="external noopener">Facebook Developers</a> website.</li>
+          <li class="li">Fill in the displayed form, then click the <span class="ph uicontrol">Get Code</span>
+            button.</li>
+              <li class="li">Copy the two code snippets and paste them into a <code class="keyword markupname xmlelement">&lt;div&gt;</code> element
+            inside an XML file called <span class="ph filepath">facebook-widget.xml</span>. Make sure you follow
+            these rules:<ul class="ul">
+              <li class="li">The file must be well-formed.</li>
+              <li class="li">The code for each <code class="keyword markupname xmlelement">&lt;script&gt;</code> element must be included in an XML
+                comment.</li>
+              <li class="li">The start and end tags for the XML comment must be on a separate line. The content
+                of the XML file should look like
+                this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">&lt;div id=<span class="hl-string">"facebook"</span>&gt;
+    &lt;div id=<span class="hl-string">"fb-root"</span>/&gt;
+    &lt;script&gt;
+        &lt;!-- 
+            (<strong class="hl-keyword">function</strong>(d, s, id) {
+        <strong class="hl-keyword">var</strong> js, fjs = d.getElementsByTagName(s)[<span class="hl-number">0</span>];
+        <strong class="hl-keyword">if</strong> (d.getElementById(id)) <strong class="hl-keyword">return</strong>;
+        js = d.createElement(s); js.id = id;
+        js.src = <span class="hl-string">"//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0"</span>;
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, <span class="hl-string">'script'</span>, <span class="hl-string">'facebook-jssdk'</span>)); 
+        --&gt;
+    &lt;/script&gt;
+    &lt;div <strong class="hl-keyword">class</strong>=<span class="hl-string">"fb-like"</span> data-layout=<span class="hl-string">"standard"</span> data-action=<span class="hl-string">"like"</span>
+        data-show-faces=<span class="hl-string">"true"</span> data-share=<span class="hl-string">"true"</span>/&gt;
+&lt;/div&gt;</pre></li>
+            </ul></li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template.</li>
+          <li class="li">Use <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">one of the parameters that begin with <em class="ph i">webhelp.fragment</em></a> in the
+              <em class="ph i">html-fragments</em> section of the descriptor file. Set the value of that parameter
+            to reference the <span class="ph filepath">facebook-widget.xml</span> file that you created
+            earlier.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+      <strong class="hl-tag">&lt;html-fragments&gt;</strong>
+        <strong class="hl-tag">&lt;fragment</strong> 
+          <span class="hl-attribute">file</span>=<span class="hl-value">"HTML-fragments/facebook-widget.xml"</span> 
+          <span class="hl-attribute">placeholder</span>=<span class="hl-value">"webhelp.fragment.after.toc_or_tiles"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/html-fragments&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="whr-add-facebook-button__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To add a Facebook
+        <em class="ph i">Like</em> widget to your WebHelp output using a transformation scenario from within
+          <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Go to the <a class="xref" href="https://developers.facebook.com/docs/plugins/like-button" target="_blank" rel="external noopener">Facebook Developers</a> website.</li>
+          <li class="li">Fill in the displayed form, then click the <span class="ph uicontrol">Get Code</span>
+            button.</li>
+            <li class="li">Copy the two code snippets and paste them into a <code class="keyword markupname xmlelement">&lt;div&gt;</code> element
+            inside an XML file called <span class="ph filepath">facebook-widget.xml</span>. Make sure you follow
+            these rules:<ul class="ul">
+              <li class="li">The file must be well-formed.</li>
+              <li class="li">The code for each <code class="keyword markupname xmlelement">&lt;script&gt;</code> element must be included in an XML
+                comment.</li>
+              <li class="li">The start and end tags for the XML comment must be on a separate line. The content
+                of the XML file should look like
+                this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">&lt;div id=<span class="hl-string">"facebook"</span>&gt;
+    &lt;div id=<span class="hl-string">"fb-root"</span>/&gt;
+    &lt;script&gt;
+        &lt;!-- 
+            (<strong class="hl-keyword">function</strong>(d, s, id) {
+        <strong class="hl-keyword">var</strong> js, fjs = d.getElementsByTagName(s)[<span class="hl-number">0</span>];
+        <strong class="hl-keyword">if</strong> (d.getElementById(id)) <strong class="hl-keyword">return</strong>;
+        js = d.createElement(s); js.id = id;
+        js.src = <span class="hl-string">"//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0"</span>;
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, <span class="hl-string">'script'</span>, <span class="hl-string">'facebook-jssdk'</span>)); 
+        --&gt;
+    &lt;/script&gt;
+    &lt;div <strong class="hl-keyword">class</strong>=<span class="hl-string">"fb-like"</span> data-layout=<span class="hl-string">"standard"</span> data-action=<span class="hl-string">"like"</span>
+        data-show-faces=<span class="hl-string">"true"</span> data-share=<span class="hl-string">"true"</span>/&gt;
+&lt;/div&gt;</pre></li>
+            </ul></li>
+          <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and choose a
+              <em class="ph i">template</em>.</li>
+          <li class="li">Switch to the <span class="ph uicontrol">Parameters</span> tab. Depending on where you want to
+            display the button, edit <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">one of the
+              parameters that begin with <em class="ph i">webhelp.fragment</em></a>. Set that parameter to
+            reference the <span class="ph filepath">facebook-widget.xml</span> file that you created
+            earlier.</li>
+          <li class="li">Click <span class="ph uicontrol">Ok</span> and run the transformation scenario.</li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webhelp-social-media-integration.html">Integrating Social Media and Google Tools in the WebHelp Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp-social-media-integration.html">Integrating Social Media and Google Tools in the WebHelp Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-add-tweet-button.html">How to Add Tweet Button in WebHelp Responsive Output</a></div></div></nav></article></main></body></html>

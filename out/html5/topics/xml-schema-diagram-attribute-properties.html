@@ -1,0 +1,148 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Design editing mode,Components,xs:attribute,XML Schemas,Design mode editing"><meta name="keywords" content="Design editing mode, Components, xs:attribute, XML Schemas, Design mode editing"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-components.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-element-properties.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-attributeGroup-properties.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-diagram-attribute-properties"><title>xs:attribute</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-diagram-attribute-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">xs:attribute</h1>
+  
+  <div class="body">
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>The <em class="ph i">xs:attribute</em> Component</figcaption>
+        
+        <img class="image" src="../img/schema_diagram_attribute.png">
+      </figure>
+    </div>
+    <p class="p">Defines an attribute. See more info at <a class="xref" href="http://www.w3.org/TR/xmlschema11-1/#element-attribute" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema11-1/#element-attribute</a>.</p>
+    <p class="p">An attribute by default displays the following properties when rendered in the diagram:
+        <em class="ph i">default</em>, <em class="ph i">fixed</em>, <em class="ph i">use</em> and <em class="ph i">type</em>. Connectors to the attribute are
+      drawn using dotted lines if the attribute use is optional. The attribute name is stroked out
+      if prohibited.</p>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title"><em class="ph i">xs:attribute</em> Properties</span></caption><colgroup><col><col><col><col></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-attribute-properties__entry__1">Property Name</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-attribute-properties__entry__2">Description</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-attribute-properties__entry__3">Possible Value</th>
+            <th class="entry colsep-1 rowsep-1" id="xml-schema-diagram-attribute-properties__entry__4">Mentions</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Name</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Attribute name (always required)</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Any NCName for global/local attributes, all declared attributes' <a class="xref" href="../glossary/qname.html"><dfn class="term">QName</dfn></a> for references</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all local or global attributes. If missing, will be displayed as
+              '[attribute]' in the diagram.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Is Reference</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">When set, the local attribute is a reference</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">true/false</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For local attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Type</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Qualified name of a simple type</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">All global simple types and built-in simple types. In addition another 3
+              proposals are present: [anonymous restriction], [anonymous list], [anonymous union]
+              for creating anonymous simple types more easily. </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all attributes. For references, the type is set to the referenced
+              attribute.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Default</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Default value. When specified, an attribute is added by the schema processor (if
+              it is missing from the instance XML document) and it is given this value. The default
+              and fixed attributes are mutually exclusive.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Any string</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all local or global attributes. For references the value is from the
+              referenced attribute.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Fixed</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">When specified, the value of the attribute is fixed and must be equal to this
+              value. The default and fixed attributes are mutually exclusive.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Any string</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all local or global attributes. For references the value is from the
+              referenced attribute.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Use</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Possible usage of the attribute. Marking an attribute "prohibited" is useful to
+              exclude attributes during derivations by restriction.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">optional, required, prohibited</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For local attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Form</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Specifies whether or not the attribute is qualified (must have a namespace prefix
+              in the instance XML document). The default value for this attribute is specified by
+              the <em class="ph i">attributeFormDefault</em> attribute of the <em class="ph i">xs:schema</em> document
+              element.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">unqualified/qualified</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For local attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <span class="ph uicontrol">Inheritable</span></td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Specifies if the attribute is inheritable. Inheritable attributes can be used by
+              &lt;alternative&gt; element on descendant elements</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">true/false</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all local or global attributes. The default value is false. This property is
+              available for XML Schema 1.1.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <span class="ph uicontrol">Target Namespace</span></td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">Specifies the target namespace for local attribute declarations. The namespace
+              URI may be different from the schema target namespace.</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Any URI</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">Setting a target namespace for local attribute is useful only when restricts
+              attributes of a complex type that is declared in other schema with a different target
+              namespace. This property is available for XML Schema 1.1.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">ID</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">The component ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Any ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Component</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">The edited component name</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">Namespace</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">The component namespace</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all attributes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__1">
+              <strong class="ph b">System ID</strong>
+            </td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__2">The component system ID</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__3">Not editable property</td>
+            <td class="entry colsep-1 rowsep-1" headers="xml-schema-diagram-attribute-properties__entry__4">For all attributes</td>
+          </tr>
+        </tbody></table>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xml-schema-components.html">XML Schema Components</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-schema-diagram-element-properties.html">xs:element</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-diagram-attributeGroup-properties.html">xs:attributeGroup</a></div></div></nav></article></main></body></html>

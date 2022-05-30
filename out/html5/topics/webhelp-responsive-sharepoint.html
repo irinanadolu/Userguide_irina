@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Deploying on SharePoint"><meta name="keywords" content="WebHelp Responsive, Deploying on SharePoint"><meta name="DC.relation" scheme="URI" content="../topics/whr-misc-how-to.html"><meta name="DC.relation" scheme="URI" content="../topics/flagging-dita-content.html"><meta name="DC.relation" scheme="URI" content="../topics/mathjax-webhelp.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="webhelp-responsive-sharepoint"><title>How to Deploy the Output on a SharePoint Site</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="webhelp-responsive-sharepoint"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Deploy the Output on a SharePoint Site</h1>
+  
+  <div class="body">
+    <p class="p">Since WebHelp output must be published locally, on the same machine where the WebHelp process
+      is running, to publish your files directly to a SharePoint library you need to map a network
+      drive to connect to SharePoint and change your file extensions to <span class="ph filepath">.aspx</span>,
+      as described in the steps below.</p>
+    <section class="section" id="webhelp-responsive-sharepoint__using_a_script_outside_of_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Script Outside of Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To publish WebHelp Responsive output on a SharePoint site using an <a class="xref" href="whr-publishing-template-2.html"><dfn class="term">Oxygen Publishing Template</dfn></a>, follow
+        this procedure:<ol class="ol">
+          <li class="li">Map a network drive to connect to your SharePoint library. For more information, see:
+              <a class="xref" href="https://support.microsoft.com/en-us/kb/2616712" target="_blank" rel="external noopener">https://support.microsoft.com/en-us/kb/2616712</a>.</li>
+          <li class="li">To allow browsers to open your published files (rather than downloading them), you
+            need to change the file extensions from <span class="ph filepath">.html</span> to
+              <span class="ph filepath">.aspx</span>.</li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add the
+              <code class="ph codeph">args.outext</code> parameter in the <dfn class="term">parameters</dfn> section with its
+            value set to
+            <code class="ph codeph">.aspx</code>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        ...                
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"args.outext"</span> <span class="hl-attribute">value</span>=<span class="hl-value">".aspx"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong></pre></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="webhelp-responsive-sharepoint__using_oxygen_xml_editorauthor"><h2 class="title sectiontitle">Using a Transformation Scenario in Oxygen XML Editor/Author</h2>
+      
+      <div class="p">To publish WebHelp Responsive output on a SharePoint site using a transformation scenario
+        from within <strong class="ph b">Oxygen XML Editor/Author</strong>, follow this procedure:<ol class="ol">
+          <li class="li">Map a network drive to connect to your SharePoint library. For more information, see:
+              <a class="xref" href="https://support.microsoft.com/en-us/kb/2616712" target="_blank" rel="external noopener">https://support.microsoft.com/en-us/kb/2616712</a>.</li>
+          <li class="li">To allow browsers to open your published files (rather than downloading them), you
+            need to change the file extensions from <span class="ph filepath">.html</span> to
+              <span class="ph filepath">.aspx</span>. Fortunately, this can be done in the transformation.<ol class="ol" type="a">
+              <li class="li"><span class="ph">Edit the WebHelp transformation
+        scenario and open the <span class="ph uicontrol">Parameters</span> tab.</span></li>
+              <li class="li">Set the <code class="ph codeph">args.outext</code> parameter to <code class="ph codeph">.aspx</code>.</li>
+              <li class="li">Run the transformation scenario.</li>
+            </ol></li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-misc-how-to.html">Miscellaneous Customization Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/flagging-dita-content.html">How to Flag DITA Content in WebHelp Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/mathjax-webhelp.html">How to View MathML Equations in HTML Output</a></div></div></nav></article></main></body></html>

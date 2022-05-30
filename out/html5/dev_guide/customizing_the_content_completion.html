@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../dev_guide/frameworks.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="customizing_the_content_completion"><title>Customizing the Content Completion Proposals</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="customizing_the_content_completion"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Customizing the Content Completion Proposals</h1>
+    <div class="body">
+        <p class="p">When editing an XML document either in the <strong class="ph b">Text</strong> or <strong class="ph b">Author</strong> editing modes,
+      you can invoke the <strong class="ph b">Content Completion Assistant</strong> (<strong class="ph b">Ctrl+Space</strong> in <strong class="ph b">Text</strong> mode
+      or <strong class="ph b">ENTER</strong> in <strong class="ph b">Author</strong> mode) to see the allowed XML elements or attributes that can
+      be inserted at the current location. The <strong class="ph b">Elements</strong> view also presents the elements that
+      can be inserted in the document at a certain location, while the <strong class="ph b">Attributes</strong> view
+      presents a list of allowed attributes and their values.</p>
+        <p class="p">The content completion proposals can be customized in various ways:</p>
+    <ul class="ul" id="customizing_the_content_completion__ul_ntx_vt3_v3b">
+      <li class="li">
+        <p class="p">Each framework can contain a <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/configuring-content-completion-proposals.html" target="_blank" rel="external noopener">special content completion configuration file</a>.
+          Such a file can:</p>
+        <ul class="ul" id="customizing_the_content_completion__ul_brv_wt3_v3b">
+          <li class="li">
+            <p class="p">Filter out element proposals for a parent element.</p>
+          </li>
+          <li class="li">
+            <p class="p">Configure a set of required attributes to be inserted along with a certain
+              element.</p>
+          </li>
+          <li class="li">
+            <p class="p">Add new attribute value proposals and for each proposal, add an annotation that will
+              appear in the <strong class="ph b">Attributes</strong> view for each value.</p>
+          </li>
+          <li class="li">
+            <p class="p">Call an external XSLT script to compute value proposals for a certain attribute.</p>
+          </li>
+          <li class="li">
+            <p class="p">Customize how the element names are presented in the <strong class="ph b">Outline</strong> view,
+                <strong class="ph b">Elements</strong> view, and <strong class="ph b">Content Completion Assistant</strong>.</p>
+          </li>
+        </ul>
+      </li>
+      <li class="li">
+        <p class="p">You can alter the schema that is associated with the XML document. For example, in the
+          case of the <strong class="ph b">DITA</strong> vocabulary, you can <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dita-integrate-specialization.html" target="_blank" rel="external noopener">create a DTD specialization plugin</a> and integrate
+          it into <span class="ph">Oxygen XML Editor</span>.</p>
+      </li>
+      <li class="li">
+        <p class="p">You can use the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/contentcompletion/xml/SchemaManagerFilter.html" target="_blank" rel="external noopener"><strong class="ph b">SchemaManagerFilter</strong></a> API to filter the set
+          of proposed elements and attribute values using Java code.</p>
+      </li>
+    </ul>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dev_guide/frameworks.html">Frameworks</a></div></div></nav></article></main></body></html>

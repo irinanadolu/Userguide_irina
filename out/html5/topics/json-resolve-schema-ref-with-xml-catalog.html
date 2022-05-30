@@ -1,0 +1,17 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="JSON documents,Validation,Resolving references to remote schemas,Validating JSON Documents,Resolving references to remote schemas"><meta name="keywords" content="JSON documents, Validation, Resolving references to remote schemas, Validating JSON Documents, Resolving references to remote schemas"><meta name="DC.relation" scheme="URI" content="../topics/json-validating-documents-against-schema.html"><meta name="DC.relation" scheme="URI" content="../topics/json-validation-scenarios-sharing.html"><meta name="DC.relation" scheme="URI" content="../topics/json-associate-schema-to-document.html"><meta name="DC.relation" scheme="URI" content="using-XML-Catalogs.html#using-XML-Catalogs"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="json-resolve-schema-ref-with-xml-catalog"><title>Resolving References with an XML Catalog</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="json-resolve-schema-ref-with-xml-catalog"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Resolving References with an XML Catalog</h1>
+  
+  <div class="body">
+    <p class="p">If a reference to a remote JSON schema must be used but a local copy of the schema should
+      actually be preferred for performance reasons, the reference can be resolved to the local copy
+      with an <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a>.</p>
+    <p class="p">For example, if the JSON schema contains a reference to a remote schema such as:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">{"$ref": "http://json-schema.org/example/geo.json"}</pre>
+    <p class="p">the reference can be resolved to a local copy of the schema by inserting the following
+      catalog entry:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;uri</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"http://json-schema.org/example/geo.json"</span> <span class="hl-attribute">uri</span>=<span class="hl-value">"schemas/geo.json"</span><strong class="hl-tag">/&gt;</strong></pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/json-validating-documents-against-schema.html">Validating JSON Documents Against JSON Schema or Schematron</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/json-validation-scenarios-sharing.html">Sharing JSON Validation Scenarios</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/json-associate-schema-to-document.html">Associating a Schema to JSON Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="using-XML-Catalogs.html#using-XML-Catalogs">Working with XML Catalogs</a></li></ul></div></nav>
+</article></main></body></html>

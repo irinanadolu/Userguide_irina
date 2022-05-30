@@ -1,0 +1,338 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Cover page,,Background image,Title styling,Add text,Place cover on right side,Place cover on left side,Add empty pages,Copyright page"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Cover page, , Background image, Title styling, Add text, Place cover on right side, Place cover on left side, Add empty pages, Copyright page"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_metadata.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_front_matter_and_back_matter.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_cover_page"><title>Cover (Title) Page</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_cover_page">
+    <h1 class="title topictitle1" id="ariaid-title1">Cover (Title) Page</h1>
+  
+    <div class="body">
+        <p class="p">Customizing the cover page is one of the most requested customization requests.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_metadata.html">Metadata</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_front_matter_and_back_matter.html">Front Matter and Back Matter</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_cover_page___input_xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Cover Page - XML Fragment</h2>
+  <div class="body">
+    <p class="p">The <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+        map file</a> contains the <code class="keyword markupname xmlelement">&lt;oxy:front-page&gt;</code> element, as a child of
+      the root element. This contains the metadata and an
+        <code class="keyword markupname xmlelement">&lt;oxy:front-page-title&gt;</code> element with the title structure.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmap</strong> <span class="hl-attribute">xmlns:ditaarch</span>=<span class="hl-value">"http://dita.oasis-open.org/architecture/2005/"</span> <span class="hl-attribute">...&gt;</span>
+  <span class="hl-attribute">&lt;oxy:front-page</span> <span class="hl-attribute">xmlns:oxy</span>=<span class="hl-value">"http://www.oxygenxml.com/extensions/author"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;bookmeta</strong> <span class="hl-attribute">xmlns:dita-ot</span>=<span class="hl-value">"http://dita-ot.sourceforge.net/ns/201007/dita-ot"</span>
+            <span class="hl-attribute">...</span>
+   <span class="hl-attribute">&lt;/bookmeta&gt;</span>
+   <span class="hl-attribute">&lt;oxy:front-page-title&gt;</span>
+    <span class="hl-attribute">&lt;booktitle</span> <span class="hl-attribute">xmlns:dita-ot</span>=<span class="hl-value">"http://dita-ot.sourceforge.net/ns/201007/dita-ot"</span>
+       <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title bookmap/booktitle "</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;booklibrary</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/booklibrary "</span><strong class="hl-tag">&gt;</strong>Retro Tools<strong class="hl-tag">&lt;/booklibrary&gt;</strong>
+       <strong class="hl-tag">&lt;mainbooktitle</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/mainbooktitle "</span><strong class="hl-tag">&gt;</strong>Tasks<strong class="hl-tag">&lt;/mainbooktitle&gt;</strong>
+       <strong class="hl-tag">&lt;booktitlealt</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/booktitlealt "</span><strong class="hl-tag">&gt;</strong>Product tasks<strong class="hl-tag">&lt;/booktitlealt&gt;</strong>
+    <strong class="hl-tag">&lt;/booktitle&gt;</strong>
+   <strong class="hl-tag">&lt;/oxy:front-page-title&gt;</strong>
+<strong class="hl-tag">&lt;/oxy:front-page&gt;</strong></pre>
+    <div class="div">
+      <p class="p">For the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+                  transformation type, the merged map is further processed resulting in a collection
+                  of HTML5 <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements. These elements preserve the
+                  original DITA <code class="keyword markupname xmlatt">@class</code> attribute values and add a new value derived
+                  from the DITA element name.</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/map bookmap/bookmap bookmap"</span> <span class="hl-attribute">...</span><strong class="hl-tag"> &gt;</strong>    
+   <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page front-page"</span><strong class="hl-tag">&gt;</strong>       
+      <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- map/topicmeta bookmap/bookmeta boometa"</span><strong class="hl-tag">&gt;</strong>
+        ...
+      <strong class="hl-tag">&lt;/div&gt;</strong>     
+     <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">" front-page/front-page-title front-page-title"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/title bookmap/booktitle booktitle"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/booklibrary booklibrary"</span><strong class="hl-tag">&gt;</strong>Retro Tools<strong class="hl-tag">&lt;/div&gt;</strong>
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/mainbooktitle mainbooktitle"</span><strong class="hl-tag">&gt;</strong>Tasks<strong class="hl-tag">&lt;/div&gt;</strong>
+         <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph bookmap/booktitlealt booktitlealt"</span><strong class="hl-tag">&gt;</strong>Product tasks<strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;/div&gt;</strong>
+...</pre>
+    </div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_cover_page___built_in_css_rules">
+  <h2 class="title topictitle2" id="ariaid-title3">Cover Page - Built-in CSS rules</h2>
+  <div class="body">
+    <p class="p">The element with the class <code class="ph codeph">frontpage/frontpage</code> is associated with a page
+      named <em class="ph i">front-page</em> with no headers or footers. The front page title is styled with a
+      bigger font. The built-in CSS rules are in
+        <span class="ph filepath">[PLUGIN_DIR]/css/print/p-front-page.css</span>.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@media</span> print {
+
+    *[class~=<span class="hl-string">"front-page/front-page"</span>] {
+        page: front-page;
+    }
+
+    *[class~=<span class="hl-string">"front-page/front-page-title"</span>] {
+        <strong class="hl-keyword">display</strong>:block;
+        <strong class="hl-keyword">text-align</strong>:center;
+        <strong class="hl-keyword">margin-top</strong>:<span class="hl-number">3</span>in;
+        <strong class="hl-keyword">font-size</strong>:<span class="hl-number">2</span>em;
+        <strong class="hl-keyword">font-family</strong>:arial, helvetica, sans-serif;
+        <strong class="hl-keyword">font-weight</strong>:bold;
+    }
+
+    <span class="hl-directive">@page</span> front-page {    	
+        @top-left-corner    {          <strong class="hl-keyword">content</strong>:none }
+        @top-left           {          <strong class="hl-keyword">content</strong>:none }
+        @top-center         {          <strong class="hl-keyword">content</strong>:none }
+        @top-right          {          <strong class="hl-keyword">content</strong>:none }
+        @top-right-corner   {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left-corner {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-left        {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-center      {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-right       {          <strong class="hl-keyword">content</strong>:none }
+        @bottom-right-corner{          <strong class="hl-keyword">content</strong>:none }
+    }
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> This is listed solely for illustration
+                    purposes, as the plugin might use something different.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_change_the_cover_image">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Add a Background Image for the Cover </h2>
+  
+  <div class="body">
+    <p class="p">The simplest way is to create an SVG image as large as the entire physical page and set it as
+      the background for the <em class="ph i">front-page</em>. This makes it very easy to accomplish a good
+      positioning of the graphical elements or artwork. In the foreground, you can place text
+      fragments using a series of <code class="ph codeph">:after</code> pseudo-elements bound to the front page
+      title. </p>
+    <p class="p">To set the size to an SVG image, you should specify the <code class="keyword markupname xmlatt">@width</code> and
+        <code class="keyword markupname xmlatt">@height</code> attributes on the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> root element using
+      specified unit values (in, cm, etc.) This should be enough only if all the coordinates from
+      your drawing have unit identifiers.</p>
+    <div class="p"> If you are using unit-less coordinates in your drawing like the
+      following:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;polygon</strong> <span class="hl-attribute">points</span>=<span class="hl-value">"17.78 826.21 577.51 ....</span></pre>then
+      make sure you also specify a <code class="keyword markupname xmlatt">@viewBox</code> attribute on the
+        <code class="keyword markupname xmlelement">&lt;svg&gt;</code> root element that defines the abstract rectangle that contains
+      the drawing:</div>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;svg</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.w3.org/2000/svg"</span> <span class="hl-attribute">width</span>=<span class="hl-value">"8.5in"</span> <span class="hl-attribute">height</span>=<span class="hl-value">"11in"</span> <span class="hl-attribute">viewBox</span>=<span class="hl-value">"0 0 600 850"</span><strong class="hl-tag">&gt;</strong></pre>
+    <p class="p">The following SVG document has the <code class="keyword markupname xmlatt">@width</code>, <code class="keyword markupname xmlatt">@height</code>, and
+        <code class="keyword markupname xmlatt">@viewBox</code> attributes. The width and height have physical units (in inches),
+      while the view box and rectangle coordinates are unit-less. </p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-tag-doctype">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span>
+<strong class="hl-tag">&lt;svg</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.w3.org/2000/svg"</span> <span class="hl-attribute">width</span>=<span class="hl-value">"8.5in"</span> <span class="hl-attribute">height</span>=<span class="hl-value">"11in"</span> <span class="hl-attribute">viewBox</span>=<span class="hl-value">"0 0 110 110"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;desc&gt;</strong>A gradient as big as a page.<strong class="hl-tag">&lt;/desc&gt;</strong>
+  <strong class="hl-tag">&lt;defs&gt;</strong>
+    <strong class="hl-tag">&lt;linearGradient</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"lc"</span>
+      <span class="hl-attribute">x1</span>=<span class="hl-value">"0%"</span> <span class="hl-attribute">y1</span>=<span class="hl-value">"0%"</span>
+      <span class="hl-attribute">x2</span>=<span class="hl-value">"0%"</span> <span class="hl-attribute">y2</span>=<span class="hl-value">"100%"</span>
+      <span class="hl-attribute">spreadMethod</span>=<span class="hl-value">"pad"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;stop</strong> <span class="hl-attribute">offset</span>=<span class="hl-value">"0%"</span>   <span class="hl-attribute">stop-color</span>=<span class="hl-value">"#00DD00"</span> <span class="hl-attribute">stop-opacity</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;stop</strong> <span class="hl-attribute">offset</span>=<span class="hl-value">"100%"</span> <span class="hl-attribute">stop-color</span>=<span class="hl-value">"#00AA00"</span> <span class="hl-attribute">stop-opacity</span>=<span class="hl-value">"1"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/linearGradient&gt;</strong>
+  <strong class="hl-tag">&lt;/defs&gt;</strong>    
+  <strong class="hl-tag">&lt;rect</strong> <span class="hl-attribute">x</span>=<span class="hl-value">"5"</span> <span class="hl-attribute">y</span>=<span class="hl-value">"5"</span> <span class="hl-attribute">width</span>=<span class="hl-value">"100"</span> <span class="hl-attribute">height</span>=<span class="hl-value">"100"</span> <span class="hl-attribute">rx</span>=<span class="hl-value">"10"</span> <span class="hl-attribute">ry</span>=<span class="hl-value">"10"</span>
+    <span class="hl-attribute">style</span>=<span class="hl-value">"fill:url(#lc);
+    stroke: #005000;
+    stroke-width: 3;"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;text</strong> <span class="hl-attribute">x</span>=<span class="hl-value">"33%"</span> <span class="hl-attribute">y</span>=<span class="hl-value">"50%"</span>  <span class="hl-attribute">color</span>=<span class="hl-value">"#FFFFAA"</span><strong class="hl-tag">&gt;</strong> Sample <strong class="hl-tag">&lt;/text&gt;</strong>
+<strong class="hl-tag">&lt;/svg&gt;</strong></pre>
+    </div>
+    <p class="p">This example shows a gradient. It is the size of a US-LETTER page and can be used in a
+      publication using this page size.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> You can use raster image formats (such as PNG or JPEG),
+                  but it is best to use vector images (such as SVG or PDF). They scale very well and
+                  produce better results when printed. In addition, the text from these images is
+                  searchable and can be selected (if the glyphs have not been converted to shapes)
+                  in the PDF viewer.</div>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page {
+    <strong class="hl-keyword">background-image</strong>: url(<span class="hl-string">"us-letter.svg"</span>);
+    <strong class="hl-keyword">background-position</strong>:center;
+}</pre>
+    <p class="p">For smaller artworks, you can use <code class="ph codeph">background-position</code> with percentage values
+      to position and center the artwork (for example, a company logo):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page {
+    <strong class="hl-keyword">background-image</strong>:url(<span class="hl-string">"company-logo.svg"</span>);
+    <strong class="hl-keyword">background-position</strong>:<span class="hl-number">50</span>% <span class="hl-number">5</span>%; <em class="hl-comment">/* The first is the alignement on the X axis, the second on the Y axis.*/</em>
+    <strong class="hl-keyword">background-repeat</strong>:no-repeat; 
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> The text from the SVG or PDF background images are searchable in the PDF reader.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_graphics.html#ch_graphics" target="_blank" rel="external noopener">Oxygen PDF Chemistry: Graphics</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_change_styling_of_the_cover_page_title">
+    <h2 class="title topictitle2" id="ariaid-title5">How to Change Styling of the Cover Page Title</h2>
+  
+    <div class="body">
+        <div class="p">Match the front page title element in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a> based on its class
+      attribute:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"front-page/front-page-title"</span> {
+  <strong class="hl-keyword">margin-top</strong>: <span class="hl-number">1</span>in;  
+  <strong class="hl-keyword">font-size</strong>: <span class="hl-number">3</span>em;
+}</pre></div>
+    <div class="note important note_important"><span class="note__title">Important:</span> Make sure the sum of the top and bottom margins and paddings for this
+      element do not exceed the physical dimension of the page. If this happens, an extra blank page
+      may appear before the cover page. Usually, it is enough to specify only the top margin.</div>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_add_text_to_the_cover_page">
+    <h2 class="title topictitle2" id="ariaid-title6">How to Add Text to the Cover Page</h2>
+  
+    <div class="body">
+        <p class="p">If you need to add arbitrary text to the cover page, you can use the front page title
+      element as an anchor and add as many blocks of text as you need after it, and style them
+      differently.</p>
+        <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following:</p>
+        <div class="p">
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"front-page/front-page-title"</span>]:after(<span class="hl-number">1</span>) {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"DRAFT VERSION"</span>;
+    <strong class="hl-keyword">font-size</strong>: large;
+    <strong class="hl-keyword">color</strong>: red;
+    <strong class="hl-keyword">text-align</strong>:center;
+}
+
+*[class ~= <span class="hl-string">"front-page/front-page-title"</span>]:after(<span class="hl-number">2</span>) {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"DO NOT DISTRIBUTE WITHOUT PERMISSION"</span>;
+    <strong class="hl-keyword">font-size</strong>: large;
+    <strong class="hl-keyword">color</strong>: red;
+    <strong class="hl-keyword">text-align</strong>:center;
+    <strong class="hl-keyword">font-style</strong>: italic;
+}</pre>
+        </div>
+        <p class="p">The result is:</p>
+        <p class="p">
+      <img class="image" id="dcpp_how_to_add_text_to_the_cover_page__image_hjy_dkl_scb" src="../img/dcpp_how_to_add_text_to_the_cover_page.png" alt="Screenshot of a publication front page"></p>
+        <p class="p">To use content from the document, you can use the <code class="ph codeph">oxy_xpath</code> function in
+      the <code class="ph codeph">content</code> property. For a more complex example, including the generation of
+      a new page for the synthetic <code class="ph codeph">:after</code> elements, see: <a class="xref" href="dcpp_metadata.html#dcpp_how_to_show_metadata_in_the_content">How to Show Metadata in the Cover Page</a>.</p>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_metadata.html#dcpp_how_to_show_metadata_in_the_content">How to Show Metadata in the Cover Page</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_place_cover_on_a_the_right_or_left_side">
+    <h2 class="title topictitle2" id="ariaid-title7">How to Place Cover on the Right or Left Side</h2>
+  
+    <div class="body">
+        <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rules:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"front-page/front-page"</span>]{
+    <strong class="hl-keyword">page-break-before</strong>:<strong class="hl-keyword">left</strong>;
+}</pre>
+        <div class="note note note_note"><span class="note__title">Note:</span> This will create an empty page at the beginning of the publication, moving the cover content on the needed
+            side.</div>
+        <p class="p">For more information, see: <a class="xref" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_controlling_page_breaks.html#ch_controlling_page_breaks" target="_blank" rel="external noopener">Oxygen PDF Chemistry: Controlling Page Breaks</a>.</p>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_double_side_pagination.html">Double Side Pagination</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_add_more_empty_pages_after_the_cover_page">
+    <h2 class="title topictitle2" id="ariaid-title8">How to Add a Specific Number of Empty Pages After the Cover Page</h2>
+  
+    <div class="body">
+        <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rules:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> my-blank-page { 
+    <em class="hl-comment">/* Hide the page numbers */</em>
+    @top-left {<strong class="hl-keyword">content</strong>: none};
+    @top-right {<strong class="hl-keyword">content</strong>: none};
+}
+
+*[class ~= <span class="hl-string">'front-page/front-page'</span>]:after(<span class="hl-number">1</span>){
+    page:my-blank-page;
+    <strong class="hl-keyword">display</strong>:block;    
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">'\2002'</span>;
+    <strong class="hl-keyword">color</strong>:transparent;
+    <strong class="hl-keyword">page-break-after</strong>:always;
+}
+
+*[class ~= <span class="hl-string">'front-page/front-page'</span>]:after(<span class="hl-number">2</span>){
+    page:my-blank-page;
+    <strong class="hl-keyword">display</strong>:block;    
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">'\2002'</span>;
+    <strong class="hl-keyword">page-break-after</strong>:always;
+}
+
+*[class ~= <span class="hl-string">'front-page/front-page'</span>]:after(<span class="hl-number">3</span>){
+    page:my-blank-page;
+    <strong class="hl-keyword">display</strong>:block;    
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">'\2002'</span>;
+    <strong class="hl-keyword">page-break-after</strong>:always;
+}</pre>
+        <div class="p">
+            <div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">\2002</code> character is a space that is not shown on the pages,
+        but gives a value for the content property.</div>
+        </div>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_double_side_pagination.html#dcpp_how_to_force_an_odd_or_even_number_of_pages_in_a_chapter">How to Force an Odd or Even Number of Pages in a Chapter</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title9" id="dcpp_how_to_add_copyright_page_after_map_cover">
+  <h2 class="title topictitle2" id="ariaid-title9">How to Add a Copyright Page after the Map Cover (Not for Bookmaps)</h2>
+  
+  <div class="body">
+    <p class="p">Regular DITA maps do not have the concept of a copyright notice. This is available only in
+      the DITA <em class="ph i">bookmap</em> structure. </p>
+    <p class="p">If you are constrained to using a regular map and you need to add a copyright page between
+      the front cover and the TOC, use the following technique:</p>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, declare a new
+      page layout:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> copyright-notice-page {
+  @top-left {
+    <strong class="hl-keyword">content</strong>:none; <em class="hl-comment">/* Clear the headers for the copyright page */</em>
+  }
+  @top-right {
+    <strong class="hl-keyword">content</strong>:none;
+  }
+}</pre>
+    <p class="p">The element with the class <code class="ph codeph">front-page/front-page</code> element contains the title
+      of the publication and generates the cover page. A synthetic <code class="ph codeph">:after</code> element
+      is created that follows this element and it is placed on a different page. </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"front-page/front-page"</span>]:after{
+  <strong class="hl-keyword">display</strong>:block;
+ 
+  page: copyright-notice-page; <em class="hl-comment">/* Moves the synthetic element on a new page. */</em> 
+ 
+  <strong class="hl-keyword">margin-top</strong>:<span class="hl-number">90</span>%; <em class="hl-comment">/* use margins to position the text in the page */</em>
+  <strong class="hl-keyword">margin-left</strong>: <span class="hl-number">5</span>em;
+  <strong class="hl-keyword">margin-right</strong>: <span class="hl-number">5</span>em;
+
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Copyright 2018-2019 MyCorp Inc. \A All rights reserved"</span>;
+
+  <strong class="hl-keyword">text-align</strong>:center; <em class="hl-comment">/* More styling */</em>
+  <strong class="hl-keyword">color</strong>:blue;
+}</pre>
+    <p class="p">If you need to add more content as blocks, use the <code class="ph codeph">:after(2)</code>,
+        <code class="ph codeph">:after(3)</code> pseudo-elements:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"front-page/front-page"</span>]:after(<span class="hl-number">2</span>){
+  <strong class="hl-keyword">display</strong>:block;
+  page: copyright-notice-page;  <em class="hl-comment">/* Continue on the same page as the first ':after'. */</em>
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"Some more styled text"</span>;
+  <strong class="hl-keyword">color</strong>:red;
+}</pre>
+    <p class="p">If you want to extract information from the document, use the <code class="ph codeph">oxy_xpath()</code>
+      function. For example, if the copyright info is stored in the map like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"> &lt;map ...&gt;
+  &lt;topicmeta&gt;
+    &lt;copyright&gt;
+      &lt;copyryear year=<span class="hl-string">"2018"</span>/&gt;
+      &lt;copyrholder&gt;MyCorp Inc.&lt;/copyrholder&gt;     
+    &lt;/copyright&gt;
+  &lt;/topicmeta&gt;
+ ...</pre>
+    <p class="p">then use this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"front-page/front-page"</span>]:after(<span class="hl-number">3</span>) {
+    <strong class="hl-keyword">display</strong>: block;
+    page: copyright-notice-page;
+    <strong class="hl-keyword">content</strong>: 
+    <span class="hl-string">"Year: "</span> 
+        oxy_xpath(<span class="hl-string">'//*[contains(@class, " front-page/front-page ")]/*[contains(@class, " map/topicmeta ")]/*[contains(@class, " topic/copyright ")]/*[contains(@class, " topic/copyryear ")]/@year'</span>) 
+    <span class="hl-string">"\A Holder: "</span> 
+        oxy_xpath(<span class="hl-string">'//*[contains(@class, " front-page/front-page ")]/*[contains(@class, " map/topicmeta ")]/*[contains(@class, " topic/copyright ")]/*[contains(@class, " topic/copyrholder ")]/text()'</span>);
+    <strong class="hl-keyword">color</strong>: green;
+}
+</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_debugging_the_css.html#dcpp_how_to_debug_xpath_expressions">How to Debug XPath Expressions</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title10" id="dcpp_how_to_remove_the_cover_page_and_toc">
+    <h2 class="title topictitle2" id="ariaid-title10">How to Remove the Cover Page and TOC</h2>
+    <div class="body">
+        <p class="p">If you need to hide or remove the cover page, the table of contents or other structures,
+      match the elements with a "front-page/front-page" and "toc/toc" classes in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">'map/map'</span>] &gt; *[class ~= <span class="hl-string">'toc/toc'</span>] {
+    <strong class="hl-keyword">display</strong>:none !important;
+}
+*[class ~= <span class="hl-string">'map/map'</span>] &gt; *[class ~= <span class="hl-string">'front-page/front-page'</span>]{
+    <strong class="hl-keyword">display</strong>:none !important;
+}
+*[class~=<span class="hl-string">'topic/topic'</span>][is-chapter] {
+    -oxy-page-group : auto;
+}</pre>
+    </div>
+</article></article></article></main></body></html>

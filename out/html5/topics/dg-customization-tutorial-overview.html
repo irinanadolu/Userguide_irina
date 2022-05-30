@@ -1,0 +1,286 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/dg-simple-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-simple-customization-tutorial.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-basic-association.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-customization-tutorial-overview"><title>Framework Customization Overview</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-customization-tutorial-overview"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Framework Customization Overview</h1>
+  <div class="body">
+    <p class="p">The most important elements of a document type customization are represented by an XML Schema
+      to define the XML structure, the CSS to render the information and the XML instance template
+      that links the first two together.</p>
+    <section class="section" id="dg-customization-tutorial-overview__xml_schema"><h2 class="title sectiontitle">XML Grammar</h2>
+      
+      <p class="p">To provide as-you-type validation and to compute valid insertion proposals, <span class="ph">Oxygen XML Editor</span> needs an XML grammar (XML Schema, DTD, or Relax NG) associated to the
+        XML. The grammar specifies how the internal structure of the XML is defined. For information
+        about associating a schema and how <span class="ph">Oxygen XML Editor</span> detects the schema, see <a class="xref" href="associate-schema-to-document.html#associate-schema-to-document">Associating a Schema to XML Documents</a>.</p>
+      <div class="p">Consider a use-case where several users are testing a system and must send report
+        results to a content management system. The customization should provide a visual editor for
+        this type of document. The following XML Schema, <span class="ph filepath">test_report.xsd</span>
+        defines a report with results of a testing session. The report consists of a title, few
+        lines describing the test suite that was run, and a list of test results (each with a name
+        and a boolean value indicating if the test passed or failed).
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    
+<span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<strong class="hl-tag">&lt;xs:schema</strong> <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"report"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;xs:complexType&gt;</strong>
+            <strong class="hl-tag">&lt;xs:sequence&gt;</strong>
+                <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">ref</span>=<span class="hl-value">"title"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">ref</span>=<span class="hl-value">"description"</span><strong class="hl-tag">/&gt;</strong>
+                <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">ref</span>=<span class="hl-value">"results"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;/xs:sequence&gt;</strong>
+        <strong class="hl-tag">&lt;/xs:complexType&gt;</strong>
+    <strong class="hl-tag">&lt;/xs:element&gt;</strong>
+    <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"title"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"xs:string"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"description"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;xs:complexType&gt;</strong>
+            <strong class="hl-tag">&lt;xs:sequence</strong> <span class="hl-attribute">maxOccurs</span>=<span class="hl-value">"unbounded"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"line"</span><strong class="hl-tag">&gt;</strong>
+                    <strong class="hl-tag">&lt;xs:complexType</strong> <span class="hl-attribute">mixed</span>=<span class="hl-value">"true"</span><strong class="hl-tag">&gt;</strong>
+                        <strong class="hl-tag">&lt;xs:sequence</strong> <span class="hl-attribute">minOccurs</span>=<span class="hl-value">"0"</span> 
+                            <span class="hl-attribute">maxOccurs</span>=<span class="hl-value">"unbounded"</span><strong class="hl-tag">&gt;</strong>
+                            <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"important"</span> 
+                              <span class="hl-attribute">type</span>=<span class="hl-value">"xs:string"</span><strong class="hl-tag">/&gt;</strong>
+                        <strong class="hl-tag">&lt;/xs:sequence&gt;</strong>
+                    <strong class="hl-tag">&lt;/xs:complexType&gt;</strong>
+                <strong class="hl-tag">&lt;/xs:element&gt;</strong>                
+            <strong class="hl-tag">&lt;/xs:sequence&gt;</strong>
+        <strong class="hl-tag">&lt;/xs:complexType&gt;</strong>
+    <strong class="hl-tag">&lt;/xs:element&gt;</strong>
+    
+    <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"results"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;xs:complexType&gt;</strong>
+            <strong class="hl-tag">&lt;xs:sequence</strong> <span class="hl-attribute">maxOccurs</span>=<span class="hl-value">"unbounded"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"entry"</span><strong class="hl-tag">&gt;</strong>
+                    <strong class="hl-tag">&lt;xs:complexType&gt;</strong>
+                        <strong class="hl-tag">&lt;xs:sequence&gt;</strong>
+                            <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"test_name"</span> 
+                              <span class="hl-attribute">type</span>=<span class="hl-value">"xs:string"</span><strong class="hl-tag">/&gt;</strong>
+                            <strong class="hl-tag">&lt;xs:element</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"passed"</span> 
+                               <span class="hl-attribute">type</span>=<span class="hl-value">"xs:boolean"</span><strong class="hl-tag">/&gt;</strong>
+                        <strong class="hl-tag">&lt;/xs:sequence&gt;</strong>
+                    <strong class="hl-tag">&lt;/xs:complexType&gt;</strong>
+                <strong class="hl-tag">&lt;/xs:element&gt;</strong>
+            <strong class="hl-tag">&lt;/xs:sequence&gt;</strong>
+        <strong class="hl-tag">&lt;/xs:complexType&gt;</strong>
+    <strong class="hl-tag">&lt;/xs:element&gt;</strong>
+<strong class="hl-tag">&lt;/xs:schema&gt;</strong></pre></div>
+    </section>
+    <section class="section" id="dg-customization-tutorial-overview__css_stylesheet"><h2 class="title sectiontitle">CSS Stylesheet</h2>
+      
+      <p class="p">A set of rules must be defined for describing how the XML document is to be rendered in
+          <span class="ph uicontrol">Author</span> mode. This is done using Cascading Style Sheets (CSS). CSS
+        is a language used to describe how an HTML or XML document should be formatted by a browser.
+        CSS is widely used in the majority of websites.</p>
+      <p class="p">The elements from an XML document are displayed in the layout as a series of boxes. Some of
+        the boxes contain text and may flow one after the other, from left to right. These are
+        called inline boxes. There are also other types of boxes that flow one below the other (such
+        as paragraphs). These are called block boxes.</p>
+      <p class="p">For example, consider the way a traditional text editor arranges the text. A paragraph is a
+        block, because it contains a vertical list of lines. The lines are also blocks. However,
+        blocks that contain inline boxes arrange its children in a horizontal flow. That is why the
+        paragraph lines are also blocks, while the traditional "bold" and "italic" sections are
+        represented as inline boxes.</p>
+      <p class="p">The CSS allows us to specify that some elements are displayed as tables. In CSS, a table is
+        a complex structure and consists of rows and cells. The <code class="ph codeph">table</code> element must
+        have children that have a <em class="ph i">table-row</em> style. Similarly, the <code class="ph codeph">row</code>
+        elements must contain elements with a <em class="ph i">table-cell</em> style.</p>
+      <p class="p">To make it easy to understand, the following section describes how each element from a
+        schema is formatted using a CSS file. Note that this is just one of infinite possibilities
+        for formatting the content.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">report</dt>
+            <dd class="dd">The root of a report document. It should be rendered as a box that contains all
+              other elements. To achieve this, the display type is set to <strong class="ph b">block</strong>.
+              Additionally, some margins are set for it. The CSS rule that matches this element
+              is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">report{
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">1</span>em;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">title</dt>
+            <dd class="dd">The title of the report. Usually titles have a large font. The <strong class="ph b">block</strong> display
+              is used so that the subsequent elements will be placed below it, and its font is
+              changed to double the size of the normal text.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">font-size</strong>:<span class="hl-number">2</span>em;    
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">description</dt>
+            <dd class="dd">Contains several lines of text describing the report. The lines of text are
+              displayed one below the other, so the description has the <strong class="ph b">block</strong> display. Also,
+              the background color is changed to make it standout.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">description {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">background-color</strong>:#EEEEFF;
+    <strong class="hl-keyword">color</strong>:black;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">line</dt>
+            <dd class="dd">A line of text in the description. A specific aspect is not defined and it just
+              indicates that the display should be <strong class="ph b">block</strong> style.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">line {
+    <strong class="hl-keyword">display</strong>:block;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">important</dt>
+            <dd class="dd">Defines important text from the description. Since it can be mixed with text, its
+              display property must be set to <strong class="ph b">inline</strong>. Also, the text is emphasized with
+                <strong class="ph b">bold</strong>to make it easier to spot.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">important {
+    <strong class="hl-keyword">display</strong>:inline;
+    <strong class="hl-keyword">font-weight</strong>:bold;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">results</dt>
+            <dd class="dd">Displays the list of <dfn class="term">test_names</dfn> and the results for each one. To make
+              it easier to read, it is displayed as a <strong class="ph b">table</strong>, with a green border and margins.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">results{
+    <strong class="hl-keyword">display</strong>:table;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">2</span>em;
+    <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid green;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">entry</dt>
+            <dd class="dd"> The results are displayed as a table so the entry is a row in the table. Thus, the
+              display is <strong class="ph b">table-row</strong>.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">entry {
+    <strong class="hl-keyword">display</strong>:table-row;
+}</pre></dd>
+          
+          
+            <dt class="dt dlterm">test_name, passed</dt>
+            <dd class="dd">The name of the individual test, and its result. They are cells in the results table
+              with the display set to <strong class="ph b">table-cell</strong>. Padding and a border are added to emphasize
+              the table grid.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">
+test_name, passed{
+    <strong class="hl-keyword">display</strong>:table-cell;
+    <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid green;
+    <strong class="hl-keyword">padding</strong>:<span class="hl-number">20</span>px;
+}
+
+passed{
+    <strong class="hl-keyword">font-weight</strong>:bold;
+}</pre></dd>
+          
+        </dl>
+      </div>
+      <div class="p">The full content of the CSS file <span class="ph filepath">test_report.css</span> is:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">
+report {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">1</span>em;
+}
+
+description {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">background-color</strong>:#EEEEFF;
+    <strong class="hl-keyword">color</strong>:black;
+}
+
+line {
+    <strong class="hl-keyword">display</strong>:block;
+}
+
+important {
+    <strong class="hl-keyword">display</strong>:inline;
+    <strong class="hl-keyword">font-weight</strong>:bold;
+}
+
+title {
+    <strong class="hl-keyword">display</strong>:block;
+    <strong class="hl-keyword">font-size</strong>:<span class="hl-number">2</span>em;    
+}
+
+results{
+    <strong class="hl-keyword">display</strong>:table;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">2</span>em;       
+    <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid green;
+}
+
+entry {
+    <strong class="hl-keyword">display</strong>:table-row;
+}
+
+test_name, passed{
+    <strong class="hl-keyword">display</strong>:table-cell;
+    <strong class="hl-keyword">border</strong>:<span class="hl-number">1</span>px solid green;
+    <strong class="hl-keyword">padding</strong>:<span class="hl-number">20</span>px;
+}
+
+passed{
+    <strong class="hl-keyword">font-weight</strong>:bold;
+}                        </pre></div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Report Rendered in <span class="ph uicontrol">Author</span> Mode</figcaption>
+          
+          <img class="image" src="../img/dg_sample_reports.png">
+        </figure>
+      </div>
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Note:</span> You can edit attributes in-place in the <span class="ph uicontrol">Author</span> mode using <a class="xref" href="editing-attributes-author-mode.html">form-based controls</a>.</div>
+      </div>
+    </section>
+    <section class="section" id="dg-customization-tutorial-overview__xml_instance_template"><h2 class="title sectiontitle">XML Instance Template</h2>
+      
+      <p class="p">Based on the XML Schema and CSS file <span class="ph">Oxygen XML Editor</span> can help the content author in
+        loading, editing, and validating the test reports. An XML document template must be created
+        as a kind of skeleton that the users can use as a starting point for creating new test
+        reports. The template must be generic enough and reference the XML Schema file and the CSS
+        stylesheet.</p>
+      <div class="p">This is an
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-directive">&lt;?xml-stylesheet type="text/css" href="test_report.css"?&gt;</span>
+<strong class="hl-tag">&lt;report</strong> <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span> 
+  <span class="hl-attribute">xsi:noNamespaceSchemaLocation</span>=<span class="hl-value">"test_report.xsd"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>Automated test report<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;description&gt;</strong>
+    <strong class="hl-tag">&lt;line&gt;</strong>This is the report of the test automatically ran.
+      Each test suite is ran at 20:00h each day.
+      Please <strong class="hl-tag">&lt;important&gt;</strong>check<strong class="hl-tag">&lt;/important&gt;</strong> the failed ones!<strong class="hl-tag">&lt;/line&gt;</strong>
+  <strong class="hl-tag">&lt;/description&gt;</strong>
+  <strong class="hl-tag">&lt;results&gt;</strong>
+    <strong class="hl-tag">&lt;entry&gt;</strong>
+      <strong class="hl-tag">&lt;test_name&gt;</strong>Database connection test<strong class="hl-tag">&lt;/test_name&gt;</strong>
+      <strong class="hl-tag">&lt;passed&gt;</strong>true<strong class="hl-tag">&lt;/passed&gt;</strong>
+    <strong class="hl-tag">&lt;/entry&gt;</strong>
+    <strong class="hl-tag">&lt;entry&gt;</strong>
+      <strong class="hl-tag">&lt;test_name&gt;</strong>XSLT Transformation test<strong class="hl-tag">&lt;/test_name&gt;</strong>
+      <strong class="hl-tag">&lt;passed&gt;</strong>true<strong class="hl-tag">&lt;/passed&gt;</strong>
+    <strong class="hl-tag">&lt;/entry&gt;</strong>
+    <strong class="hl-tag">&lt;entry&gt;</strong>
+      <strong class="hl-tag">&lt;test_name&gt;</strong>DTD validation test<strong class="hl-tag">&lt;/test_name&gt;</strong>
+      <strong class="hl-tag">&lt;passed&gt;</strong>false<strong class="hl-tag">&lt;/passed&gt;</strong>
+    <strong class="hl-tag">&lt;/entry&gt;</strong>
+  <strong class="hl-tag">&lt;/results&gt;</strong>
+<strong class="hl-tag">&lt;/report&gt;</strong>
+</pre></div>
+      <p class="p">The processing instruction <code class="ph codeph">xml-stylesheet</code> associates the CSS stylesheet to
+        the XML file. The <code class="ph codeph">href</code> pseudo attribute contains the URI reference to the
+        stylesheet file. In the example, the CSS is in the same directory as the XML file.</p>
+      <div class="p">The next step is to place the XSD file and the CSS file on a web server and modify the
+        template to use the HTTP URLs, like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hl-directive">&lt;?xml-stylesheet type="text/css" 
+        href="http://www.mysite.com/reports/test_report.css"?&gt;</span>
+<strong class="hl-tag">&lt;report</strong> <span class="hl-attribute">xmlns:xsi</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema-instance"</span> 
+        <span class="hl-attribute">xsi:noNamespaceSchemaLocation</span>=
+        <span class="hl-value">"http://www.mysite.com/reports/test_report.xsd"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;title&gt;</strong>Test report title<strong class="hl-tag">&lt;/title&gt;</strong>
+    <strong class="hl-tag">&lt;description&gt;</strong>
+.......</pre></div>
+      <p class="p">If you want to share the files with other team members, you could create an archive
+        containing the <em class="ph i"><span class="ph filepath">test_report.xml</span></em>,
+            <em class="ph i"><span class="ph filepath">test_report.css</span></em>, and
+          <em class="ph i"><span class="ph filepath">test_report.xsd</span></em> and send it to the other users.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-simple-customization-tutorial.html">Framework Customization Tutorial</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-simple-customization-tutorial.html">Framework Customization Tutorial</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-basic-association.html">Basic Tutorial: Creating and Configuring a Custom Framework</a></div></div></nav></article></main></body></html>

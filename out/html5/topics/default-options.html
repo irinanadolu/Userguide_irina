@@ -1,0 +1,99 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Customizing default options"><meta name="keywords" content="Customizing default options"><meta name="DC.relation" scheme="URI" content="../topics/option-layers.html"><meta name="DC.relation" scheme="URI" content="../topics/option-layers.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-storing.html"><meta name="DC.relation" scheme="URI" content="sharing-possibilities.html#sharing-possibilities"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="default-options"><title>Customizing Default Options</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="default-options"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing Default Options</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> has an extensive set of options that you can configure. When <span class="ph">Oxygen XML Editor</span> in installed, these options are set to default values. You can provide a
+      different set of default values for an installation using an XML <em class="ph i">options file</em>.</p>
+    <section class="section" id="default-options__creating_an_xml_options_file"><h2 class="title sectiontitle">Creating an XML <em class="ph i">Options File</em></h2>
+      
+      <div class="p">To create an <em class="ph i">options file</em>, follow these steps:<ol class="ol" id="default-options__ol_uvs_f52_1p">
+          <li class="li">It is recommended that you use a fresh install for this procedure, to make sure that
+            you do not copy personal or local preferences. </li>
+          <li class="li">Open <span class="ph">Oxygen XML Editor</span> and <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>.</li>
+          <li class="li">Go through the options and set them to the desired defaults.<span class="ph"> Make sure that <a class="xref" href="../glossary/global-options.html"><span class="ph uicontrol">Global Options</span></a> is
+              selected in each page.</span>
+          </li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> and close
+            the <span class="ph uicontrol">Preferences</span> dialog box. </li>
+          <li class="li"><span class="ph">Go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Export Global Options</span></span> to create an XML options file.</span></li>
+        </ol></div>
+    </section>
+    <section class="section" id="default-options__project-file-section"><h2 class="title sectiontitle">Controlling Which Options are Stored in the Default Options File</h2>
+      
+      <div class="p">If you want to control exactly which option pages will be stored in the default options
+        file, you can choose to attach them to a project file (<span class="ph filepath">.xpr</span> file
+        extension) by following this procedure:<ol class="ol" id="default-options__ul_bdf_d5t_zd">
+          <li class="li">You may want to use a fresh install for this procedure, to make sure that you do not
+            copy personal or local preferences.</li>
+          <li class="li">In the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a>, create a project or open an existing
+            one.</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>.</li>
+          <li class="li">Configure the options in each preferences page that you want to be included in the
+            project file and switch the storage preference to <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project Options</span></a> in
+            each page.<div class="note note note_note"><span class="note__title">Note:</span> Some pages do not have the <span class="ph uicontrol">Project Options</span>
+              button, since the options they host might contain sensitive data (such as passwords,
+              for example) that is unsuitable for sharing with other users.</div></li>
+          <li class="li">
+            <p class="p">Click <span class="ph uicontrol">OK</span> and close the <span class="ph uicontrol">Preferences</span>
+              dialog box.</p>
+            <div class="p">All explicitly set values are now saved in the project file. You can then share the
+              project file so that your team will have the same option configuration that you stored
+              in the project file.<div class="note note note_note"><span class="note__title">Note:</span> The project file extension (<span class="ph filepath">.xpr</span>) must be
+        preserved when the file is distributed to others.</div><div class="note notice note_notice"><span class="note__title">Notice:</span> When a
+              project is opened for the first time, a confirmation dialog box will be displayed that
+              asks you to confirm that the project came from a trusted source. This is meant to help
+              prevent potential security issues.</div></div>
+          </li>
+        </ol></div>
+    </section>
+    <section class="section" id="default-options__using_customized_default_options"><h2 class="title sectiontitle">Configuring an Installation to Use Customized Default Options</h2>
+      
+      <div class="p">There are several methods that you can use to configure an <span class="ph">Oxygen XML Editor</span>
+        installation to use the customized default options from the created XML options file.<div class="note warning note_warning"><span class="note__title">Warning:</span> The disadvantage of customizing the
+          default options is that if the end-user manually changes an option, the default value will
+          no longer be used. An alternative would be to <a class="xref" href="default-options.html#default-options__impose_a_set_of_options_using_a_sample_plugin">use
+            a plugin to impose a set of options</a>.</div></div>
+      <p class="p">The possible methods for using customized default options during an installation
+        include:</p>
+      <ul class="ul" id="default-options__ul_n5f_btb_md">
+        <li class="li">
+          <p class="p"><strong class="ph b">Copy the XML Options File to the Installation Directory</strong></p>
+          <p class="p">In the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn></span>,
+            create a folder called <span class="ph filepath">preferences</span> and copy the created XML options
+            file into it <span class="ph">(for example,
+                  <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/preferences/default.xml</span>)</span>.</p>
+        </li>
+        <li class="li">
+          <p class="p"><strong class="ph b">Specify a Path to the XML Options File in a Startup Parameter</strong></p>
+          <div class="p">Set the path to the XML options file as the value of the
+              <code class="ph codeph">com.oxygenxml.default.options</code> system property in the <a class="xref" href="set-parameter-in-startup-script.html#set-parameter-in-startup-script">startup
+              parameters</a>. The path can be specified with any of the following:<ul class="ul">
+              <li class="li">A URL or file path relative to the application installation folder. For
+                example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">-Dcom.oxygenxml.default.options</span>=options/default.xml</pre></li>
+              <li class="li">A system variable that specifies the file path. For
+                example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">com.oxygenxml.default.options</span>=${system(CONFIG)}/default.xml</pre></li>
+              <li class="li">An environmental variable that specifies the file path. For
+                example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">com.oxygenxml.default.options</span>=${env(CONFIG)}/default.xml</pre></li>
+            </ul></div>
+        </li>
+        
+      </ul>
+    </section>
+    <section class="section" id="default-options__impose_a_set_of_options_using_a_sample_plugin"><h2 class="title sectiontitle">Impose a Set of Options Using a Plugin</h2>
+      
+      <p class="p">The <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen XML SDK</a> includes a sample Java-based
+          <strong class="ph b">oxygen-sample-plugin-impose-options</strong> plugin that shows how to impose a set of
+        options for the end-users every time the API is called. It is possible to use this plugin to
+        impose options but still allow the end-user to change options by calling the API only once,
+        the first time the plugin starts along with <span class="ph">Oxygen XML Editor</span>.</p>
+      <p class="p">A similar JavaScript-based sample <strong class="ph b">impose-options</strong> plugin is also available here:
+          <a class="xref" href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins" target="_blank" rel="external noopener">https://github.com/oxygenxml/wsaccess-javascript-sample-plugins</a>. This plugin imports a fixed set of options (saved in XML format) when
+          <span class="ph">Oxygen XML Editor</span> starts.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/option-layers.html">Configuring Options</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/option-layers.html">Configuring Options</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-storing.html">Storing Global and Project Level Options</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="sharing-possibilities.html#sharing-possibilities">Sharing Application Settings</a></li></ul></div></nav>
+</article></main></body></html>

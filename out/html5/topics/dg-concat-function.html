@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="concept"><meta name="description" content="This function concatenates the received string arguments."><meta name="DC.subject" content="CSS extensions,Custom functions,oxy_concat"><meta name="keywords" content="CSS extensions, Custom functions, oxy_concat"><meta name="DC.relation" scheme="URI" content="../topics/dg-oxygen-css-functions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-compound-action-function.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-getsometext-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-concat-function"><title>Concatenation: oxy_concat() Function</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-concat-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Concatenation: oxy_concat() Function</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">This function concatenates the received string arguments.</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Syntax:</dt>
+          <dd class="dd">
+            <div class="p">
+              <div class="fig syntaxdiagram">
+                 
+                  <kbd><b>oxy_concat</b></kbd>
+                  <kbd class="ph sep">(</kbd>
+                  <kbd><b>str_1</b></kbd>
+                  <kbd class="ph sep">,</kbd>
+                  <kbd><b>str_2</b></kbd>
+                  <kbd class="ph sep">)</kbd>
+                 
+              </div>
+            </div>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">str_1 … str_n</dt>
+                  <dd class="dd">The string arguments to be concatenated.</dd>
+                
+              </dl>
+            </div>
+            <p class="p"><u class="ph u"><strong class="ph b">Example: <em class="ph i">oxy_concat</em> Function</strong></u></p>
+            <div class="p">If an XML element has an attribute called
+              <strong class="ph b">padding-left</strong>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"> <strong class="hl-tag">&lt;p</strong> <span class="hl-attribute">padding-left</span>=<span class="hl-value">"20"</span><strong class="hl-tag">&gt;</strong>...</pre>and
+              you want to add a padding before it with that specific amount specified in the
+              attribute
+              value:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[<strong class="hl-keyword">padding-left</strong>]{
+ <strong class="hl-keyword">padding-left</strong>:oxy_concat(attr(<strong class="hl-keyword">padding-left</strong>), <span class="hl-string">"px"</span>);
+}</pre></div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-oxygen-css-functions.html">Custom CSS Functions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-compound-action-function.html" title="This function allows you to define multiple actions that will be executed sequentially.">Compound Actions: oxy_compound_action() Function</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-getsometext-function.html" title="This function allows you to truncate a long string and to set a maximum number of displayed characters.">Get Text: oxy_getSomeText(text, length) Function</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="HTTP floating license server,Replacing"><meta name="keywords" content="HTTP floating license server, Replacing"><meta name="DC.relation" scheme="URI" content="../topics/floating-license-servlet-setup.html"><meta name="DC.relation" scheme="URI" content="../topics/servlet-report-page.html"><meta name="DC.relation" scheme="URI" content="../topics/upgrade-license-servlet.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="replace-floating-license"><title>Replacing or Removing a License Key in an HTTP License Server</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="replace-floating-license"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Replacing or Removing a License Key in an HTTP License Server</h1>
+  
+  <div class="body">
+    <p class="p">The following procedure assumes that your <span class="ph">Oxygen XML Editor</span> HTTP license server contains
+      a previously <a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__activate-li">activated license key</a> and provides instructions for replacing it with another one or
+      removing it completely. </p>
+    <p class="p">This is useful if, for instance, you want to upgrade your existing license to the latest
+        version<span class="ph">
+        or if you receive a new license key <a class="xref" href="installation-setting-up-license-server.html#installation-setting-up-license-server__split_combine_floating">that accommodates a different number of users</a></span>.</p>
+    
+    <section class="section" id="replace-floating-license__replacing_a_license_key"><h2 class="title sectiontitle">Replacing a License Key</h2>
+      
+      <div class="p">To replace a license key<span class="ph"> that is
+          activated on your HTTP license server with a new one</span>, follow these steps:<ol class="ol" id="replace-floating-license__ul_scf_3jt_wr">
+          <li class="li">Access the license server<span class="ph"> by
+              following the link provided by the Tomcat Web Application Manager page</span> and log in
+            using your <strong class="ph b">admin</strong> credentials.</li>
+          <li class="li">Click the <span class="ph uicontrol">Replace/Remove license key</span> link. This will open a
+            page that contains details about the license currently in use.</li>
+          <li class="li">Click the <span class="ph uicontrol">Replace</span> button.</li>
+          <li class="li">
+            <p class="p">Paste the new license key in the displayed form.</p>
+          </li>
+          <li class="li">
+            <p class="p">Click <span class="ph uicontrol">Register/Activate</span>. <span class="ph">The
+                browser used in the process needs to have Internet access.</span></p>
+            <div class="p"><strong class="ph b">Step Result:</strong> You will be redirected to an online form hosted on the <span class="ph">Oxygen XML Editor</span> website. This form is pre-filled with an activation code that
+              uniquely identifies your license server deployment and your license key.<div class="note note note_note"><span class="note__title">Note:</span> If
+                you cannot access the online activation form, you can <a class="xref" href="floating-license-servlet-setup.html#floating-license-servlet-setup__manual_license_activation_procedure_for_users_who">manually activate the license key</a>.</div></div>
+          </li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> If the activation process is completed successfully, your license server is
+        now running using the new license key. You can click <span class="ph uicontrol">View license key</span>
+        to inspect the key currently used by the license server.</p>
+    </section>
+    <section class="section" id="replace-floating-license__removing_a_license_key"><h2 class="title sectiontitle">Removing a License Key</h2>
+      
+      <div class="p">To remove a license key that is activated on your HTTP license server, follow these steps:<ol class="ol">
+          <li class="li">Access the license server<span class="ph"> by
+              following the link provided by the Tomcat Web Application Manager page</span> and log in
+            using your <strong class="ph b">admin</strong> credentials.</li>
+          <li class="li">Click the <span class="ph uicontrol">Replace/Remove license key</span> link. This will open a
+            page that contains details about the license currently in use.</li>
+          <li class="li">Click the <span class="ph uicontrol">Remove</span> button to begin the license deletion
+            procedure.</li>
+          <li class="li">Click the <span class="ph uicontrol">Remove</span> button in the confirmation page. <div class="note important note_important"><span class="note__title">Important:</span> The removal process is irreversible. Once the process is complete,
+              you cannot restore the license key.</div></li>
+        </ol></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/floating-license-servlet-setup.html">Setting up an HTTP License Server (Floating or Named-User Licenses)</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/servlet-report-page.html">License Server Management and Statistics Pages</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/upgrade-license-servlet.html">Upgrading Your HTTP License Server</a></div></div></nav></article></main></body></html>

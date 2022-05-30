@@ -1,0 +1,26 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="Oxygen XML Editor allows you to edit processing instructions, comments, and CDATA by using CSS extensions."><meta name="DC.subject" content="CSS extensions,Form Controls,Editing processing instructions,Form Control,Editing processing instructions"><meta name="keywords" content="CSS extensions, Form Controls, Editing processing instructions, Form Control, Editing processing instructions"><meta name="DC.relation" scheme="URI" content="../topics/form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/implementing-custom-form-controls.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-custom-css-pseudo-classes.html"><meta name="DC.relation" scheme="URI" content="text-field-editor.html"><meta name="DC.relation" scheme="URI" content="dg-visibility-css-extension.html"><meta name="DC.relation" scheme="URI" content="show-external-pis.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="editing-pis-using-form-controls"><title>Editing Processing Instructions Using a Form Control</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="editing-pis-using-form-controls"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Processing Instructions Using a Form Control</h1>
+  
+  
+  <div class="body"><p class="shortdesc"><span class="ph">Oxygen XML Editor</span> allows you to edit <em class="ph i">processing instructions</em>,
+      <em class="ph i">comments</em>, and <em class="ph i">CDATA</em> by using CSS extensions.</p>
+    <div class="note note note_note"><span class="note__title">Note:</span> You can edit both the content and the attribute value from a <em class="ph i">processing
+      instruction</em>.</div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: Editing an Attribute from a Processing Instruction</u></strong></p>
+    <div class="p">PI content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-directive">&lt;?pi_target attr="val"?&gt;</span></pre></div>
+    <div class="p">CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@namespace oxy <span class="hl-string">"http://www.oxygenxml.com/extensions/author"</span>;
+
+oxy|processing-instruction:before {
+    <strong class="hl-keyword">display</strong>:inline;
+    <strong class="hl-keyword">content</strong>: 
+        <span class="hl-string">"EDIT attribute: "</span> oxy_textfield(edit, <span class="hl-string">'@attr'</span>, columns, <span class="hl-number">15</span>);
+    <strong class="hl-keyword">visibility</strong>:visible;
+}
+oxy|processing-instruction{
+    <strong class="hl-keyword">visibility</strong>:-oxy-collapse-text;
+}</pre></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/form-controls.html">Form Controls</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/implementing-custom-form-controls.html" title="If the built-in form controls are not sufficient for your needs, you can implement custom form controls in Java.">Implementing Custom Form Controls</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-custom-css-pseudo-classes.html">Custom CSS Pseudo-classes</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="text-field-editor.html" title="The oxy_textfield built-in form control is used for entering a single line of text in a graphical user interface box. A text field may include optional content completion capabilities, used to present and edit the value of an attribute or an element.">Text Field Form Control</a></li><li class="linklist"><a class="link" href="dg-visibility-css-extension.html" title="Used to collapse the content of an element.">Collapse Text: -oxy-collapse-text Property Value</a></li><li class="linklist"><a class="link" href="show-external-pis.html">Displaying Processing Instructions from Other XML Editors</a></li></ul></div></nav>
+</article></main></body></html>

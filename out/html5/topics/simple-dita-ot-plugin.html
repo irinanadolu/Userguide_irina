@@ -1,0 +1,160 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content="DITA,DITA-OT Plugins,Create customization plugin"><meta name="keywords" content="DITA, DITA-OT Plugins, Create customization plugin"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-plugins-intro.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-plugins-intro.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-ot-install-plugin.html"><meta name="DC.relation" scheme="URI" content="http://www.dita-ot.org/"><meta name="DC.relation" scheme="URI" content="dita-ot-define-transtype.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="simple-dita-ot-plugin"><title>Creating a DITA-OT Plugin</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="simple-dita-ot-plugin">
+  <h1 class="title topictitle1" id="ariaid-title1">Creating a DITA-OT Plugin</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> provides the ability to <a class="xref" href="dita-ot-install-plugin.html#dita-ot-install-plugin">install additional <strong class="ph b">DITA Open
+          Toolkit</strong>
+        <dfn class="term">plugins</dfn></a> that can be found from various sources (for example, <a class="xref" href="https://github.com/search?q=topic%3Adita-ot-plugin+org%3Aoxygenxml&amp;type=Repositories" target="_blank" rel="external noopener"><em class="ph i">Oxygen's</em> public GitHub repository includes some
+        DITA-OT plugins</a>). It is also possible to create your own <dfn class="term">plugin</dfn>.</p>
+    <p class="p">To create a DITA-OT <dfn class="term">plugin</dfn>, follow these steps:</p>
+    <div class="p">
+      <ol class="ol" id="simple-dita-ot-plugin__ol_icd_rdt_pm">
+        <li class="li">Create a new folder in the <strong class="ph b">plugins</strong> folder located in your DITA-OT directory (for
+          example, if you are using DITA <span class="ph">3.5.4</span>, the path would look like
+          this: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/dita/<dfn class="term">DITA-OT3.x</dfn>/plugins/MyNewPlugin</span>).</li>
+        <li class="li">Create a <strong class="ph b">plugin.xml</strong> file in that same folder. This file will contain the
+          extension points for the <dfn class="term">plugin</dfn>. For example, references to the XSLT
+          stylesheets that will be used to style the output.<div class="note note note_note"><span class="note__title">Note:</span> You can easily create this file by
+            using the <span class="ph uicontrol">DITA-OT Plugin</span> new document template that is included
+            in <span class="ph">Oxygen XML Editor</span> (from the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a> you can find this template in <span class="ph menucascade"><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">plugin</span></span>.</div>
+          <strong class="ph b">Example:</strong><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"org.metadita.specialization.music"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.specialization.catalog.relative"</span> 
+           <span class="hl-attribute">file</span>=<span class="hl-value">"catalog-dita.xml"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.xsl.xhtml"</span> <span class="hl-attribute">file</span>=<span class="hl-value">"xsl/music2xhtml.xsl"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre><div class="note tip note_tip"><span class="note__title">Tip:</span> 
+            <span class="ph">Oxygen XML Editor</span> includes special editing support when adding extension points in
+            the <strong class="ph b">plugin.xml</strong> file. If you place the cursor in the value of the
+              <code class="keyword markupname xmlatt">@extension</code> attribute and press
+                <span class="ph uicontrol"><span class="keyword shortcut">Ctrl+Space</span></span>, a list of possible extension
+            points is presented with links to the DITA-OT documentation. For more information about
+            extension points that are available to use in the <em class="ph i">plugin.xml</em> file, see: <a class="xref" href="http://www.dita-ot.org/dev/extension-points/extension-points-by-plugin.html" target="_blank" rel="external noopener">http://www.dita-ot.org/dev/extension-points/extension-points-by-plugin.html</a>.</div></li>
+        <li class="li"><a class="xref" href="dita-ot-install-plugin.html#dita-ot-install-plugin">Install the newly
+            created DITA-OT <dfn class="term">plugin</dfn></a> by running the built-in transformation
+          scenario called <a class="xref" href="ditamap-run-dita-ot-integrator.html#ditamap-run-dita-ot-integrator"><span class="ph uicontrol">Run
+              DITA-OT Integrator</span></a> from the <a class="xref" href="builtin-transformation-scenarios.html#builtin-transformation-scenarios"><span class="ph uicontrol"><img class="image" id="simple-dita-ot-plugin__image_qwt_3ts_yq" src="../img/ApplyStyleSheet16.png">Apply
+              Transformation Scenario(s)</span></a> or <a class="xref" href="configure-transformation-dialog.html#configure-transformation-dialog"><span class="ph uicontrol"><img class="image" src="../img/TransformConfig16.png">Configure Transformation
+              Scenario(s)</span> dialog box</a>.<div class="note note note_note"><span class="note__title">Note:</span> If the <dfn class="term">integrator</dfn> is not
+            visible, select the <strong class="ph b">Show all scenarios</strong> option in the <span class="ph uicontrol"><img class="image" id="simple-dita-ot-plugin__image_km5_xrs_yq" src="../img/Settings16.png">Settings</span> drop-down
+            menu.</div></li>
+      </ol>
+    </div>
+    <p class="p">You can share your new plugin with other users who have the same DITA-OT distribution by
+      sending them your newly created folder along with the <a class="xref" href="dita-ot-install-plugin.html#dita-ot-install-plugin">installation
+      instructions</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-ot-plugins-intro.html">DITA-OT Plugins</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-ot-plugins-intro.html">DITA-OT Plugins</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-ot-install-plugin.html">Installing a DITA-OT Plugin</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="http://www.dita-ot.org/" target="_blank" rel="external noopener">DITA Open Toolkit Documentation</a></li><li class="linklist"><a class="link" href="dita-ot-define-transtype.html">Defining the Transformation Type and Allowed Parameters in a DITA-OT Plugin</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="example-custom-dita-ot-plugin">
+  <h2 class="title topictitle2" id="ariaid-title2">Example: Creating a DITA-OT Plugin for Embedding Video Resources</h2>
+  <div class="body">
+    <p class="p">To offer a detailed example of the steps required to create a new <strong class="ph b">DITA Open Toolkit</strong>
+      <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a>, this topic uses an example of
+      creating an <strong class="ph b">XSLT</strong> customization <dfn class="term">plugin</dfn> that provides support for
+      referencing video and audio content using the DITA <code class="keyword markupname xmlelement">&lt;object&gt;</code> element and then
+      publishing to <strong class="ph b">HTML</strong> and <strong class="ph b">PDF</strong> output formats. This <dfn class="term">plugin</dfn>
+        (<strong class="ph b">com.oxygenxml.media</strong>) is available in the <strong class="ph b">DITA Open Toolkit</strong> distribution that
+      comes bundled with the latest version of <span class="ph">Oxygen XML Editor</span>, but these instructions show
+      you how you could create it if it were not included.</p>
+    <p class="p">The following procedure is meant to help you with creating the <dfn class="term">plugin</dfn>:</p>
+    <div class="p">
+      <ol class="ol" id="example-custom-dita-ot-plugin__ol_icd_rdt_pm">
+        <li class="li">Create a folder for your <dfn class="term">plugin</dfn> in the DITA-OT <strong class="ph b">plugins</strong> folder
+              (<span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/</span>).</li>
+        <li class="li">
+          <div class="p">Create a <strong class="ph b">plugin.xml</strong> file (in the same <dfn class="term">plugin</dfn> folder) that contains
+            the extension points of the <dfn class="term">plugin</dfn>.<div class="note note note_note"><span class="note__title">Note:</span> You can easily create this file by
+              using the <span class="ph uicontrol">DITA-OT Plugin</span> template that is included in <span class="ph">Oxygen XML Editor</span> (from the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a> you can find this template in <span class="ph menucascade"><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">plugin</span></span>).</div></div>
+          <div class="p"><u class="ph u"><strong class="ph b">Example: Media Plugin
+            File</strong></u><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;plugin</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.media"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"package.support.name"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"Oxygen XML Editor Support"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"package.support.email"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"support@oxygenxml.com"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"package.version"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"21.0"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.xsl.xhtml"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"xhtmlMedia.xsl"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"file"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;feature</strong> <span class="hl-attribute">extension</span>=<span class="hl-value">"dita.xsl.xslfo"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"pdfMedia.xsl"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"file"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre></div>
+          <p class="p">The most important extensions in it are the references to the XSLT stylesheets that
+            will be used to style the HTML and PDF outputs. </p>
+          <p class="p">You can find other <strong class="ph b">DITA-OT</strong>
+            <dfn class="term">plugin</dfn> extension points here: <a class="xref" href="http://www.dita-ot.org/dev/extension-points/extension-points-by-plugin.html" target="_blank" rel="external noopener">http://www.dita-ot.org/dev/extension-points/extension-points-by-plugin.html</a>.</p>
+        </li>
+        <li class="li">
+          <div class="p">Create an XSLT stylesheet to customize the output types. In this example, to customize
+            the HTML output, it is necessary to create an XSLT stylesheet called
+              <strong class="ph b">xhtmlMedia.xsl</strong> (in the same <dfn class="term">plugin</dfn> folder).<div class="note tip note_tip"><span class="note__title">Tip:</span> You
+              can <span class="ph">use the <a class="xref" href="find-and-replace-text-in-files.html#find-and-replace-text-in-files"><span class="ph uicontrol">Find/Replace in Files</span> action</a> to </span>find an XSLT
+              stylesheet with content that is similar to the desired output and use it as a template
+              to overwrite parts of your stylesheet. For example, suppose you want to overwrite HTML
+              content produced from a DITA <strong class="ph b">codeblock</strong> element. Since a DITA
+                <code class="keyword markupname xmlelement">&lt;object&gt;</code> element has the <code class="keyword markupname xmlatt">@class</code> attribute
+              value <code class="ph codeph">- topic/object </code>, you can take part of the class attribute value
+                (<strong class="ph b">topic/object</strong>) and search the <strong class="ph b">DITA-OT</strong> resources for a similar
+              stylesheet. The search might find the XSLT stylesheet <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.xhtml/xsl/xslhtml/xsl/xslhtml/dita2htmlImpl.xsl</span>.</div></div>
+          <div class="p">You can use it as a starting point to overwrite the <strong class="ph b">xhtmlMedia.xsl</strong> stylesheet.
+            For example, the results might
+            be:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:template</strong> 
+   <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class, ' topic/object ')][contains(@outputclass, 'video')]"</span><strong class="hl-xsl">&gt;</strong>
+ <strong class="hl-tag">&lt;video</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"embed-responsive-item"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"commonattributes"</span><strong class="hl-xsl">/&gt;</strong>
+   <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"setidaname"</span><strong class="hl-xsl">/&gt;</strong>
+   <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"copySource"</span><strong class="hl-xsl">/&gt;</strong>
+ <strong class="hl-tag">&lt;/video&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></div>
+        </li>
+        <li class="li">
+          <p class="p">Create additional XSLT stylesheets to customize all other desired output types. In this
+            example, to customize the PDF output it is necessary to create an XSLT stylesheet called
+              <strong class="ph b">pdfMedia.xsl</strong> (in the same <dfn class="term">plugin</dfn> folder).</p>
+          <div class="p">In this case, you might find an appropriate XSLT stylesheet called <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/xsl/fo/topic.xsl</span>
+            to use as a starting point to overwrite the <strong class="ph b">pdfMedia.xsl</strong> stylesheet, with results
+            looking something like
+            this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!--Treat video, audio or iframe objects as links--&gt;</em>
+<strong class="hl-xsl">&lt;xsl:template</strong> 
+           <span class="hl-attribute">match</span>=<span class="hl-value">"*[contains(@class,' topic/object ')][@outputclass = 'video']"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"target"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"@data"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"baseDir"</span><strong class="hl-xsl">&gt;</strong>
+      <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"substring-before-last"</span><strong class="hl-xsl">&gt;</strong>
+       <strong class="hl-xsl">&lt;xsl:with-param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"text"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"@xtrf"</span><strong class="hl-xsl">/&gt;</strong>
+       <strong class="hl-xsl">&lt;xsl:with-param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"delim"</span> <span class="hl-attribute">select</span>=<span class="hl-value">"'/'"</span><strong class="hl-xsl">/&gt;</strong>
+      <strong class="hl-xsl">&lt;/xsl:call-template&gt;</strong>
+    <strong class="hl-xsl">&lt;/xsl:variable&gt;</strong>
+  
+     <strong class="hl-tag">&lt;fo:inline</strong> <span class="hl-attribute">xsl:use-attribute-sets</span>=<span class="hl-value">"object"</span><strong class="hl-tag">&gt;</strong>
+       <strong class="hl-xsl">&lt;xsl:call-template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"commonattributes"</span><strong class="hl-xsl">/&gt;</strong>
+        <strong class="hl-xsl">&lt;xsl:if</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"exists($target)"</span><strong class="hl-xsl">&gt;</strong>
+           <strong class="hl-tag">&lt;fo:basic-link</strong> <span class="hl-attribute">external-destination</span>=<span class="hl-value">"url({$target})"</span> 
+                                      <span class="hl-attribute">xsl:use-attribute-sets</span>=<span class="hl-value">"xref"</span><strong class="hl-tag">&gt;</strong>
+              <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$target"</span><strong class="hl-xsl">/&gt;</strong>
+           <strong class="hl-tag">&lt;/fo:basic-link&gt;</strong>                        
+        <strong class="hl-xsl">&lt;/xsl:if&gt;</strong>
+     <strong class="hl-tag">&lt;/fo:inline&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong></pre></div>
+        </li>
+        <li class="li">
+          <p class="p">To install the created <dfn class="term">plugin</dfn> in the <strong class="ph b">DITA-OT</strong>, run the built-in
+            transformation scenario called <a class="xref" href="ditamap-run-dita-ot-integrator.html#ditamap-run-dita-ot-integrator"><span class="ph uicontrol">Run DITA-OT Integrator</span></a> by executing it from the <a class="xref" href="builtin-transformation-scenarios.html#builtin-transformation-scenarios"><span class="ph uicontrol"><img class="image" id="example-custom-dita-ot-plugin__image_qwt_3ts_yq" src="../img/ApplyStyleSheet16.png">Apply Transformation Scenario(s)</span> dialog box</a>. If the integrator
+            is not visible, select the <strong class="ph b">Show all scenarios</strong> option that is available in the
+                <span class="ph uicontrol"><img class="image" id="example-custom-dita-ot-plugin__image_km5_xrs_yq" src="../img/Settings16.png">Settings</span> drop-down menu. For more information, see <a class="xref" href="dita-ot-install-plugin.html">Installing a DITA-OT Plugin</a>.</p>
+          <p class="p"><strong class="ph b">Results of running the integrator using the media plugin example:</strong></p>
+          <div class="p">XSLT content is applied with priority when publishing to both HTML and PDF outputs.<ol class="ol" type="a" id="example-custom-dita-ot-plugin__ol_vnx_h2t_pm">
+              <li class="li">
+                <div class="p">For the HTML output, in the XSLT stylesheet <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.xhtml/xsl/dita2html-base.xsl</span>, a new import
+                  automatically
+                  appeared:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:import</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../plugins/com.oxygenxml.media/xhtmlMedia.xsl"</span><strong class="hl-xsl">/&gt;</strong></pre></div>
+                <p class="p">This import is placed after all base imports and thus has a higher priority. For
+                  more information about imported template precedence, see: <a class="xref" href="http://www.w3.org/TR/xslt#import" target="_blank" rel="external noopener">http://www.w3.org/TR/xslt#import</a>.</p>
+              </li>
+              <li class="li">Likewise, for the PDF output, in the top-level stylesheet <span class="ph filepath"><a href="../glossary/dita-ot-dir.html" title="DITA_OT_DIR refers to the default directory that is specified for your DITA Open Toolkit distribution in the Options &gt; Preferences &gt; DITA preferences page. For example, if you are using DITA-OT 3.5.4 that comes bundled with Oxygen XML Editor, the default directory is: [OXYGEN_INSTALL_DIR]/frameworks/dita/DITA-OT3.x. You can also specify a custom directory."><dfn class="term">DITA-OT-DIR</dfn></a>/plugins/org.dita.pdf2/xsl/fo/topic2fo_shell_fop.xsl</span>, a new import
+                statement
+                appeared:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:import</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../../../com.oxygenxml.media/pdfMedia.xsl"</span><strong class="hl-xsl">/&gt;</strong></pre></li>
+            </ol></div>
+        </li>
+      </ol>
+    </div>
+    <p class="p">Now, you can distribute your <dfn class="term">plugin</dfn> folder to anyone that has a DITA-OT
+      installation along with some simple installation notes. Your customization will work provided
+      the templates you are overwriting have not changed from one DITA-OT distribution to the other.
+    </p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="http://www.dita-ot.org/" target="_blank" rel="external noopener">DITA Open Toolkit Documentation</a></li></ul></div></nav>
+</article></article></article></main></body></html>

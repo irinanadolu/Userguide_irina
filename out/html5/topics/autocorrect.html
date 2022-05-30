@@ -1,0 +1,85 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="AutoCorrect,Automatically correct misspelled words"><meta name="keywords" content="AutoCorrect, Automatically correct misspelled words"><meta name="DC.relation" scheme="URI" content="../topics/working-with-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-check-in-files.html"><meta name="DC.relation" scheme="URI" content="../topics/add-dictionaries-for-autocorrect.html"><meta name="DC.relation" scheme="URI" content="../topics/add-dictionaries-for-autocorrect.html"><meta name="DC.relation" scheme="URI" content="using-check-spelling.html#using-check-spelling"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="autocorrect"><title>AutoCorrect Misspelled Words</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="autocorrect"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">AutoCorrect Misspelled Words</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes an <dfn class="term">AutoCorrect</dfn> feature to automatically correct
+      misspelled words, as well as to insert certain symbols or other text, as you type in
+        <span class="ph uicontrol">Author</span> mode. <span class="ph">Oxygen XML Editor</span> includes a default list of
+      commonly misspelled words and symbols, but you can modify the list to suit your needs. You can
+      also choose to have the <dfn class="term">AutoCorrect</dfn> feature use suggestions from the main spell
+      checker. The suggestions will only be used if the misspelled words are not found in the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__replacements-section"><em class="ph i">Replacements Table</em></a>.</p>
+    <div class="p">When enabled, the <dfn class="term">AutoCorrect</dfn> feature can be used to do the following:<ul class="ul" id="autocorrect__ul_qhy_ywy_qr">
+        <li class="li">Automatically correct misspelled words while you edit in <span class="ph uicontrol">Author</span>
+          mode. The actual operation of replacing a word is triggered by a space, dash, or certain
+          punctuation characters (<kbd class="ph userinput">,</kbd>
+          <kbd class="ph userinput">.</kbd>
+          <kbd class="ph userinput">;</kbd>
+          <kbd class="ph userinput">:</kbd>
+          <kbd class="ph userinput">?</kbd>
+          <kbd class="ph userinput">!</kbd>
+          <kbd class="ph userinput">'</kbd>
+          <kbd class="ph userinput">"</kbd>
+          <kbd class="ph userinput">)</kbd>
+          <kbd class="ph userinput">]</kbd>
+          <kbd class="ph userinput">}</kbd>).</li>
+        <li class="li">Easily insert symbols. For example, if you want to insert a
+            <samp class="ph systemoutput sysout">®</samp> character, you would type
+          <kbd class="ph userinput">(R)</kbd>.</li>
+        <li class="li">Quickly insert text fragments.</li>
+        <li class="li">Quickly insert XML fragments. For example, if you enter a hyphen (<strong class="ph b">-</strong>) in an empty
+          paragraph followed by a space, it will automatically be converted to a list with a list
+          item.</li>
+      </ul></div>
+    <p class="p"><dfn class="term">AutoCorrect</dfn> is enabled by default. To configure this feature, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit Modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">AutoCorrect</span></span>.</p>
+    <section class="section" id="autocorrect__section_yhd_4pv_zjb"><h2 class="title sectiontitle">AutoCorrect Drop-down Actions</h2>
+      
+      <div class="p">After the automatic operation of replacing a misspelled word (triggered by a space, dash,
+        or certain punctuation characters), the affected string is highlighted. The highlight is
+        removed upon the next editing action (text insertion or deletion). If you hover over the
+        highlight, a small widget appears below the word. If you hover over the widget, it expands
+        and you can click it to present a drop-down list that includes the following actions:<ul class="ul" id="autocorrect__ul_blg_ymv_ps">
+          <li class="li"><span class="ph uicontrol">Change back to "[original word]"</span> - Reverts the correction back
+            to its original form.</li>
+          <li class="li"><span class="ph uicontrol">Stop Automatically Correcting "[original word]"</span> - This option
+            is presented if the correction is performed based on the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__replacements-section"><em class="ph i">AutoCorrect Replacements Table</em></a> and selecting it will delete the
+            corresponding entry from the Replacements Table.</li>
+          <li class="li"><span class="ph uicontrol">Learn Word "[original word]"</span> - This option is presented if the
+              <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__use-spell-check"><span class="ph uicontrol">Use additional suggestions from the spell checker</span>
+              option</a> is selected in the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page"><span class="ph uicontrol">AutoCorrect</span> preferences page</a> and the correction is
+            performed based on the <em class="ph i">Spell Checker</em>. Selecting this option will add the item to
+            the list of <a class="xref" href="learned-words.html#learned-words">learned words</a>.</li>
+          <li class="li"><span class="ph uicontrol">AutoCorrect options</span> - Opens the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page"><span class="ph uicontrol">AutoCorrect</span> preferences page</a> that allows you to
+            configure the feature.</li>
+        </ul></div>
+      <div class="p">
+        <figure class="fig fignone" id="autocorrect__fig_pts_yrv_ps"><figcaption><span class="fig--title-label">Figure 1. </span>AutoCorrect Drop-down Actions</figcaption>
+          
+          <img class="image" id="autocorrect__image_c1y_bsv_ps" src="../img/autocorrect_widget.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="autocorrect__section_jdg_spv_zjb"><h2 class="title sectiontitle">AutoCorrect Case-Sensitivity</h2>
+      
+      <div class="p">The <dfn class="term">AutoCorrect</dfn> feature results in the following types of substitutions
+        regarding case-sensitivity:<ul class="ul" id="autocorrect__ul_kkn_4j1_sr">
+          <li class="li">Words with all lower-case characters will be replaced with lower-case substitutions
+            (for example, "abotu" is replaced with "about").</li>
+          <li class="li">Words with irregular-case characters will be replaced with lower-case substitutions
+            ("ABotU" is replaced with "about").</li>
+          <li class="li">Words with all upper-case characters will be replaced with upper-case substitutions
+            ("ABOTU" is replaced with "ABOUT").</li>
+          <li class="li">Words starting with an upper-case character will be replaced with substitutions having
+            the same pattern ("Abotu" is replaced with "About").</li>
+        </ul></div>
+    </section>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Note:</span> The <dfn class="term">AutoCorrect</dfn> feature also uses the list of <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check__ignore-elements-section"><span class="ph uicontrol">ignored elements from the Spell Check preferences page</span></a>.
+        All elements (along with their descendant elements) included in this list will be ignored by
+        the <dfn class="term">AutoCorrect</dfn> engine.</div>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/add-dictionaries-for-autocorrect.html">Add Dictionaries for the AutoCorrect Feature</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-documents.html" title="General information about working with any type of document">Working With Any Type of Document</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/spell-check-in-files.html">Spell Check Multiple Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-dictionaries-for-autocorrect.html">Add Dictionaries for the AutoCorrect Feature</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="using-check-spelling.html#using-check-spelling">Spell Checking</a></li></ul></div></nav>
+</article></main></body></html>

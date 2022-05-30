@@ -1,0 +1,278 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Maps,Edit Properties dialog box"><meta name="keywords" content="DITA, Maps, Edit Properties dialog box"><meta name="DC.relation" scheme="URI" content="../topics/eppo-manage-map.html"><meta name="DC.relation" scheme="URI" content="../topics/insert-define-keys.html"><meta name="DC.relation" scheme="URI" content="../topics/eppo-create-toc.html"><meta name="DC.relation" scheme="URI" content="dita-profiling-conditional-text.html"><meta name="DC.relation" scheme="URI" content="eppo-background-keys.html#eppo-background-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-edit-properties"><title>Edit Properties Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-edit-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Edit Properties Dialog Box</h1>
+  
+  <div class="body">
+    <div class="p">The <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+          Manager</span> view</a> includes a feature that allows you to view and edit the
+      properties of a selected node. The <span class="ph uicontrol"><img class="image" src="../img/DockableFrameProperties16.png">Edit properties</span> action is
+      available on both the <span class="ph uicontrol">DITA Maps Manager</span> toolbar and in the contextual
+      menu. This action is also available in the contextual menu when you edit a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> document in
+        <span class="ph uicontrol">Author</span> mode. The action opens the <span class="ph uicontrol">Edit
+        Properties</span> dialog box and it includes several tabs with various functions and
+      fields that are initialized with values based upon the node where the action was
+        invoked.<div class="note note note_note"><span class="note__title">Note:</span> If you select multiple sibling nodes and invoke the <span class="ph uicontrol"><img class="image" src="../img/DockableFrameProperties16.png">Edit properties</span> action, only
+        the <span class="ph uicontrol">Profiling</span> tab will be available and your modifications in that
+        tab will be applied to all the selected nodes. If you select multiple nodes that are not on
+        the same hierarchical level, the other tabs will also be available and your modifications
+        will be applied to the parent node (the child nodes will inherit the attributes of the
+        parent node).</div></div>
+    <p class="p">You can use the <span class="ph uicontrol">Edit Properties</span> dialog box to modify or define
+      attributes, metadata, profiling, or keys in <dfn class="term">DITA maps</dfn> or topics. You can also use
+      it to modify the title of <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root
+      maps</dfn></a>.</p>
+    <p class="p">At the top of the <span class="ph uicontrol">Edit Properties</span> dialog box, the <span class="ph uicontrol">Reference
+        type</span> drop-down list displays the type of the selected node and it depends on the
+      node where the action was invoked.</p>
+    <p class="p">The main section of the dialog box includes the following tabs:
+      <span class="ph uicontrol">Target</span>, <span class="ph uicontrol">Keys</span>, <span class="ph uicontrol">Attributes</span>,
+        <span class="ph uicontrol">Metadata</span>, and <span class="ph uicontrol">Profiling</span>. The availability of
+      the tabs and their functions depend on the selected node. For example, if you invoke the
+      action on a <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>, only the
+        <span class="ph uicontrol">Attributes</span>, <span class="ph uicontrol">Metadata</span>, and
+        <span class="ph uicontrol">Profiling</span> tabs are accessible and the <span class="ph uicontrol">Title</span>
+      property can be configured. Also, if you select multiple nodes, only the
+        <span class="ph uicontrol">Profiling</span> tab is available.</p>
+    <section class="section" id="dita-edit-properties__target_tab"><h2 class="title sectiontitle">Target Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone" id="dita-edit-properties__fig_o55_zvc_vq"><figcaption><span class="fig--title-label">Figure 1. </span>Edit Properties Dialog Box - Target Tab</figcaption>
+          
+          <img class="image" id="dita-edit-properties__image_jw5_zvc_vq" src="../img/sa_edit_props_target_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p">The <span class="ph uicontrol">Target</span> tab of the <span class="ph uicontrol">Edit Properties</span> dialog
+        box displays information about the target node on which the action was invoked and allows
+        you to change the target. It includes the following sections and fields:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Choose a file location</span> section</dt>
+          <dd class="dd">You can browse for and select the source target file by using the <span class="ph"><span class="ph uicontrol">Look in</span> drop-down list, browsing
+              buttons, or </span>file window in this section. You can use the <span class="ph uicontrol">Files of type</span> drop-down menu to narrow the list of
+            possible file types that will be displayed.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">URL</span></dt>
+          <dd class="dd">Displays the path to the target and allows you to select or change it by using the
+            combo box or browsing buttons.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">ID</span></dt>
+          <dd class="dd">The drop-down list displays all of the target elements that are available for the
+            selected target URL.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Href</span></dt>
+          <dd class="dd">The selected target automatically modifies this value to point to the corresponding
+              <code class="keyword markupname xmlatt">@href</code> attribute of the target element.<div class="note note note_note"><span class="note__title">Note:</span> If the
+                <span class="ph uicontrol">Reference type</span> is a <span class="ph uicontrol">Navigation
+                Reference</span>, the <span class="ph uicontrol">Href</span> field is changed to
+                <span class="ph uicontrol">Mapref</span>, since a <code class="keyword markupname xmlelement">&lt;navref&gt;</code> element
+              requires a <code class="keyword markupname xmlatt">@mapref</code> attribute instead.</div></dd>
+        
+        </dl></div>
+    </section>
+    <section class="section" id="dita-edit-properties__keys_tab"><h2 class="title sectiontitle">Keys Tab</h2><div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Edit Properties Dialog Box - Keys Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_keys_tab.png">
+        </figure>
+      </div><p class="p">
+        
+      </p><span class="ph">The <span class="ph uicontrol">Keys</span> tab allows you to use and <a class="xref" href="insert-define-keys.html#insert-define-keys">define keys</a> for
+        indirect referencing. For more information, see <a class="xref" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a>. This tab includes
+        the following:</span><div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Define keys</span></dt>
+          <dd class="dd">Use this text field to define the <code class="keyword markupname xmlatt">@keys</code> attribute for the target.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Key scopes</span></dt>
+          <dd class="dd">Use this text field to define or edit the value of a <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/index.html#langRef/attributes/the-key-scope-attribute.html" target="_blank" rel="external noopener"><code class="keyword markupname xmlatt">@keyscope</code> attribute</a>. <dfn class="term">Key
+              scopes</dfn> allow you to specify different sets of key definitions for different map
+            branches.</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Key reference</span></dt>
+            <dd class="dd">Use this combo box (or the <span class="ph uicontrol"><img class="image" src="../img/Conkeyref20.png">Choose
+                key reference</span> button) to select a key that is already defined in the
+                <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>.</dd>
+          
+        </dl>
+      </div></section>
+    <section class="section" id="dita-edit-properties__attributes_tab"><h2 class="title sectiontitle">Attributes Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Edit Properties Dialog Box - Attributes Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_attr_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Attributes</span> tab of the <span class="ph uicontrol">Edit Properties</span>
+        dialog box allows you to insert and edit attribute values for the target node where the
+        action was invoked.</p>
+      <p class="p">If the target is a <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a>, the tab
+        displays the title of the map. You can change it in the <span class="ph uicontrol">Title</span> text
+        field and assign it to an <span class="ph uicontrol">Attribute</span>, <span class="ph uicontrol">Element</span>,
+        or <span class="ph uicontrol">All</span>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Attributes Tab for a Root Map</figcaption>
+          
+          <img class="image" src="../img/edit_props_title.png">
+        </figure>
+      </div>
+      <p class="p">For other types of targets, the tab includes the following sections and fields that can be
+        used to edit the attributes of the target:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Navigation title</span></dt>
+          <dd class="dd"><span class="ph" id="dita-edit-properties__nav-title-dd">This text field allows you to specify a custom navigation title
+              for the target reference. If you want this attribute to always be populated with a
+              detected value (based on the specifications for the target file), select the
+                <span class="ph uicontrol">Navigation title</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                  <span class="ph uicontrol">DITA</span> preferences page</a>. For references to DITA
+              resources, you can enforce the use of the specified title by selecting the
+                <span class="ph uicontrol">Lock</span> checkbox (otherwise, the topic
+                <code class="keyword markupname xmlelement">&lt;title&gt;</code> takes precedence).</span><div class="note tip note_tip"><span class="note__title">Tip:</span> You can also
+              select the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__prefer-navtitle-dlentry"><span class="ph uicontrol">Prefer navigation title for topicref rendering</span> option in
+                the <span class="ph uicontrol">DITA</span> preferences page</a> to always enforce the use of
+              the <code class="keyword markupname xmlatt">@navtitle</code> value rather than selecting this
+                <span class="ph uicontrol">Lock</span> option on individual topics. </div></dd>
+        
+          
+          <dt class="dt dlterm" id="dita-edit-properties__collection-type-attr-dlentry"><span class="ph uicontrol">Collection type</span></dt>
+          <dd class="dd">This drop-down list allows you to select the <code class="keyword markupname xmlatt">@collection-type</code>
+            attribute to create hierarchical linking between topics in a <dfn class="term">DITA map</dfn> (for
+            example, <code class="ph codeph">unordered</code>, <code class="ph codeph">sequence</code>, <code class="ph codeph">choice</code>,
+              <code class="ph codeph">family</code>, <code class="ph codeph">-dita-use-conref-target</code>).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Type</span></dt>
+          <dd class="dd">Allows you to select a <code class="keyword markupname xmlatt">@type</code> attribute (such as
+            <code class="ph codeph">topic</code>, <code class="ph codeph">task</code>, <code class="ph codeph">concept</code>, etc.) for the
+            target element. If you want this attribute to always be populated with a detected value
+            (based on the specifications for the target file), select the
+              <span class="ph uicontrol">Type</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Scope</span></dt>
+          <dd class="dd">This property corresponds to the <code class="keyword markupname xmlatt">@scope</code> attribute of the target
+            element. It is populated automatically, based on the selected file type, unless its
+            value for the selected target file is the same as the default attribute value. If you
+            want this attribute to always be populated with a detected value based on the
+            specifications (regardless of the default value), select the
+              <span class="ph uicontrol">Scope</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Format</span></dt>
+          <dd class="dd">This property corresponds to the <code class="keyword markupname xmlatt">@format</code> attribute of the target
+            element. It is populated automatically, based on the selected file type, unless its
+            value for the selected target file is the same as the default attribute value. If you
+            want this attribute to always be populated with a detected value based on the
+            specifications (regardless of the default value), select the
+              <span class="ph uicontrol">Format</span> checkbox for the <a class="xref" href="preferences-dita-maps.html#preferences-dita-maps__always-fill-values-dlentry"><span class="ph uicontrol">Always fill values for attributes</span> option in the
+                <span class="ph uicontrol">DITA</span> preferences page</a>.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Processing Role</span></dt>
+          <dd class="dd">This drop-down list allows you to set the <code class="keyword markupname xmlatt">@processing-role</code> attribute
+            to one of the allowed values for DITA reference elements (for example,
+              <code class="ph codeph">resource-only</code>, <code class="ph codeph">normal</code>,
+              <code class="ph codeph">-dita-use-conref-target</code>).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Other attributes</span> table</dt>
+          <dd class="dd">
+            <p class="p">This table contains the attributes that are available for the selected reference. You
+              can use this table to insert or edit the values of any of the listed attributes.
+              Clicking a cell in the <span class="ph uicontrol">Value</span> column allows you to use the combo
+              box to enter, edit, or select attribute values.</p>
+          </dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="dita-edit-properties__metadata_tab"><h2 class="title sectiontitle">Metadata Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Edit Properties Dialog Box - Metadata Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_meta_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <p class="p">The <span class="ph uicontrol">Metadata</span> tab allows you to add metadata elements to the target
+        node. <span class="ph">Use the buttons on the right side of the tab to insert specific metadata
+        elements (you can add the following metadata elements: <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;linktext&gt;</code>, <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>). The metadata
+        elements are inserted inside a <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element. The editing
+        window allows you to easily insert and modify the content of the metadata that will be
+        inserted.</span></p>
+    </section>
+    <section class="section" id="dita-edit-properties__profiling_tab"><h2 class="title sectiontitle">Profiling Tab</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Edit Properties Dialog Box - Profiling Tab</figcaption>
+          
+          <img class="image" src="../img/sa_insert_ref_prof_tab.png">
+        </figure>
+      </div>
+      <p class="p">
+        
+      </p>
+      <div class="p">The <span class="ph uicontrol">Profiling</span> tab allows you to select or change profiling
+        attributes for the selected target nodes. This tab displays profiling attributes and their
+        values as determined by the following:<ul class="ul">
+      <li class="li">If your <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root map</dfn></a> references a DITA
+          <a class="xref" href="../glossary/subject-scheme-map_glossentry.html"><dfn class="term">subject scheme map</dfn></a> that
+        defines values for the profiling attributes, those values are used.</li>
+      <li class="li">If your project defines <a class="xref" href="../glossary/project-options.html">project-level</a> configuration values for the <a class="xref" href="preferences-profiling-conditions.html">profiling attributes</a>, those values are used.</li>
+      <li class="li">If <span class="ph">Oxygen XML Editor</span> defines <a class="xref" href="../glossary/global-options.html">global-level</a> configuration values for the <a class="xref" href="preferences-profiling-conditions.html">profiling attributes</a>, they are used.</li>
+      <li class="li">Otherwise, a basic default set of profiling attributes and values are used.</li>
+    </ul></div>
+      <p class="p">If you have a large list of profiling attributes, you can use the text filter field to
+        search for attributes or values, and you can expand or collapse attributes by using the
+            <span class="ph uicontrol"><img class="image" src="../img/ExpandAll16.png">Expand All/<img class="image" src="../img/CollapseAll16.png">Collapse All</span> buttons to the right of the
+        text filter or the arrow button to the left of the profiling attribute name.</p>
+      <p class="p">When you modify a selection of values in this tab, the change will also
+      automatically be reflected in the <span class="ph uicontrol">Attributes</span> tab. For more information,
+      see <a class="xref" href="dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a>.</p>
+      <div class="note note note_note"><span class="note__title">Note:</span> If you invoke the <span class="ph uicontrol"><img class="image" src="../img/DockableFrameProperties16.png">Edit
+          properties</span> action on a selection of multiple nodes that have different values
+        for the same profiling attribute, a conflict panel will be displayed in the
+          <span class="ph uicontrol">Profiling</span> tab and you can choose between the following actions for
+        resolving it:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">Keep</span> - Preserves the current attribute values.</li>
+          <li class="li"><span class="ph uicontrol">Change Now</span> - Allows you to edit the selection of values in this
+              <span class="ph uicontrol">Profiling</span> tab and the changes will be applied to all the
+            selected nodes.</li>
+        </ul><div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 7. </span>Profiling Conflict Panel</figcaption>
+            
+            <img class="image" src="../img/sa_profiling_conflict.png">
+          </figure>
+        </div><p class="p">
+          
+        </p></div>
+    </section>
+    <section class="section" id="dita-edit-properties__finalizing_your_modifications"><h2 class="title sectiontitle">Finalizing Your Modifications</h2>
+      
+      <p class="p">Once you click <span class="ph uicontrol">OK</span>, all your changes are applied to the target
+        node.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-manage-map.html">Managing DITA Maps</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/insert-define-keys.html">Defining Keys in DITA Maps</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/eppo-create-toc.html">Generating a Table of Contents in DITA</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dita-profiling-conditional-text.html">DITA Profiling / Conditional Text</a></li><li class="linklist"><a class="link" href="eppo-background-keys.html#eppo-background-keys">Working with Keys in DITA</a></li></ul></div></nav>
+</article></main></body></html>

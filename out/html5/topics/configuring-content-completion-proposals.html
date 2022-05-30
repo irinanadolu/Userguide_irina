@@ -1,0 +1,196 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Configuring content completion proposals,Configuring content completion proposals,Content completion configuration file (cc_config.xml)"><meta name="keywords" content="Framework customization, Configuring content completion proposals, Configuring content completion proposals, Content completion configuration file (cc_config.xml)"><meta name="DC.relation" scheme="URI" content="../topics/customize-content-completion.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-elements-attr-cc-individually.html"><meta name="DC.relation" scheme="URI" content="../topics/rendering-elements-cc-author.html"><meta name="DC.relation" scheme="URI" content="configure-elements-attr-cc-individually.html#configure-elements-attr-cc-individually"><meta name="DC.relation" scheme="URI" content="rendering-elements-cc-author.html#rendering-elements-cc-author"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="configuring-content-completion-proposals"><title>Configuring the Proposals for Attribute and Element Values</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="configuring-content-completion-proposals"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configuring the Proposals for Attribute and Element Values </h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes support for configuring the proposed values that appear in
+      the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>. To do so, a configuration file is used, along with the associated
+      schema, to add or replace possible values for attributes or elements that are proposed in the
+        <dfn class="term">Content Completion Assistant</dfn>.</p>
+    <p class="p">For an example of a specific use-case, suppose that you want the <dfn class="term">Content Completion
+        Assistant</dfn> to propose several possible values for the language code when you use an
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute.</p>
+    <section class="section" id="configuring-content-completion-proposals__d2e47"><h2 class="title sectiontitle">Setting up the Content Completion Configuration File</h2>
+      
+      <div class="p" id="configuring-content-completion-proposals__customize-cc-proposals-p">To customize the configuration file for the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>, follow these steps:<ol class="ol" id="configuring-content-completion-proposals__ol_js3_4k5_kq">
+          <li class="li">Create a new <span class="ph filepath">resources</span> folder (if it does not already exist) in
+            the <span class="ph filepath">frameworks</span> directory for the particular document type (for
+            example, <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources</span>).</li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <span class="ph uicontrol">Document Type Association</span>. Select the particular document type,
+            click the <span class="ph uicontrol">Edit</span> button, and in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> add a link to that
+              <span class="ph filepath">resources</span> folder (if it does not already exist).</li>
+          <li class="li">Create a new configuration file or edit an existing one.<ol class="ol" type="a">
+              <li class="li">To easily create a new configuration file, you can use the <em class="ph i">Content Completion
+                  Configuration</em> document template that is included in <span class="ph">Oxygen XML Editor</span>
+                  (<span class="ph menucascade"><span class="ph uicontrol">File</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Framework templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Extensions</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Content Completion Configuration</span></span>). The document template includes details about how each element and
+                attribute is used in the configuration file.</li>
+              <li class="li">If a configuration file (<span class="ph filepath">cc_config.xml</span>) already exists for
+                the particular document type (in the <span class="ph filepath">resources</span> folder), you can
+                modify this existing file. </li>
+              <li class="li">If you extend a framework, you need to copy the content of the
+                  <span class="ph filepath">cc_config.xml</span> file from the base framework and modify it. You
+                also need to make sure that the file in your extension is listed in the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a> before the one from the base
+                framework. If you only want to make small changes or add extra rules in your content
+                completion configuration file, you need to rename it to
+                  <span class="ph filepath">cc_config_ext.xml</span> and it will be merged with the base
+                  <span class="ph filepath">cc_config.xml</span>.</li>
+            </ol></li>
+          <li class="li">Make the appropriate changes to your custom configuration file.</li>
+          <li class="li">Save the file in the <span class="ph filepath">resources</span> folder for the particular document
+            type, using the fixed name: <span class="ph filepath">cc_config.xml</span> (for example,
+              <span class="ph filepath">OXYGEN_INSTALL_DIR/frameworks/dita/resources/cc_config.xml</span>).</li>
+          <li class="li">Restart the application and open an XML document. In the <dfn class="term">Content Completion
+              Assistant</dfn> you should see your customizations.<div class="note tip note_tip"><span class="note__title">Tip:</span> In some cases,
+              you can simply use the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Refresh16.png">Refresh
+                  (<span class="keyword shortcut">F5</span>)</span> action to test your customizations, without
+              having to restart the application.</div><div class="note attention note_attention"><span class="note__title">Attention:</span> In the <a class="xref" href="document-type-classpath-tab.html#document-type-classpath-tab"><span class="ph uicontrol">Classpath</span> tab</a>, if you have references to multiple
+                <span class="ph filepath">resources</span> folders, each with its own
+                <span class="ph filepath">cc_config.xml</span> file, the first reference listed in the
+                <span class="ph uicontrol">Classpath</span> tab takes precedence and the multiple configuration
+              files are not combined.</div></li>
+        </ol></div>
+    </section>
+    <section class="section" id="configuring-content-completion-proposals__configuration_file"><h2 class="title sectiontitle">Configuring Proposed Values</h2>
+      
+      <div class="p">For the purposes of adding or replacing the values that are proposed, the configuration
+        file (<span class="ph filepath">cc_config.xml</span>) includes a series of <code class="ph codeph">match</code>
+        instructions that will match an element or attribute name. You also have the possibility of
+        using an <code class="keyword markupname xmlatt">@editable</code> attribute on the <code class="keyword markupname xmlelement">&lt;match&gt;</code> element
+        to specify the editable state of the attribute values, as reflected in the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> and the <a class="xref" href="author-attributes-view.html#author-attributes-view__in-place-attr-editor"><span class="ph uicontrol">In-place Attributes Editor</span></a>. The possible values for the
+          <code class="keyword markupname xmlatt">@editable</code> attribute are:<ul class="ul">
+          <li class="li"><strong class="ph b">true</strong> - The attribute values can be edited by choosing from a combo box or
+            manually providing a value.</li>
+          <li class="li"><strong class="ph b">false</strong> - The attribute values cannot be edited.</li>
+          <li class="li"><strong class="ph b">onlyAllowedItems</strong> - The attribute values can be edited, but only by choosing
+            from a list of proposed values, in a non-editable combo box.</li>
+        </ul></div>
+      <div class="p">A new value is specified inside one or more <code class="keyword markupname xmlelement">&lt;item&gt;</code> elements, which
+        are grouped inside an <code class="keyword markupname xmlelement">&lt;items&gt;</code> element. The behavior of the
+          <code class="keyword markupname xmlelement">&lt;items&gt;</code> element is specified with the help of the
+          <code class="keyword markupname xmlatt">@action</code> attribute, which can have any of the following values:<ul class="ul" id="configuring-content-completion-proposals__ul_ghd_c55_kr">
+          <li class="li"><strong class="ph b">append</strong> - Adds new values to appear in the proposals list (default value).</li>
+          <li class="li"><strong class="ph b">addIfEmpty</strong> - Adds new values to the proposals list only if no other values are
+            contributed by the schema.</li>
+          <li class="li"><strong class="ph b">replace</strong> - Replaces the values contributed by the schema with new values to
+            appear in the proposals list.</li>
+        </ul></div>
+      <p class="p">The values in the configuration file can be specified either directly or by calling an
+        external XSLT file that will extract data from an external source.</p>
+    </section>
+    <section class="section" id="configuring-content-completion-proposals__other_important_notes"><h2 class="title sectiontitle">Other Important Notes About the Configuration File</h2>
+      
+      <div class="note important note_important"><span class="note__title">Important:</span> 
+        <ul class="ul">
+          <li class="li">This configuration file only affects the content completion assistance, not
+            validation.</li>
+          <li class="li">To test the effects of your changes, you should restart the application.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="configuring-content-completion-proposals__example_specifying_values_directly"><h2 class="title sectiontitle">Example: Specifying Values Directly</h2>
+      
+      <p class="p">If you want to specify the values directly, the configuration file should look like
+        this:</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- Replaces the values for an element with the local name "lg",
+      from the given namespace --&gt;</em>
+<strong class="hl-tag">&lt;match</strong> <span class="hl-attribute">elementName</span>=<span class="hl-value">"lg"</span> <span class="hl-attribute">elementNS</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/samples"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;items</strong> <span class="hl-attribute">action</span>=<span class="hl-value">"replace"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"stanza"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"refrain"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/items&gt;</strong>
+<strong class="hl-tag">&lt;/match&gt;</strong>
+
+<em class="hl-comment">&lt;!-- Adds two values for an attribute with the local name "type",
+      from any namespace --&gt;</em>
+<strong class="hl-tag">&lt;match</strong> <span class="hl-attribute">attributeName</span>=<span class="hl-value">"type"</span> <span class="hl-attribute">editable</span>=<span class="hl-value">"onlyAllowedItems"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;items&gt;</strong>
+        <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"stanza"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"refrain"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/items&gt;</strong>
+<strong class="hl-tag">&lt;/match&gt;</strong></pre>
+      </div>
+    </section>
+    <section class="section" id="configuring-content-completion-proposals__example_calling_an_external_xslt_script"><h2 class="title sectiontitle">Example: Calling an External XSLT Script</h2>
+      
+      <p class="p">If you want to collect values from an external XSLT script, the configuration file should
+        include something like this:</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;xslt</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"../xsl/get_values_from_db.xsl"</span> <span class="hl-attribute">useCache</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">action</span>=<span class="hl-value">"replace"</span><strong class="hl-tag">/&gt;</strong></pre>
+      </div>
+      <div class="p">In this example, the <code class="ph codeph">get_values_from_db.xsl</code> is executed to extract values
+        from a database.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can use <code class="ph codeph">xsl:message</code> as a debugging
+          mechanism. These messages are presented in the results area at the bottom of the
+          application whenever the <dfn class="term">Content Completion Assistant</dfn> is
+          invoked.</div><div class="note note note_note"><span class="note__title">Note:</span> A comprehensive XSLT sample is included in the <span class="ph uicontrol">Content
+            Completion Configuration</span> document template (in the <span class="ph menucascade"><span class="ph uicontrol">Framework Templates</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Oxygen Extensions</span></span> section of the <a class="xref" href="new-dialog-sa.html#new-dialog-sa"><span class="ph uicontrol">New</span> document wizard</a>).</div></div>
+    </section>
+    <section class="section" id="configuring-content-completion-proposals__configuring_proposed_values_in_context"><h2 class="title sectiontitle">Configuring Proposed Values in the Context Where the Content Completion was
+        Invoked</h2>
+      
+      <div class="note note note_note"><span class="note__title">Web Author Customization Note:</span> This particular scenario is not
+        supported for an <span class="ph">Oxygen XML Web Author</span> customization.</div>
+      <p class="p">A more complex scenario is if you want to choose the possible values to propose, depending
+        on the context of the element where the content completion was invoked.</p>
+      <p class="p">Suppose that you want to propose certain possible values for one property (for example,
+          <em class="ph i">color</em>) and other values for another property (for example, <em class="ph i">shape</em>). If the
+        property represents a color, then the values should represent applicable colors, while if
+        the property represents a shape, then the values should represent applicable shapes. See the
+        following code snippets:</p>
+      <div class="p">Your main
+        document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sampleArticle&gt;</strong>
+  <em class="hl-comment">&lt;!-- The possible values for @value should be "red" and "blue" --&gt;</em>
+  <strong class="hl-tag">&lt;property</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"color"</span> <span class="hl-attribute">value</span>=<span class="hl-value">""</span><strong class="hl-tag">/&gt;</strong>
+  <em class="hl-comment">&lt;!-- The possible values for @value should be "square" and "rectangle" --&gt;</em>
+  <strong class="hl-tag">&lt;property</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"shape"</span> <span class="hl-attribute">value</span>=<span class="hl-value">""</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/sampleArticle&gt;</strong></pre>The
+        content completion configuration
+        file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;config</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.oxygenxml.com/ns/ccfilter/config"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;match</strong> <span class="hl-attribute">elementName</span>=<span class="hl-value">"property"</span> <span class="hl-attribute">attributeName</span>=<span class="hl-value">"value"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;xslt</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"get_values.xsl"</span> <span class="hl-attribute">useCache</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">action</span>=<span class="hl-value">"replace"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/match&gt;</strong>
+<strong class="hl-tag">&lt;/config&gt;</strong></pre>The
+        stylesheet that defines the possible values based on the context of the property on which
+        the content completion was
+        invoked:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-xsl">&lt;xsl:stylesheet</strong> 
+  <span class="hl-attribute">xmlns:xsl</span>=<span class="hl-value">"http://www.w3.org/1999/XSL/Transform"</span>
+  <span class="hl-attribute">xmlns:xs</span>=<span class="hl-value">"http://www.w3.org/2001/XMLSchema"</span>
+  <span class="hl-attribute">xmlns:saxon</span>=<span class="hl-value">"http://saxon.sf.net/"</span>
+  <span class="hl-attribute">exclude-result-prefixes</span>=<span class="hl-value">"xs"</span>
+  <span class="hl-attribute">version</span>=<span class="hl-value">"2.0"</span><strong class="hl-xsl">&gt;</strong>
+  
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"documentSystemID"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span><strong class="hl-xsl">&gt;</strong><strong class="hl-xsl">&lt;/xsl:param&gt;</strong>
+  <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"contextElementXPathExpression"</span> <span class="hl-attribute">as</span>=<span class="hl-value">"xs:string"</span><strong class="hl-xsl">&gt;</strong><strong class="hl-xsl">&lt;/xsl:param&gt;</strong>
+  
+  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"start"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:apply-templates</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"doc($documentSystemID)"</span><strong class="hl-xsl">/&gt;</strong>
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+  
+  <strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"/"</span><strong class="hl-xsl">&gt;</strong>
+   <strong class="hl-xsl">&lt;xsl:variable</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"propertyElement"</span> 
+    <span class="hl-attribute">select</span>=<span class="hl-value">"saxon:eval(saxon:expression($contextElementXPathExpression, ./*))"</span><strong class="hl-xsl">/&gt;</strong>
+    
+   <strong class="hl-tag">&lt;items&gt;</strong>
+     <strong class="hl-xsl">&lt;xsl:if</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"$propertyElement/@name = 'color'"</span><strong class="hl-xsl">&gt;</strong>
+       <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">'red'</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">'blue'</span><strong class="hl-tag">/&gt;</strong>  
+     <strong class="hl-xsl">&lt;/xsl:if&gt;</strong>
+     <strong class="hl-xsl">&lt;xsl:if</strong> <span class="hl-attribute">test</span>=<span class="hl-value">"$propertyElement/@name = 'shape'"</span><strong class="hl-xsl">&gt;</strong>
+       <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">'rectangle'</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;item</strong> <span class="hl-attribute">value</span>=<span class="hl-value">'square'</span><strong class="hl-tag">/&gt;</strong>  
+     <strong class="hl-xsl">&lt;/xsl:if&gt;</strong>
+   <strong class="hl-tag">&lt;/items&gt;</strong>
+  <strong class="hl-xsl">&lt;/xsl:template&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:stylesheet&gt;</strong></pre></div>
+      <p class="p">The <code class="ph codeph">contextElementXPathExpression</code> parameter will be bound to an XPath
+        expression that identifies the element in the context where the content completion was
+        invoked.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customize-content-completion.html">Customizing the Content Completion Assistant</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configure-elements-attr-cc-individually.html">Configuring the Proposals for Elements and Attributes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/rendering-elements-cc-author.html">Customizing the Rendering of Elements</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="configure-elements-attr-cc-individually.html#configure-elements-attr-cc-individually">Configuring the Proposals for Elements and Attributes</a></li><li class="linklist"><a class="link" href="rendering-elements-cc-author.html#rendering-elements-cc-author">Customizing the Rendering of Elements</a></li></ul></div></nav>
+</article></main></body></html>

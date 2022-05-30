@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Sparse checkouts"><meta name="keywords" content="SVN Client, Sparse checkouts"><meta name="DC.relation" scheme="URI" content="../topics/svn-getting-started.html"><meta name="DC.relation" scheme="URI" content="../topics/operations-repos.html"><meta name="DC.relation" scheme="URI" content="../topics/svn-views.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="sparse-checkouts"><title>Sparse Checkout</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="sparse-checkouts"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Sparse Checkout</h1>
+  <div class="body">
+    <p class="p">Sometimes you only need to check out certain parts of a directory tree. In this case, you can
+      check out the top directory (using the<a class="xref" href="repos-menu.html"><span class="ph uicontrol">Check
+          out</span> action from the <span class="ph uicontrol">Repositories</span> view</a>) and then
+      recursively update only the needed directories (using the <a class="xref" href="working-copy-menu.html#working-copy-menu"><span class="ph uicontrol">Update</span>
+        action from the <span class="ph uicontrol">Working Copy</span> view</a>). Each directory then has a
+      depth set to it, with four possible values:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol">Recursive (infinity)</span> - Updates all descendant directories and files
+        recursively.</li>
+      <li class="li"><span class="ph uicontrol">Immediate children (immediates)</span> - Updates the directory, including
+        direct child directories and files, but does not populate the child directories.</li>
+      <li class="li"><span class="ph uicontrol">File children only (files)</span> - Updates the directory, including only
+        child files without the child directories.</li>
+      <li class="li"><span class="ph uicontrol">This folder only (empty)</span> - Updates only the selected directory,
+        without updating any children.</li>
+    </ul>
+    <p class="p">For some operations, you can use as depth the current depth registered on the directories
+      from the working copy (the value <span class="ph uicontrol">Current depth</span>). This is the depth
+      value defined in a previous check out or update operation.</p>
+    <p class="p">The sparse checked out directories are presented in the <a class="xref" href="working-copy-view.html#working-copy-view"><span class="ph uicontrol">Working
+          Copy</span> view</a> with a marker corresponding to each depth value, in the top
+      left corner, as follows: </p>
+    <ul class="ul">
+      <li class="li"><span class="ph uicontrol"><img class="image" id="sparse-checkouts__image_ikw_1np_5r" src="../img/SVNDepthInfinity16.png">Recursive
+          (infinity)</span> - This is the default value and it is has no mark. The directory
+        has no limiting depth.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="sparse-checkouts__image_npp_cnp_5r" src="../img/SVNDepthImmediates16.png">Immediate
+          children (immediates)</span> - The directory is limited to direct child directories
+        (without contents) and files.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="sparse-checkouts__image_ckd_cnp_5r" src="../img/SVNDepthFiles16.png">File children
+          only (files)</span> - The directory is limited to direct child files only.</li>
+      <li class="li"><span class="ph uicontrol"><img class="image" id="sparse-checkouts__image_emq_bnp_5r" src="../img/SVNDepthEmpty16.png">This folder
+          only (empty)</span> - The directory has <em class="ph i">empty</em> depth set.</li>
+    </ul>
+    <p class="p">A depth set on a directory means that some operations process only items within the specified
+      depth range. For example, <span class="ph uicontrol">Synchronize</span> on a working copy directory
+      reports the repository modified items within the depth set on the directory and those existing
+      in the working copy outside of this depth.</p>
+    <p class="p">The depth information is also presented in the <span class="ph uicontrol">SVN Information</span> dialog
+      box and in the tooltip displayed when hovering a directory in the <span class="ph uicontrol">Working
+        Copy</span> view.</p>
+  </div>
+  
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/svn-getting-started.html">Getting Started</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/operations-repos.html">Copy / Move / Delete Resources From a Repository</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/svn-views.html">Syncro SVN Client Views</a></div></div></nav></article></main></body></html>

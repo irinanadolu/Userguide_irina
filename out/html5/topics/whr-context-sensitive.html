@@ -1,0 +1,159 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Context-sensitive help"><meta name="keywords" content="WebHelp Responsive, Context-sensitive help"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-responsive-description.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-search-engine.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-accessibility.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="whr-context-sensitive"><title>Context-Sensitive Help System</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="whr-context-sensitive"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Context-Sensitive Help System</h1>
+  
+  <div class="body">
+    <p class="p">Context-sensitive help systems assist users by providing specific informational topics for
+      certain components of a user interface, such as a button or window. This mechanism works based
+      on mappings between a unique ID defined in the topic and a corresponding HTML page.</p>
+    <section class="section" id="whr-context-sensitive__generating_contextsensitive_help"><h2 class="title sectiontitle">Generating Context-Sensitive Help</h2>
+      
+      <div class="p">When WebHelp Responsive output is generated, the transformation process produces an XML
+        mapping file called <span class="ph filepath">context-help-map.xml</span> and copies it in the output
+        folder of the transformation. This XML file maps an ID to a corresponding HTML page through
+        an <code class="keyword markupname xmlelement">&lt;appContext&gt;</code> element, as in the following
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">productID</span>=<span class="hl-value">"oxy-webhelp"</span> <span class="hl-attribute">productVersion</span>=<span class="hl-value">"1.1"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;appContext</strong> <span class="hl-attribute">helpID</span>=<span class="hl-value">"myapp-functionid1"</span> <span class="hl-attribute">path</span>=<span class="hl-value">"tasks/app-help1.html"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;appContext</strong> <span class="hl-attribute">helpID</span>=<span class="hl-value">"myapp-functionid2"</span> <span class="hl-attribute">path</span>=<span class="hl-value">"tasks/app-help1.html"</span><strong class="hl-tag">/&gt;</strong>
+    .  .  .
+<strong class="hl-tag">&lt;/map&gt;</strong></pre></div>
+      <p class="p">The possible attributes are as follows:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">helpID</dt>
+            <dd class="dd">
+              <p class="p">A Unique ID provided by a topic from two possible sources
+                  (<code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element or <code class="keyword markupname xmlatt">@id</code>
+                attribute):</p>
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm">resourceid</dt>
+                    <dd class="dd">
+                      <div class="p">The <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element is mapped into the
+                          <code class="keyword markupname xmlelement">&lt;appContext&gt;</code> element and can be specified in either
+                        the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> within a <dfn class="term">DITA map</dfn> or in a
+                          <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> within a DITA topic. The
+                          <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element accepts the following
+                          attributes:<ul class="ul" id="whr-context-sensitive__ul_kxl_kfd_y3b">
+                          <li class="li" id="whr-context-sensitive__appname"><strong class="ph b">appname</strong> - A name for the external application that
+                            references the topic. If this attribute is not specified, its value is
+                            considered to be empty (<code class="ph codeph">""</code>).</li>
+                          <li class="li"><strong class="ph b">appid</strong> - An ID used by an application to identify the
+                            topic.</li>
+                          <li class="li"><strong class="ph b">id</strong> - Specifies a value that is used by a specific application
+                            to identify the topic, but this attribute is ignored if an
+                                <strong class="ph b"><code class="keyword markupname xmlatt">@appid</code></strong> attribute is used.</li>
+                        </ul><div class="note note note_note"><span class="note__title">Note:</span> Multiple <code class="keyword markupname xmlatt">@appid</code> values can be associated with a
+                          single <code class="ph codeph">appname</code> value (and multiple
+                            <code class="keyword markupname xmlatt">@appname</code> values can be associated with a single
+                            <code class="keyword markupname xmlatt">@appid</code> value), but the values for both attributes work
+                          in combination to specify a specific ID for a specific application, and
+                          therefore each combination of values for the <code class="keyword markupname xmlatt">@appid</code> and
+                            <code class="keyword markupname xmlatt">@appname</code> attributes should be unique within the context
+                          of a single <a class="xref" href="../glossary/root-map_glossentry.html"><dfn class="term">root
+                            map</dfn></a>. For example, suppose that you need two different
+                          functions of an application to both open the same WebHelp page.</div></div>
+                      <p class="p"><u class="ph u"><strong class="ph b">Example: <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> Specified in a DITA
+                            Map</strong></u></p>
+                      <div class="p">The <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element can be specified in a
+                          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element within a
+                          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map</strong> <span class="hl-attribute">title</span>=<span class="hl-value">"App Help"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"app-help1.dita"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"task"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+       <strong class="hl-tag">&lt;resourceid</strong> <span class="hl-attribute">appname</span>=<span class="hl-value">"myapp"</span> <span class="hl-attribute">appid</span>=<span class="hl-value">"functionid1"</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;resourceid</strong> <span class="hl-attribute">appname</span>=<span class="hl-value">"myapp"</span> <span class="hl-attribute">appid</span>=<span class="hl-value">"functionid2"</span><strong class="hl-tag">/&gt;</strong>
+     <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+  <strong class="hl-tag">&lt;/topicref&gt;</strong>
+<strong class="hl-tag">&lt;/map&gt;</strong></pre></div>
+                      <p class="p"><u class="ph u"><strong class="ph b">Example: <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> Specified in a DITA
+                            Topic</strong></u></p>
+                      <div class="p">The <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element can be specified in a
+                          <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> element within a DITA
+                        topic.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;task</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"app-help1"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>My App Help<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;prolog&gt;</strong>
+    <strong class="hl-tag">&lt;resourceid</strong> <span class="hl-attribute">appname</span>=<span class="hl-value">"myapp"</span> <span class="hl-attribute">appid</span>=<span class="hl-value">"functionid1"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;resourceid</strong> <span class="hl-attribute">appname</span>=<span class="hl-value">"myapp"</span> <span class="hl-attribute">appid</span>=<span class="hl-value">"functionid2"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;/prolog&gt;</strong>
+...
+<strong class="hl-tag">&lt;/task&gt;</strong></pre></div>
+                      <p class="p">For more information about the <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element,
+                        see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/base/resourceid.html#resourceid__attributes" target="_blank" rel="external noopener">DITA Specifications:
+                        &lt;resourceid&gt;</a>.</p>
+                    </dd>
+                  
+                  
+                    <dt class="dt dlterm">id</dt>
+                    <dd class="dd">If a <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element is not declared in the
+                        <dfn class="term">DITA map</dfn> or DITA topic (as described above), the
+                        <code class="keyword markupname xmlatt">@id</code> attribute that is set on the topic root element is
+                      mapped into the <code class="keyword markupname xmlelement">&lt;appContext&gt;</code> element.</dd>
+                    <dd class="dd ddexpand">
+                      <div class="note important note_important"><span class="note__title">Important:</span> You should ensure that these defined IDs are unique in
+                        the context of the entire DITA project. If the IDs are not unique, the
+                        transformation scenario will display warning messages in the transformation
+                        console output and the help system will not work properly.</div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">path</dt>
+            <dd class="dd">The path to a corresponding WebHelp page. This path is relative to the location of
+              the <span class="ph filepath">context-help-map.xml</span> mapping file.</dd>
+          
+        </dl>
+      </div>
+      <div class="p">There are two ways of implementing context-sensitive help in your system:<ul class="ul" id="whr-context-sensitive__ul_erx_glz_cr">
+          <li class="li">The XML mapping file can be loaded by a PHP script on the server side. The script
+            receives the <code class="ph codeph">contextId</code> value and will look it up in the XML file.</li>
+          <li class="li">Invoke the <span class="ph filepath">index.html</span> WebHelp system file and pass the
+              <code class="ph codeph">contextId</code> parameter with a specific value. The WebHelp system will
+            automatically open the help page associated with the value of the
+              <code class="ph codeph">contextId</code>
+              parameter.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">index.html?contextId</span>=myDITATopic</pre><div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">contextId</code> parameter is not
+            case-sensitive.</div></li>
+        </ul></div>
+    </section>
+    <section class="section" id="whr-context-sensitive__contextsensitive_queries"><h2 class="title sectiontitle">Context-Sensitive Queries</h2>
+      
+      <p class="p">You can use the URL field in your browser to search for topics in a context-sensitive
+        WebHelp system with the assistance of the following parameters:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">contextId</dt>
+            <dd class="dd">The WebHelp JavaScript engine will look for this value in the
+                <span class="ph filepath">context-help-map.xml</span> mapping file and load the corresponding
+              help page.<div class="note note note_note"><span class="note__title">Note:</span> You can use an <a class="xref" href="../glossary/anchor.html"><dfn class="term">anchor</dfn></a> in the <code class="ph codeph">contextId</code> parameter to jump to
+                a specific section in a document. For example,
+                  <code class="ph codeph">contextId=topicID#anchor</code>.</div></dd>
+          
+          
+            <dt class="dt dlterm">appname</dt>
+            <dd class="dd">You can use this parameter in conjunction with <code class="ph codeph">contextId</code> to search
+              for this value in the corresponding <em class="ph i">appname</em> attribute value in the mapping
+              file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">http://localhost/webhelp/index.html?contextId=topicID&amp;appname</span>=myApplication</pre></dd>
+          
+        </dl>
+      </div>
+      <p class="p">Another parameter indicates the search query:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">searchQuery</dt>
+            <dd class="dd">You can use this parameter to perform a search operation when WebHelp is loaded. For
+              example, if you want to open WebHelp showing all search results for <em class="ph i">growing
+                flowers</em>, the URL should look like this:
+                <span class="ph filepath">http://localhost/webhelp/index.html?searchQuery=growing%20flowers</span>.</dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/webhelp-responsive-description.html">Layout and Features</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-search-engine.html">Search Engine</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-accessibility.html">Accessibility</a></div></div></nav></article></main></body></html>

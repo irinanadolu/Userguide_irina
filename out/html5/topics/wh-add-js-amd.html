@@ -1,0 +1,122 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/whr_layout.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-add-custom-html.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customization-ol-numbering.html"><meta name="DC.relation" scheme="URI" content="wh-add-custom-html.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh-add-js-amd"><title>How to Insert JavaScript AMD Modules</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh-add-js-amd"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Insert JavaScript AMD Modules</h1>
+  <div class="body">
+    <p class="p">In the WebHelp Responsive output, you may want to include a JavaScript module that uses the
+      Asynchronous Module Definition (AMD) format. Unlike the traditional JavaScript resources that
+      are loaded using <code class="keyword markupname xmlelement">&lt;script&gt;</code> tags, these modules are loaded using the
+        <dfn class="term">RequireJS</dfn> library. For the traditional JavaScript libraries, the standard
+      procedure to contribute your script to the output would be to use an HTML fragment file as
+      described <a class="xref" href="wh-add-custom-html.html">here</a>.</p>
+    <p class="p">Although following the <a class="xref" href="wh-add-custom-html.html">procedure that uses HTML
+        fragments</a> would result in having your JS file included in the output, loading the JS
+      code in the browser will result in an error. Since your JS module uses the <a class="xref" href="https://github.com/amdjs/amdjs-api/blob/master/AMD.md" target="_blank" rel="external noopener">AMD API</a>, it cannot be loaded using a <code class="keyword markupname xmlelement">&lt;script&gt;</code> element. For
+      example, because many jQuery plugins use the AMD format, it will be difficult for you to use
+      those libraries in your custom WebHelp output.</p>
+    <p class="p">Normally, a JavaScript AMD module can be loaded in one of the following ways:</p>
+    <ul class="ul">
+      <li class="li">
+        <div class="p"><strong class="ph b">As a top-level script</strong>, using the <code class="keyword markupname xmlatt">@data-main</code> attribute of the
+            <code class="keyword markupname xmlelement">&lt;script&gt;</code> element used to load the <dfn class="term">RequireJS</dfn> library.
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">data-main</span>=<span class="hl-value">"js/template-main.js"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"js/require.js"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/script&gt;</strong></pre></div>
+        <p class="p">However, since WebHelp already loads its internal JS modules using
+          <dfn class="term">RequireJS</dfn>, a top-level script is already specified and you cannot specify
+          another top-level script in the same page. Therefore, this approach cannot be used to load
+          your custom JS module in <strong class="ph b">Oxygen XML WebHelp</strong>, leaving you with only the following
+          option.</p>
+      </li>
+      <li class="li"><strong class="ph b">As a dependency module</strong>, using a <code class="ph codeph">require()</code> call from the top-level
+        (main) script or from one of its dependency modules. This means that you would have to alter
+        one of the WebHelp core JS libraries and inject a <code class="ph codeph">require()</code> call to load
+        your custom module:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">require([<span class="hl-string">'js/template-main.js'</span>]);</pre><div class="note note note_note"><span class="note__title">Note:</span> Altering
+          the WebHelp core libraries is not recommended because when you will upgrade the WebHelp
+          plugin to a newer version, those modifications will be lost.</div></li>
+    </ul>
+    <section class="section" id="wh-add-js-amd__contribute_javascript_amd_modules_using_a_publish"><h2 class="title sectiontitle">Contributing JavaScript AMD Modules Using a Publishing Template</h2>
+      
+      <p class="p"><strong class="ph b">Oxygen XML WebHelp</strong> provides the ability to contribute a custom JavaScript
+        Asynchronous Module Definition (AMD) resource in the output by referencing it in the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">Publishing Template
+          descriptor file</a>. This module is automatically copied to the output directory and it
+        is automatically loaded in the output HTML pages using a <code class="ph codeph">require()</code> call.
+        Thus, you can include your scripts in the output without altering WebHelp's core JavaScript
+        libraries.</p>
+      <div class="p">This module may contain all of your custom functionality or can be used to load other AMD
+        JavaScript modules. The additional sub-modules can be stored either locally in your custom
+        Publishing Template or on a remote web server.<div class="note important note_important"><span class="note__title">Important:</span> To enable loading of a
+          JS module you should set the <code class="ph codeph">webhelp.enable.template.js.module.loading</code>
+          parameter to <code class="ph codeph">yes</code> (the default value is <code class="ph codeph">no</code>) in the
+          Publishing Template descriptor file or in the transformation scenario.</div></div>
+    </section>
+    <section class="section" id="wh-add-js-amd__the_javascript_modules"><h2 class="title sectiontitle">The JavaScript Modules</h2>
+      
+      <div class="p"><a class="xref" href="https://github.com/oxygenxml/oxygen-publishing-template-samples/wiki/JavaScript-AMD-Modules" target="_blank" rel="external noopener">The <strong class="ph b">JS Modules</strong> sample template</a> contains a
+        main JavaScript module (<span class="ph filepath">template-main.js</span>) that loads other modules
+        stored in the template package or in a remote location on the
+        Internet.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">define([<span class="hl-string">'require'</span>], <strong class="hl-keyword">function</strong> (require) {
+    require([<span class="hl-string">'./red'</span>, <span class="hl-string">'./italic'</span>, <span class="hl-string">'./tables'</span>]);
+});</pre></div>
+      <div class="p">Besides the main JavaScript example, the template contains 3 other sub-modules:<ul class="ul">
+          <li class="li"><strong class="ph b"><span class="ph filepath">red.js</span></strong> - Changes the font color of the publication
+            title.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">define([<span class="hl-string">"jquery"</span>], <strong class="hl-keyword">function</strong> ($) {
+    $(document).ready(<strong class="hl-keyword">function</strong> () {
+        <em class="hl-comment">// Make the title red</em>
+        $(<span class="hl-string">'.wh_publication_title a'</span>).attr(<span class="hl-string">'style'</span>, <span class="hl-string">'color:red'</span>);
+    });
+});</pre></li>
+          <li class="li"><strong class="ph b"><span class="ph filepath">italic.js</span></strong> - Changes the font style of your publication
+            title.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">define([<span class="hl-string">"jquery"</span>], <strong class="hl-keyword">function</strong> ($) {
+    $(document).ready(<strong class="hl-keyword">function</strong> () {
+        <em class="hl-comment">// Make the title italic</em>
+        $(<span class="hl-string">'.wh_publication_title a'</span>).wrapInner(<span class="hl-string">'&lt;i&gt;&lt;/i&gt;'</span>);
+    });
+});</pre></li>
+          <li class="li"><strong class="ph b"><span class="ph filepath">tables.js</span></strong> - Loads the <a class="xref" href="https://datatables.net/" target="_blank" rel="external noopener">DataTables</a> jQuery plugin from a
+            CDN.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">define([<span class="hl-string">"jquery"</span>, 
+    <span class="hl-string">"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"</span>], <strong class="hl-keyword">function</strong> ($) {
+
+    $(document).ready(<strong class="hl-keyword">function</strong> () {
+        $(<span class="hl-string">'.table'</span>).DataTable();
+    });
+});</pre></li>
+        </ul></div>
+      <div class="p">The JavaScript modules are stored in the Publishing Template package as
+        follows:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><strong class="hl-keyword">[template-dir]</strong>
+    [js]
+        template-main.js
+        italic.js
+        red.js
+        tables.js</pre></div>
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Notes:</span> 
+          <ul class="ul">
+            <li class="li">The main module should be referenced in the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">Publishing
+                Template descriptor file</a> by specifying its path relative to the base
+              directory of the template.
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;js-amd-module</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"js/template-main.js"</span><strong class="hl-tag">/&gt;</strong></pre></li>
+            <li class="li">The main JS module is copied automatically to the output directory, but the
+              sub-modules are not. To instruct the Publishing Template engine to copy those modules
+              to the output directory you should include a <code class="keyword markupname xmlelement">&lt;fileset&gt;</code> section
+              in the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">Publishing Template descriptor
+              file</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;fileset&gt;</strong>
+    <strong class="hl-tag">&lt;include</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"js/*.js"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/fileset&gt;</strong></pre></li>
+            <li class="li">The main module can reference other modules bundled in the publishing template
+              package as follows: <ul class="ul">
+                <li class="li"><strong class="ph b">Relative to template directory</strong> - Prefix their paths with the ID of the
+                  template directory: <strong class="ph b"><span class="ph filepath">template-base-dir</span></strong> (for example:
+                    <span class="ph filepath">template-base-dir/js/italic</span>).</li>
+                <li class="li"><strong class="ph b">Relative to the name of the current JS module</strong> - Use
+                      <strong class="ph b"><code class="ph codeph">./</code></strong> to prefix the paths of the referenced modules.</li>
+                <li class="li">The <strong class="ph b"><code class="ph codeph">.js</code></strong> extension <strong class="ph b">should be omitted</strong> for local
+                  modules, because the <dfn class="term">RequireJS</dfn> library will add it
+                  automatically.</li>
+              </ul></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_layout.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/wh-add-custom-html.html">How to Insert HTML Content</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/webhelp-customization-ol-numbering.html">How to Change Numbering Styles for Ordered Lists</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="wh-add-custom-html.html">How to Insert HTML Content</a></li></ul></div></nav>
+</article></main></body></html>

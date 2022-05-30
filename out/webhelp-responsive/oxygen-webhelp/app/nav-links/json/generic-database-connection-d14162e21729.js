@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Configuring a Generic JDBC Database Connection","href":"topics\/how-to-generic-jdbc.html","attributes":{"data-id":"how-to-generic-jdbc"},"menu":{"hasChildren":false},"tocID":"how-to-generic-jdbc-d14162e21748","next":"how-to-generic-jdbc-d14162e21748"}]});

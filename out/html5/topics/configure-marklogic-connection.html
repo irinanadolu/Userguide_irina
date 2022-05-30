@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/how-to-marklogic.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-marklogic-datasource.html"><meta name="DC.relation" scheme="URI" content="../topics/marklogic-development.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="configure-marklogic-connection"><title>How to Configure a MarkLogic Connection</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="configure-marklogic-connection"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Configure a MarkLogic Connection</h1>
+  <div class="body taskbody">
+    <section class="section prereq">
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Notes:</span> 
+          <ul class="ul" id="configure-marklogic-connection__ul_h2p_ltq_skb">
+            <li class="li">Available in the Enterprise edition only.</li>
+            <li class="li"><span class="ph">Oxygen XML Editor</span> supports MarkLogic version 4.0 or later.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section context">
+      <p class="p">To configure a connection to a MarkLogic database, follow these steps:</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step" id="configure-marklogic-connection__step1">
+        <span class="ph cmd"><span class="ph"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and
+        go to <span class="ph uicontrol">Data Sources</span>.</span></span>
+      </li><li class="li step">
+        <span class="ph cmd"><span class="ph">Click the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Add16.png">New</span> button in the <span class="ph uicontrol">Connections</span> panel.</span></span>
+      </li><li class="li step">
+        <span class="ph cmd"><span class="ph">Enter a unique name for the connection.</span></span>
+      </li><li class="li step" id="configure-marklogic-connection__step4">
+        <span class="ph cmd">Select a previously configured MarkLogic data source from the <span class="ph uicontrol">Data
+            Source</span> drop-down menu.</span>
+      </li><li class="li step" id="configure-marklogic-connection__xdbc-step">
+        <span class="ph cmd">Enter the connection details. </span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">The host name or IP address of the installed MarkLogic engine in the
+                <span class="ph uicontrol">XDBC Host</span> field.</span>
+            <div class="itemgroup info"><span class="ph">Oxygen XML Editor</span> uses XCC connector to interact with MarkLogic XDBC server
+              and requires the basic authentication schema to be set. Starting with version
+              MarkLogic 4.0 the default authentication method when you create an HTTP or WebDAV
+              Server is <em class="ph i">digest</em>, so make sure to change it to <em class="ph i">basic</em>.</div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the port number of the MarkLogic engine in the <span class="ph uicontrol">Port</span>
+              field. A MarkLogic XDBC application server must be configured on the server on this
+              port. This XDBC server will be used to process XQuery expressions against the server.
+              Later, if you want to change the XDBC server, instead of editing the configuration
+              just use the <a class="xref" href="marklogic-contextual-actions.html#marklogic-contextual-actions__use-it-to-execute-xquery"><span class="ph uicontrol">Use it to execute queries</span> action</a> from Data Source
+              Explorer.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the user name to access the MarkLogic engine in the <span class="ph uicontrol">User</span>
+              field.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the password to access the MarkLogic engine in the
+                <span class="ph uicontrol">Password</span> field.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Optionally, in the <span class="ph uicontrol">WebDAV URL</span> field, set the URL used for
+              browsing the MarkLogic database in the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>.</span>
+            <div class="itemgroup info">The <span class="ph uicontrol">Database</span> field specifies the database that will have the
+              XQuery expressions executed. If you set this option to default, the database
+              associated to the application server of the configured port is used.</div>
+          </li>
+        </ol>
+      </li><li class="li step" id="configure-marklogic-connection__step6">
+        <span class="ph cmd"><span class="ph">Click the <span class="ph uicontrol">OK</span> button to finish the
+        connection configuration.</span></span>
+      </li><li class="li step">
+        <span class="ph cmd">To view your connection, go to the <a class="xref" href="relational-database-explorer.html#relational-database-explorer"><span class="ph uicontrol">Data Source Explorer</span> view</a>
+          <span class="ph">(if the view is not displayed, it can be opened by selecting
+        it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu)</span> or switch to the
+            <span class="ph uicontrol">Database</span>
+          <a class="xref" href="../glossary/perspective.html"><dfn class="term">perspective</dfn></a>.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/how-to-marklogic.html">Configuring a MarkLogic Database Connection</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configure-marklogic-datasource.html">How to Configure MarkLogic Data Source Drivers</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/marklogic-development.html">MarkLogic Development in Oxygen XML Editor</a></div></div></nav></article></main></body></html>

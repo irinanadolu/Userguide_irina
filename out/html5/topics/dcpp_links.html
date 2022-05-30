@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Links"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Links"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_styling_the_contents.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_lists.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_images.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_links"><title>Links</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_links">
+  <h1 class="title topictitle1" id="ariaid-title1">Links</h1>
+  
+  <div class="body">
+    <p class="p">Links allow the users to navigate through the documentation.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_styling_the_contents.html">Styling the Content</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_lists.html">Lists</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_images.html">Images and Figures</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_remove___on_page_nnn__link_suffix">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Remove 'on page NNN' Link Label</h2>
+  <div class="body">
+    <p class="p">For printed material, it is usually desirable for the links to display a label after the text
+      content (such as "on page 54"). This makes it easier the user to identify the target page.
+      However, if the produced PDF is not printed and is intended only for electronic use, this
+      label may create clutter and make the document harder to read. To eliminate this label, add
+      the following in your <a class="xref" href="dcpp_the_customization_css.html">customization
+      CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/xref"</span>][href]:after,
+*[class ~= <span class="hl-string">"topic/link"</span>][href]:after {
+    <strong class="hl-keyword">content</strong>: none !important;
+}</pre>
+    <p class="p">Another use-case is to remove the labels only from links shown in tables cells, and leave the
+      others as they are. For this, you could use a more specific selector:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/entry"</span>] *[class ~= <span class="hl-string">"topic/xref"</span>][href]:after{
+    <strong class="hl-keyword">content</strong>: none !important;
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_change_link_styles">
+    <h2 class="title topictitle2" id="ariaid-title3">How to Change Link Styles</h2>
+    <div class="body">
+        <p class="p">Suppose you want the links to be bold and with an underline. In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add this snippet:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/xref"</span>][href]:after,
+*[class ~= <span class="hl-string">"topic/link"</span>][href]:after {
+    <strong class="hl-keyword">font-weight</strong>: bold;
+    <strong class="hl-keyword">text-decoration</strong>: underline;
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_hide_short_descriptions_in_related_links_sections">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Hide Descriptions in Related Links Sections</h2>
+  <div class="body">
+    <p class="p">The link descriptions that come from DITA relationship tables or related link elements within
+      topics, are structured in the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged map</a>
+      like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;related-links</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/related-links "</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;linkpool</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linkpool "</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/link "</span> 
+            <span class="hl-attribute">...</span>
+               <span class="hl-attribute">role</span>=<span class="hl-value">"friend"</span> <span class="hl-attribute">scope</span>=<span class="hl-value">"local"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span><strong class="hl-tag">&gt;</strong>
+                <strong class="hl-tag">&lt;linktext</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linktext "</span><strong class="hl-tag">&gt;</strong>Salvia<strong class="hl-tag">&lt;/linktext&gt;</strong>
+                <strong class="hl-tag">&lt;desc</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/desc "</span><strong class="hl-tag">&gt;</strong>The salvia plant<strong class="hl-tag">&lt;/desc&gt;</strong>
+          <strong class="hl-tag">&lt;/link&gt;</strong>
+    <strong class="hl-tag">&lt;/linkpool&gt;</strong>
+    ...
+<strong class="hl-tag">&lt;/related-links&gt;</strong></pre>
+    <p class="p">If you need to hide these descriptions, add the following code in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/link"</span>] &gt; *[class ~= <span class="hl-string">"topic/desc"</span>] {
+  <strong class="hl-keyword">display</strong>: none;
+}</pre>
+  </div>
+</article></article></article></main></body></html>

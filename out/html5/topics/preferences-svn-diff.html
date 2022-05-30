@@ -1,0 +1,36 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,SVN Diff"><meta name="keywords" content="Preferences, SVN Diff"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-svn-messages.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-svn-diff"><title>Diff Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-svn-diff"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Diff Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure the SVN Diff options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+        <span class="ph uicontrol">Diff</span>.</p>
+    
+    <div class="p">The following option is available:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Compare With External Application</span></dt>
+          <dd class="dd">
+            <div class="p">Specifies an external application to be launched for compare operations in the
+              following cases:<ul class="ul" id="preferences-svn-diff__ul_r5w_fkk_y3b">
+                <li class="li">When two history revisions are compared.</li>
+                <li class="li">When the working copy file is compared with a history revision.</li>
+                <li class="li">When a conflict is edited.</li>
+              </ul></div>
+            <div class="p">The parameters <strong class="ph b">${firstFile}</strong> and <strong class="ph b">${secondFile}</strong> specify the positions of
+              the two compared files in the command line for the external diff application. The
+              parameter <strong class="ph b">${ancestorFile}</strong> specifies the common ancestor (that is, the BASE
+              revision of a file) in a three-way comparison. The working copy version of a file is
+              compared with the repository version, with the BASE revision (the latest revision read
+              from the repository by an Update or Synchronize operation) being the common ancestor
+              of these two compared versions.<div class="note important note_important"><span class="note__title">Important:</span> If the path to the external
+                compare application includes spaces (or any of the subsequent options or arguments),
+                then each of these paths or <em class="ph i">tokens</em> must be double-quoted for the <span class="ph">Oxygen XML Editor</span> to correctly parse and identify them. For example,
+                  <code class="ph codeph">C:\Program Files\compareDir\app name.exe</code> must be written as
+                  <code class="ph codeph">"C:\Program Files\compareDir\app name.exe"</code>.</div></div>
+          </dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-svn.html">SVN Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-svn-working-copy.html">Working Copy Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-svn-messages.html">Messages Preferences</a></div></div></nav></article></main></body></html>

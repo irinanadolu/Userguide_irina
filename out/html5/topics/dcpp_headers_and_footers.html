@@ -1,0 +1,803 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Header,Footer,,Header and Footer,Size,Font,Change header at each chapter,Add copyright,Add topics,Add background image,Add links,Style text,Only keep chapter title,Change separators,,Styling,XPath,Underlined header,Changing the heading"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Header, Footer, , Header and Footer, Size, Font, Change header at each chapter, Add copyright, Add topics, Add background image, Add links, Style text, Only keep chapter title, Change separators, , Styling, XPath, Underlined header, Changing the heading"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_page_size.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_metadata.html"><meta name="DC.relation" scheme="URI" content="dcpp_numbering_intro.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_headers_and_footers"><title>Page Headers and Footers</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_headers_and_footers">
+  <h1 class="title topictitle1" id="ariaid-title1">Page Headers and Footers</h1>
+  
+  <div class="body">
+    <div class="p">The page headers and footers use the string sets defined for publication, chapter, and
+      section titles. These string-sets are defined in the <a class="xref" href="dcpp_numbering_intro.html">numbering CSS</a>: <dl class="dl">
+        
+          <dt class="dt dlterm">parttitle</dt>
+          <dd class="dd">Set to the title of the current part (only for DITA bookmaps that use parts).</dd>
+        
+        
+          <dt class="dt dlterm">chaptertitle</dt>
+          <dd class="dd">Set to the title of the current chapter (Shallow and Deep numbering).</dd>
+        
+        
+          <dt class="dt dlterm">sectiontitle</dt>
+          <dd class="dd">Set to the title of each section (Deep numbering only).</dd>
+        
+      </dl></div>
+    <p class="p">To see where the default page rules are defined, see: <a class="xref" href="dcpp_default_page_definitions_css.html">Default Page Definitions</a>.</p>
+    <p class="p">Although you may define string sets in your customization CSS, you need to take into account
+      the fact that the string-set CSS property is not additive, and matching the same elements will
+      end up breaking the current definitions. A very common use-case is to match the title element
+      that is also used in the default CSS. The best approach, in this case, is to take a look at
+      the rules from the <a class="xref" href="dcpp_numbering_intro.html">numbering CSS</a>, copy the ones
+      dealing with string sets to your customization, then alter the property definition by adding
+      your definition to the existing ones (and not removing the existing ones).</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_page_size.html">Page Size</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_metadata.html">Metadata</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_numbering_intro.html">Numbering</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_headers_footers_built_in_css">
+  <h2 class="title topictitle2" id="ariaid-title2">Page Headers and Footers - Built-in CSS</h2>
+  <div class="body">
+    <p class="p">The headers and footers are part of the page definitions. To see how the default page layouts
+      are defined, see: <a class="xref" href="dcpp_default_page_definitions_css.html">Default Page Definitions</a>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_position_text_in_the_headers_and_footers">
+	<h2 class="title topictitle2" id="ariaid-title3">How to Position Text in the Headers and Footers</h2>
+	<div class="body">
+		<p class="p">By default, the name of the publication and chapter titles are placed in the
+				<code class="ph codeph">top-left</code> or <code class="ph codeph">top-right</code> page margin boxes:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">   <span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+        @top-left {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+        }
+    }
+
+    <span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>{
+        @top-right {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+        }
+    }</pre>
+		<p class="p">If you want to change this, you should use the <code class="ph codeph">content</code> CSS properties of other
+      page margin boxes, and inhibit the ones in the above content. For example, to set the chapter
+      title in the page top left corner, you can use:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">   <span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+        @top-left {
+            <strong class="hl-keyword">content</strong>:none;
+        }
+        @top-left-corner {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+            <strong class="hl-keyword">white-space</strong>: nowrap;	
+            <strong class="hl-keyword">text-align</strong>:<strong class="hl-keyword">left</strong>;
+        }
+    }
+
+    <span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>{
+        @top-right {
+            <strong class="hl-keyword">content</strong>: none;
+        }
+        @top-right-corner {
+            <strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);
+            <strong class="hl-keyword">white-space</strong>: nowrap;	
+            <strong class="hl-keyword">text-align</strong>:<strong class="hl-keyword">right</strong>;
+        }
+    }</pre>
+		<div class="note note note_note"><span class="note__title">Note:</span> The corner page margin boxes are fixed and limited as the available space. Above, the
+        <code class="ph codeph">text-align</code> and <code class="ph codeph">white-space</code> properties are used to make the
+      text bleed out of these boxes towards the center of the page. If you plan to add an image or
+      artwork background, you should consider using the technique described in: <a class="xref" href="dcpp_headers_and_footers.html#dcpp_how_to_simulate_the_header_and_footer_by_using_a_page_background_image">How to Decorate the Header by Using a Background Image on the Entire Page</a>.</div>
+	</div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_change_headers_and_footers_size">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Change the Size of Headers and Footers</h2>
+  
+  <div class="body">
+    <p class="p">This is directly related to the page margins and size. </p>
+    <p class="p">The headers and footers are placed in the so-called <a class="xref" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_page_margin_boxes.html" target="_blank" rel="external noopener">page margin boxes</a>, a series of rectangular areas
+      residing in the page margins. </p>
+    <p class="p">To affect the margins of all page definitions, you may use the following rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+	<strong class="hl-keyword">margin-top</strong>:<span class="hl-number">3</span>cm !important;
+	<strong class="hl-keyword">margin-bottom</strong>:<span class="hl-number">3</span>cm !important;
+	<strong class="hl-keyword">margin-left</strong>:<span class="hl-number">2</span>cm !important;
+	<strong class="hl-keyword">margin-right</strong>:<span class="hl-number">2</span>cm !important;	
+}</pre>
+    <p class="p">If you want to affect only a specific page, like the first page from chapters for instance,
+      you must use more specific page selectors. See the <a class="xref" href="dcpp_default_page_definitions_css.html">Default Page Definitions</a> for details.</p>
+    <p class="p">Note that the page margin boxes fill the entire page margin. This means the
+        <code class="ph codeph">margin-top</code>, for example, dictates the height of the
+        <code class="ph codeph">@top-left-corner</code>, <code class="ph codeph">@top-left</code>, <code class="ph codeph">@top-center</code>,
+        <code class="ph codeph">@top-right</code>, <code class="ph codeph">@top-right-corner</code> margin boxes. These cannot
+      have margins on themselves, so to change the position of the content inside them, you must use
+        <code class="ph codeph">padding</code> properties:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+	@top-left {
+		<strong class="hl-keyword">content</strong>:<span class="hl-string">"..."</span>
+		<strong class="hl-keyword">padding</strong>: <span class="hl-number">1</span>cm;
+	}
+	..
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title5" id="dcpp_how_to_change_the_font_for_the_headers_and_footers">
+  <h2 class="title topictitle2" id="ariaid-title5">How to Change the Font of the Headers and Footers</h2>
+  
+  <div class="body">
+    <p class="p">To change the font for all the headers and footers, in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add a CSS rule similar to
+      this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    <strong class="hl-keyword">font-size</strong>: <span class="hl-number">12</span>pt;
+    <strong class="hl-keyword">font-family</strong>: <span class="hl-string">"Arial"</span>;
+}</pre>
+    <div class="note important note_important"><span class="note__title">Important:</span> These settings apply to all page margin boxes, but not to the text inside
+      the page.</div>
+    <p class="p">If you want to change the settings only for a specific page type (for example, the table of
+      contents), use the name of the page:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> table-of-contents {
+    <strong class="hl-keyword">font-size</strong>: <span class="hl-number">12</span>pt;
+    <strong class="hl-keyword">font-family</strong>: <span class="hl-string">"Arial"</span>;
+}</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_table_of_contents.html#dcpp_how_to_change_the_header_of_the_table_of_contents">How to Change the Header of the Table of Contents</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title6" id="dcpp_how_to_change_header_text_at_each_topic">
+	<h2 class="title topictitle2" id="ariaid-title6">How to Change Header Text for Each Topic</h2>
+	
+	<div class="body">
+		<p class="p">It is possible to dynamically change the header depending on the content in a topic. The
+      following example assumes that the data to be presented in the header is located in the
+      metadata section of each topic. One way is to specify it in the DITA map is by using the
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element for the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> topic
+      reference:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/installing.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-data"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"ID778-3211"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+    ...</pre>
+		<p class="p">In the above example, there is set of key value pairs with the name
+				<code class="ph codeph">header-data</code>. This information is automatically copied into the content in
+			the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged map
+				file</a>, like this:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">&lt;topic ... &gt;
+    &lt;title class=<span class="hl-string">"- topic/title "</span>&gt;Installing&lt;/title&gt;
+    &lt;shortdesc class=<span class="hl-string">"- topic/shortdesc "</span>&gt;You install components to make them available for your
+      solution.&lt;/shortdesc&gt;
+    &lt;prolog class=<span class="hl-string">"- topic/prolog "</span>&gt;
+      ...
+      &lt;data class=<span class="hl-string">"- topic/data "</span> name=<span class="hl-string">"header-data"</span> value=<span class="hl-string">"ID778-3211"</span>/&gt;
+      ...</pre>
+		<p class="p">This information can be extracted from the CSS:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><em class="hl-comment">/* Define the string set variable that contains the text extracted from the data element */</em>
+*[class ~= <span class="hl-string">"topic/topic"</span>] *[class ~= <span class="hl-string">"topic/data"</span>][name=<span class="hl-string">"header-data"</span>] {
+  string-set: hdrstr attr(value);
+}
+
+<em class="hl-comment">/* Using the value='none' stops applying the image. */</em>
+*[class ~= <span class="hl-string">"topic/topic"</span>] *[class ~= <span class="hl-string">"topic/data"</span>][name=<span class="hl-string">"header-data"</span>][value=<span class="hl-string">"none"</span>] {
+  string-set: hdrstr <span class="hl-string">""</span>;
+}
+
+<em class="hl-comment">/* Use the string set variable in one of the page margin boxes. */</em>
+<span class="hl-directive">@page</span> chapter {  
+  @top-left-corner {
+    <strong class="hl-keyword">content</strong>: string(hdrstr);
+  }
+}</pre>
+		<div class="note note note_note"><span class="note__title">Notes:</span> The string set  is applied to all pages that follow the
+			data element, until another data element changes
+				it:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/installing.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-data"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"ID778-3211"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+ <strong class="hl-tag">&lt;/topicref&gt;</strong>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same value --&gt;</em>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same value --&gt;</em>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same value --&gt;</em>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/change.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-data"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"ID990-3200"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+ <strong class="hl-tag">&lt;/topicref&gt;</strong>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- The string set is changed now --&gt;</em>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- The string set is changed now --&gt;</em>
+ <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- The string set is changed now --&gt;</em>
+</pre><div class="p">To
+				clear the text, use the <code class="ph codeph">none</code>
+				value:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+     <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- The string set is void now --&gt;</em>
+
+...</pre></div></div>
+	</div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title7" id="dcpp_how_to_change_header_images_at_each_chapter">
+  <h2 class="title topictitle2" id="ariaid-title7">How to Change Header Images for Each Chapter</h2>
+  
+  <div class="body">
+    <p class="p">It is possible to dynamically change an image in the header depending on the chapter. For
+      this, you need to define an image reference in the metadata section of each chapter. One way
+      is to specify it in the DITA map by using the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element for
+      the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> topic reference:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/installing.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-image"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"img/installing.png"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+    ...</pre>
+    <p class="p">In the above example, there is set of key value pairs with the name
+        <code class="ph codeph">header-image</code>. The <code class="ph codeph">img/installing.png</code> is an image reference
+      relative to the DITA map URI. This information is automatically copied into the content in the
+        <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged map
+        file</a>, like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">&lt;topic is-chapter=<span class="hl-string">"true"</span> ... &gt;
+    &lt;title class=<span class="hl-string">"- topic/title "</span>&gt;Installing&lt;/title&gt;
+    &lt;shortdesc class=<span class="hl-string">"- topic/shortdesc "</span>&gt;You install components to make them available for your
+      solution.&lt;/shortdesc&gt;
+    &lt;prolog class=<span class="hl-string">"- topic/prolog "</span>&gt;
+      ...
+      &lt;data class=<span class="hl-string">"- topic/data "</span> name=<span class="hl-string">"header-image"</span> value=<span class="hl-string">"img/installing.png"</span>/&gt;
+      ...</pre>
+    <p class="p">This information can be picked up from CSS:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><em class="hl-comment">/* Define the string set variable that contains an URL */</em>
+*[class ~= <span class="hl-string">"topic/topic"</span>] *[class ~= <span class="hl-string">"topic/data"</span>][name=<span class="hl-string">"header-image"</span>] {
+  string-set: imgst oxy_url(oxy_xpath(<span class="hl-string">'/*/@xtrf'</span>), attr(value));
+}
+
+<em class="hl-comment">/* Using the value='none' stops applying the image. */</em>
+*[class ~= <span class="hl-string">"topic/topic"</span>] *[class ~= <span class="hl-string">"topic/data"</span>][name=<span class="hl-string">"header-image"</span>][value=<span class="hl-string">"none"</span>] {
+  string-set: imgst <span class="hl-string">""</span>;
+}
+
+<em class="hl-comment">/* Use the string set variable in one of the page margin boxes. */</em>
+<span class="hl-directive">@page</span> chapter {  
+  @top-left-corner {
+    <strong class="hl-keyword">content</strong>: string(imgst);
+    <strong class="hl-keyword">font-size</strong>:<span class="hl-number">0</span>; <em class="hl-comment">/* remove the font ascent and descent */</em>
+  }
+}</pre>
+    <p class="p"><strong class="ph b">Details</strong>: The <code class="keyword markupname xmlatt">@value</code> attribute is used to build a URL relative to the
+      URI of the DITA map. To determine the base URI of the DITA map, the <code class="keyword markupname xmlatt">@xtrf</code>
+      attribute was used from the root element of the merged map document, extracted using the
+        <code class="ph codeph">oxy_xpath</code> function. </p>
+    <div class="note note note_note"><span class="note__title">Notes:</span> 
+      <ul class="ul">
+        <li class="li">The image is always aligned vertically to the middle of available space from the page
+          margin box.</li>
+        <li class="li">Make sure you use an image of the correct size. For example, if you want to place the
+          image in the top-left corner of the page, assuming the top and left page margins are 1 in,
+          then make sure the image is a square having a size of 1 in.</li>
+        <li class="li">
+          <div class="p">The image is applied to all pages that follow the data element, until another data
+            element changes
+            it:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/installing.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-image"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"img/installing.png"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+ <strong class="hl-tag">&lt;/chapter&gt;</strong>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same installing.png image --&gt;</em>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same installing.png image --&gt;</em>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same installing.png image --&gt;</em>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/change.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-image"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"img/change.png"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+ <strong class="hl-tag">&lt;/chapter&gt;</strong>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same change.png image --&gt;</em>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same change.png image --&gt;</em>
+ <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"..."</span><strong class="hl-tag">&gt;</strong> <em class="hl-comment">&lt;!-- Uses the same change.png image --&gt;</em></pre></div>
+          <div class="p">To clear the image, use the <code class="ph codeph">none</code>
+            value:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">...
+      <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"header-image"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"none"</span><strong class="hl-tag">/&gt;</strong>
+...</pre></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title8" id="dcpp_how_to_add_copyright_notice_to_the_footer">
+  <h2 class="title topictitle2" id="ariaid-title8">How to Add a Multi-line Copyright Notice to the Footer</h2>
+  
+  <div class="body">
+    <div class="p">Suppose you want to add a footer with the following two lines of text at the end of each page
+      that is shown on the right
+      side:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">© 2017 - My Company Ltd
+All rights reserved</pre></div>
+    <p class="p">For this, you need to specify a rule that matches all the right pages and adds that content
+      in the <code class="ph codeph">bottom-center</code>. In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the following CSS rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>{
+    @bottom-center {
+        <strong class="hl-keyword">content</strong>: <span class="hl-string">"© 2017 - My Company Ltd \A All rights reserved"</span>;
+        <strong class="hl-keyword">font-size</strong>: <span class="hl-number">0.5</span>em;
+        <strong class="hl-keyword">color</strong>: silver;
+    }    
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> Other page rules (such as the <em class="ph i">table-of-contents</em>) override the contents of the
+        <code class="ph codeph">@bottom-center</code> because they are more specific. If you need to also print
+      the copyright in the TOC pages, then use this as the
+      selector:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>, table-of-contents:<strong class="hl-keyword">right</strong> {
+  ...
+}</pre></div>
+    <div class="note note note_note"><span class="note__title">Note:</span> To use new lines (<code class="ph codeph">\n</code> characters) in your headers or footers, use the
+        <code class="ph codeph">\A</code> notation, as in the example above.</div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title9" id="dcpp_how_to_add_a_group_of_topics_to_the_footer">
+  <h2 class="title topictitle2" id="ariaid-title9">How to Add a Group of Topics to the Footer</h2>
+  
+  <div class="body">
+    <p class="p">To create a footer that contains the content of several topic files, but only on the last
+      page, there are two possible approaches:</p>
+    <section class="section" id="dcpp_how_to_add_a_group_of_topics_to_the_footer__section_csz_kl3_1gb"><h3 class="title sectiontitle">Method 1: Using the position:fixed CSS Property</h3>
+      
+      <ol class="ol" id="dcpp_how_to_add_a_group_of_topics_to_the_footer__ol_mcl_dm3_1gb">
+        <li class="li">Group all the footer topics under a single parent topic, under the last topic from your
+          DITA map. For example, you can have the following map structure:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">...
+End topic
+   Footer container topic
+      Footer content topic 1
+      Footer content topic 2</pre></li>
+        <li class="li"> Add an <code class="keyword markupname xmlatt">@outputclass</code>=<code class="ph codeph">footer</code> on the
+            <code class="keyword markupname xmlelement">&lt;topic&gt;</code> root element of the footer container topic, or on its
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> in the map. </li>
+        <li class="li"> Use the CSS <code class="ph codeph">position: fixed</code> property to position this topic to the
+          bottom of the
+          page:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[outputclass ~= <span class="hl-string">"footer"</span>] {
+  <strong class="hl-keyword">position</strong>: fixed;
+  
+  <strong class="hl-keyword">bottom</strong>: <span class="hl-number">0.5</span>in;
+  <strong class="hl-keyword">left</strong>: <span class="hl-number">0.5</span>in;
+  
+  <strong class="hl-keyword">width</strong>:<span class="hl-number">5</span>in;
+  <strong class="hl-keyword">height</strong>:<span class="hl-number">200</span>pt;  
+}     </pre></li>
+      </ol>
+      <div class="note note note_note"><span class="note__title">Note:</span>  Make sure the width and height are enough for the content of the footer to fit. Be
+        careful because the content might bleed out of the page. Use bottom and left values to
+        position the block in the page.</div>
+    </section>
+    <section class="section" id="dcpp_how_to_add_a_group_of_topics_to_the_footer__section_hrk_vm3_1gb"><h3 class="title sectiontitle">Method 2: Using the float:footnote CSS Property</h3>
+      
+      <p class="p">The second approach would be to declare the footer block as a footnote. Assuming the same
+        DITA Map structure as above, you can use the following CSS fragment:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[outputclass ~= <span class="hl-string">"footer"</span>] {
+  <strong class="hl-keyword">float</strong>:footnote;
+}
+
+*[outputclass ~= <span class="hl-string">"footer"</span>]:footnote-call{
+  <strong class="hl-keyword">color</strong>:transparent;  
+  <strong class="hl-keyword">font-size</strong>:<span class="hl-number">0</span>;
+}
+
+*[outputclass ~= <span class="hl-string">"footer"</span>]:footnote-marker{
+  <strong class="hl-keyword">color</strong>:transparent;  
+  <strong class="hl-keyword">font-size</strong>:<span class="hl-number">0</span>;
+}</pre>
+      <div class="note note note_note"><span class="note__title">Note:</span> Use transparent colors and/or zero size font to avoid the display of the footnote
+        counters.</div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title10" id="dcpp_how_to_add_an_image_to_the_header">
+  <h2 class="title topictitle2" id="ariaid-title10">How to Add a Background Image to the Header</h2>
+  
+  <div class="body">
+    <p class="p">A common use-case is to add a background image to one of the page corners.</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+    @bottom-left-corner{
+        <strong class="hl-keyword">content</strong>: <span class="hl-string">" "</span>;
+        <strong class="hl-keyword">background-image</strong>: url(<span class="hl-string">'https://www.oxygenxml.com/resellers/resources/OxygenXMLEditor_icon.svg'</span>);
+        <strong class="hl-keyword">background-repeat</strong>:no-repeat;
+        <strong class="hl-keyword">background-position</strong>:<span class="hl-number">50</span>% <span class="hl-number">50</span>%;        
+    }
+}</pre>
+    <div class="note important note_important"><span class="note__title">Important:</span> Always specify a <code class="ph codeph">content</code> property. If not, the page
+      margin box will not be generated. </div>
+    <p class="p">Another use-case is to use the <code class="ph codeph">@top-left</code> or <code class="ph codeph">@top-right</code> page
+      margin boxes. These boxes have an automatic layout and they can be very small if they have no
+      content. If there is no text to be placed over the image, use a series of non-breaking spaces
+        (<code class="ph codeph">\A0</code>) to increase the box width as in the following example (alternatively,
+      you can use the technique described in <a class="xref" href="dcpp_headers_and_footers.html#dcpp_how_to_simulate_the_header_and_footer_by_using_a_page_background_image">How to Decorate the Header by Using a Background Image on the Entire Page</a>):</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+    @top-left{
+        <strong class="hl-keyword">content</strong>: <span class="hl-string">'\A0\A0\A0\A0\A0\A0\A0\A0\A0\A0'</span>;
+        <strong class="hl-keyword">background-image</strong>: url(<span class="hl-string">'https://www.oxygenxml.com/resellers/resources/OxygenXMLEditor_icon.svg'</span>);
+        <strong class="hl-keyword">background-repeat</strong>:no-repeat;
+        <strong class="hl-keyword">background-position</strong>:<span class="hl-number">50</span>% <span class="hl-number">50</span>%;
+    }
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> You can use raster image formats (such as PNG or JPEG),
+                  but it is best to use vector images (such as SVG or PDF). They scale very well and
+                  produce better results when printed. In addition, the text from these images is
+                  searchable and can be selected (if the glyphs have not been converted to shapes)
+                  in the PDF viewer.</div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_images.html">Images and Figures</a></li><li class="linklist"><a class="link" href="dcpp_cover_page.html#dcpp_how_to_change_the_cover_image">How to Add a Background Image for the Cover</a></li><li class="linklist"><a class="link" href="dcpp_headers_and_footers.html#ch_how_to_add_a_link_in_headers_and_footers">How to Add a Link in Headers and Footers</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title11" id="ch_how_to_add_a_link_in_headers_and_footers">
+    <h2 class="title topictitle2" id="ariaid-title11">How to Add a Link in Headers and Footers</h2>
+  
+    <div class="body">
+    <section class="section" id="ch_how_to_add_a_link_in_headers_and_footers__section_rt4_zqp_4jb"><h3 class="title sectiontitle">Method 1: Using an SVG Link Attribute</h3>
+      
+      <div class="p">It is possible to add a link inside the document header (or footer) by using the
+          <code class="keyword markupname xmlelement">&lt;a&gt;</code> element inside an SVG document. For example, suppose you have
+        the following SVG document named
+        <em class="ph i">custom.svg</em>:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;svg</strong> <span class="hl-attribute">viewBox</span>=<span class="hl-value">"0 0 100 40"</span> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"http://www.w3.org/2000/svg"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">xlink:href</span>=<span class="hl-value">"https://www.oxygenxml.com/chemistry-html-to-pdf-converter.html"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;text</strong> <span class="hl-attribute">x</span>=<span class="hl-value">"10"</span> <span class="hl-attribute">y</span>=<span class="hl-value">"25"</span><strong class="hl-tag">&gt;</strong>PDF Chemistry<strong class="hl-tag">&lt;/text&gt;</strong>
+  <strong class="hl-tag">&lt;/a&gt;</strong>
+<strong class="hl-tag">&lt;/svg&gt;</strong></pre></div>
+      <div class="p">This creates an SVG link with <em class="ph i">PDF Chemistry</em> displayed as its text (the content of
+        the <code class="keyword markupname xmlelement">&lt;text&gt;</code> element).<div class="note note note_note"><span class="note__title">Note:</span> If you just want to add a link without
+          text, you can define a rectangle that contains the link instead of text.</div></div>
+      <div class="p">To display the link, you just need to set your SVG file as the content of one of the page
+				margin
+				boxes:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+  @top-left {
+    <strong class="hl-keyword">content</strong>: url(<span class="hl-string">"custom.svg"</span>);
+  }
+}</pre></div>
+    </section>
+    <section class="section" id="ch_how_to_add_a_link_in_headers_and_footers__section_hbp_brp_4jb"><h3 class="title sectiontitle">Method 2: Using the CSS <em class="ph i">-oxy-link</em> Property</h3>
+      
+      <div class="p">It is also possible to add a link inside the document header (or footer) by using the
+					<code class="ph codeph">-oxy-link</code> property on the <code class="ph codeph">@page</code> margin box declaration.
+				The entire page margin box will behave as a link and will be
+				clickable.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+  @top-left {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"Link"</span>;
+    -oxy-link: <span class="hl-string">"https://www.oxygenxml.com/"</span>;
+    <strong class="hl-keyword">color</strong>:blue;
+  } 
+}</pre></div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title12" id="dcpp_how_to_simulate_the_header_and_footer_by_using_a_page_background_image">
+  <h2 class="title topictitle2" id="ariaid-title12">How to Decorate the Header by Using a Background Image on the Entire Page</h2>
+  <div class="body">
+    <p class="p">If you want to precisely position artwork and the page margin boxes are not sufficient, it is
+      possible to use a background image for the entire page. </p>
+    <p class="p">This technique consists of creating an image (SVG is the best since it is a vector image) as
+      wide as the page that would contain the logo and placing other decorations at the desired
+      locations. This offers the best results and the position of the artwork does not depend on the
+      page margin contents.</p>
+    <p class="p"><strong class="ph b">Example:</strong></p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong>, chapter:<strong class="hl-keyword">left</strong>, chapter:first:<strong class="hl-keyword">left</strong> { 
+ <strong class="hl-keyword">background-image</strong>: url(<span class="hl-string">'img/page_background_image_with_logos_and_artwork_for_left_page.svg'</span>);
+ <strong class="hl-keyword">background-repeat</strong>: no-repeat;
+ <strong class="hl-keyword">background-position</strong>: <span class="hl-number">50</span>% <span class="hl-number">50</span>%;
+}</pre>
+    <p class="p">For a list of all the possible page names, see: <a class="xref" href="dcpp_default_page_definitions_css.html">Default Page Definitions</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_cover_page.html#dcpp_how_to_change_the_cover_image">How to Add a Background Image for the Cover</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title13" id="ch_how_to_style_a_part_of_the_header">
+  <h2 class="title topictitle2" id="ariaid-title13">How to Style a Part of the Text from the Header</h2>
+  
+  <div class="body">
+    <div class="p">If you need to style a fragment of text (for example, a company slogan) with certain colors
+      or font styles, you have several options:<ul class="ul" id="ch_how_to_style_a_part_of_the_header__ol_pn1_qcr_d2b">
+        <li class="li">Use an SVG image as the background for a page margin box or for the entire page. <span class="ph">See: <a class="xref" href="dcpp_headers_and_footers.html#dcpp_how_to_add_an_image_to_the_header">How to Add a Background Image to the Header</a>. </span></li>
+        <li class="li">Use the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-oxy-label-function.html" target="_blank" rel="external noopener"><code class="ph codeph">oxy_label</code></a> constructor. This is a
+					function that creates a text label with a set of
+					styles.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    @top-right {
+        <strong class="hl-keyword">content</strong>: oxy_label(text, <span class="hl-string">"My Company"</span>, styles, <span class="hl-string">"color:red; font-size: larger;"</span>) 
+                 <span class="hl-string">' '</span> 
+                 oxy_label(text, <span class="hl-string">"Product"</span>, styles, <span class="hl-string">"color:blue; text-decoration:underline;"</span>));
+    }
+}</pre>You
+					can combine the <code class="ph codeph">oxy_label</code> with <code class="ph codeph">oxy_xpath</code>, to extract and
+					style a piece of text from the
+						document:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><strong class="hl-keyword">content</strong>: oxy_label(text, oxy_xpath(<span class="hl-string">"/some/xpath"</span>), styles, <span class="hl-string">"color:blue; "</span>));</pre><div class="note note note_note"><span class="note__title">Note:</span> These
+						functions work only with the Chemistry CSS processor. </div><div class="note note note_note"><span class="note__title">Note:</span> You cannot use
+							<code class="ph codeph">string()</code> inside an <code class="ph codeph">oxy_label()</code>. As a workaround, to
+						apply styling on the dynamic text retrieved by a <code class="ph codeph">string()</code> function you
+						can define some overall styles for the entire page margin box and then use the
+							<code class="ph codeph">oxy_label</code> to style differently the static
+						text.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    @top-right {
+	 <strong class="hl-keyword">color</strong>: red;
+        <strong class="hl-keyword">content</strong>: oxy_label(text, <span class="hl-string">"My Company"</span>, styles, <span class="hl-string">"color:black"</span>) 
+                 <span class="hl-string">' '</span> 
+                 string(chaptertitle); <em class="hl-comment">/* This inherits the styling from @top-right*/</em>
+    }
+}</pre></div></li>
+        <li class="li">Use two adjacent page margin boxes, and style them
+          differently:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+  @top-center {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"First part"</span>;
+    <strong class="hl-keyword">color</strong>: red;
+    <strong class="hl-keyword">text-align</strong>:<strong class="hl-keyword">right</strong>;
+  }
+  @top-left {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"- Second part"</span>;
+    <strong class="hl-keyword">color</strong>: blue;
+    <strong class="hl-keyword">text-align</strong>:<strong class="hl-keyword">left</strong>;
+  }
+}</pre></li>
+      </ul></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title14" id="dcpp_how_to_display_only_the_chapter_title_in_the_header">
+  <h2 class="title topictitle2" id="ariaid-title14">How to Simplify the Header (Keep Only the Chapter Title)</h2>
+  
+  <div class="body">
+    <p class="p">The headers display information such as <em class="ph i">map title</em>, <em class="ph i">part title</em>, <em class="ph i">chapter
+        title</em>, and <em class="ph i">section title</em>, ending in the page number. </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><strong class="hl-keyword">content</strong>: string(maptitle) string(parttitle) string(chaptertitle) string(sectiontitle) <span class="hl-string">" | "</span> counter(page);</pre>
+    <p class="p">This might be too much if you have long titles. The solution is to override the default
+      header content. </p>
+    <p class="p"> In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following CSS rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+    @top-left {
+        <strong class="hl-keyword">content</strong>: string(chaptertitle) <span class="hl-string">" | "</span> counter(page);
+    }
+}
+<span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>{
+    @top-right {
+        <strong class="hl-keyword">content</strong>: string(chaptertitle) <span class="hl-string">" | "</span> counter(page);
+    }
+}</pre>
+    <div class="note important note_important"><span class="note__title">Important:</span> Some of the CSS default page rules are more important. If you see that
+      the content does not change:<ul class="ul" id="dcpp_how_to_display_only_the_chapter_title_in_the_header__ul_sfv_ql1_jhb">
+        <li class="li"> Try to also specify the name of the page, to increase the specificity of the rules:
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong>, table-of-contents:<strong class="hl-keyword">left</strong>, chapter:<strong class="hl-keyword">left</strong>{
+  ...
+}
+<span class="hl-directive">@page</span> :<strong class="hl-keyword">right</strong>, table-of-contents:<strong class="hl-keyword">right</strong>, chapter:<strong class="hl-keyword">right</strong>{
+  ...
+}</pre></li>
+        <li class="li">Add an <code class="ph codeph">!important</code> classifier just before the
+          semi-colon.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">@top-right {
+    content: string(chaptertitle) " | " counter(page) !important;
+}</pre></li>
+      </ul></div>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title15" id="dcpp_how_to_change_the_separators_between_chapters_and_sections">
+    <h2 class="title topictitle2" id="ariaid-title15">How to Change the Header Separators (Between Sections and Chapter Titles)</h2>
+  
+    <div class="body">
+    <div class="p">There are some <code class="ph codeph">strings</code> defined for part, chapter, and sections. Each of
+      these strings start with the " | " character as a separator. For example, in the header of a
+      page, you may find a sequence of
+        strings:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">My Publication | Introduction | Getting Started </pre><ol class="ol" id="dcpp_how_to_change_the_separators_between_chapters_and_sections__ol_ub3_s54_1db">
+        <li class="li">"My Publication" is the value of the <code class="ph codeph">maptitle</code> string.</li>
+        <li class="li">"Introduction" is the value of the <code class="ph codeph">chaptertitle</code> string.</li>
+        <li class="li">"Getting Started" is the value of the <code class="ph codeph">sectiontitle</code> string.</li>
+      </ol></div>
+    <p class="p">There might be cases where you want to change this separator. You will need to recompose the
+      header content using the above string sets. Suppose you want to use " - " as a separator. In
+      your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the following
+      CSS rule:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"topic/topic"</span>][is-part] &gt; *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: parttitle <span class="hl-string">" - "</span> counter(part, upper-roman) <span class="hl-string">" - "</span> <strong class="hl-keyword">content</strong>(), chaptertitle  <span class="hl-string">""</span>; <em class="hl-comment">/* Avoid propagating a past chapter title on a new part */</em>
+}
+*[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter]:not([is-part]) &gt; *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: chaptertitle <span class="hl-string">" - "</span> counter(chapter) <span class="hl-string">" - "</span> <strong class="hl-keyword">content</strong>();
+}</pre>
+    <p class="p">If you enabled the <a class="xref" href="dcpp_numbering_intro.html#dcpp_numbering_types">deep numbering for chapters and subsections</a>, then use:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><em class="hl-comment">/* 
+ * Alter the string sets that are shown in the header of the page.
+ */</em>
+*[class ~= <span class="hl-string">"map/map"</span>][p|numbering^=<span class="hl-string">'deep'</span>] *[class ~= <span class="hl-string">"topic/topic"</span>][is-part] &gt; *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: parttitle <span class="hl-string">" - "</span> counter(part, upper-roman) <span class="hl-string">" - "</span> <strong class="hl-keyword">content</strong>(), chaptertitle  <span class="hl-string">""</span> ; <em class="hl-comment">/* Avoid propagating a past chapter title on a new part */</em>
+}
+*[class ~= <span class="hl-string">"map/map"</span>][p|numbering^=<span class="hl-string">'deep'</span>] *[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter]:not([is-part]) &gt; *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: chaptertitle <span class="hl-string">" - "</span> counter(chapter) <span class="hl-string">" - "</span> <strong class="hl-keyword">content</strong>(), sectiontitle <span class="hl-string">""</span> ;
+}
+*[class ~= <span class="hl-string">"map/map"</span>][p|numbering^=<span class="hl-string">'deep'</span>] *[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter]:not([is-part]) &gt; *[class ~= <span class="hl-string">"topic/topic"</span>] &gt; *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: sectiontitle <span class="hl-string">" - "</span> counter(chapter) <span class="hl-string">"."</span> counter(section1) <span class="hl-string">" - "</span> <strong class="hl-keyword">content</strong>();
+}</pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title16" id="dcpp_how_to_change_the_styling_of_the_page_numbering">
+    <h2 class="title topictitle2" id="ariaid-title16">How to Change the Header Styling Depending on Page Side</h2>
+  
+    <div class="body">
+        <p class="p">To modify the styling of the default page headers, add the following CSS rule in your
+        <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> :<strong class="hl-keyword">left</strong> {
+    @top-left {
+        <strong class="hl-keyword">color</strong>:navy;
+        <strong class="hl-keyword">font-style</strong>:italic;
+    }
+    @top-right {
+        <strong class="hl-keyword">color</strong>:red;
+    }
+}</pre>
+        <p class="p">If you intend to modify <strong class="ph b">just the headers of the table of contents</strong>, use the
+        <code class="ph codeph">table-of-contents</code> page rule selector:</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> table-of-contents:<strong class="hl-keyword">left</strong> {
+    @top-left {
+        <strong class="hl-keyword">color</strong>:navy;
+        <strong class="hl-keyword">font-style</strong>:italic;
+    }
+    @top-right {
+        <strong class="hl-keyword">color</strong>:red;
+    }
+}</pre>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title17" id="dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath">
+  <h2 class="title topictitle2" id="ariaid-title17">How to Use XPath Computed Data or Images in the Header or Footer</h2>
+  
+  <div class="body">
+    <p class="p">A very simple approach is to use the <code class="ph codeph">oxy_xpath</code> directly in the
+        <code class="ph codeph">content</code> property:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page {    	
+     @top-center {
+          <strong class="hl-keyword">content</strong>: <span class="hl-string">"Created: "</span> oxy_xpath(<span class="hl-string">'//*[contains(@class, " topic/created "][1]'</span>);
+     }
+}</pre>
+    <section class="section" id="dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath__section_ydr_hxm_s3b"><h3 class="title sectiontitle">Example 1: Compute the Number of Words</h3>
+      
+      <p class="p">The following example computes the number of words from the publication. It counts all the
+        words, including the ones from the TOC, but does not take the static labels into
+        account:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page {
+     @bottom-center {
+          <strong class="hl-keyword">content</strong>: <span class="hl-string">"Number of words: "</span> 
+                    oxy_xpath(<span class="hl-string">"string-length(normalize-space(/)) - \
+                               string-length(translate(normalize-space(/),' ','')) +1"</span>);
+     }
+}</pre>
+      <div class="note note note_note"><span class="note__title">Note:</span> The XPath expression from the page rules is evaluated in the context of the
+      document root element, so you will need to use absolute expressions starting with
+        <code class="ph codeph">/</code> or <code class="ph codeph">//</code>. This is different from the case when the
+        <code class="ph codeph">oxy_xpath</code> is used in CSS rules that match an element. In this case, the
+      XPath expressions are evaluated in the context of the matched element and you can use relative
+      paths.</div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> XPath 2.0 is supported (not schema aware). </div>
+    </section>
+    <section class="section" id="dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath__section_omd_kxm_s3b"><h3 class="title sectiontitle">Example 2: Retrieve Image from a Document and Insert it in the Header</h3>
+      
+      <div class="p">Another example is to use an image from the document in the publication
+        header:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmeta&gt;</strong>
+  <strong class="hl-tag">&lt;metadata&gt;</strong>
+   ...
+    <strong class="hl-tag">&lt;data</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"cover"</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"product-cover.png"</span> <span class="hl-attribute">outputclass</span>=<span class="hl-value">"cover-image"</span><strong class="hl-tag">/&gt;</strong>
+    <strong class="hl-tag">&lt;/data&gt;</strong>
+   ...
+  <strong class="hl-tag">&lt;/metadata&gt;</strong>
+<strong class="hl-tag">&lt;/bookmeta&gt;</strong></pre></div>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+   @top-center {
+        <strong class="hl-keyword">content</strong>: url(<span class="hl-string">"oxy_xpath('//*[contains(@outputclass, "</span>cover-image<span class="hl-string">")]/@href')"</span>);
+   }
+}</pre>
+      </div>
+      <p class="p">If the URL returned by <code class="ph codeph">oxy_xpath</code> is not absolute, it is considered to be
+        relative to the CSS file. To obtain an absolute URL from one relative to the XML document,
+        you can use in the XPath expression functions like <code class="ph codeph">resolve-uri</code> and
+          <code class="ph codeph">document-uri</code>:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+   @top-center {
+        <strong class="hl-keyword">content</strong>: url(oxy_xpath(<span class="hl-string">"resolve-uri(//*[contains(@outputclass, 'cover-image')]/@href), document-uri(/))"</span>));
+   }
+}</pre>
+    </section>
+    <section class="section" id="dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath__section_lqn_lxm_s3b"><h3 class="title sectiontitle">Example 3: Insert the Current Date in the Footer</h3>
+      
+      <p class="p">Another example is to use the <code class="ph codeph">oxy_xpath</code> function to compute the current
+        date and insert it in the publication footer:</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    @bottom-left {
+        <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">'current-date()'</span>);
+    }
+}</pre>
+      </div>
+    </section>
+    <section class="section" id="dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath__section_pnf_nxm_s3b"><h3 class="title sectiontitle">Example 4: Picking up Metadata from the Original Map</h3>
+      
+      <p class="p">Another example is to use the <code class="ph codeph">oxy_xpath</code> function to extract the title, or
+        any other element text value from the original processed DITA map file. For this, you can
+        use the <code class="keyword markupname xmlatt">@xtrf</code> attribute that is set on the root element of the merged map.
+        This attribute contains the URL of the input map.</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root{
+        string-set: maptitle oxy_xpath(<span class="hl-string">'document(@xtrf)/*[contains(@class, " map/map ")]/*[contains(@class, " topic/title ")]/text()'</span>);
+}</pre>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_headers-and-footers.html" target="_blank" rel="external noopener">Oxygen PDF Chemistry User Guide: Headers and Footers</a></li><li class="linklist"><a class="link" href="http://zvon.org/xxl/XPathTutorial/General/examples.html" target="_blank" rel="external noopener">http://zvon.org/xxl/XPathTutorial/General/examples.html</a></li><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-editor/topics/dg-xpath-function.html" target="_blank" rel="external noopener">Oxygen User Guide: oxy_xpath() Function</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title18" id="how_to_add_a_line_under_the_header">
+  <h2 class="title topictitle2" id="ariaid-title18">How to Add a Line Under the Header</h2>
+  
+  <div class="body">
+    <p class="p">There are two ways to add a horizontal line under the header.</p>
+    <section class="section" id="how_to_add_a_line_under_the_header__method_1_add_a_border_in_the_page_margin_boxes"><h3 class="title sectiontitle">Method 1: Add a Border in the Page Margin Boxes</h3>
+      
+      <p class="p">To add a horizontal line that would stretch across the width of the page, add a bottom
+        border to each of the 5 margin boxes in the top side of the page
+          (<code class="ph codeph">top-left-corner</code>, <code class="ph codeph">top-left</code>, <code class="ph codeph">top-center</code>,
+          <code class="ph codeph">top-right</code>, <code class="ph codeph">top-right-corner</code>).</p>
+      <p class="p">If you consider that the space between the header and the bottom border is too large, you
+        could also change the alignment by adding a <code class="ph codeph">vertical-align: bottom;</code>
+        declaration in the page margin boxes.</p>
+      <div class="p">For example, if you need to set some text as a header in the top-left margin box and insert
+        a horizontal line under it, the customization CSS would look something like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> chapter, chapter:first:<strong class="hl-keyword">left</strong>:<strong class="hl-keyword">right</strong>, front-page{
+
+   <strong class="hl-keyword">padding-top</strong>: <span class="hl-number">1</span>em;
+ 
+  @top-left {
+    <strong class="hl-keyword">content</strong>: <span class="hl-string">"Custom header"</span>;
+    <strong class="hl-keyword">color</strong>: gray;
+    <strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">1</span>px solid black;
+    <strong class="hl-keyword">vertical-align</strong>: <strong class="hl-keyword">bottom</strong>;
+  }
+
+  @top-center{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">" "</span>;
+    <strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">1</span>px solid black;
+    <strong class="hl-keyword">vertical-align</strong>: <strong class="hl-keyword">bottom</strong>;
+  }
+
+  @top-right{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">" "</span>;
+    <strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">1</span>px solid black;
+    <strong class="hl-keyword">vertical-align</strong>: <strong class="hl-keyword">bottom</strong>;
+  }
+
+  @top-right-corner{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">" "</span>;
+    <strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">1</span>px solid black;
+    <strong class="hl-keyword">vertical-align</strong>: <strong class="hl-keyword">bottom</strong>;
+  }
+
+  @top-left-corner{
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">" "</span>;
+    <strong class="hl-keyword">border-bottom</strong>: <span class="hl-number">1</span>px solid black;
+    <strong class="hl-keyword">vertical-align</strong>: <strong class="hl-keyword">bottom</strong>;
+  }</pre></div>
+      <div class="p">
+        <div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">padding-top: 1em;</code> is used to avoid the border at the bottom of
+          the header that joins with the page content.</div>
+      </div>
+    </section>
+    <section class="section" id="how_to_add_a_line_under_the_header__method_2_use_a_background_image"><h3 class="title sectiontitle">Method 2: Use a Background Image</h3>
+      
+      <p class="p">An alternative method is to add a horizontal line/border under an existing header (or in
+        any other part of the page) using an SVG image, as described in <a class="xref" href="dcpp_headers_and_footers.html#dcpp_how_to_add_an_image_to_the_header">How to Add a Background Image to the Header</a>.</p>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title19" id="dcpp_parametrized_styling_how_to_change_the_headings_using_a_parameter">
+  <h2 class="title topictitle2" id="ariaid-title19">How to Change the Headings Using a Parameter</h2>
+  
+  <div class="body">
+    <p class="p">Suppose you need to change the headings of your publication by specifying a static text in a
+      parameter.</p>
+    <p class="p">First, establish a name for your parameter (it must start with the
+        <code class="ph codeph">args.css.param.</code> prefix). For example, you could name it
+        <code class="ph codeph">args.css.param.heading.text</code>. It will have the text value that you will pass
+      when starting the transformation. This parameter does not have to be registered anywhere as it
+      will be automatically recognized and passed as an XML attribute on the root of the merged
+      file, as specified in <a class="xref" href="dcpp_parametrized_styling.html">Styling Through Custom Parameters</a>.</p>
+    <p class="p">Next, alter your customization CSS to make use of the parameter value. In the example below,
+      the text is placed in the central part of the header:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page, table-of-contents, chapter {
+    @top-center{
+        <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">"/*/@heading.text"</span>);
+    }    
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> You can use any XPath 2.0 here. It will be executed in the context of the merged map
+      document, so you can collect data from it. You can use <em class="ph i">if/then/else</em> expressions if your
+      parameter is a switch.</div>
+    <p class="p">The text does not affect the first pages from the page sequences because <a class="xref" href="dcpp_default_page_definitions_css.html">the built-in CSS page rules </a> clear the
+      content from the headers. If you need the text content on all pages, you might consider adding
+      an <code class="ph codeph">!important</code> keyword after the <code class="ph codeph">content</code> property value, or
+      increase the specificity of the page selectors, like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> front-page, 
+      table-of-contents, 
+      table-of-contents:first:<strong class="hl-keyword">left</strong>, 
+      table-of-contents:first:<strong class="hl-keyword">right</strong>, 
+      chapter:first:<strong class="hl-keyword">left</strong>, 
+      chapter:first:<strong class="hl-keyword">right</strong>{
+    @top-center{
+        ...
+    }    
+}</pre>
+    <p class="p">Another use case is to alter the string-sets that are used in the headers (not the headers
+      directly), as it is explained here: <a class="xref" href="dcpp_headers_and_footers.html#dcpp_how_to_use_in_headers_text_extracted_from_the_document__xpath">How to Use XPath Computed Data or Images in the Header or Footer</a>. You can
+      use this technique to alter the chapter titles as in the following example:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class ~= <span class="hl-string">"map/map"</span>][numbering^=<span class="hl-string">'deep'</span>] 
+   *[class ~= <span class="hl-string">"topic/topic"</span>][is-chapter]:not([is-part]) &gt; 
+        *[class ~= <span class="hl-string">"topic/title"</span>] {
+    string-set: 
+            chaptertitle <span class="hl-string">" | "</span> counters(chapter-and-sections, <span class="hl-string">"."</span> ) <span class="hl-string">" - "</span> oxy_xpath(<span class="hl-string">"/*/@heading.text"</span>) <strong class="hl-keyword">content</strong>(), 
+            sectiontitle <span class="hl-string">""</span>;
+}</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> This is a rule copied from <span class="ph filepath">p-numbering-deep.css</span> and it may change if
+      future versions.</div>
+  </div>
+</article></article></article></main></body></html>

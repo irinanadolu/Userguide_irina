@@ -1,0 +1,128 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Design editing mode,Outline view,XML Schema Diagram Editor,Outline view in Design mode,XML Schemas"><meta name="keywords" content="Design editing mode, Outline view, XML Schema Diagram Editor, Outline view in Design mode, XML Schemas"><meta name="DC.relation" scheme="URI" content="../topics/editing-xml-schema-schemas.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-syntax-highlight.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-diagram-attributes-view.html"><meta name="DC.relation" scheme="URI" content="xml-schema-search-references.html"><meta name="DC.relation" scheme="URI" content="xml-schema-component-dependencies.html"><meta name="DC.relation" scheme="URI" content="xml-schema-hierarchy.html"><meta name="DC.relation" scheme="URI" content="xml-schema-instance-generator.html"><meta name="DC.relation" scheme="URI" content="contextual-editing.html#contextual-editing"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="xml-schema-diagram-outline-view"><title>XML Schema Outline View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="xml-schema-diagram-outline-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Schema Outline View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Outline</span> view for XML Schemas presents all the global components
+      grouped by their location, namespace, or type. By default, it is displayed on the left side of
+      the editor. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Outline View for XML Schema</figcaption>
+        
+        <img class="image" src="../img/sa_schema_diagram_outline_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">Outline</span> view provides the following options in the <span class="ph"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_bvj_ngd_cs" src="../img/Settings16.png">Settings</span> menu on the <span class="ph uicontrol">Outline</span>
+        view toolbar</span>:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Filter returns exact matches</span></dt>
+          <dd class="dd">The text filter of the <span class="ph uicontrol">Outline</span> view returns only exact
+            matches;</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_ftm_tft_tr" src="../img/CaretUpdateOff16.png">Selection
+              update on cursor move</span></dt>
+          <dd class="dd">Allows a synchronization between <span class="ph uicontrol">Outline</span> view and schema
+            diagram. The selected view from the diagram is also selected in the
+              <span class="ph uicontrol">Outline</span> view.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_tpr_ry1_5r" src="../img/Sort16.png">Sort</span></dt>
+          <dd class="dd">Allows you to sort alphabetically the schema components.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show all components</span></dt>
+          <dd class="dd">Displays all components that were collected starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master files</dfn></a>. Components that are
+            not referable from the current file are marked with an orange underline. To reference
+            them, add an import directive with the <code class="ph codeph">componentNS</code> namespace.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show referable components</span></dt>
+          <dd class="dd">Displays all components (collected starting from the <a class="xref" href="../glossary/master-file.html"><dfn class="term">master files</dfn></a>) that can be
+            referenced from the current file. This option is set by default.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Show only local components</span></dt>
+          <dd class="dd">Displays the components defined in the current file only.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Group by location/namespace/type</span></dt>
+          <dd class="dd">These three operations allow you to group the components by location, namespace, or
+            type. When grouping by namespace, the main schema target namespace is the first
+            presented in the <span class="ph uicontrol">Outline</span> view.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">The following contextual menu actions are available in the <span class="ph uicontrol">Outline</span>
+      view:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Remove <span class="keyword shortcut">(Delete)</span></span></dt>
+          <dd class="dd">Removes the selected item from the diagram.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../img/SearchReferences16.png">Search
+              References <span class="keyword shortcut">(Ctrl + Shift + R (Meta + Shift + R on
+                Mac OS))</span></span></dt>
+          <dd class="dd">Searches all references of the item found at current cursor position in the defined
+            scope, if any.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Search References in</span></dt>
+          <dd class="dd">Searches all references of the item found at current cursor position in the specified
+            scope.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_wq3_f3t_tr" src="../img/ComponentDependencies16.png">Component Dependencies <span class="keyword shortcut">(Ctrl + Shift + F4 (Meta
+                + Shift + F4 on Mac OS))</span></span></dt>
+          <dd class="dd">Opens the <a class="xref" href="xml-schema-component-dependencies.html#xml-schema-component-dependencies"><span class="ph uicontrol">Component Dependencies</span> view</a> that allows you to see
+            the dependencies for the currently selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Resource Hierarchy (F4)</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="xml-resource-hierarchy-view.html#xml-resource-hierarchy-view"><span class="ph uicontrol">Resource Hierarchy / Dependencies</span> view</a> that allows
+            you to see the hierarchy for the currently selected resource.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Resource Dependencies (Shift +
+              F4)</span></dt>
+          <dd class="dd">Opens the <a class="xref" href="xml-resource-hierarchy-view.html#xml-resource-hierarchy-view"><span class="ph uicontrol">Resource Hierarchy / Dependencies</span> view</a> that allows
+            you to see the dependencies for the currently selected resource.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_tcn_nv1_5r" src="../img/RenameXSLResource16.png">Rename
+              Component in</span></dt>
+          <dd class="dd">Renames the selected component.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="xml-schema-diagram-outline-view__image_0d11f558-6f1b-49bd-a5e2-4c240927804f" src="../img/XMLGenerator16.png">Generate Sample XML
+              Files</span></dt>
+          <dd class="dd">Generate XML files using the currently open schema. The selected component is the XML
+            document root.</dd>
+        
+      </dl>
+    </div>
+    <p class="p">The upper part of the <span class="ph uicontrol">Outline</span> view contains a
+      filter box that allows you to focus on the relevant components. Type a text fragment in the
+      filter box and only the components that match it are presented. For advanced usage you can use
+      wildcard characters (such as <code class="ph codeph">*</code> or <code class="ph codeph">?</code>) and separate multiple
+      patterns with commas.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> The search filter is case insensitive. The following wildcards are accepted:<ul class="ul">
+        <li class="li"><strong class="ph b">*</strong> - any string</li>
+        <li class="li"><strong class="ph b">?</strong> - any character</li>
+        <li class="li"><strong class="ph b">,</strong> - patterns separator</li>
+      </ul>If no wildcards are specified, the string to search will be searched as a partial
+      match.</div>
+    <p class="p">The content of the <span class="ph uicontrol">Outline</span> view and the
+      editing area are synchronized. When you select a component in the
+        <span class="ph uicontrol">Outline</span> view, its definition is highlighted in the editing area.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/editing-xml-schema-schemas.html">Editing XML Schemas</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/xml-schema-syntax-highlight.html">Syntax Highlighting in XML Schema</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-diagram-attributes-view.html">XML Schema Attributes View</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="xml-schema-search-references.html">Searching and Refactoring Actions in XML Schemas</a></li><li class="linklist"><a class="link" href="xml-schema-component-dependencies.html">XML Schema Component Dependencies View</a></li><li class="linklist"><a class="link" href="xml-schema-hierarchy.html">XML Schema Resource Hierarchy / Dependencies View</a></li><li class="linklist"><a class="link" href="xml-schema-instance-generator.html">Generating Sample XML Files</a></li><li class="linklist"><a class="link" href="contextual-editing.html#contextual-editing">Editing Relax NG Schema in the Master Files Context</a></li></ul></div></nav>
+</article></main></body></html>

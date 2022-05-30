@@ -1,0 +1,189 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="CSS attr() function"><meta name="keywords" content="CSS attr() function"><meta name="DC.relation" scheme="URI" content="../topics/dg-properties-support.html"><meta name="DC.relation" scheme="URI" content="../topics/transparent-colors.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-target-counter-function.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-attr-function"><title>attr() Function: Properties Values Collected from the Edited Document</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-attr-function"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">attr() Function: Properties Values Collected from the Edited Document</h1>
+  
+  <div class="body">
+    <p class="p">In CSS Level 2.1 you may collect attribute values and use them as content <em class="ph i">only</em> for the
+      pseudo-elements. For instance, the <code class="ph codeph">:before</code> pseudo-element can be used to
+      insert some content before an element. This is valid in CSS 2.1:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">title:before{
+  <strong class="hl-keyword">content</strong>: <span class="hl-string">"[Audience Level: "</span> attr(audience) <span class="hl-string">"]"</span>;
+}</pre>
+    <p class="p">If the <code class="keyword markupname xmlelement">&lt;title&gt;</code> element from the XML document is:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;title</strong> <span class="hl-attribute">audience</span>=<span class="hl-value">"Expert"</span><strong class="hl-tag">&gt;</strong>Changing the Timing Belt<strong class="hl-tag">&lt;/title&gt;</strong></pre>
+    <p class="p">Then the title will be displayed as:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">[Audience Level: Expert] Changing the Timimg Belt</pre>
+    <p class="p">In <span class="ph">Oxygen XML Editor</span>, the use of <code class="ph codeph">attr()</code> function is available not only
+      for the <code class="ph codeph">content</code> property, but also for any other property. This is similar to
+      the CSS Level 3 working draft: <a class="xref" href="http://www.w3.org/TR/2006/WD-css3-values-20060919/#functional" target="_blank" rel="external noopener">http://www.w3.org/TR/2006/WD-css3-values-20060919/#functional</a>. The arguments of the function are:</p>
+    <div class="p">
+      <div class="fig syntaxdiagram">
+         
+          <kbd><b>attr</b></kbd>
+          <kbd class="ph sep">(</kbd>
+          <kbd><b>attribute_name</b></kbd>
+          <kbd class="ph sep">,</kbd>
+          <kbd><b>attribute_type</b></kbd>
+          <kbd class="ph sep">,</kbd>
+          <kbd><b>default_value</b></kbd>
+          <kbd class="ph sep">)</kbd>
+         
+      </div>
+    </div>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">attribute_name</dt>
+          <dd class="dd">
+            <p class="p">The attribute name. This argument is required.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">attribute_type</dt>
+          <dd class="dd">
+            <p class="p">The attribute type. This argument is optional. If it is missing, argument's type is
+              considered <code class="ph codeph">string</code>. This argument indicates what is the meaning of the
+              attribute value and helps to perform conversions of this value. <span class="ph">Oxygen XML Editor</span>
+              accepts one of the following types:</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">color</dt>
+                  <dd class="dd">
+                    <p class="p">The value represents a color. The attribute may specify a color in various
+                      formats. <span class="ph">Oxygen XML Editor</span> supports colors specified either by name
+                        (<code class="ph codeph">red</code>, <code class="ph codeph">blue</code>, <code class="ph codeph">green</code>, etc.)
+                      or as an <span class="ph">RGB</span> hexadecimal value <code class="ph codeph">#FFEEFF</code>.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">url</dt>
+                  <dd class="dd">
+                    <p class="p">The value is a URL pointing to a media object. <span class="ph">Oxygen XML Editor</span>
+                      supports only images. The attribute value can be a complete URL, or a relative
+                      one to the XML document. Note that this URL is also resolved through the
+                      catalog resolver.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">integer</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as an integer.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">number</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a float number.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">length</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as an integer.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">percentage</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted relative to another value (length, size)
+                      expressed in percents.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">em</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size. 1 em is equal to the
+                        <em class="ph i">font-size</em> of the relevant font.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">ex</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size. 1 ex is equal to the <em class="ph i">height</em>
+                      of the <strong class="ph b">x</strong> character of the relevant font.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">px</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in pixels relative to the
+                      viewing device.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">mm</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in millimeters.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">cm</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in centimeters.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">in</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in inches. 1 inch is equal
+                      to 2.54 centimeters.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">pt</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in points. The points used
+                      by CSS2 are equal to 1/72th of an inch.</p>
+                  </dd>
+                
+                
+                  <dt class="dt dlterm">pc</dt>
+                  <dd class="dd">
+                    <p class="p">The value must be interpreted as a size expressed in picas. 1 pica is equal
+                      to 12 points.</p>
+                  </dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">default_value</dt>
+          <dd class="dd">
+            <p class="p">This argument specifies a value that is used by default if the attribute value is
+              missing. This argument is optional.</p>
+          </dd>
+        
+      </dl>
+    </div>
+    <p class="p"><strong class="ph b"><u class="ph u">Example: <em class="ph i">attr</em> Function</u></strong></p>
+    <div class="p">Consider the following XML
+      instance:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sample&gt;</strong>
+   <strong class="hl-tag">&lt;para</strong> <span class="hl-attribute">bg_color</span>=<span class="hl-value">"#AAAAFF"</span><strong class="hl-tag">&gt;</strong>Blue paragraph.<strong class="hl-tag">&lt;/para&gt;</strong>
+   <strong class="hl-tag">&lt;para</strong> <span class="hl-attribute">bg_color</span>=<span class="hl-value">"red"</span><strong class="hl-tag">&gt;</strong>Red paragraph.<strong class="hl-tag">&lt;/para&gt;</strong>
+   <strong class="hl-tag">&lt;para</strong> <span class="hl-attribute">bg_color</span>=<span class="hl-value">"red"</span> <span class="hl-attribute">font_size</span>=<span class="hl-value">"2"</span><strong class="hl-tag">&gt;</strong>Red paragraph with large font.<strong class="hl-tag">&lt;/para&gt;</strong>
+   <strong class="hl-tag">&lt;para</strong> <span class="hl-attribute">bg_color</span>=<span class="hl-value">"#00AA00"</span> <span class="hl-attribute">font_size</span>=<span class="hl-value">"0.8"</span> <span class="hl-attribute">space</span>=<span class="hl-value">"4"</span><strong class="hl-tag">&gt;</strong>
+        Green paragraph with small font and margin.<strong class="hl-tag">&lt;/para&gt;</strong>
+<strong class="hl-tag">&lt;/sample&gt;</strong></pre></div>
+    <div class="p">The <code class="keyword markupname xmlelement">&lt;para&gt;</code> elements have <code class="keyword markupname xmlatt">@bg_color</code> attributes with RGB
+      color values (such as <code class="ph codeph">#AAAAFF</code>). You can use the <code class="ph codeph">attr()</code>
+      function to change the elements appearance in the editor based on the value of this
+      attribute:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><strong class="hl-keyword">background-color</strong>:attr(bg_color, <strong class="hl-keyword">color</strong>);</pre></div>
+    <div class="p">The <code class="ph codeph">font_size</code> represents the font size in <em class="ph i">em</em> units. You can use this
+      value to change the style of the
+      element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><strong class="hl-keyword">font-size</strong>:attr(font_size, em);</pre></div>
+    <div class="p">The complete CSS rule
+      is:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">para{
+ <strong class="hl-keyword">display</strong>:block;
+ <strong class="hl-keyword">background-color</strong>:attr(bg_color, <strong class="hl-keyword">color</strong>);
+ <strong class="hl-keyword">font-size</strong>:attr(font_size, em);
+ <strong class="hl-keyword">margin</strong>:attr(space, em);
+}</pre></div>
+    <p class="p">The document is rendered as:</p>
+    <div class="p">
+      <br><img class="image" src="../img/dg_attr_usage_sample.png"><br>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-properties-support.html">Supported CSS Properties</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/transparent-colors.html">Transparent Colors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-target-counter-function.html">CSS Level 3 target-counter() and target-counters() Functions</a></div></div></nav></article></main></body></html>

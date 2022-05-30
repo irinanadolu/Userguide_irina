@@ -1,0 +1,116 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Spell checking,Add dictionaries"><meta name="keywords" content="Spell checking, Add dictionaries"><meta name="DC.relation" scheme="URI" content="../topics/spell-dictionary-Hunspell.html"><meta name="DC.relation" scheme="URI" content="../topics/spell-dictionary-Hunspell.html"><meta name="DC.relation" scheme="URI" content="../topics/add-terms-list.html"><meta name="DC.relation" scheme="URI" content="add-terms-list.html#add-terms-list"><meta name="DC.relation" scheme="URI" content="https://www.chromium.org/developers/how-tos/editing-the-spell-checking-dictionaries"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="add-Hunspell-dictionary"><title>Adding Custom Spell Check Dictionaries</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="add-Hunspell-dictionary"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Custom Spell Check Dictionaries</h1>
+  
+  <div class="body">
+    <div class="p">There are three possible scenarios for adding Hunspell dictionaries to the <span class="ph">Oxygen XML Editor</span> spell checker:<ul class="ul">
+        <li class="li">You can download a pre-built Hunspell dictionary and add it to the spell checking
+          mechanism.</li>
+        <li class="li">You can create a custom Hunspell dictionary file that defines your own list of words and
+          add it to the spell checking mechanism.</li>
+        <li class="li">You can build your own full Hunspell dictionary and add it to the spell checking
+          mechanism.</li>
+      </ul></div>
+    <section class="section" id="add-Hunspell-dictionary__download_and_add_a_prebuilt_hunspell_dictionary"><h2 class="title sectiontitle">Download and Add a Pre-Built Hunspell Dictionary</h2>
+      
+      <div class="p">To add a downloaded pre-built dictionary, follow these steps:<ol class="ol">
+          <li class="li">Download the files needed for your dictionary. You will need a <em class="ph i">dictionary</em> file
+            (with a <span class="ph filepath">.dic</span> file extension) and an <em class="ph i">affix</em> file (with the
+              <span class="ph filepath">.aff</span> file extension). If the dictionary does not include an affix
+            file (<span class="ph filepath">.aff</span>), you can create one and leave it empty, but it is
+            needed for the mechanism to work properly. An example of a website that includes
+            numerous dictionary files is: <a class="xref" href="http://extensions.services.openoffice.org/dictionary" target="_blank" rel="external noopener">http://extensions.services.openoffice.org/dictionary</a>.<div class="note important note_important"><span class="note__title">Important:</span> The name of the files should begin with a two
+      letter prefix for the language code, followed by an underscore or hyphen, then two letters
+      that indicate the country code, followed by another underscore or hyphen, and then a
+      descriptive name (for example, <span class="ph filepath">en_US_medical.dic</span> for a medical dictionary
+      in the US version of the English language, or for a less specific English medical dictionary,
+      you could omit the country code like this: <span class="ph filepath">en_medical.dic</span>). For a list of
+      language codes, see <a class="xref" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank" rel="external noopener">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a>.</div></li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Spell Check</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Dictionaries</span></span></a>.</li>
+          <li class="li">Choose one of the following two options for adding the downloaded files.<ol class="ol" type="a">
+              <li class="li">Copy both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to the
+                default directory displayed in the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-folder"><span class="ph uicontrol">Dictionaries and term lists default folder</span>
+                option</a>.</li>
+              <li class="li">Copy both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to any
+                other directory, select the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__include-dictionaries-term-lists"><span class="ph uicontrol">Include dictionaries and term list from</span> option</a>,
+                and select that directory. If you choose this option, make sure you read <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-note">this important note</a>.</li>
+            </ol></li>
+          <li class="li">Restart the application for the spell checker to start using the new dictionary.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="add-Hunspell-dictionary__create_a_custom_hunspell_dictionary_that_defines_"><h2 class="title sectiontitle">Create a Custom Hunspell Dictionary that Defines a List of Words</h2>
+      
+      <div class="p">To create a custom Hunspell dictionary that defines your own list of words, follow these steps:<ol class="ol">
+          <li class="li">Create a <em class="ph i">dictionary</em> file (with a <span class="ph filepath">.dic</span> file extension) and
+            an <em class="ph i">affix</em> file (with the <span class="ph filepath">.aff</span> file extension). The affix file
+              (<span class="ph filepath">.aff</span>) can be left empty, but it is needed for the mechanism to
+            work properly.<div class="note important note_important"><span class="note__title">Important:</span> The name of the files should begin with a two
+      letter prefix for the language code, followed by an underscore or hyphen, then two letters
+      that indicate the country code, followed by another underscore or hyphen, and then a
+      descriptive name (for example, <span class="ph filepath">en_US_medical.dic</span> for a medical dictionary
+      in the US version of the English language, or for a less specific English medical dictionary,
+      you could omit the country code like this: <span class="ph filepath">en_medical.dic</span>). For a list of
+      language codes, see <a class="xref" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank" rel="external noopener">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a>.</div></li>
+          <li class="li">In the dictionary file (<span class="ph filepath">.dic</span> extension), add the words you want
+            to be included in your custom dictionary. Add one word per row and the first line needs
+            to contain the number of words, as in the following
+              example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">     2
+     parabola
+     asimptotic</pre><div class="note tip note_tip"><span class="note__title">Tip:</span> Words stored in dictionaries are not handled as case-sensitive. Therefore,
+              you do not need to include both uppercase and lowercase versions of the
+              words.</div><div class="note note note_note"><span class="note__title">Note:</span> If you save the <span class="ph filepath">.dic</span> file using UTF-8
+              encoding, then the corresponding <span class="ph filepath">.aff</span> file should specify the
+              encoding as a property inside it (if you do not specify the encoding, the default
+              platform encoding will be
+              used):<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">SET UTF-<span class="hl-number">8</span></pre></div></li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Spell Check</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Dictionaries</span></span></a>.</li>
+          <li class="li">Choose one of the following two options for saving the files.<ol class="ol" type="a">
+              <li class="li">Save both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to the
+                default directory displayed in the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-folder"><span class="ph uicontrol">Dictionaries and term lists default folder</span>
+                option</a>.</li>
+              <li class="li">Save both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to any
+                other directory, select the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__include-dictionaries-term-lists"><span class="ph uicontrol">Include dictionaries and term list from</span> option</a>,
+                and select that directory. If you choose this option, make sure you read <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-note">this important note</a>.</li>
+            </ol></li>
+          <li class="li">Restart the application for the spell checker to start using the new dictionary.</li>
+        </ol></div>
+    </section>
+    <section class="section" id="add-Hunspell-dictionary__build_and_add_a_full_hunspell_dictionary"><h2 class="title sectiontitle">Build and Add a Full Hunspell Dictionary</h2>
+      
+      <div class="p">To build and add a full Hunspell dictionary, follow these steps:<ol class="ol">
+          <li class="li">
+            <p class="p">Create your Hunspell dictionary. For more information on how to do this, see: <a class="xref" href="https://www.chromium.org/developers/how-tos/editing-the-spell-checking-dictionaries" target="_blank" rel="external noopener">Editing the Spell Checking Dictionaries</a>.</p>
+            <div class="p"><strong class="ph b">Step Result:</strong> You should end up with a <em class="ph i">dictionary</em> file (with a
+                <span class="ph filepath">.dic</span> file extension) and an <em class="ph i">affix</em> file (with an
+                <span class="ph filepath">.aff</span> file extension). The affix file
+              (<span class="ph filepath">.aff</span>) can be empty, but it is needed for the mechanism to work
+                properly.<div class="note important note_important"><span class="note__title">Important:</span> The name of the files should begin with a two
+      letter prefix for the language code, followed by an underscore or hyphen, then two letters
+      that indicate the country code, followed by another underscore or hyphen, and then a
+      descriptive name (for example, <span class="ph filepath">en_US_medical.dic</span> for a medical dictionary
+      in the US version of the English language, or for a less specific English medical dictionary,
+      you could omit the country code like this: <span class="ph filepath">en_medical.dic</span>). For a list of
+      language codes, see <a class="xref" href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank" rel="external noopener">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a>.</div></div>
+          </li>
+          <li class="li"><span class="ph"><a class="xref" href="preferences.html">Open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to
+              <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page"><span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Spell Check</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Dictionaries</span></span></a>.</li>
+          <li class="li">Choose one of the following two options for saving the files.<ol class="ol" type="a">
+              <li class="li">Save both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to the
+                default directory displayed in the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-folder"><span class="ph uicontrol">Dictionaries and term lists default folder</span>
+                option</a>.</li>
+              <li class="li">Save both files (<span class="ph filepath">.dic</span> and <span class="ph filepath">.aff</span>) to any
+                other directory, select the <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__include-dictionaries-term-lists"><span class="ph uicontrol">Include dictionaries and term list from</span> option</a>,
+                and select that directory. If you choose this option, make sure you read <a class="xref" href="dictionaries-preferences-page.html#dictionaries-preferences-page__dictionary-note">this important note</a>.</li>
+            </ol></li>
+          <li class="li">Restart the application for the spell checker to start using the new dictionary.</li>
+        </ol></div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/spell-dictionary-Hunspell.html">Adding Custom Dictionaries and Term Lists</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/spell-dictionary-Hunspell.html">Adding Custom Dictionaries and Term Lists</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-terms-list.html">Adding Custom Spell Check Term Lists</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="add-terms-list.html#add-terms-list">Adding Custom Spell Check Term Lists</a></li><li class="linklist"><a class="link" href="https://www.chromium.org/developers/how-tos/editing-the-spell-checking-dictionaries" target="_blank" rel="external noopener">Editing the Spell Checking Dictionaries</a></li></ul></div></nav>
+</article></main></body></html>

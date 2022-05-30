@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/resolving-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/real-pseudo-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-conflict.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="content-property-conflicts"><title>Content Conflicts vs Property Conflicts</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="content-property-conflicts"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Content Conflicts vs Property Conflicts</h1>
+  <div class="body">
+    <p class="p">A <em class="ph i">Content conflict</em> appears in the content of a file. A merge occurs for every inbound
+      change to a file that is also modified in the working copy. In some cases, if the local change
+      and the incoming change intersect each other, Apache Subversion™ cannot
+      merge these changes without intervention. So if the conflict is real when updating the file in
+      question the conflicting area is marked like this:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">
+              &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
+              your changes
+<span class="hl-attribute">              =====</span>=
+              code merged from repository
+              &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
+              </pre>
+    <p class="p">Also, for every conflicted file Subversion places three additional temporary files in your
+      directory:</p>
+    <ul class="ul">
+      <li class="li"><span class="ph filepath">filename.ext.mine</span> - This is your file as it existed in your working
+        copy before you updated your working copy, that is without conflict markers. This file has
+        your latest changes in it and nothing else.</li>
+      <li class="li"><span class="ph filepath">filename.ext.rOLDREV</span> - This is the file that was the BASE revision
+        before you updated your working copy, that is the file revision that you updated before you
+        made your latest edits.</li>
+      <li class="li"><span class="ph filepath">filename.ext.rNEWREV</span> - This is the file that Subversion client just
+        received from the server when you updated your working copy. This file corresponds to the
+        HEAD revision of the repository.</li>
+    </ul>
+    <p class="p">OLDREV and NEWREV are revision numbers. If you have conflicts with binary files, Subversion does not attempt to merge the files by itself. The local file remains unchanged (exactly as you last changed it) and you will get <span class="ph filepath">filename.ext.r*</span> files also.</p>
+    <p class="p">A <em class="ph i">Property conflict</em> is obtained when two people modify the same property of the same
+      file or folder. When updating such a resource a file named
+        <span class="ph filepath">filename.ext.prej</span> is created in your working copy containing the nature
+      of the conflict. Your local file property that is in conflict will not be changed. After
+      resolving the conflict, you should use the <span class="ph uicontrol">Mark resolved</span> action to
+      commit the file. Note that the <span class="ph uicontrol">Mark resolved</span> action does not really
+      resolve the conflict. It just removes the conflicted flag of the file and deletes the
+      temporary files.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/resolving-conflicts.html">Conflicts</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/real-pseudo-conflicts.html">Real Conflicts vs Mergeable Conflicts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/edit-conflict.html">Edit Real Content Conflicts</a></div></div></nav></article></main></body></html>

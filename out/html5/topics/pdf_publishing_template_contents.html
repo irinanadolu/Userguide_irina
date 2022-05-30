@@ -1,0 +1,269 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/whr-publishing-template.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-publishing-template.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-create-publishing-template.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="pdf_publishing_template_contents"><title>Publishing Template Package Contents for PDF Customizations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="pdf_publishing_template_contents"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Publishing Template Package Contents for PDF Customizations</h1>
+  
+  <div class="body">
+    <p class="p">An <dfn class="term">Oxygen Publishing Template</dfn> for PDF output must contain a template descriptor
+      file and at least one CSS file, and may contain other resources (such as graphics, XSLT files,
+      etc.). All the template resources can be stored in either a ZIP archive or in a folder. It is
+      recommended to use a ZIP archive because it is easier to share with others.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-publishing-template.html" title="Explains how to use Oxygen Publishing Templates to define the layout and style of the output">Publishing Templates</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr-publishing-template.html" title="Explains how to use Oxygen Publishing Templates to define the layout and style of the output">Publishing Templates</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-create-publishing-template.html">How to Create a Publishing Template</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="template_descritpor_file_pdf">
+    <h2 class="title topictitle2" id="ariaid-title2">Template Descriptor File</h2>
+    <div class="body">
+      <p class="p">Each publishing template includes a descriptor file that defines the meta-data associated
+        with template. It is an XML file with certain elements that defines all the resources
+        included in a template (such as CSS files, images, and transformation parameters).</p>
+      <p class="p">The template descriptor file must have the <span class="ph filepath">.opt</span> file extension and
+        must be located in the templates' root folder.</p>
+      <p class="p">A PDF template descriptor might look like this:</p>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Flowers<strong class="hl-tag">&lt;/name&gt;</strong>
+
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-preview.png"</span><strong class="hl-tag">/&gt;</strong>
+        
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers.css"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"figure.title.placement"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"top"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/pdf&gt;</strong>
+<strong class="hl-tag">&lt;/publishing-template&gt;</strong></pre>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> It is recommended to edit the template descriptor in <strong class="ph b">Oxygen XML
+          Editor/Author</strong> because it provides content completion and validation support.</div>
+      <section class="section" id="template_descritpor_file_pdf__template_name_and_description"><h3 class="title sectiontitle">Template Name and Description</h3>
+        
+        <p class="p">Each template descriptor file requires a <code class="keyword markupname xmlelement">&lt;name&gt;</code> element. This
+          information is displayed as the name of the template in the transformation scenario dialog
+          box. </p>
+        <p class="p">Optionally, you can include a <code class="keyword markupname xmlelement">&lt;description&gt;</code> and it displayed when
+          the user hovers over the template in the transformation scenario dialog box.</p>
+        <div class="p">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Flowers<strong class="hl-tag">&lt;/name&gt;</strong>
+    <strong class="hl-tag">&lt;description&gt;</strong>Flowers themed light colored template<strong class="hl-tag">&lt;/description&gt;</strong>
+    ...</pre>
+        </div>
+      </section>
+      <section class="section" id="template_descritpor_file_pdf__template_author"><h3 class="title sectiontitle">Template Author</h3>
+        
+        <p class="p">Optionally, you can include author information in the descriptor file and it displayed
+          when the user hovers over the template in the transformation scenario dialog box. This
+          information might be useful if users run into an issue or have questions about a certain
+          template.</p>
+        <p class="p">If you include the <code class="keyword markupname xmlelement">&lt;author&gt;</code> element, a
+            <code class="keyword markupname xmlelement">&lt;name&gt;</code> is required and optionally you can include
+            <code class="keyword markupname xmlelement">&lt;email&gt;</code>, <code class="keyword markupname xmlelement">&lt;organization&gt;</code>, and
+            <code class="keyword markupname xmlelement">&lt;organizationUrl&gt;</code>.</p>
+        <div class="p">
+          <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;author&gt;</strong>
+      <strong class="hl-tag">&lt;name&gt;</strong>John Doe<strong class="hl-tag">&lt;/name&gt;</strong>
+      <strong class="hl-tag">&lt;email&gt;</strong>jdoe@example.com<strong class="hl-tag">&lt;/email&gt;</strong>
+      <strong class="hl-tag">&lt;organization&gt;</strong>ACME<strong class="hl-tag">&lt;/organization&gt;</strong>
+      <strong class="hl-tag">&lt;organizationUrl&gt;</strong>http://www.example.com/jdoe<strong class="hl-tag">&lt;/organizationUrl&gt;</strong>
+    <strong class="hl-tag">&lt;/author&gt;</strong>
+    ...</pre>
+        </div>
+      </section>
+      <section class="section" id="template_descritpor_file_pdf__webhelp_element"><h3 class="title sectiontitle">PDF Element</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> element contains various details about the template and
+          its resources that define the PDF output. It is a required element if you intend on using
+          a DITA Map to PDF transformation scenario. The elements that are allowed in this
+            <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> section specify the <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf__template_tags">template tags</a>,
+            <a class="xref" href="pdf_publishing_template_contents.html#template_descritpor_file_pdf__template_preview_image">template
+            preview image</a>, <a class="xref" href="pdf_publishing_template_contents.html#template_resources_pdf">resources</a> (such as CSS files), <a class="xref" href="pdf_publishing_template_contents.html#transformation_parameters_pdf">transformation parameters</a>, or <a class="xref" href="pdf_publishing_template_contents.html#xslt_extension_points_pdf">XSLT extensions</a>.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"MyPreview.png"</span><strong class="hl-tag">/&gt;</strong>
+
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+          ...
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/pdf&gt;</strong></pre>
+      </section>
+      <section class="section" id="template_descritpor_file_pdf__template_tags"><h3 class="title sectiontitle">Template Tags</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;tags&gt;</code> section provides meta information about the template
+          (such as color theme). Each <em class="ph i">tag</em> is displayed at the top of the
+            <span class="ph uicontrol">Templates</span> tab window in the transformation scenario dialog box
+          and they help the user filter and find particular templates.</p>
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+      <strong class="hl-tag">&lt;tags&gt;</strong>
+        <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+      <strong class="hl-tag">&lt;/tags&gt;</strong></pre>
+      </section>
+      <section class="section" id="template_descritpor_file_pdf__template_preview_image"><h3 class="title sectiontitle">Template Preview Image</h3>
+        
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;preview-image&gt;</code> element is used to specify an image that will
+          be displayed in the transformation scenario dialog box. It provides a visual
+          representation of the template to help the user select the right template. The image
+          dimensions should be <code class="ph codeph">200 x 115</code> pixels and the supported image formats
+          are: <code class="ph codeph">JPEG</code>, <code class="ph codeph">PNG</code>, or <code class="ph codeph">GIF</code>.</p>
+        <div class="p">You can also include an <code class="keyword markupname xmlelement">&lt;online-preview-url&gt;</code> element to specify
+          the URL of a published sample of your template. This will display an <span class="ph uicontrol"><img class="image" src="../img/OnlinePreview16.png">Online preview</span> icon in the bottom-right
+          corner of the image in the transformation scenario dialog box and if the user clicks that
+          icon, it will open the specified URL in their default
+          browser.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"ashes/ashes-tree.png"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;online-preview-url=https:</strong>//www.example.com/samples/tiles/ashes<strong class="hl-tag">&lt;/online-preview-url&gt;</strong></pre></div>
+      </section>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title3" id="template_resources_pdf">
+    <h2 class="title topictitle2" id="ariaid-title3">Template Resources</h2>
+    <div class="body">
+      <div class="p">The <code class="keyword markupname xmlelement">&lt;resources&gt;</code> section of the descriptor file specifies a set of
+        resources (CSS files) that are used to customize various components in the generated output.
+        These resources will be copied to the output folder during the transformation process. At
+        least one CSS file must be included (using the <code class="keyword markupname xmlelement">&lt;css&gt;</code>
+          element).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+      ...                
+      <strong class="hl-tag">&lt;resources&gt;</strong>            
+          <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"css/custom_styles.css"</span><strong class="hl-tag">/&gt;</strong>
+          <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"css/custom_fonts.css"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;/resources&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> All
+          relative paths specified in the descriptor file are relative to the template root
+          folder.</div></div>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title4" id="transformation_parameters_pdf">
+    <h2 class="title topictitle2" id="ariaid-title4">Transformation Parameters</h2>
+    <div class="body">
+      <div class="p">You can also set one or more transformation parameters in the descriptor
+        file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...    
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;parameters&gt;</strong>
+        <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"show.changes.and.comments"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>      
+      <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/pdf&gt;</strong></pre></div>
+      <p class="p">The following information can be specified in the <code class="keyword markupname xmlelement">&lt;parameters&gt;</code>
+        element:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Parameter name</dt>
+            <dd class="dd">
+              <div class="p">The name of the parameter. It may be one of the transformation parameters listed in
+                the <span class="ph uicontrol">Parameters</span> tab of the <strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong> transformation scenario or a <a class="xref" href="http://www.dita-ot.org/dev/parameters/parameters-pdf.html" target="_blank" rel="external noopener">DITA-OT PDF-based
+                  output parameter</a>.<div class="note note note_note"><span class="note__title">Note:</span> It is not recommended to specify an
+                  input/output parameter in the descriptor file (such as the input Map, DITAVAL
+                  file, or temporary directory).</div><div class="note attention note_attention"><span class="note__title">Attention:</span> JVM arguments like
+                    <dfn class="term">-Xmx</dfn> cannot be specified as a transformation parameter.</div></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Parameter Value</dt>
+            <dd class="dd">The value of the parameter. It should be a relative path to the template root folder
+              for file paths parameters.</dd>
+          
+          
+            <dt class="dt dlterm">Parameter Type</dt>
+            <dd class="dd">The type of the parameter: <code class="ph codeph">string</code> or <code class="ph codeph">filepath</code>. The
+                <code class="ph codeph">string</code> value is default.</dd>
+          
+        </dl>
+      </div>
+      <p class="p">After <a class="xref" href="whr-create-publishing-template.html">creating a
+          publishing template</a>
+        and <a class="xref" href="dcpp_how_to_use_a_publishing_template.html#dcpp_how_to_use_a_publishing_template__add-to-gallery">adding it
+          to the templates gallery</a>, when you select the template in the transformation scenario dialog box, the
+          <span class="ph uicontrol">Parameters</span> tab will automatically be updated to include the
+        parameters defined in the descriptor file. These parameters are displayed in italics.</p>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title5" id="xslt_extension_points_pdf">
+    <h2 class="title topictitle2" id="ariaid-title5">XSLT Extension Points</h2>
+    <div class="body">
+      <div class="p">The publishing templates support one or more XSLT extension points. They can be specified
+        using the <code class="keyword markupname xmlelement">&lt;xslt&gt;</code> element in the descriptor file using the following
+        structure:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        ...        
+        <strong class="hl-tag">&lt;xslt&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong> 
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2html5"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2html5Extension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;extension</strong>
+              <span class="hl-attribute">id</span>=<span class="hl-value">"com.oxygenxml.pdf.css.xsl.merged2merged"</span>
+              <span class="hl-attribute">file</span>=<span class="hl-value">"xslt/merged2mergedExtension.xsl"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/xslt&gt;</strong></pre></div>
+      <p class="p">For more information about the available extension points, see: <a class="xref" href="pdf-xslt-extensions.html">XSLT Extensions for PDF Transformations</a>.</p>
+    </div>
+  </article>
+  <article class="topic nested1" aria-labelledby="ariaid-title6" id="combining-pdf-webhelp_pdf">
+    <h2 class="title topictitle2" id="ariaid-title6">Combining PDF and WebHelp Responsive Customizations in a Template Package</h2>
+    <div class="body">
+      <div class="p">An <dfn class="term">Oxygen Publishing Template</dfn> package can contain both a PDF and WebHelp
+        Responsive customization in the same template package and you can use that same template in
+        both types of transformations. The template descriptor file can define the customization for
+        both types by including both a <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> element and some of the resources can be reused. Resources
+        referenced in elements in the <code class="keyword markupname xmlelement">&lt;webhelp&gt;</code> element will only be used for
+        WebHelp transformations, and resources referenced in the elements in the
+          <code class="keyword markupname xmlelement">&lt;pdf&gt;</code> element will only be used in PDF
+        transformations.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    <strong class="hl-tag">&lt;name&gt;</strong>Flowers<strong class="hl-tag">&lt;/name&gt;</strong>
+    <strong class="hl-tag">&lt;description&gt;</strong>Flowers themed light-colored template<strong class="hl-tag">&lt;/description&gt;</strong>
+
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-preview.png"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-wh.css"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-page-styling.css"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.tiles"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"no"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"webhelp.show.main.page.toc"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;/webhelp&gt;</strong>
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+        <strong class="hl-tag">&lt;tags&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>purple<strong class="hl-tag">&lt;/tag&gt;</strong>
+            <strong class="hl-tag">&lt;tag&gt;</strong>light<strong class="hl-tag">&lt;/tag&gt;</strong>
+        <strong class="hl-tag">&lt;/tags&gt;</strong>
+        <strong class="hl-tag">&lt;preview-image</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-preview.png"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;resources&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-pdf.css"</span><strong class="hl-tag">/&gt;</strong>
+            <strong class="hl-tag">&lt;css</strong> <span class="hl-attribute">file</span>=<span class="hl-value">"flowers-page-styling.css"</span><strong class="hl-tag">/&gt;</strong>
+        <strong class="hl-tag">&lt;/resources&gt;</strong>
+        <strong class="hl-tag">&lt;parameters&gt;</strong>
+            <strong class="hl-tag">&lt;parameter</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"show.changes.and.comments"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"yes"</span><strong class="hl-tag">/&gt;</strong>"/&gt;
+        <strong class="hl-tag">&lt;/parameters&gt;</strong>
+    <strong class="hl-tag">&lt;pdf&gt;</strong>
+<strong class="hl-tag">&lt;/publishing-template&gt;</strong></pre></div>
+    </div>
+    <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="whr_publishing_template_contents.html">Publishing Template Package Contents for WebHelp Responsive Customizations</a></li></ul></div></nav>
+  </article>
+</article></main></body></html>

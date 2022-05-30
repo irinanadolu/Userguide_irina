@@ -1,0 +1,20 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="SVN Client,Working copy resource management,Move resources"><meta name="keywords" content="SVN Client, Working copy resource management, Move resources"><meta name="DC.relation" scheme="URI" content="../topics/manage-working-copy-resources.html"><meta name="DC.relation" scheme="URI" content="../topics/copy-resources-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/rename-resources-working-copy.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="move-resources-working-copy"><title>Move Resources</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="move-resources-working-copy"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Move Resources</h1>
+  
+  <div class="body">
+    <div class="p">As in the case of the copy command, you can move several resources at once. Select the
+      resources in the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span>
+        view</a> and choose the <span class="ph uicontrol">Move to</span> action from the contextual menu.
+      The move command actually behaves as if a copy followed by a delete command were issued. You
+      will find the moved resources at the desired destination and also at their original location,
+      but marked as <em class="ph i">deleted</em>.<div class="note note note_note" id="move-resources-working-copy__move_rename_externals_note"><span class="note__title">Note:</span> <em class="ph i">External</em>
+        items cannot be moved using the <span class="ph uicontrol">Move to</span> action, because they cannot
+        be deleted. Instead, you should edit the <code class="ph codeph">svn:externals</code> property defining
+        the <em class="ph i">external</em> item and use the <span class="ph uicontrol">Update</span> operation on the
+        item's parent folder for the change to take effect.</div><div class="note attention note_attention" id="move-resources-working-copy__svn1_8_commit_moved_renamed_items"><span class="note__title">Attention:</span> For SVN 1.8 working copies: when committing items
+        that were moved and/or renamed, make sure you select both the source and the destination.
+        Otherwise, the commit operation will fail.</div></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/manage-working-copy-resources.html">Manage Working Copy Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/copy-resources-working-copy.html">Copy Resources</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/rename-resources-working-copy.html">Rename Resources</a></div></div></nav></article></main></body></html>

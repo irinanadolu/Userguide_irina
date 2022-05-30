@@ -1,0 +1,186 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_split_on_enter.html"><meta name="DC.relation" scheme="URI" content="../topics/add-ons.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api-faq-style-entities"><title>Use Custom Rendering Styles for Entity References, Comments, or PIs</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api-faq-style-entities"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Use Custom Rendering Styles for Entity References, Comments, or PIs</h1>
+  <div class="body">
+    <section class="section" id="api-faq-style-entities__problem"><h2 class="title sectiontitle">Problem</h2>
+      
+      <p class="p">Is there a way to display entity references in the <span class="ph uicontrol">Author</span> mode
+        without the distinct gray background and tag markers?</p>
+    </section>
+    <section class="section" id="api-faq-style-entities__solution"><h2 class="title sectiontitle">Solution</h2>
+      
+      <div class="p">There is a built-in CSS stylesheet in the <span class="ph">Oxygen XML Editor</span> libraries that is used
+        when styling content in the <span class="ph uicontrol">Author</span> mode, no matter what CSS you use.
+        This CSS has the following
+        content:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@namespace oxy url(<span class="hl-string">'http://www.oxygenxml.com/extensions/author'</span>);
+@namespace xi <span class="hl-string">"http://www.w3.org/2001/XInclude"</span>;
+@namespace xlink <span class="hl-string">"http://www.w3.org/1999/xlink"</span>;
+@namespace svg <span class="hl-string">"http://www.w3.org/2000/svg"</span>;
+@namespace mml <span class="hl-string">"http://www.w3.org/1998/Math/MathML"</span>;
+
+oxy|document {
+    <strong class="hl-keyword">display</strong>:block !important;
+}
+
+oxy|cdata {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    <strong class="hl-keyword">white-space</strong>:pre-wrap !important;
+    <strong class="hl-keyword">border-width</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;
+}
+
+oxy|processing-instruction {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">color</strong>: rgb(<span class="hl-number">139</span>, <span class="hl-number">38</span>, <span class="hl-number">201</span>) !important;
+    <strong class="hl-keyword">white-space</strong>:pre-wrap !important;
+    <strong class="hl-keyword">border-width</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;
+}
+
+oxy|comment {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    <strong class="hl-keyword">color</strong>: rgb(<span class="hl-number">0</span>, <span class="hl-number">100</span>, <span class="hl-number">0</span>) !important;
+    <strong class="hl-keyword">background-color</strong>:rgb(<span class="hl-number">255</span>, <span class="hl-number">255</span>, <span class="hl-number">210</span>) !important;
+    <strong class="hl-keyword">white-space</strong>:pre-wrap !important;
+    <strong class="hl-keyword">border-width</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;
+}
+
+oxy|reference:before,
+oxy|entity[href]:before{  
+  link: attr(href) !important;
+  <strong class="hl-keyword">text-decoration</strong>: underline !important;
+  <strong class="hl-keyword">color</strong>: navy !important;
+  
+  <strong class="hl-keyword">margin</strong>: <span class="hl-number">2</span>px !important;
+  <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;  
+}
+
+oxy|reference:before {
+  <strong class="hl-keyword">display</strong>: morph !important;
+  <strong class="hl-keyword">content</strong>: url(../images/editContent.gif) !important;  
+}
+
+oxy|entity[href]:before{
+  <strong class="hl-keyword">display</strong>: morph !important;
+  <strong class="hl-keyword">content</strong>: url(../images/editContent.gif) !important;
+}
+
+oxy|reference,
+oxy|entity {
+    editable:false !important;
+    <strong class="hl-keyword">background-color</strong>: rgb(<span class="hl-number">240</span>, <span class="hl-number">240</span>, <span class="hl-number">240</span>) !important;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;
+}
+
+oxy|reference {
+    <strong class="hl-keyword">display</strong>:morph !important;
+}
+
+oxy|entity {
+    <strong class="hl-keyword">display</strong>:morph !important;
+}
+
+oxy|entity[href] {
+  <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid rgb(<span class="hl-number">175</span>, <span class="hl-number">175</span>, <span class="hl-number">175</span>) !important;
+  <strong class="hl-keyword">padding</strong>: <span class="hl-number">0.2</span>em !important;
+}
+
+xi|include {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">margin-bottom</strong>: <span class="hl-number">0.5</span>em !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">2</span>px !important;
+}
+xi|include:before,
+xi|include:after{
+    <strong class="hl-keyword">display</strong>:inline !important;
+    <strong class="hl-keyword">background-color</strong>:inherit !important;
+    <strong class="hl-keyword">color</strong>:#<span class="hl-number">444444</span> !important;
+    <strong class="hl-keyword">font-weight</strong>:bold !important;
+}
+
+xi|include:before {
+    <strong class="hl-keyword">content</strong>:url(../images/link.gif) attr(href)  !important;
+    link: attr(href) !important;
+}
+xi|include[xpointer]:before {
+    <strong class="hl-keyword">content</strong>:url(../images/link.gif) attr(href) <span class="hl-string">" "</span> attr(xpointer) !important;
+    link: oxy_concat(attr(href), <span class="hl-string">"#"</span>, attr(xpointer)) !important;
+}
+
+xi|fallback {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    <strong class="hl-keyword">margin</strong>: <span class="hl-number">2</span>px !important;
+    <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>px solid #CB0039 !important;
+}
+
+xi|fallback:before {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    <strong class="hl-keyword">content</strong>:<span class="hl-string">"XInclude fallback: "</span> !important;
+    <strong class="hl-keyword">color</strong>:#CB0039 !important;
+}
+
+oxy|doctype {
+    <strong class="hl-keyword">display</strong>:block !important;
+    <strong class="hl-keyword">background-color</strong>: transparent !important;
+    <strong class="hl-keyword">color</strong>:blue !important;
+    <strong class="hl-keyword">border-width</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+    <strong class="hl-keyword">padding</strong>: <span class="hl-number">2</span>px !important;
+}
+
+oxy|error {
+    <strong class="hl-keyword">display</strong>:morph !important;
+    editable:false !important;
+    <strong class="hl-keyword">white-space</strong>:pre !important;
+    <strong class="hl-keyword">color</strong>: rgb(<span class="hl-number">178</span>, <span class="hl-number">0</span>, <span class="hl-number">0</span>) !important;
+    <strong class="hl-keyword">font-weight</strong>:bold !important;
+}
+
+*[xlink|href]:before {
+    <strong class="hl-keyword">content</strong>:url(../images/link.gif);
+    link: attr(xlink|href) !important;
+}
+
+
+<em class="hl-comment">/*No direct display of the MathML and SVG images.*/</em>
+svg|svg{	
+	<strong class="hl-keyword">display</strong>:inline !important;
+    <strong class="hl-keyword">white-space</strong>: trim-when-ws-only;
+}
+svg|svg svg|*{
+    <strong class="hl-keyword">display</strong>:none !important;
+    <strong class="hl-keyword">white-space</strong>:normal;
+}
+
+mml|math{	
+	<strong class="hl-keyword">display</strong>:inline !important;
+    <strong class="hl-keyword">white-space</strong>: trim-when-ws-only;
+}
+mml|math mml|*{
+    <strong class="hl-keyword">display</strong>:none !important;
+    <strong class="hl-keyword">white-space</strong>: normal;
+}
+</pre></div>
+      <div class="p">In the CSS used for rendering the XML in <span class="ph uicontrol">Author</span> mode, do the following:<ol class="ol">
+          <li class="li">Import the special <span class="ph uicontrol">Author</span> mode namespace.</li>
+          <li class="li">Use a special selector to customize the <code class="ph codeph">entity</code> node.</li>
+        </ol><strong class="ph b">Example:</strong></div>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">@namespace oxy url(<span class="hl-string">'http://www.oxygenxml.com/extensions/author'</span>);
+oxy|entity {
+   <strong class="hl-keyword">background-color</strong>: inherit !important;
+   <strong class="hl-keyword">margin</strong>:<span class="hl-number">0</span>px !important;
+   <strong class="hl-keyword">padding</strong>: <span class="hl-number">0</span>px !important;
+    -oxy-display-tags:none;
+}</pre>
+      <p class="p">You can overwrite styles in the predefined CSS to customize style comments, processing
+        instructions, and <em class="ph i">CData</em> sections. You can also customize the way
+        <code class="keyword markupname xmlelement">&lt;xi:include&gt;</code> elements are rendered.</p>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_split_on_enter.html">Split Paragraph on Enter (Instead of Showing Content Completion List)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-ons.html" title="Information about extending Oxygen XML Editor with add-ons">Add-ons</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_plugin_framework_difference.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_add_form_control_from_filter.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api_faq_disable_contextual_actions"><title>Disable Context-Sensitive Menu Items for Custom Author Actions</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api_faq_disable_contextual_actions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Disable Context-Sensitive Menu Items for Custom Author Actions</h1>
+  <div class="body">
+    <section class="section" id="api_faq_disable_contextual_actions__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">Is there a way to disable menu items for custom <span class="ph uicontrol">Author</span> mode actions
+        depending on the cursor context? </p>
+    </section>
+    <section class="section" id="api_faq_disable_contextual_actions__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">By default, <span class="ph">Oxygen XML Editor</span> does not toggle the enabled/disabled states for actions
+        based on whether or not the activation XPath expressions for that certain
+          <span class="ph uicontrol">Author</span> mode action are fulfilled. This is done because the actions
+        can be many and evaluating XPath expression on each cursor move can lead to performance
+        problems. However, if you have your own
+          <em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle</em> implementation you can
+        overwrite the method:</p>
+      <p class="p"><code class="ph codeph">ro.sync.ecss.extensions.api.ExtensionsBundle.createAuthorExtensionStateListener()</code></p>
+      <div class="p">and when the extension state listener gets activated, you can use the API like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+    <span class="hl-tag-doctype-comment">/**
+     * @see ro.sync.ecss.extensions.api.AuthorExtensionStateListener#activated
+(ro.sync.ecss.extensions.api.AuthorAccess)
+     */</span>
+    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> activated(<strong class="hl-keyword">final</strong> AuthorAccess authorAccess) {
+
+      <em class="hl-comment">//Add a caret listener to enable/disable extension actions:</em>
+authorAccess.getEditorAccess().addAuthorCaretListener(<strong class="hl-keyword">new</strong> AuthorCaretListener() 
+{
+    <em><span class="hl-annotation">@Override</span></em>
+    <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> caretMoved(AuthorCaretEvent caretEvent) {
+      <strong class="hl-keyword">try</strong> {
+        Map&lt;String, Object&gt; authorExtensionActions = 
+authorAccess.getEditorAccess().getActionsProvider().getAuthorExtensionActions();
+        <em class="hl-comment">//Get the action used to insert a paragraph. It's ID is "paragraph"</em>
+        AbstractAction insertParagraph = (
+AbstractAction) authorExtensionActions.get(<span class="hl-string">"paragraph"</span>);
+        <em class="hl-comment">//Evaluate an XPath expression in context of the current node</em>
+     Object[] evaluateXPath = authorAccess.getDocumentController().evaluateXPath
+(<span class="hl-string">".[ancestor-or-self::p]"</span>, false, false, false, false);
+        <strong class="hl-keyword">if</strong>(evaluateXPath != null &amp;&amp; evaluateXPath.length &gt; <span class="hl-number">0</span> &amp;&amp; 
+evaluateXPath[<span class="hl-number">0</span>] != null) {
+          <em class="hl-comment">//We are inside a paragraph, disable the action.</em>
+          insertParagraph.setEnabled(false);
+        } <strong class="hl-keyword">else</strong> {
+          <em class="hl-comment">//Enable the action</em>
+          insertParagraph.setEnabled(true);
+        }
+      } <strong class="hl-keyword">catch</strong> (AuthorOperationException e) {
+        e.printStackTrace();
+      }
+    }
+  });
+</pre>When
+        the extension is deactivated, you should remove the <em class="ph i">CaretListener</em> to
+        avoid adding multiple listeners that perform the same functionality. </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_plugin_framework_difference.html">Difference Between a Framework (Document Type) and a Plugin Extension</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/api_faq_add_form_control_from_filter.html">Dynamically Add Form Controls Using a Styles Filter</a></div></div></nav></article></main></body></html>

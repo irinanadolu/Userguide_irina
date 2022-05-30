@@ -1,0 +1,203 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Finding/Replacing text,Find/Replace dialog box,Find/Replace action,Search dialog box"><meta name="keywords" content="Finding/Replacing text, Find/Replace dialog box, Find/Replace action, Search dialog box"><meta name="DC.relation" scheme="URI" content="../topics/searching-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/searching-in-reviews.html"><meta name="DC.relation" scheme="URI" content="../topics/find-and-replace-text-in-files.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="find-replace-dialog"><title>Find/Replace Dialog Box</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="find-replace-dialog"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Find/Replace Dialog Box</h1>
+  
+  <div class="body">
+    <p class="p">To open the <span class="ph uicontrol">Find/Replace</span> dialog box, use the <span class="ph uicontrol"><img class="image" id="find-replace-dialog__image_hg4_42k_qr" src="../img/Search16.png">Find/Replace</span> action that is
+      available in the <span class="ph uicontrol">Find</span> menu<span class="ph">, on the toolbar,</span> or by pressing
+        <span class="ph uicontrol"><span class="keyword shortcut" id="find-replace-dialog__ctrl_f_shortcut">Ctrl + F (Command + F on
+                    OS X)</span></span>. It is also invoked by the
+        <span class="ph uicontrol">Find/Replace</span> contextual menu action found in certain views. </p>
+    <div class="p">You can use the <span class="ph uicontrol">Find/Replace</span> dialog box to perform the following operations:<ul class="ul">
+        <li class="li">Replace occurrences of target defined in the <span class="ph uicontrol">Find</span> area with a new
+          fragment of text defined in <span class="ph uicontrol">Replace with</span> area.</li>
+        <li class="li">Find all the occurrences of a word or string of characters (that can span over multiple
+          lines) in the document you are editing. This operation also takes into account all the
+          whitespaces contained in the fragment you are searching for. The
+            <span class="ph uicontrol">Find/Replace</span> dialog box counts the number of occurrences of the
+          text you are searching for and displays it at the bottom of the dialog box, above the
+            <span class="ph uicontrol">Close</span> button. This number is also displayed in <a class="xref" href="results-view.html#results-view">the <span class="ph uicontrol">Results</span> view</a>
+          after you click the <span class="ph uicontrol">Find All</span> button. </li>
+      </ul></div>
+    <div class="p">The <em class="ph i">find</em> operation works on multiple lines, meaning that a find match can cover
+      characters on multiple lines of text. To input multiple-line text in the
+        <span class="ph uicontrol">Find</span> and <span class="ph uicontrol">Replace with</span> areas, do one of the following:<ul class="ul">
+        <li class="li">Press <span class="ph uicontrol"><span class="keyword shortcut" id="find-replace-dialog__ctrl_enter_shortcut">Ctrl + Enter
+                    (Command + Enter on OS X)</span></span> on your
+          keyboard.</li>
+        <li class="li">Use the <span class="ph uicontrol">Insert newline</span> contextual menu action.</li>
+      </ul></div>
+    <p class="p">You can use <a class="xref" href="regular-expressions.html#regular-expressions">Perl-like regular
+        expressions syntax</a> to define patterns. A content completion assistance window is
+      available in the <span class="ph uicontrol">Find</span> and <span class="ph uicontrol">Replace with</span> areas to
+      help you edit regular expressions. It is activated every time you type <strong class="ph b">\</strong>(backslash key)
+      or on-demand if you press <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Space (Command + Space on OS
+                    X)</span></span>
+      on your keyboard.</p>
+    <p class="p">The <em class="ph i">replace</em> operation can bind regular expression capturing groups (<code class="ph codeph">$1,
+        $2</code>, etc.) from the find pattern.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> To replace the <code class="keyword markupname xmlelement">&lt;tag-name&gt;</code> start tag and its attributes with the
+      <code class="keyword markupname xmlelement">&lt;new-tag-name&gt;</code> tag use as <span class="ph uicontrol">Find</span> the expression
+        <em class="ph i">&lt;tag-name(\s+)(.*)&gt;</em> and as <span class="ph uicontrol">Replace with</span> the expression
+        <em class="ph i">&lt;new-tag-name$1$2&gt;</em>.</div>
+    <section class="section" id="find-replace-dialog__findreplace_dialog_box"><h2 class="title sectiontitle">Find/Replace Dialog Box</h2>
+      
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>The Find/Replace Dialog Box</figcaption>
+          
+          <img class="image" src="../img/Find_Replace_Dialog.png">
+        </figure>
+      </div>
+    </section>
+    <p class="p">The <span class="ph uicontrol">Find/Replace</span> dialog box contains the following options:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Find</span> text area box</dt>
+          <dd class="dd">
+            <p class="p">This is where you enter the character string to search for. You can search for
+              Unicode characters specified in the <code class="ph codeph">\uNNNN</code> format. Also, hexadecimal
+              notation (<code class="ph codeph">\xNNNN</code>) and octal notation (<code class="ph codeph">\0NNNN</code>) can be
+              used. In this case you have to select the <a class="xref" href="find-replace-dialog.html#find-replace-dialog__regular-expression-option"><span class="ph uicontrol">Regular expression</span> option</a>. For example, to search
+              for a space character you can use the <code class="ph codeph">\u0020</code> code.</p>
+            <p class="p">You can use the <span class="ph uicontrol"><img class="image" src="../img/FindHistory16.gif">History</span> button to select from a list of the most recently used
+              expressions. Use the <span class="ph uicontrol"><img class="image" src="../img/RemoveAll16.gif">Clear
+                history</span> action from the bottom of the lists to remove these
+              expressions.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Replace with</span> text area box</dt>
+          <dd class="dd">
+            <div class="p">The character string with which to replace the target. The string for replace can be
+              on a line or on multiple lines. It can contain Perl notation capturing groups, only if
+              the search expression is a regular expression and the <a class="xref" href="find-replace-dialog.html#find-replace-dialog__regular-expression-option"><span class="ph uicontrol">Regular expression</span> option</a> is selected.<div class="note note note_note"><span class="note__title">Note:</span> <span class="ph" id="find-replace-dialog__regexp_interrupt_dialog">Some regular expressions can indefinitely block the
+                  application. If the execution of the regular expression does not end in about 5
+                  seconds, the application displays a dialog box that allows you to interrupt the
+                  operation.</span></div><div class="note tip note_tip"><span class="note__title">Tip:</span> Special characters such as <em class="ph i">newline</em>
+                and <em class="ph i">tab</em> can be inserted in the <span class="ph uicontrol">Find</span> and
+                  <span class="ph uicontrol">Replace with</span> text boxes using dedicated actions in the
+                contextual menu (<span class="ph uicontrol">Insert newline</span> and <span class="ph uicontrol">Insert
+                  tab</span>).</div></div>
+            <p class="p">Unicode characters in the <code class="ph codeph">\uNNNN</code> format can also be used in the
+                <span class="ph uicontrol">Replace with</span> area.</p>
+            <p class="p">You can use the <span class="ph uicontrol"><img class="image" src="../img/FindHistory16.gif">History</span> button to select from a list of the most recently used
+              expressions. Use the <span class="ph uicontrol"><img class="image" src="../img/RemoveAll16.gif">Clear
+                history</span> action from the bottom of the lists to remove these
+              expressions.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">XPath</dt>
+          <dd class="dd">The XPath 2.0 expression you input in this combo is used for restricting the search
+            scope. Clicking the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Options16.png">XPath
+              Options</span> button opens a preferences page where you can configure some
+            XPath-related options.<div class="note note note_note"><span class="note__title">Note:</span> You can use the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+                  Assistant</dfn></a> to help you input XPath expressions that are valid in the
+              current context.</div></dd>
+        
+        
+          <dt class="dt dlterm">Direction</dt>
+          <dd class="dd">Specifies if the search direction is from current position to end of file
+              (<span class="ph uicontrol">Forward</span>) or to start of file
+            (<span class="ph uicontrol">Backward</span>).</dd>
+        
+        
+          <dt class="dt dlterm">Scope</dt>
+          <dd class="dd">Specifies whether the <span class="ph uicontrol">Find/Replace</span> operation is executed over
+            the entire content of the edited document (<span class="ph uicontrol">All</span> option), or over
+            the selected content/lines.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Options</span> section</dt>
+          <dd class="dd">
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm">Case sensitive</dt>
+                  <dd class="dd">When selected, the search operation follows the exact letter case of the text
+                    entered in the <span class="ph uicontrol">Find</span> field.</dd>
+                
+                
+                  <dt class="dt dlterm">Incremental</dt>
+                  <dd class="dd">The search operation is started every time you type or delete a letter in the
+                      <span class="ph uicontrol">Find</span> text box.</dd>
+                
+                
+                  <dt class="dt dlterm">Wrap around</dt>
+                  <dd class="dd">When the end of the document is reached, the search operation is continued
+                    from the start of the document, until its entire content is covered.</dd>
+                
+                
+          <dt class="dt dlterm">Ignore extra whitespaces</dt>
+          <dd class="dd">If selected, the application normalizes the content (collapses any sequence of
+            whitespace characters into a single space) and trims its leading and trailing
+            whitespaces when performing the search operation. This is helpful when searching for
+            spaced-separated words since line breaks and indentation between words will not affect
+            the results. This option is automatically disabled if the <span class="ph uicontrol">Regular
+              expression</span> option is selected.</dd>
+        
+                
+                  <dt class="dt dlterm">Whole words only</dt>
+                  <dd class="dd">Only entire occurrences of a word are included in the search operation. This
+                    option is automatically disabled if the <span class="ph uicontrol">Regular
+                      expression</span> option is selected.</dd>
+                
+                
+          <dt class="dt dlterm" id="find-replace-dialog__regular-expression-option">Regular <span class="ph">expression</span></dt>
+          <dd class="dd">When this option is selected, you can use regular expressions in <a class="xref" href="regular-expressions.html#regular-expressions">Perl-like regular
+              expressions syntax</a> to look for specific pieces of text.<ul class="ul">
+              <li class="li"><span class="ph uicontrol">Dot matches all</span> - A dot used in a regular expression also
+                matches end of line characters.</li>
+              <li class="li"><span class="ph uicontrol">Canonical equivalence</span> - If selected, two characters will be
+                considered a match if, and only if, their full <a class="xref" href="../glossary/canonicalize.html"><dfn class="term">canonical</dfn></a> decompositions
+                match. For example, the <strong class="ph b">ã</strong> symbol can be inserted as a single character or as
+                two characters (the <strong class="ph b">a</strong> character followed by the tilde <strong class="ph b">~</strong> character).
+                This option is not selected by default.</li>
+            </ul></dd>
+        
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Find All Elements</span> link</dt>
+                  <dd class="dd">Available when editing in <span class="ph uicontrol">Author</span> mode, you can use this
+                    link to extend the search scope to XML-specific markup (names and values of both
+                    attributes and elements).</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Find</span> button</dt>
+                  <dd class="dd">Executes a find operation for the next occurrence of the target. It stops
+                    after highlighting the find match in the editor panel.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace/Find</span> button</dt>
+                  <dd class="dd">Executes a replace operation for the target followed by a find operation for
+                    the next occurrence.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace</span> button</dt>
+                  <dd class="dd">Executes a replace operation for the target without going to the next
+                    occurrence.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Find All</span> button</dt>
+                  <dd class="dd">Executes a find operation and displays all results in the <a class="xref" href="results-view.html#results-view"><span class="ph uicontrol">Results</span> view</a>.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace All</span> button</dt>
+                  <dd class="dd">Executes a replace operation in the entire scope of the document.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace to End</span> button</dt>
+                  <dd class="dd">Executes a replace operation starting from current target until the end of the
+                    document, in the direction specified by the current selection of the
+                      <span class="ph uicontrol">Direction</span> switch (<span class="ph uicontrol">Forward</span> or
+                      <span class="ph uicontrol">Backward</span>).</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+      </dl>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/searching-documents.html">Search and Find/Replace Features</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/searching-in-reviews.html">Searching in Reviews</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/find-and-replace-text-in-files.html">Find/Replace in Multiple Files</a></div></div></nav></article></main></body></html>

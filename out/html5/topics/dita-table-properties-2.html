@@ -1,0 +1,179 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-dita-2.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-dita-2.html"><meta name="DC.relation" scheme="URI" content="../topics/add-table-xhtml.html"><meta name="DC.relation" scheme="URI" content="eppo-tables.html"><meta name="DC.relation" scheme="URI" content="author-editing-tables.html#author-editing-tables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-table-properties"><title>Editing Table Properties in DITA</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-table-properties"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing Table Properties in DITA</h1>
+  <div class="body">
+    <p class="p">To customize the look of a table in DITA, place the cursor anywhere in a table and invoke the
+          <span class="ph uicontrol"><img class="image" src="../img/TableProperties16.png">Table Properties (<span class="keyword shortcut">Ctrl + T (Command + T on
+                    OS X)</span>)</span> action from the
+      toolbar or the <span class="ph uicontrol">Table</span> submenu of the contextual menu (or
+        <span class="ph uicontrol">DITA</span> menu). This opens the <span class="ph uicontrol">Table properties</span>
+      dialog box.</p>
+    <div class="p">The <span class="ph uicontrol">Table properties</span> dialog box allows you
+      to set specific properties to the table elements. The options that are available depend on the
+      context and location within the table where the action was invoked.<div class="note note note_note"><span class="note__title">Note:</span> Some properties
+        allow the following special values, depending on the context and the current properties or values:<div class="p">
+          <ul class="ul">
+            <li class="li"><span class="ph uicontrol">&lt;not set&gt;</span> - Use this value if you want to remove a
+              property.</li>
+            <li class="li"><span class="ph uicontrol">&lt;preserve&gt;</span> - If you select multiple elements that have the
+              same property set to different values, you can choose this value to keep the values
+              that are already set. In some cases it can also be used to keep the current
+              non-standard value for a particular property.</li>
+          </ul>
+        </div></div></div>
+    <section class="section" id="dita-table-properties__edit_table_properties_for_a_cals_table_model"><h2 class="title sectiontitle">Edit Table Properties for a <strong class="ph b">CALS</strong> Table Model</h2>
+      
+      <div class="p">For a <strong class="ph b">CALS</strong> table model, the <span class="ph uicontrol">Table
+        properties</span> dialog box includes four tabs of options:<ul class="ul">
+        <li class="li"><span class="ph uicontrol">Table</span> tab - The options in this tab apply to the entire
+          table.</li>
+        <li class="li"><span class="ph uicontrol">Row</span> tab - The options in this tab apply to the current row or
+          selection of multiple rows. A message at the bottom of the tab tells you how many rows
+          will be affected.</li>
+        <li class="li"><span class="ph uicontrol">Column</span> tab - The options in this tab apply to the current column
+          or selection of multiple columns. A message at the bottom of the tab tells you how many
+          columns will be affected.</li>
+        <li class="li"><span class="ph uicontrol">Cell</span> tab - The options in this tab apply to the current cell or
+          selection of multiple cells. A message at the bottom of the tab tells you how many cells
+          will be affected.</li>
+      </ul>The options in four tabs include a <span class="ph uicontrol">Preview</span> pane that shows a
+      representation of the modification.</div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Table Properties Dialog Box with Cell Tab Selected (DITA CALS Table Model)</figcaption>
+          
+          <img class="image" src="../img/cals_table_properties_cells_tab.png">
+        </figure>
+      </div>
+      <div class="p">The options in the four tabs include the following:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Horizontal alignment</span> (Available in the
+                <span class="ph uicontrol">Table</span>, <span class="ph uicontrol">Column</span>, and
+                <span class="ph uicontrol">Cell</span> tabs)</dt>
+            <dd class="dd">Specifies the horizontal alignment of text within the current table/column/cell or
+              selection of multiple columns/cells (<code class="keyword markupname xmlatt">@align</code> attribute). The allowed
+              values are as follows:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">left</span> - Aligns the text to a left position.</li>
+              <li class="li"><span class="ph uicontrol">right</span> - Aligns the text to a right position.</li>
+              <li class="li"><span class="ph uicontrol">center</span> - Aligns the text to a centered position.</li>
+              <li class="li"><span class="ph uicontrol">justify</span> - Stretches the line of text so that it has equal
+                  width.<div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">justify</code> value cannot be rendered in
+                    <span class="ph uicontrol">Author</span> mode, so you will only see it in the
+                  output.</div></li>
+              <li class="li"><span class="ph uicontrol">char</span> - Aligns text to the leftmost occurrence of the value
+                specified on the <code class="keyword markupname xmlatt">@char</code> attribute for alignment.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Vertical alignment</span> (Available in the
+                <span class="ph uicontrol">Row</span> and <span class="ph uicontrol">Cell</span> tabs)</dt>
+            <dd class="dd">Specifies the vertical alignment of text within the current row/cell or selection of
+              multiple rows/cells (<code class="keyword markupname xmlatt">@valign</code> attribute). The allowed values are as
+                follows:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">top</span> - Aligns the text at the top of the cell.</li>
+              <li class="li"><span class="ph uicontrol">middle</span> - Aligns the text in a vertically centered
+                position.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - Aligns the text at the bottom of the cell.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+          
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Column separator</span> (Available in the
+            <span class="ph uicontrol">Table</span>, <span class="ph uicontrol">Column</span>, and
+              <span class="ph uicontrol">Cell</span> tabs)</dt>
+          <dd class="dd">Specifies whether or not to include column separators (borders/grid lines) in the form
+            of the <code class="keyword markupname xmlatt">@colsep</code> attribute. The allowed values are: <code class="ph codeph">0</code> (no
+            separator) and <code class="ph codeph">1</code> (include separators).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Row separator</span> (Available in all four tabs) </dt>
+          <dd class="dd">Specifies whether or not to include row separators (borders/grid lines) in the form of
+            the <code class="keyword markupname xmlatt">@rowsep</code> attribute. The allowed values are: <code class="ph codeph">0</code> (no
+            separator) and <code class="ph codeph">1</code> (include separators).</dd>
+        
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Frame</span> (Available only in the <span class="ph uicontrol">Table</span>
+              tab)</dt>
+            <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used
+              to specify where a border should appear in the table. The allowed values are as
+                follows:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="dita-table-properties__edit_table_properties_for_a_simple_or_choice_tabl"><h2 class="title sectiontitle">Edit Table Properties for a <strong class="ph b">Simple</strong>, <strong class="ph b">Choice</strong>, or
+          <strong class="ph b">Properties</strong> Table Model</h2>
+      
+      <p class="p">For a <em class="ph i">Simple</em>, <em class="ph i">Choice</em>, <em class="ph i">Properties</em> table model, the
+          <span class="ph uicontrol">Table properties</span> dialog box only allows you to edit a few
+        options.</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Table</span> tab</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. The allowed values are as follows:<ul class="ul" id="dita-table-properties__table-frame-ul">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Row</span> tab (not available for <em class="ph i">Properties</em>
+              tables)</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Row type</span></dt>
+                    <dd class="dd">Allows you change the row to a body or header type of row.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-editing-tables-dita-2.html">DITA Table Layouts</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-editing-tables-dita-2.html">DITA Table Layouts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/add-table-xhtml.html">Adding Tables in XHTML Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="eppo-tables.html">Adding Tables in DITA Topics</a></li><li class="linklist"><a class="link" href="author-editing-tables.html#author-editing-tables">Editing Tables in Author Mode</a></li></ul></div></nav>
+</article></main></body></html>

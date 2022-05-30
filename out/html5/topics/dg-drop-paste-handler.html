@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,Custom Object Insertion Handler"><meta name="keywords" content="Framework customization, Extensions, Custom Object Insertion Handler"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-author-schema-aware-editing-handler.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-properties-handler.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-drop-paste-handler"><title>Handling When URLs or XHTML Fragments are Dropped or Pasted in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-drop-paste-handler"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Handling When URLs or XHTML Fragments are Dropped or Pasted in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">The <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorExternalObjectInsertionHandler.html" target="_blank" rel="external noopener"><em class="ph i"><strong class="ph b">AuthorExternalObjectInsertionHandler</strong></em>
+        extension</a> can be used to configure how URLs or XHTML fragments from external
+      applications are handled when they are dropped or pasted in <span class="ph uicontrol">Author</span>
+      mode. </p>
+    <section class="section" id="dg-drop-paste-handler__implement_an_authoractioneventhandler"><h2 class="title sectiontitle">How to Implement an <em class="ph i">AuthorExternalObjectInsertionHandler</em></h2>
+      
+      <div class="p">To implement your own <em class="ph i">AuthorExternalObjectInsertionHandler</em>, follow this procedure:<ol class="ol">
+          <li class="li">Implement the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/AuthorExternalObjectInsertionHandler.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.AuthorExternalObjectInsertionHandler</em></a>
+            interface.</li>
+          <li class="li">To instruct <span class="ph">Oxygen XML Editor</span> to use this newly created implementation, use
+            either of the following methods:<ol class="ol" type="a">
+              <li class="li">If your framework is an extenstion of DITA, DocBook, TEI, or XHTML, you can
+                specify the <em class="ph i">AuthorExternalObjectInsertionHandler</em> in the <span class="ph uicontrol">Author
+                  extern object Insertion handler</span> individual extension in the <a class="xref" href="document-type-extensions-tab.html#document-type-extensions-tab"><span class="ph uicontrol">Extensions</span> tab</a> of the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document
+                    Type</span> configuration dialog box</a> for your particular document
+                type.</li>
+              <li class="li">Otherwise, you can <a class="xref" href="dg-extensions-bundle.html#dg-extensions-bundle">configure an extensions bundle</a>, then return the
+                  <em class="ph i">AuthorExternalObjectInsertionHandler</em> implementation using the
+                  <em class="ph i">ro.sync.ecss.extensions.api.ExtensionsBundle.createAuthorExternalObjectInsertionHandler()</em>
+                method.</li>
+            </ol></li>
+          <li class="li">
+            <p class="p">You can use a stylesheet to convert the pasted XHTML to your own XML vocabulary by
+              overwriting the following method:</p>
+            <p class="p"><em class="ph i">ro.sync.ecss.extensions.api.AuthorExternalObjectInsertionHandler.getImporterStylesheetFileName(AuthorAccess)</em></p>
+            <p class="p">and return the file name of the stylesheet that will be applied. The path to the
+              importer stylesheet must also be added in the <a class="xref" href="document-type-classpath-tab.html"><span class="ph uicontrol">Classpath</span> tab</a>
+              in the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog"><span class="ph uicontrol">Document Type</span> configuration dialog box</a> for your
+              particular document type.</p>
+          </li>
+        </ol></div>
+    </section>
+    <section class="section" id="dg-drop-paste-handler__example"><h2 class="title sectiontitle">Example</h2>
+      
+      <div class="p">The following example illustrates an implementation for the DITA
+        framework:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.ExtensionsBundle#
+createExternalObjectInsertionHandler()
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">public</strong> AuthorExternalObjectInsertionHandler createExternalObjectInsertionHandler() {
+    <strong class="hl-keyword">return</strong> <strong class="hl-keyword">new</strong> DITAExternalObjectInsertionHandler();
+  }</pre></div>
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">  <span class="hl-tag-doctype-comment">/**
+   * @see ro.sync.ecss.extensions.api.AuthorExternalObjectInsertionHandler#
+getImporterStylesheetFileName(ro.sync.ecss.extensions.api.AuthorAccess)
+   */</span>
+  <em><span class="hl-annotation">@Override</span></em>
+  <strong class="hl-keyword">protected</strong> String getImporterStylesheetFileName(AuthorAccess authorAccess) {
+    <strong class="hl-keyword">return</strong> <span class="hl-string">"xhtml2ditaDriver.xsl"</span>;
+  }</pre>
+    </section>
+    <div class="p">
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> For XHTML fragments, there is another method that you could use to configure
+        how they are handled when they are pasted in <span class="ph uicontrol">Author</span> mode. For more
+        information, see <a class="xref" href="author-customize-smart-paste.html">Customizing Smart Paste Support</a>.</div>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-author-schema-aware-editing-handler.html">Handling Schema-Aware Editing Events</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/edit-properties-handler.html">Presenting an Edit Properties Dialog Box for Actions in Author Mode</a></div></div></nav></article></main></body></html>

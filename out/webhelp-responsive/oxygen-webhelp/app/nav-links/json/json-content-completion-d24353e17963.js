@@ -1,0 +1,1 @@
+define({"topics":[{"title":"Schema Annotations in JSON Content Completion","href":"topics\/json-cc-annotations.html","attributes":{"data-id":"json-cc-annotations"},"menu":{"hasChildren":false},"tocID":"json-cc-annotations-d24353e17982","topics":[]}]});

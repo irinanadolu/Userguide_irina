@@ -1,0 +1,306 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Image Map Editor,TEI,XML documents,Author Mode editing,Image Map Editor,Image Map Editor in TEI"><meta name="keywords" content="Author editing mode, Image Map Editor, TEI, XML documents, Author Mode editing, Image Map Editor, Image Map Editor in TEI"><meta name="DC.relation" scheme="URI" content="../topics/image-map-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-docbook.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-xhtml.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="image-map-tei"><title>Image Maps in TEI</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="image-map-tei"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Image Maps in TEI</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes support for <strong class="ph b">image maps</strong> in TEI documents through
+      the use of the <code class="keyword markupname xmlelement">&lt;facsimile&gt;</code> element. In TEI documents, this feature provides an
+      easy way to create areas (using <code class="keyword markupname xmlelement">&lt;zone&gt;</code> elements) in an image where the end-user
+      can hover or click to retrieve more information about that particular area of the image. The
+      visual <span class="ph uicontrol">Author</span> editing mode includes an <span class="ph uicontrol">Image Map
+        Editor</span> that helps you to easily create the areas in the image.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Image Map Editor in TEI</figcaption>
+        
+        <img class="image" src="../img/image_map_tei.png">
+      </figure>
+    </div>
+    <section class="section" id="image-map-tei__image_map_editor_interface_in_tei"><h2 class="title sectiontitle">Image Map Editor Interface in TEI</h2>
+      
+      <div class="p">The interface of the <span class="ph uicontrol">Image Map Editor</span> consists of the following
+        sections and actions:<dl class="dl">
+          
+            <dt class="dt dlterm" id="image-map-tei__toolbar">Toolbar</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewRectangle20.png">New
+                      Rectangle</span></dt>
+                  <dd class="dd">Use this button to draw a rectangular shape over an area in the image. You can
+                    drag any of the four points to adjust the size and shape of the rectangle.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewPolygon20.png">New
+                    Polygon</span></dt>
+                  <dd class="dd">Use this button to draw a polygon shape over an area in the image. This action
+                    opens a dialog box that allows you to select the number of points for the
+                    polygon. You can drag any of the points to adjust the size and shape of the
+                    polygon.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/FreeForm20.png">New Free Form
+                      Shape</span></dt>
+                  <dd class="dd">Use this button to draw a free form shape over an area in the image. After
+                    selecting this button, left-click anywhere in the image to place the first point
+                    of your shape. Then move the cursor to the location of the next desired point
+                    and left-click to place the next point, and so on. To complete the shape (area),
+                    click the first point again and a line will automatically be added from the last
+                    point that was added, or simply double-click the last point to automatically add
+                    the line from the last point back to the first.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CopyArea20.png">Duplicate</span></dt>
+                  <dd class="dd">Use this button to create a duplicate of the currently selected shape.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteArea20.png">Delete</span></dt>
+                  <dd class="dd">Use this button to delete the currently selected shape.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Undo20.png">Undo</span></dt>
+                  <dd class="dd">Use this button to undo the last action.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Redo20.png">Redo</span></dt>
+                  <dd class="dd">Use this button to redo the last action that was undone.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ShowLayers20.png">Show/Hide
+                      Numbers</span></dt>
+                  <dd class="dd">Use this button to toggle between showing or hiding the numbers for the
+                    shapes.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BringShapeToFront20.png">Bring Shape to
+                      Front</span></dt>
+                  <dd class="dd">Use this button to bring the currently selected shape forward to the top
+                    layer.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BringShapeForward20.png">Bring Shape
+                      Forward</span></dt>
+                  <dd class="dd">Use this button to bring the currently selected shape forward one layer.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SendShapeBackward20.png">Send Shape
+                      Backward</span></dt>
+                  <dd class="dd">Use this button to send the currently selected shape back one layer.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/SendShapeToBack20.png">Send Shape to
+                      Back</span></dt>
+                  <dd class="dd">Use this button to send the currently selected shape back to the bottom
+                    layer.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ColorChooser20.png">Color
+                      Chooser</span></dt>
+                  <dd class="dd">Use this drop-down menu to select a color scheme for the lines and numbers of
+                    the shapes.</dd>
+                
+                  
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/ZoomSlider20.png">Zoom
+                    Slider</span></dt>
+                  <dd class="dd">Use this slider to zoom the image in or out in the main image pane.</dd>
+                
+                </dl>
+              </div>
+            </dd>
+          
+          
+            <dt class="dt dlterm" id="image-map-tei__image-map-image-pane">Image Pane</dt>
+            <dd class="dd">
+              <p class="p">This main Image Pane is where you work with shapes to add
+              hyperlinks to multiple areas within an image. The editing mechanisms that are
+              supported in the Image Pane include the following:</p>
+            </dd>
+            <dd class="dd ddexpand">
+              <div class="p">
+                <dl class="dl">
+                  
+          <dt class="dt dlterm"><u class="ph u">Mouse Controls and Keyboard Shortcuts</u></dt>
+          <dd class="dd">
+            <ul class="ul">
+              <li class="li">Use the mouse to select and move shapes around in the image pane. It is easy to
+                see which shape is selected in this image pane because the border of the selected
+                shape changes from a solid line to a dotted one.</li>
+              <li class="li">You can also drag any of the points of a selected shape to adjust its size and
+                shape.</li>
+              <li class="li">You can hold down the <span class="ph uicontrol"><span class="keyword shortcut">Ctrl</span></span> key to
+                select multiple shapes and then move them simultaneously.</li>
+              <li class="li">You can also move shapes by using the arrow keys on your keyboard. In addition,
+                you can hold down <span class="ph uicontrol"><span class="keyword shortcut">Shift</span></span> while using the
+                arrow keys to move the shape further or
+                  <span class="ph uicontrol"><span class="keyword shortcut">Alt</span></span> to move it 1 pixel at a time.</li>
+              <li class="li">To zoom in or out, you can use the <span class="ph uicontrol"><span class="keyword shortcut">NumPad
+                  +</span></span> or <span class="ph uicontrol"><span class="keyword shortcut">NumPad -</span></span>
+                keys respectively. Use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + NumPad 0</span></span>
+                to reset the zoom level to its default value.</li>
+              <li class="li">You can use <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Z</span></span> to undo an action
+                or <span class="ph uicontrol"><span class="keyword shortcut">Ctrl + Y</span></span> to redo the last action that
+                was undone.</li>
+            </ul>
+          </dd>
+        
+                  
+                    <dt class="dt dlterm" id="image-map-tei__contextual-actions-dlentry"><u class="ph u">Contextual Menu Actions</u></dt>
+                    <dd class="dd">
+                      <p class="p">You can right-click the shapes, points, or anywhere in the Image Pane to
+                        invoke the contextual menu where the following actions are available:</p>
+                      <div class="p">
+                        <dl class="dl">
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Add16.png">Add Point</span></dt>
+                  <dd class="dd">Adds a point to <em class="ph i">Polygon</em> or <em class="ph i">Free Form</em> shapes.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Remove16.png">Remove Point</span></dt>
+                  <dd class="dd">Removes the current point from <em class="ph i">Polygon</em> or <em class="ph i">Free Form</em> shapes.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/CopyArea20.png">Duplicate</span></dt>
+                  <dd class="dd">Create a duplicate of the currently selected shape.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DeleteArea20.png">Delete</span></dt>
+                  <dd class="dd">Delete the currently selected shape.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewRectangle20.png">New
+                      Rectangle</span></dt>
+                  <dd class="dd">Creates a rectangular shape over an area in the image. You can drag any of the
+                    four points to adjust the size and shape of the rectangle.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/NewPolygon20.png">New
+                    Polygon</span></dt>
+                  <dd class="dd">Creates a polygon shape over an area in the image. This action opens a dialog
+                    box that allows you to select the number of points for the polygon. You can drag
+                    any of the points to adjust the size and shape of the polygon.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Undo20.png">Undo</span></dt>
+                  <dd class="dd">Use this action to undo the last action.</dd>
+                
+                          
+                  <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/Redo20.png">Redo</span></dt>
+                  <dd class="dd">Use this action to redo the last action that was undone.</dd>
+                
+                        </dl>
+                      </div>
+                    </dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+          
+          <dt class="dt dlterm">Shape Table</dt>
+          <dd class="dd">The table at the right of the <em class="ph i">Image Pane</em> is a sequential list of all the areas
+            (shapes) that have been added in the image. It shows their number, type, and ID. If you
+            select one of the entries in the table, the corresponding shape will be selected in the
+              <em class="ph i">Image Pane</em>.</dd>
+        
+          
+            <dt class="dt dlterm">Properties</dt>
+            <dd class="dd">
+              <div class="p">
+                <dl class="dl">
+                  
+                    <dt class="dt dlterm"><span class="ph uicontrol">Type</span></dt>
+                    <dd class="dd">Displays information about the selected coordinate.</dd>
+                  
+                  
+                    <dt class="dt dlterm" id="image-map-tei__id"><span class="ph uicontrol">ID</span></dt>
+                    <dd class="dd">The identifier for the selected area. This will become the value of the
+                      <code class="keyword markupname xmlatt">@xml:id</code> attribute for the particular <code class="keyword markupname xmlelement">&lt;zone&gt;</code>
+                      element. When you insert a new zone, a unique ID is automatically generated
+                      and displayed in this field. However, you can change this value if you want
+                      to.</dd>
+                  
+                </dl>
+              </div>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="image-map-tei__how_to_create_an_image_map_in_tei"><h2 class="title sectiontitle">How to Create an Image Map in TEI</h2>
+      
+      <div class="p">To create an image map on an existing image in a TEI document, follow these steps:<ol class="ol">
+        <li class="li">The image (<code class="keyword markupname xmlelement">&lt;graphic&gt;</code>) must be inside a <code class="keyword markupname xmlelement">&lt;facsimile&gt;</code>
+            element to support the <span class="ph uicontrol">Image Map Editor</span> feature.</li>
+          <li class="li">
+            <p class="p">Right-click the image and select <span class="ph uicontrol">Image Map Editor</span>.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> This action will apply an <em class="ph i">image map</em> to the current image
+              and open the <span class="ph uicontrol">Image Map Editor</span> dialog box.</p>
+          </li>
+          <li class="li">Add areas (zones) in the image by selecting one of the shape buttons
+                (<span class="ph uicontrol"><img class="image" src="../img/NewRectangle20.png">New Rectangle</span> or
+                <span class="ph uicontrol"><img class="image" src="../img/NewPolygon20.png">New Polygon</span>).</li>
+          <li class="li">Move the shape to the desired area in the image and drag any of the points on the
+            shape to adjust its size or form. You can use the <a class="xref" href="image-map-tei.html#image-map-tei__toolbar">other buttons on the toolbar</a> to adjust its layer and color, or to
+            perform other editing actions.<div class="note tip note_tip"><span class="note__title">Tip:</span> You can right-click any of the points,
+              shapes, or anywhere in the Image Pane to access various helpful <a class="xref" href="image-map-tei.html#image-map-tei__contextual-actions-dlentry">contextual menu
+                actions</a>. For example, the easiest way to remove a point is to right-click the
+              point and select <span class="ph uicontrol"><img class="image" src="../img/Remove16.png">Remove
+                Point</span>.</div></li>
+          <li class="li">With the shape selected, enter an <a class="xref" href="image-map-tei.html#image-map-tei__id"><span class="ph uicontrol">ID</span></a>.</li>
+          <li class="li">If you want to add more areas (zones) to the image, select a shape button again and
+            repeat the appropriate steps.</li>
+          <li class="li">When you are finished, click <span class="ph uicontrol">OK</span> to process your changes.</li>
+        </ol></div>
+      <div class="p"><strong class="ph b">Result:</strong> The <em class="ph i">image map</em> is applied on the image and the appropriate
+        elements and attributes are automatically added. In <span class="ph uicontrol">Author</span> mode, the
+        image map is now rendered over the image and the following two buttons will now be available
+        at the bottom of the image:<ul class="ul">
+          <li class="li"><span class="ph uicontrol">Image Map Editor</span> - Click this button to open the
+              <span class="ph uicontrol">Image Map Editor</span>.</li>
+          <li class="li" id="image-map-tei__image-map-details"><span class="ph uicontrol">Image Map Details</span> - Click this button to
+            expand a section that displays the details of the image map.</li>
+        </ul></div>
+    </section>
+    <section class="section" id="image-map-tei__how_to_edit_an_existing_image_map_in_tei"><h2 class="title sectiontitle">How to Edit an Existing Image Map in TEI</h2>
+      
+      <div class="p">To edit an existing image map, use any of the following methods:<ul class="ul">
+          <li class="li">Simply double-click the image.</li>
+          <li class="li">Right-click the image and select <span class="ph uicontrol">Image Map Editor</span>.</li>
+          <li class="li">Click the <span class="ph uicontrol">Image Map Editor</span> button below the image.</li>
+        </ul>All three methods open the <span class="ph uicontrol">Image Map Editor</span> where you can make
+        changes to the image map using the various features described above. You can also make
+        changes to the XML structure of the image map in the <span class="ph uicontrol">Text</span> editing
+        mode.</div>
+      <p class="p">You can also click the <span class="ph uicontrol">Image Map Details</span> button below the image to
+        expand a section that displays the details of the image map and allows you to change the
+        coordinates and IDs of the hyperlinked areas.</p>
+      <div class="p">
+        <div class="note restriction note_restriction"><span class="note__title">Restriction:</span> Currently, if <code class="keyword markupname xmlelement">&lt;zone&gt;</code> elements contain additional
+          content (such as text or comments) and you edit the image map, the <span class="ph uicontrol">Image Map
+            Editor</span> does not preserve the additional content. Therefore, if you do need
+          to insert additional content inside the <code class="keyword markupname xmlelement">&lt;zone&gt;</code> elements, you should do so
+          after the image map has been created and finalized. Subsequent changes to the image map
+          should then be done in <span class="ph uicontrol">Text</span> mode.</div>
+      </div>
+    </section>
+    <section class="section" id="image-map-tei__overlapping_areas"><h2 class="title sectiontitle">Overlapping Areas</h2>
+      
+      <p class="p">If shapes overlap one another in the <span class="ph uicontrol">Image Map Editor</span>, the one on
+        the top layer takes precedence. The number shown inside each shape represents its layer (if
+        the numbers are not displayed, click the <span class="ph uicontrol"><img class="image" src="../img/ShowLayers20.png">Show/Hide Numbers</span> button on the <a class="xref" href="image-map-tei.html#image-map-tei__toolbar"><span class="ph uicontrol">Image Map Editor</span> toolbar</a>). To change the layer
+        order for a shape, use the layer buttons on the <a class="xref" href="image-map-tei.html#image-map-tei__toolbar"><span class="ph uicontrol">Image Map Editor</span> toolbar</a> (<img class="image" src="../img/BringShapeToFront20.png">, <img class="image" src="../img/BringShapeForward20.png">,
+          <img class="image" src="../img/SendShapeBackward20.png">, <img class="image" src="../img/SendShapeToBack20.png">).</p>
+      <p class="p">If you insert a shape and all of its coordinates are completely inside another shape, the
+          <span class="ph uicontrol">Image Map Editor</span> will display a warning to let you know that the
+        shape is entirely covered by a bigger shape. Keep in mind that if a shape is completely
+        inside another shape, its hyperlink will only be accessible if its layer is on top of the
+        bigger shape.</p>
+      <div class="p">
+        <div class="note warning note_warning"><span class="note__title">Warning:</span> PDF output is limited to rectangular shaped image map objects.
+          Therefore, if your image contains circles or polygons, those objects will be redrawn as
+          rectangles in the PDF output. Keep in mind that this might affect overlaps in the
+          output.</div>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/image-map-editor.html">Image Map Editor</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/image-map-docbook.html">Image Maps in DocBook</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/image-map-xhtml.html">Image Maps in XHTML</a></div></div></nav></article></main></body></html>

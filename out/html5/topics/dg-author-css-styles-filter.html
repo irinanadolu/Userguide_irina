@@ -1,0 +1,39 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Framework customization,Extensions,CSS Styles Filter"><meta name="keywords" content="Framework customization, Extensions, CSS Styles Filter"><meta name="DC.relation" scheme="URI" content="../topics/dg-configure-extensions.html"><meta name="DC.relation" scheme="URI" content="../topics/custom-attribute-value-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/customize-profiling-conditions.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-author-css-styles-filter"><title>Customizing the CSS Styles Filter</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-author-css-styles-filter"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing the CSS Styles Filter</h1>
+  
+  <div class="body">
+    <p class="p">You can modify the CSS styles for each <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/node/AuthorNode.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.extensions.api.node.AuthorNode</em></a>
+      rendered in the <span class="ph uicontrol">Author</span> mode using an implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/extensions/api/StylesFilter.html" target="_blank" rel="external noopener"><em class="ph i"> ro.sync.ecss.extensions.api.StylesFilter</em></a>. You
+      can implement the various callbacks of the interface either by returning the default value
+      given by <span class="ph">Oxygen XML Editor</span> or by contributing to the value. The received styles <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/ecss/css/Styles.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.ecss.css.Styles</em></a> can be processed and
+      values can be overwritten with your own. For example, you can override the
+        <code class="ph codeph">KEY_BACKGROUND_COLOR</code> style to return your own implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/view/graphics/Color.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.view.graphics.Color</em></a> or override
+      the <code class="ph codeph">KEY_FONT</code> style to return your own implementation of <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/view/graphics/Font.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.view.graphics.Font</em></a>.</p>
+    <p class="p">For instance, in this simple document example, the filter can change the value of the
+      <code class="ph codeph">KEY_FONT</code> property for the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">
+<strong class="hl-keyword">package</strong> simple.documentation.framework;
+
+<strong class="hl-keyword">import</strong> ro.sync.ecss.css.Styles;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.StylesFilter;
+<strong class="hl-keyword">import</strong> ro.sync.ecss.extensions.api.node.AuthorNode;
+<strong class="hl-keyword">import</strong> ro.sync.exml.view.graphics.Font;
+
+<strong class="hl-keyword">public</strong> <strong class="hl-keyword">class</strong> SDFStylesFilter <strong class="hl-keyword">implements</strong> StylesFilter {
+
+    	<strong class="hl-keyword">public</strong> Styles filter(Styles styles, AuthorNode authorNode) {
+	        <strong class="hl-keyword">if</strong> (AuthorNode.NODE_TYPE_ELEMENT == authorNode.getType() 
+    	      &amp;&amp; <span class="hl-string">"table"</span>.equals(authorNode.getName())) {
+    	      styles.setProperty(Styles.KEY_FONT, <strong class="hl-keyword">new</strong> Font(null, Font.BOLD, <span class="hl-number">12</span>));
+        	}
+        	<strong class="hl-keyword">return</strong> styles;
+    	}
+}
+</pre>
+    <div class="note note note_note"><span class="note__title">Note:</span> The complete source code for <dfn class="term">framework</dfn> customization
+      examples can be found in the <strong class="ph b">oxygen-sample-framework</strong> module of the <a class="xref" href="https://www.oxygenxml.com/oxygen_sdk.html" target="_blank" rel="external noopener">Oxygen
+        SDK</a>, available as a Maven archetype <a class="xref" href="https://www.oxygenxml.com/developer.html" target="_blank" rel="external noopener">on the <span class="ph">Oxygen XML Editor</span> website</a>. </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-configure-extensions.html">Configuring Frameworks and Author Mode through Extensions</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/custom-attribute-value-editor.html">Customizing Attribute Value Editors</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/customize-profiling-conditions.html">Customizing Elements that Wrap Profiled Content</a></div></div></nav></article></main></body></html>

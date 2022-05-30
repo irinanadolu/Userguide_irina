@@ -1,0 +1,126 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,AutoCorrect,AutoCorrect preferences"><meta name="keywords" content="Preferences, AutoCorrect, AutoCorrect preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-author.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-author-mathml.html"><meta name="DC.relation" scheme="URI" content="../topics/autocorrect-dictionaries-preferences.html"><meta name="DC.relation" scheme="URI" content="../topics/autocorrect-dictionaries-preferences.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="autocorrect-preferences-page"><title>AutoCorrect Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="autocorrect-preferences-page"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">AutoCorrect Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes an option to automatically correct misspelled words as you
+      type in <span class="ph uicontrol">Author</span> mode. To enable and configure this <a class="xref" href="autocorrect.html#autocorrect"><dfn class="term">AutoCorrect</dfn> feature</a>, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Edit Modes</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Author</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">AutoCorrect</span></span>.</p>
+    <div class="p">The following options are available:<dl class="dl">
+        
+          <dt class="dt dlterm" id="autocorrect-preferences-page__enable-autocorrect"><span class="ph uicontrol">Enable AutoCorrect</span></dt>
+          <dd class="dd">When selected (default state), while editing in <span class="ph uicontrol">Author</span> mode, if
+            you type anything that is listed in the <span class="ph uicontrol">Replace</span> column of the
+            Replacements table displayed in this preferences page, <span class="ph">Oxygen XML Editor</span> will
+            automatically replace it with the value listed in the <span class="ph uicontrol">With</span> column.<div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm" id="autocorrect-preferences-page__use-spell-check"><span class="ph uicontrol">Use additional suggestions from the spell checker</span></dt>
+                  <dd class="dd">If selected, in addition to anything listed in the Replacements table
+                    displayed in this preferences page, <span class="ph">Oxygen XML Editor</span> will also use
+                    suggestions from the Spell Checker to automatically correct misspelled words.
+                    Suggestions from the Spell Checker will only be used if the misspelled word is
+                    not found in the Replacements table.<div class="note note note_note"><span class="note__title">Note:</span> The <dfn class="term">AutoCorrect</dfn> feature
+                      shares the same options configured in the <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check__lang-options-section"><span class="ph uicontrol">Language options</span></a> and <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check__ignore-elements-section"><span class="ph uicontrol">Ignore elements</span></a> sections in the
+                        <span class="ph uicontrol">Spell Check</span> preferences page.</div></dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Include text-to-markup corrections based on the current document
+                      type</span></dt>
+                  <dd class="dd">
+                    <p class="p">If selected, in addition to anything listed in the Replacements table
+                      displayed in this preferences page, the <dfn class="term">AutoCorrect</dfn> mechanism
+                      will also include XML markup insertion rules specified in a configuration file
+                      for each document type. For example, for default DITA, DocBook, and TEI
+                      documents, entering a hyphen (-) followed by a space in an empty paragraph
+                      will automatically insert a list element with an empty list item element
+                      inside. The configuration file is located at: <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/frameworks/[DOC_TYPE]/resources/structureAutocorrect.xml</span>.</p>
+                    <div class="p">
+                      <div class="note tip note_tip"><span class="note__title">Tip:</span> By default, the <span class="ph filepath">structureAutocorrect.xml</span>
+                        file only exists for DITA, DocBook, and TEI frameworks, but it is possible
+                        to customize your own markup correction rules for your particular document
+                        type. For details, see <a class="xref" href="customizing-structure-insertion.html">Customizing Text-to-Markup Automatic Conversions</a>.</div>
+                    </div>
+                  </dd>
+                
+              </dl>
+            </div></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Spell Check options</span> link</dt>
+          <dd class="dd">Use this link to navigate to the <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check">Spell Check
+              Preferences page</a>.</dd>
+        
+        
+          <dt class="dt dlterm" id="autocorrect-preferences-page__replacements-section">Replacements Table section</dt>
+          <dd class="dd">
+            <p class="p">The <dfn class="term">AutoCorrect</dfn> feature uses the Replacements table to automatically
+              replace anything that is listed in the <span class="ph uicontrol">Replace</span> column with the
+              value listed in the <span class="ph uicontrol">With</span> column for each language.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replacements for language</span> drop-down menu</dt>
+                  <dd class="dd">You can specify the language for the Replacements table, and for each
+                    language, you can configure the items listed in the table. The language selected
+                    in this page is not the language that will be used by the
+                      <dfn class="term">AutoCorrect</dfn> feature. It is simply the language for the
+                    Replacements table.</dd>
+                
+                
+                  <dt class="dt dlterm">Replacements Table</dt>
+                  <dd class="dd"> You can double-click on cells in either column to edit the listed items. Use
+                    the <span class="ph uicontrol">Add</span> button to insert new items and the
+                      <span class="ph uicontrol">Remove</span> button to delete rows from the table. <div class="note note note_note"><span class="note__title">Note:</span> Any
+                      changes, additions, or deletions you make to this table are saved to a path
+                      that is specified in the <a class="xref" href="autocorrect-dictionaries-preferences.html#autocorrect-dictionaries-preferences__user-defined"><span class="ph uicontrol">AutoCorrect Dictionaries</span> preferences
+                      page</a>.</div></dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="autocorrect-preferences-page__smart-quotes"><span class="ph uicontrol">Smart quotes</span> section</dt>
+          <dd class="dd">You can also choose to automatically convert double and single quotes to a quotation
+            character of your choice by using the following options in the <span class="ph uicontrol">Smart
+              quotes</span> section:<ul class="ul" id="autocorrect-preferences-page__ul_g41_hpy_qr">
+              <li class="li"><span class="ph uicontrol">Replace "Single quotes"</span> - Replaces single quotes with the
+                quotation symbols you select with the <span class="ph uicontrol">Start quote</span> and
+                  <span class="ph uicontrol">End quote</span> buttons.</li>
+              <li class="li"><span class="ph uicontrol">Replace "Double quotes"</span> - Replaces double quotes with the
+                quotation symbols you select with the <span class="ph uicontrol">Start quote</span> and
+                  <span class="ph uicontrol">End quote</span> buttons.</li>
+            </ul><div class="note note note_note"><span class="note__title">Note:</span> These <span class="ph uicontrol">Smart quotes</span> options are ignored for content
+              inside any element listed in the <a class="xref" href="preferences-editor-spell-check.html#preferences-editor-spell-check__ignore-elements-section"><span class="ph uicontrol">Ignore elements</span> section of the <span class="ph uicontrol">Spell Check
+                  preferences page</span></a>.</div></dd>
+        
+        
+          <dt class="dt dlterm"><a class="xref" href="../glossary/global-options.html"><span class="ph uicontrol">Global
+            Options</span></a></dt>
+          <dd class="dd">If this option is selected, the options are stored on your local computer, in a folder
+            that is not accessible to other users.</dd>
+        
+        
+          <dt class="dt dlterm"><a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project
+              Options</span></a></dt>
+          <dd class="dd">If this option is selected, the options are stored in the project file and can be
+            shared with other users. Selecting <a class="xref" href="../glossary/project-options.html"><span class="ph uicontrol">Project Options</span></a> will only save your selections in
+              <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__enable-autocorrect"><span class="ph uicontrol">Enable AutoCorrect</span></a>, <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__use-spell-check"><span class="ph uicontrol">Use
+                additional suggestions from the spell checker</span></a>, and the options in
+            the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__smart-quotes"><span class="ph uicontrol">Smart quotes</span> section</a>. Changes to the Replacements
+            table are not saved in this page. To save changes to the Replacements table at project
+            level you need to specify a custom location in <a class="xref" href="autocorrect-dictionaries-preferences.html#autocorrect-dictionaries-preferences__user-defined">the <span class="ph uicontrol">User-defined replacements</span> section of the
+                <span class="ph uicontrol">AutoCorrect Dictionaries</span> preferences page</a> and select
+              <span class="ph uicontrol">Project Options</span> from that preferences page instead.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Restore Defaults</span></dt>
+          <dd class="dd">Restores the options in this preferences page to their default values and <strong class="ph b">also
+              deletes any changes you have made to the <a class="xref" href="autocorrect-preferences-page.html#autocorrect-preferences-page__replacements-section">Replacements
+                table</a></strong>.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/autocorrect-dictionaries-preferences.html">AutoCorrect Dictionaries Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-author.html">Author Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-author-mathml.html">MathML Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/autocorrect-dictionaries-preferences.html">AutoCorrect Dictionaries Preferences</a></div></div></nav></article></main></body></html>

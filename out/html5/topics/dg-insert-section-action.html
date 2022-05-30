@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.relation" scheme="URI" content="../topics/dg-create-custom-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-create-custom-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/dg-insert-table-action.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dg-insert-section-action"><title>Example: Configuring the Insert Section Action for a Framework</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dg-insert-section-action"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example:
+    Configuring the Insert Section Action for a Framework</h1>
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">This topic describes the procedure for defining the <span class="ph uicontrol">Insert Section</span> action for a custom <a class="xref" href="../glossary/framework.html"><dfn class="term">framework</dfn></a>. It is assumed that the icon files, <img class="image" id="dg-insert-section-action__image_i2x_p1z_tr" src="../img/Section16.gif"> (<span class="ph filepath">Section16.gif</span>) for the menu item and <img class="image" id="dg-insert-section-action__image_mq4_r1z_tr" src="../img/Section20.png"> (<span class="ph filepath">Section20.gif</span>) for the toolbar, are already available. Although you could use the same icon size for both the menu and toolbar, usually the icons from the toolbars are larger than the ones found in the menus. These files should be placed in your custom <dfn class="term">framework</dfn> directory (<span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>\frameworks\[CUSTOM_FRAMEWORK_DIR]</span>).</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Action Dialog Box</figcaption>
+          
+          <img class="image" src="../img/the-action-dialog.png">
+        </figure>
+      </div>
+    </section>
+    <section><ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Set the <strong class="ph b">ID</strong> field to <strong class="ph b">insert_section</strong>. This is a unique action
+          identifier.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the <strong class="ph b">Name</strong> field to <strong class="ph b">Insert Section</strong>. This will be the action's name,
+          displayed as a tooltip when the action is placed in the toolbar, or as the menu item
+          name.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the <strong class="ph b">Menu access key</strong> to <strong class="ph b">i</strong>. On Windows, the menu items can be accessed
+          using <span class="ph uicontrol"><span class="keyword shortcut">Alt+letter</span></span> keys combination, when the
+          menu is visible. The <em class="ph i">letter</em> is visually represented by underlining the first letter
+          from the menu item name having the same value.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Add a <strong class="ph b">Description</strong>. </span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the <span class="ph uicontrol">Large icon (20x20)</span> field to <code class="ph codeph">${framework}/Section20.gif</code>. A good practice is to store the image files inside the <dfn class="term">framework</dfn> directory and use <a class="xref" href="editor-variables.html#editor-variables">editor variable</a> <strong class="ph b">${framework}</strong> to make the image relative to the <dfn class="term">framework</dfn> location.</span>
+        <div class="itemgroup info">If the images are bundled in a <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> archive together with some Java operations implementation, for instance, it might be convenient for you to reference the images not by the file name, but by their relative path location in the class-path.<p class="p">If the image file <span class="ph filepath">Section20.gif</span> is located in the <strong class="ph b">images</strong> directory inside the <dfn class="term">JAR</dfn> archive, you can reference it by using <strong class="ph b">/images/Section20.gif</strong>. The <dfn class="term">JAR</dfn> file must be added into the <span class="ph uicontrol">Classpath</span> list.</p></div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Set the <span class="ph uicontrol">Small icon (16x16)</span> field to <code class="ph codeph">${framework}/Section16.gif</code>.</span>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">Click the text field next to <strong class="ph b">Shortcut key</strong> and set it to <strong class="ph b">Ctrl+Shift+S
+            (Meta+Shift+S on Mac OS)</strong>. This will be the key combination to trigger the action
+          using the keyboard only.</span>
+        <div class="itemgroup info">The shortcut is enabled only by <a class="xref" href="dg-configuring-author-menu.html#dg-configuring-author-menu">adding the action to
+            the main menu of <span class="ph uicontrol">Author</span> mode</a>, which contains all the
+          actions that the author will have in a menu for the current document type.</div>
+      </li><li class="li step stepexpand">
+        <span class="ph cmd">At this time the action has no functionality added to it. Next you must define how this
+          action operates. An action can have multiple operation modes. The first action mode
+          enabled by the evaluation of its associated XPath expression will be executed when the
+          action is triggered by the user. The XPath expression needs to be version 2.0 and its
+          scope must be only element and attribute nodes of the edited document. Otherwise, the
+          expression will not return a match and will not trigger the action. If the expression is
+          left empty, the action will be enabled anywhere in the scope of the root element. For this
+          example, suppose you want the action to add a section only if the current element is
+          either a <code class="keyword markupname xmlelement">&lt;book&gt;</code>, <code class="keyword markupname xmlelement">&lt;article&gt;</code>, or another
+          <code class="keyword markupname xmlelement">&lt;section&gt;</code>.</span>
+        <ol type="a" class="ol substeps" id="dg-insert-section-action__substeps_fafb419f-187b-4bbf-8986-48ee0120f0b0">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the XPath expression field to:</span>
+            <div class="itemgroup info">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">local-name()='section' or local-name()</span>='book' or 
+<span class="hl-attribute"> local-name()</span>='article'</pre>
+            </div>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Set the <strong class="ph b">invoke operation</strong> field to <em class="ph i">InsertFragmentOperation</em> built-in
+              operation, designed to insert an XML fragment at the cursor position. This belongs to a
+              set of built-in operations, a complete list of which can be found in the <a class="xref" href="dg-default-author-operations.html#dg-default-author-operations">Author Default Operations</a> section. This set can be expanded with your own
+              Java operation implementations. </span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Configure the arguments section as follows:</span>
+            <div class="itemgroup info">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;section</strong> <span class="hl-attribute">xmlns</span>=
+<span class="hl-value">"http://www.oxygenxml.com/sample/documentation"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;title/&gt;</strong>
+<strong class="hl-tag">&lt;/section&gt;</strong></pre>
+              <p class="p"><code class="ph codeph">insertLocation</code> - leave it empty. This means the location will be
+                at the cursor position.</p>
+              <p class="p"><code class="ph codeph">insertPosition</code> - select "<strong class="ph b">Inside</strong>".</p>
+            </div>
+          </li>
+        </ol>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dg-create-custom-actions.html">Creating and Customizing Actions for a Framework</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dg-create-custom-actions.html">Creating and Customizing Actions for a Framework</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dg-insert-table-action.html">Example: Configuring the Insert Table Action for a Framework</a></div></div></nav></article></main></body></html>

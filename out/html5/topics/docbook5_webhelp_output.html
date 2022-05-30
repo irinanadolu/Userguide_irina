@@ -1,0 +1,174 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DocBook to WebHelp,DocBook to WebHelp transformation"><meta name="keywords" content="Transformation Scenarios, DocBook to WebHelp, DocBook to WebHelp transformation"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/author-docbook5-transformation-scenarios.html"><meta name="DC.relation" scheme="URI" content="../topics/docbook-2-dita-transform.html"><meta name="DC.relation" scheme="URI" content="customize_webhelp.html#customize_webhelp"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="docbook5_webhelp_output"><title>DocBook to WebHelp Classic Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="docbook5_webhelp_output"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DocBook to WebHelp Classic Transformation</h1>
+  
+  <div class="body">
+    <p class="p">DocBook documents can be transformed into several types of WebHelp systems (with or without a
+      feedback section). The <a class="xref" href="webhelp_system_description.html">WebHelp Classic layout and
+        features</a> are designed for desktop systems and include a familiar classical style. <span class="ph">Oxygen XML Editor</span> also provides numerous possibilities for <a class="xref" href="customize_webhelp.html">customizing the WebHelp Classic output</a>.</p>
+    <section class="section" id="docbook5_webhelp_output__webhelp_classic_output"><h2 class="title sectiontitle">WebHelp Classic Transformation Scenario</h2>
+      
+      <div class="p">To publish a DocBook document as a <strong class="ph b">WebHelp Classic</strong> system, follow these steps:<ol class="ol" id="docbook5_webhelp_output__ol_ist_rny_cr">
+          <li class="li">Click the <span class="ph uicontrol"><img class="image" id="docbook5_webhelp_output__image_obc_2wv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s)</span> action from the toolbar<span class="ph"> (or the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Transformation</span></span> menu</span>.</li>
+          <li class="li">Select the <span class="ph uicontrol">DocBook WebHelp Classic</span> scenario from the
+              <span class="ph uicontrol">DocBook 4</span> or <span class="ph uicontrol">DocBook 5</span> section.</li>
+          <li class="li">Click <span class="ph uicontrol">Apply associated</span>.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> When the <span class="ph uicontrol">DocBook WebHelp Classic</span> transformation is
+        complete, the output is automatically opened in your default browser.</p>
+    </section>
+    <section class="section" id="docbook5_webhelp_output__webhelp_classic_with_feedback_output"><h2 class="title sectiontitle">WebHelp Classic with Feedback Transformation Scenario</h2>
+      
+      <div class="p">To publish a DocBook document as a <strong class="ph b">WebHelp Classic with Feedback</strong> system, follow
+        these steps:<ol class="ol" id="docbook5_webhelp_output__ol_xby_xny_cr">
+          <li class="li">Click <span class="ph uicontrol"><img class="image" id="docbook5_webhelp_output__image_sdh_2wv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenarios</span>.</li>
+          <li class="li">Select the <span class="ph uicontrol">DocBook WebHelp Classic with Feedback</span> scenario from
+            the <span class="ph uicontrol">DocBook 4</span> or <span class="ph uicontrol">DocBook 5</span> section.</li>
+          <li class="li">Click <span class="ph uicontrol">Apply associated</span>.</li>
+          <li class="li">Enter the documentation product ID and the documentation version. </li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> When the <span class="ph uicontrol">DocBook WebHelp Classic with Feedback</span>
+        transformation is complete, your default browser opens the
+          <span class="ph filepath">installation.html</span> file. This file contains information about the
+        output location, system requirements, installation instructions, and deployment of the
+        output. Follow the instructions to complete the system deployment. For more information, see
+          <a class="xref" href="deploying-webhelp-feedback.html">Deploying a PHP-based Feedback-Enabled System</a>.</p>
+      <p class="p">For more information about the feedback-enabled WebHelp system, watch our video
+        demonstration:</p>
+      <p class="p"><div class="non-responsive"><iframe class="iframe embed-responsive-item" controls="controls" width="450" height="250" src="https://www.youtube.com/embed/eoQ2uxHvppE" allowfullscreen="true"></iframe></div></p>
+    </section>
+    <section class="section" id="docbook5_webhelp_output__customizing_webhelp_transformation_scenarios"><h2 class="title sectiontitle">Customizing DocBook WebHelp Transformation Scenarios</h2>
+      
+      <div class="p">To customize a DocBook WebHelp transformation scenario, you can edit various parameters,
+        including the following most commonly used ones:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph">default.language</span></dt>
+            <dd class="dd"><span class="ph">This parameter is used if the language is not
+              detected in the <dfn class="term">DITA map</dfn>. The default value is
+              <code class="ph codeph">en-us</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">clean.output</span></dt>
+            <dd class="dd"><span class="ph">Deletes all files from the output folder before the
+              transformation is performed (only <code class="ph codeph">no</code> and <code class="ph codeph">yes</code> values
+              are valid and the default value is <code class="ph codeph">no</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">l10n.gentext.default.language</span></dt>
+            <dd class="dd"><span class="ph">This parameter is used to identify the
+              correct stemmer that differs from language to language. For example, for English the
+              value of this parameter is <code class="ph codeph">en</code> or for French it is
+              <code class="ph codeph">fr</code>, and so on.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">use.stemming</span></dt>
+            <dd class="dd"><span class="ph">Controls whether or not you want to include stemming search
+              algorithms into the published output (default setting is
+            <code class="ph codeph">false</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.copyright</span></dt>
+            <dd class="dd"><span class="ph">Adds a small copyright text that appears at the end of
+              the <span class="ph uicontrol">Table of Contents</span> pane.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.custom.resources</span></dt>
+            <dd class="dd"><span class="ph">The file path to a directory that contains
+              resources files. All files from this directory will be copied to the root of the
+              WebHelp output.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.favicon</span></dt>
+            <dd class="dd"><span class="ph">The file path that points to an image to be used as a
+                <em class="ph i">favicon</em> in the WebHelp output.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.footer.file</span></dt>
+            <dd class="dd"><span class="ph">Path to an XML file that includes the footer content
+              for your WebHelp output pages. You can use this parameter to integrate social media
+              features (such as widgets for Facebook™, Twitter™, Google Analytics, or Google+™). The file must be
+              well-formed, each widget must be in separate <code class="keyword markupname xmlelement">&lt;div&gt;</code> or
+                <code class="keyword markupname xmlelement">&lt;span&gt;</code> element, and the code for each
+                <code class="keyword markupname xmlelement">&lt;script&gt;</code> element is included in an XML comment (also, the
+              start and end tags for the XML comment must be on a separate line). The following code
+              exert is an example for adding a Facebook™
+            widget:</span><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"facebook"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"fb-root"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;script&gt;</strong>
+    <em class="hl-comment">&lt;!-- (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; 
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0"; 
+      fjs.parentNode.insertBefore(js, fjs); }
+       (document, 'script', 'facebook-jssdk')); --&gt;</em>
+    <strong class="hl-tag">&lt;/script&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">data-share</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">data-show-faces</span>=<span class="hl-value">"true"</span> <span class="hl-attribute">data-action</span>=<span class="hl-value">"like"</span>
+       <span class="hl-attribute">data-layout</span>=<span class="hl-value">"standard"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"fb-like"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.footer.include</span></dt>
+            <dd class="dd"><span class="ph">Specifies whether or not to include footer in each
+              WebHelp page. Possible values: <code class="ph codeph">yes</code>, <code class="ph codeph">no</code>. If set to
+                <code class="ph codeph">no</code>, no footer is added to the WebHelp pages. If set to
+                <code class="ph codeph">yes</code> and the <code class="ph codeph">webhelp.footer.file</code> parameter has a
+              value, then the content of that file is used as footer. If the
+                <code class="ph codeph">webhelp.footer.file</code> has no value then a default <strong class="ph b">Oxygen</strong>
+              footer is inserted in each WebHelp page.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.logo.image.target.url</span></dt>
+            <dd class="dd"><span class="ph">Specifies a target URL that is set on the
+              logo image. When you click the logo image, you will be redirected to this
+              address.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.logo.image</span></dt>
+            <dd class="dd"><span class="ph">Specifies a path to an image displayed as a logo in
+              the left side of the output header.</span>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.product.id</span>
+              <span class="ph"><span class="ph">(available only for Feedback-enabled systems)</span></span></dt>
+            <dd class="dd">
+              <div class="p">This parameter specifies a short name for the
+              documentation target, or product (for example,
+                <span class="ph filepath">mobile-phone-user-guide</span>,
+                <span class="ph filepath">hvac-installation-guide</span>).<div class="note note note_note"><span class="note__title">Note:</span> You can deploy documentation for
+                multiple products on the same server.</div><div class="note restriction note_restriction"><span class="note__title">Restriction:</span> The following
+                characters are not allowed in the value of this parameter: <code class="ph codeph">&lt; &gt; / \ ' ( )
+                  { } = ; * % + &amp;</code>.</div></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.product.version</span>
+              <span class="ph"><span class="ph">(available only for Feedback-enabled systems)</span></span></dt>
+            <dd class="dd">
+              <div class="p">Specifies the documentation version number (for
+              example, 1.0, 2.5, etc.). New user comments are bound to this version.<div class="note note note_note"><span class="note__title">Note:</span> Multiple
+                documentation versions can be deployed on the same server.</div><div class="note restriction note_restriction"><span class="note__title">Restriction:</span> The following characters are not allowed in the value of this
+                parameter: <code class="ph codeph">&lt; &gt; / \ ' ( ) { } = ; * % + &amp;</code>.</div></div>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.ranking</span></dt>
+            <dd class="dd"><span class="ph">If this parameter is set to <code class="ph codeph">false</code>
+              then the 5-star rating mechanism is no longer included in the search results that are
+              displayed on the <span class="ph uicontrol">Search</span> tab (default setting is
+                <code class="ph codeph">true</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.skin.css</span></dt>
+            <dd class="dd"><span class="ph">Path to a CSS file that sets the style theme in the
+              WebHelp Classic output. It can be one of the built-in skin CSS from the
+                <span class="ph filepath">OXYGEN_INSTALL_DIR\frameworks\docbook\xsl\com.oxygenxml.webhelp.classic\predefined-skins</span>
+              directory, or it can be a custom skin CSS generated with the <a class="xref" href="https://www.oxygenxml.com/webhelp-skin-builder" target="_blank" rel="external noopener">Oxygen Skin Builder</a> web application.</span></dd>
+          
+        </dl></div>
+      <p class="p">For more information about all the DocBook transformation parameters, go to <a class="xref" href="http://docbook.sourceforge.net/release/xsl/current/doc/fo/index.html" target="_blank" rel="external noopener">http://docbook.sourceforge.net/release/xsl/current/doc/fo/index.html</a>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-docbook5-transformation-scenarios.html">DocBook Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-docbook5-transformation-scenarios.html">DocBook Transformation Scenarios</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/docbook-2-dita-transform.html">DocBook to DITA Transformation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="customize_webhelp.html#customize_webhelp">Customizing WebHelp Classic Output</a></li></ul></div></nav>
+</article></main></body></html>

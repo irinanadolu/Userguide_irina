@@ -1,0 +1,176 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_table_of_contents.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_list_of_tables___list_of_figures.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_table_of_contents_for_chapters"><title>Table of Contents on a Page (Mini TOC)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_table_of_contents_for_chapters">
+  <h1 class="title topictitle1" id="ariaid-title1">Table of Contents on a Page (Mini TOC)</h1>
+  <div class="body">
+		<p class="p">To add a mini table of contents for each chapter, you need to:</p>
+		<ul class="ul" id="dcpp_table_of_contents_for_chapters__ul_mxq_ph2_3hb">
+			<li class="li">Use DITA bookmaps instead of regular maps.</li>
+			<li class="li">Set the <code class="ph codeph">args.chapter.layout</code> transformation parameter to either of the
+        following values: <strong class="ph b">MINITOC</strong> or <strong class="ph b">MINITOC-BOTTOM-LINKS</strong>.</li>
+		</ul>
+		<div class="note note note_note"><span class="note__title">Note:</span> If the chapter does not have child topics, it will not have a mini TOC in the PDF
+			output.</div>
+		<section class="section" id="dcpp_table_of_contents_for_chapters__section_ssw_zzf_xhb"><h2 class="title sectiontitle">Layout for MINITOC</h2><p class="p">This table of contents is
+				positioned between the chapter title and the chapter child topics. It consists of a list of
+				links pointing to the child topics, positioned in the left side of the page, and a
+				description in the right side. This content is collected from the topic file referenced by
+				the chapter <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> in the map.</p><img class="image" id="dcpp_table_of_contents_for_chapters__image_i2y_122_3hb" src="../img/dcpp_table_of_contents_for_chapters.png"></section>
+		<section class="section" id="dcpp_table_of_contents_for_chapters__section_hrv_b1g_xhb"><h2 class="title sectiontitle">Layout for MINITOC-BOTTOM-LINKS</h2>
+			
+			<p class="p">This table of contents is positioned between the chapter title and the chapter child
+				topics. It consists of a chapter description and list of links pointing to the child topics,
+				under the description. This description is collected from the topic file referenced by the
+				chapter <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> in the map.</p>
+			<p class="p"><img class="image" id="dcpp_table_of_contents_for_chapters__image_icb_k1g_xhb" src="../img/dcpp_table_of_contents_for_chapters_bottom_links.png"></p>
+		</section>
+		<p class="p">The above chapter example has the following DITA map fragment:</p>
+		<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">  <strong class="hl-tag">&lt;chapter</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/chapter-introduction.dita"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/introduction-about.dita"</span><strong class="hl-tag"> /&gt;</strong>
+    <strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"topics/introduction-description.dita"</span><strong class="hl-tag"> /&gt;</strong>
+  <strong class="hl-tag">&lt;/chapter&gt;</strong></pre>
+		<p class="p">The <span class="ph filepath">chapter-introduction.dita</span> file provides the description content that
+			is in the right side of the page. The children <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+			generate the mini TOC links.</p>
+	</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_table_of_contents.html">Table of Contents</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_list_of_tables___list_of_figures.html">List of Tables/Figures</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_table_of_contents_for_chapters___xml_fragment">
+  <h2 class="title topictitle2" id="ariaid-title2">Table of Contents for Chapters (Mini TOC) - XML Fragment</h2>
+  <div class="body">
+    <p class="p">In the merged XML file, the mini TOC is built from a related links section and some
+        <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements that wrap the entire mini TOC and the description
+      area.</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">chapter/minitoc</dt>
+          <dd class="dd">Wraps the entire structure, including the content of the chapter
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>.</dd>
+        
+        
+          <dt class="dt dlterm">chapter/minitoc-links</dt>
+          <dd class="dd">Wraps the <code class="keyword markupname xmlelement">&lt;related-links&gt;</code> element. Note that the label of the
+            related links list is internationalized.</dd>
+        
+        
+          <dt class="dt dlterm">chapter/minitoc-desc</dt>
+          <dd class="dd">Contains the entire content of the topic file referenced by the chapter
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the map.</dd>
+        
+      </dl>
+    </div>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml">
+<strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc "</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc-links "</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;related-links</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/related-links "</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;linklist</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linklist "</span><strong class="hl-tag">&gt;</strong>
+        <strong class="hl-tag">&lt;desc</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/desc "</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;ph</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph chapter/minitoc-label "</span><strong class="hl-tag">&gt;</strong>Topics: <strong class="hl-tag">&lt;/ph&gt;</strong>
+        <strong class="hl-tag">&lt;/desc&gt;</strong>
+        <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/link "</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"child"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;linktext</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linktext "</span><strong class="hl-tag">&gt;</strong>About this framework.<strong class="hl-tag">&lt;/linktext&gt;</strong>
+        <strong class="hl-tag">&lt;/link&gt;</strong>
+        <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/link "</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_3"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"child"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;linktext</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linktext "</span><strong class="hl-tag">&gt;</strong>Description<strong class="hl-tag">&lt;/linktext&gt;</strong>
+        <strong class="hl-tag">&lt;/link&gt;</strong>
+      <strong class="hl-tag">&lt;/linklist&gt;</strong>
+    <strong class="hl-tag">&lt;/related-links&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc-desc "</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;shortdesc</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/shortdesc "</span><strong class="hl-tag">&gt;</strong>DITA Open Toolkit, or DITA-OT for 
+	short, is a set of Java-based, open-source tools that provide processing 
+	for content authored in the Darwin Information Typing 
+	Architecture<strong class="hl-tag">&lt;/shortdesc&gt;</strong>
+    <strong class="hl-tag">&lt;body</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/body "</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;p</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/p "</span><strong class="hl-tag">&gt;</strong>The DITA Open Toolkit documentation provides information about
+        installing, running, configuring and extending the toolkit.<strong class="hl-tag">&lt;/p&gt;</strong>
+    <strong class="hl-tag">&lt;/body&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre>
+    <p class="p">When using the <code class="ph codeph">pdf-css-html5</code> transformation, this structure is converted to
+      a set of HTML elements, preserving the class values:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc div minitoc"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc-links div minitoc-links"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"wh_related_links"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;nav</strong> <span class="hl-attribute">role</span>=<span class="hl-value">"navigation"</span> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/related-links related-links"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/linklist linklist linklistwithchild"</span><strong class="hl-tag">&gt;</strong>
+     <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/desc desc"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;span</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/ph chapter/minitoc-label ph minitoc-label"</span><strong class="hl-tag">&gt;</strong>Topics: <strong class="hl-tag">&lt;/span&gt;</strong>
+       <strong class="hl-tag">&lt;/div&gt;</strong>
+        <strong class="hl-tag">&lt;ul</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"linklist"</span><strong class="hl-tag">&gt;</strong>
+         <strong class="hl-tag">&lt;li</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/link link ulchildlink"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span> 
+								<span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"child"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;strong&gt;</strong>
+           <strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_2"</span><strong class="hl-tag">&gt;</strong>About this framework.<strong class="hl-tag">&lt;/a&gt;</strong>
+          <strong class="hl-tag">&lt;/strong&gt;</strong>
+            <strong class="hl-tag">&lt;br/&gt;</strong>
+         <strong class="hl-tag">&lt;/li&gt;</strong>
+         <strong class="hl-tag">&lt;li</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/link link ulchildlink"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_3"</span> 
+								<span class="hl-attribute">type</span>=<span class="hl-value">"topic"</span> <span class="hl-attribute">role</span>=<span class="hl-value">"child"</span><strong class="hl-tag">&gt;</strong>
+          <strong class="hl-tag">&lt;strong&gt;</strong>
+            <strong class="hl-tag">&lt;a</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"#unique_3"</span><strong class="hl-tag">&gt;</strong>Description<strong class="hl-tag">&lt;/a&gt;</strong>
+          <strong class="hl-tag">&lt;/strong&gt;</strong>
+            <strong class="hl-tag">&lt;br/&gt;</strong>
+         <strong class="hl-tag">&lt;/li&gt;</strong>
+        <strong class="hl-tag">&lt;/ul&gt;</strong>
+       <strong class="hl-tag">&lt;/div&gt;</strong>
+      <strong class="hl-tag">&lt;/nav&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/div chapter/minitoc-desc div minitoc-desc"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;div</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/body body"</span><strong class="hl-tag">&gt;</strong>
+      <strong class="hl-tag">&lt;p</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/shortdesc shortdesc"</span><strong class="hl-tag">&gt;</strong>DITA Open Toolkit, or DITA-OT for short, 
+	 is a set of Java-based, open-source tools that provide processing for content 
+	 authored in the Darwin Information Typing Architecture<strong class="hl-tag">&lt;/p&gt;</strong>
+      <strong class="hl-tag">&lt;p</strong> <span class="hl-attribute">class</span>=<span class="hl-value">"- topic/p p"</span><strong class="hl-tag">&gt;</strong>The DITA Open Toolkit documentation provides information
+        about installing, running, configuring and extending the toolkit.<strong class="hl-tag">&lt;/p&gt;</strong>
+    <strong class="hl-tag">&lt;/div&gt;</strong>
+  <strong class="hl-tag">&lt;/div&gt;</strong>
+<strong class="hl-tag">&lt;/div&gt;</strong></pre>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_table_of_contents_for_chapters___built_in_css">
+  <h2 class="title topictitle2" id="ariaid-title3">Table of Contents for Chapters (Mini TOC) - Built-in CSS</h2>
+  <div class="body">
+    <p class="p">The built-in CSS rules are in:
+        <span class="ph filepath">[PLUGIN_DIR]/css/print/p-chapters-minitoc.css</span>.</p>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_style_the_table_of_contents_for_chapters">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Style the Table of Contents for Chapters (Mini TOC)</h2>
+  <div class="body">
+    <p class="p">Suppose that you do not want the links and the chapter description to be side by side, but
+      instead place the links above the description. Also, you may choose to remove the label above
+      the links and put all the links in a colored rectangle with decimal numbers before them.</p>
+    <p class="p">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, add the
+      following selectors: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><em class="hl-comment">/* Change from inline to blocks to stack them one over the other. */</em>
+
+*[class~=<span class="hl-string">"chapter/minitoc-desc"</span>],
+*[class~=<span class="hl-string">"chapter/minitoc-links"</span>] {
+	<strong class="hl-keyword">display</strong>: block;
+	<strong class="hl-keyword">width</strong>: <span class="hl-number">100</span>%;
+}
+<em class="hl-comment">/* No need for the 'Topics:' label. */</em>
+*[class~=<span class="hl-string">"chapter/minitoc-links"</span>] *[class~=<span class="hl-string">"topic/desc"</span>] {
+	<strong class="hl-keyword">display</strong>:none;
+}
+
+<em class="hl-comment">/* Add background for the links list. */</em>
+*[class~=<span class="hl-string">"chapter/minitoc-links"</span>] {
+	<strong class="hl-keyword">background-color</strong>:silver;
+	<strong class="hl-keyword">padding</strong>:<span class="hl-number">0.5</span>em;
+}
+
+<em class="hl-comment">/* Remove the border and the padding from the description. We do not need that separator. */</em>
+*[class~=<span class="hl-string">"chapter/minitoc-desc"</span>] {
+	<strong class="hl-keyword">border-left</strong>:none;
+	<strong class="hl-keyword">padding-left</strong>:<span class="hl-number">0</span>;
+}
+
+<em class="hl-comment">/* Add a number before each of the links. */</em>
+*[class~=<span class="hl-string">"chapter/minitoc-links"</span>] *[class~=<span class="hl-string">"topic/link"</span>] {
+	<strong class="hl-keyword">display</strong>:list-item;
+	<strong class="hl-keyword">list-style-type</strong>:decimal;
+	<strong class="hl-keyword">margin-left</strong>:<span class="hl-number">1</span>em;
+}</pre>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_debugging_the_css.html#dcpp_how_to_speed_up_css_development_and_debugging">How to Speed up CSS Development and Debugging</a></li></ul></div></nav>
+</article></article></article></main></body></html>

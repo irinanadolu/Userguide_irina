@@ -1,0 +1,220 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="WebHelp Responsive,Inserting HTML,Customizing output with HTML content"><meta name="keywords" content="WebHelp Responsive, Inserting HTML, Customizing output with HTML content"><meta name="DC.relation" scheme="URI" content="../topics/whr_layout.html"><meta name="DC.relation" scheme="URI" content="../topics/webhelp-customizing-with-css.html"><meta name="DC.relation" scheme="URI" content="../topics/wh-add-js-amd.html"><meta name="DC.relation" scheme="URI" content="whr_publishing_template_contents.html#html_fragment_extension_points"><meta name="DC.relation" scheme="URI" content="whr_publishing_template_contents.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh-add-custom-html"><title>How to Insert HTML Content</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh-add-custom-html"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Insert HTML Content</h1>
+  
+  <div class="body">
+    <p class="p">You can add custom HTML content in the WebHelp Responsive output by inserting it in a
+      well-formed XML file that will be referenced in the transformation (either from an <a class="xref" href="glossentry-wh-publishing-template.html"><dfn class="term">Oxygen Publishing Template</dfn></a> or
+      using one of the <a class="xref" href="webhelp-responsive-plugin-additional-parameters.html#webhelp-responsive-plugin-additional-parameters__html_fragment_extension_parameters">HTML fragment parameters</a>). This content may include references to additional
+      JavaScript, CSS, and other types of resources, or such resources can be inserted inline within
+      the HTML content that is inserted in the XML file.</p>
+    <section class="section" id="wh-add-custom-html__the_xml_file"><h2 class="title sectiontitle">The XML File</h2>
+      
+      <div class="p" id="wh-add-custom-html__p-comments">There are several things to consider regarding this XML file:<ul class="ul">
+          <li class="li">
+          <p class="p"><strong class="ph b">Well-Formedness</strong> - If the file is not a <a class="xref" href="checking-xml-well-formedness.html#checking-xml-well-formedness"><em class="ph i">Well-formed XML</em> document</a> (or fragments are not well-formed), the
+            transformation will fail.</p>
+          <p class="p">A common use case is if you want to include several <code class="keyword markupname xmlelement">&lt;script&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements. In this case, the XML fragment has multiple
+            root elements and to make it well-formed, you can wrap it in an
+              <code class="keyword markupname xmlelement">&lt;html&gt;</code> element. This element tag will be filtered out and only
+            its children will be copied to the output documents. Similarly, you can wrap your
+            content in <code class="keyword markupname xmlelement">&lt;head&gt;</code>, <code class="keyword markupname xmlelement">&lt;body&gt;</code>,
+              <code class="keyword markupname xmlelement">&lt;html/head&gt;</code>, or <code class="keyword markupname xmlelement">&lt;html/body&gt;</code>
+            elements.</p>
+        </li>
+          <li class="li">
+          <div class="p"><strong class="ph b">Referencing Resources in the XML File</strong> - You can include references to local
+            resources (such as JavaScript or CSS files) by using the built-in
+              <code class="ph codeph">${oxygen-webhelp-output-dir}</code> macro to specify their paths relative to
+            the output
+            directory:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;html&gt;</strong>
+  <strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/js/test.js"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;link</strong> <span class="hl-attribute">rel</span>=<span class="hl-value">"stylesheet"</span> <span class="hl-attribute">type</span>=<span class="hl-value">"text/css"</span> 
+        <span class="hl-attribute">href</span>=<span class="hl-value">"${oxygen-webhelp-output-dir}/css/test.css"</span><strong class="hl-tag"> /&gt;</strong>
+<strong class="hl-tag">&lt;/html&gt;</strong></pre></div>
+          <p class="p">If you want that the path of your resource to be relative to the <a class="xref" href="whr-publishing-template-2.html">templates directory</a>, you can use the
+              <code class="ph codeph">${oxygen-webhelp-template-dir}</code> macro.</p>
+          <p class="p">To copy the referenced resources to the output directory, follow the procedure in:
+              <a class="xref" href="whr-copy-additional-resources.html">How to Copy Additional Resources to Output Directory</a>.</p>
+        </li>
+          <li class="li" id="wh-add-custom-html__inline-js">
+          <p class="p"><strong class="ph b">Inline JavaScript or CSS Content</strong>:</p>
+          <div class="p">JavaScript:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+<strong class="hl-tag">&lt;/script&gt;</strong> </pre></div>
+          <div class="p">CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;style&gt;</strong>
+    /* Include CSS style rules here. */
+
+    *{
+      color:red
+    } 
+<strong class="hl-tag">&lt;/style&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> 
+              <p class="p">If you have special characters (for example, <code class="ph codeph">&amp;</code>,
+                  <code class="ph codeph">&lt;</code>) that break the well-formedness of the XML fragment, it is
+                important to place the content inside an XML comment.</p>
+              <p class="p"><strong class="ph b">[Important]</strong> The XML comment tags (both the start and end tags) must be on
+                lines by themselves. If they are on the same line as any of the script's content, it
+                will likely result in a JavaScript error.</p>
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong>
+  <em class="hl-comment">&lt;!--
+    /* Include JavaScript code here. */
+ 
+    function myFunction() {
+      return true;
+    }
+  --/&gt;
+&lt;/script&gt; </em></pre>
+            </div></div>
+        </li>
+        </ul></div>
+    </section>
+    <section class="section" id="wh-add-custom-html__using_webhelp_macros_inside_a_html_fragment_file"><h2 class="title sectiontitle">Using WebHelp Macros</h2>
+      
+      <p class="p">The XML file can use WebHelp macros, which are variables that will be expanded when the
+        content of the HTML fragment file will be copied in the final output.</p>
+      <div class="p">There are two possibilities for using macros:<ul class="ul">
+          <li class="li"><strong class="ph b">Directly in attribute values</strong> - For example, if you want to reference a
+            JavaScript file from the Publishing Template directory, you can use the following
+            construct:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span> <span class="hl-attribute">src</span>=<span class="hl-value">"${path(oxygen-webhelp-template-dir)}/"</span><strong class="hl-tag">&gt;</strong><strong class="hl-tag">&lt;/script&gt;</strong></pre></li>
+          <li class="li"><strong class="ph b">In text content</strong> - Using the <code class="keyword markupname xmlelement">&lt;whc:macro&gt;</code> template
+              component:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;script</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"text/javascript"</span><strong class="hl-tag">&gt;</strong> 
+    var outDirPath = '<strong class="hl-tag">&lt;whc:macro</strong> <span class="hl-attribute">value</span>=<span class="hl-value">"${path(oxygen-webhelp-output-dir)}"</span> 
+    <span class="hl-attribute">xmlns:whc</span>=<span class="hl-value">"http://www.oxygenxml.com/webhelp/components"</span><strong class="hl-tag">/&gt;</strong>';
+    console.log("The output directory path is:", outDirPath);
+<strong class="hl-tag">&lt;/script&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> When using the <code class="ph codeph">&lt;whc:macro&gt;</code> element,
+              you should also include the
+                <code class="ph codeph">xmlns:whc="http://www.oxygenxml.com/webhelp/components"</code> namespace
+              declaration for the <code class="ph codeph">whc</code> prefix. This is necessary for the XML
+              fragment to be well-formed. </div></li>
+        </ul></div>
+      <div class="p">The following <em class="ph i">macros</em> are supported: <dl class="dl">
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_i18n">i18n</dt>
+            <dd class="dd">For localizing a
+              string.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${i18n(string.id)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_param">param</dt>
+            <dd class="dd">Returns the value of a transformation
+              parameter.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${param(webhelp.show.main.page.tiles)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_env">env</dt>
+            <dd class="dd">Returns the value of an environment
+              variable.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${env(JAVA_HOME)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_system-property">system-property</dt>
+            <dd class="dd">Returns the value of a system
+              property.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${system-property(os.name)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_timestamp">timestamp</dt>
+            <dd class="dd">Can be used to format the current date and time. Accepts a string (as a parameter)
+              that determines how the date and time will be formatted (format string or
+                <dfn class="term">picture string</dfn> as it is known in the XSLT specification). The format
+              string must comply with the <a class="xref" href="https://www.w3.org/TR/xslt20/#date-picture-string" target="_blank" rel="external noopener">rules of the XSLT <code class="ph codeph">format-dateTime</code> function
+                specification</a>.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${timestamp([h1]:[m01] [P] [M01]/[D01]/[Y0001])}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_path">path</dt>
+            <dd class="dd"> Returns the path associated with the specified path ID. The following paths IDs are
+              supported: <ul class="ul">
+                <li class="li"><strong class="ph b">oxygen-webhelp-output-dir</strong> - The path to the output directory. The path is
+                  relative to the current HTML file.</li>
+                <li class="li"><strong class="ph b">oxygen-webhelp-assets-dir</strong> - The path to the
+                    <span class="ph filepath">oxygen-webhelp</span> subdirectory from the output directory. The
+                  path is relative to the current HTML file.</li>
+                <li class="li"><strong class="ph b">oxygen-webhelp-template-dir</strong> - The path to the template directory. The
+                  path is relative to the current HTML
+                  file.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${path(oxygen-webhelp-template-dir)}  </pre></li>
+              </ul><div class="note note note_note"><span class="note__title">Note:</span> New paths IDs can be added by overriding the
+                  <code class="ph codeph">wh-macro-custom-path</code> template from
+                  <span class="ph filepath">com.oxygenxml.webhelp.responsive\xsl\template\macroExpander.xsl</span>:
+                <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><em class="hl-comment">&lt;!-- Extension template for expanding a custom path macro. --&gt;</em>
+<strong class="hl-xsl">&lt;xsl:template</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"wh-macro-custom-path"</span><strong class="hl-xsl">&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:param</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"pathId"</span><strong class="hl-xsl">/&gt;</strong>
+    <strong class="hl-xsl">&lt;xsl:value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"$pathId"</span><strong class="hl-xsl">/&gt;</strong>
+<strong class="hl-xsl">&lt;/xsl:template&gt;</strong>     </pre></div></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_map-xpath">map-xpath</dt>
+            <dd class="dd">Can be used to execute an XPath expression over the DITA map file from the temporary
+              directory. <div class="note tip note_tip"><span class="note__title">Tip:</span> Available in all template layout HTML pages.
+              </div><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${map-xpath(/map/title)}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_topic-xpath">topic-xpath</dt>
+            <dd class="dd">Can be used to execute an XPath expression over the current topic. <div class="note tip note_tip"><span class="note__title">Tip:</span> 
+                Available only in the topic HTML page template
+                (<span class="ph filepath">wt_topic.html</span>).</div><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${topic-xpath(string-join(//shortdesc//text(), ' '))}</pre></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-add-custom-html__macro_oxygen-webhelp-build-number">oxygen-webhelp-build-number</dt>
+            <dd class="dd"> Returns the current WebHelp distribution ID (build
+              number).<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">${oxygen-webhelp-build-number} </pre></dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="wh-add-custom-html__referencing_the_html_fragment_using_a_publishing_"><h2 class="title sectiontitle">Referencing the HTML fragment using a Publishing Template</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">If you have not already created a Publishing Template, see <a class="xref" href="whr_publishing_templates.html">Working with Publishing Templates</a>.</li>
+          <li class="li">Insert the HTML content in a file that is XML well-formed (for example,
+              <span class="ph filepath">custom-html.xml</span>).</li>
+          <li class="li">Using the <span class="ph uicontrol">Project</span> view, copy your custom XML file in a folder inside publishing
+            the template root folder (for example, in the
+              <span class="ph filepath">custom_footer_template/html-fragments</span> folder).</li>
+          <li class="li">Open the <a class="xref" href="whr_publishing_template_contents.html#template_descritpor_file">template descriptor file</a> associated with your publishing template and add a
+            reference to the custom HTML fragment in the <dfn class="term">html-fragments</dfn>
+              section.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;publishing-template&gt;</strong>
+    ...    
+    <strong class="hl-tag">&lt;webhelp&gt;</strong>
+      ...
+      <strong class="hl-tag">&lt;html-fragments&gt;</strong>
+        <strong class="hl-tag">&lt;fragment</strong> 
+          <span class="hl-attribute">file</span>=<span class="hl-value">"html-fragments/custom-html.xml"</span> 
+          <span class="hl-attribute">placeholder</span>=<span class="hl-value">"webhelp.fragment.head"</span><strong class="hl-tag">/&gt;</strong></pre><div class="note note note_note"><span class="note__title">Note:</span> If
+              you want to insert the content in another location within the output document, you can
+              reference the XML file from any other <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">HTML
+                Fragment extension points</a>.</div></li>
+          <li class="li">Open the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario.</li>
+          <li class="li">Click the <span class="ph uicontrol">Choose Custom Publishing Template</span> link and select
+            your template.</li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol>
+      </div>
+      <p class="p"><strong class="ph b">Results:</strong> Your additional content will be included at the end of the
+          <code class="keyword markupname xmlelement">&lt;head&gt;</code> element of your output document.</p>
+    </section>
+    <section class="section" id="wh-add-custom-html__referencing_the_html_fragment_using_a_transformat"><h2 class="title sectiontitle">Referencing the HTML Fragment using a Transformation Parameter</h2>
+      
+      <div class="p">
+        <ol class="ol">
+          <li class="li">Insert the HTML content in a well-formed XML file.</li>
+          <li class="li">Edit the <dfn class="term">DITA Map WebHelp Responsive</dfn> transformation scenario and open the
+              <span class="ph uicontrol">Parameters</span> tab.</li>
+          <li class="li">Edit the value of the <code class="ph codeph">webhelp.fragment.head</code> parameter and set it to
+            the absolute path of your XML file.<div class="note note note_note"><span class="note__title">Note:</span> If you want to insert the content in another
+              location within the output document, you can reference the XML file from any other
+                <a class="xref" href="whr_publishing_template_contents.html#html_fragment_extension_points">HTML Fragment extension points</a>.</div></li>
+          <li class="li">Click <span class="ph uicontrol">OK</span> to save the changes to the transformation
+            scenario.</li>
+          <li class="li">Run the transformation scenario.</li>
+        </ol>
+      </div>
+      <p class="p"><strong class="ph b">Results:</strong> Your additional content will be included at the end of the
+          <code class="keyword markupname xmlelement">&lt;head&gt;</code> element of your output document.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr_layout.html">Changing the Layout and Styles</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/webhelp-customizing-with-css.html">How to Use CSS Styling to Customize the Output</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/wh-add-js-amd.html">How to Insert JavaScript AMD Modules</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="whr_publishing_template_contents.html#html_fragment_extension_points">HTML Fragment Extension Points</a></li><li class="linklist"><a class="link" href="whr_publishing_template_contents.html">Publishing Template Package Contents for WebHelp Responsive Customizations</a></li></ul></div></nav>
+</article></main></body></html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/resolving-conflicts.html"><meta name="DC.relation" scheme="URI" content="../topics/edit-conflict.html"><meta name="DC.relation" scheme="URI" content="../topics/merge-conflicts.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="revert-changes"><title>Revert Your Changes</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="revert-changes"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Revert Your Changes</h1>
+  <div class="body">
+    <div class="p">If you want to undo changes made in your working copy, since the last update, select the
+      items you are interested in, right-click to display the contextual menu and select
+        <span class="ph uicontrol">Revert</span>. A dialog box will open that shows you the files and folders
+      that you have changed and can be reverted. Select those you want to revert and click the
+        <span class="ph uicontrol">OK</span> button. Revert will undo only your local changes. It does not undo
+      any changes that have already been committed. If you choose to revert a conflicting item to
+      its pristine copy, then the eventual conflict is solved by losing your outgoing modifications.
+      If you try to revert a resource not under version control, the resource will be deleted from
+      the file system.<div class="note note note_note"><span class="note__title">Note:</span> By default, a directory will be recursively reverted (including any
+        other modified item it contains). However, if the directory has only property changes, you
+        need to explicitly choose if the operation will include any modified items found inside
+        it.</div></div>
+    <p class="p">If you want some of your outgoing changes to be overridden you must first open the file in
+        <a class="xref" href="diff-view.html"><span class="ph uicontrol">Compare</span> view</a> and choose the
+      sections to be replaced with ones from the repository file. This can be achieved either by
+      editing directly the file or by using the action <span class="ph uicontrol">Copy change from right to
+        left</span> from the <a class="xref" href="diff-toolbar.html"><span class="ph uicontrol">Compare</span> view
+        toolbar</a>. After editing the conflicting file you have to run the action
+        <span class="ph uicontrol">Mark as merged</span> before committing it.</p>
+    <p class="p">If you want to drop all local changes and bring all incoming changes into your working copy
+      resource, you can use the <span class="ph uicontrol">Override and update</span> action. It discards the
+      changes in the local file and updates it from the repository. A dialog box will display the
+      files that will be affected.</p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Override and Update Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_svn_override_update_dialog.png">
+      </figure>
+    </div>
+    <p class="p">In the first table of the dialog box you will be able to see the resources that will be
+      overridden. In the second table you will find the list of resources that will be updated. Only
+      resources that have an incoming status are updated.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> If you want to roll-back out of your working copy changes that have already
+      been committed to the repository, see <a class="xref" href="merge-revisions-range.html#merge-revisions-range__tip_negative_revisions">Merge Revisions</a>.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/resolving-conflicts.html">Conflicts</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/edit-conflict.html">Edit Real Content Conflicts</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/merge-conflicts.html">Merge Conflicted Resources</a></div></div></nav></article></main></body></html>

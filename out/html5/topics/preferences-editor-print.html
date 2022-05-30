@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,Print,Print preferences"><meta name="keywords" content="Preferences, Print, Print preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-editor.html"><meta name="DC.relation" scheme="URI" content="../topics/dictionaries-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-css-validator.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-editor-print"><title>Print Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-editor-print"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Print Preferences</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> lets you configure how files are printed out of the editor. Note that
+      these settings cover how files are printed directly from <span class="ph">Oxygen XML Editor</span> itself, not
+      how they are printed after the XML source has been transformed by a publishing stylesheet. To
+      configure the <span class="ph uicontrol">Print</span> options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">Editor</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Print</span></span>.</p>
+    <p class="p">This page allows you to customize the headers and footers added to a
+      printed page when you print from the <a class="xref" href="text-mode-editor.html#text-mode-editor"><span class="ph uicontrol">Text</span> mode</a> or <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a> editors. These settings do not apply to the
+        <a class="xref" href="grid-mode-editor.html#grid-mode-editor"><span class="ph uicontrol">Grid</span></a>
+      <span class="ph">and <a class="xref" href="xml-schema-diagram-introduction.html#xml-schema-diagram-introduction">schema
+            <span class="ph uicontrol">Design</span></a>
+      </span>mode.</p>
+    
+    <p class="p">You can specify what is printed on the <span class="ph uicontrol">Left</span>,
+        <span class="ph uicontrol">Middle</span>, and <span class="ph uicontrol">Right</span> of the header and footer
+      using plain text of any of the following variables: </p>
+    <ul class="ul">
+      <li class="li"><strong class="ph b">${currentFileURL}</strong> - Current file as URL, that is the
+        absolute file path of the currently edited document represented as URL.</li>
+      <li class="li"><strong class="ph b">${cfne}</strong> - Current file name with extension. The current file is the
+        one currently open and selected.</li>
+      <li class="li"><strong class="ph b">${cp}</strong> - Current page number. Used to display the current page number
+        on each printed page in the <strong class="ph b">Editor / Print</strong> Preferences page.</li>
+      <li class="li"><strong class="ph b">${tp}</strong> - Total number of pages in the document. Used to display the
+        total number of pages on each printed page in the <strong class="ph b">Editor / Print</strong> Preferences
+        page.</li>
+      <li class="li"><strong class="ph b">${env(VAR_NAME)}</strong> - Value of the <em class="ph i">VAR_NAME</em> environment
+        variable. The environment variables are managed by the operating system. If you are looking
+        for Java System Properties, use the <strong class="ph b">${system(var.name)}</strong> editor variable.</li>
+      <li class="li"><strong class="ph b" id="preferences-editor-print__java_system_properties">${system(var.name)}</strong> - Value of the
+          <em class="ph i">var.name</em> Java System Property. The Java system properties can be specified in the
+        command-line arguments of the Java runtime as <em class="ph i">-Dvar.name=var.value</em>. If you are
+        looking for operating system environment variables, use the <strong class="ph b">${env(VAR_NAME)}</strong> editor
+        variable instead.</li>
+      <li class="li"><strong class="ph b">${date(pattern)}</strong> - Current date. The allowed patterns are
+        equivalent to the ones in the <a class="xref" href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" target="_blank" rel="external noopener">Java SimpleDateFormat class</a>. <strong class="ph b">Example:</strong>
+        <em class="ph i">yyyy-MM-dd</em>.<div class="note note note_note"><span class="note__title">Note:</span> This editor variable supports both the <strong class="ph b">xs:date</strong> and
+            <strong class="ph b">xs:datetime</strong> parameters. For details about <strong class="ph b">xs:date</strong>, go to: <a class="xref" href="http://www.w3.org/TR/xmlschema-2/#date" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema-2/#date</a>. For
+          details about <strong class="ph b">xs:datetime</strong>, go to: <a class="xref" href="http://www.w3.org/TR/xmlschema-2/#dateTime" target="_blank" rel="external noopener">http://www.w3.org/TR/xmlschema-2/#dateTime</a>.</div></li>
+    </ul>
+    <p class="p">For example, to show the current page number and the total number of pages in the top right
+      corner of the page, write the following pattern in the <span class="ph uicontrol">Right</span> text area
+      of the <span class="ph uicontrol">Header</span> section: <code class="ph codeph">${cp} of ${tp}</code>. </p>
+    <p class="p">You can also set the <span class="ph uicontrol">Color</span> and <span class="ph uicontrol">Font</span> used in the
+      header and footer. Default font is <code class="ph codeph">SansSerif</code>.</p>
+    <p class="p">You can place a line below the header or above the footer by selecting
+        <span class="ph uicontrol">Underline/Overline</span>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-editor.html">Editor Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dictionaries-preferences-page.html">Spell Check Dictionaries Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/preferences-css-validator.html">CSS Validator Preferences</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" data-whc_version="24.1">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="The Markdown editor in Oxygen XML Author uses rules that were integrated from the most common set of default Markdown syntax rules along with many of the GitHub Flavored Markdown rules . This topic ..."/><meta name="DC.rights.owner" content="(C) Copyright 2022"/><meta name="copyright" content="(C) Copyright 2022"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="topic"/><meta name="DC.subject" content="Markdown documents,Rules and specifications"/><meta name="keywords" content="Markdown documents, Rules and specifications"/><meta name="indexterms" content="Markdown documents, Rules and specifications"/><meta name="DC.relation" content="../topics/editing-markdown.html"/><meta name="DC.relation" content="../topics/markdown-dita-2.html"/><meta name="DC.relation" content="../topics/zulu.html"/><meta name="DC.relation" content="http://daringfireball.net/projects/markdown/syntax"/><meta name="DC.relation" content="https://help.github.com/categories/writing-on-github/"/><meta name="DC.relation" content="markdown-editor.html#markdown-editor"/><meta name="DC.relation" content="markdown-actions.html#markdown-actions"/><meta name="prodname" content=""/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="markdown-rules"/><title>Markdown Editor Syntax Rules and Specifications</title><!--  Generated with Oxygen version 24.1, build number 2022033103.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="markdown-rules-d14162e11144"/><meta name="wh-source-relpath" content="topics/markdown-rules.dita"/><meta name="wh-out-relpath" content="topics/markdown-rules.html"/>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/lib/bootstrap/css/bootstrap.min.css"/>
+    
+    <link rel="stylesheet" href="../oxygen-webhelp/lib/jquery-ui/jquery-ui.min.css"/>
+    
+    <!-- Template default styles  -->
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic-page.css?buildId=2022033103"/>
+    
+    
+    <script src="../oxygen-webhelp/lib/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script data-main="../oxygen-webhelp/app/topic-page.js" src="../oxygen-webhelp/lib/requirejs/require.js"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2022033103"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/notes.css?buildId=2022033103"/></head>
+
+    <body id="markdown-rules" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="booktitle">  <span class="ph mainbooktitle">  <span class="ph">Oxygen XML Author</span>  <span class="ph">23.0</span>  </span>  <span class="ph booktitlealt">User Guide</span>  </span></a></div>
+                    
+                </div>
+                
+                <button type="button" data-target="#wh_top_menu_and_indexterms_link" id="wh_menu_mobile_button" data-toggle="collapse" class="navbar-toggler collapsed wh_toggle_button" aria-expanded="false" aria-label="Toggle menu" aria-controls="wh_top_menu_and_indexterms_link">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                <nav class=" wh_top_menu " aria-label="Menu Container"><ul role="menubar" aria-label="Menu"><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="getting-started-intro-d14162e901-mi" data-tocid="getting-started-intro-d14162e901" data-state="not-ready" class=" topicref " data-id="getting-started-intro"><span class="title"><a href="../topics/getting-started-intro.html">Getting Started</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="working-with-documents-d14162e5086-mi" data-tocid="working-with-documents-d14162e5086" data-state="not-ready" class=" topicref " data-id="working-with-documents"><span class="title"><a href="../topics/working-with-documents.html">Working With Any Type of Document</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="editing-documents-d14162e6883-mi" data-tocid="editing-documents-d14162e6883" data-state="not-ready" class=" topicref " data-id="editing-documents"><span class="title"><a href="../topics/editing-documents.html">Editing Documents</a></span></span></li><li role="menuitem"><span id="zulu-d14162e11164-mi" data-tocid="zulu-d14162e11164" data-state="leaf" class=" topicref " data-id="zulu"><span class="title"><a href="../topics/zulu.html">zulu</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="additional-doc-type-d14162e11768-mi" data-tocid="additional-doc-type-d14162e11768" data-state="not-ready" class=" topicref " data-id="additional-doc-type"><span class="title"><a href="../topics/additional-doc-type.html">Additional XML Editing Frameworks (Document Types)</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="transforming-documents-d14162e11834-mi" data-tocid="transforming-documents-d14162e11834" data-state="not-ready" class=" topicref " data-id="transforming-documents"><span class="title"><a href="../topics/transforming-documents.html">Publishing</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="author-dita-d14162e31939-mi" data-tocid="author-dita-d14162e31939" data-state="not-ready" class=" topicref " data-id="author-dita"><span class="title"><a href="../topics/author-dita.html">DITA Authoring</a></span></span></li><li role="menuitem" aria-haspopup="true" aria-expanded="false" class="has-children"><span id="scripting_oxygen-d14162e34513-mi" data-tocid="scripting_oxygen-d14162e34513" data-state="not-ready" class=" topicref " data-id="scripting_oxygen"><span class="title"><a href="../topics/scripting_oxygen.html">Scripting Oxygen</a></span></span></li></ul></nav>
+                <div class=" wh_indexterms_link "><a href="../indexTerms.html" title="Index" aria-label="Go to index terms page"><span>Index</span></a></div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="editing-documents"><div class="title"><a href="../topics/editing-documents.html">Editing Documents</a><div class="wh-tooltip"><p class="shortdesc"> Details about the various types of supported documents and their unique editing
+        features</p></div></div></div></li><li><div class="topicref" data-id="editing-markdown"><div class="title"><a href="../topics/editing-markdown.html">Editing Markdown Documents</a></div></div></li><li class="active"><div class="topicref" data-id="markdown-rules"><div class="title"><a href="../topics/markdown-rules.html">Markdown Editor Syntax Rules and Specifications</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../topics/markdown-dita-2.html" title="Working with Markdown Documents in DITA" aria-label="Previous topic: Working with Markdown Documents in DITA" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../topics/zulu.html" title="zulu" aria-label="Next topic: zulu" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="editing-documents-d14162e6883" class="topicref" data-id="editing-documents" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action editing-documents-d14162e6883-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-documents.html" id="editing-documents-d14162e6883-link">Editing Documents</a><div class="wh-tooltip"><p class="shortdesc"> Details about the various types of supported documents and their unique editing
+        features</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="editing-xml-documents-d14162e6905" class="topicref" data-id="editing-xml-documents" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action editing-xml-documents-d14162e6905-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-xml-documents.html" id="editing-xml-documents-d14162e6905-link">Editing XML Documents</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="editing-css-stylesheets-d14162e10327" class="topicref" data-id="editing-css-stylesheets" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action editing-css-stylesheets-d14162e10327-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-css-stylesheets.html" id="editing-css-stylesheets-d14162e10327-link">Editing CSS Stylesheets</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="editing-less-css-stylesheets-d14162e10498" class="topicref" data-id="editing-less-css-stylesheets" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action editing-less-css-stylesheets-d14162e10498-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-less-css-stylesheets.html" id="editing-less-css-stylesheets-d14162e10498-link">Editing LESS Stylesheets</a></div></div></li><li role="treeitem"><div data-tocid="editing-stratML-d14162e10593" class="topicref" data-id="editing-stratML" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-stratML.html" id="editing-stratML-d14162e10593-link">Editing StratML Documents</a></div></div></li><li role="treeitem"><div data-tocid="editing-xliff-d14162e10612" class="topicref" data-id="editing-xliff" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-xliff.html" id="editing-xliff-d14162e10612-link">Editing XLIFF Documents</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="editing-JavaScript-d14162e10631" class="topicref" data-id="editing-JavaScript" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action editing-JavaScript-d14162e10631-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-JavaScript.html" id="editing-JavaScript-d14162e10631-link">Editing JavaScript Documents</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="SVG-documents-d14162e10745" class="topicref" data-id="SVG-documents" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action SVG-documents-d14162e10745-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/SVG-documents.html" id="SVG-documents-d14162e10745-link">Editing SVG Files</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="edit-html-documents-d14162e10802" class="topicref" data-id="edit-html-documents" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action edit-html-documents-d14162e10802-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/edit-html-documents.html" id="edit-html-documents-d14162e10802-link">Editing HTML Documents</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="editing-markdown-d14162e11011" class="topicref" data-id="editing-markdown" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action editing-markdown-d14162e11011-link" class="wh-expand-btn"></span><div class="title"><a href="../topics/editing-markdown.html" id="editing-markdown-d14162e11011-link">Editing Markdown Documents</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="markdown-editor-d14162e11030" class="topicref" data-id="markdown-editor" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-editor.html" id="markdown-editor-d14162e11030-link">Markdown Editor</a></div></div></li><li role="treeitem"><div data-tocid="markdown-create-new-d14162e11049" class="topicref" data-id="markdown-create-new" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-create-new.html" id="markdown-create-new-d14162e11049-link">Creating New Markdown Documents</a></div></div></li><li role="treeitem"><div data-tocid="markdown-actions-d14162e11068" class="topicref" data-id="markdown-actions" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-actions.html" id="markdown-actions-d14162e11068-link">Actions Available in the Markdown Editor</a></div></div></li><li role="treeitem"><div data-tocid="markdown-syntax-highlight-d14162e11087" class="topicref" data-id="markdown-syntax-highlight" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-syntax-highlight.html" id="markdown-syntax-highlight-d14162e11087-link">Syntax Highlighting in the Markdown Editor</a></div></div></li><li role="treeitem"><div data-tocid="markdown-validation-d14162e11106" class="topicref" data-id="markdown-validation" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-validation.html" id="markdown-validation-d14162e11106-link">Automatic Validation in Markdown Documents</a></div></div></li><li role="treeitem"><div data-tocid="markdown-dita-d14162e11125" class="topicref" data-id="markdown-dita" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-dita-2.html" id="markdown-dita-d14162e11125-link">Working with Markdown Documents in DITA</a></div></div></li><li role="treeitem" class="active"><div data-tocid="markdown-rules-d14162e11144" class="topicref" data-id="markdown-rules" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../topics/markdown-rules.html" id="markdown-rules-d14162e11144-link">Markdown Editor Syntax Rules and Specifications</a></div></div></li></ul></li></ul></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="- topic/title title topictitle1" id="ariaid-title1">Markdown Editor Syntax Rules and Specifications</h1>
+  
+  <div class="- topic/body body">
+    <p class="- topic/p p">The Markdown editor in <span class="- topic/ph ph">Oxygen XML Author</span> uses rules that were integrated from the most
+      common set of <a class="- topic/xref xref" href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external noopener">default Markdown syntax rules</a> along with many of the <a class="- topic/xref xref" href="https://help.github.com/categories/writing-on-github/" target="_blank" rel="external noopener">GitHub Flavored Markdown rules</a>.</p>
+    <p class="- topic/p p">This topic lists the <span class="- topic/ph ph">Oxygen XML Author</span> implementation of the most commonly used syntax
+      rules.</p>
+    <section class="- topic/section section" id="markdown-rules__headers" data-ofbid="markdown-rules__headers"><h2 class="- topic/title title sectiontitle">Headers</h2>
+      
+      <p class="- topic/p p">The Markdown editor supports two styles of headers, <em class="+ topic/ph hi-d/i ph i">Setext</em> and <em class="+ topic/ph hi-d/i ph i">Atx</em>.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li" id="markdown-rules__setext-header" data-ofbid="markdown-rules__setext-header">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Setext Style</strong></u></p>
+            <p class="- topic/p p">Setext-style headers are underlined using equal signs (for first-level headers) and
+              dashes (for second-level headers). Any number of equal signs or dashes will result in
+              the same output.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Setext Style
+              Headers</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-text">First-Level Header (H1)
+========
+
+Second-Level Header (H2)
+------------</pre></div>
+          </li>
+          <li class="- topic/li li" id="markdown-rules__atx-header" data-ofbid="markdown-rules__atx-header">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Atx Style</strong></u></p>
+            <p class="- topic/p p">Atx-style headers use 1-6 hash characters at the start of the line, corresponding to
+              header levels 1-6. Optionally, you may close atx-style headers. This is purely
+              cosmetic and the closing hashes do not need to match the number of hashes used to open
+              the header. It is the number of opening hashes that determines the header level.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Atx Style
+              Headers</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini"># H1 text #
+## H2 text 
+### H3 text ###### 
+#### H4 text
+##### H5 text ###
+###### H6 text</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__horizontal_rules" data-ofbid="markdown-rules__horizontal_rules"><h2 class="- topic/title title sectiontitle">Horizontal Rules (for HMTL output only)</h2>
+      
+      <p class="- topic/p p">You can produce a horizontal rule tag (<code class="+ topic/keyword markup-d/markupname xml-d/xmlelement keyword markupname xmlelement">&lt;hr&gt;</code>) by placing three or more
+        hyphens, asterisks, or underscores on a line by themselves (they also need to be preceded
+        and followed by a blank line). Optionally, they can be separated by spaces.</p>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Horizontal
+        Rules</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">
+* * *
+
+*****
+
+---------------------------------------
+
+_ _ _ _
+</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__paragraphs_and_line_breaks" data-ofbid="markdown-rules__paragraphs_and_line_breaks"><h2 class="- topic/title title sectiontitle">Paragraphs and Line Breaks</h2>
+      
+      <div class="- topic/p p">A paragraph is simply one or more consecutive lines of text, separated by one or more blank
+        lines. The text at the beginning of a paragraph should not be indented with spaces or tabs.
+        To create a new paragraph, simply insert a blank line in between them.<div class="- topic/note note important note_important"><span class="note__title">Important:</span> When converting to HTML, if you break a paragraph on multiple lines (without a blank line
+          in between them), it will create a break tag (<code class="+ topic/keyword markup-d/markupname xml-d/xmlelement keyword markupname xmlelement">&lt;br&gt;</code>. When converting
+          to DITA, the text is kept in a single paragraph in this case and a blank line is required
+          to break a paragraph. This behavior differs slightly from the default Markdown
+          rules.</div></div>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example:
+        Paragraphs</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">This is a paragraph that contains
+two lines of text. (In HTML, a break tag is created in between the two lines)
+
+This is a new paragraph.</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__styling_text" data-ofbid="markdown-rules__styling_text"><h2 class="- topic/title title sectiontitle">Styling Text</h2>
+      
+      <div class="- topic/p p">The Markdown editor supports some syntax rules for styling text (such as bold, italic, or strikethrough).<ul class="- topic/ul ul">
+          <li class="- topic/li li" id="markdown-rules__italic" data-ofbid="markdown-rules__italic">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Italic (Emphasis)</strong></u></p>
+            <div class="- topic/p p">Text wrapped with one asterisk or underscore produces an italic (emphasis)
+              tag.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">*italic*
+_italic_</pre></div>
+          </li>
+          <li class="- topic/li li" id="markdown-rules__bold" data-ofbid="markdown-rules__bold">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Bold (Strong)</strong></u></p>
+            <div class="- topic/p p">Text wrapped with two asterisks or underscores produces a bold (strong)
+              tag.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">**bold**
+__bold__</pre></div>
+          </li>
+          <li class="- topic/li li" id="markdown-rules__strikethrough" data-ofbid="markdown-rules__strikethrough">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Strikethrough</strong></u></p>
+            <div class="- topic/p p">In HTML only, text wrapped with two tildes (<kbd class="+ topic/ph sw-d/userinput ph userinput">~~</kbd>) produces a
+              strikethrough
+              tag.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">~~strikethrough~~</pre></div>
+          </li>
+        </ul><div class="- topic/note note tip note_tip"><span class="note__title">Tip:</span> You can also combine these styling rules. For example,
+            <kbd class="+ topic/ph sw-d/userinput ph userinput">**BoldText _ItalicText_ BoldText**</kbd> would produce italicized text
+          within bold text. Also, if you surround an asterisk or underscore with spaces, it will be
+          treated as a literal asterisk or underscore. To produce a literal asterisk or underscore
+          at a position where it would otherwise be used as a styling delimiter, you can escape it
+          with a backslash (for example, <kbd class="+ topic/ph sw-d/userinput ph userinput">\*literal asterisks\*</kbd>.</div></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__links" data-ofbid="markdown-rules__links"><h2 class="- topic/title title sectiontitle">Links</h2>
+      
+      <p class="- topic/p p">The Markdown editor supports two types of links, <em class="+ topic/ph hi-d/i ph i">inline</em> and <em class="+ topic/ph hi-d/i ph i">reference</em>. In
+        both cases, it begins with link text that is delimited by [square brackets].</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Inline Links</strong></u></p>
+            <p class="- topic/p p">To create an inline link, use a set of regular parentheses immediately after the
+              closing square bracket for the link text. Inside the parentheses, put the URL where
+              you want the link to point, and optionally a title surrounded in quotes. Also, if you
+              reference a local resource on the same server, you can use relative paths.</p>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Examples: Inline Link</u></strong></p>
+            <div class="- topic/p p">With a
+              title:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with [example link text](http://www.example.com/path "Title") inline link and title.</pre></div>
+            <div class="- topic/p p">Without a
+              title:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with [example link text](http://www.example.com/path) inline link without a title.</pre></div>
+            <div class="- topic/p p">Relative
+              path:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with [example link text](/relative_path/) inline link with relative path.</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Reference Links</strong></u></p>
+            <div class="- topic/p p">Reference-type links use a second set of square brackets that include a label (link
+              identifier) to reference the target for the link (link identifier may consist of
+              letters, numbers, spaces, and punctuation and it is not case-sensitive). You can
+              optionally use a space to separate the sets of brackets. The labels (link identifiers)
+              are only used for creating the links and do not appear in the
+              output.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with [link text1][id 1] a reference-type link and [link text2][id_2] another one.</pre></div>
+            <div class="- topic/p p">Then, somewhere in the document, you need to define your link label on a line by
+              itself. The link identifier must be within square brackets followed by a colon, then
+              after one or more spaces the URL for the link. Optionally this can be followed by a
+              title enclosed in single quotes, double quotes, or parentheses. Also, the link may
+              optionally be enclosed in angle brackets (<kbd class="+ topic/ph sw-d/userinput ph userinput">&lt;
+              &gt;</kbd>).<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">[id 1]: http://example1.com/ "Optional Title"
+[id_2]: &lt;http://example2.com/&gt; "Optional Title2"</pre></div>
+            <div class="- topic/p p">Other notes about Reference Links:<ul class="- topic/ul ul">
+                <li class="- topic/li li">You can put the title on a second line and use extra spaces or tabs for padding.
+                  This is useful for aesthetics when the URL is
+                  long.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">[id]: http://example.com/long/path/to/resource/here
+    "Optional Title Here"</pre></li>
+                <li class="- topic/li li">
+                  <div class="- topic/p p">The label (link identifier) can be missing, in which case the link text (in
+                    square brackets) is used as the
+                    name.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini"><strong class="hl-keyword">[My Link][]</strong></pre></div>
+                  <div class="- topic/p p">and then defined
+                    as:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">[My Link]: http://example.com/</pre></div>
+                </li>
+              </ul></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__automatic_links" data-ofbid="markdown-rules__automatic_links"><h2 class="- topic/title title sectiontitle">Automatic Links</h2>
+      
+      <div class="- topic/p p">The Markdown editor supports a shortcut style for creating automatic links for URLs and
+        email addresses. You simply surround the URL or email address with angle
+          brackets.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> These automatic links only work properly in HTML conversions. The
+            <em class="+ topic/ph hi-d/i ph i">Preview</em> pane may display them properly in the DITA tab, but the DITA output will
+          not properly recognize the format.</div></div>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">URLs</strong></u></p>
+            <div class="- topic/p p">By surrounding a URL with angle brackets, you can show the actual text of the URL
+              while also making it clickable in the
+              output.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&lt;http://example.com/&gt;</pre></div>
+            <div class="- topic/p p">For example, in HTML it is converted
+              to:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini"><span class="hl-attribute">&lt;a href</span>="http://example.com/"&gt;http://example.com/&lt;/a&gt;</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Email Addresses</strong></u></p>
+            <div class="- topic/p p">Automatic links for email addresses work similarly, except that Markdown will also
+              perform a bit of randomized decimal and hex entity-encoding to help obscure your
+              address from address-harvesting
+              <em class="+ topic/ph hi-d/i ph i">spambots</em>.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&lt;address@example.com&gt;</pre></div>
+            <div class="- topic/p p">In HTML, it is converted to something
+              like:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini"><span class="hl-attribute">&lt;a href</span>="&amp;#x6D<em class="hl-comment">;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;</em>
+&amp;#115<em class="hl-comment">;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;</em>
+&amp;#109<em class="hl-comment">;"&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;</em>
+&amp;#109<em class="hl-comment">;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;</em></pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__images" data-ofbid="markdown-rules__images"><h2 class="- topic/title title sectiontitle">Images</h2>
+      
+      <p class="- topic/p p">The Markdown editor uses an image syntax that is intended to resemble the syntax for two
+        types of links (<em class="+ topic/ph hi-d/i ph i">inline</em> and <em class="+ topic/ph hi-d/i ph i">reference</em>). In both cases, the syntax for images
+        begins with an exclamation mark, followed by <code class="+ topic/ph pr-d/codeph ph codeph">Alt</code> attribute text surrounded
+        by square brackets, and then followed by a set of parentheses that contain the URL or path
+        to the image.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Inline Images</strong></u></p>
+            <p class="- topic/p p">For inline images, use a set of regular parentheses immediately after the closing
+              square bracket for the <code class="+ topic/ph pr-d/codeph ph codeph">Alt</code> attribute text. Inside the parentheses,
+              put the URL or path of the image, and optionally a title surrounded in quotes.</p>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Examples: Inline Images</u></strong></p>
+            <div class="- topic/p p">With a
+              title:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with ![Alt text](/path/to/img.jpg "Optional title") inline image and a title.</pre></div>
+            <div class="- topic/p p">Without a
+              title:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with ![Alt text](/path/to/img.jpg) inline link without a title.</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Reference Images</strong></u></p>
+            <div class="- topic/p p">For reference-type images, use a second set of square brackets that include a label
+              (image identifier) to identify the image (it may consist of letters, numbers, spaces,
+              and punctuation and it is not case-sensitive). You can optionally use a space to
+              separate the sets of brackets. The labels (image identifiers) do not appear in the
+              output.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Text with ![Alt text1][id] a reference-type image.</pre></div>
+            <div class="- topic/p p">Then, somewhere in the document, you need to define your image label on a line by
+              itself. The image identifier must be within square brackets followed by a colon, then
+              after one or more spaces the URL or path of the image. Optionally this can be followed
+              by a title enclosed in single quotes, double quotes, or
+              parentheses.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">[id]: url/to/image "Optional Title"</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__blockquotes" data-ofbid="markdown-rules__blockquotes"><h2 class="- topic/title title sectiontitle">Blockquotes</h2>
+      
+      <p class="- topic/p p">The Markdown editor uses email-style greater than characters (<kbd class="+ topic/ph sw-d/userinput ph userinput">&gt;</kbd>) for
+          <em class="+ topic/ph hi-d/i ph i">blockquotes</em>. You only need to put the <kbd class="+ topic/ph sw-d/userinput ph userinput">&gt;</kbd> before the first
+        line of a hard-wrapped paragraph, but it looks better (and is clearer) if you put a
+          <kbd class="+ topic/ph sw-d/userinput ph userinput">&gt;</kbd> before every line.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example:
+            Blockquotes</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt; 
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.</pre></li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Nested Blockquotes</u></strong></p>
+            <div class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">Blockquotes</em> can be nested by adding additional levels of
+                <kbd class="+ topic/ph sw-d/userinput ph userinput">&gt;</kbd>
+              characters.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Blockquotes with Other Markdown Elements</u></strong></p>
+            <div class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">Blockquotes</em> can also contain other Markdown elements (such as headers, lists,
+              and code
+              blocks).<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&gt; ## This is a header.
+&gt; 
+&gt; 1.   This is the first list item.
+&gt; 2.   This is the second list item.
+&gt; 
+&gt; Here's some example code:
+&gt; 
+&gt;     return shell_exec("echo $input | $markdown_script")</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__quoting_code_inline_and_code_blocks" data-ofbid="markdown-rules__quoting_code_inline_and_code_blocks"><h2 class="- topic/title title sectiontitle">Quoting Code (Inline and Code Blocks)</h2>
+      
+      <p class="- topic/p p">The Markdown editor supports quoting code or commands inline within a sentence or in
+        distinct blocks.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Inline</strong></u></p>
+            <p class="- topic/p p">You can quote or emphasize code within a sentence (inline) with single backticks
+                (<kbd class="+ topic/ph sw-d/userinput ph userinput">`</kbd>). The text within the backticks will not be formatted.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Inline Code
+              Emphasis</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">This is a normal sentence with a `code` in the middle. </pre></div>
+          </li>
+          <li class="- topic/li li" id="markdown-rules__code-blocks" data-ofbid="markdown-rules__code-blocks">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Code Blocks</strong></u></p>
+            <p class="- topic/p p">You can format code or text into its own distinct block by inserting a blank line
+              before and after the content and using at least 4 spaces (or 1 tab), or by using
+              opening and closing triple backticks (<kbd class="+ topic/ph sw-d/userinput ph userinput">```</kbd>) on separate
+              lines.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Code
+              Block</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">This is a normal paragraph:
+
+    This is a code block
+
+This is a normal paragraph:
+
+```
+This is a code block
+```</pre></div>
+            <p class="- topic/p p">One level of indentation is removed from each line of a codeblock and it continues
+              until it reaches a line that is not indented (or until the closing backticks).</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Code Block with
+              Indentation</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">    tell application "something"
+        beep
+    end tell</pre></div>
+            <div class="- topic/p p">For example, in HTML the result would look like
+              this:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&lt;pre&gt;&lt;code&gt;tell application "Foo"
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;</pre></div>
+            <p class="- topic/p p">You can also add an optional language identifier to enable syntax highlighting in
+              your code blocks. The <span class="- topic/ph ph">Oxygen XML Author</span> Markdown editor supports the following
+              languages: <em class="+ topic/ph hi-d/i ph i">Java</em>, <em class="+ topic/ph hi-d/i ph i">JavaScript</em>, <em class="+ topic/ph hi-d/i ph i">CSS</em>, and <em class="+ topic/ph hi-d/i ph i">Python</em>.</p>
+            <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Syntax Highlighting in Code
+              Block</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">```css
+<span class="hl-attribute">input[type</span>="submit"] {
+    color: white<em class="hl-comment">;</em>
+    font-weight: bold<em class="hl-comment">;</em>
+```</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__inline_xhtml" data-ofbid="markdown-rules__inline_xhtml"><h2 class="- topic/title title sectiontitle">Inline XHTML (for HMTL output only)</h2>
+      
+      <p class="- topic/p p">The Markdown editor supports writing inline XHTML. Since Markdown is just a writing format,
+        it requires a conversion for publishing purposes. If you are using the HTML conversion, for
+        any markup that is not covered by Markdown syntax, you can simply use XHTML syntax.</p>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Inline
+        XHTML</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Col 1&lt;/td&gt;
+        &lt;td&gt;Col 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__lists" data-ofbid="markdown-rules__lists"><h2 class="- topic/title title sectiontitle">Lists</h2>
+      
+      <p class="- topic/p p">The Markdown editor supports ordered and unordered lists. You can also insert <a class="- topic/xref xref" href="markdown-rules.html#markdown-rules__blockquotes"><dfn class="- topic/term term">blockquotes</dfn></a> and <a class="- topic/xref xref" href="markdown-rules.html#markdown-rules__quoting_code_inline_and_code_blocks"><dfn class="- topic/term term">code
+            blocks</dfn></a> inside list items. List markers typically start at the left margin,
+        but may be indented by up to three spaces.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li" id="markdown-rules__unordered-list" data-ofbid="markdown-rules__unordered-list">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Unordered Lists</strong></u></p>
+            <div class="- topic/p p">For unordered lists, you can use asterisks (<kbd class="+ topic/ph sw-d/userinput ph userinput">*</kbd>), plus signs
+                (<kbd class="+ topic/ph sw-d/userinput ph userinput">+</kbd>), and hyphens (<kbd class="+ topic/ph sw-d/userinput ph userinput">-</kbd>)
+              interchangeably.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">* List item 1
++ List item 2
+- List item 3</pre></div>
+          </li>
+          <li class="- topic/li li" id="markdown-rules__ordered-list" data-ofbid="markdown-rules__ordered-list">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Ordered Lists</strong></u></p>
+            <div class="- topic/p p">For ordered lists, use numbers followed by periods. The actual numbers you use have
+              no effect on the output. It simply converts them to list items within an ordered list
+              and the actual number of list items will determine the numbers in the
+              output.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">1. List item 1
+8. List item 2
+5. List item 3</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Nested Lists</strong></u></p>
+            <div class="- topic/p p">You can create nested lists by indenting lines by three
+              spaces.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">1. Ordered list item 1
+   1. Nested ordered list item 1
+   2. Nested ordered list item 2
+      * 2nd level nested unordered list item 1
+      * 2nd level nested unordered list item 2
+         * 3rd level nested unordered list item 1
+2. Ordered list item 2  </pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Paragraphs Inside Lists</strong></u></p>
+            <div class="- topic/p p">If list items are separated by blank lines, Markdown will wrap the items in a
+              paragraph in the
+              output.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">* List item 1
+
+* List item 2</pre></div>
+            <div class="- topic/p p">For both DITA and HTML output, this would result
+              in:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;List item 1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;List item 2&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Multiple Paragraphs Inside Lists</strong></u></p>
+            <div class="- topic/p p">List items may consist of multiple paragraphs. Each subsequent paragraph in a list
+              item must be indented by either 4 spaces or one tab. Optionally, you can also indent
+              each line of a paragraph to make it look
+              nicer.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Blockquotes Inside Lists</strong></u></p>
+            <div class="- topic/p p">To put a <em class="+ topic/ph hi-d/i ph i">blockquote</em> within a list item, the blockquote delimiters
+                (<kbd class="+ topic/ph sw-d/userinput ph userinput">&gt;</kbd>) need to be indented so that it is under the first letter
+              of the text after the list item
+              marker.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">*   A list item with a blockquote:
+    &gt; This is a blockquote
+    &gt; inside a list item.</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Code Blocks Inside Lists</strong></u></p>
+            <div class="- topic/p p">To put a code block within a list item, insert an empty line in between the list item
+              and the code block, and the code block needs to be indented twice (with 8 spaces or 2
+              tabs), or if you are using the triple backticks method, the opening triple backtick
+              needs to be indented with 4 spaces or 1
+              tab.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">*   A list item with a code block:
+
+        This is a code block inside a list item
+
+    ```
+    This is a code block inside a list item using the backticks method
+    ```</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__task_lists" data-ofbid="markdown-rules__task_lists"><h2 class="- topic/title title sectiontitle">Task Lists</h2>
+      
+      <p class="- topic/p p">You can create task lists by prefacing list items with a hyphen followed by a space
+        followed by square brackets (<kbd class="+ topic/ph sw-d/userinput ph userinput">- [ ]</kbd>). To mark a task as complete, use
+          <kbd class="+ topic/ph sw-d/userinput ph userinput">- [x]</kbd>.</p>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Task
+        Lists</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">- [ ] Unfinished task 1
+- [x] Finished task 2</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__definition_lists" data-ofbid="markdown-rules__definition_lists"><h2 class="- topic/title title sectiontitle">Definition Lists</h2>
+      
+      <p class="- topic/p p">You can create definition lists by using a colon plus a space for each list item.</p>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Definition
+        Lists</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Term 1
+: Definition A
+: Definition B</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__tables" data-ofbid="markdown-rules__tables"><h2 class="- topic/title title sectiontitle">Tables</h2>
+      
+      <p class="- topic/p p">You can create tables in the Markdown editor by using pipes (<kbd class="+ topic/ph sw-d/userinput ph userinput">|</kbd>) and
+        hyphens (<kbd class="+ topic/ph sw-d/userinput ph userinput">-</kbd>).</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Creating a Table</strong></u></p>
+            <div class="- topic/p p">Pipes are used to separate each column, while hyphens are used to create column
+              headers. The pipes on either end of the table are optional. Cells can vary in width
+              and do not need to be perfectly aligned within columns, but there must be at least
+              three hyphens in each column of the header
+              row.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">| First Header  | Second Header |
+| ------------- | ------------- |
+| Column 1 Row 1 Cell  | Column 2 Row 1 Cell  |
+| Column 1 Row 2 Cell  | Column 2 Row 2 Cell  |</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Formatting Rules in Table Cells</strong></u></p>
+            <div class="- topic/p p">You can use formatting rules inside the cells of the table (such as links, inline
+              code blocks, and text
+              styling).<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">| First Header  | Second Header |
+| --- | --- |
+| `inline code`  | Content with **bold text** inside cell  |</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Aligning Text in Tables</strong></u></p>
+            <div class="- topic/p p">You can align text to the left, right, or center of a column by including colons
+                (<kbd class="+ topic/ph sw-d/userinput ph userinput">:</kbd>) to the left, right, or on both sides of the hyphens
+              within the header
+              row.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| Content Cell | Content Cell   | Content Cell  |</pre></div>
+          </li>
+          <li class="- topic/li li">
+            <p class="- topic/p p"><u class="+ topic/ph hi-d/u ph u"><strong class="+ topic/ph hi-d/b ph b">Joining Cells (Span a Cell Over Multiple Columns)</strong></u></p>
+            <div class="- topic/p p">You can join cells horizontally (span a cell over multiple columns) by using multiple
+              consecutive pipe characters (<kbd class="+ topic/ph sw-d/userinput ph userinput">|</kbd>) to the right of the particular
+              cell. The number of consecutive pipes indicate the number of columns the cell will
+              span (<kbd class="+ topic/ph sw-d/userinput ph userinput">||</kbd> for two, <kbd class="+ topic/ph sw-d/userinput ph userinput">|||</kbd> for three, and so
+              on).<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">| First Header | Second Header | Third Header | Fourth Header |
+| ------------ | ------------- | ------------ | ------------- |
+| Content Cell | *Cell Span Over 3 Columns* |||</pre></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__emoji" data-ofbid="markdown-rules__emoji"><h2 class="- topic/title title sectiontitle">Emoji</h2>
+      
+      <p class="- topic/p p">You can add <em class="+ topic/ph hi-d/i ph i">emoji</em> in the Markdown editor by surrounding the EMOJICODE with colons
+          (<kbd class="+ topic/ph sw-d/userinput ph userinput">:EMOJICODE:</kbd>).</p>
+      <div class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example:
+        Emoji</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">:smile:
+:laughing:</pre></div>
+      <p class="- topic/p p">The resulting emoticons will appear in the output, but they are not displayed in the
+          <em class="+ topic/ph hi-d/i ph i">Preview</em> pane.</p>
+      <p class="- topic/p p">For a full list of available emoji codes, see <a class="- topic/xref xref" href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="_blank" rel="external noopener">Emoji Cheat Sheet</a>.</p>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__backslash_escapes" data-ofbid="markdown-rules__backslash_escapes"><h2 class="- topic/title title sectiontitle">Backslash Escapes</h2>
+      
+      <div class="- topic/p p">You can ignore Markdown formatting by using backslash escapes (<kbd class="+ topic/ph sw-d/userinput ph userinput">\</kbd>) to
+        generate literal characters that would otherwise have special meaning in the Markdown
+        syntax. For example, if you want to surround a word with literal asterisks (instead of an
+        italic or emphasis tag), you can use backslashes to escape the
+        asterisks.<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">\*literal asterisks\*</pre></div>
+      <div class="- topic/p p">The Markdown editor provides backslash escapes for the following
+        characters:<pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">\   backslash
+`   backtick
+*   asterisk
+_   underscore
+{}  curly braces
+[]  square brackets
+()  parentheses
+#   hash mark
++   plus sign
+-   minus sign (hyphen)
+.   dot
+!   exclamation mark</pre></div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__automatic_escaping_for_special_characters" data-ofbid="markdown-rules__automatic_escaping_for_special_characters"><h2 class="- topic/title title sectiontitle">Automatic Escaping for Special Characters</h2>
+      
+      <p class="- topic/p p">The Markdown editor includes support for automatically escaping special characters such as
+        angle brackets (<kbd class="+ topic/ph sw-d/userinput ph userinput">&lt; &gt;</kbd>) and ampersands
+        (<kbd class="+ topic/ph sw-d/userinput ph userinput">&amp;</kbd>). If you want to use them as literal characters, you must
+        escape them as entities, as in the table below. The exception to this is in HTML output, if
+        the special characters for a valid tag (for example, <code class="+ topic/keyword markup-d/markupname xml-d/xmlelement keyword markupname xmlelement">&lt;b&gt;</code>), they are
+        treated as literal characters and escaping is not necessary.</p>
+      <div class="- topic/p p">
+        <table class="- topic/table table frame-all" data-cols="2"><caption></caption><colgroup><col style="width:108.75pt"/><col style="width:105.75pt"/></colgroup><thead class="- topic/thead thead">
+              <tr class="- topic/row">
+                <th class="- topic/entry entry align-center colsep-1 rowsep-1" id="markdown-rules__automatic_escaping_for_special_characters__entry__1">Literal Character</th>
+                <th class="- topic/entry entry align-center colsep-0 rowsep-1" id="markdown-rules__automatic_escaping_for_special_characters__entry__2">Escaping Code</th>
+              </tr>
+            </thead><tbody class="- topic/tbody tbody">
+              <tr class="- topic/row">
+                <td class="- topic/entry entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="+ topic/ph hi-d/b ph b">&lt;</strong></td>
+                <td class="- topic/entry entry align-center colsep-0 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="+ topic/ph hi-d/b ph b">&amp;lt;</strong></td>
+              </tr>
+              <tr class="- topic/row">
+                <td class="- topic/entry entry align-center colsep-1 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="+ topic/ph hi-d/b ph b">&gt;</strong></td>
+                <td class="- topic/entry entry align-center colsep-0 rowsep-1" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="+ topic/ph hi-d/b ph b">&amp;gt;</strong></td>
+              </tr>
+              <tr class="- topic/row">
+                <td class="- topic/entry entry align-center colsep-1 rowsep-0" headers="markdown-rules__automatic_escaping_for_special_characters__entry__1"><strong class="+ topic/ph hi-d/b ph b">&amp;</strong></td>
+                <td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="markdown-rules__automatic_escaping_for_special_characters__entry__2"><strong class="+ topic/ph hi-d/b ph b">&amp;amp;</strong></td>
+              </tr>
+            </tbody></table>
+      </div>
+    </section>
+    <section class="- topic/section section" id="markdown-rules__footnotes" data-ofbid="markdown-rules__footnotes"><h2 class="- topic/title title sectiontitle">Footnotes</h2>
+      
+      <p class="- topic/p p">The Markdown editor in <span class="- topic/ph ph">Oxygen XML Author</span> supports normal and inline footnotes. The
+        following examples show the required syntax.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul">
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Normal
+            Footnote</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Here is a footnote reference,[^1]
+
+[^1]: Here is the footnote.</pre></li>
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Normal Footnote with Multiple
+            Blocks</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Here is a footnote reference,[^longnote]
+
+[^longnote]: Here is the footnote with multiple blocks.
+
+    Subsequent paragraphs are indented with 4 spaces or 1 tab to show that they
+belong to the previous footnote.</pre></li>
+          <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b"><u class="+ topic/ph hi-d/u ph u">Example: Inline
+            Footnote</u></strong><pre class="+ topic/pre pr-d/codeblock pre codeblock language-ini">Here is an inline note.^[Inlines notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]</pre></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist"><strong>Related Information:</strong><ul class="linklist related_link"><li class="linklist"><a class="navheader_parent_path" href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external noopener" title="Default Markdown Syntax">Default Markdown Syntax</a></li><li class="linklist"><a class="navheader_parent_path" href="https://help.github.com/categories/writing-on-github/" target="_blank" rel="external noopener" title="GitHub Flavored Markdown Rules">GitHub Flavored Markdown Rules</a></li><li class="linklist"><a class="navheader_parent_path" href="markdown-editor.html#markdown-editor" title="Markdown Editor">Markdown Editor</a></li><li class="linklist"><a class="navheader_parent_path" href="markdown-actions.html#markdown-actions" title="Actions Available in the Markdown Editor">Actions Available in the Markdown Editor</a></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="section-item"><div class="section-title"><a href="#markdown-rules__headers" data-tocid="markdown-rules__headers">Headers</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__horizontal_rules" data-tocid="markdown-rules__horizontal_rules">Horizontal Rules (for HMTL output only)</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__paragraphs_and_line_breaks" data-tocid="markdown-rules__paragraphs_and_line_breaks">Paragraphs and Line Breaks</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__styling_text" data-tocid="markdown-rules__styling_text">Styling Text</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__links" data-tocid="markdown-rules__links">Links</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__automatic_links" data-tocid="markdown-rules__automatic_links">Automatic Links</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__images" data-tocid="markdown-rules__images">Images</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__blockquotes" data-tocid="markdown-rules__blockquotes">Blockquotes</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__quoting_code_inline_and_code_blocks" data-tocid="markdown-rules__quoting_code_inline_and_code_blocks">Quoting Code (Inline and Code Blocks)</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__inline_xhtml" data-tocid="markdown-rules__inline_xhtml">Inline XHTML (for HMTL output only)</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__lists" data-tocid="markdown-rules__lists">Lists</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__task_lists" data-tocid="markdown-rules__task_lists">Task Lists</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__definition_lists" data-tocid="markdown-rules__definition_lists">Definition Lists</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__tables" data-tocid="markdown-rules__tables">Tables</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__emoji" data-tocid="markdown-rules__emoji">Emoji</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__backslash_escapes" data-tocid="markdown-rules__backslash_escapes">Backslash Escapes</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__automatic_escaping_for_special_characters" data-tocid="markdown-rules__automatic_escaping_for_special_characters">Automatic Escaping for Special Characters</a></div></li><li class="section-item"><div class="section-title"><a href="#markdown-rules__footnotes" data-tocid="markdown-rules__footnotes">Footnotes</a></div></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div>Generated by <a class="oxyFooter" href="http://www.oxygenxml.com/xml_webhelp.html" target="_blank">
+ &lt;oXygen/&gt; XML WebHelp
+ </a></div>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

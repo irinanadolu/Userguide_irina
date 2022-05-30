@@ -1,0 +1,38 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Accessibility"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Accessibility"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_hyphenation.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_fonts.html"><meta name="DC.relation" scheme="URI" content="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_pdf_output.html#ch_accessibility"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_accessibility"><title>Accessibility</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_accessibility">
+    <h1 class="title topictitle1" id="ariaid-title1">Accessibility</h1>
+  
+    <div class="body">
+        <p class="p">By default, the PDF documents produced using this plugin are partially accessible in the
+      sense that most of the paragraphs, tables, lists, headers, and footers are tagged
+      automatically so a PDF reader can use this information to present the content. </p>
+    </div>
+    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_hyphenation.html">Hyphenation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_fonts.html">Fonts</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-chemistry/topics/ch_pdf_output.html#ch_accessibility" target="_blank" rel="external noopener">Oxygen PDF Chemistry: Accessibility</a></li></ul></div></nav>
+<article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_accessibility___built_in_css">
+    <h2 class="title topictitle2" id="ariaid-title2">Accessibility - Built-in CSS</h2>
+    <div class="body">
+        <p class="p">Accessibility properties are defined in
+        <span class="ph filepath">[PLUGIN_DIR]css/print/p-accessibility.css</span>.</p>
+    </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_create_fully_accessible_documents">
+    <h2 class="title topictitle2" id="ariaid-title3">How to Create Fully Accessible Documents</h2>
+  
+    <div class="body">
+        <div class="p">To make your documents fully accessible (<strong class="ph b">PDF/UA1</strong>), do the following:<ol class="ol" id="dcpp_how_to_create_fully_accessible_documents__ol_nhd_nl4_vcb">
+        <li class="li">In your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>, specify
+          fonts for all elements and for all page margin boxes. There should be no text that falls
+          back to the basic provided fonts (Times, Courier, etc.). For instance, you can
+          use:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root { <strong class="hl-keyword">font-family</strong>: Arial }
+<span class="hl-directive">@page</span> {
+    @top-left {<strong class="hl-keyword">font-family</strong>: Arial }
+    ...
+}</pre></li>
+        <li class="li">Specify an <code class="keyword markupname xmlatt">@alt</code> attribute with a description on any image, or better,
+          use the <code class="keyword markupname xmlelement">&lt;alt&gt;</code> DITA element.</li>
+        <li class="li">Change the Chemistry invocation from the <span class="ph filepath">build.xml</span> file, adding the
+          argument <code class="ph codeph">-pdf-ua</code>. There are two targets to change:
+            <code class="ph codeph">chemistry</code> and <code class="ph codeph">chemistry.embedded</code>.</li>
+      </ol></div>
+    </div>
+</article></article></article></main></body></html>

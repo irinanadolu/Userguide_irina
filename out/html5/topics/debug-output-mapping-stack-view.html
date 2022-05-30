@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Debugging XSLT,Information views,Output Mapping Stack view,XSLT Debugger perspective,Output Mapping Stack view,Debugging XQuery,XQuery Debugger perspective"><meta name="keywords" content="Debugging XSLT, Information views, Output Mapping Stack view, XSLT Debugger perspective, Output Mapping Stack view, Debugging XQuery, XQuery Debugger perspective"><meta name="DC.relation" scheme="URI" content="../topics/debug-info-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-stack-view.html"><meta name="DC.relation" scheme="URI" content="../topics/debug-trace-view.html"><meta name="DC.relation" scheme="URI" content="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output"><meta name="DC.relation" scheme="URI" content="debug-stack-view.html#debug-stack-view"><meta name="DC.relation" scheme="URI" content="debug-trace-view.html#debug-trace-view"><meta name="DC.relation" scheme="URI" content="debug-templates-view.html#debug-templates-view"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="debug-output-mapping-stack-view"><title>Output Mapping Stack View</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="debug-output-mapping-stack-view"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Output Mapping Stack View</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Output Mapping Stack</span> view displays <a class="xref" href="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output">context data</a> and presents the XSLT templates/XQuery elements that generated specific
+      areas of the output. <span class="ph">If the view is not displayed, it can be opened by selecting it from the <span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span></span> menu.</span></p>
+    <div class="p">
+      <figure class="fig fignone" id="debug-output-mapping-stack-view__output-mapping-stack-view-oxygen"><figcaption><span class="fig--title-label">Figure 1. </span>Output Mapping Stack view</figcaption>
+        
+        <img class="image" src="../img/sa_output_mapping_stack_view.png">
+      </figure>
+    </div>
+    <p class="p">
+      
+    </p>
+    <p class="p">The <span class="ph uicontrol">Go to</span> action of the contextual menu takes you to the line that
+      contains the XSLT element displayed in the <span class="ph uicontrol">Output Mapping Stack</span>
+      view.</p>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Output Mapping Stack Columns</span></caption><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="debug-output-mapping-stack-view__entry__1">Column</th>
+            <th class="entry colsep-1 rowsep-1" id="debug-output-mapping-stack-view__entry__2">Description</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__1">#</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__2">The order number in the stack of XSLT templates/XQuery elements. Number 0
+              corresponds to the bottom of the stack in the status of the XSLT/XQuery processor. The
+              highest number corresponds to the top of the stack.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__1">XSL/XQuery Node</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__2">The name of an XSLT template/XQuery element that participated in the generation
+              of the selected output area.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__1">Attributes</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__2">The attributes of the XSLT template/XQuery node.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__1">Resource</td>
+            <td class="entry colsep-1 rowsep-1" headers="debug-output-mapping-stack-view__entry__2">The name of the file containing the XSLT template/XQuery element.</td>
+          </tr>
+        </tbody></table>
+    <div class="note important note_important"><span class="note__title">Important:</span> Remarks:<ul class="ul">
+        <li class="li">Clicking a record highlights that XSLT template definition/XQuery element inside the
+          resource (XSLT stylesheet file/XQuery file).</li>
+        <li class="li">Saxon only shows the applied XSLT templates having at least one hit from the processor.
+          Xalan shows all defined XSLT templates, with or without hits.</li>
+        <li class="li">The table can be sorted by clicking the corresponding column header. When clicking a
+          column header the sorting order switches between: ascending, descending, no sort.</li>
+        <li class="li">Xalan shows also the built-in XSLT rules.</li>
+      </ul></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/debug-info-view.html">Debugging Information Views</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/debug-stack-view.html">Stack View</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debug-trace-view.html">Trace View</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="determining-what-template-generated-particular-output.html#determining-what-template-generated-particular-output">Identify the XSLT / XQuery Expression that Generated Particular Output</a></li><li class="linklist"><a class="link" href="debug-stack-view.html#debug-stack-view">Stack View</a></li><li class="linklist"><a class="link" href="debug-trace-view.html#debug-trace-view">Trace View</a></li><li class="linklist"><a class="link" href="debug-templates-view.html#debug-templates-view">Templates View</a></li></ul></div></nav>
+</article></main></body></html>

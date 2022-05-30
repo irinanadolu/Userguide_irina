@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="webhelp-change-toc-icons">
+  <title>How to Change the Icons in a WebHelp Classic Table of Contents</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm product="author developer editor authorEclipse developerEclipse editorEclipse"
+          >WebHelp Classic<indexterm>Changing icons in the table of contents</indexterm></indexterm>
+        <indexterm product="webhelp">Changing icons in the table of contents</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>You can change the icons that appear in a WebHelp Classic table of contents by assigning new
+      image files in a custom CSS file. By default, these icons are defined with the following CSS
+      codes (the first example is the icon that appears for a collapsed menu and the second for an
+      expanded
+      menu):<codeblock outputclass="language-css">.hasSubMenuClosed{
+    background: url('../img/book_closed16.png') no-repeat;
+    padding-left: 16px;
+    cursor: pointer;
+}</codeblock><codeblock outputclass="language-css">.hasSubMenuOpened{
+    background: url('../img/book_opened16.png') no-repeat;
+    padding-left: 16px;
+    cursor: pointer;
+}</codeblock></p>
+    <section id="using_oxygen_xml_editorauthor">
+      <title>Using Oxygen XML Editor/Author</title>
+      <p>To assign other icons and use a transformation scenario from within <b>Oxygen XML
+          Editor/Author</b>, follow this procedure:<ol>
+          <li>Create a custom CSS file that assigns your desired icons to the
+              <codeph>.hasSubMenuClosed</codeph> and <codeph>.hasSubMenuOpened</codeph>
+            properties.<codeblock outputclass="language-css">.hasSubMenuClosed{
+    background: url('TOC-my-closed-button.png') no-repeat;
+}</codeblock><codeblock outputclass="language-css">.hasSubMenuOpened{
+    background: url('TOC-my-opened-button.png') no-repeat;
+}</codeblock></li>
+          <li>It is recommended that you store the image files in the same directory as the default
+            icons (<filepath><term conkeyref="reusables-user-guide/oxy-install-dir"
+              />\frameworks\docbook\xsl\com.oxygenxml.webhelp.classic\oxygen-webhelp\resources\img\</filepath>).</li>
+          <li><ph conkeyref="reusable-webhelp-customizing/transform-parameters-tab-ph"/> Set the
+              <codeph>html.stylesheet</codeph> parameter to the path of your custom CSS file.</li>
+          <li>Run the WebHelp transformation scenario to generate the output.</li>
+        </ol></p>
+    </section>
+    <section id="using_a_script_outside_of_oxygen_xml_editorauthor">
+      <title>Using a Script Outside of Oxygen XML Editor/Author</title>
+      <note conkeyref="reusables-transforming-documents/note-command-line"
+        product="author developer editor authorEclipse developerEclipse editorEclipse"/>
+      <p>To assign other icons and use a <xref href="using-the-webhelp-plugin-docbook.dita">script
+          outside of <b>Oxygen XML Editor/Author</b></xref>, follow this procedure:<ol>
+          <li>Create a custom CSS file that assigns your desired icons to the
+              <codeph>.hasSubMenuClosed</codeph> and <codeph>.hasSubMenuOpened</codeph>
+            properties.<codeblock outputclass="language-css">.hasSubMenuClosed{
+    background: url('TOC-my-closed-button.png') no-repeat;
+}</codeblock><codeblock outputclass="language-css">.hasSubMenuOpened{
+    background: url('TOC-my-opened-button.png') no-repeat;
+}</codeblock></li>
+          <li>It is recommended that you store the image files in the same directory as the default
+            icons (<filepath>[DocBook XSL
+              directory]\com.oxygenxml.webhelp.classic\oxygen-webhelp\resources\img\</filepath>).</li>
+          <li>Reference your custom CSS file. Use the <codeph>html.stylesheet</codeph> parameter in
+            your transformation script and set its value to the path of your custom CSS file.</li>
+          <li>
+            <p>Execute the transformation script.</p>
+          </li>
+        </ol></p>
+    </section>
+  </body>
+</topic>

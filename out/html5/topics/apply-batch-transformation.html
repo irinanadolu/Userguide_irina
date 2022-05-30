@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="task"><meta name="DC.subject" content="Transformation Scenarios,Batch transformation"><meta name="keywords" content="Transformation Scenarios, Batch transformation"><meta name="DC.relation" scheme="URI" content="../topics/transformation-scenario.html"><meta name="DC.relation" scheme="URI" content="../topics/configure-transformation-dialog.html"><meta name="DC.relation" scheme="URI" content="../topics/transformation-scenarios-sharing.html"><meta name="DC.relation" scheme="URI" content="editor-variables.html#editor-variables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="apply-batch-transformation"><title>Batch Transformations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="apply-batch-transformation"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Batch Transformations</h1>
+  
+  <div class="body taskbody">
+    <section class="section context">
+      <p class="p">A transformation action can be applied on a batch of selected files <a class="xref" href="using-the-project-view.html#using-the-project-view__other_contextual_menu_actions">from the contextual menu of the <span class="ph uicontrol">Project</span> view</a> without having to open the files involved in
+        the transformation. You can apply the same scenario to a batch of files or multiple
+        scenarios to a single file or batch of files.</p>
+    </section>
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">(Optional, but recommended) Organize the files you want to transform in logical
+          folders. </span>
+        <ol type="a" class="ol substeps" id="apply-batch-transformation__substeps_ggt_ddq_gr">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Create a logical folder in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> by using the <span class="ph menucascade"><span class="ph uicontrol">New</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Logical Folder</span></span> action from the contextual menu of the root file.</span>
+          </li>
+          <li class="li substep substepexpand">
+            <span class="ph cmd">Add the files you want to transform to the logical folder by using the
+                  <span class="ph uicontrol"><img class="image" id="apply-batch-transformation__image_vr5_22q_gr" src="../img/AddFiles16.png">Add Files</span> or <span class="ph uicontrol"><img class="image" id="apply-batch-transformation__image_vdz_p4h_5r" src="../img/AddSelectedFile16.png">Add Edited
+                File</span> actions from the contextual menu of the logical folder.</span>
+            <div class="itemgroup stepresult">
+              <div class="note note note_note"><span class="note__title">Note:</span> You can skip this step if the files are already in a dedicated folder that does
+                not include any additional files or folders. You can also manually select the
+                individual files in the <a class="xref" href="using-the-project-view.html#using-the-project-view"><span class="ph uicontrol">Project</span> view</a> each time you want to transform
+                them, but this can be tedious. </div>
+            </div>
+          </li>
+        </ol>
+      </li><li class="li step">
+        <span class="ph cmd">Select the files you want to transform <span class="ph">(or the
+            newly created logical folder) </span>and from the contextual menu, select <span class="ph menucascade"><span class="ph uicontrol">Transform</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="apply-batch-transformation__image_o3z_p5v_sr" src="../img/TransformConfig16.png">Configure
+              Transformation Scenario(s)</span></span> to choose one or more transformation scenarios to be applied on all the
+          files in the logical folder.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Use <span class="ph">Oxygen XML Editor</span>
+          <a class="xref" href="editor-variables.html#editor-variables">editor variables</a> to specify the
+          input and output files. This ensures that each file from the selected set of resources is
+          processed and that the output is not overwritten by the subsequent processing.</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep">
+            <span class="ph cmd">Edit the transformation scenario to make sure the appropriate <a class="xref" href="editor-variables.html#editor-variables">editor variable</a> is assigned for
+              the input file. For example, for a <em class="ph i">DocBook PDF transformation</em>, make sure the
+                <span class="ph uicontrol">XML URL</span> input box is set to the <a class="xref" href="editor-variables.html#editor-variables__edVar-currentFileURL"><em class="ph i">${currentFileURL}</em> editor variable</a>. For a DITA PDF transformation,
+              make sure the <code class="ph codeph">args.input</code> parameter is set to the <a class="xref" href="editor-variables.html#editor-variables__edvar-cf"><em class="ph i">${cf}</em> editor
+                variable</a>.</span>
+          </li>
+          <li class="li substep">
+            <span class="ph cmd">Edit the transformation scenario to make sure the appropriate editor variable is
+              assigned for the output file. For example, for an <span class="ph uicontrol">XML transformation with
+                XSLT</span>, switch to the <span class="ph uicontrol">Output</span> tab and set the path
+              of the output file using a construct of <a class="xref" href="editor-variables.html#editor-variables">editor variables</a>, such as
+                <code class="ph codeph">${cfd}/${cfn}.html</code>.</span>
+          </li>
+        </ol>
+      </li><li class="li step">
+        <span class="ph cmd">Now that the logical folder has been associated with one or more transformation
+          scenarios, whenever you want to apply the same batch transformation, you can select <span class="ph menucascade"><span class="ph uicontrol">Transform</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="apply-batch-transformation__image_ffw_q5v_sr" src="../img/TransformConfig16.png">Transform
+              with</span></span> from the contextual menu and the same previously associated scenario(s)
+          will be applied.</span>
+      </li><li class="li step">
+        <span class="ph cmd">If you want a different type of transformation to be applied to each file inside the
+          logical folder, associate individual scenarios for each file and select <span class="ph menucascade"><span class="ph uicontrol">Transform</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" id="apply-batch-transformation__image_sv4_mwc_hr" src="../img/ApplyStyleSheet16.png">Apply Transformation Scenario(s)</span></span> from the contextual menu of the logical folder.</span>
+      </li></ol></section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/transformation-scenario.html">Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/configure-transformation-dialog.html">Configure Transformation Scenario(s) Dialog Box</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/transformation-scenarios-sharing.html">Sharing Transformation Scenarios</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="editor-variables.html#editor-variables">Editor Variables</a></li></ul></div></nav>
+</article></main></body></html>

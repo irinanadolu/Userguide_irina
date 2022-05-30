@@ -1,0 +1,69 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Special characters"><meta name="keywords" content="Special characters"><meta name="DC.relation" scheme="URI" content="../topics/working-with-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/add-dictionaries-for-autocorrect.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-unicode.html"><meta name="DC.relation" scheme="URI" content="../topics/working-with-unicode.html"><meta name="DC.relation" scheme="URI" content="../topics/open-save-Unicode-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/unicode-font-support.html"><meta name="DC.relation" scheme="URI" content="../topics/unicode-toolbar.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="working-with-special-characters"><title>Working with Special Characters and Encoding</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="working-with-special-characters"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Working with Special Characters and Encoding</h1>
+  
+  <div class="body">
+    <p class="p">While regular characters make up the English and European alphabets and the corresponding
+      basic set of figures and symbols, there are many other <dfn class="term">special characters</dfn> that
+      belong to various other language representations, such as Arabic, Indian, Japanese, Chinese,
+      or Korean. <span class="ph">Oxygen XML Editor</span> provides support for special characters in various ways:</p>
+    <div class="p">
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Opening and Saving Documents</dt>
+          <dd class="dd">The <a class="xref" href="http://unicode.org/standard/standard.html" target="_blank" rel="external noopener">Unicode standard</a> provides support for all the character
+            symbols in all known languages and<span class="ph">Oxygen XML Editor</span>
+            <a class="xref" href="working-with-unicode.html">provides support for all Unicode
+              characters</a>. There are various encoding options and features to help determine
+            how to handle <a class="xref" href="open-save-Unicode-documents.html#open-save-Unicode-documents">documents with unsupported characters</a>.</dd>
+        
+        
+          <dt class="dt dlterm">Fonts</dt>
+          <dd class="dd">
+            <p class="p"><span class="ph">Oxygen XML Editor</span> provides the ability to <a class="xref" href="preferences-fonts.html#preferences-fonts">choose the fonts to be used in the
+                various editing modes</a>. In some cases, changing the font may be a solution
+              when special characters are not rendered as expected.</p>
+            <div class="p">For special characters that are not included in any of the default fonts, <span class="ph">Oxygen XML Editor</span> tries to find that symbol in a <a class="xref" href="unicode-font-support.html#unicode-font-support"><em class="ph i">fallback</em>
+                font</a>.<span class="ph"> For the
+                  <span class="ph uicontrol">Author</span> editing mode, you can specify a set of fallback
+                fonts in the <code class="ph codeph">font-family</code> CSS property (in the particular CSS file
+                used for rendering your documents). For more information, see the <a class="xref" href="dg-css-support-in-author.html">Customizing Author Mode Through CSS</a> section.</span><div class="note tip note_tip"><span class="note__title">Tip:</span> For documents
+                written in languages that use special characters (such as Japanese or Chinese),
+                change the font to one that supports the specific characters (a Unicode font). For
+                the Windows platform, <em class="ph i">Arial Unicode MS</em> or <em class="ph i">MS Gothic</em> is recommended. To
+                change the font in <span class="ph">Oxygen XML Editor</span>, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span>, go to
+                  <span class="ph menucascade"><span class="ph uicontrol">Appearance</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Fonts</span></span>. You can select a font for each editing mode in this
+                preferences page.</div></div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Navigation and Layout</dt>
+          <dd class="dd"><span class="ph">Oxygen XML Editor</span> supports bidirectional text, such as Arabic, Hebrew, and
+            certain Asian languages, or other special characters that are combined into a single
+              glyph.<span class="ph"> In <span class="ph uicontrol">Text</span> mode, you
+              can enable or disable the support for special characters. See <a class="xref" href="bidirectional-support.html#bidirectional-support">Special Character Support in Text Mode</a> for details about which
+              option to choose.</span></dd>
+        
+        
+          <dt class="dt dlterm">Editing</dt>
+          <dd class="dd">
+            <p class="p"><span class="ph">Oxygen XML Editor</span> includes a contextual menu action that <a class="xref" href="text-mode-actions.html#text-mode-actions__convert-hex-sequence">converts a
+                sequence of hexadecimal characters to the corresponding Unicode
+              character</a>.</p>
+            <p class="p">If you do not have a special way of inserting special characters using your keyboard,
+              you can <a class="xref" href="unicode-toolbar.html#unicode-toolbar">insert special characters
+                using the <strong class="ph b">Character Map</strong> feature</a>.</p>
+          </dd>
+        
+      </dl>
+    </div>
+    <div class="p">For more information about working with
+      special characters in specific editing modes, see the following sections:<ul class="ul" id="working-with-special-characters__ul_mbb_2v5_bkb">
+        <li class="li"><a class="xref" href="bidi-support.html">Special Character Support in Author Mode</a></li>
+        <li class="li"><a class="xref" href="bidirectional-support.html">Special Character Support in Text Mode</a></li>
+        <li class="li"><a class="xref" href="grid-bidi.html">Special Character Support in Grid Mode</a></li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/working-with-unicode.html">Unicode Support</a><br></li><li class="link olchildlink"><a href="../topics/open-save-Unicode-documents.html">Opening and Saving Documents with Unsupported Characters</a><br></li><li class="link olchildlink"><a href="../topics/unicode-font-support.html">Unicode Fallback Font Support</a><br></li><li class="link olchildlink"><a href="../topics/unicode-toolbar.html">Inserting Special Characters with the Character Map</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/working-with-documents.html" title="General information about working with any type of document">Working With Any Type of Document</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/add-dictionaries-for-autocorrect.html">Add Dictionaries for the AutoCorrect Feature</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/working-with-unicode.html">Unicode Support</a></div></div></nav></article></main></body></html>

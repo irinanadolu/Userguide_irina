@@ -1,0 +1,100 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Compare Directories tool,Diff Directories tool"><meta name="keywords" content="Compare Directories tool, Diff Directories tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/files-comparison-main-menu-2.html"><meta name="DC.relation" scheme="URI" content="../topics/dir-compare-toolbar-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/dir-compare-toolbar-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/directories-comparison-user-interface-x-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/compare-images-x-tools.html"><meta name="DC.relation" scheme="URI" content="file-comparison.html#file-comparison"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="directories-comparison"><title>Compare Directories Tool</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="directories-comparison"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Compare Directories Tool</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Compare Directories</span> tool can be used to compare and manage changes
+      to files and folders within the structure of your directories. <span class="ph">The utility is available from the
+          <span class="ph uicontrol">Tools</span> menu or can be opened as a stand-alone application from the
+          <span class="ph">Oxygen XML Editor</span> installation folder (<span class="ph filepath">diffDirs.exe</span>).</span>
+      
+    </p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Compare Directories Tool</figcaption>
+        
+        <img class="image" src="../img/sa_compare_dir.png">
+      </figure>
+    </div>
+    <section class="section" id="directories-comparison__starting_the_tools_from_a_command_line"><h2 class="title sectiontitle">Starting the Tool from a Command Line</h2>
+      
+      <p class="p">The directory comparison tool can also be started by using command-line arguments. In the
+        installation folder there is an executable shell (<span class="ph filepath">diffDirs.bat</span> on
+        Windows, <span class="ph filepath">diffDirs.sh</span> on OS X and Linux). To specify the directories to
+        compare, you can pass command-line arguments using the following construct:
+          <code class="ph codeph">diffDirs.bat/diffDirs.sh [directory path 1] [directory path 2]</code>.</p>
+      <p class="p">If you pass only one argument, you are prompted to manually choose the second directory or
+        archive.</p>
+      <p class="p"><u class="ph u"><strong class="ph b">Example:</strong></u></p>
+      <div class="p">To do a comparison between two directories, the command line would look like this:<dl class="dl">
+          
+            <dt class="dt dlterm">Windows</dt>
+            <dd class="dd">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffDirs.bat "c:\documents new" "c:\documents old"</pre>
+              <div class="note tip note_tip"><span class="note__title">Tip:</span> If there are spaces in the path names, surround the paths with
+                quotes.</div>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Linux</dt>
+            <dd class="dd">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffDirs.sh home/documents1 home/documents2</pre>
+            </dd>
+          
+          
+            <dt class="dt dlterm">Mac OS X</dt>
+            <dd class="dd">
+              <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">diffDirs.sh documents1 documents2</pre>
+            </dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="directories-comparison__directory_comparisons"><h2 class="title sectiontitle">Directory Comparisons</h2>
+      
+      <div class="p">To perform a directory comparison, follow these steps:<ol class="ol">
+          <li class="li">
+            <p class="p">Select a folder in the left panel and the folder you want to compare it to in the
+              right panel. You can specify the path by using the text field, the history drop-down,
+              or the <span class="ph uicontrol">Browse for local directory</span> action in the
+                  <span class="ph uicontrol"><img class="image" id="directories-comparison__image_hbx_gsz_53b" src="../img/BrowseDrop.png">Browse</span> drop-down menu.</p>
+            <p class="p"><strong class="ph b">Step Result:</strong> The selected directory structures are opened in the two
+              side-by-side panels.</p>
+          </li>
+          <li class="li">To highlight the differences between the two folders, click the <span class="ph uicontrol"><img class="image" src="../img/DiffPerform16.png">Perform Directories Differencing</span> button
+            from the toolbar.</li>
+          <li class="li">You can also use the <span class="ph uicontrol"><img class="image" src="../img/OptionsShortcut16.png">Diff Options</span> button to access the
+              <a class="xref" href="preferences-diff-dirs.html#preferences-diff-dirs"><span class="ph uicontrol">Directories
+                Comparison</span> preferences page</a> where you can configure various
+            options.</li>
+        </ol></div>
+      <div class="p">To compare the content of two archives, follow these steps:<ol class="ol">
+          <li class="li">Use the <span class="ph uicontrol">Browse for archive file</span> action in the <span class="ph uicontrol"><img class="image" src="../img/BrowseDrop.png">Browse</span> drop-down menu to select the
+            archives in the left and right panels.</li>
+          <li class="li">By default, the supported archives are not treated
+            as directories and the comparison is not performed on the files inside them. To make <span class="ph">Oxygen XML Editor</span> treat supported archives as directories, select the <a class="xref" href="preferences-diff-dirs.html#preferences-diff-dirs__look-in-archives"><span class="ph uicontrol">Look in archives</span> option</a> in the <span class="ph uicontrol">Directories
+              Comparison</span> preferences page.</li>
+          <li class="li">To highlight the differences, click the <span class="ph uicontrol"><img class="image" src="../img/DiffPerform16.png">Perform Directories Differencing</span> button
+            from the toolbar.</li>
+        </ol></div>
+      <div class="p">The directory comparison results are presented using two tree-like structures showing the
+        files and folders, including their name, size, and modification date. A column that contains
+        graphic symbols separates the two tree-like structures. The graphic symbols can be one of
+        the following:<ul class="ul">
+          <li class="li">An <strong class="ph b">X</strong> symbol, when a file or a folder exists in only one of the compared
+            directories.</li>
+          <li class="li">A <strong class="ph b">≠</strong>symbol, when a file exists in both directories but the content differs. The
+            same sign appears when a collapsed folder contains differing files. </li>
+        </ul><span class="ph">The color used for the symbol and the directory
+          or file name can be customized in the <a class="xref" href="preferences-diff-dir-appearance.html"><span class="ph uicontrol">Directories Comparison / Appearance</span> preferences
+          page</a>.</span> You can double-click lines marked with the <strong class="ph b">≠</strong> symbol to open a
+          <span class="ph uicontrol">Compare Files</span> window, which shows the differences between the two
+        files.</div>
+      <p class="p">The directories that contain files that differ are expanded automatically so that you can
+        focus directly on the differences. You can merge the contents of the directories by using
+        the copy actions. If you double-click (or press
+          <span class="ph uicontrol"><span class="keyword shortcut">Enter</span></span>) on a line with a pair of files, <span class="ph">Oxygen XML Editor</span> starts a <a class="xref" href="file-comparison.html#file-comparison">file comparison</a> between the two files, using the <span class="ph uicontrol">Compare
+          Files</span> tool.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dir-compare-toolbar-x-tools.html">Toolbar and Contextual Menu Actions of the Compare Directories Tool</a><br></li><li class="link olchildlink"><a href="../topics/directories-comparison-user-interface-x-tools.html">Compare Directories Tool Menus</a><br></li><li class="link olchildlink"><a href="../topics/compare-images-x-tools.html">Compare Images</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/files-comparison-main-menu-2.html">Compare Files Tool Menus</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dir-compare-toolbar-x-tools.html">Toolbar and Contextual Menu Actions of the Compare Directories Tool</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="file-comparison.html#file-comparison">Compare Files Tool</a></li></ul></div></nav>
+</article></main></body></html>

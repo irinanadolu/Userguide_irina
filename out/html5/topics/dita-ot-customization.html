@@ -1,0 +1,95 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="DITA,Output,Customizing Transformations,Customizing DITA transformations"><meta name="keywords" content="DITA, Output, Customizing Transformations, Customizing DITA transformations"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-transform.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-edit-output.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-use-your-own-build-file.html"><meta name="DC.relation" scheme="URI" content="../topics/dita-map-use-your-own-build-file.html"><meta name="DC.relation" scheme="URI" content="../topics/add-watermark-xhtml-output.html"><meta name="DC.relation" scheme="URI" content="../topics/add-syntax-highlights-codeblocks.html"><meta name="DC.relation" scheme="URI" content="http://www.dita-ot.org/"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dita-ot-customization"><title>Customizing DITA Transformations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dita-ot-customization"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Customizing DITA Transformations</h1>
+  
+  <div class="body">
+    <div class="p">You can customize the appearance of any of the output types by customizing the output
+      transformations. There are several ways to do this:<ul class="ul" id="dita-ot-customization__ul_ftq_nmt_vp">
+        <li class="li">Most transformations are configurable by passing parameters to the transformation
+          script. <span class="ph">Oxygen XML Editor</span> allows you to <a class="xref" href="dita-map-edit-parameters.html#dita-map-edit-parameters">set parameters</a> on a
+          transformation scenario and you can <a class="xref" href="transformation-scenarios-sharing.html#transformation-scenarios-sharing">save and
+            share them with others</a>. You can also use the <a class="xref" href="editor-variables.html#editor-variables__edVar-ask"><strong class="ph b">${ask}</strong> editor
+            variable</a> in the <span class="ph uicontrol">Parameters</span> tab to instruct <span class="ph">Oxygen XML Editor</span> to prompt you for a particular parameter whenever a transformation
+          scenario is run. You can set up multiple transformation scenarios for a given output type,
+          allowing you to maintain several customized transformation scenarios for multiple types of
+          output configurations.</li>
+        <li class="li">If you want to customize an output in a way not supported by the built-in customization
+          options, you can create a modified version of the transformation code and execute it <a class="xref" href="dita-map-use-your-own-build-file.html#dita-map-use-your-own-build-file">using a
+            custom build file</a>. Sometimes the transformation code exports specific forms of
+          extensions or customizations. You should consult the DITA Open Toolkit for the
+          transformation type that you are interested in to see what customization options are
+          supported. <span class="ph"><span class="ph">Oxygen XML Editor</span> provides full editing
+            and <a class="xref" href="debugging.html#debugging">debugging support from XSLT and CSS
+              stylesheets</a>, which you can use to modify transformation code.</span></li>
+        <li class="li">You can also write your own transformation code (and execute it <a class="xref" href="dita-map-use-your-own-build-file.html#dita-map-use-your-own-build-file">using a
+            custom build file</a>) to produce a type of output not supported by the DITA Open
+          Toolkit. <span class="ph"><span class="ph">Oxygen XML Editor</span> provides a full source
+            editing environment for developing such transformations. </span>You can create <span class="ph">Oxygen XML Editor</span> transformation scenarios to run these scripts once they are
+          complete.</li>
+      </ul></div>
+    <div class="p">There are also many other ways to customize specific types of output generated from DITA transformations:<ul class="ul">
+        <li class="li"><strong class="ph b">WebHelp</strong> - For information about customizing WebHelp output, see the <a class="xref" href="wh_webhelp_output.html#wh_webhelp_output">WebHelp Output section</a>.</li>
+        <li class="li"><strong class="ph b">PDF</strong> - For information about customizing PDF output generated from DITA content,
+          see <a class="xref" href="dita-pdf-output.html#dita-pdf-output">XSL FO-based DITA to PDF Customization</a>.</li>
+      </ul></div>
+    <section class="section" id="dita-ot-customization__section_bzh_wjn_hdb"><h2 class="title sectiontitle">Publishing Customizations</h2>
+      
+      <div class="p">Some customizations (usually for HTML-based output), can be made simply by creating a
+        custom CSS and they do not involve modifying the DITA-OT engine in any way. Instead, most
+        customizations involve adding a new plugin to the DITA-OT. Here are some best practices to
+        follow before beginning your customization:<ol class="ol" id="dita-ot-customization__ol_zbw_gkn_hdb">
+          <li class="li">Copy the bundled DITA-OT folder (usually
+                <span class="ph filepath">OXYGEN_INSTALL_DIR\frameworks\dita\<dfn class="term">DITA-OT3.x</dfn></span>) to a location where
+            you have full write access so that you have the ability to <a class="xref" href="dita-ot-install-plugin.html">install new DITA-OT plugins</a>.</li>
+          <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">DITA</span></span>, select <span class="ph uicontrol">Custom</span> for the <span class="ph uicontrol">DITA Open
+              Toolkit</span> option and set the <span class="ph uicontrol">Location</span> to be the path
+            to the location where you copied the bundled DITA-OT folder. This will allow you to
+            upgrade the version of <span class="ph">Oxygen XML Editor</span> at anytime without affecting the
+            publishing system.</li>
+          <li class="li">Share that external DITA-OT folder with the rest of the team. If you are using a
+            repository (such as Subversion or Git), you can commit the entire modified DITA-OT
+            publishing engine as part of your project. This will allow everyone in your team to use
+            the official changes that you made. This will also allow you to set up some kind of
+            automatic publishing system using an open-source integration server (such as <a class="xref" href="https://travis-ci.org/" target="_blank" rel="external noopener">Travis CI</a> or <a class="xref" href="https://jenkins.io/" target="_blank" rel="external noopener">Jenkins</a>).</li>
+        </ol></div>
+    </section>
+    <section class="section" id="dita-ot-customization__section_dtx_fmn_hdb"><h2 class="title sectiontitle">Customizing XHTML-based Output</h2>
+      
+      <p class="p"><strong class="ph b">XHTML</strong>-based output can be modified by using a custom CSS stylesheet to override
+        various styles. If you <a class="xref" href="create-dita-ot-transformation.html">edit an XHTML
+          transformation scenario</a>, there is a parameter called <strong class="ph b">args.css</strong> that can be
+        set to point to your custom CSS and a parameter called <strong class="ph b">args.copy.css</strong> that as long as
+        it is set to <strong class="ph b">yes</strong>, the CSS is copied to the output folder.</p>
+      <p class="p">You can also create plugins to customize the XHTML-based output by adding an extra XSLT
+        stylesheet. For for information, see: <a class="xref" href="https://blog.oxygenxml.com/topics/creating-simple-dita-open-toolkit.html" target="_blank" rel="external noopener">https://blog.oxygenxml.com/topics/creating-simple-dita-open-toolkit.html</a>. A list with all DITA-OT XSLT extension points can be
+        found here: <a class="xref" href="http://www.dita-ot.org/dev/extension-points/plugin-extension-points-xslt-import.html" target="_blank" rel="external noopener">http://www.dita-ot.org/dev/extension-points/plugin-extension-points-xslt-import.html</a>.</p>
+    </section>
+    <section class="section" id="dita-ot-customization__section_qwg_14n_hdb"><h2 class="title sectiontitle">Customizing WebHelp-based Output</h2>
+      
+      <p class="p">The <strong class="ph b">DITA-OT</strong> that comes bundled in <span class="ph">Oxygen XML Editor</span> includes specific plugins
+        that provide the ability to publish DITA content to <a class="xref" href="webhelp-responsive-output.html"><strong class="ph b">WebHelp Responsive</strong></a> output.</p>
+      <p class="p">For information about customizing <span class="ph uicontrol">WebHelp Responsive</span> output, see
+          <a class="xref" href="wh-responsive-customization-tips.html">Customizing WebHelp Responsive Output</a>.</p>
+    </section>
+    <section class="section" id="dita-ot-customization__section_jdb_4pn_hdb"><h2 class="title sectiontitle">Customizing PDF-based Output</h2>
+      
+      <p class="p"><strong class="ph b">DITA to PDF</strong> output can be customized either by creating a PDF customization folder
+        (in this case, the DITA-OT folder will not be modified at all) or by creating a PDF
+        customization plugin. For information about customizing DITA to PDF output, see <a class="xref" href="dita-pdf-output.html">XSL FO-based DITA to PDF Customization</a>.</p>
+      <p class="p">There is also a book called <a class="xref" href="https://xmlpress.net/publications/dita/dita-for-print/" target="_blank" rel="external noopener">DITA For Print</a> that contains details about how to customize
+        various aspects.</p>
+    </section>
+    <section class="section" id="dita-ot-customization__section_w2v_4pn_hdb"><h2 class="title sectiontitle">Customizing PDF Output with CSS</h2>
+      
+      <p class="p"><span class="ph">Oxygen XML Editor</span> also includes a transformation scenario called <a class="xref" href="ditamap-pdf-css-html5.html"><strong class="ph b"><span class="ph">DITA Map PDF - based on HTML5 &amp; CSS</span></strong></a>
+        that is based on a <em class="ph i">DITA-OT CSS-based PDF Publishing plugin</em> that allows you to convert
+          <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA maps</dfn></a> to PDF using a CSS layout
+        processor. For those who are familiar with CSS, this makes it very easy to style and
+        customize the PDF output of your DITA projects without having to work with <em class="ph i">xsl:fo</em>
+        customizations. For more information about customizing PDF output using this transformation
+        scenario, see <a class="xref" href="dcpp_the_customization_css.html">Customization CSS</a>.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/dita-map-use-your-own-build-file.html">Using a Custom Build File</a><br></li><li class="link olchildlink"><a href="../topics/add-watermark-xhtml-output.html">Adding a Watermark in DITA Map to XHTML Output</a><br></li><li class="link olchildlink"><a href="../topics/add-syntax-highlights-codeblocks.html">Adding Syntax Highlights for Codeblocks in the Output</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dita-map-transform.html">Publishing DITA Output</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dita-map-edit-output.html">Output Tab (DITA-OT Transformations)</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dita-map-use-your-own-build-file.html">Using a Custom Build File</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="http://www.dita-ot.org/" target="_blank" rel="external noopener">DITA Open Toolkit Documentation</a></li></ul></div></nav>
+</article></main></body></html>

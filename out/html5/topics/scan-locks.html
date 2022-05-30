@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/lock-unlock-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/lock-unlock-working-copy.html"><meta name="DC.relation" scheme="URI" content="../topics/lock-file.html"><meta name="DC.relation" scheme="URI" content="working-copy-view.html#working-copy-view/wc_locks"><meta name="DC.relation" scheme="URI" content="repository-view.html#repository-view/repos_locks"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="scan-locks"><title>Scanning for Locks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="scan-locks"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Scanning for Locks</h1>
+  <div class="body">
+    <p class="p">When starting to work on a file that is not contextually mergeable (usually a binary file),
+      it is better to verify if someone else is not already working on that file. You can do this in
+      the <a class="xref" href="working-copy-view.html"><span class="ph uicontrol">Working Copy</span> view</a> by
+      selecting one or more resources, then right-clicking them and choosing the <span class="ph uicontrol">Scan for
+        Locks</span> action from the contextual menu.</p>
+    <div class="p">
+      <figure class="fig fignone" id="scan-locks__figure-svn-locked-items-dialog"><figcaption><span class="fig--title-label">Figure 1. </span>Locked Items Dialog Box</figcaption>
+        
+        <img class="image" src="../img/sa_svn_locked_items_dialog.png">
+      </figure>
+    </div>
+    <p class="p">The <span class="ph uicontrol">Locked items</span> dialog box contains a table with all the resources
+      that were found locked on the repository. For each resource there are specified: resource
+      path, state of the lock, owner of the lock, lock comment, creation and expiration date for the
+      lock (if any).</p>
+    <p class="p">The state of the lock can be one of the following:</p>
+    <ul class="ul">
+      <li class="li"><img class="image" id="scan-locks__image_nwz_251_tc" src="../img/SVNLockRemote10.png"> - Appears when one of the
+        following conditions apply: <ul class="ul">
+          <li class="li">Another user has locked the file in the repository.</li>
+          <li class="li">The file was locked by the same user from another working copy.</li>
+          <li class="li">The file was locked from the <span class="ph uicontrol">Repositories</span> view.</li>
+        </ul></li>
+      <li class="li"><img class="image" id="scan-locks__image_lnj_vv1_tc" src="../img/SVNLockLocal10.png"> - Displayed after you have
+        locked a file from the current working copy.</li>
+      <li class="li"><img class="image" src="../img/SVNLockBroken10.png"> - A file already locked from your working copy
+        is no longer locked in the repository (it was unlocked by another user).</li>
+      <li class="li"><img class="image" id="scan-locks__image_j11_dw1_tc" src="../img/SVNLockStolen10.png"> - A file already locked
+        from your working copy is being locked by another user. Now the owner of the file lock is
+        the user who stole the lock from you.</li>
+    </ul>
+    <p class="p">You can unlock a resource by selecting it and pressing the <span class="ph uicontrol">Unlock</span>
+      button.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/lock-unlock-working-copy.html">Lock / Unlock Resources</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/lock-unlock-working-copy.html">Lock / Unlock Resources</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/lock-file.html">Locking a File</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="working-copy-view.html#working-copy-view__wc_locks">Working Copy Locks</a></li><li class="linklist"><a class="link" href="repository-view.html#repository-view__repos_locks">Repository Locks</a></li></ul></div></nav>
+</article></main></body></html>

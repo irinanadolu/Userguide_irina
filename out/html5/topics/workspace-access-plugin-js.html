@@ -1,0 +1,142 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="description" content="This is a JavaScript-based plugin extension that allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events."><meta name="DC.subject" content="Plugin extensions,Workspace Access (JS-based),Workspace Access (JS-based) plugin extension"><meta name="keywords" content="Plugin extensions, Workspace Access (JS-based), Workspace Access (JS-based) plugin extension"><meta name="DC.relation" scheme="URI" content="../topics/pluginTypes.html"><meta name="DC.relation" scheme="URI" content="../topics/adding-oxygen-custom-view.html"><meta name="DC.relation" scheme="URI" content="../topics/trusted-hosts-plugin-extension.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="workspace-access-plugin-js"><title>Workspace Access Plugin Extension (JavaScript-Based)</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="workspace-access-plugin-js"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Workspace Access Plugin Extension (JavaScript-Based)</h1>
+  
+  
+  <div class="body"><p class="shortdesc">This is a JavaScript-based <a class="xref" href="../glossary/plugin.html"><dfn class="term">plugin</dfn></a>
+    extension that allows you to contribute actions to the main menu and toolbars, create custom
+    views, interact with the application workspace, make modifications to opened documents, and add
+    listeners for various events. </p>
+    <p class="p">This extension can use the same API as the <a class="xref" href="workspace-access-plugin.html" title="This type of plugin allows you to contribute actions to the main menu and toolbars, create custom views, interact with the application workspace, make modifications to opened documents, and add listeners for various events.">Workspace Access plugin extension</a>, but the implementation is JavaScript-based and
+      uses the bundled <a class="xref" href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Scripting_Java" target="_blank" rel="external noopener">Rhino</a> library to create and work with Java API from
+      the JavaScript code.</p>
+    <p class="p" id="workspace-access-plugin-js__custom_plugin_folder">First, you need to create a custom plugin folder inside the
+        <strong class="ph b">plugins</strong> folder (for example, <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/plugins/myPlugin</span>). This
+      folder will contain your custom <dfn class="term">plugin</dfn> descriptor file
+        (<span class="ph filepath">plugin.xml</span>) and all other resources for the plugin.</p>
+    <div class="p">The <dfn class="term">plugin</dfn> descriptor file (named <span class="ph filepath">plugin.xml</span>) needs to
+      reference a JavaScript file, as in the following
+      example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><span class="hl-tag-doctype">&lt;!DOCTYPE plugin PUBLIC "-//Oxygen Plugin" "../plugin.dtd"&gt;</span>
+<strong class="hl-tag">&lt;plugin</strong>
+ <span class="hl-attribute">id</span>=<span class="hl-value">"unique.id.value"</span>
+ <span class="hl-attribute">name</span>=<span class="hl-value">"Add Action To DITA Maps Manager popup-menu"</span>
+ <span class="hl-attribute">description</span>=<span class="hl-value">"Plugin adds action to DITA Maps Manager contextual menu."</span>
+ <span class="hl-attribute">version</span>=<span class="hl-value">"1.0"</span>
+ <span class="hl-attribute">vendor</span>=<span class="hl-value">"Syncro Soft"</span>
+ <span class="hl-attribute">class</span>=<span class="hl-value">"ro.sync.exml.plugin.Plugin"</span>
+ <span class="hl-attribute">classLoaderType</span>=<span class="hl-value">"preferReferencedResources"</span><strong class="hl-tag">&gt;</strong>
+ <strong class="hl-tag">&lt;extension</strong> <span class="hl-attribute">type</span>=<span class="hl-value">"WorkspaceAccessJS"</span> <span class="hl-attribute">href</span>=<span class="hl-value">"wsAccess.js"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/plugin&gt;</strong></pre>In
+      the example above, the JavaScript file <span class="ph filepath">wsAccess.js</span> (located in <a class="xref" href="workspace-access-plugin-js.html#workspace-access-plugin-js__custom_plugin_folder">your custom plugin
+        folder</a>) will be called. This JavaScript file needs to have two JavaScript methods
+      defined inside. Methods that will be called when the application starts and when it
+      ends:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><strong class="hl-keyword">function</strong> applicationStarted(pluginWorkspaceAccess) {
+..........
+}
+
+<strong class="hl-keyword">function</strong> applicationClosing(pluginWorkspaceAccess) {
+..........
+}</pre></div>
+    <p class="p">With regard to the <code class="ph codeph">applicationStarted</code> callback, besides using the <a class="xref" href="https://www.oxygenxml.com/InstData/Editor/SDK/javadoc/ro/sync/exml/workspace/api/standalone/StandalonePluginWorkspace.html" target="_blank" rel="external noopener"><em class="ph i">ro.sync.exml.workspace.api.standalone.StandalonePluginWorkspace</em></a> API with
+      the <code class="ph codeph">pluginWorkspaceAccesspluginWorkspaceAccess</code> parameter, you can also use a
+      globally defined field called <code class="ph codeph">jsDirURL</code> that points to the folder where the
+      JavaScript file is located.</p>
+    <div class="p">Below is a much larger example with a JavaScript Workspace Access <dfn class="term">plugin</dfn>
+      extension implementation that adds a new action in the contextual menu<span class="ph"> of the <a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps Manager</span>
+          view</a></span>. The action starts the <span class="ph filepath">notepad.exe</span> application and
+      passes the reference to the currently selected <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> to
+      it.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript"><strong class="hl-keyword">function</strong> applicationStarted(pluginWorkspaceAccess) {
+ Packages.java.lang.System.err.println(<span class="hl-string">"Application started "</span>
+      + pluginWorkspaceAccess);
+ edChangedListener = {
+  <em class="hl-comment">/*Called when a DITA Map is opened*/</em>
+   editorOpened: <strong class="hl-keyword">function</strong> (editorLocation) {
+   Packages.java.lang.System.err.println(<span class="hl-string">"\nrunning "</span> + editorLocation);
+  <em class="hl-comment">/*Get the opened DITA Map*/</em>
+   editor = pluginWorkspaceAccess.getEditorAccess(editorLocation, 
+   Packages.ro.sync.exml.workspace.api.PluginWorkspace.DITA_MAPS_EDITING_AREA);
+   ditaMapPage = editor.getCurrentPage();
+  <em class="hl-comment">/*Add listener called when right-click is done in the DITA Maps manager*/</em>
+   customizerObj = {
+   customizePopUpMenu: <strong class="hl-keyword">function</strong> (popUp, ditaMapDocumentController) {
+   Packages.java.lang.System.err.println(<span class="hl-string">"RIGHT CLICK"</span> + popUp);
+   tree = ditaMapPage.getDITAMapTreeComponent();
+  <em class="hl-comment">/*Selected tree path*/</em>
+   sel = tree.getSelectionPath();
+   <strong class="hl-keyword">if</strong> (sel != null) {
+   selectedElement = sel.getLastPathComponent();
+  <em class="hl-comment">/*Reference attribute*/</em>
+   href = selectedElement.getAttribute(<span class="hl-string">"href"</span>);
+   <strong class="hl-keyword">if</strong> (href != null) {
+     <strong class="hl-keyword">try</strong> {
+  <em class="hl-comment">/*Create absolute reference*/</em>
+   absoluteRef = <strong class="hl-keyword">new</strong> Packages.java.net.URL(selectedElement.getXMLBaseURL(), 
+           href.getValue());
+   Packages.java.lang.System.err.println(<span class="hl-string">"Computed absolute reference "</span>
+         + absoluteRef);
+   mi = <strong class="hl-keyword">new</strong> Packages.javax.swing.JMenuItem(<span class="hl-string">"Run notepad"</span>);
+        popUp.add(mi);
+        actionPerfObj = {
+        actionPerformed: <strong class="hl-keyword">function</strong> (e) {
+          <strong class="hl-keyword">try</strong> {
+           Packages.java.lang.Runtime.getRuntime().exec(<span class="hl-string">"notepad.exe "</span> 
+               + pluginWorkspaceAccess.getUtilAccess().locateFile(absoluteRef));
+          }
+        <strong class="hl-keyword">catch</strong> (e1) {
+         e1.printStackTrace();
+          }
+         }
+        }
+   mi.addActionListener(<strong class="hl-keyword">new</strong> JavaAdapter(Packages.java.awt.event.ActionListener, 
+            actionPerfObj));
+       }
+       <strong class="hl-keyword">catch</strong> (e1) {
+        Packages.java.lang.System.err.println(e1);
+       }
+      }
+     }
+    }
+   }
+   
+   ditaMapPage.setPopUpMenuCustomizer(<strong class="hl-keyword">new</strong> Packages.ro.sync.exml.workspace.api.
+editor.page.ditamap.DITAMapPopupMenuCustomizer(customizerObj));
+  }
+ }
+   edChangedListener = <strong class="hl-keyword">new</strong> JavaAdapter(Packages.ro.sync.exml.workspace.api.
+listeners.WSEditorChangeListener, edChangedListener);
+   pluginWorkspaceAccess.addEditorChangeListener(
+   edChangedListener,
+   Packages.ro.sync.exml.workspace.api.PluginWorkspace.DITA_MAPS_EDITING_AREA);
+}
+
+ <strong class="hl-keyword">function</strong> applicationClosing(pluginWorkspaceAccess) {
+   Packages.java.lang.System.err.println(<span class="hl-string">"Application closing "</span>
+        + pluginWorkspaceAccess);
+}</pre></div>
+    <section class="section" id="workspace-access-plugin-js__section_m3r_12p_thb"><h2 class="title sectiontitle">Declaring Multiple Modules</h2>
+      
+      <p class="p">JavaScript-based plugins can include multiple modules of JavaScript files in the plugin. In
+        those files, you can declare functions that can be used in the main <em class="ph i">WorkspaceAccessJS</em>
+        JavaScript file. Thus, you can use those external script files as a library of functions.
+        The modules must be declared in the plugin descriptor file
+        (<span class="ph filepath">plugin.xml</span>).</p>
+      <div class="p">For
+        example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-javascript">&lt;!DOCTYPE plugin PUBLIC <span class="hl-string">"-//Oxygen Plugin"</span> <span class="hl-string">"../plugin.dtd"</span>&gt;
+&lt;plugin
+ id=<span class="hl-string">"unique.id.value"</span>
+ name=<span class="hl-string">"Add Action To DITA Maps Manager popup-menu"</span>
+ description=<span class="hl-string">"Plugin adds action to DITA Maps Manager contextual menu."</span>
+ version=<span class="hl-string">"1.0"</span>
+ vendor=<span class="hl-string">"Syncro Soft"</span>
+ <strong class="hl-keyword">class</strong>=<span class="hl-string">"ro.sync.exml.plugin.Plugin"</span>
+ classLoaderType=<span class="hl-string">"preferReferencedResources"</span>&gt;
+ &lt;extension type=<span class="hl-string">"WorkspaceAccessJS"</span> href=<span class="hl-string">"wsAccess.js"</span>/&gt;
+ &lt;extension type=<span class="hl-string">"WorkspaceAccessJSModule"</span> href=<span class="hl-string">"wsAccessModule1.js"</span>/&gt;
+ &lt;extension type=<span class="hl-string">"WorkspaceAccessJSModule"</span> href=<span class="hl-string">"wsAccessModule2.js"</span>/&gt;
+&lt;/plugin&gt;</pre></div>
+    </section>
+    <p class="p">For more information and some samples, see <a class="xref" href="https://github.com/oxygenxml/wsaccess-javascript-sample-plugins" target="_blank" rel="external noopener">GitHub Project with Multiple Workspace Access JavaScript-Based Plugin
+        Samples</a>.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/pluginTypes.html">Types of Plugin Extensions Available with the SDK</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/adding-oxygen-custom-view.html">Example: Adding a Custom View in Oxygen XML Editor</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/trusted-hosts-plugin-extension.html" title="This type of plugin can be used by developers to automatically allow or reject remote connections that Oxygen XML Editor would normally ask the user for confirmation.">Trusted Hosts Plugin Extension</a></div></div></nav></article></main></body></html>

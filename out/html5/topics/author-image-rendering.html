@@ -1,0 +1,109 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Image rendering,XML documents,Author Mode editing,Image rendering,Image rendering in Author mode"><meta name="keywords" content="Author editing mode, Image rendering, XML documents, Author Mode editing, Image rendering, Image rendering in Author mode"><meta name="DC.relation" scheme="URI" content="../topics/author_adding_images.html"><meta name="DC.relation" scheme="URI" content="../topics/author_adding_images.html"><meta name="DC.relation" scheme="URI" content="../topics/installing-cgm-library.html"><meta name="DC.relation" scheme="URI" content="../topics/installing-cgm-library.html"><meta name="DC.relation" scheme="URI" content="../topics/installing-pdf-library.html"><meta name="DC.relation" scheme="URI" content="../topics/installing-psd-library.html"><meta name="DC.relation" scheme="URI" content="../topics/eps-ai-support.html"><meta name="DC.relation" scheme="URI" content="../topics/author-image-rendering-jai.html"><meta name="DC.relation" scheme="URI" content="../topics/author-image-rendering-emf.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="author-image-rendering"><title>Image Rendering in Author Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="author-image-rendering"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Image Rendering in Author Mode</h1>
+  
+  <div class="body">
+    <p class="p">The <span class="ph uicontrol">Author</span> mode and the output transformation process might render the
+      images referenced in an XML document differently, since they use different rendering
+      engines.</p>
+    <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Supported Image Formats</span></caption><colgroup><col style="width:16.666666666666668%"><col style="width:10.416666666666668%"><col style="width:72.91666666666667%"></colgroup><thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="author-image-rendering__entry__1">Image Type</th>
+            <th class="entry align-center colsep-1 rowsep-1" id="author-image-rendering__entry__2">Support</th>
+            <th class="entry colsep-1 rowsep-1" id="author-image-rendering__entry__3">Additional Information</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">GIF</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Animations not yet supported.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">JPG, JPEG</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3"><a class="xref" href="cmyk-color-space.html">JPEG images with CMYK color profiles</a>
+              are properly rendered only if color profile is inside the image.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">PNG</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3"></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">SVG, SVGZ, WMF</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Rendered using the open-source Apache Batik library that supports SVG
+              1.1.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">BMP</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3"></td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">TIFF</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Rendered using a part of the Java JAI Image library.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">EPS</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Renders the preview TIFF image inside the EPS.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">AI</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Renders the preview image inside the Adobe Illustrator file.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">PDF</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">built-in</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Rendered by using the bundled Apache PDF Box library. For versions older than
+              20.0, you need to <a class="xref" href="installing-pdf-library.html#installing-pdf-library">install the Apache PDF Box library</a>.</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__1">JPEG 2000, WBMP</td>
+            <td class="entry align-center colsep-1 rowsep-1" headers="author-image-rendering__entry__2">plugin</td>
+            <td class="entry colsep-1 rowsep-1" headers="author-image-rendering__entry__3">Renders by <a class="xref" href="author-image-rendering-jai.html#author-image-rendering-jai">installing the <em class="ph i">Java Advanced Imaging (JAI) Image I/O Tools</em>
+                plug-in</a>.</td>
+          </tr>
+          
+        </tbody></table>
+    <div class="p">When an image cannot be rendered, <span class="ph">Oxygen XML Editor</span>
+      <span class="ph uicontrol">Author</span> mode displays a warning message that contains the reason why
+      this is happening. Possible causes include the following:<ul class="ul">
+        <li class="li">The image is too large. Select the <a class="xref" href="preferences-author.html#preferences-author__show-very-large-images"><span class="ph uicontrol">Show very large images</span> option</a>.</li>
+        <li class="li">The image format is not supported by default. It is recommended to <a class="xref" href="author-image-rendering-jai.html#author-image-rendering-jai">install the <em class="ph i">Java Advanced Imaging(JAI) Image I/O Tools</em>
+            plug-in</a>.</li>
+      </ul></div>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> 
+      <p class="p">If you are using a custom XML format and you want images to be displayed in
+          <span class="ph uicontrol">Author</span> mode, you could use a custom CSS to define the
+        rendering.</p>
+      <div class="p">For example, if your XML has something like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;image</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"blue.png"</span><strong class="hl-tag">/&gt;</strong></pre></div>
+      <div class="p">You can add a selector in your custom CSS like
+        this:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">image[href]{
+    <strong class="hl-keyword">content</strong>: attr(href, url);
+}</pre></div>
+    </div>
+    <section class="section" id="author-image-rendering__scaling_images"><h2 class="title sectiontitle">Scaling Images</h2>
+      
+      <div class="p">Image dimension and scaling attributes are taken into account when an image is rendered.
+        The following rules apply:<ul class="ul">
+          <li class="li">If you specify only the width attribute of an image, the height of the image is
+            proportionally applied.</li>
+          <li class="li">If you specify only the height attribute of an image, the width of the image is
+            proportionally applied.</li>
+          <li class="li">If you specify width and height attributes of an image, both of them control the
+            rendered image.</li>
+          <li class="li">If you want to scale both the width and height of an image proportionally, use the
+              <code class="keyword markupname xmlatt">@scale</code> attribute.</li>
+        </ul></div>
+    </section>
+    <div class="note note note_note"><span class="note__title">Note:</span> As a Java application, <span class="ph">Oxygen XML Editor</span> uses the <em class="ph i">Java Advanced Imaging</em> API
+      that provides a pluggable support for new image types. If you have an <em class="ph i">ImageIO</em> library
+      that supports additional image formats, just copy this library to the <span class="ph filepath"><dfn class="term">[OXYGEN_INSTALL_DIR]</dfn>/lib</span> directory.</div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/installing-cgm-library.html">Rendering CGM Images (Experimental Support)</a><br></li><li class="link olchildlink"><a href="../topics/installing-pdf-library.html">Rendering PDF Images</a><br></li><li class="link olchildlink"><a href="../topics/installing-psd-library.html">Rendering PSD Images</a><br></li><li class="link olchildlink"><a href="../topics/eps-ai-support.html">Rendering EPS and AI Images</a><br></li><li class="link olchildlink"><a href="../topics/author-image-rendering-jai.html">Rendering Special Images with Java Advanced Imaging (JAI) Plugin</a><br></li><li class="link olchildlink"><a href="../topics/author-image-rendering-emf.html">Rendering EMF Images</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author_adding_images.html">Inserting Images</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author_adding_images.html">Inserting Images</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/installing-cgm-library.html">Rendering CGM Images (Experimental Support)</a></div></div></nav></article></main></body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/whr-publishing-template.html"><meta name="DC.relation" scheme="URI" content="../topics/whr_edit-publishing-template.html"><meta name="DC.relation" scheme="URI" content="../topics/whr-share-tempates.html"><meta name="DC.relation" scheme="URI" content="dcpp_parameters.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_how_to_use_a_publishing_template"><title>How to Use a Publishing Template in a PDF Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="dcpp_how_to_use_a_publishing_template"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">How to Use a Publishing Template in a PDF Transformation</h1>
+  <div class="body">
+		<section class="section" id="dcpp_how_to_use_a_publishing_template__section_qt1_ptl_nhb"><h2 class="title sectiontitle">From Oxygen XML Editor/Author</h2>
+			
+			<p class="p">A publishing template can be used for PDF output from the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation scenario (or from the <span class="ph uicontrol">DITA PDF - based on HTML5 &amp; CSS</span> transformation scenario).</p>
+			<p class="p">The <span class="ph uicontrol">Templates</span> tab in the transformation scenario dialog box displays
+        all the templates that are available in your template gallery. To use a particular template
+        in the transformation scenario, simply select it from this tab and then continue configuring
+        the transformation using the other tabs to suit your needs.</p>
+			<div class="p" id="dcpp_how_to_use_a_publishing_template__add-to-gallery">To add the publishing template to your templates gallery, follow these
+					steps:<ol class="ol" id="dcpp_how_to_use_a_publishing_template__ol_ebh_qtl_nhb">
+					<li class="li">Open the transformation scenario dialog box by editing a <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation (or a <span class="ph uicontrol">DITA PDF - based on HTML5 &amp; CSS</span> transformation scenario).</li>
+					<li class="li">
+            <p class="p">In the <span class="ph uicontrol">Templates</span> tab, click the <span class="ph uicontrol">Configure
+                Publishing Templates Gallery</span> link to.</p>
+            <p class="p">
+              <strong class="ph b">Step Result:</strong> This will open the preferences page.</p>
+          </li>
+					<li class="li">
+            <p class="p">Click the <span class="ph uicontrol">Add</span> button and specify the location of your template
+              directory.</p>
+            <p class="p">
+              <strong class="ph b">Step Result:</strong> Your template directory is now added to the <span class="ph uicontrol">Additional
+                Publishing Templates Galleries</span> list.</p>
+          </li>
+					<li class="li">Click <span class="ph uicontrol">OK</span> to return to the transformation scenario dialog box.</li>
+				</ol></div>
+      <p class="p">
+        <strong class="ph b">Result:</strong> All the templates contained in your template directory will be displayed in
+        the preview pane along with all the built-in templates.</p>
+		</section>
+		<section class="section" id="dcpp_how_to_use_a_publishing_template__section_h1n_rtl_nhb"><h2 class="title sectiontitle">From Command Line</h2>
+			
+			<div class="p">You can use the simpler form, meaning you only use the
+          <code class="ph codeph">pdf.publishing.template</code> parameter to point to the <em class="ph i">*.opt</em>
+        (publishing template)
+        file:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-perl">dita.bat 
+	--input=map\test.ditamap<span class="hl-string">" 
+</span>	<span class="hl-string">"-Dpdf.publishing.template=full_path_to_template_dir/my_template.opt"</span> 
+	--format=pdf-css-html5 
+	...</pre>Or
+        use the two parameters to indicate the folder containing the publishing templates and the
+        name of the publishing template file relative to that folder:
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-perl">dita.bat 
+	--input=map\test.ditamap<span class="hl-string">" 
+</span>	<span class="hl-string">"-Dpdf.publishing.template=full_path_to_template_dir"</span> 
+	<span class="hl-string">"-Dpdf.publishing.template.descriptor=my_template.opt"</span>
+	--format=pdf-css-html5 
+	...</pre></div>
+		</section>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> You can also start the <code class="ph codeph">dita</code> process by passing it a <a class="xref" href="https://www.dita-ot.org/dev/topics/using-project-files.html" target="_blank" rel="external noopener">DITA OT Project File</a>. Inside the project file you can specify as
+      parameters for the <code class="ph codeph">webhelp-responsive</code> transformation type the WebHelp-related
+      parameters.</div>
+  </div>
+	<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/whr-publishing-template.html" title="Explains how to use Oxygen Publishing Templates to define the layout and style of the output">Publishing Templates</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/whr_edit-publishing-template.html">How to Edit a Packed Publishing Template</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/whr-share-tempates.html">How to Share a Publishing Template</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_parameters.html">Transformation Parameters</a></li></ul></div></nav>
+</article></main></body></html>

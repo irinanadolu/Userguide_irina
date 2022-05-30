@@ -1,0 +1,200 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Debugging,DITA PDF - based on HTML5 &amp; CSS,Debugging,XPath expressions"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Debugging, DITA PDF - based on HTML5 &amp; CSS, Debugging, XPath expressions"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_oxygen_styles_basket.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_default_page_definitions_css.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_debugging_the_css"><title>Debugging the CSS</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_debugging_the_css">
+  <h1 class="title topictitle1" id="ariaid-title1">Debugging the CSS</h1>
+  
+  <div class="body">
+    <p class="p">If you notice that some of the CSS properties were not applied as expected, some of the tips
+      offered in this topic might help you with the debugging process.</p>
+    <section class="section" id="dcpp_debugging_the_css__merged_map_file"><h2 class="title sectiontitle">Merged Map File</h2>
+      
+      <div class="p">Depending on the type of transformation, one or more merged map files are created at some
+        point during the transformation stages. These files could be used to help debug unexpected results.<ol class="ol">
+          <li class="li">The first thing you should try is to check the file structure of the <strong class="ph b">merged map</strong>
+            file. This can be found in the <span class="ph filepath">out/pdf-css</span> directory and it has the
+              <span class="ph filepath">.merged.html</span> file extension (you will also find a
+              <span class="ph filepath">.merged.xml</span> file that aggregates the entire ditamap structure).
+            You can open the HTML files in <strong class="ph b">Oxygen XML Editor/Author</strong> to examine the structure.
+            Optionally, you can use the pretty print feature (<span class="ph uicontrol">Format and
+              Indent</span>) to make the structure easier to read.</li>
+          <li class="li">Check that the CSS selectors are written correctly against the document
+            structure.</li>
+          <li class="li">If you still cannot identify the problem, then inspect how the styles are applied (you
+            can try any of the methods listed below).</li>
+        </ol></div>
+    </section>
+    <section class="section" id="dcpp_debugging_the_css__section_hwl_jwq_5cb"><h2 class="title sectiontitle">Inspecting the Applied Styles Using the Chrome Browser</h2>
+      
+      <div class="sectiondiv">To inspect the applied CSS styles using Chrome:</div>
+      <ol class="ol" id="dcpp_debugging_the_css__ol_iwl_jwq_5cb">
+        <li class="li">Open the file ending in <span class="ph filepath">.merged.html</span>.</li>
+        <li class="li">Click on the element you want to inspect. </li>
+        <li class="li">Activate the <span class="ph uicontrol">Chrome Developer Tools</span> by using <span class="ph menucascade"><span class="ph uicontrol"><img class="image" src="../img/WebAuthorMore16.png"></span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">More Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Developer Tools</span></span>, or press <span class="ph uicontrol"><span class="keyword shortcut">CTRL+SHIFT+I</span></span>.</li>
+        <li class="li">Activate the <span class="ph uicontrol">Rendering</span> pane by using <span class="ph menucascade"><span class="ph uicontrol"><img class="image" src="../img/WebAuthorMore16.png"></span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">More Tools</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Rendering</span></span>:<br><img class="image" id="dcpp_debugging_the_css__image_f3j_fxq_5cb" src="../img/dcpp_debugging_the_css_chrome_activate_rendering_pane.png"><br>
+        </li>
+        <li class="li">In the <span class="ph uicontrol">Rendering</span> pane, select <span class="ph uicontrol">print</span> from
+          the <span class="ph uicontrol">Emulate CSS media</span> section. This will activate the CSS selectors
+          enclosed in <code class="ph codeph">@media print {..}</code>. <br><img class="image" id="dcpp_debugging_the_css__image_ff5_tyq_5cb" src="../img/dcpp_debugging_the_css_chrome_rendering_emulate_media.png"><br></li>
+      </ol>
+      <div class="note note note_note"><span class="note__title">Note:</span> This allows you to debug the styling of elements, table of contents, and index, but not
+        the styles of the page margin boxes (headers, footers) or page breaks.</div>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> In the left pane of the <span class="ph uicontrol">Developer Tools</span> interface, you
+        can inspect elements and their styles in the <span class="ph uicontrol">Elements</span> tab. You can
+        click on any of the links to display the applied CSS files in the
+          <span class="ph uicontrol">Styles</span> tab in the right pane. Editing the styles in that pane
+        results in a live preview of how the change will affect the output.</div>
+      <div class="note caution note_caution"><span class="note__title">CAUTION:</span> Do not modify the built-in rules directly
+                  in the CSS files from the <strong class="ph b">Oxygen XML Editor/Author</strong> installation. Instead,
+                  copy the rules to your own customization CSS.</div>
+    </section>
+    <section class="section" id="dcpp_debugging_the_css__section_jnm_vmq_5cb"><h2 class="title sectiontitle">Inspecting the Applied Styles Using Oxygen XML Editor/Author</h2>
+      
+      <div class="sectiondiv">To inspect styles:</div>
+      <ol class="ol" id="dcpp_debugging_the_css__ol_mwv_dnq_5cb">
+        <li class="li">In <strong class="ph b">Oxygen XML Editor/Author</strong>, open the file ending in
+            <span class="ph filepath">.merged.html</span>.</li>
+        <li class="li"><strong class="ph b">[Optional]</strong> From the <span class="ph uicontrol">Styles</span> toolbar, choose the
+            <span class="ph uicontrol">+ Print Ready</span> entry. This will activate certain CSS selectors
+          enclosed in <code class="ph codeph">@media print {..}</code>. </li>
+        <li class="li">Click on the element you want to style. Use the <span class="ph uicontrol">Inspect Styles</span>
+          action from the Contextual Menu. A specialized <span class="ph uicontrol">CSS Inspector</span> view
+          will show the built-in CSS rules.</li>
+      </ol>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> With this file open in <span class="ph uicontrol">Author</span> mode, it might be
+        helpful to switch the <span class="ph uicontrol">Tags Display Mode</span> to <span class="ph uicontrol"><img class="image" id="dcpp_debugging_the_css__image_gmv_lrm_wr" src="../img/FullTagsWithAttrs16.png">Full Tags with
+          Attributes</span>. You might be able to identify the selector you need to style
+        without using the <span class="ph uicontrol">CSS Inspector</span> view.</div>
+      <div class="note note note_note"><span class="note__title">Note:</span> This allows you to debug styling of elements, but not of the page margin boxes (headers,
+        footers) or page breaks.</div>
+      <div class="note caution note_caution"><span class="note__title">CAUTION:</span> Do not modify the built-in rules directly
+                  in the CSS files from the <strong class="ph b">Oxygen XML Editor/Author</strong> installation. Instead,
+                  copy the rules to your own customization CSS.</div>
+    </section>
+    <section class="section" id="dcpp_debugging_the_css__section_xp5_vnq_5cb"><h2 class="title sectiontitle">Other techniques</h2>
+      
+      <p class="p">These are some other techniques you may find useful:</p>
+      <ul class="ul" id="dcpp_debugging_the_css__ul_yp5_vnq_5cb">
+        <li class="li">Add background and borders properties to the specific CSS rule. If they do not appear in
+          the output then there is a problem with the rule selector.</li>
+        <li class="li">Try to use the <code class="ph codeph">!important</code> notation to the property that is not applied,
+          or make the selector more specific (you can add more parent selectors). </li>
+        <li class="li">To figure out how the elements are mapped to PDF, you can use this fragment in the
+          customization
+          CSS:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">* {
+   <strong class="hl-keyword">border</strong>: <span class="hl-number">1</span>pt solid blue !important;
+}
+
+*:before(<span class="hl-number">1000</span>) {
+   <strong class="hl-keyword">content</strong>:  oxy_name() !important;
+   <strong class="hl-keyword">color</strong>: orange;
+}
+
+*:before(<span class="hl-number">999</span>) {
+   <strong class="hl-keyword">content</strong>: <span class="hl-string">"[ class= '"</span> attr(class) <span class="hl-string">"'] "</span> !important;
+   <strong class="hl-keyword">color</strong>: orange;
+}</pre>This
+          will show the element name, its class attribute, and will paint a blue border around each
+          of the elements in the output. It will not show the page margin boxes or some content
+          elements that were hidden.</li>
+      </ul>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_oxygen_styles_basket.html">Oxygen Styles Basket</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_default_page_definitions_css.html">Default Page Definitions</a></div></div></nav><article class="topic task nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_speed_up_css_development_and_debugging">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Speed up CSS Development and Debugging</h2>
+  <div class="body taskbody">
+    <section class="section context" id="dcpp_how_to_speed_up_css_development_and_debugging__context_vtz_2kn_cfb">
+      <p class="p">You can speed up your CSS development considerably by not invoking the entire pipeline of
+        transforming your DITA maps to PDF. Instead, you can use the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+          map</a> and transform it directly to PDF. </p>
+    </section>
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Transform your DITA Map to PDF using the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span>
+          transformation scenario.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Open the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_debugging_the_css__merged_map_file">merged
+            file</a> (*.merged.html) that is located in the output directory in the editor.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Configure an <span class="ph uicontrol">XML to PDF transformation with CSS</span> scenario. Do not
+          set CSS files here since the merged file already contains pointers to the stylesheets.
+          This scenario uses the Chemistry CSS processor.</span>
+      </li><li class="li step"><strong>Optional: </strong>
+        <span class="ph cmd">Enable the output of the CSS processor using the following preferences page: <span class="ph menucascade"><span class="ph uicontrol">Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">PDF Processors</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">CSS Processor</span></span>.</span>
+      </li></ol></section>
+    <section class="section result" id="dcpp_how_to_speed_up_css_development_and_debugging__result_nrt_1mn_cfb">
+      <div class="p">Now you can make incremental changes to the CSS stylesheet and quickly see the results by
+        transforming the merged file directly.<div class="note fastpath note_fastpath"><span class="note__title">Fastpath:</span> If your changes involve only
+          element styling, with no specific paged media CSS rules and properties, you can simply
+          open the merged file in a browser (such as Chrome or Firefox) and refresh at each CSS
+          change, as shown in: <a class="xref" href="dcpp_debugging_the_css.html">Debugging the CSS</a>.</div></div>
+    </section>
+  </div>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_write_xpath_expressions">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Write XPath Expressions</h2>
+  
+  <div class="body">
+    <p class="p">This topic contains some guidelines for writing XPath expressions. They are used to extract
+      the content from the merged DITA map document. </p>
+    <div class="p">This is an example where the product name meta-information is placed before the front page
+      title:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">*[class~=<span class="hl-string">"front-page/front-page-title"</span>]:before {
+    <strong class="hl-keyword">text-align</strong>: <strong class="hl-keyword">left</strong>;
+    <strong class="hl-keyword">content</strong>: oxy_xpath(<span class="hl-string">"(//*[contains(@class, 'topic/prodname')]/text())[1]"</span>);
+    <strong class="hl-keyword">display</strong>:block;
+}</pre></div>
+    <div class="p">
+      <div class="note note note_note"><span class="note__title">Notes:</span> 
+        <ul class="ul" id="dcpp_how_to_write_xpath_expressions__ol_izh_wsz_g2b">
+          <li class="li">Do not use the DITA element names directly. You must use the DITA
+              <code class="keyword markupname xmlatt">@class</code> attribute instead, as these attributes are propagated to the
+            merged elements (including HTML <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements) while the element
+            names can be lost. By using the class selectors, you also cover DITA
+            specializations.</li>
+          <li class="li">Use the "[1]" XPath predicate to select the first value from the document. For
+            example, <code class="ph codeph">oxy_xpath("(//*[contains(@class,
+              'topic/prodname')]/text())[1]")</code>. The meta-information might be copied
+            multiple times in the output, inherited by the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+            elements, so you can get many more values than expected.</li>
+          <li class="li">Do not use strings as values for the pseudo-elements content, as the string values are
+            not supported for pseudo-elements. Instead, use the XPath directly. </li>
+          <li class="li">Use the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/xpath-builder-view.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen XPath Builder</strong> view</a> to test the
+            XPath expressions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_debugging_the_css.html#dcpp_how_to_debug_xpath_expressions">How to Debug XPath Expressions</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title4" id="dcpp_how_to_debug_xpath_expressions">
+  <h2 class="title topictitle2" id="ariaid-title4">How to Debug XPath Expressions</h2>
+  
+  <div class="body">
+    <p class="p">You can use the content extracted from the document using the <code class="ph codeph">oxy_xpath</code>
+      function in your pseudo-elements (<code class="ph codeph">:before</code>, <code class="ph codeph">:after</code>) or in
+        <code class="ph codeph">string-set</code> variables. </p>
+    <p class="p">For example, the following XPath finds the publication author, set in the DITA map: </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;map&gt;</strong>
+  <strong class="hl-tag">&lt;title&gt;</strong>The Art of Bike Repair<strong class="hl-tag">&lt;/title&gt;</strong>
+  <strong class="hl-tag">&lt;topicmeta&gt;</strong>
+    <strong class="hl-tag">&lt;author&gt;</strong>John Doe<strong class="hl-tag">&lt;/author&gt;</strong>
+  <strong class="hl-tag">&lt;/topicmeta&gt;</strong>
+...</pre>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root {
+    string-set: author oxy_xpath(<span class="hl-string">'//*[contains(@class, "front-page/front-page")]/*[contains(@class, "map/topicmeta")]/*[contains(@class, "topic/author")]/text()'</span>);
+}</pre>
+    <p class="p">To debug an XPath expression:</p>
+    <ol class="ol" id="dcpp_how_to_debug_xpath_expressions__ol_jhx_fdz_g2b">
+      <li class="li">Read the <a class="xref" href="dcpp_debugging_the_css.html#dcpp_how_to_write_xpath_expressions">XPath Expressions
+          Guidelines</a>.</li>
+      <li class="li">Begin by transforming your document using your customization CSS.</li>
+      <li class="li">In the output folder, you will find a <span class="ph filepath">[MAP_NAME].merged.html</span> file (or
+        if you are using the <span class="ph uicontrol">DITA Map PDF - based on HTML5 &amp; CSS</span> transformation, a
+          <span class="ph filepath">[MAP_NAME].merged.html</span> file). </li>
+      <li class="li">Open the merged file in the <strong class="ph b">Oxygen XML Editor/Author</strong>.</li>
+      <li class="li">Activate the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/xpath-builder-view.html" target="_blank" rel="external noopener"><strong class="ph b">XPath Builder</strong> view</a> (<span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XPath/XQuery Builder</span></span>).</li>
+      <li class="li">Paste your XPath expression and click the <span class="ph uicontrol"><img class="image" src="../img/ApplyStyleSheet16.png">Execute XPath</span> button. Check if it
+        returns the expected results.</li>
+    </ol>
+    <p class="p">The XPath builder has a function that allows it to display the document path of the current
+      element from the editor (<span class="ph menucascade"><span class="ph uicontrol"><img class="image" src="../img/Settings16.png">Settings drop-down menu</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol"><img class="image" src="../img/CaretUpdateOff16.png">Update on cursor move</span></span>). Alternatively, you can right-click the element in the merged document and
+      select the <span class="ph uicontrol">Copy XPath</span> action, then paste it in the XPath builder.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.oxygenxml.com/doc/ug-editor/topics/xpath-builder-view.html" target="_blank" rel="external noopener">XPath Builder Documentation</a></li><li class="linklist"><a class="link" href="https://www.w3schools.com/xml/xpath_examples.asp" target="_blank" rel="external noopener">XPath Examples (w3schools.com)</a></li></ul></div></nav>
+</article></article></article></main></body></html>

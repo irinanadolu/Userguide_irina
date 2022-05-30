@@ -1,0 +1,27 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Schematron Quick Fixes,Restricting operations,Use-When Condition,SQF,Restricting Schematron Quick Fix operations,Use-When SQF Condition"><meta name="keywords" content="Schematron Quick Fixes, Restricting operations, Use-When Condition, SQF, Restricting Schematron Quick Fix operations, Use-When SQF Condition"><meta name="DC.relation" scheme="URI" content="../topics/customizing-sqf.html"><meta name="DC.relation" scheme="URI" content="../topics/user-entry-sqf-operation.html"><meta name="DC.relation" scheme="URI" content="../topics/format-indent-sqf-content.html"><meta name="DC.relation" scheme="URI" content="sqf-operations.html#sqf-operations"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="use-when-sqf-condition"><title>Restricting Quick Fix Operations</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="use-when-sqf-condition"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Restricting Quick Fix Operations</h1>
+  
+  <div class="body">
+    <div class="p">To restrict a <a class="xref" href="../glossary/quick-fix.html"><dfn class="term">Quick Fix</dfn></a> or a specific
+      operation to only be available if certain conditions are met, the <code class="keyword markupname xmlatt">@use-when</code>
+      attribute can be included in the <code class="keyword markupname xmlelement">&lt;sqf:fix&gt;</code> element or any of the SQF
+      operation elements. The condition of the <code class="keyword markupname xmlatt">@use-when</code> attribute is an XPath
+      expression and the fix or operation will be performed only if the condition is satisfied. In
+      the following example, the <code class="ph codeph">use-when</code> condition is applied to the
+        <code class="keyword markupname xmlelement">&lt;sqf:fix&gt;</code>
+      element:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;sqf:fix</strong> <span class="hl-attribute">id</span>=<span class="hl-value">"last"</span> <span class="hl-attribute">use-when</span>=<span class="hl-value">"$colWidthSummarized - 100 lt $lastWidth"</span>
+ <span class="hl-attribute">role</span>=<span class="hl-value">"replace"</span><strong class="hl-tag">&gt;</strong>
+   <strong class="hl-tag">&lt;sqf:description&gt;</strong>
+       <strong class="hl-tag">&lt;sqf:title&gt;</strong>Subtract excessive width from the last element.<strong class="hl-tag">&lt;/sqf:title&gt;</strong>
+   <strong class="hl-tag">&lt;/sqf:description&gt;</strong>
+   <strong class="hl-tag">&lt;let</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"delta"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"$colWidthSummarized - 100"</span><strong class="hl-tag">/&gt;</strong>
+   <strong class="hl-tag">&lt;sqf:add</strong> <span class="hl-attribute">match</span>=<span class="hl-value">"html:col[last()]"</span> <span class="hl-attribute">target</span>=<span class="hl-value">"width"</span> <span class="hl-attribute">node-type</span>=<span class="hl-value">"attribute"</span><strong class="hl-tag">&gt;</strong>
+    <strong class="hl-tag">&lt;let</strong> <span class="hl-attribute">name</span>=<span class="hl-value">"newWidth"</span> <span class="hl-attribute">value</span>=<span class="hl-value">"number(substring-before(@width,'%')) - $delta"</span><strong class="hl-tag">/&gt;</strong>
+       <strong class="hl-tag">&lt;value-of</strong> <span class="hl-attribute">select</span>=<span class="hl-value">"concat($newWidth,'%')"</span><strong class="hl-tag">/&gt;</strong>
+   <strong class="hl-tag">&lt;/sqf:add&gt;</strong>
+<strong class="hl-tag">&lt;/sqf:fix&gt;</strong>    </pre></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/customizing-sqf.html">Defining Schematron Quick Fixes</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/user-entry-sqf-operation.html">User Entry SQF Operation</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/format-indent-sqf-content.html">Formatting/Indenting Content Inserted by SQF Operations</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="sqf-operations.html#sqf-operations">Basic Schematron Quick Fix Operations</a></li></ul></div></nav>
+</article></main></body></html>

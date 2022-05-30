@@ -1,0 +1,36 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/api_faq_obtain_w3cElement.html"><meta name="DC.relation" scheme="URI" content="../topics/sdk-open-custom-protocal.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="api-faq-current-selected-node"><title>Obtain the Currently Selected Element Using the Author API</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="api-faq-current-selected-node"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Obtain the Currently Selected Element Using the Author API</h1>
+  <div class="body">
+    <section class="section" id="api-faq-current-selected-node__question"><h2 class="title sectiontitle">Question</h2>
+      
+      <p class="p">In <span class="ph uicontrol">Author</span> mode, if an element is fully selected, I want to perform
+        an action on it. If not, I want to perform an action on the node that is located at the
+        cursor position. Is this possible via the API?</p>
+    </section>
+    <section class="section" id="api-faq-current-selected-node__answer"><h2 class="title sectiontitle">Answer</h2>
+      
+      <p class="p">When an element is fully selected by the user the selection start and end offsets are
+        actually outside of the node's offset bounds. So using
+          <em class="ph i">AuthorDocumentController.getNodeAtOffset</em> will actually return the parent of the
+        selected node. A special API is available that makes it easier for you to determine this
+        situation: <em class="ph i">WSAuthorEditorPageBase.getFullySelectedNode()</em>.</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">AuthorDocumentController controller = authorPageAccess.getDocumentController();
+AuthorAccess authorAccess = authorPageAccess.getAuthorAccess();
+<strong class="hl-keyword">int</strong> caretOffset = authorAccess.getEditorAccess().getCaretOffset();
+
+    AuthorElement nodeAtCaret = 
+(AuthorElement) authorAccess.getEditorAccess().getFullySelectedNode();
+    <strong class="hl-keyword">if</strong> (nodeAtCaret == null) {
+     <em class="hl-comment">//We have no fully selected node. We can look at the cursor offset.</em>
+     nodeAtCaret = (AuthorElement) 
+authorAccess.getDocumentController().getNodeAtOffset(caretOffset);
+    <em class="hl-comment">//Or we could look at the selection start and end, see which node is </em>
+the parent of each offset and get the closest common ancestor.
+}</pre>
+      </div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/api_faq_introduction.html">SDK Common Use Cases</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/api_faq_obtain_w3cElement.html">Obtain a DOM Element from AuthorNode or AuthorElement</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/sdk-open-custom-protocal.html">Open a Document in Oxygen from Another Application</a></div></div></nav></article></main></body></html>

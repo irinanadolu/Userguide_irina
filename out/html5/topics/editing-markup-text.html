@@ -1,0 +1,324 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Text editing mode,Editing XML markup,XML documents,Text Mode editing,Editing XML markup,Editing XML markup in Text Mode"><meta name="keywords" content="Text editing mode, Editing XML markup, XML documents, Text Mode editing, Editing XML markup, Editing XML markup in Text Mode"><meta name="DC.relation" scheme="URI" content="../topics/xml-editor-specific-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/word-line-actions.html"><meta name="DC.relation" scheme="URI" content="../topics/folding-of-the-xml-elements.html"><meta name="DC.relation" scheme="URI" content="refactoring-xml-documents.html#refactoring-xml-documents"><meta name="DC.relation" scheme="URI" content="text-mode-actions.html#text-mode-actions"><meta name="DC.relation" scheme="URI" content="common-shortcut-keys.html#common-shortcut-keys"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="editing-markup-text"><title>Editing XML Markup in Text Mode</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="editing-markup-text"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Editing XML Markup in Text Mode</h1>
+  
+  <div class="body">
+    <p class="p"><span class="ph">Oxygen XML Editor</span> includes some useful actions that allow you to easily edit XML markup
+      in <span class="ph uicontrol">Text</span> mode. These actions are available in the
+        <span class="ph uicontrol">Refactoring</span> submenu of the contextual menu<span class="ph"> and in the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Markup</span></span> menu</span>, and many of the actions can also be done with simple keyboard
+      shortcuts.</p>
+    <section class="section" id="editing-markup-text__using_the_breadcrumb"><h2 class="title sectiontitle">Using the Breadcrumb</h2>
+      
+      <p class="p">A <em class="ph i">breadcrumb</em> on the top stripe indicates the path from the document root element to
+        the current element. It can also be used as a helpful tool to insert and edit specific
+        elements in the document structure.</p>
+      <div class="p">
+        <figure class="fig fignone" id="editing-markup-text__fig_lt3_g2g_rs"><figcaption><span class="fig--title-label">Figure 1. </span>Breadcrumb in Text Mode</figcaption>
+          
+          <img class="image" id="editing-markup-text__image_mt3_g2g_rs" src="../img/author_top_stripe.png">
+          
+        </figure>
+      </div>
+      <div class="p">The last element listed in the <dfn class="term">breadcrumb</dfn> is the element at the current cursor
+        position. <span class="ph">The current element is also highlighted by a
+          thin light blue bar for easy identification. </span>Clicking an element in the
+          <dfn class="term">breadcrumb</dfn> selects the entire element in the editor area. Also, each element
+        provides a contextual menu with access to the following actions:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Append Child</span></dt>
+            <dd class="dd">Allows you to select an element (from a drop-down list) that is allowed by the
+              associated schema and inserts it as a child of the current element.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert Before</span></dt>
+            <dd class="dd">Allows you to select an element (from a drop-down list) that is allowed by the
+              associated schema and inserts it immediately before the current element, as a
+              sibling.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol">Insert After</span></dt>
+            <dd class="dd">Allows you to select an element (from a drop-down list) that is allowed by the
+              associated schema and inserts it immediately after the current element, as a
+              sibling.</dd>
+          
+          
+            <dt class="dt dlterm" id="editing-markup-text__edit-attributes-dlentry"><span class="ph uicontrol"><img class="image" src="../img/Attribute16.gif">Edit Attributes</span></dt>
+            <dd class="dd">Opens an editing window that allows you to edit the attributes of the currently
+              selected element.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_bsr_brd_cs" src="../img/ToggleComment16.png">Toggle
+                Comment</span></dt>
+            <dd class="dd">Encloses the currently selected element in an XML comment, if the element is not
+              already commented. If it is already commented, this action will remove the
+              comment.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_u1f_hz1_5r" src="../img/Cut16.png">Cut</span></dt>
+            <dd class="dd">Removes the selected element and copies it to the clipboard.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_x2z_mst_tr" src="../img/Copy16.png">Copy</span></dt>
+            <dd class="dd">Copies the selected element to the clipboard.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_b41_5jg_ks" src="../img/RemoveSelected16.gif">Delete</span></dt>
+            <dd class="dd">Deletes the currently selected element.</dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="editing-markup-text__move_nodes"><h2 class="title sectiontitle">Move Nodes</h2>
+      
+      <p class="p">You can easily move XML nodes in the current document by using the following shortcut
+        keys:</p>
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><span class="keyword shortcut">Alt +
+                  UpArrow</span></span></dt>
+            <dd class="dd">Moves the current node or selected nodes in front of the previous node.</dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph uicontrol"><span class="keyword shortcut">Alt +
+                    DownArrow</span></span></dt>
+            <dd class="dd">Moves the current node or selected nodes after the subsequent node.</dd>
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="editing-markup-text__rename_elements"><h2 class="title sectiontitle">Rename Elements</h2>
+      
+      <p class="p">You can rename elements by using the following actions in the
+          <span class="ph uicontrol">Refactoring</span> submenu of the contextual menu<span class="ph"> (or from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Markup</span></span> menu)</span>:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_z52_xxz_tr" src="../reusables/topics/../../img/RenameElement16.png">Rename
+              Element</span></dt>
+          <dd class="dd">The element from the cursor position, and any elements with the same name, can be
+            renamed according with the options from the <span class="ph uicontrol">Rename</span> dialog
+            box.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_crz_rfc_2s" src="../reusables/topics/../../img/RenamePrefix16.png">Rename
+              Prefix</span> (<span class="ph uicontrol"><span class="keyword shortcut" id="editing-markup-text__alt_shift_p_shortcut">Alt + Shift + P
+                    (Command + Shift + P on OS X)</span></span>)</dt>
+          <dd class="dd">The prefix of the element from the cursor position, and any elements with the same
+            prefix, can be renamed according with the options from the <span class="ph uicontrol">Rename</span>
+            dialog box.<ul class="ul" id="editing-markup-text__ul_bzf_5fc_2s">
+              <li class="li">If you select the <span class="ph uicontrol">Rename current element prefix</span> option, the
+                application will recursively traverse the current element and all its children.
+                  <em class="ph i">For example</em>, to change the <code class="ph codeph">xmlns:p1="ns1"</code> association in
+                the current element to <code class="ph codeph">xmlns:p5="ns1"</code>, if the
+                  <code class="ph codeph">xmlns:p1="ns1"</code> association is applied on the parent element, then
+                  <span class="ph">Oxygen XML Editor</span> will introduce <code class="ph codeph">xmlns:p5="ns1"</code> as a new
+                declaration in the current element and will change the prefix from
+                  <code class="ph codeph">p1</code> to <code class="ph codeph">p5</code>. If <code class="ph codeph">p5</code> is already
+                associated with another namespace in the current element, then the conflict will be
+                displayed in a dialog box. By pressing <span class="ph uicontrol">OK</span>, the prefix is
+                modified from <code class="ph codeph">p1</code> to <code class="ph codeph">p5</code> without inserting a new
+                declaration.</li>
+              <li class="li">If you select the <span class="ph uicontrol">Rename current prefix in all document</span>
+                option, the application will apply the change on the entire document.</li>
+              <li class="li">To also apply the action inside attribute values, select the <span class="ph uicontrol">Rename
+                  also attribute values that start with the same prefix</span> checkbox.</li>
+            </ul></dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="editing-markup-text__surround_content_with_tags_wrap"><h2 class="title sectiontitle">Surround Content with Tags (Wrap)</h2>
+      
+      <p class="p">You can surround a selection of content with tags (<em class="ph i">wrap</em> the content) by using the
+        following action in the <span class="ph uicontrol">Refactoring</span> submenu of the contextual menu<span class="ph"> (or from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Markup</span></span> menu)</span>:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_qtf_xfc_2s" src="../reusables/topics/../../img/SurroundWithTag16.png">Surround with</span> submenu</dt>
+          <dd class="dd">Presents a drop-down menu that allows you to choose a tag to surround a selected
+            portion of content. </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_fsn_qgc_2s" src="../reusables/topics/../../img/SurroundWithTag16.png">Surround with Tags (<span class="keyword shortcut">Ctrl + E (Command + E on
+                    OS X)</span>)</span></dt>
+          <dd class="dd">Allows you to choose a tag that encloses a selected portion of content. If there is no
+            selection, the start and end tags are inserted at the cursor position.<ul class="ul">
+              <li class="li">If the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__position-cursor-between-tags"><span class="ph uicontrol">Position cursor between tags</span> option</a> is selected
+                in the <span class="ph uicontrol">Content Completion</span> preferences page, the cursor is
+                placed between the start and end tag. </li>
+              <li class="li">If the <a class="xref" href="preferences-content-completion.html#preferences-content-completion__position-cursor-between-tags"><span class="ph uicontrol">Position cursor between tags</span> option</a> is not
+                selected in the <span class="ph uicontrol">Content Completion</span> preferences page, the
+                cursor is placed at the end of the start tag, in an insert-attribute position.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_t3c_sgc_2s" src="../reusables/topics/../../img/SurroundWithTag16.png">Surround with '[tag]' (<span class="keyword shortcut">Ctrl +
+                    ForwardSlash (Command + ForwardSlash on OS X)</span>)</span></dt>
+          <dd class="dd">Surround the selected content with the last tag used.</dd>
+        
+          
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="editing-markup-text__unwrap_the_content_of_elements"><h2 class="title sectiontitle">Unwrap the Content of Elements</h2>
+      
+      <p class="p">You can unwrap the content of an element by using the following action in the
+          <span class="ph uicontrol">Refactoring</span> submenu of the contextual menu<span class="ph"> (or from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Markup</span></span> menu)</span>:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_bzy_xgc_2s" src="../reusables/topics/../../img/DeleteElementTags16.png">Delete element tags (<span class="keyword shortcut">Alt + Shift + X
+                    (Command + Alt + X on OS X)</span>)</span></dt>
+          <dd class="dd">Deletes the start and end tag of the current element.</dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="editing-markup-text__join_or_split_elements"><h2 class="title sectiontitle">Join or Split Elements</h2>
+      
+      <p class="p">You can join or split elements in the current document by using the following actions in
+        the <span class="ph uicontrol">Refactoring</span> submenu of the contextual menu<span class="ph"> (or from the <span class="ph menucascade"><span class="ph uicontrol">Document</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Markup</span></span> menu)</span>:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_mgr_dhc_2s" src="../reusables/topics/../../img/JoinElements16.png">Join
+              elements (<span class="keyword shortcut">Alt + Shift + J
+                    (Command + Alt + J on OS X)</span>)</span></dt>
+          <dd class="dd">Joins the left and right elements relative to the current cursor position. The
+            elements must have the same name, attributes, and attributes values.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" id="editing-markup-text__image_wbd_bhc_2s" src="../reusables/topics/../../img/SplitElement16.png">Split
+              element</span>
+            <span class="ph uicontrol">(<span class="keyword shortcut">Alt + Shift + D
+                    (Ctrl + Alt + D on OS X)</span>)</span></dt>
+          <dd class="dd">Split the element from the cursor position into two identical elements. The cursor
+            must be inside the element.</dd>
+        
+        </dl>
+      </div>
+    </section>
+    <section class="section" id="editing-markup-text__other_refactoring_actions"><h2 class="title sectiontitle">Other Refactoring Actions</h2>
+      
+      <p class="p">You can also manage the structure of the markup by using the other specific XML refactoring
+        actions that are available in the <span class="ph uicontrol">Refactoring</span> submenu of the
+        contextual menu:</p>
+      <div class="p">
+        <dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Attributes</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to attributes with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Add/Change attribute</span></dt>
+                  <dd class="dd">Allows you to change the value of an attribute or insert a new one.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Convert attribute to element</span></dt>
+                  <dd class="dd">Allows you to change an attribute into an element.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete attribute</span></dt>
+                  <dd class="dd">Allows you to remove one or more attributes.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename attribute</span></dt>
+                  <dd class="dd">Allows you to rename an attribute.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace in attribute value</span></dt>
+                  <dd class="dd">Allows you to search for a text fragment inside an attribute value and change
+                    the fragment to a new value.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Comments</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to comments with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete comments</span></dt>
+                  <dd class="dd">Allows you to delete comments found inside one or more elements.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Elements</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to elements with some of
+              the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete element</span></dt>
+                  <dd class="dd">Allows you to delete elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Delete element content</span></dt>
+                  <dd class="dd">Allows you to delete the content of elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert element</span></dt>
+                  <dd class="dd">Allows you to insert new elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Rename element</span></dt>
+                  <dd class="dd">Allows you to rename elements.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Unwrap element</span></dt>
+                  <dd class="dd">Allows you to remove the surrounding tags of elements, while keeping the
+                    content unchanged.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Wrap element</span></dt>
+                  <dd class="dd">Allows you to surround elements with element tags.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Wrap element content</span></dt>
+                  <dd class="dd">Allows you to surround the content of elements with element tags.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Fragments</span> Refactoring Actions</dt>
+          <dd class="dd">
+            <p class="p">Contains built-in XML refactoring operations that pertain to XML fragments with some
+              of the information preconfigured based upon the current context.</p>
+            <div class="p">
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Insert XML fragment</span></dt>
+                  <dd class="dd">Allows you to insert an XML fragment.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace element content with XML fragment</span></dt>
+                  <dd class="dd">Allows you to replace the content of elements with an XML fragment.</dd>
+                
+                
+                  <dt class="dt dlterm"><span class="ph uicontrol">Replace element with XML fragment</span></dt>
+                  <dd class="dd">Allows you to replace elements with an XML fragment.</dd>
+                
+              </dl>
+            </div>
+          </dd>
+        
+        </dl>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/xml-editor-specific-actions.html">Editing XML Documents in Text Mode</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/word-line-actions.html">Shortcut Actions in Text Mode</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/folding-of-the-xml-elements.html">Folding XML Elements in Text Mode</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="refactoring-xml-documents.html#refactoring-xml-documents">Refactoring XML Documents</a></li><li class="linklist"><a class="link" href="text-mode-actions.html#text-mode-actions">Contextual Menu Actions in Text Mode</a></li><li class="linklist"><a class="link" href="common-shortcut-keys.html#common-shortcut-keys">Frequently Used Shortcut Keys</a></li></ul></div></nav>
+</article></main></body></html>

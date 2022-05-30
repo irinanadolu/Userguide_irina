@@ -1,0 +1,484 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Transformation Scenarios,DITA Map to WebHelp Responsive,DITA Map to WebHelp Responsive transformation"><meta name="keywords" content="Transformation Scenarios, DITA Map to WebHelp Responsive, DITA Map to WebHelp Responsive transformation"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-map-transformation-scenarios-2.html"><meta name="DC.relation" scheme="URI" content="../topics/author-dita-map-transformation-scenarios-2.html"><meta name="DC.relation" scheme="URI" content="../topics/ditamap-pdf-css-html5-2.html"><meta name="DC.relation" scheme="URI" content="wh-responsive-customization-tips.html#wh-responsive-customization-tips"><meta name="DC.relation" scheme="URI" content="webhelp-responsive-description.html#webhelp-responsive-description"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="wh-responsive-output"><title>DITA Map WebHelp Responsive Transformation</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="wh-responsive-output"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Map WebHelp Responsive Transformation</h1>
+  
+  <div class="body">
+    <p class="p">DITA content can be transformed into several types of WebHelp Responsive systems (with or
+      without a feedback section). The <a class="xref" href="webhelp-responsive-description.html">WebHelp
+        Responsive layout and features</a> are designed to adapt to any device and screen size to
+      provide an optimal viewing and interaction experience. <span class="ph">Oxygen XML Editor</span> also provides
+      numerous possibilities for <a class="xref" href="wh-responsive-customization-tips.html">customizing the
+        WebHelp Responsive output</a>.</p>
+    <section class="section" id="wh-responsive-output__webhelp_responsive_output"><h2 class="title sectiontitle">WebHelp Responsive Transformation Scenario</h2>
+      
+      <div class="p">To publish a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA map</dfn></a> as <strong class="ph b">WebHelp
+          Responsive</strong> output, follow these steps:<ol class="ol">
+          <li class="li">Select the <span class="ph uicontrol"><img class="image" id="wh-responsive-output__image_obc_2wv_sr" src="../img/TransformConfig16.png">Configure Transformation Scenario(s)</span> action from the <span class="ph"><a class="xref" href="dita-maps-manager.html#dita-maps-manager"><span class="ph uicontrol">DITA Maps
+                  Manager</span></a>
+            </span>toolbar.</li>
+          <li class="li">Select the <span class="ph uicontrol">DITA Map WebHelp Responsive</span> scenario from the
+              <span class="ph uicontrol">DITA Map</span> section.</li>
+          <li class="li">
+            <p class="p">If you want to configure the transformation, click the <span class="ph uicontrol">Edit</span>
+              button.</p>
+            <div class="p"><strong class="ph b">Step Result:</strong> This opens an <span class="ph uicontrol">Edit scenario</span> configuration
+              dialog box that allows you to configure various options in the following tabs:<ul class="ul">
+                <li class="li"><a class="xref" href="templates-tab-whr.html#templates-tab-whr">Templates Tab</a> -
+                  This tab contains a set of built-in <a class="xref" href="whr-publishing-template-2.html">publishing templates</a> that you can use for the layout of your WebHelp
+                  system output. You can also <a class="xref" href="whr_publishing_templates.html#whr_publishing_templates">create your own
+                    publishing templates or edit existing ones</a>.</li>
+                <li class="li"><a class="xref" href="dita-map-edit-parameters.html#dita-map-edit-parameters">Parameters
+                    Tab</a> - This tab includes numerous parameters that can be set to customize
+                  your WebHelp system output. See the <a class="xref" href="wh-responsive-output-2.html#null__customizing_webhelp_transformation_scenarios">Parameters section</a> below for details about the most commonly used
+                  parameters for WebHelp Responsive transformations.</li>
+                <li class="li"><a class="xref" href="dita-map-edit-feedback.html">Feedback Tab</a> - This tab is for
+                  those who want to add the <strong class="ph b">Oxygen Feedback</strong> comments component at the bottom
+                  of each WebHelp page so that you can interact with your readers.</li>
+                <li class="li"><a class="xref" href="dita-map-edit-filters.html#dita-map-edit-filters">Filters Tab</a>
+                  - This tab allows you to filter certain content elements from the generated
+                  output.</li>
+                <li class="li"><a class="xref" href="dita-map-edit-advanced.html#dita-map-edit-advanced">Advanced
+                    Tab</a> - This tab allows you to specify some advanced options for the
+                  transformation scenario.</li>
+                <li class="li"><a class="xref" href="dita-map-edit-output.html#dita-map-edit-output">Output Tab</a> -
+                  This tab allows you to configure options that are related to the location where
+                  the output is generated.</li>
+              </ul></div>
+          </li>
+          <li class="li">Click <span class="ph uicontrol">Apply associated</span> to process the transformation.</li>
+        </ol></div>
+      <p class="p"><strong class="ph b">Result:</strong> When the <span class="ph uicontrol">DITA Map WebHelp Responsive</span> transformation
+        is complete, the output is automatically opened in your default browser.</p>
+    </section>
+    <section class="section" id="wh-responsive-output__customizing_webhelp_transformation_scenarios"><h2 class="title sectiontitle">General Parameters for Customizing WebHelp Responsive Output</h2>
+      
+      <div class="p">To customize a transformation scenario, you can edit various parameters, including the
+        following most commonly used ones:<dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph">default.language</span></dt>
+            <dd class="dd"><span class="ph">This parameter is used if the language is not
+              detected in the <dfn class="term">DITA map</dfn>. The default value is
+              <code class="ph codeph">en-us</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">clean.output</span></dt>
+            <dd class="dd"><span class="ph">Deletes all files from the output folder before the
+              transformation is performed (only <code class="ph codeph">no</code> and <code class="ph codeph">yes</code> values
+              are valid and the default value is <code class="ph codeph">no</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">editlink.remote.ditamap.url</span></dt>
+            <dd class="dd"><span class="ph">Use this parameter in conjunction with
+                <code class="ph codeph">editlink.web.author.url</code> to add an <em class="ph i">Edit</em> link next to the
+              topic title in the WebHelp output. When a user clicks the link, the topic is opened in
+              Oxygen XML Web Author where they can make changes that can be saved to a file server.
+              The value should be set as the custom URL of the <dfn class="term">main DITA map</dfn>. For
+              example, a GitHub custom URL might look like this:
+                <span class="ph filepath">https://getFileContent/oxyengxml/userguide/master/UserGuide.ditamap</span>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">editlink.web.author.url</span></dt>
+            <dd class="dd"><span class="ph">This parameter needs to be used in conjunction
+              with <code class="ph codeph">editlink.remote.ditamap.url</code> to add an <em class="ph i">Edit</em> link next to
+              the topic title in the WebHelp output. When a user clicks the link, the topic is
+              opened in Oxygen XML Web Author where they can make changes that can be saved to a
+              file server. The value should be set as the URL of the Web Author installation. For
+              example:
+            <span class="ph filepath">https://www.oxygenxml.com/oxygen-xml-web-author/</span>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">editlink.present.only.path.to.topic</span></dt>
+            <dd class="dd"><span class="ph">When this parameter is set to "true",
+              the DITA topic path is displayed to the right of each topic title in the WebHelp
+              Responsive output. Also, when this parameter is used, the
+                <strong class="ph b">editlink.ditamap.edit.url</strong>, <strong class="ph b">editlink.remote.ditamap.url</strong>, and
+                <strong class="ph b">editlink.web.author.url</strong> parameters are ignored.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">fix.external.refs.com.oxygenxml</span>
+              <span class="ph"><span class="ph">(Only supported when the DITA-OT transformation process
+              is started from <span class="ph">Oxygen XML Editor</span>)</span></span></dt>
+            <dd class="dd"><span class="ph">The DITA Open Toolkit usually has
+              problems processing references that point to locations outside of the directory of the
+              processed <dfn class="term">DITA map</dfn>. This parameter is used to specify whether or not the
+              application should try to fix such references in a temporary files folder before the
+              DITA Open Toolkit is invoked on the fixed references. The fix has no impact on your
+              edited DITA content. Allowed values: <code class="ph codeph">true</code> or <code class="ph codeph">false</code>
+              (default).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">force.unique</span></dt>
+            <dd class="dd"><span class="ph">When set to <code class="ph codeph">true</code> (default value), the
+              transformation will be forced to create unique output files for each instance of a
+              resource when a map contains multiple references to a single topic.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">use.stemming</span></dt>
+            <dd class="dd"><span class="ph">Controls whether or not you want to include stemming search
+              algorithms into the published output (default setting is
+            <code class="ph codeph">false</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm" id="wh-responsive-output__wh_custom_resources"><span class="ph">webhelp.custom.resources</span></dt>
+            <dd class="dd"><span class="ph">The file path to a directory that contains
+              resources files. All files from this directory will be copied to the root of the
+              WebHelp output.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.favicon</span></dt>
+            <dd class="dd"><span class="ph">The file path that points to an image to be used as a
+                <em class="ph i">favicon</em> in the WebHelp output.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.reload.stylesheet</span></dt>
+            <dd class="dd"><span class="ph">Set this parameter to <code class="ph codeph">true</code> if
+              you have out of memory problems when generating WebHelp. It will increase processing
+              time but decrease the memory footprint. The default value is
+              <code class="ph codeph">false</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.custom.excludes.file</span></dt>
+            <dd class="dd"><span class="ph">The path of the file that contains
+              name patterns for HTML files that should not be indexed by the WebHelp search engine.
+              Each exclude pattern must be on a new line. The patterns are considered to be relative
+              to the output directory, and they accept wildcards such as <kbd class="ph userinput">'*'</kbd>
+              (matches zero or more characters) or <kbd class="ph userinput">'?'</kbd> (matches one
+              character). For more information about the patterns, see <a class="xref" href="https://ant.apache.org/manual/dirtasks.html#patterns" target="_blank" rel="external noopener">https://ant.apache.org/manual/dirtasks.html#patterns</a>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph" id="wh-responsive-output__kuromoji_parameter">webhelp.search.japanese.dictionary</span></dt>
+            <dd class="dd"><span class="ph">The file path of the dictionary that
+              will be used by the <em class="ph i">Kuromoji</em> morphological engine for indexing Japanese content
+              in the WebHelp pages. The encoding for the dictionary must be <strong class="ph b">UTF8</strong>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.enable.pagination</span></dt>
+            <dd class="dd"><span class="ph">Specifies whether or not search results
+              will be displayed on multiple pages. Allowed values are <code class="ph codeph">yes</code> or
+                <code class="ph codeph">no</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.index.elements.to.exclude</span></dt>
+            <dd class="dd"><span class="ph">Specifies a list of HTML
+              elements that will not be indexed by the search engine. The value of the
+                <code class="keyword markupname xmlatt">@class</code> attribute can be used to exclude specific HTML elements from
+              indexing. For example, the <strong class="ph b">div.not-indexed</strong> value will not index all
+                <code class="keyword markupname xmlelement">&lt;div&gt;</code> elements that have a <code class="keyword markupname xmlatt">@class</code> attribute
+              with the value of <strong class="ph b">not-indexed</strong>. Use a comma separator to specify more than one
+              element.</span>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.page.numberOfItems</span></dt>
+            <dd class="dd"><span class="ph">Specifies the number of search results
+              items displayed on each page. This parameter is only used when the
+                <strong class="ph b">webhelp.search.enable.pagination</strong> parameter is enabled.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.ranking</span></dt>
+            <dd class="dd"><span class="ph">If this parameter is set to <code class="ph codeph">false</code>
+              then the 5-star rating mechanism is no longer included in the search results that are
+              displayed on the <span class="ph uicontrol">Search</span> tab (default setting is
+                <code class="ph codeph">true</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.stop.words.include</span></dt>
+            <dd class="dd"><span class="ph">Specifies a list of words that will be
+              ignored by the search engine. Use a comma separator to specify more than one
+              word.</span>
+            </dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.changes.and.comments</span></dt>
+            <dd class="dd"><span class="ph">When set to <code class="ph codeph">yes</code>, user
+              comments, replies to comments, and tracked changes are published in the WebHelp
+              output. The default value is <code class="ph codeph">no</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.sitemap.base.url</span></dt>
+            <dd class="dd"><span class="ph">Base URL for all the <code class="keyword markupname xmlelement">&lt;loc&gt;</code>
+              elements in the generated <span class="ph filepath">sitemap.xml</span> file. The value of a
+            <code class="keyword markupname xmlelement">&lt;loc&gt;</code> element is computed as the relative file path from the
+            <code class="keyword markupname xmlatt">@href</code> attribute of a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element from the
+            <dfn class="term">DITA map</dfn>, appended to this base URL value. The <code class="keyword markupname xmlelement">&lt;loc&gt;</code>
+              element is mandatory in <span class="ph filepath">sitemap.xml</span>. If you leave this parameter
+              set to its default empty value, then the <span class="ph filepath">sitemap.xml</span> file is not
+              generated.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.sitemap.change.frequency</span></dt>
+            <dd class="dd"><span class="ph">The value of the
+            <code class="keyword markupname xmlelement">&lt;changefreq&gt;</code> element in the generated
+            <span class="ph filepath">sitemap.xml</span> file. The <code class="keyword markupname xmlelement">&lt;changefreq&gt;</code> element is
+              optional in <span class="ph filepath">sitemap.xml</span>. If you leave this parameter set to its
+            default empty value, then the <code class="keyword markupname xmlelement">&lt;changefreq&gt;</code> element is not added in
+                <span class="ph filepath">sitemap.xml</span>. Allowed values: &lt;empty string&gt; (default),
+                <code class="ph codeph">always</code>, <code class="ph codeph">hourly</code>, <code class="ph codeph">daily</code>,
+                <code class="ph codeph">weekly</code>, <code class="ph codeph">monthly</code>, <code class="ph codeph">yearly</code>,
+                <code class="ph codeph">never</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.sitemap.priority</span></dt>
+            <dd class="dd"><span class="ph">The value of the <code class="keyword markupname xmlelement">&lt;priority&gt;</code>
+              element in the generated <span class="ph filepath">sitemap.xml</span> file. It can be set to any
+              fractional number between 0.0 (least important priority) and 1.0 (most important
+              priority). For example, 0.3, 0.5, or 0.8. The <code class="keyword markupname xmlelement">&lt;priority&gt;</code> element is
+              optional in <span class="ph filepath">sitemap.xml</span>. If you leave this parameter set to its
+            default empty value, then the <code class="keyword markupname xmlelement">&lt;priority&gt;</code> element is not added in
+                <span class="ph filepath">sitemap.xml</span>.</span></dd>
+          
+        </dl></div>
+    </section>
+    <section class="section" id="wh-responsive-output__section_pfx_b3j_pkb"><h2 class="title sectiontitle">Parameters Specific to Oxygen WebHelp Responsive</h2>
+      
+      <div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.feedback</span></dt>
+            <dd class="dd"><span class="ph">You can integrate <a class="xref" href="https://www.oxygenxml.com/oxygen_feedback.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Feedback</strong></a> with your WebHelp Responsive output to provide a
+              comments area at the bottom of each page where readers can offer feedback. When you
+              create an <a class="xref" href="https://feedback.oxygenxml.com/" target="_blank" rel="external noopener"><strong class="ph b">Oxygen Feedback</strong> site configuration</a>, an HTML fragment is generated
+              during the final step of the creation process and that fragment should be set as the
+              value for this parameter.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.default.collection.type.sequence</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the <strong class="ph b">sequence</strong> value
+              will be used by default when the <code class="keyword markupname xmlatt">@collection-type</code> attribute is not
+              specified. This option is helpful if you want to have <em class="ph i">Next</em> and <em class="ph i">Previous</em>
+              navigational buttons generated for all HTML pages. Allowed values are <strong class="ph b">no</strong>
+              (default) and <strong class="ph b">yes</strong>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.enable.search.autocomplete</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the <em class="ph i">Autocomplete</em>
+              feature is enabled in the WebHelp search text field. The default value is
+                <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.after.body</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment after the page body. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.after.logo_and_title</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays
+              a given XHTML fragment after the logo and title. The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.after.main.page.search</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment after the search field. The value of the parameter can
+              be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.after.toc_or_tiles</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment after the table of contents or tiles in the main page. The value
+              of the parameter can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file
+              that contains a <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.after.top_menu</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment after the top menu. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.before.body</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment before the page body. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.before.logo_and_title</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment before the logo and title. The value of the parameter
+              can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.before.main.page.search</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it
+              displays a given XHTML fragment before the search field. The value of the parameter
+              can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.before.toc_or_tiles</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays
+              a given XHTML fragment before the table of contents or tiles in the main page. The
+              value of the parameter can be either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to
+              a file that contains a <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.before.top_menu</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a
+              given XHTML fragment before the top menu. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.footer</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given XHTML
+              fragment as the page footer. The value of the parameter can be either a
+                <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span><div class="note important note_important"><span class="note__title">Important:</span> This parameter should only be used if you are using
+              a valid, purchased license of <span class="ph">Oxygen XML Editor</span> (do not use it with a trial
+              license).</div></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.head</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it inserts a given XHTML
+            fragment in the <code class="keyword markupname xmlelement">&lt;head&gt;</code> element. The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.fragment.welcome</span></dt>
+            <dd class="dd"><span class="ph">In the generated output it displays a given
+              XHTML fragment as a welcome message (or title). The value of the parameter can be
+              either a <strong class="ph b">well-formed</strong> XHTML fragment or a path to a file that contains a
+                <strong class="ph b">well-formed</strong> XHTML fragment.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.merge.nested.topics.related.links</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the related links
+              from nested topics will be merged with the links in the parent topic. Thus the links
+              will be moved from the topic content to the related links component and all of the
+              links from the same group (for example, <em class="ph i">Related Tasks</em>, <em class="ph i">Related
+                References</em>, <em class="ph i">Related Information</em>) are merged into a single group. The
+              default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.search.stop.words.exclude</span></dt>
+            <dd class="dd"><span class="ph">Specifies a list of words that will be
+              excluded from the default list of <em class="ph i">stop words</em> that are filtered out before the
+              search processing. Use comma separators to specify more than one word (for example:
+                <code class="ph codeph">if,for,is</code>).</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.breadcrumb</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the breadcrumb component will be
+              presented in the output. The default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.child.links</span></dt>
+            <dd class="dd"><span class="ph">Specifies if child links will be generated in
+              the output for all topics that have subtopics. The default value is
+                <code class="ph codeph">no</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.indexterms.link</span></dt>
+            <dd class="dd"><span class="ph">Specifies if an icon that links to the index
+              will be presented in the output. The default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.main.page.tiles</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the tiles component will be
+              presented in the main page of the output. For a <em class="ph i">tree</em> style layout, this
+              parameter should be set to <code class="ph codeph">no</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.main.page.toc</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the table of contents will be
+              presented in the main page of the output. The default value is
+              <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.navigation.links</span></dt>
+            <dd class="dd"><span class="ph">Specifies if navigation links will be
+              presented in the output. The default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.print.link</span></dt>
+            <dd class="dd"><span class="ph">Specifies if a print link or icon will be
+              presented within each topic in the output. The default value is
+              <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.related.links</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the related links component will
+              be presented in the WebHelp Responsive output. The default value is
+                <code class="ph codeph">yes</code>. The <code class="ph codeph">webhelp.merge.nested.topics.related.links</code>
+              parameter can be used in conjunction with this one to merge the related links from
+              nested topics into the links in the parent topic.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.publication.toc</span></dt>
+            <dd class="dd"><span class="ph">Specifies if a table of contents will be presented
+              on the left side of each topic in the output. The default value is
+                <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.topic.toc</span></dt>
+            <dd class="dd"><span class="ph">Specifies if a topic table of contents will be
+              presented on the right side of each topic in the output. This table of contents
+              contains links to each <code class="keyword markupname xmlelement">&lt;section&gt;</code> within the current topic that
+              contains an <code class="keyword markupname xmlatt">@id</code> attribute and the section corresponding to the current
+              scroll position is highlighted. The default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.show.top.menu</span></dt>
+            <dd class="dd"><span class="ph">Specifies if a menu will be presented at the topic
+              of the main page in the output. The default value is <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.publication.toc.hide.chunked.topics</span></dt>
+            <dd class="dd"><span class="ph">Specifies if the table of contents
+              will contain links for <em class="ph i">chunked</em> topics. The default value is
+                <code class="ph codeph">yes</code>.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.publication.toc.links</span></dt>
+            <dd class="dd"><span class="ph">Specifies which links will be included in the
+              table of contents. The possible values are:</span><ul class="ul" id="wh-responsive-output__ul_rfx_b3j_pkb">
+              <li class="li"><strong class="ph b">chapter</strong> (default) - The TOC will include links for the current topic, its
+                children, its siblings, and its direct ancestor (including the direct ancestor's
+                siblings), and the parent chapter.</li>
+              <li class="li"><strong class="ph b">topic</strong> - The TOC will only include links for the current topic and its
+                direct children.</li>
+              <li class="li"><strong class="ph b">all</strong> - The TOC will include all links.</li>
+            </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.publication.toc.tooltip.position</span></dt>
+            <dd class="dd"><span class="ph">By default, if a topic contains a
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element, its content is displayed in a tooltip when the
+              user hovers over its link in the table of contents. This parameter controls whether or
+              not this tooltip is displayed and its position relative to the link. The possible
+              values are:</span><ul class="ul" id="wh-responsive-output__ul_bhx_b3j_pkb">
+              <li class="li"><strong class="ph b">left</strong> (default)</li>
+              <li class="li"><strong class="ph b">right</strong></li>
+              <li class="li"><strong class="ph b">top</strong></li>
+              <li class="li"><strong class="ph b">bottom</strong></li>
+              <li class="li"><strong class="ph b">hidden</strong> - The tooltip will not be displayed.</li>
+            </ul></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.top.menu.depth</span></dt>
+            <dd class="dd"><span class="ph">Specifies the maximum depth level of the topics
+              that will be included in the top menu. The default value is <code class="ph codeph">3</code>. A
+              value of <code class="ph codeph">0</code> means that the menu has unlimited depth.</span></dd>
+          
+          
+            <dt class="dt dlterm"><span class="ph">webhelp.topic.collapsible.elements.initial.state</span></dt>
+            <dd class="dd"><span class="ph">Specifies the initial
+              state of collapsible elements (tables with titles, nested topics with titles, sections
+              with titles, index term groups). The possible values are <code class="ph codeph">collapsed</code> or
+                <code class="ph codeph">expanded</code> (default value).</span></dd>
+          
+        </dl>
+      </div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/author-dita-map-transformation-scenarios-2.html">DITA Map Transformation Scenarios</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/author-dita-map-transformation-scenarios-2.html">DITA Map Transformation Scenarios</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/ditamap-pdf-css-html5-2.html">DITA Map PDF - based on HTML5 &amp; CSS Transformation</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="wh-responsive-customization-tips.html#wh-responsive-customization-tips">Customizing WebHelp Responsive Output</a></li><li class="linklist"><a class="link" href="webhelp-responsive-description.html#webhelp-responsive-description">Layout and Features</a></li></ul></div></nav>
+</article></main></body></html>

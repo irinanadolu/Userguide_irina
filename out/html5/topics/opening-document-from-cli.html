@@ -1,0 +1,57 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Open file at specific location"><meta name="keywords" content="Open file at specific location"><meta name="DC.relation" scheme="URI" content="../topics/opening-existing-documents.html"><meta name="DC.relation" scheme="URI" content="../topics/open-local-file-from-cmd.html"><meta name="DC.relation" scheme="URI" content="../topics/saving-documents.html"><meta name="DC.relation" scheme="URI" content="open-local-file-from-cmd.html#open-local-file-from-cmd"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="opening-document-from-cli"><title>Opening a Document at a Specific Location Using a Command-Line Interface</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="opening-document-from-cli"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Opening a Document at a Specific Location Using a Command-Line Interface</h1>
+  
+  <div class="body">
+    <div class="p"><span class="ph">Oxygen XML Editor</span> offers support for opening a file at a specific position using a
+      command-line interface to transmit parameters to the <span class="ph">Oxygen XML Editor</span> application
+      launching script file (<span class="ph"><span class="ph filepath">oxygen.bat</span>/<span class="ph filepath">oxygen.sh</span></span>
+      
+      
+      ).
+      The following methods are available, depending on how you identify the position that is needed:<ol class="ol">
+        <li class="li">
+          <p class="p"><u class="ph u"><strong class="ph b">Specific position values (line and column number, or character
+            offset)</strong></u></p>
+          <div class="p"><span class="ph">Oxygen XML Editor</span> supports the following position parameters:<ul class="ul">
+              <li class="li"><strong class="ph b">line</strong> - The line number.</li>
+              <li class="li"><strong class="ph b">column</strong> - The column number (has meaning if the <code class="ph codeph">line</code>
+                parameter is also defined).</li>
+              <li class="li"><strong class="ph b">char</strong> - The character offset.</li>
+            </ul></div>
+          <p class="p"><strong class="ph b">Examples for Windows:</strong></p>
+          <div class="p">The following examples show how you can open an XML document in <span class="ph">Oxygen XML Editor</span>
+            from a Windows command-line
+            interface:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">oxygen.bat  file:samples/personal.xml#line</span>=4
+<span class="hl-attribute">oxygen.bat  file:samples/personal.xml#line=4column</span>=5
+<span class="hl-attribute">oxygen.bat  file:samples/personal.xml#line=4;column</span>=5
+<span class="hl-attribute">oxygen.bat  file:samples/personal.xml#char</span>=334</pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><u class="ph u"><strong class="ph b">Simplified XPath index path</strong></u></p>
+          <div class="p"><span class="ph">Oxygen XML Editor</span> will open an XML file and select one of its elements identified
+            by a simplified XPath index path. For example, an index path of the form 1/5/7
+            identifies the seventh child of the fifth child of the root element. <div class="note restriction note_restriction"><span class="note__title">Restriction:</span> <span class="ph">Oxygen XML Editor</span> will display a selection that starts with
+              the first character of the content of the identified element and spans until the end
+              of the line.</div></div>
+          <p class="p"><strong class="ph b">Examples for Windows:</strong></p>
+          <div class="p">The following example shows how you can open an XML document in <span class="ph">Oxygen XML Editor</span>
+            and select the third child of the root element using a Windows command-line
+            interface:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">oxygen.bat  file:samples/personal.xml#element(1/3)</pre></div>
+        </li>
+        <li class="li">
+          <p class="p"><u class="ph u"><strong class="ph b">Anchors identified by ID attribute values</strong></u></p>
+          <p class="p"><span class="ph">Oxygen XML Editor</span> will open an XML file and select the element whose
+              <code class="keyword markupname xmlatt">@id</code> attribute value is an exact match of the <a class="xref" href="../glossary/anchor.html"><dfn class="term">anchor</dfn></a> attached to a command-line
+            instruction.</p>
+          <p class="p"><strong class="ph b">Examples for Windows:</strong></p>
+          <div class="p">The following example shows how you can open an XML document in <span class="ph">Oxygen XML Editor</span>
+            and select the element that has the <code class="keyword markupname xmlatt">@id</code> set to <code class="ph codeph">titleID</code>
+            using a Windows command-line
+            interface:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini">oxygen.bat  file:samples/personal.xml#titleID</pre></div>
+        </li>
+      </ol></div>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/opening-existing-documents.html">Opening Documents</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/open-local-file-from-cmd.html">Opening Local Files at Start-up</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/saving-documents.html">Saving Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="open-local-file-from-cmd.html#open-local-file-from-cmd">Opening Local Files at Start-up</a></li></ul></div></nav>
+</article></main></body></html>

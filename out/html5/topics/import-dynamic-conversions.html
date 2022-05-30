@@ -1,0 +1,130 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Import data dynamically"><meta name="keywords" content="Import data dynamically"><meta name="DC.relation" scheme="URI" content="../topics/import-introduction.html"><meta name="DC.relation" scheme="URI" content="../topics/import-html.html"><meta name="DC.relation" scheme="URI" content="../topics/debugging.html"><meta name="DC.relation" scheme="URI" content="https://github.com/oxygenxml/dita-glass"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="import-dynamic-conversions"><title>Import Content Dynamically</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="import-dynamic-conversions"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Import Content Dynamically</h1>
+  
+  <div class="body">
+    <p class="p">Along with the built-in support for various useful URL protocols (such as HTTP or FTP), <span class="ph">Oxygen XML Editor</span> also provides special support for a <em class="ph i">convert</em> protocol that can be
+      used to chain predefined processors to dynamically import content from various sources.</p>
+    <p class="p">A <em class="ph i">dynamic conversion URL</em> chains various processors that can be applied, in
+      sequence, on a target resource and has the following general syntax:</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=xslt;ss=urn:processors:excel2d.xsl/processor</span>=excel!/urn:files:my.xls</pre>
+    </div>
+    <div class="p">The previous example first applies a processor (<code class="ph codeph">excel</code>) on a target
+      identified by the identifier (<span class="ph filepath">urn:files:sample.xls</span>) and converts the Excel™ resource to XML. The second applied processor (<code class="ph codeph">xslt</code>)
+      applies an XSLT stylesheet identified using the identifier
+        (<span class="ph filepath">urn:processors:excel2d.xsl</span>) over the resulting content from the first
+      applied processor. These identifiers are all mapped to real resources on disk via an <dfn class="term">XML
+        catalog</dfn> that is configured in the application, as in the following
+      example:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;catalog</strong> <span class="hl-attribute">xmlns</span>=<span class="hl-value">"urn:oasis:names:tc:entity:xmlns:xml:catalog"</span><strong class="hl-tag">&gt;</strong>
+  <strong class="hl-tag">&lt;rewriteURI</strong> <span class="hl-attribute">uriStartString</span>=<span class="hl-value">"urn:files:"</span> <span class="hl-attribute">rewritePrefix</span>=<span class="hl-value">"./resources/"</span><strong class="hl-tag">/&gt;</strong>
+  <strong class="hl-tag">&lt;rewriteURI</strong> <span class="hl-attribute">uriStartString</span>=<span class="hl-value">"urn:processors:"</span> <span class="hl-attribute">rewritePrefix</span>=<span class="hl-value">"./processors/"</span><strong class="hl-tag">/&gt;</strong>
+<strong class="hl-tag">&lt;/catalog&gt;</strong></pre></div>
+    <div class="p">The target resource part of the conversion URL must always follow the <code class="ph codeph">!/</code>
+      pattern. It can be any of the following:<ul class="ul" id="import-dynamic-conversions__ul_hbw_t3j_25">
+        <li class="li">An absolute URL that points to a resource.</li>
+        <li class="li">An identifier that will be resolved to an actual resource via the <a class="xref" href="../glossary/xml-catalog.html"><dfn class="term">XML Catalog</dfn></a> support in the
+          application. In the example above, the <strong class="ph b">urn:files:sample.xls</strong> target resource is
+          resolved via the <dfn class="term">XML catalog</dfn>.</li>
+        <li class="li">
+          <p class="p">A relative location. This location can only be resolved to an actual resource URL when
+            the application has enough information about the location where the URL is
+            referenced.</p>
+          <div class="p"><em class="ph i">For example</em>, for a <a class="xref" href="../glossary/ditamap.html"><dfn class="term">DITA
+              map</dfn></a> with a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> such
+            as:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;topicref</strong> <span class="hl-attribute">href</span>=<span class="hl-value">"convert:/.../processor=excel!/resources/sample.xls"</span><strong class="hl-tag">/&gt;</strong></pre>the
+              <span class="ph filepath">resources/sample.xls</span> path will be resolved relative to the
+              <dfn class="term">DITA map</dfn> location.</div>
+        </li>
+      </ul></div>
+    <p class="p">This type of URL can be opened in the application by using the <span class="ph uicontrol">Open
+        URL</span> action from the <span class="ph uicontrol">File</span> menu. It can also be referenced
+      from existing XML resources via <em class="ph i">xi:include</em> or as a topic reference from a
+        <dfn class="term">DITA map</dfn>.</p>
+    <p class="p">A <em class="ph i">GitHub</em> project that contains various dynamic conversion samples for producing DITA
+      content from various sources (and then publishing it) can be found here: <a class="xref" href="https://github.com/oxygenxml/dita-glass" target="_blank" rel="external noopener">https://github.com/oxygenxml/dita-glass</a>.</p>
+    <section class="section" id="import-dynamic-conversions__conversion_processors"><h2 class="title sectiontitle">Conversion Processors</h2>
+      
+      <p class="p">A set of predefined conversion processors is provided in <span class="ph">Oxygen XML Editor</span>. Each
+        processor has its own parameters that can be set to control the behavior of the conversion
+        process. All parameters that are resolved to resources are passed through the <dfn class="term">XML
+          catalog</dfn> mapping.</p>
+      <div class="p">The following predefined conversion processors are included:<ul class="ul" id="import-dynamic-conversions__ul_r4y_5x2_mr">
+          <li class="li"><strong class="ph b"><code class="ph codeph">xslt</code> Processor</strong> - Converts an XML input using the Saxon EE XSLT
+            processor. The <code class="ph codeph">ss</code> parameter indicates the stylesheet resource to be
+            loaded. All other specified parameters will be set as parameters to the XSLT
+            transformation.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=xslt;ss=urn:processors:convert.xsl;p1</span>=v1!/urn:files:sample.xml</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">xquery</code> Processor</strong> - Converts an XML input using the Saxon EE
+            XQuery processor. The <code class="ph codeph">ss</code> parameter indicates the XQuery script to be
+            loaded. All other specified parameters will be set as parameters to the XSLT
+            transformation.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=xquery;ss=urn:processors:convert.xquery;p1</span>=v1!/urn:files:sample.xml</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">excel</code> Processor</strong> - Converts an Excel™ input
+            to an XML format that can later be converted by other piped processors. It has a single
+            parameter <code class="ph codeph">sn</code>, which indicates the name of the sheet that needs to be
+            converted. If this parameter is missing, the XML will contain the combined content of
+            all sheets included in the Excel™ document.
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=excel;sn</span>=test!/urn:files:sample.xls</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">java</code> Processor</strong> - Converts an input to another format by
+            applying a specific Java method. The <code class="ph codeph">jars</code> parameter is a
+            comma-separated list of <a class="xref" href="../glossary/jar.html"><dfn class="term">JAR</dfn></a> libraries,
+            or folders that libraries will be loaded from. The <code class="ph codeph">ccn</code> parameter is the
+            fully qualified name of the conversion class that will be instantiated. The conversion
+            class needs to have a method with the following
+            signature:<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-java">  <strong class="hl-keyword">public</strong> <strong class="hl-keyword">void</strong> convert(String systemID, String originalSourceSystemID,
+ InputStream is, OutputStream os, LinkedHashMap&lt;String, String&gt; properties)
+ <strong class="hl-keyword">throws</strong> IOException </pre><pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=java;jars=libs;ccn</span>=test.JavaToXML!/
+urn:files:java/WSEditorBase.java</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">js</code> Processor</strong> - Converts an input to another format by applying
+            a JavaScript method. The <code class="ph codeph">js</code> parameter indicates the script that will be
+            used. The <code class="ph codeph">fn</code> parameter is the name of the method that will be called
+            from the script. The method must take a string as an argument and return a string. If
+            any of the parameters are missing, an error is thrown and the conversion
+            stops.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=js;js=urn:processors:md.js;fn</span>=convertExternal!/urn:files:sample.md</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">json</code> Processor</strong> - Converts a JSON input to XML. It has no
+            parameters.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor</span>=json!/urn:files:personal.json</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">xhtml</code> Processor</strong> - Converts HTML content to well-formed XHTML.
+            It has no
+            parameters.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor</span>=xhtml!/urn:files:test.html</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">wrap</code> Processor</strong> - Wraps content in a tag name making it
+            well-formed XML. The <code class="ph codeph">rn</code> parameter indicates the name of the root tag to
+            use. By default, it is <code class="ph codeph">wrapper</code>. The <code class="ph codeph">encoding</code> parameter
+            specifies the encoding that should be used to read the content. By default, it is
+              <code class="ph codeph">UTF8</code>. As an example, this processor can be used if you want to
+            process a comma-separated values file with an XSLT stylesheet to produce XML content.
+            The CSV file is first wrapped as well-formed XML, which is then processed with an
+              <code class="ph codeph">xslt</code>
+            processor.<pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor</span>=wrap!/urn:files:test.csv</pre></li>
+          <li class="li"><strong class="ph b"><code class="ph codeph">cache</code> Processor</strong> - Caches the converted content obtained from
+            the original document to a temporary file. The cache will be used on subsequent uses of
+            the same URL, thus increasing the speed for the application returning the converted
+            content. If the original URL points to the local disk, the cache will be automatically
+            invalidated when the original file content gets modified. Otherwise, if the original URL
+            points to a remote resource, the cache will need to be invalidated by reloading
+                (<span class="ph uicontrol"><img class="image" id="import-dynamic-conversions__image_ckc_xr1_2nb" src="../img/Reload16.png">Reload
+              (F5)</span> from the toolbar) the URL content that is opened in the editor.
+            <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=cache/processor</span>=xslt<em class="hl-comment">;…..!/urn:files:test.csv</em></pre></li>
+        </ul></div>
+    </section>
+    <section class="section" id="import-dynamic-conversions__reverse_conversion_processors"><h2 class="title sectiontitle">Reverse Conversion Processors</h2>
+      
+      <p class="p">All processors defined above can also be used for saving content back to the target
+        resource if they are defined in the URL as reverse processors. Reverse processors are
+        evaluated right to left. These reverse processors allow <em class="ph i">round-tripping</em> content
+        to and from the target resource.</p>
+      <p class="p">As an example, the following URL converts HTML to DITA when the URL is opened using the
+          <span class="ph filepath">h2d.xsl</span> stylesheet and converts DITA to HTML when the content is
+        saved in the application using the <span class="ph filepath">d2h.xsl</span> stylesheet.</p>
+      <div class="p">
+        <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-ini"><span class="hl-attribute">convert:/processor=xslt;ss=h2d.xsl/rprocessor=xslt;ss</span>=d2h.xsl!/urn:files:sample.html</pre>
+      </div>
+      <div class="note important note_important"><span class="note__title">Important:</span> If you are publishing a <dfn class="term">DITA map</dfn> that has such conversion
+        URL references inside, you need to edit the transformation scenario and set the value of the
+        parameter <em class="ph i">fix.external.refs.com.oxygenxml</em> to <strong class="ph b">true</strong>. This will instruct <span class="ph">Oxygen XML Editor</span> to resolve such references during a special pre-processing stage.
+        Depending on the conversion, you may also require additional libraries to be added using the
+          <span class="ph uicontrol">Libaries</span> button in the <span class="ph uicontrol">Advanced</span> tab of the
+        transformation scenario.</div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/import-introduction.html" title="Information about how to import data from external sources into XML documents">Importing Data</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/import-html.html">Import from HTML Files</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/debugging.html" title="The debugging interface that detects problems with XSLT and XQuery transformations">Debugging XSLT Stylesheets and XQuery Documents</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://github.com/oxygenxml/dita-glass" target="_blank" rel="external noopener">https://github.com/oxygenxml/dita-glass</a></li></ul></div></nav>
+</article></main></body></html>

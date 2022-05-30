@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Preferences,XML Parser,XML parser preferences"><meta name="keywords" content="Preferences, XML Parser, XML parser preferences"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xml.html"><meta name="DC.relation" scheme="URI" content="../topics/preferences-xml-catalog.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/xml-schema-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/relax-ng-preferences-page.html"><meta name="DC.relation" scheme="URI" content="../topics/schematron-preferences-page.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="preferences-xml-parser"><title>XML Parser Preferences</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="preferences-xml-parser"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Parser Preferences</h1>
+  
+  <div class="body">
+    <p class="p">To configure the <span class="ph uicontrol">XML Parser</span> options, <span class="ph"><a class="xref" href="preferences.html">open the
+            <span class="ph uicontrol">Preferences</span> dialog box <span class="ph menucascade"><span class="ph uicontrol">(Options</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Preferences)</span></span></a></span> and go to <span class="ph menucascade"><span class="ph uicontrol">XML</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">XML Parser</span></span>.</p>
+    <div class="p">The configurable options of the built-in XML parser are as follows:<dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable parser caching (validation and content completion)</span></dt>
+          <dd class="dd">Enables re-use of internal models when validating and provides content completion in
+            open XML files that reference the same schemas (grammars) such as DTD, XML Schema, or
+            RelaxNG.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Enable system parameter entity expansion in other entity
+              definitions</span></dt>
+          <dd class="dd">This security setting controls the expansion of the DTD system parameter entities (the
+            ones that are loaded from disk or from remote sources). This option is off by default,
+            to protect against XXE attacks. If you enable it, make sure the XML files you are
+            opening or processing with the application come from a trusted source.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Ignore the DTD for validation if a schema is specified</span></dt>
+          <dd class="dd">Forces validation against a referenced schema (XML Schema, Relax NG schema) even if
+            the document includes also a DTD DOCTYPE declaration. This option is useful when the DTD
+            declaration is used only to declare DTD entities and the schema reference is used for
+            validation against an XML Schema or a Relax NG schema.<div class="note note note_note"><span class="note__title">Note:</span> Schematron schemas are
+              treated as additional schemas. The validation of a document associated with a DTD and
+              referencing a Schematron schema is executed against both the DTD and the Schematron
+              schema, regardless of the value of the <span class="ph uicontrol">Ignore the DTD for validation if a
+                schema is specified</span> option.</div></dd>
+        
+        
+          <dt class="dt dlterm" id="preferences-xml-parser__enable-xinclude"><span class="ph uicontrol">Enable XInclude processing</span></dt>
+          <dd class="dd">Enables XInclude processing. If selected, the XInclude support in <span class="ph">Oxygen XML Editor</span> is turned on for validation<span class="ph">,
+              rendering in <span class="ph uicontrol">Author</span> mode</span> and transformation of XML
+            documents.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Base URI fix-up</span></dt>
+          <dd class="dd">
+            <p class="p">According to the specification for XInclude, processors must add an
+                <code class="keyword markupname xmlatt">@xml:base</code> attribute to elements included from locations with a
+              different base URI. Without these attributes, the resulting infoset information would
+              be incorrect.</p>
+            <p class="p">Unfortunately, these attributes make XInclude processing to not be transparent to
+              Schema validation. One solution to this is to modify your schema to allow
+                <code class="keyword markupname xmlatt">@xml:base</code> attributes to appear on elements that might be included
+              from different base URIs.</p>
+            <p class="p">If the addition of <code class="keyword markupname xmlatt">@xml:base</code> and / or <code class="keyword markupname xmlatt">@xml:lang</code> is
+              not desired by your application, you can deselect this option.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">Language fix-up</span></dt>
+          <dd class="dd">The processor will preserve language information on a top-level included element by
+            adding an <code class="keyword markupname xmlatt">@xml:lang</code> attribute if its included parent has a different
+            [language] property. If the addition of <code class="keyword markupname xmlatt">@xml:lang</code> is not allowed by your
+            application, you can deselect this option.</dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph uicontrol">DTD post-validation</span></dt>
+          <dd class="dd">Select this option to validate an XML file against the associated DTD, after all the
+            content merged to the current XML file using <em class="ph i">XInclude</em> was resolved. If
+            you deselect this option, the current XML file is validated against the associated DTD
+            before all the content merged to the current XML file using <em class="ph i">XInclude</em> is
+            resolved.</dd>
+        
+      </dl></div>
+  </div>
+<nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/xml-schema-preferences-page.html">XML Schema Preferences</a><br></li><li class="link olchildlink"><a href="../topics/relax-ng-preferences-page.html">Relax NG Preferences</a><br></li><li class="link olchildlink"><a href="../topics/schematron-preferences-page.html">Schematron Preferences</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/preferences-xml.html">XML Preferences</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/preferences-xml-catalog.html">XML Catalog Preferences</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/xml-schema-preferences-page.html">XML Schema Preferences</a></div></div></nav></article></main></body></html>

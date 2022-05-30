@@ -1,0 +1,380 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Compare Files tool,Two-way file comparison,Three-way file comparison,Diff Files tool,Diff tool"><meta name="keywords" content="Compare Files tool, Two-way file comparison, Three-way file comparison, Diff Files tool, Diff tool"><meta name="DC.relation" scheme="URI" content="../topics/oxygen-tools.html"><meta name="DC.relation" scheme="URI" content="../topics/tree-editor-perspective.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-command-line-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-command-line-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-integrate-git-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-comparison-integrate-sourcetree-2.html"><meta name="DC.relation" scheme="URI" content="../topics/file-compare-toolbar-2.html"><meta name="DC.relation" scheme="URI" content="../topics/files-comparison-main-menu-2.html"><meta name="DC.relation" scheme="URI" content="preferences-diff-files.html#preferences-diff-files"><meta name="DC.relation" scheme="URI" content="directories-comparison.html#directories-comparison"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="file-comparison"><title>Compare Files Tool</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="file-comparison"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Compare Files Tool</h1>
+  
+  <div class="body">
+    <p class="p">The built-in <span class="ph uicontrol">Compare Files</span> tool can be used to compare files or XML
+      file fragments. The tool provides a mechanism for comparing two files or fragments, as well as
+      the mechanism for a three-way comparison. <span class="ph">The utility is
+        available from the <span class="ph uicontrol">Tools</span> menu or can be opened as a stand-alone
+        application from the <span class="ph">Oxygen XML Editor</span> installation folder
+          (<span class="ph filepath">diffFiles.exe</span>).</span>
+      </p>
+    <div class="p">
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Compare Files Tool</figcaption>
+        
+        <img class="image" src="../img/sa_compare_files1.png">
+      </figure>
+    </div>
+    <section class="section" id="file-comparison__twoway_comparisons"><h2 class="title sectiontitle">Two-Way Comparisons</h2>
+      
+      <p class="p">The <span class="ph uicontrol">Compare Files</span> tool can be used to compare the differences
+        between two files or XML fragments.</p>
+      <div class="sectiondiv"><strong class="ph b">Compare Files</strong><div class="p">To perform a two-way comparison, follow these steps:<ol class="ol">
+            <li class="li">
+              <p class="p">Open a file in the left panel and the file you want to compare it to in the right
+                panel. <span class="ph">You can specify the path by using the text field, the history
+        drop-down, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down menu.</span></p>
+              <p class="p"><strong class="ph b">Step Result:</strong> The selected files are opened in the two side-by-side editors.
+                A text editing mode is used to offer a better view of the differences.</p>
+            </li>
+            <li class="li">To highlight the differences between the two files, click the <span class="ph uicontrol"><img class="image" src="../img/DiffPerform16.png">Perform File Differencing</span> button from
+              the toolbar.</li>
+            <li class="li">You can use the drop-down menu on the left side of the toolbar to change the <a class="xref" href="#file-comparison__two-way-diff-algorithms">algorithm</a> for
+              the operation.</li>
+            <li class="li">You can also use the <span class="ph uicontrol"><img class="image" src="../img/OptionsShortcut16.png">Diff
+                Options</span> button to access the <span class="ph uicontrol">Files Comparison</span>
+              preferences page where you can choose to ignore certain types of markup and configure
+              various options.</li>
+            <li class="li">If you are comparing XML documents using the <span class="ph uicontrol">XML Fast</span> or
+                <span class="ph uicontrol">XML Accurate</span> algorithms, you can enter an XPath 2.0
+              expression in the <span class="ph uicontrol">Ignore nodes by XPath</span> text field to ignore
+              certain nodes from the comparison.</li>
+          </ol>The resulting comparison will show you differences between the two files. The line
+          numbers on each side and colored marks on the right-side vertical stripe help you to
+          quickly identify the locations of the differences. Adjacent changes are grouped into
+          blocks of changes. This layout allows you to easily identify and focus on a group of
+          related changes.</div><div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Two-Way Differences</figcaption>
+            
+            <img class="image" src="../img/two-compare-source.png">
+          </figure>
+        </div></div>
+      <div class="sectiondiv" id="file-comparison__highlighting-colors"><strong class="ph b">Highlighting Colors</strong><div class="p">The differences are also
+          highlighted in several colors, depending on the type of change, and dynamic lines connect
+          the compared fragments in the middle section between the two panes. The highlighting
+          colors can be customized in the <a class="xref" href="preferences-diff-appearance.html#preferences-diff-appearance"><span class="ph uicontrol">Files
+              Comparison / Appearance</span> preferences page</a>, but the default colors
+          and their shades mean the following:<ul class="ul">
+            <li class="li"><strong class="ph b">Pink</strong> - Identifies modifications on either side.</li>
+            <li class="li"><strong class="ph b">Gray</strong> - Identifies an addition of a node in the left side (your outgoing
+              changes).</li>
+            <li class="li"><strong class="ph b">Blue</strong> - Identifies an addition of a node in the right side (incoming
+              changes).</li>
+            <li class="li"><strong class="ph b">Lighter Shade</strong> - Identifies blocks of changes that can be merged in their
+              entirety.</li>
+            <li class="li"><strong class="ph b">Darker Shade</strong> - Identifies specific changes within the blocks that can be
+              merged more precisely.</li>
+          </ul></div></div>
+      <div class="sectiondiv"><strong class="ph b">Comparing Fragments (Copy/Paste)</strong><div class="p">To compare XML file fragments, you need
+          to copy and paste the fragments you want to compare into each side, without selecting a
+          file. If a file is already selected, you need to close it using the <span class="ph uicontrol"><img class="image" id="file-comparison__image_j1h_vbh_5r" src="../img/CloseQuickFind16.png">Close (<span class="keyword shortcut">Ctrl + W (Command + W on
+                    OS X)</span>)</span> button,
+          before pasting the fragments. Other notes for pasting fragments:<ul class="ul">
+            <li class="li">As long as the fragment is more than 10 characters, the application will attempt to
+              automatically detect the content type. It can detect the following types: XML, DTD,
+              CSS, JSON, and Markdown (if it starts with #). If one of those content types is
+              detected, the fragments will be displayed with syntax highlights.</li>
+            <li class="li">If you save modified fragments, a dialog box opens that allows you to save the
+              changes as a new document.</li>
+          </ul></div></div>
+      <div class="sectiondiv"><strong class="ph b">Navigate Differences</strong><div class="p">To navigate through
+          differences, do one of the following:<ul class="ul" id="file-comparison__ul_lrm_q3f_lf">
+            <li class="li">Use the navigation buttons on the toolbar (or in the <span class="ph uicontrol">Compare</span>
+              menu).</li>
+            <li class="li">Select a block of differences by clicking its small colored marker in the overview
+              ruler located in the right-most part of the window. At the top of the overview ruler
+              there is a success indicator that turns green where there are no differences, or red
+              if differences are found.</li>
+            <li class="li">Click a colored area in between the two text editors.</li>
+          </ul></div></div>
+      <div class="sectiondiv"><strong class="ph b">Editing Actions</strong><p class="p">You can edit the files directly in
+          either editing pane. The two editors are constantly synchronized and the differences are
+          refreshed when you save the modified document or when you click the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffPerform16.png">Perform File Differencing</span>
+          button.</p><div class="p">A variety of actions are available on the <a class="xref" href="file-compare-toolbar.html#file-compare-toolbar">toolbar</a> and in
+          the <a class="xref" href="files-comparison-main-menu.html#files-comparison-main-menu">various menus</a> (these same actions are also available in the contextual menu in
+          both editing panes). The tool also includes some inline actions to help you merge, copy,
+          or remove changes. When you select a change, the following inline action widgets are
+          available, depending on the type of change:<dl class="dl">
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffAppendLeftToRight12.png">Append left change to right</span> and <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffAppendRightToLeft12.png">Append right
+                  change to left</span></dt>
+              <dd class="dd">Copies the content of the selected change from one side and appends it on the
+                other, according to the content of the corresponding change. As a result, the side
+                where the arrow points to will contain the changes from both sides.</dd>
+            
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyLeftToRight12.png">Copy change from left to right</span> and <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyRightToLeft12.png">Copy change from
+                  right to left</span></dt>
+              <dd class="dd">Replaces the content of a change from one side with the content of the
+                corresponding change from the other side.</dd>
+            
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffRemove12.png">Remove
+                change</span></dt>
+              <dd class="dd">Rejects the change on the particular side and preserves the particular content on
+                the other side.</dd>
+            
+          </dl></div></div>
+      <div class="sectiondiv" id="file-comparison__two-way-diff-algorithms"><strong class="ph b">Two-Way Diff Algorithms</strong><div class="p"><span class="ph">Oxygen XML Editor</span> offers the following two-way diff algorithms to compare files or fragments:<ul class="ul">
+            <li class="li">
+        <span class="ph uicontrol">Auto</span> - Selects the most appropriate algorithm, based on the compared
+        content and its size (selected by default).</li>
+            <li class="li">
+        <span class="ph uicontrol">Characters</span> - Computes the differences at character level, meaning
+        that it compares two files or fragments looking for identical characters.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+            <li class="li">
+        <span class="ph uicontrol">Words</span> - Computes the differences at word level, meaning that it
+        compares two files or fragments looking for identical words.<span class="ph">
+          This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+            <li class="li">
+        <span class="ph uicontrol">Lines</span> - Computes the differences at line level, meaning that it
+        compares two files or fragments looking for identical lines of text.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+            <li class="li" id="file-comparison__syntax-aware-alg">
+              <p class="p"><span class="ph uicontrol">Syntax Aware</span> - Computes differences for known file types or
+                fragments. This algorithm splits the files or fragments into sequences of
+                  <em class="ph i">tokens</em> and computes the differences between them. The meaning of a
+                  <em class="ph i">token</em> depends on the type of compared files or fragments.</p>
+              <p class="p">Known file types include those listed in the <span class="ph uicontrol">New</span> dialog box,
+                such as XML file types (XSLT files, XSL-FO files, XSD files, RNG files, NVDL files,
+                etc.), XQuery file types (<span class="ph filepath">.xquery</span>, <span class="ph filepath">.xq</span>,
+                  <span class="ph filepath">.xqy</span>, <span class="ph filepath">.xqm</span> extensions), DTD file types
+                  (<span class="ph filepath">.dtd</span>, <span class="ph filepath">.ent</span>, <span class="ph filepath">.mod</span>
+                extensions), TEXT file type (<span class="ph filepath">.txt</span> extension), or PHP file type
+                  (<span class="ph filepath">.php</span> extension).</p>
+              <div class="p">For example:<ul class="ul">
+                  <li class="li">When comparing XML files or fragments, a token can be one of the following:<ul class="ul">
+                      <li class="li">The name of an XML tag</li>
+                      <li class="li">The <strong class="ph b">&lt;</strong> character</li>
+                      <li class="li">The <strong class="ph b">/&gt;</strong> sequence of characters</li>
+                      <li class="li">The name of an attribute inside an XML tag</li>
+                      <li class="li">The <strong class="ph b">=</strong> sign</li>
+                      <li class="li">The <strong class="ph b">"</strong> character</li>
+                      <li class="li">An attribute value</li>
+                      <li class="li">The text string between the start tag and the end tag (a text node that is
+                        a child of the XML element corresponding to the XML tag that encloses the
+                        text string)</li>
+                    </ul></li>
+                  <li class="li">When comparing plain text, a token can be any continuous sequence of
+                    characters or any continuous sequence of whitespaces, including a new line
+                    character.</li>
+                </ul></div>
+            </li>
+            <li class="li">
+        <span class="ph uicontrol">XML Fast</span> - Comparison that works well on large files or fragments,
+        but it is less precise than <span class="ph uicontrol">XML Accurate</span>.</li>
+            <li class="li">
+        <span class="ph uicontrol">XML Accurate</span> - Comparison that is more precise than <span class="ph uicontrol">XML
+          Fast</span>, at the expense of speed. It compares two XML files or fragments looking
+        for identical XML nodes. </li>
+          </ul></div></div>
+    </section>
+    <section class="section" id="file-comparison__threeway_comparisons"><h2 class="title sectiontitle">Three-Way Comparisons</h2>
+      
+      <div class="p"><span class="ph">Oxygen XML Editor</span> also includes a three-way comparison feature to help you solve
+        conflicts and merge changes between multiple modifications. It is especially helpful for
+        teams who have multiple authors editing and committing the same documents. It provides a
+        comparison between a local change, another change, and the original base revision. Some
+        additional advantages include:<ul class="ul">
+          <li class="li">Visualize and merge content that was modified by you and another member of your
+            team.</li>
+          <li class="li">Marks differences correctly even when the document structure is rearranged.</li>
+          <li class="li">Allows you to merge XML-relevant modifications.</li>
+        </ul></div>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Three-Way Comparison</figcaption>
+          
+          <img class="image" src="../img/three-way-compare.png">
+        </figure>
+      </div>
+      <div class="sectiondiv"><strong class="ph b">Compare Files</strong><div class="p">To perform a three-way comparison, follow these steps:<ol class="ol">
+            <li class="li">
+              <p class="p">Open a file in the left panel and the file you want to compare it to in the right
+                panel. <span class="ph">You can specify the path by using the text field, the history
+        drop-down, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down menu.</span></p>
+              <p class="p"><strong class="ph b">Step Result:</strong> The selected files are opened in the two side-by-side editors.
+                A text editing mode is used to offer a better view of the differences.</p>
+            </li>
+            <li class="li">Click the <span class="ph uicontrol"><img class="image" src="../img/ThreeWayComparison16.png"> Three-Way
+                Comparison</span> button on the toolbar and select the base (original) file in
+              the <span class="ph uicontrol">Base</span> field. <span class="ph">You can specify the path by using the text field, the history
+        drop-down, or the browsing actions in the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/BrowseDrop.png">Browse</span> drop-down menu.</span></li>
+            <li class="li">To highlight the differences, click the <span class="ph uicontrol"><img class="image" src="../img/DiffPerform16.png">Perform File Differencing</span> button on
+              the toolbar.</li>
+            <li class="li">You can use the drop-down menu on the left side of the toolbar to change the <a class="xref" href="#file-comparison__two-way-diff-algorithms">algorithm</a> for
+              the operation.</li>
+            <li class="li">You can also use the <span class="ph uicontrol"><img class="image" src="../img/OptionsShortcut16.png">Diff
+                Options</span> button to access the <span class="ph uicontrol">Files Comparison</span>
+              preferences page where you can choose to ignore certain types of markup and configure
+              various options.</li>
+          </ol>The resulting comparison will show you differences between the two files, as well as
+          differences between either of them and the base (original) file. The line numbers on each
+          side and colored marks on the right-side vertical stripe help you to quickly identify the
+          locations of the differences. Adjacent changes are grouped into blocks of changes.</div><div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Three-Way Differences</figcaption>
+            
+            <img class="image" src="../img/three-way-compare-source.png">
+          </figure>
+        </div></div>
+      <div class="sectiondiv"><strong class="ph b">Highlighting Colors</strong><div class="p">The differences are also
+          highlighted in several colors, depending on the type of change, and dynamic lines connect
+          the compared fragments in the middle section between the two panes. The highlighting
+          colors can be customized in the <a class="xref" href="preferences-diff-appearance.html#preferences-diff-appearance"><span class="ph uicontrol">Files Comparison / Appearance</span> preferences page</a>, but the
+          default colors and their shades mean the following:<ul class="ul">
+            <li class="li"><strong class="ph b">Pink</strong> - Identifies blocks of changes that include conflicts.</li>
+            <li class="li"><strong class="ph b">Gray</strong> - Identifies your outgoing changes that do not include conflicts.</li>
+            <li class="li"><strong class="ph b">Blue</strong> - Identifies incoming changes that do not include conflicts.</li>
+            <li class="li"><strong class="ph b">Lighter Shade</strong> - Identifies blocks of changes that can be merged in their
+              entirety.</li>
+            <li class="li"><strong class="ph b">Darker Shade</strong> - Identifies specific changes within the blocks that can be
+              merged more precisely.</li>
+          </ul></div></div>
+      <div class="sectiondiv"><strong class="ph b">Navigate Differences</strong><div class="p">To navigate through
+          differences, do one of the following:<ul class="ul" id="file-comparison__d624e386">
+            <li class="li">Use the navigation buttons on the toolbar (or in the <span class="ph uicontrol">Compare</span>
+              menu).</li>
+            <li class="li">Select a block of differences by clicking its small colored marker in the overview
+              ruler located in the right-most part of the window. At the top of the overview ruler
+              there is a success indicator that turns green where there are no differences, or red
+              if differences are found.</li>
+            <li class="li">Click a colored area in between the two text editors.</li>
+          </ul></div></div>
+      <div class="sectiondiv"><strong class="ph b">Editing Actions</strong><p class="p">You can edit the files directly in
+          either editing pane. The two editors are constantly synchronized and the differences are
+          refreshed when you save the modified document or when you click the <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffPerform16.png">Perform File Differencing</span>
+          button.</p><div class="p">A variety of actions are available on the <a class="xref" href="file-compare-toolbar.html#file-compare-toolbar">toolbar</a> and in
+          the <a class="xref" href="files-comparison-main-menu.html#files-comparison-main-menu">various menus</a> (these same actions are also available in the contextual menu in
+          both editing panes). The tool also includes some inline actions to help you merge, copy,
+          or remove changes. When you select a change, the following inline action widgets are
+          available, depending on the type of change:<dl class="dl">
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffAppendLeftToRight12.png">Append left change to right</span> and <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffAppendRightToLeft12.png">Append right
+                  change to left</span></dt>
+              <dd class="dd">Copies the content of the selected change from one side and appends it on the
+                other, according to the content of the corresponding change. As a result, the side
+                where the arrow points to will contain the changes from both sides.</dd>
+            
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyLeftToRight12.png">Copy change from left to right</span> and <span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffCopyRightToLeft12.png">Copy change from
+                  right to left</span></dt>
+              <dd class="dd">Replaces the content of a change from one side with the content of the
+                corresponding change from the other side.</dd>
+            
+            
+              <dt class="dt dlterm"><span class="ph uicontrol"><img class="image" src="../reusables/topics/../../img/DiffRemove12.png">Remove
+                change</span></dt>
+              <dd class="dd">Rejects the change on the particular side and preserves the particular content on
+                the other side.</dd>
+            
+          </dl></div></div>
+      <div class="sectiondiv"><strong class="ph b">Three-Way Diff Algorithms</strong><div class="p"><span class="ph">Oxygen XML Editor</span> offers the following
+          three-way diff algorithms to compare files:<ul class="ul">
+            <li class="li">
+        <span class="ph uicontrol">Auto</span> - Selects the most appropriate algorithm, based on the compared
+        content and its size (selected by default).</li>
+            <li class="li">
+        <span class="ph uicontrol">Lines</span> - Computes the differences at line level, meaning that it
+        compares two files or fragments looking for identical lines of text.<span class="ph"> This algorithm is not available when the file comparison is in
+            <span class="ph uicontrol">Author</span> mode.</span></li>
+            <li class="li">
+        <span class="ph uicontrol">XML Fast</span> - Comparison that works well on large files or fragments,
+        but it is less precise than <span class="ph uicontrol">XML Accurate</span>.</li>
+            <li class="li">
+        <span class="ph uicontrol">XML Accurate</span> - Comparison that is more precise than <span class="ph uicontrol">XML
+          Fast</span>, at the expense of speed. It compares two XML files or fragments looking
+        for identical XML nodes. </li>
+          </ul></div></div>
+    </section>
+    <section class="section" id="file-comparison__second_level_comparisons"><h2 class="title sectiontitle">Second-Level Comparisons</h2>
+      
+      <p class="p">For both two-way and three-way comparisons, <span class="ph">Oxygen XML Editor</span> automatically performs a
+        second-level comparison for the <span class="ph uicontrol">Lines</span>, <span class="ph uicontrol">XML
+          Fast</span>, and <span class="ph uicontrol">XML Accurate</span> algorithms. After the first
+        comparison is finished, the second-level comparison for the <span class="ph uicontrol">Lines</span>
+        algorithm is processed on text nodes using a word level comparison, meaning that it looks
+        for identical words. For the <span class="ph uicontrol">XML Fast</span> and <span class="ph uicontrol">XML
+          Accurate</span> algorithms, the second-level comparison is processed using a <a class="xref" href="#file-comparison__syntax-aware-alg">syntax-aware comparison</a>,
+        meaning that it looks for identical <em class="ph i">tokens</em>. This second-level comparison makes it
+        easier to spot precise differences and you can merge or reject the precise
+        modifications.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Second-Level Diff Comparison</figcaption>
+          
+          <img class="image" src="../img/second-level-comparison.png">
+        </figure>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> If a modified text fragment contains XML markup (such as processing instructions, XML
+        comments, CData, or elements), the second-level comparison will not automatically be
+        performed. In this case you can manually select a second-level comparison by doing a word
+        level or character level comparison.<p class="p">To do a word level comparison, select <span class="ph uicontrol">Show
+            word level details</span> from the contextual menu or
+            <span class="ph uicontrol">Compare</span> menu.</p><div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Word Level Comparison</figcaption>
+            
+            <img class="image" src="../img/sa_compare_files_word.png">
+          </figure>
+        </div><p class="p">To do a character level comparison, select <span class="ph uicontrol">Show Character Level
+            details</span> from the contextual menu or <span class="ph uicontrol">Compare</span> menu.</p><div class="p">
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 7. </span>Character Level Comparison</figcaption>
+            
+            <img class="image" src="../img/sa_compare_files_char.png">
+          </figure>
+        </div></div>
+    </section>
+    <section class="section" id="file-comparison__author_visual_mode"><h2 class="title sectiontitle">Author Visual Mode</h2>
+      
+      <div class="p">The <span class="ph uicontrol">Compare Files</span> tool includes an <span class="ph uicontrol">Author</span>
+        mode that displays the files in a visual mode similar to the <span class="ph uicontrol">Author</span>
+        editing mode in <dfn class="term">Oxygen XML Editor/Author</dfn>. This makes it easier to see how the
+        compared changes will look in the final output. This visual mode is available when the
+        compared files are detected as being XML. To determine whether the files are initially
+        opened in the merge tool's <span class="ph uicontrol">Text</span> or <span class="ph uicontrol">Author</span>
+        mode, it detects the <a class="xref" href="the-document-type-dialog.html#the-document-type-dialog__initial-edit-mode"><strong class="ph b">Initial
+            Edit Mode</strong> in the <em class="ph i">Document Type Association</em> configuration</a> and the mode
+        the files were last opened in <dfn class="term">Oxygen XML Editor/Author</dfn>.<div class="note note note_note"><span class="note__title">Note:</span> This mode is not
+          available if the <a class="xref" href="preferences-diff-files.html#preferences-diff-files__enable-author-mode"><span class="ph uicontrol">Enable file comparison in Author mode</span> option</a> is not
+          selected in the <span class="ph menucascade"><span class="ph uicontrol">Diff</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Files Comparison</span></span> preferences page.</div></div>
+      <p class="p">This visual mode includes unique features such as a <a class="xref" href="file-compare-toolbar.html#file-compare-toolbar__tags-display-mode"><span class="ph uicontrol"><img class="image" src="../img/TagsDisplayMode24.png">Tags Display Mode</span> drop-down
+          button</a> on the toolbar that allows you to select the amount of tags to display in
+        this visual mode. This mode also presents differences that were made using the
+          <span class="ph uicontrol">Track Changes</span> feature (although the <span class="ph uicontrol">Track
+          Changes</span> feature is not available in the comparison tool).</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 8. </span>File Comparison Tool - Author Mode</figcaption>
+          
+          <img class="image" src="../img/compare_files_author_mode.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="file-comparison__author_mode_algorithms"><h2 class="title sectiontitle">Author Mode Algorithms</h2>
+      
+      <div class="p">The visual <span class="ph uicontrol">Author</span> mode offers the following diff algorithms to
+        compare files:<ul class="ul" id="file-comparison__ul_dcn_yjp_fbb">
+          <li class="li">
+        <span class="ph uicontrol">Auto</span> - Selects the most appropriate algorithm, based on the compared
+        content and its size (selected by default).</li>
+          <li class="li">
+        <span class="ph uicontrol">XML Fast</span> - Comparison that works well on large files or fragments,
+        but it is less precise than <span class="ph uicontrol">XML Accurate</span>.</li>
+          <li class="li">
+        <span class="ph uicontrol">XML Accurate</span> - Comparison that is more precise than <span class="ph uicontrol">XML
+          Fast</span>, at the expense of speed. It compares two XML files or fragments looking
+        for identical XML nodes. </li>
+        </ul></div>
+    </section>
+    <section class="section" id="file-comparison__second_level_comparisons_author"><h2 class="title sectiontitle">Author Mode Second-Level Comparisons</h2>
+      
+      <p class="p">The visual <span class="ph uicontrol">Author</span> mode automatically performs a second-level
+        comparison for the <span class="ph uicontrol">XML Fast</span> and <span class="ph uicontrol">XML Accurate</span>
+        algorithms. After the first comparison is finished, the second-level comparisons is
+        processed on text nodes using a word-level comparison, meaning that it looks for identical
+        words. This second-level comparison makes it easier to spot precise differences and you can
+        merge or reject the precise modifications.</p>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/file-comparison-command-line-2.html">Starting File Comparison Tool from a Command Line</a><br></li><li class="link olchildlink"><a href="../topics/file-comparison-integrate-git-2.html">How to Integrate the File Comparison Tool with Git</a><br></li><li class="link olchildlink"><a href="../topics/file-comparison-integrate-sourcetree-2.html">How to Integrate the File Comparison Tool with Sourcetree</a><br></li><li class="link olchildlink"><a href="../topics/file-compare-toolbar-2.html">Toolbar and Contextual Menu Actions of the Compare Files Tool</a><br></li><li class="link olchildlink"><a href="../topics/files-comparison-main-menu-2.html">Compare Files Tool Menus</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/oxygen-tools.html" title="Specifics about the various tools that are included in Oxygen XML Editor">Tools</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/tree-editor-perspective.html">Tree Editor</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/file-comparison-command-line-2.html">Starting File Comparison Tool from a Command Line</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="preferences-diff-files.html#preferences-diff-files">Files Comparison Preferences Page</a></li><li class="linklist"><a class="link" href="directories-comparison.html#directories-comparison">Compare Directories Tool</a></li></ul></div></nav>
+</article></main></body></html>

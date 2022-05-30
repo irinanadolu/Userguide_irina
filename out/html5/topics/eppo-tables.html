@@ -1,0 +1,373 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.subject" content="Author editing mode,Tables,DITA,XML documents,Author Mode editing,DITA tables in Author Mode,Topics"><meta name="keywords" content="Author editing mode, Tables, DITA, XML documents, Author Mode editing, DITA tables in Author Mode, Topics"><meta name="DC.relation" scheme="URI" content="../topics/eppo-pathfinder-structure.html"><meta name="DC.relation" scheme="URI" content="../topics/image-map-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-dita.html"><meta name="DC.relation" scheme="URI" content="../topics/author-editing-tables-dita.html"><meta name="DC.relation" scheme="URI" content="author-editing-tables.html#author-editing-tables"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="eppo-tables"><title>Adding Tables in DITA Topics</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="eppo-tables"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Adding Tables in DITA Topics</h1>
+  
+  <div class="body">
+    <div class="p">You can use the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert Table</span> action
+      on the toolbar or from the contextual menu to add a table in a DITA topic. By default, DITA
+      supports four types of tables:<ul class="ul" id="eppo-tables__ul_zs1_vhs_yq">
+        <li class="li"><a class="xref" href="eppo-tables.html#eppo-tables__simple-table-model">DITA
+              <dfn class="term">Simple</dfn> table model</a> - This is the most commonly used model for
+          basic tables.</li>
+        <li class="li"><a class="xref" href="eppo-tables.html#eppo-tables__cals-table-model">CALS table
+            model (OASIS Exchange Table Model)</a> - This is used for more advanced
+          functionality.</li>
+        <li class="li"><a class="xref" href="eppo-tables.html#eppo-tables__choice-table-model">DITA
+          <dfn class="term">Choice</dfn> table model</a> - This is used within a <code class="keyword markupname xmlelement">&lt;step&gt;</code>
+          element in a DITA Task document to describe a series of optional choices that a user must
+          make before proceeding.</li>
+        <li class="li"><a class="xref" href="eppo-tables.html#eppo-tables__inserting_a_properties_table_model">DITA <dfn class="term">Properties</dfn> table model</a> - This is used in DITA
+          Reference documents to describe a property (for example, its type, value, and
+          description).</li>
+      </ul>If you are using a specialized DITA vocabulary, it may contain specialized versions of
+      these table models. </div>
+    <p class="p">Since DITA is a structured format, you can only insert a table in places in the structure of
+      a topic where tables are allowed. The <span class="ph">Oxygen XML Editor</span> toolbar provides support for
+      entering and editing tables. It also helps to indicate where you are allowed to insert a table
+      or its components by disabling the appropriate buttons.</p>
+    <section class="section" id="eppo-tables__simple-table-model"><h2 class="title sectiontitle">Inserting a Simple Table Model</h2>
+      
+      <p class="p">To insert a <strong class="ph b">Simple</strong> DITA table, select the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert Table</span> action on the toolbar or from the
+        contextual menu (or the <span class="ph uicontrol">Table</span> submenu from the
+          <span class="ph uicontrol">DITA</span> menu). The <span class="ph uicontrol">Insert Table</span> dialog box
+        appears. Select <span class="ph uicontrol">Simple</span> for the table
+        <span class="ph uicontrol">Model</span>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Insert Table Dialog Box - Simple Model</figcaption>
+          
+          <img class="image" src="../img/dita_insert_table_simple.png">
+        </figure>
+      </div>
+      <div class="p">The dialog box allows you to configure the following options when you select the
+          <span class="ph uicontrol">Simple</span> table model:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Title</span></dt>
+          <dd class="dd">If this checkbox is selected, you can specify a title for your table in the adjacent
+            text box.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table header</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the top of the table to be used as the
+            table header.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Column widths</span></dt>
+          <dd class="dd">Allows you to specify the type of properties for column widths
+              (<code class="keyword markupname xmlatt">@colwidth</code> attribute). You can choose one of the following properties
+            for the column width:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">proportional</span> - The width is specified in proportional
+                (relative) units of measure. The proportion of the column is specified in a
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute with the values listed as the number of
+                shares followed by an asterisk. The value of the shares is totaled and rendered as a
+                percent. For example, <code class="ph codeph">relcolwidth="1* 2* 3*"</code> causes widths of
+                16.7%, 33.3%, and 66.7%. When entering content into a cell in one column, the width
+                proportions of the other columns are maintained. If you change the width by dragging
+                a column in <span class="ph uicontrol">Author</span> mode, the values of the
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute are automatically changed accordingly. By
+                default, when you insert, drag and drop, or copy/paste a column, the value of the
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute is <code class="ph codeph">1*</code>.</li>
+              <li class="li"><span class="ph uicontrol">dynamic</span> - If you choose this option, the columns are
+                created without a specified width. Entering content into a cell changes the rendered
+                width dynamically. If you change the width by dragging a column in
+                  <span class="ph uicontrol">Author</span> mode, a dialog box will be displayed that asks you
+                if you want to switch to proportional or fixed column widths.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. The allowed values are as follows:<ul class="ul" id="eppo-tables__table-frame-ul">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+        </dl><div class="note note note_note"><span class="note__title">Note:</span> The options in the <span class="ph uicontrol">Insert Table</span> dialog box for DITA
+          documents are persistent, so changes made in one session will carry over to
+          another.</div></div>
+      <p class="p">When you click <span class="ph uicontrol">Insert</span>, a simple table is inserted into your document
+        at the current cursor position.</p>
+    </section>
+    <section class="section" id="eppo-tables__cals-table-model"><h2 class="title sectiontitle">Inserting a CALS Table Model (OASIS Exchange Table)</h2>
+      
+      <p class="p">To insert an OASIS Exchange Table (<strong class="ph b">CALS</strong>), select the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert Table</span> action on the toolbar or from the
+        contextual menu (or the <span class="ph uicontrol">Table</span> submenu from the
+          <span class="ph uicontrol">DITA</span> menu). The <span class="ph uicontrol">Insert Table</span> dialog box
+        appears. Select <span class="ph uicontrol">CALS</span> for the table <span class="ph uicontrol">Model</span>. This
+        model allows you to configure more properties than the <em class="ph i">Simple</em> model.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Insert Table Dialog Box - CALS Model</figcaption>
+          
+          <img class="image" src="../img/dita_insert_table_cals.png">
+        </figure>
+      </div>
+      <div class="p">The dialog box allows you to configure the following options when you select the
+          <span class="ph uicontrol">CALS</span> table model:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Title</span></dt>
+          <dd class="dd">If this checkbox is selected, you can specify a title for your table in the adjacent
+            text box.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Table Size</span></dt>
+          <dd class="dd">Allows you to choose the number of <span class="ph uicontrol">Rows</span> and
+              <span class="ph uicontrol">Columns</span> for the table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table header</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the top of the table to be used as the
+            table header.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Column widths</span></dt>
+          <dd class="dd">Allows you to specify the type of properties for column widths
+              (<code class="keyword markupname xmlatt">@colwidth</code> attribute). You can choose one of the following properties
+            for the column width:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">proportional</span> - The width is specified in proportional
+                (relative) units of measure. The proportion of the column is specified in a
+                  <code class="keyword markupname xmlatt">@colwidth</code> attribute with the values listed as the number of shares
+                followed by an asterisk. The value of the shares is totaled and rendered as a
+                percent. For example, <code class="ph codeph">colwidth="1* 2* 3*"</code> causes widths of 16.7%,
+                33.3%, and 66.7%. When entering content into a cell in one column, the width
+                proportions of the other columns are maintained. If you change the width by dragging
+                a column in <span class="ph uicontrol">Author</span> mode, the values of the
+                  <code class="keyword markupname xmlatt">@colwidth</code> attribute are automatically changed accordingly. By
+                default, when you insert, drag and drop, or copy/paste a column, the value of the
+                  <code class="keyword markupname xmlatt">@colwidth</code> attribute is <code class="ph codeph">1*</code>.</li>
+              <li class="li"><span class="ph uicontrol">dynamic</span> - If you choose this option, the columns are
+                created without a specified width (<code class="keyword markupname xmlatt">@colwidth</code> attribute). Entering
+                content into a cell changes the rendered width dynamically. If you change the width
+                by dragging a column in <span class="ph uicontrol">Author</span> mode, a dialog box will be
+                displayed that asks you if you want to switch to proportional or fixed column
+                widths.</li>
+              <li class="li"><span class="ph uicontrol">fixed</span> - The width is specified in fixed units. By default,
+                the <code class="ph codeph">pt</code> unit is inserted, but you can change the units in the
+                  <span class="ph uicontrol">colspecs</span> (column specifications) section above the table or
+                in <span class="ph uicontrol">Text</span> mode. The following units are allowed:
+                  <code class="ph codeph">pt</code> (points), <code class="ph codeph">cm</code> (centimeters),
+                  <code class="ph codeph">mm</code> (millimeters), <code class="ph codeph">pi</code> (picas),
+                  <code class="ph codeph">in</code> (inches).</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. The allowed values are as follows:<ul class="ul" id="eppo-tables__d1650e2905">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Row separator</span></dt>
+          <dd class="dd">Specifies whether or not to include row separators (<code class="keyword markupname xmlatt">@rowsep</code>
+            attribute). The allowed values are: <code class="ph codeph">0</code> (no separator) and
+              <code class="ph codeph">1</code> (include separators).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Column separator</span></dt>
+          <dd class="dd">Specifies whether or not to include column separators (<code class="keyword markupname xmlatt">@colsep</code>
+            attribute). The allowed values are: <code class="ph codeph">0</code> (no separator) and
+              <code class="ph codeph">1</code> (include separators).</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Alignment</span></dt>
+          <dd class="dd">Specifies the alignment of the text within the table (<code class="keyword markupname xmlatt">@align</code>
+            attribute). The allowed values are:<ul class="ul" id="eppo-tables__table-align-ul">
+              <li class="li"><span class="ph uicontrol">left</span> - Aligns the text to a left position.</li>
+              <li class="li"><span class="ph uicontrol">right</span> - Aligns the text to a right position.</li>
+              <li class="li"><span class="ph uicontrol">center</span> - Aligns the text to a centered position.</li>
+              <li class="li"><span class="ph uicontrol">justify</span> - Stretches the line of text so that it has equal
+                  width.<div class="note note note_note"><span class="note__title">Note:</span> The <code class="ph codeph">justify</code> value cannot be rendered in
+                    <span class="ph uicontrol">Author</span> mode, so you will only see it in the
+                  output.</div></li>
+              <li class="li"><span class="ph uicontrol">char</span> - Aligns text to the leftmost occurrence of the value
+                specified on the <code class="keyword markupname xmlatt">@char</code> attribute for alignment.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+        </dl><div class="note note note_note"><span class="note__title">Note:</span> The options in the <span class="ph uicontrol">Insert Table</span> dialog box for DITA
+          documents are persistent, so changes made in one session will carry over to
+          another.</div></div>
+      <p class="p">When you click <span class="ph uicontrol">Insert</span>, a CALS table is inserted into your document
+        at the current cursor position.</p>
+      <p class="p">When you insert a CALS table, you see a link for setting the <em class="ph i">colspecs</em>
+        (column specifications) of your table. Click the link to open the controls that allow you to
+        adjust various column properties. Although they appear as part of the <a class="xref" href="author-editor.html#author-editor"><span class="ph uicontrol">Author</span> mode</a>, the
+          <em class="ph i">colspecs</em> link and its controls will not appear in your output. They are
+        just there to make it easier to adjust how the columns of your table are formatted.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>CALS Table in DITA</figcaption>
+          
+          <img class="image" src="../img/dita_cals_table_fixed.png">
+        </figure>
+      </div>
+    </section>
+    <section class="section" id="eppo-tables__choice-table-model"><h2 class="title sectiontitle">Inserting a Choice Table Model</h2>
+      
+      <p class="p">To insert a <strong class="ph b">Choice</strong> table within a <code class="keyword markupname xmlelement">&lt;step&gt;</code> element in a DITA Task
+        document, select the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert Table</span>
+        action on the toolbar or in the <span class="ph uicontrol">Insert</span> submenu from the contextual
+        menu (or the <span class="ph uicontrol">Table</span> submenu from the <span class="ph uicontrol">DITA</span>
+        menu), or select <strong class="ph b">choicetable</strong> from the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>. The <span class="ph uicontrol">Insert Table</span> dialog box appears.
+        Select <span class="ph uicontrol">Simple</span> for the table <span class="ph uicontrol">Model</span>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Insert Table Dialog Box - Choice Model</figcaption>
+          
+          <img class="image" src="../img/dita_insert_table_choice.png">
+        </figure>
+      </div>
+      <div class="p">The dialog box allows you to configure the following options when you insert a
+          <em class="ph i">Choice</em> table model within a DITA Task:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Table Size</span></dt>
+          <dd class="dd">Allows you to choose the number of <span class="ph uicontrol">Rows</span> and
+              <span class="ph uicontrol">Columns</span> for the table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table header</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the top of the table to be used as the
+            table header.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Column widths</span></dt>
+          <dd class="dd">Allows you to specify the type of properties for column widths
+              (<code class="keyword markupname xmlatt">@colwidth</code> attribute). You can choose one of the following properties
+            for the column width:<ul class="ul">
+              <li class="li"><span class="ph uicontrol">proportional</span> - The width is specified in proportional
+                (relative) units of measure. The proportion of the column is specified in a
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute with the values listed as the number of
+                shares followed by an asterisk. The value of the shares is totaled and rendered as a
+                percent. For example, <code class="ph codeph">relcolwidth="1* 2* 3*"</code> causes widths of
+                16.7%, 33.3%, and 66.7%. When entering content into a cell in one column, the width
+                proportions of the other columns are maintained. If you change the width by dragging
+                a column in <span class="ph uicontrol">Author</span> mode, the values of the
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute are automatically changed accordingly. By
+                default, when you insert, drag and drop, or copy/paste a column, the value of the
+                  <code class="keyword markupname xmlatt">@relcolwidth</code> attribute is <code class="ph codeph">1*</code>.</li>
+              <li class="li"><span class="ph uicontrol">dynamic</span> - If you choose this option, the columns are
+                created without a specified width. Entering content into a cell changes the rendered
+                width dynamically. If you change the width by dragging a column in
+                  <span class="ph uicontrol">Author</span> mode, a dialog box will be displayed that asks you
+                if you want to switch to proportional or fixed column widths.</li>
+            </ul></dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. The allowed values are as follows:<ul class="ul" id="eppo-tables__d1650e2905">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+        </dl></div>
+      <p class="p">When you click <span class="ph uicontrol">Insert</span>, a <em class="ph i">Choice</em> table is inserted into your
+        DITA Task document at the current cursor position (within a <code class="keyword markupname xmlelement">&lt;step&gt;</code>
+        element).</p>
+    </section>
+    <section class="section" id="eppo-tables__inserting_a_properties_table_model"><h2 class="title sectiontitle">Inserting a Properties Table Model</h2>
+      
+      <p class="p">To insert a <strong class="ph b">Properties</strong> table within a <code class="keyword markupname xmlelement">&lt;refbody&gt;</code> element in a DITA
+        Reference document, select the <span class="ph uicontrol"><img class="image" src="../img/Table16.png">Insert
+          Table</span> action on the toolbar or in the <span class="ph uicontrol">Insert</span> submenu
+        from the contextual menu (or the <span class="ph uicontrol">Table</span> submenu from the
+          <span class="ph uicontrol">DITA</span> menu), or select <strong class="ph b">properties(wizard)</strong> from the <a class="xref" href="../glossary/content-completion-assistant.html"><dfn class="term">Content Completion
+          Assistant</dfn></a>. The <span class="ph uicontrol">Insert Table</span> dialog box appears.
+        Select <span class="ph uicontrol">Properties</span> for the table <span class="ph uicontrol">Model</span>.</p>
+      <div class="p">
+        <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Insert Table Dialog Box - Properties Model</figcaption>
+          
+          <img class="image" src="../img/dita_insert_table_properties.png">
+        </figure>
+      </div>
+      <div class="p">The dialog box allows you to configure the following options when you insert a
+          <em class="ph i">Properties</em> table model within a DITA Reference:<dl class="dl">
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Table Size</span></dt>
+          <dd class="dd">Allows you to choose the number of <span class="ph uicontrol">Rows</span> and
+              <span class="ph uicontrol">Columns</span> for the table.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Generate table header</span></dt>
+          <dd class="dd">If selected, an extra row will be inserted at the top of the table to be used as the
+            table header.</dd>
+        
+          
+          <dt class="dt dlterm"><span class="ph uicontrol">Frame</span></dt>
+          <dd class="dd">Allows you to specify a value for the <code class="keyword markupname xmlatt">@frame</code> attribute. It is used to
+            specify where a border should appear in the table. The allowed values are as follows:<ul class="ul" id="eppo-tables__d1650e2905">
+              <li class="li"><span class="ph uicontrol">none</span> - No border will be added.</li>
+              <li class="li"><span class="ph uicontrol">all</span> - A border will be added to all frames.</li>
+              <li class="li"><span class="ph uicontrol">top</span> - A border will be added to the top frame.</li>
+              <li class="li"><span class="ph uicontrol">topbot</span> - A border will be added to the top and bottom
+                frames.</li>
+              <li class="li"><span class="ph uicontrol">bottom</span> - A border will be added to the bottom frame.</li>
+              <li class="li"><span class="ph uicontrol">sides</span> - A border will be added to the side frames.</li>
+              <li class="li"><span class="ph uicontrol">-dita-use-conref-target</span> - Normally, when using a
+                  <code class="keyword markupname xmlatt">@conref</code>, the values of attributes specified locally are preserved.
+                You can choose this option to override this behavior and pull the value of this
+                particular attribute from the <code class="keyword markupname xmlatt">@conref</code> target. For more information,
+                see <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html" target="_blank" rel="external noopener">https://www.oxygenxml.com/dita/1.3/specs/langRef/attributes/ditauseconreftarget.html</a>.</li>
+            </ul></dd>
+        
+        </dl></div>
+      <p class="p">When you click <span class="ph uicontrol">Insert</span>, a <em class="ph i">Properties</em> table is inserted into
+        your DITA Reference document at the current cursor position (within a
+        <code class="keyword markupname xmlelement">&lt;refbody&gt;</code> element).</p>
+    </section>
+    <section class="section" id="eppo-tables__editing_an_existing_table"><h2 class="title sectiontitle">Editing an Existing Table</h2>
+      
+      <p class="p">You can edit the structure of an existing table using the table buttons on the toolbar (or
+        in the contextual menu) to add or remove cells, rows, or columns, and to set basic table
+        properties. Additional attributes can be used to fine-tune the formatting of your tables by
+        using the <a class="xref" href="author-attributes-view.html#author-attributes-view"><span class="ph uicontrol">Attributes</span> view</a> (<span class="ph menucascade"><span class="ph uicontrol">Window</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Show View</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Attributes</span></span>). See the <a class="xref" href="https://www.oxygenxml.com/dita/1.3/specs/langRef/containers/table-elements.html" target="_blank" rel="external noopener">DITA documentation</a> for a full explanation of these
+        attributes.</p>
+      <p class="p">You can also use the <a class="xref" href="dita-table-properties.html#dita-table-properties"><span class="ph uicontrol"><img class="image" src="../img/TableProperties16.png">Table Properties (<span class="keyword shortcut">Ctrl + T (Command + T on
+                    OS X)</span>)</span></a>
+        action from the toolbar or contextual menu (or <span class="ph uicontrol">DITA</span> menu) to <a class="xref" href="dita-table-properties.html#dita-table-properties">modify many of the properties of
+          the table</a>.</p>
+      <p class="p">Also, remember that underneath the visual representation, both table models are really just
+        XML. If necessary, you can edit the XML directly by switching to <a class="xref" href="text-mode-editor.html#text-mode-editor"><strong class="ph b">Text</strong> mode</a>.</p>
+      <p class="p">You can use normal copy/paste shortcuts to move content between cells. <span class="ph">Oxygen XML Editor</span> includes a <a class="xref" href="smart-paste-support.html"><dfn class="term">Smart Paste</dfn> feature</a>
+        that preserves certain style and structure information when pasting content.</p>
+      <div class="note tip note_tip"><span class="note__title">Tip:</span> When copying a multiple selection of table cells and pasting them outside the
+        table, a new table will be created. When pasting into space-preserved elements, the cell
+        content will be pasted as plain text.</div>
+    </section>
+  </div>
+  <nav role="navigation" class="related-links"><ol class="olchildlinks"><li class="link olchildlink"><a href="../topics/author-editing-tables-dita.html">DITA Table Layouts</a><br></li></ol><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/eppo-pathfinder-structure.html">Working with DITA Topics</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/image-map-dita.html">Image Maps in DITA</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/author-editing-tables-dita.html">DITA Table Layouts</a></div></div><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="author-editing-tables.html#author-editing-tables">Editing Tables in Author Mode</a></li></ul></div></nav>
+</article></main></body></html>

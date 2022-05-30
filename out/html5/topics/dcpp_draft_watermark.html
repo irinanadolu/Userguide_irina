@@ -1,0 +1,76 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="dita"><meta name="DC.subject" content=",DITA Map PDF - based on HTML5 &amp; CSS,Draft watermarks,Draft watermarks,Conditional draft watermark,Conditional draft watermark"><meta name="keywords" content=", DITA Map PDF - based on HTML5 &amp; CSS, Draft watermarks, Draft watermarks, Conditional draft watermark, Conditional draft watermark"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_the_customization_css.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_comments_and_change_tracking.html"><meta name="DC.relation" scheme="URI" content="../topics/dcpp_flagging_the_content.html"><meta name="prodname" content=""><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="dcpp_draft_watermark"><title>Draft Watermarks</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="dcpp_draft_watermark">
+  <h1 class="title topictitle1" id="ariaid-title1">Draft Watermarks</h1>
+  
+  <div class="body">
+    <p class="p">A <dfn class="term">watermark</dfn> is an image displayed as the background of a printed document and it
+      is faded enough to keep the publication text readable. <dfn class="term">Draft watermarks</dfn> are used
+      to indicate that a document is under construction or has not yet been approved.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/dcpp_the_customization_css.html" title="Numerous topics that provide instructions for how to customize your PDF output">Customizing PDF Output Using CSS</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../topics/dcpp_comments_and_change_tracking.html">Comments, Highlights, and Tracked Changes</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../topics/dcpp_flagging_the_content.html">Flagging Content</a></div></div></nav><article class="topic nested1" aria-labelledby="ariaid-title2" id="dcpp_how_to_add_a_draft_watermark_on_all_pages">
+  <h2 class="title topictitle2" id="ariaid-title2">How to Add a Draft Watermark on All Pages</h2>
+  <div class="body">
+    <p class="p">To add a draft watermark to all of your publication pages, you can use the following page
+      selector in your <a class="xref" href="dcpp_the_customization_css.html">customization CSS</a>:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    <strong class="hl-keyword">background-image</strong>: url(<span class="hl-string">"draft.svg"</span>);
+    <strong class="hl-keyword">background-position</strong>:center;
+    <strong class="hl-keyword">background-repeat</strong>:no-repeat;
+    <strong class="hl-keyword">background-color</strong>:inherit; 
+}</pre>
+    <p class="p">If you have already set a background image for other pages (for example, the
+        <code class="ph codeph">front-page</code> or <code class="ph codeph">table-of-contents</code>), the above selector won't
+      change them, as they are more specific. </p>
+    <p class="p">The best practice is to use a different <span class="ph filepath">draft.css</span> CSS file that imports
+      the customization CSS where the rest of the style changes reside. If you need to publish the
+      content as a draft, use the <span class="ph filepath">draft.css</span> in your transformation scenario,
+      otherwise directly reference the <a class="xref" href="dcpp_the_customization_css.html">customization
+        CSS</a>.</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_images.html">Images and Figures</a></li></ul></div></nav>
+</article><article class="topic nested1" aria-labelledby="ariaid-title3" id="dcpp_how_to_add_a_draft_watermark">
+  <h2 class="title topictitle2" id="ariaid-title3">How to Add a Draft Watermark Depending on Metadata</h2>
+  
+  <div class="body">
+    <p class="p">Suppose you want to apply a <dfn class="term">Draft watermark</dfn> until your DITA bookmap is approved
+      and the map is approved when an <code class="keyword markupname xmlelement">&lt;approved&gt;</code> element has been added to
+      the metadata section (for example, in the <strong class="ph b">bookmeta/bookchangehistory</strong> element). </p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-xml"><strong class="hl-tag">&lt;bookmeta&gt;</strong>
+   <strong class="hl-tag">&lt;author&gt;</strong>John<strong class="hl-tag">&lt;/author&gt;</strong>
+   <strong class="hl-tag">&lt;critdates&gt;</strong>
+      <strong class="hl-tag">&lt;created</strong> <span class="hl-attribute">date</span>=<span class="hl-value">"1/1/2015"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;revised</strong> <span class="hl-attribute">modified</span>=<span class="hl-value">"3/4/2016"</span><strong class="hl-tag">/&gt;</strong>
+      <strong class="hl-tag">&lt;revised</strong> <span class="hl-attribute">modified</span>=<span class="hl-value">"3/5/2016"</span><strong class="hl-tag">/&gt;</strong>
+   <strong class="hl-tag">&lt;/critdates&gt;</strong>          
+   <strong class="hl-tag">&lt;bookchangehistory&gt;</strong>
+       <strong class="hl-tag">&lt;approved/&gt;</strong>       
+   <strong class="hl-tag">&lt;/bookchangehistory&gt;</strong>
+...</pre>
+    <p class="p">Use <code class="ph codeph">oxy_xpath</code> every time you need to probe the value from an element other
+      than the one matched by the CSS selector, and test the expression on the merged HTML file
+      using the <a class="xref" href="https://www.oxygenxml.com/doc/ug-editor/topics/xpath-builder-view.html" target="_blank" rel="external noopener"><strong class="ph b">Oxygen XPath Builder</strong> view</a>.</p>
+    <p class="p">You can either use a page selector that imposes the draft watermark on the entire page
+      surface (recommended):</p>
+    <div class="p">
+      <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css"><span class="hl-directive">@page</span> {
+    <strong class="hl-keyword">background-image</strong>: url(oxy_xpath(<span class="hl-string">'if  (//bookmeta/bookchangehistory/approved) then ""
+else  "../../images/draft-watermark.png" '</span>));
+    <strong class="hl-keyword">background-position</strong>:center;
+    <strong class="hl-keyword">background-repeat</strong>:no-repeat;
+    <strong class="hl-keyword">background-color</strong>:inherit; 
+}</pre>
+    </div>
+    <p class="p">or use an element selector that restricts the watermark image only to the page area covered
+      by that element:</p>
+    <pre xmlns:version="java:net.sf.saxon.Version" class="pre codeblock language-css">:root, body{
+  ... <em class="hl-comment">/* same as properties above */</em> 
+}
+</pre>
+    <p class="p">The <code class="ph codeph">body</code> selector is used here in case you want to apply the <span class="ph uicontrol">DITA
+        Map PDF - based on HTML5 &amp; CSS</span> transformation type. You can use another
+      element selector to target a specific part of your publication (for example, marking only the
+      tables as drafts).</p>
+  </div>
+  <nav role="navigation" class="related-links"><div class="linklist"><strong>Related Information:</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="dcpp_metadata.html">Metadata</a></li><li class="linklist"><a class="link" href="dcpp_debugging_the_css.html#dcpp_how_to_debug_xpath_expressions">How to Debug XPath Expressions</a></li></ul></div></nav>
+</article></article></article></main></body></html>
