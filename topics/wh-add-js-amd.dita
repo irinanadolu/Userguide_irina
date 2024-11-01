@@ -17,7 +17,7 @@
       example, because many jQuery plugins use the AMD format, it will be difficult for you to use
       those libraries in your custom WebHelp output.</p>
     <p>Normally, a JavaScript AMD module can be loaded in one of the following ways:</p>
-    <ul>
+    <ul irina="irina">
       <li>
         <p><b>As a top-level script</b>, using the <xmlatt>data-main</xmlatt> attribute of the
             <xmlelement>script</xmlelement> element used to load the <term>RequireJS</term> library.
@@ -62,7 +62,7 @@
         Internet.<codeblock outputclass="language-javascript">define(['require'], function (require) {
     require(['./red', './italic', './tables']);
 });</codeblock></p>
-      <p>Besides the main JavaScript example, the template contains 3 other sub-modules:<ul>
+      <p>Besides the main JavaScript example, the template contains 3 other sub-modules:<ul irina="irina">
           <li><b><filepath>red.js</filepath></b> - Changes the font color of the publication
             title.<codeblock outputclass="language-javascript">define(["jquery"], function ($) {
     $(document).ready(function () {
@@ -96,7 +96,7 @@
         tables.js</codeblock></p>
       <p>
         <note type="other" othertype="Notes">
-          <ul>
+          <ul irina="irina">
             <li>The main module should be referenced in the <xref
                 href="whr_publishing_template_contents.dita#template_descritpor_file">Publishing
                 Template descriptor file</xref> by specifying its path relative to the base
@@ -111,7 +111,7 @@
     &lt;include name="js/*.js"/>
 &lt;/fileset></codeblock></li>
             <li>The main module can reference other modules bundled in the publishing template
-              package as follows: <ul>
+              package as follows: <ul irina="irina">
                 <li><b>Relative to template directory</b> - Prefix their paths with the ID of the
                   template directory: <b><filepath>template-base-dir</filepath></b> (for example:
                     <filepath>template-base-dir/js/italic</filepath>).</li>

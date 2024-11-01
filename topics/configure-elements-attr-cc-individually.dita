@@ -42,7 +42,7 @@
           child of a particular node.</note></p>
       <p><u><b>Elements:</b></u></p>
       <p>To control the <b>elements</b> that are proposed for an element, you can use the following
-        attributes for the <xmlelement>elementProposals</xmlelement> element:<ul id="ul_ghd_c55_kr">
+        attributes for the <xmlelement>elementProposals</xmlelement> element:<ul id="ul_ghd_c55_kr" irina="irina">
           <li>
             <p><b>path</b> - A path within the document that matches the element that will have its
               content completion proposals changed. For example, <codeph>"title"</codeph> matches
@@ -54,7 +54,7 @@
               condition you can use <i>AND/OR</i> boolean operators and parentheses to override the
               priority.</p>
             <p>You can use one or more of the following attribute conditions (default attribute
-              values are not taken into account):<ul>
+              values are not taken into account):<ul irina="irina">
                 <li><i>element[@attr]</i> - Matches all instances of the specified element that
                   include the specified attribute.</li>
                 <li><i>element[not(@attr)]</i> - Matches all instances of the specified element that
@@ -69,7 +69,7 @@
               operators and parentheses inside an attribute
               condition:<codeblock outputclass="language-ini">*[@a and @b or @c and @d]
 *[@a and (@b or @c) and @d]</codeblock></p>
-            <p>The following are just examples of how simplified XPath expressions might look like:<ul>
+            <p>The following are just examples of how simplified XPath expressions might look like:<ul irina="irina">
                 <li><i>elementName</i></li>
                 <li><i>//elementName</i></li>
                 <li><i>/elementName1/elementName2/elementName3</i></li>
@@ -110,7 +110,7 @@
                 <xmlatt>path</xmlatt> attribute. For example, <codeph>"b i codeph ph"</codeph> means
               that the <term>Content Completion Assistant</term> will contain these four elements
               when invoked on the element specified in the <xmlatt>path</xmlatt> attribute. The
-              following other possible values are also supported:<ul id="ul_khb_nl3_t3b">
+              following other possible values are also supported:<ul id="ul_khb_nl3_t3b" irina="irina">
                 <li><b><i>NONE</i></b> - There will be no proposals in the content completion
                   list.</li>
                 <li><b><i>ALL</i></b> - All the possible elements specified in the associated schema
@@ -154,7 +154,7 @@
         </ul></p>
       <p><u><b>Attributes:</b></u></p>
       <p>To control the <b>attributes</b> that are proposed for an element, you can use the
-        following attributes for the <xmlelement>elementProposals</xmlelement> element:<ul>
+        following attributes for the <xmlelement>elementProposals</xmlelement> element:<ul irina="irina">
           <li><b>path</b> - A path within the document that matches the element that will have its
             attribute proposals changed. For example, <codeph>"title"</codeph> matches all the
               <xmlelement>title</xmlelement> elements in the document, while
@@ -212,7 +212,7 @@
     <section id="other_important_notes">
       <title>Other Important Notes About the Configuration File</title>
       <note type="important">
-        <ul>
+        <ul irina="irina">
           <li>By default, the element names that do not have a namespace prefix are considered from
               <i>no-namespace</i>. Consider declaring the namespace mapping on the root of the
             configuration file and prefixing the element names from the <xmlatt>elementPath</xmlatt>
@@ -241,7 +241,7 @@
     <section id="examples_configuring_elements">
       <title>Examples: Configuring the Element Proposals </title>
       <p>
-        <ul>
+        <ul irina="irina">
           <li>
             <p><b>Example 1: Automatically Insert Elements</b></p>
             <p>Suppose that you want to automatically insert a paragraph element
@@ -302,7 +302,7 @@
     <section id="examples_configuring_the_attributes">
       <title>Examples: Configuring the Attributes Proposals</title>
       <p>
-        <ul>
+        <ul irina="irina">
           <li>
             <p><b>Example 1: Automatically Insert Attributes</b></p>
             <p>Suppose that you want to insert an <xmlatt>id</xmlatt> attribute (with an empty

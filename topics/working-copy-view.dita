@@ -14,7 +14,7 @@
     <body>
         <p>The <uicontrol>Working Copy</uicontrol> view allows you to manage the content of an SVN
       working copy. <ph conkeyref="reusables-user-guide/reopen-view"/></p>
-        <p>The toolbar contains the following:<ul id="ul_p11_cng_hf">
+        <p>The toolbar contains the following:<ul id="ul_p11_cng_hf" irina="irina">
         <li>The list of defined working copies.</li>
         <li>A set of view modes that allow you to filter the content of the working copy based on
           the resource status (such as incoming or outgoing changes).</li>
@@ -23,7 +23,7 @@
         <p>If you click any of the view modes (<uicontrol>All Files</uicontrol>,
         <uicontrol>Modified</uicontrol>, <uicontrol>Incoming</uicontrol>,
         <uicontrol>Outgoing</uicontrol>, <uicontrol>Conflicts</uicontrol>), the information
-      displayed changes as follows:<ul>
+      displayed changes as follows:<ul irina="irina">
         <li id="working-copy-view-all-files-mode">
           <p><uicontrol><image href="../img/SVNAllFilesMode16.png" id="image_elg_db1_v3b"/>All
               Files</uicontrol> - Resources (files and folders) are presented in a hierarchical
@@ -40,8 +40,8 @@
         <li id="working-copy-view-modified-mode"><uicontrol><image href="../img/SVNInOutMode16.png"
             />Modified</uicontrol> - The resource tree presents resources modified locally
           (including those with conflicting content) and remotely. Decorator icons are used to
-          differentiate between various resource states:<ul>
-            <li>Incoming modification from repository:<ul>
+          differentiate between various resource states:<ul irina="irina">
+            <li>Incoming modification from repository:<ul irina="irina">
                 <li><image href="../img/SVNIncomingFile20.png" id="image_asb_3lp_5r"/> - File
                   content or properties modified remotely.</li>
                 <li><image href="../img/SVNIncomingAddedFile20.png" id="image_zvq_3lp_5r"/> - New
@@ -49,7 +49,7 @@
                 <li><image href="../img/SVNIncomingDeletedFile20.png" id="image_zty_3lp_5r"/> - File
                   deleted remotely.</li>
               </ul></li>
-            <li>Outgoing modification to repository:<ul>
+            <li>Outgoing modification to repository:<ul irina="irina">
                 <li><image href="../img/SVNOutgoingFile20.png" id="image_az3_jlp_5r"/> - File
                   content or properties modified locally.</li>
                 <li><image href="../img/SVNOutgoingAddedFile20.png" id="image_g4r_jlp_5r"/> - New
@@ -75,7 +75,7 @@
             </fig>
         </p>
         <p>
-            <ul>
+            <ul irina="irina">
                 <li><uicontrol><image href="../img/SVNIncomingMode16.png"/>Incoming</uicontrol> -
           The resource tree presents only incoming changes.</li>
                 <li><uicontrol><image href="../img/SVNOutgoingMode16.png"/>Outgoing</uicontrol> -
@@ -85,10 +85,10 @@
           pseudo-conflicts).</li>
             </ul>
         </p>
-        <p>The following columns provide information about the resources:<ul>
+        <p>The following columns provide information about the resources:<ul irina="irina">
                 <li><uicontrol>Name</uicontrol> - Resource name. Resource icons can have the
-                    following decorator icons:<ul>
-                        <li>Additional status information: <ul>
+                    following decorator icons:<ul irina="irina">
+                        <li>Additional status information: <ul irina="irina">
                                 <li><uicontrol><image href="../img/SVNModified16.png"
                       id="image_c4x_zlp_5r"/>Propagated modification marker</uicontrol> - A folder
                   marked with this icon indicates that the folder itself presents some changes (such
@@ -110,7 +110,7 @@
                   but no overlaid icon, is an ignored resource. It is obtained with the
                     <uicontrol>Add to svn:ignore</uicontrol> action.</li>
                             </ul></li>
-                        <li id="svn-depth-li">Current SVN depth of a folder:<ul>
+                        <li id="svn-depth-li">Current SVN depth of a folder:<ul irina="irina">
                 <li><uicontrol><image href="../img/SVNDepthImmediates16.png" id="image_irn_pmp_5r"
                     />Immediate children (immediates)</uicontrol> (a variant of <xref
                     href="sparse-checkouts.dita">sparse checkout</xref>) - The directory contains
@@ -123,7 +123,7 @@
                     folder only (empty)</uicontrol> (a variant of <xref href="sparse-checkouts.dita"
                     >sparse checkout</xref>) - The directory discards any child resource.</li>
               </ul><note>
-                <ul>
+                <ul irina="irina">
                   <li>Any folder not marked with one of the depth icons, has recursive depth
                       (<i>infinity</i>) set by default (presents all levels of child
                     resources).</li>
@@ -138,12 +138,12 @@
                 <li id="wc_local_file_status"><uicontrol><image
               href="../img/SVNLocalContentStatusColumnHeader.png"/>Local file status</uicontrol> -
           Shows the changes of working copy resources that were not committed to the repository yet.
-          The following icons are used to mark resource status:<ul>
+          The following icons are used to mark resource status:<ul irina="irina">
             <li><image href="../img/SVNWCUnversioned10.png" id="image_pd3_fnp_5r"/> - Resource is
                 <i>not under version control</i> (<i>unversioned</i>).</li>
             <li><image href="../img/SVNWCIgnored10.png"/> - Resource is being <i>ignored</i> because
               it is not under version control and its name matches a file name pattern defined in
-              one of the following places:<ul>
+              one of the following places:<ul irina="irina">
                 <li><i>global-ignores</i> section in the SVN client-side <xref
                     href="svn-main-menu.dita#svn-main-menu/svn-clients-config-file" format="dita"
                       ><i>config</i> file</xref>.<note type="attention">If you do not explicitly set
@@ -182,7 +182,7 @@
             <li><image href="../img/SVNWCNameConflicted10.png" id="image_vch_jrv_5r"/> - Resource is
               in a <i>name conflict</i> state.</li>
             <li><image href="../img/SVNWCTreeConflicted10.png"/> - Resource is in <i>tree
-                conflict</i> state after an update operation because:<ul>
+                conflict</i> state after an update operation because:<ul irina="irina">
                 <li>Resource was locally modified and incoming deleted from repository.</li>
                 <li>Resource was locally scheduled for deletion and incoming modified.</li>
               </ul></li>
@@ -192,7 +192,7 @@
           </ul></li>
                 <li><uicontrol><image href="../img/SVNLocalPropertiesStatusColumnHeader.png"/> Local
                         properties status</uicontrol> - Marks the resources that have SVN
-                    properties, with the following possible states:<ul>
+                    properties, with the following possible states:<ul irina="irina">
                         <li><image href="../img/SVNWCPropNormal10.png" id="image_sql_jnp_5r"/> - The
               resource has SVN properties set.</li>
                         <li><image href="../img/SVNWCPropModified10.png" id="image_qdx_jnp_5r"/> -
@@ -215,7 +215,7 @@
                     modification on the pristine version of the resource.</li>
                 <li><uicontrol><image href="../img/SVNRemoteContentStatusColumnHeader.png"/>Remote
             file status</uicontrol> - Shows changes of resources recently modified in the
-          repository. The following icons are used to mark incoming resource status:<ul>
+          repository. The following icons are used to mark incoming resource status:<ul irina="irina">
             <li><image href="../img/SVNWCRemotelyAdded10.png"/> - Resource is newly added in
               repository.</li>
             <li><image href="../img/SVNWCRemotelyModified10.png"/> - The content of the resource has
@@ -248,12 +248,12 @@
             affected by the operation are marked with the <image href="../img/SVNLockInternal10.png"
               id="image_1vk_ks1_tc"/> symbol. To clear the locked state of a folder, use the
               <uicontrol>Clean up</uicontrol> action.<note>Users can lock only files. </note></p>
-          <p>The following lock states are displayed:<ul id="ul_vzd_ms1_tc">
+          <p>The following lock states are displayed:<ul id="ul_vzd_ms1_tc" irina="irina">
               <li><i>no lock</i> - the file is not locked. This is the default state of a file in
                 the SVN repository.</li>
               <li>
                 <p><i>remotely locked</i> ( <image href="../img/SVNLockRemote10.png"
-                    id="image_nwz_251_tc"/> ) - shown when: <ul id="ul_pp3_n11_v3b">
+                    id="image_nwz_251_tc"/> ) - shown when: <ul id="ul_pp3_n11_v3b" irina="irina">
                     <li>Another user has locked the file in the repository.</li>
                     <li>The file was locked by the same user from another working copy.</li>
                     <li>The file was locked from the <uicontrol>Repositories</uicontrol> view.</li>
@@ -282,7 +282,7 @@
                   them.</note></li>
             </ul></p>
           <p>If one of your working copy files is locked, hover the mouse pointer over the lock icon
-            to see more information:<ul id="ul_swn_ht1_tc">
+            to see more information:<ul id="ul_swn_ht1_tc" irina="irina">
               <li>Lock type - current file lock state</li>
               <li>Owner - the name of the user who created the lock</li>
               <li>Date - the date when the user locked the file</li>
@@ -300,7 +300,7 @@
                 contextual menu that allows you to customize the displayed information.</note>
         </p>
         <p>The toolbar contains the following options for switching to a different working copy:</p>
-        <ul>
+        <ul irina="irina">
             <li><uicontrol>List of Defined Working Copies</uicontrol> - A drop-down menu that
         contains all the working copies <ph keyref="product"/> is aware of. When you select a
         different working copy from the list, the newly selected working copy content is scanned and
